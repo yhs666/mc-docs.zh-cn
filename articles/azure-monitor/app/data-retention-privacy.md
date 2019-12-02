@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 09/29/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1eb476adef2b29affc282f3bf30e321e234caf31
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c2ec65e36a5596e20f7a7f5dfbb3fdbe8b5e37b1
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730478"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528342"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -25,6 +25,7 @@ ms.locfileid: "73730478"
 * 可以编写发送其他自定义遥测数据的代码，帮助进行诊断与监视使用情况。 （这种可扩展性是 Application Insights 的突出特性之一）。在编写此代码时，有可能不小心包含个人数据和其他敏感数据。 如果应用程序可处理此类数据，则应对编写的所有代码进行彻底审查。
 * 开发和测试应用时，可以轻松检查 SDK 发送的内容。 数据会显示在 IDE 和浏览器的调试输出窗口中。 
 * 数据保存在美国或欧洲的[世纪互联 Azure](https://www.azure.cn) 服务器中。 （但应用可在任何位置运行）。Azure 有[严格的安全过程，并符合各种法规标准](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。 只有你和指定的团队可以访问数据。 Azure 工作人员只会在知情的情况下和受限的具体情况下，才对数据拥有受限的访问权限。 将对传输中的静态数据加密。
+*   检查收集的数据，因为这可能包括在某些情况下允许但在其他情况下不允许的数据。  设备名称就是一个很好的例子。 服务器中的设备名称不会对隐私造成影响，而且很有用，但是电话或笔记本电脑中的设备名称可能会对隐私造成影响，而且用处不大。 主要针对目标服务器开发的 SDK 将在默认情况下收集设备名称，该名称可能需要在正常事件和异常中被被覆盖。
 
 本文的余下部分详细阐述上述答案。 本文的内容简单直白，因此，可以将其转达给不属于直属团队的同事。
 
@@ -52,11 +53,11 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 ### <a name="what-kinds-of-data-are-collected"></a>收集哪些类型的数据？
 主要类别如下：
 
-* [Web 服务器遥测数据](../../azure-monitor/app/asp-net.md) - HTTP 请求。  URI、处理请求花费的时间、响应代码、客户端 IP 地址。 会话 ID。
+* [Web 服务器遥测数据](../../azure-monitor/app/asp-net.md) - HTTP 请求。  URI、处理请求花费的时间、响应代码、客户端 IP 地址。 `Session id`。
 * [网页](../../azure-monitor/app/javascript.md) - 页面、用户和会话计数。 页面加载时间。 异常。 Ajax 调用。
 * 性能计数器 - 内存、CPU、IO、网络占用量。
 * 客户端和服务器上下文 - OS、区域性、设备类型、浏览器和屏幕分辨率。
-* [异常](../../azure-monitor/app/asp-net-exceptions.md)和崩溃 - **堆栈转储**、版本 ID、CPU 类型。 
+* [异常](../../azure-monitor/app/asp-net-exceptions.md)和崩溃 - **堆栈转储**、`build id`、CPU 类型。 
 * [依赖项](../../azure-monitor/app/asp-net-dependencies.md) - 对外部服务的调用，例如 REST、SQL、AJAX。 URI 或连接字符串、持续时间、成功结果、命令。
 * [可用性测试](../../azure-monitor/app/monitor-web-app-availability.md) - 测试持续时间、步骤、响应。
 * [跟踪日志](../../azure-monitor/app/asp-net-trace-logs.md)和[自定义遥测](../../azure-monitor/app/api-custom-events-metrics.md)  -  **在日志或遥测中编写的任何内容**。
@@ -78,9 +79,9 @@ Application Insights SDK 可用于多种应用程序类型：托管在自己的 
 可以编写[遥测处理器插件](../../azure-monitor/app/api-filtering-sampling.md)来实现此目的。
 
 ## <a name="how-long-is-the-data-kept"></a>数据保留多长时间？
-原始数据点（即，可以在 Analytics 中查询并在“搜索”中检查的项）最多可以保留 730 天。 可以[选择保留期限](https://docs.microsoft.com/azure/azure-monitor/app/pricing#change-the-data-retention-period) 30 天、60 天、90 天、120 天、180 天、270 天、365 天、550 天或 730 天。 如果需要将数据保留超过 730 天，则可以使用[连续导出](../../azure-monitor/app/export-telemetry.md)在数据引入过程中将其复制到存储帐户。 
+原始数据点（即，可以在 Analytics 中查询并在“搜索”中检查的项）最多可以保留 730 天。 可以[选择保留期限](/azure-monitor/app/pricing#change-the-data-retention-period) 30 天、60 天、90 天、120 天、180 天、270 天、365 天、550 天或 730 天。 如果需要将数据保留超过 730 天，则可以使用[连续导出](../../azure-monitor/app/export-telemetry.md)在数据引入过程中将其复制到存储帐户。 
 
-保留时间超过 90 天的数据将产生额外费用。 在 [Azure Monitor 定价页](https://azure.microsoft.com/pricing/details/monitor/)上详细了解 Application Insights 定价。
+保留时间超过 90 天的数据将产生额外费用。 在 [Azure Monitor 定价页](https://www.azure.cn/zh-cn/pricing/details/monitor/)上详细了解 Application Insights 定价。
 
 1 分钟粒度的聚合数据（即，在指标资源管理器中显示的计数、平均值和其他统计信息）可保留 90 天。
 
@@ -128,7 +129,7 @@ Azure 工作人员对数据的访问将受到限制。 我们只有在获得许�
 
 此持久数据不会在本地加密。 如果这是一个问题，请检查数据并限制私人数据的收集。 （有关详细信息，请参阅[如何导出和删除私人数据](/azure-monitor/platform/personal-data-mgmt#how-to-export-and-delete-private-data)。）
 
-如果客户需要使用特定安全要求配置此目录，可以逐个框架进行配置。 请确保运行应用程序的进程对此目录拥有写入权限，并确保此目录受保护，以免遥测数据遭用户意外读取。
+如果客户需要根据特定安全要求配置此目录，可以针对每个框架进行配置。 请确保运行应用程序的进程对此目录拥有写入权限，并确保此目录受保护，以免遥测数据遭用户意外读取。
 
 ### <a name="java"></a>Java
 
@@ -167,7 +168,7 @@ Azure 工作人员对数据的访问将受到限制。 我们只有在获得许�
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
-（有关详细信息，请参阅 [AspNetCore 自定义配置](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)。 )
+（有关详细信息，请参阅 [AspNetCore 自定义配置](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)。）
 
 ### <a name="nodejs"></a>Node.js
 
@@ -183,7 +184,7 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 [PCI 安全标准委员会](https://www.pcisecuritystandards.org/)规定 [2018 年 6 月 30 日](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf)是停用旧版 TLS/SSL 并升级到更安全协议的截止时间。 在 Azure 放弃旧版支持后，如果应用程序/客户端无法通过最低版本 TLS 1.2 进行通信，则你无法将数据发送到 Application Insights。 测试和验证应用程序对 TLS 的支持的方法根据操作系统/平台以及应用程序使用的语言/框架而异。
 
-除非绝对必要，否则我们不建议将应用程序显式设置为仅使用 TLS 1.2，因为这可能会破坏平台级安全功能，导致无法自动检测并利用推出的更新且更安全的协议，例如 TLS 1.3。 我们建议针对应用程序代码执行全面的审核，以检查特定 TLS/SSL 版本的硬编码。
+除非必要，否则我们不建议将应用程序显式设置为仅使用 TLS 1.2，因为这可能会破坏平台级安全功能，导致无法自动检测并利用推出的更新且更安全的协议，例如 TLS 1.3。 我们建议针对应用程序代码执行全面的审核，以检查特定 TLS/SSL 版本的硬编码。
 
 ### <a name="platformlanguage-specific-guidance"></a>特定于平台/语言的指导
 

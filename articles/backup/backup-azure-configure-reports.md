@@ -6,16 +6,18 @@ author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/09/2019
+origin.date: 09/18/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1a2ef0f8a46a6140e0418d1f80ea6fb9101bf33d
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 66a629dd18d3c898d7cb1cbd66e75dcc150bbed9
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730388"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528384"
 ---
 # <a name="configure-azure-backup-reports"></a>配置 Azure 备份报表
+
 本文介绍使用恢复服务保管库为 Azure 备份配置报表所需执行的步骤。 另外还介绍如何通过 Power BI 访问报表。 完成这些步骤后，可直接转到 Power BI，以便查看、自定义和创建报表。
 
 > [!IMPORTANT]
@@ -29,7 +31,7 @@ ms.locfileid: "73730388"
 - 使用 Azure 恢复服务代理进行 Azure 虚拟机备份以及将文件和文件夹备份到云时，支持 Azure 备份报表。
 - 目前，Azure SQL 数据库、Azure 文件共享、Data Protection Manager 和 Azure 备份服务器不支持报表。
 - 如果为每个保管库配置同一存储帐户，可以跨保管库和订阅查看报表。 所选存储帐户必须位于恢复服务保管库所在的区域。
-- 在 Power BI 中，报表按计划每 24 小时刷新一次。 也可在 Power BI 中临时刷新报表。 在这种情况下，会使用客户存储帐户中的最新数据来呈现报表。
+- 在 Power BI 中，报表按计划每 24 小时刷新一次。 也可在 Power BI 中按需刷新报表。 在这种情况下，会使用客户存储帐户中的最新数据来呈现报表。
 
 ## <a name="prerequisites"></a>先决条件
 - 创建 [Azure 存储帐户](../storage/common/storage-quickstart-create-account.md)，以便为报表配置此帐户。 此存储帐户用于存储与报表相关的数据。
@@ -41,9 +43,9 @@ ms.locfileid: "73730388"
 
 1. 如果已打开恢复服务保管库，请转到下一步。 如果未打开恢复服务保管库，则请在 Azure 门户中选择“所有服务”  。
 
-   * 在资源列表中，输入“恢复服务”  。
-   * 开始键入时，会根据输入筛选该列表。 出现“恢复服务保管库”时，请选择它。 
-   * 此时显示恢复服务保管库列表。 在恢复服务保管库列表中选择一个保管库。
+   - 在资源列表中，输入“恢复服务”  。
+   - 开始键入时，会根据输入筛选该列表。 出现“恢复服务保管库”时，请选择它。 
+   - 此时显示恢复服务保管库列表。 在恢复服务保管库列表中选择一个保管库。
 
      此时会打开选定的保管库仪表板。
 2. 在保管库下显示的项列表中，选择“监视和报表”部分下的“备份报表”   ，以配置报表的存储帐户。

@@ -1,6 +1,6 @@
 ---
 title: 使用 PowerShell 将 Windows Server 备份到 Azure
-description: 了解如何使用 PowerShell 部署和管理 Azure 备份
+description: 本文介绍如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
 ms.reviewer: shivamg
 author: lingliw
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 08/20/2019
 ms.date: 11/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3d54991c07b696dec9dacb828a4d9fd48aad9554
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: e21090028e97b60f590fb038b7c4630ae3dba15c
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730410"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528268"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>使用 PowerShell 部署和管理 Windows Server/Windows 客户端的 Azure 备份
 本文说明如何使用 PowerShell 在 Windows Server 或 Windows 客户端上设置 Azure 备份，以及管理备份和恢复。
@@ -104,7 +104,8 @@ MARSAgentInstaller.exe /q
 ![已安装代理](./media/backup-client-automation/installed-agent-listing.png)
 
 ### <a name="installation-options"></a>安装选项
-若要查看可通过命令行运行的所有选项，请使用以下命令：
+
+若要查看可通过命令行使用的所有选项，请使用以下命令：
 
 ```powershell
 MARSAgentInstaller.exe /?
@@ -126,6 +127,7 @@ MARSAgentInstaller.exe /?
 | /pw |代理密码 |- |
 
 ## <a name="registering-windows-server-or-windows-client-machine-to-a-recovery-services-vault"></a>将 Windows Server 或 Windows 客户端计算机注册到恢复服务保管库
+
 创建恢复服务保管库后，请下载最新的代理和保管库凭据，并将其存储在一个方便访问的位置（如 C:\Downloads）。
 
 ```powershell
@@ -146,9 +148,9 @@ $CredsFilename = Get-AzRecoveryServicesVaultSettingsFile -Certificate $certifica
 ```
 
 在 Windows Server 或 Windows 客户端计算机上，运行 [Start-OBRegistration](https://technet.microsoft.com/library/hh770398%28v=wps.630%29.aspx) cmdlet 以将计算机注册到保管库。
-这和用于备份的其他 cmdlet 都来自 Mars AgentInstaller 作为安装过程一部分添加的 MSONLINE 模块。 
+此 cmdlet 和用于备份的其他 cmdlet 都来自 Mars AgentInstaller 在安装过程中添加的 MSONLINE 模块。
 
-代理安装程序不会更新 $Env:PSModulePath 变量。 这意味着模块自动加载失败。 若要解决此问题，请尝试执行以下操作：
+代理安装程序不会更新 $Env:PSModulePath 变量。 这意味着模块自动加载失败。 若要解决此问题，可以执行以下操作：
 
 ```powershell
 $Env:PSModulePath += ';C:\Program Files\Microsoft Azure Recovery Services Agent\bin\Modules'
@@ -169,7 +171,7 @@ Start-OBRegistration -VaultCredentials $CredsFilename.FilePath -Confirm:$false
 ```Output
 CertThumbprint      : 7a2ef2caa2e74b6ed1222a5e89288ddad438df2
 SubscriptionID      : ef4ab577-c2c0-43e4-af80-af49f485f3d1
-ServiceResourceName: testvault
+ServiceResourceName : testvault
 Region              :ChinaNorth
 Machine registration succeeded.
 ```
@@ -180,6 +182,7 @@ Machine registration succeeded.
 >
 
 ## <a name="networking-settings"></a>网络设置
+
 如果 Windows 计算机通过代理服务器连接到 Internet，则也可以向代理提供代理设置。 此示例未使用代理服务器，因此我们会显式清除任何与代理相关的信息。
 
 也可以针对给定的一组星期日期，使用 `work hour bandwidth` 和 `non-work hour bandwidth` 选项控制带宽使用。
@@ -203,6 +206,7 @@ Server properties updated successfully.
 ```
 
 ## <a name="encryption-settings"></a>加密设置
+
 发送到 Azure 备份的备份数据会加密，以保护数据的机密性。 加密通行短语是在还原时用于解密数据的“密码”。
 
 必须在 Azure 门户的“恢复服务保管库”  部分的“设置”   > “属性”   > “安全 PIN”  下选择“生成”  来生成一个安全 PIN。 然后，将其用作命令中的 `generatedPIN`：
@@ -222,6 +226,7 @@ Server properties updated successfully
 >
 
 ## <a name="back-up-files-and-folders"></a>备份文件和文件夹
+
 从 Windows Server 和客户端到 Azure 备份的所有备份由策略控制。 策略由三个部分组成：
 
 1. **备份计划** ，用于指定需要备份并与服务保持同步的时间。
@@ -237,10 +242,11 @@ $NewPolicy = New-OBPolicy
 该策略暂时为空，需要使用其他 cmdlet 来定义要包含或排除的项、运行备份的时间，以及备份的存储位置。
 
 ### <a name="configuring-the-backup-schedule"></a>配置备份计划
-在策略的 3 个组成部分中，第 1 个部分是备份计划，它是使用 [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet 创建的。 备份计划将定义何时需要备份。 创建计划时，需要指定两个输入参数：
+
+在策略的 3 个组成部分中，第 1 个部分是备份计划，它是使用 [New-OBSchedule](https://technet.microsoft.com/library/hh770401) cmdlet 创建的。 备份计划将定义何时需要备份。 创建计划时，需要指定 2 个输入参数：
 
 * 应运行备份的“星期日期”  。 可以只选一天或选择一周的每天运行备份作业，或选择星期日期的任意组合。
-* **日期时间** 。 最多可以定义一天的 3 个不同日期时间来触发备份
+* **日期时间** 。 最多可以定义一天中触发备份的三个不同时间。
 
 例如，可以配置在每个星期六和星期日下午 4 点运行备份策略。
 
@@ -257,7 +263,9 @@ Set-OBSchedule -Policy $NewPolicy -Schedule $Schedule
 ```Output
 BackupSchedule : 4:00 PM Saturday, Sunday, Every 1 week(s) DsList : PolicyName : RetentionPolicy : State : New PolicyState : Valid
 ```
+
 ### <a name="configuring-a-retention-policy"></a>配置保留策略
+
 保留策略定义基于备份作业创建的恢复点的保留时间。 使用 [New-OBRetentionPolicy](https://technet.microsoft.com/library/hh770425) cmdlet 创建新的保留策略时，可以使用 Azure 备份来指定需要保留备份恢复点的天数。 以下示例将保留策略设置为 7 天。
 
 ```powershell
@@ -290,6 +298,7 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+
 ### <a name="including-and-excluding-files-to-be-backed-up"></a>包含和排除要备份的文件
 
 `OBFileSpec` 对象定义要在备份中包含与排除的文件。 这组规则可划分出计算机上要保护的文件和文件夹。 可以设置任意数量的文件包含或排除规则，并将其与策略相关联。 创建新的 OBFileSpec 对象时，可执行以下操作：
@@ -393,11 +402,13 @@ RetentionPolicy : Retention Days : 7
 State           : New
 PolicyState     : Valid
 ```
+
 ## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>在 MABS 代理中备份 Windows Server 系统状态
 
 本部分介绍用于在 MABS 代理中设置系统状态的 PowerShell 命令
 
 ### <a name="schedule"></a>计划
+
 ```powershell
 $sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
 ```
@@ -422,7 +433,7 @@ Get-OBSystemStatePolicy
 
 ### <a name="applying-the-policy"></a>应用策略
 
-现在已完成策略对象，并且具有关联的备份计划、保留策略及文件包含/排除列表。 现在可以提交此策略以供 Azure 备份使用。 应用新建策略之前，请使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet 确保没有任何现有备份策略与服务器相关联。 删除策略时，系统会提示确认。 若要跳过确认，请在 cmdlet 中请使用 `-Confirm:$false` 标志。
+现在已完成策略对象，并且具有关联的备份计划、保留策略及文件包含/排除列表。 现在可以提交此策略以供 Azure 备份使用。 应用新建策略之前，请使用 [Remove-OBPolicy](https://technet.microsoft.com/library/hh770415) cmdlet 确保没有任何现有备份策略与服务器相关联。 删除策略时，系统会提示用户确认。 若要跳过确认，请在 cmdlet 中使用 `-Confirm:$false` 标志。
 
 ```powershell
 Get-OBPolicy | Remove-OBPolicy
@@ -432,7 +443,7 @@ Get-OBPolicy | Remove-OBPolicy
 21Vianet Azure Backup Are you sure you want to remove this backup policy? This will delete all the backed up data. [Y] Yes [A] Yes to All [N] No [L] No to All [S] Suspend [?] Help (default is "Y"):
 ```
 
-使用 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet 可以提交策略对象。 这也会提示用户确认。 若要跳过确认，请在 cmdlet 中请使用 `-Confirm:$false` 标志。
+使用 [Set-OBPolicy](https://technet.microsoft.com/library/hh770421) cmdlet 可以提交策略对象。 这也会提示用户确认。 若要跳过确认，请在 cmdlet 中使用 `-Confirm:$false` 标志。
 
 ```powershell
 Set-OBPolicy -Policy $NewPolicy
@@ -533,9 +544,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>执行即席备份
+### <a name="performing-an-on-demand-backup"></a>执行按需备份
 
-设置备份策略之后，会根据计划进行备份。 也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet 来触发即席备份：
+设置备份策略之后，会根据计划进行备份。 也可以使用 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet 触发按需备份：
 
 ```powershell
 Get-OBPolicy | Start-OBBackup
@@ -555,6 +566,7 @@ The backup operation completed successfully.
 ```
 
 ## <a name="restore-data-from-azure-backup"></a>从 Azure 备份还原数据
+
 本部分将引导完成自动从 Azure 备份恢复数据的步骤。 此过程涉及以下步骤：
 
 1. 选取源卷
@@ -698,6 +710,7 @@ The recovery operation completed successfully.
 ```
 
 ## <a name="uninstalling-the-azure-backup-agent"></a>卸载 Azure 备份代理
+
 可以使用以下命令卸载 Azure 备份代理：
 
 ```powershell
@@ -713,6 +726,7 @@ The recovery operation completed successfully.
 不过，Azure 中存储的数据会根据你设置的保留策略继续保留。 较旧的恢复点会自动过时。
 
 ## <a name="remote-management"></a>远程管理
+
 围绕 Azure 备份代理、策略和数据源的所有管理工作都可通过 Azure PowerShell 远程完成。 要远程管理的计算机需要经过适当的准备。
 
 默认情况下，WinRM 服务已配置为手动启动。 必须将启动类型设置为“自动”，并且应该启动该服务  。 若要确认 WinRM 服务正在运行，“状态”属性的值应该是“正在运行”  。
@@ -757,7 +771,7 @@ Invoke-Command -Session $Session -Script { param($D, $A) Start-Process -FilePath
 
 ## <a name="next-steps"></a>后续步骤
 
-有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅
+有关适用于 Windows Server/客户端的 Azure 备份的详细信息，请参阅：
 
 * [Azure 备份简介](backup-introduction-to-azure-backup.md)
 * [备份 Windows Server](backup-configure-vault.md)

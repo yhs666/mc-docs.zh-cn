@@ -1,6 +1,6 @@
 ---
 title: 管理 Azure 恢复服务保管库和服务器
-description: 在 Azure 恢复服务保管库中管理作业和警报。
+description: 本文介绍如何使用恢复服务保管库的“概述”仪表板来监视和管理恢复服务保管库。
 services: backup
 author: lingliw
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/08/2019
 ms.date: 09/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ae0bc1782f40053655c0de179a2bcee2ec963e87
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 7ee8813b2a55a7cd715a593eb7257b741d6cf872
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730369"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528255"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 

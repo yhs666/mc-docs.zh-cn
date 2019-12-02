@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-origin.date: 09/14/2019
-ms.date: 10/23/2019
+origin.date: 10/16/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2a59a10ff67d27fe3daed06f287f6ddbc840e02c
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: a8cc7d1e513f057377a63e205fab94e54dfcb797
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847060"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461600"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>访问 Azure AD B2C 审核日志
 
@@ -86,8 +86,7 @@ Azure Active Directory B2C (Azure AD B2C) 发出审核日志，其中包含有�
 
 若要允许对 Azure AD 报告 API 进行基于脚本或应用程序的访问，需要使用以下 API 权限在 Azure AD B2C 租户中注册 Azure Active Directory 应用程序：
 
-* Microsoft Graph
-  * 应用程序：读取所有审核日志数据
+* Microsoft Graph > 应用程序权限 > AuditLog.Read.All
 
 可对 B2C 租户中的现有 Azure Active Directory 应用程序注册中启用这些权限，或者创建专用于审核日志自动化的新权限。
 
@@ -98,6 +97,8 @@ Azure Active Directory B2C (Azure AD B2C) 发出审核日志，其中包含有�
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>分配 API 访问权限
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 在“已注册的应用”概述页上，选择“设置”。  
 1. 在“API 访问”下，选择“所需的权限”。  
@@ -125,14 +126,14 @@ https://microsoftgraph.chinacloudapi.cn/v1.0/auditLogs/directoryAudits?$filter=l
 
 以下 PowerShell 脚本通过一个示例演示如何查询 Azure AD 报告 API。 查询 API 后，该脚本将以标准输出的形式列显记录的事件，然后将 JSON 输出写入到某个文件。
 
-可以在 Azure PowerShell 中尝试此脚本。 请务必使用自己的应用程序 ID、密钥和 Azure AD B2C 租户名称更新此脚本。
+可以在 Azure PowerShell 中尝试此脚本。 请务必使用自己的应用程序 ID、客户端密码和 Azure AD B2C 租户名称更新此脚本。
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.partner.onmschina.cn"       # Insert your Azure AD B2C tenant; for example, contoso.partner.onmschina.cn
 $loginURL       = "https://login.partner.microsoftonline.cn"
 $resource       = "https://microsoftgraph.chinacloudapi.cn"           # Microsoft Graph API resource URI

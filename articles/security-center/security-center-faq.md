@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 03/19/2019
 ms.date: 06/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2fb9c42d14d6278412f872c71d84a8198aa12e4b
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 48cf9af99b44f0b1ced317bda7e42888dfef0ebd
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674619"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528309"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure 安全中心常见问题 (FAQ)
 此 FAQ 解答有关 Azure 安全中心的问题。Azure 安全中心可帮助预防、检测和响应威胁，同时增加 Microsoft Azure 资源的可见性和安全方面的可控性。
@@ -41,7 +41,7 @@ Azure 安全中心通过世纪互联 Azure 订阅启用，可从 [Azure 门户](
 标准层增添了高级威胁检测功能，包括威胁情报、行为分析、异常检测、安全事件和威胁归属报告  。 可以启动标准层免费试用版。 若要升级，请选择安全策略中的[定价层](https://www.azure.cn/zh-cn//pricing/details/security-center/)。 若要了解详细信息，请参阅[定价页](https://www.azure.cn/zh-cn//pricing/details/)。
 
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>如何跟踪哪个组织用户在 Azure 安全中心执行了定价层更改
-由于一个 Azure 订阅中可能有多个管理员有权更改定价层，因此用户可能想要知道谁执行了定价层更改。 可以使用 Azure 活动日志来实现此目的。 请参阅[此处](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)提供的更多说明
+Azure 订阅可能有多个管理员具有更改定价层的权限。 若要找出哪些用户执行了定价层更改，请使用 Azure 活动日志。 有关详细信息，请参阅[此文](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)。
 
 ## <a name="permissions"></a>权限
 Azure 安全中心使用[基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 提供可在 Azure 中分配给用户、组和服务的[内置角色](../role-based-access-control/built-in-roles.md)。
@@ -121,9 +121,9 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 安装的代理继续向已配置的工作区报告，此外，会向安全中心内配置的工作区报告（支持多宿主功能）。
 如果配置的工作区是用户工作区（而不是安全中心的默认工作区），则你需要在其上安装“Security”/“SecurityCenterFree”解决方案，这样，安全中心才会开始处理向该工作区报告的 VM 和计算机发来的事件。
 
-对于在 2019 年 3 月 17 日之前已加入安全中心的订阅中的现有计算机，检测到现有代理时，不会安装 Azure Monitoring Agent 扩展，且计算机不受影响。 对于这些计算机，请参阅“解决计算机上的监视代理运行状况问题”中的建议来解决这些计算机上的代理安装问题
+对于在 2019 年 3 月 17 日之前加入安全中心的订阅中的现有计算机，检测到现有代理时，不会安装 Microsoft Monitoring Agent 扩展，且计算机不会受影响。 对于这些计算机，请参阅“解决计算机上的监视代理运行状况问题”中的建议来解决这些计算机上的代理安装问题
 
- 有关详细信息，请参阅下一部分[如果已在 VM 上安装 SCOM 或 OMS 直接代理，会发生什么情况？](#scomomsinstalled)
+ 有关详细信息，请参阅下一部分[如果已在 VM 上安装 System Center Operations Manager 或 OMS 直接代理，会发生什么情况？](#scomomsinstalled)
 
 ### 如果我的 VM 上已安装 System Center Operations Manager (SCOM) 代理，会发生什么情况？<a name="scomomsinstalled"></a>
 安全中心会安装 Azure Monitoring Agent 扩展，并保留现有的 System Center Operations Manager 代理。 正常情况下，现有的 SCOM 代理将继续向 System Center Operations Manager 服务器报告。 请注意，System Center Operations Manager 代理和 Azure Monitoring Agent 共享通用的运行时库，在此过程中，这些库会更新到最新版本。 请注意 - 如果已安装 System Center Operations Manager 代理版本 2012，请不要启用自动预配（如果 System Center Operations Manager 服务器的版本也是 2012，可能会失去管理功能）。
@@ -138,7 +138,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 
    ![定价层][1]
 
-2. 接下来，在“安全策略 - 数据收集”  边栏选项卡上选择“关”  ，禁用自动预配。
+2. 接下来，通过在“安全策略 - 数据收集”  页上选择“关”  ，禁用自动预配。
    ![数据收集][2]
 
 ### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>是否应选择禁用自动安装代理和创建工作区？
@@ -159,7 +159,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
    2. 或者，可以让迁移完成，在 VM 上安装 Azure Monitoring Agent，并将 VM 连接到所创建的工作区。 然后，在选择启用重新配置已安装代理的情况下，通过指定默认工作区设置来选择自己的自定义工作区。 有关详细信息，请参阅[如何使用现有的 Log Analytics 工作区？](#how-can-i-use-my-existing-log-analytics-workspace)
 
 ### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>选择禁用自动预配有何影响？
-完成迁移后，安全中心无法从 VM 收集安全数据，因此无法提供某些安全建议和提示。 如果选择禁用，应手动安装 Azure Monitoring Agent。 请参阅[选择禁用时的建议步骤](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)。
+迁移完成后，安全中心将无法从 VM 收集安全数据，因此无法提供某些安全建议和提示。 如果选择禁用，请手动安装 Microsoft Monitoring Agent。 请参阅[选择禁用时的建议步骤](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning)。
 
 ### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>选择禁用自动预配时的建议步骤是什么？
 
@@ -182,8 +182,8 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 手动删除代理：
 
 1.  在门户中，打开“Log Analytics”  。
-2.  在“Log Analytics”边栏选项卡中选择一个工作区：
-3.  选择每个不需要监视的 VM 并选择“断开连接”  。
+2.  在“Log Analytics”页上，选择工作区：
+3.  选择不需要监视的 VM 并选择“断开连接”  。
 
    ![删除代理][3]
 
@@ -192,7 +192,7 @@ Windows 或 Linux IaaS VM 的合格条件如下：
 >
 >
 ### <a name="how-do-i-disable-data-collection"></a>如何禁用数据收集？
-默认情况下自动设置处于关闭状态。 可以随时禁用安全策略中的此设置，禁用资源的自动设置。 强烈建议使用自动设置，以获取有关系统更新、OS 漏洞和终结点保护的安全警报和建议。
+默认情况下自动设置处于关闭状态。 可以随时禁用安全策略中的此设置，禁用资源的自动设置。 强烈建议使用自动预配，以获取有关系统更新、OS 漏洞和终结点保护的安全警报和建议。
 
 若要禁用数据收集，请[登录到 Azure 门户](https://portal.azure.cn)，依次选择“浏览”、“安全中心”和“策略”    。 选择希望禁用自动设置的订阅。 选择订阅时，“安全策略 - 数据收集”将打开  。 在“自动设置”下，选择“关闭”   。
 
@@ -262,7 +262,7 @@ Azure 安全中心可分析 Azure 资源的安全状态。 发现潜在的安全
 安全策略中仅已启用的推荐操作会显示在此处。
 
 ### <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>如何查看 Azure 资源当前安的全状态？
-“安全中心概述”边栏选项卡会按计算、网络、存储和数据以及应用程序显示环境的总体安全状况  。 每个资源类型都有一个指示符，该指示符显示是否已发现潜在安全漏洞。 单击每个磁贴可显示安全中心发现的安全问题列表和订阅中的资源清单。
+“安全中心概述”页显示按计算、网络、存储和数据以及应用程序细分的环境的总体安全状况  。 每个资源类型都有一个指示符，该指示符显示是否已发现潜在安全漏洞。 单击每个磁贴可显示安全中心发现的安全问题列表和订阅中的资源清单。
 
 ### <a name="what-triggers-a-security-alert"></a>什么会触发安全警报？
 Azure 安全中心自动从 Azure 资源、网络和合作伙伴解决方案（例如恶意软件和防火墙）收集、分析和融合数据。 检测到威胁时会创建安全警报。 示例中包括的检测项：
@@ -284,7 +284,7 @@ Azure 安全响应中心 (MSRC) 会执行 Azure 网络和基础结构的选择�
 Azure 安全中心监视以下 Azure 资源：
 
 * 虚拟机 (VM)（包括 [云服务](../cloud-services/cloud-services-choose-me.md)）
-* 虚拟机规模集 (VMSS)
+* 虚拟机规模集
 * Azure 虚拟网络
 * Azure SQL 服务
 * Azure 存储帐户
@@ -302,7 +302,7 @@ Azure 安全中心可识别出通过 Azure 扩展安装的反恶意软件。 例
 没有可供 VM 扫描的数据时会出现此消息。 在 Azure 安全中心启用数据收集之后，扫描数据导入可能需要一段时间（低于一小时）。 首次导入扫描数据后可能会收到此消息，因为此时根本没有扫描数据或没有最近扫描数据。 扫描不会导入处于停止状态的 VM。 如果最近（根据 Windows 代理的保留策略，此值默认为 30 天）没有导入扫描数据，也可能会显示此消息。
 
 ### <a name="how-often-does-security-center-scan-for-operating-system-vulnerabilities-system-updates-and-endpoint-protection-issues"></a>安全中心多长时间扫描一次操作系统漏洞、系统更新和终结点保护问题？
-安全中心扫描漏洞、更新和问题的延迟为：
+以下是安全中心扫描漏洞、更新和问题的延迟时间：
 
 - 操作系统安全配置 - 数据在 48 小时内更新
 - 系统更新 – 数据在 24 小时内更新
@@ -311,7 +311,7 @@ Azure 安全中心可识别出通过 Azure 扩展安装的反恶意软件。 例
 安全中心通常每小时扫描一次新数据，并相应地刷新建议。 
 
 > [!NOTE]
-> 自 2017 年 6 月初开始，安全中心将使用 Azure Monitoring Agent 来收集和存储数据。 本文中的信息表示转换到 Azure Monitoring Agent 后的安全中心功能。
+> 安全中心使用 Microsoft Monitoring Agent 来收集和存储数据。
 >
 >
 

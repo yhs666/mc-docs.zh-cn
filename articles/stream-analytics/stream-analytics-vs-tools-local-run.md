@@ -10,18 +10,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 07/10/2018
 ms.date: 09/30/2018
-ms.openlocfilehash: 960087f8ec7e158ba29496bfa68cfa0156849cf1
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 706440e3eb3cf348630d7a62e63362120e2b175f
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674690"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528229"
 ---
 # <a name="test-stream-analytics-queries-locally-with-visual-studio"></a>使用 Visual Studio 在本地测试流分析查询
 
 可使用针对 Visual Studio 的 Azure 流分析工具通过示例数据在本地测试流分析作业。
 
-使用此[快速入门](/stream-analytics/stream-analytics-quick-create-vs)了解如何使用 Visual Studio 创建流分析作业。
+使用此[快速入门](stream-analytics-quick-create-vs.md)了解如何使用 Visual Studio 创建流分析作业。
 
 ## <a name="test-your-query"></a>测试查询
 

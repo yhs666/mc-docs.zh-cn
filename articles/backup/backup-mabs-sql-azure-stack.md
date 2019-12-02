@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 上备份 SQL Server 工作负荷
-description: 使用 Azure 备份服务器在 Azure Stack 上保护 SQL Server 工作负荷。
+description: 本文介绍如何配置 Microsoft Azure 备份服务器 (MABS) 以在 Azure Stack 上保护 SQL Server 数据库。
 ms.reviewer: adigan
 author: pvrk
 manager: Shivamg
@@ -9,14 +9,14 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 08/08/2018
 ms.author: v-junlch
-ms.openlocfilehash: ff49b4cdf9a975c3b39c5459f867326e5a28b91c
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ad804e916adb1fe019bc11c18c9159b6d14b29c1
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730568"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528321"
 ---
-# <a name="back-up-sql-server-on-stack"></a>在 Stack 上备份 SQL Server
+# <a name="back-up-sql-server-on-azure-stack"></a>在 Azure Stack 上备份 SQL Server
 使用本文配置 Azure 备份服务器 (MABS) 以在 Azure Stack 上保护 SQL Server 数据库。
 
 向 Azure 备份以及从 Azure 恢复 SQL Server 数据库的管理工作涉及三个步骤：
@@ -30,6 +30,7 @@ ms.locfileid: "73730568"
 [安装并准备 Azure 备份服务器](backup-mabs-install-azure-stack.md)。
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>创建备份策略以保护要备份到 Azure 的 SQL Server 数据库
+
 1. 在 Azure 备份服务器 UI 中，单击“保护”  工作区。
 
 2. 单击“**新建**”创建新的保护组。
@@ -113,6 +114,7 @@ ms.locfileid: "73730568"
     ![保护组创建进度](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>SQL Server 数据库的按需备份
+
 虽然前述步骤创建了备份策略，但“恢复点”仅在进行首个备份的时候创建。 如果不想等待计划程序进行计划，则以下步骤可触发手动创建恢复点。
 
 1. 在创建恢复点之前，请等待数据库的保护组状态显示为“**正常**”。
@@ -129,6 +131,7 @@ ms.locfileid: "73730568"
     ![监视控制台](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>从 Azure 恢复 SQL Server 数据库
+
 若要从 Azure 中恢复受保护的实体（SQL Server 数据库），必须执行以下步骤。
 
 1. 打开 Azure 备份服务器管理控制台。 导航到“恢复”工作区，可以在其中看到受保护的服务器。  浏览所需的数据库（在本示例中为 ReportServer$MSDPM2012）。 选择指定为**在线**点的一个**恢复开始**时间。

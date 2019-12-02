@@ -8,16 +8,16 @@ origin.date: 04/26/2019
 author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4e50c27282cd85da03ab34ba8ad2763623e7b473
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: eb4cbd8f5ceaac67ae27f497f95172f553f550e8
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970924"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528343"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
-现在，可以比过去更轻松地针对 [Azure 应用服务](/app-service/)中运行的基于 .NET 和.NET Core 的 Web 应用程序启用监视。 以前需要手动安装某个站点扩展，而现在应用服务映像中默认会内置最新的扩展/代理。 本文逐步讲解如何启用 Application Insights 监视，并提供有关如何自动完成大规模部署的初步指导。
+现在，可以比过去更轻松地针对 [Azure 应用服务](/app-service/)中运行的基于 ASP.NET 和 ASP.NET Core 的 Web 应用程序启用监视。 以前需要手动安装某个站点扩展，而现在应用服务映像中默认会内置最新的扩展/代理。 本文逐步讲解如何启用 Application Insights 监视，并提供有关如何自动完成大规模部署的初步指导。
 
 > [!NOTE]
 > 通过“开发工具” > “扩展”手动添加 Application Insights 站点扩展的功能已弃用。   此扩展安装方法依赖于每个新版本的手动更新。 扩展的最新稳定版现在会[预装](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions)在应用服务映像中。 这些文件位于 `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` 中，每发布一个稳定版本，它们都会自动更新。 如果在下文中遵循基于代理的说明启用监视，系统会自动删除已弃用的扩展。
@@ -36,7 +36,7 @@ ms.locfileid: "72970924"
     * 如果需要发出自定义 API 调用来跟踪基于代理的监视在默认情况下不会捕获的事件/依赖项，则需要使用此方法。 有关详细信息，请查看 [自定义事件和指标的 API](/azure-monitor/app/api-custom-events-metrics) 一文。
 
 > [!NOTE]
-> 如果同时检测到了基于代理的监视和基于手动 SDK 的检测，则只会遵循手动检测设置， 目的是防止发送重复数据。 有关详细信息，请查看下面的[故障排除部分](/azure-monitor/app/azure-web-apps#troubleshooting)。
+> 如果同时检测到了基于代理的监视和基于手动 SDK 的检测，则只会遵循手动检测设置， 这是为了防止发送重复数据。 有关详细信息，请查看下面的[故障排除部分](/azure-monitor/app/azure-web-apps#troubleshooting)。
 
 ## <a name="enable-agent-based-monitoring-for-net-applications"></a>为 .NET 应用程序启用基于代理的监视
 
@@ -237,7 +237,7 @@ ms.locfileid: "72970924"
             "apiVersion": "2015-05-01",
             "name": "AppMonitoredSite",
             "type": "microsoft.insights/components",
-            "location": "West US 2",
+            "location": "China East 2",
             "properties": {
                 "ApplicationId": "[parameters('name')]",
                 "Request_Source": "IbizaWebAppExtensionCreate"
@@ -327,6 +327,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 > [!NOTE]
 > 仅支持通过基于手动 SDK 的检测在 Azure 应用服务中使用 Java 和 Node.js 应用程序，因此，以下步骤不适用于这些方案。
+
+> [!NOTE]
+> 不支持 ASP.NET Core 3.0 应用程序。 请通过 ASP.NET Core 3.0 应用的代码执行[手动检测](/azure-monitor/app/asp-net-core)。
 
 1. 通过 `ApplicationInsightsAgent` 检查应用程序是否受监视。
     * 检查 `ApplicationInsightsAgent_EXTENSION_VERSION` 应用设置是否设置为值“~2”。

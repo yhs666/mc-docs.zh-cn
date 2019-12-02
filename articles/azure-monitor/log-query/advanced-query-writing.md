@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/15/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 22530a0741d749ecd48b38f2d59782ef7ce3a6e8
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: b9a9d6ff09a39853a91f894459525989c3136aba
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730467"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528234"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>在 Azure Monitor 中编写高级查询
 
@@ -57,7 +57,7 @@ union FreeDiskSpace, FreeMemory
 这样，即可在下次运行查询时更改结束时间的开头。
 
 ### <a name="local-functions-and-parameters"></a>本地函数和参数
-使用 `let` 语句创建可在同一查询中使用的函数。 例如，定义一个采用日期/时间字段（按 UTC 格式）并将其转换为标准美国格式的函数。 
+使用 `let` 语句创建可在同一查询中使用的函数。 例如，定义一个使用日期/时间字段（采用 UTC 格式）并将其转换为标准中国格式的函数。 
 
 ```Kusto
 let utc_to_us_date_format = (t:datetime)

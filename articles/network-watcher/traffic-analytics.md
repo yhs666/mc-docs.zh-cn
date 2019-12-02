@@ -13,12 +13,12 @@ origin.date: 06/15/2018
 ms.date: 9/29/2019
 ms.author: kumud
 ms.reviewer: yagup
-ms.openlocfilehash: b3a4b7461b31e3c557b57cf379d9309fb3c602f0
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: c9a81461b0834590849b2a70505de42b6d061c40
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674869"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528372"
 ---
 # <a name="traffic-analytics"></a>流量分析
 
@@ -119,13 +119,13 @@ Log Analytics 工作区必须存在于以下区域中：
 
 如果尚未为订阅注册 Azure Insights 提供程序，请注册该提供程序：
 
-```azurepowershell-interactive
+```
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 如果尚未创建一个用于存储 NSG 流日志的 Azure 存储帐户，则必须创建一个存储帐户。 可以使用以下命令创建存储帐户。 运行该命令之前，请将 `<replace-with-your-unique-storage-account-name>` 替换为在所有 Azure 位置中唯一的、长度为 3-24 个字符且仅使用数字和小写字母的名称。 还可以根据需要更改资源组名称。
 
-```azurepowershell-interactive
+```
 New-AzStorageAccount `
   -Location chinaeast `
   -Name <replace-with-your-unique-storage-account-name> `
@@ -145,14 +145,14 @@ New-AzStorageAccount `
 5. 为“流量分析状态”选择“打开”。  
 6. 选择处理时间间隔。 根据你的选择，流日志将从存储帐户收集并由流量分析进行处理。 可以选择每 1 小时或每 10 分钟的处理时间间隔。
 7. 选择现有的 Log Analytics (OMS) 工作区，或选择“创建新工作区”来创建一个新工作区。  流量分析使用 Log Analytics 工作区来存储聚合数据和索引数据，然后，这些数据用于生成分析。 如果选择现有的工作区，该工作区必须位于某个[受支持区域](#supported-regions-log-analytics-workspaces)，并且已升级为新查询语言。 如果不希望升级现有工作区，或者受支持区域中没有工作区，请创建一个新工作区。 
-    托管流量分析解决方案和 NSG 的 Log Analytics 工作区不一定要位于同一个区域。 例如，可将流量分析部署在西欧区域的某个工作区中，同时将 NSG 部署在美国东部和美国西部。 可在同一工作区中配置多个 NSG。
+    托管流量分析解决方案和 NSG 的 Log Analytics 工作区不一定要位于同一个区域。 例如，可将流量分析部署在西欧区域的某个工作区中，同时将 NSG 部署在中国东部。 可在同一工作区中配置多个 NSG。
 8. 选择“保存”  。
 
     ![选择存储帐户和 Log Analytics 工作区并启用流量分析](./media/traffic-analytics/ta-customprocessinginterval.png)
 
 针对想要为其启用流量分析的其他任何 NSG 重复前面的步骤。 流日志中的数据将发送到工作区，因此，请确保所在国家/地区的当地法律和法规允许将数据存储在工作区所在的区域。 如果为不同的 NSG 设置了不同的处理时间间隔，则将以不同的时间间隔收集数据。 例如：可以选择为关键 VNET 启用 10 分钟的处理时间间隔，为非关键 VNET 启用 1 小时的处理时间间隔。
 
-还可以使用 Azure PowerShell 中的 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet 配置流量分析。 运行 `Get-Module -ListAvailable Az` 来查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。
+还可以使用 Azure PowerShell 中的 [Set-AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) PowerShell cmdlet 配置流量分析。 运行 `Get-Module -ListAvailable Az` 来查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。
 
 ## <a name="view-traffic-analytics"></a>查看流量分析
 

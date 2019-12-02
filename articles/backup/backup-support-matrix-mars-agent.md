@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure 恢复服务 (MARS) 代理的支持矩阵 - Azure 备份
+title: Microsoft Azure 恢复服务代理的支持矩阵
 description: 本文汇总了备份运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机时的 Azure 备份支持。
 author: lingliw
 manager: digimobile
@@ -8,12 +8,12 @@ origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.author: v-lingwu
-ms.openlocfilehash: b40da1b7148088e2b96f958db74356ed03edfce4
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 8cec24232a77394dab2e1db439e31b2d8038dbd4
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330223"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528352"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 
@@ -46,7 +46,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份�
 **缓存** | **详细信息**
 --- | ---
 大小 |  缓存文件夹中的可用空间应至少为备份数据总大小的 5% 到 10%。
-Location | 缓存文件夹必须存储在要备份的计算机本地，并且该计算机必须联机。 缓存文件夹不应位于网络共享、可移动媒体或脱机卷上。
+位置 | 缓存文件夹必须存储在要备份的计算机本地，并且该计算机必须联机。 缓存文件夹不应位于网络共享、可移动媒体或脱机卷上。
 文件夹 | 缓存文件夹应已加密，位于已删除重复数据的卷中，或者位于压缩、稀疏或重分析点类型的文件夹中。
 位置更改 | 可以通过停止备份引擎 (`net stop bengine`)，并将缓存文件夹复制到新驱动器来更改缓存位置。 （确保新驱动器有足够的空间。）然后，将 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** 下的两个注册表项（**Config/ScratchLocation** 和 **Config/CloudBackupProvider/ScratchLocation**）更新为新位置，并重启引擎。
 
@@ -57,10 +57,8 @@ Location | 缓存文件夹必须存储在要备份的计算机本地，并且该
 MARS 代理需要以下 URL 的访问权限：
 
 - http://www.msftncsi.com/ncsi.txt
-- *.Microsoft.com
-- *.WindowsAzure.com
-- *.MicrosoftOnline.com
-- *.Windows.net
+- *.chinacloudapi.cn
+
 
 ### <a name="throttling-support"></a>限制支持
 
@@ -70,6 +68,9 @@ MARS 代理需要以下 URL 的访问权限：
 网络限制 | 不适用于运行 Windows Server 2008 R2、Windows Server 2008 SP2 或 Windows 7 的备份计算机。
 
 ## <a name="support-for-direct-backups"></a>直接备份支持
+
+>[!NOTE]
+> MARS 代理不支持 Windows Server Core SKU。
 
 在本地计算机和 Azure VM 上运行的某些操作系统中，可以使用 MARS 代理直接备份到 Azure。 所有操作系统必须是 64 位，并且应该运行最新的服务包和更新。 下表汇总了这些操作系统：
 
@@ -106,27 +107,27 @@ Windows 7   | 1,700 GB
 
 **类型** | **支持**
 --- | ---
-加密   | 。
+加密| 。
 压缩 | 。
 稀疏 | 。
-压缩和稀疏 | 。
-硬链接  | 不支持。 跳过。
-重分析点   | 不支持。 跳过。
-加密和稀疏 |  不支持。 跳过。
-压缩流   | 不支持。 跳过。
-稀疏流   | 不支持。 跳过。
-OneDrive（同步的文件是稀疏流）  | 不支持。
+压缩和稀疏 |。
+硬链接| 不支持。 跳过。
+重分析点| 不支持。 跳过。
+加密和稀疏 |不支持。 跳过。
+压缩流| 不支持。 跳过。
+稀疏流| 不支持。 跳过。
+OneDrive（同步的文件是稀疏流）| 不支持。
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>支持备份的驱动器或卷
 
 **驱动器/卷** | **支持** | **详细信息**
 --- | --- | ---
-只读卷   | 不支持 | 卷必须可写才能正常使用卷影复制服务 (VSS)。
-脱机卷 | 不支持 |   卷必须联机才能正常使用 VSS。
-网络共享   | 不支持 |   卷必须位于服务器本地。
-BitLocker 保护的卷 | 不支持 |   必须先解锁卷才能开始备份。
-文件系统标识  | 不支持 |   仅支持 NTFS。
-可移动媒体 | 不支持 |   所有备份项源必须处于固定状态。 
+只读卷| 不支持 | 卷必须可写才能正常使用卷影复制服务 (VSS)。
+脱机卷| 不支持 |卷必须联机才能正常使用 VSS。
+网络共享| 不支持 |卷必须位于服务器本地。
+BitLocker 保护的卷| 不支持 |必须先解锁卷才能开始备份。
+文件系统标识| 不支持 |仅支持 NTFS。
+可移动媒体| 不支持 |所有备份项源必须处于固定状态。 
 已删除重复数据的驱动器 | 支持 | Azure 备份将删除了重复项的数据转换为正常数据。 它可以优化、加密、存储数据并将其发送到保管库。
 
 ## <a name="support-for-initial-offline-backup"></a>初始脱机备份支持
@@ -145,5 +146,6 @@ Azure 备份支持“脱机种子设定”，以使用磁盘将初始备份数�
 无法将备份还原到运行较低 操作系统版本的目标计算机。 例如，在 Windows 8 或更高版本上，可以还原在 Windows 7 计算机中创建的备份。 但是，在 Windows 8 计算机中创建的备份无法还原到 Windows 7 计算机。
 
 ## <a name="next-steps"></a>后续步骤
+
 - 详细了解[使用 MARS 代理的备份体系结构](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)。
 - 了解[在 MABS 或 DPM 服务器上运行 MARS 代理](backup-support-matrix-mabs-dpm.md)时支持哪些操作。

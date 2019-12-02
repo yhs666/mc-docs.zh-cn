@@ -10,12 +10,12 @@ ms.date: 09/26/2019
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 421684d16a9415c5406a0dbccdc35186f301ffc6
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: ed941928643e6b1017af6c4cae58beb61c5acd67
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329995"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528421"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>教程：使用 CLI 和主题/订阅更新库存
 
@@ -53,9 +53,9 @@ ms.locfileid: "71329995"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-安装 CLI 后，打开一个命令提示符并发出以下命令来登录到 Azure。 如果使用的是 Cloud Shell，则这些步骤不是必需的：
+安装 CLI 后，打开一个命令提示符并发出以下命令来登录到 Azure。 如果使用的是 PowerShell，则这些步骤不是必需的：
 
-1. 如果在本地使用 Azure CLI，请运行以下命令来登录到 Azure。 如果在 Cloud Shell 中运行这些命令，则此登录步骤不是必需的：
+1. 如果在本地使用 Azure CLI，请运行以下命令来登录到 Azure。 如果在 PowerShell 中运行这些命令，则此登录步骤不是必需的：
 
    ```azurecli
    az cloud set -n AzureChinaCloud
@@ -132,7 +132,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list \
 
 ## <a name="send-and-receive-messages"></a>发送和接收消息
 
-1. 请确保 Cloud Shell 已打开并显示了 Bash 提示符。
+1. 请确保 PowerShell 已打开并显示了 Bash 提示符。
 
 2. 通过发出以下命令克隆[服务总线 GitHub 存储库](https://github.com/Azure/azure-service-bus/)：
 

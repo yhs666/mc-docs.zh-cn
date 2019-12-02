@@ -6,14 +6,15 @@ author: adigan
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/26/2019
+origin.date: 02/26/2019
+ms.date: 11/20/2019
 ms.author: adigan
-ms.openlocfilehash: d50faa2c1f8bb6efd20be2562fd63ddc9c09dbda
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d03be9e7f37afba3ffe3996631e6dca1f148a0f1
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330158"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528381"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure 备份数据的 Log Analytics 数据模型
 
@@ -83,7 +84,7 @@ ms.locfileid: "71330158"
 | Category |文本 |推送到 Azure Monitor 日志的诊断数据类别。 始终为 AzureBackupReport |
 | Resource |文本 |正在收集其数据的资源，例如“恢复服务保管库名称” |
 | SourceSystem |文本 |当前数据的源系统 - Azure |
-| ResourceId |文本 |正在收集其数据的资源 ID，例如“恢复服务保管库资源 ID” |
+| ResourceId |文本 |所收集数据的资源 ID，例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | resourceGroup |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |
 | ResourceProvider |文本 |正在收集其数据的资源提供程序，例如 Microsoft.RecoveryServices |
@@ -274,8 +275,8 @@ ms.locfileid: "71330158"
 | OperationName |文本 |此字段表示当前操作的名称 - Storage |
 | Category |文本 |此字段表示推送到 Azure Monitor 日志的诊断数据的类别，值为 AzureBackupReport |
 | Resource |文本 |这是正在收集其数据的资源，显示恢复服务保管库名称 |
-| ProtectedServerUniqueId_s |文本 |为其计算存储的受保护服务器的唯一 ID |
-| VaultUniqueId_s |文本 |为其计算存储的保管库的唯一 ID |
+| ProtectedServerUniqueId_s |文本 |计算其存储的受保护服务器的唯一 ID |
+| VaultUniqueId_s |文本 |计算其存储的保管库的唯一 ID |
 | SourceSystem |文本 |当前数据的源系统 - Azure |
 | ResourceId |文本 |正在收集其数据的资源标识符。 例如“恢复服务保管库资源 ID” |
 | SubscriptionId |文本 |正在收集其数据的资源（例如 恢复服务保管库）的资源组 |

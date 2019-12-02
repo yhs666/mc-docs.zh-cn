@@ -8,12 +8,12 @@ ms.author: mbaldwin
 origin.date: 03/26/2019
 ms.date: 09/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 57ad17ce5976cef53a1e8fb58a54a8bbec8e95ab
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 28a1bfd870f7ec67427eaade293c4a7f0cb0ee88
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674599"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528295"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Azure 磁盘加密先决条件
 
@@ -136,12 +136,13 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
      Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. 使用 [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 登录到 Azure。
+3. 使用 [Connect-AzAccount -Environment AzureChinaCloud](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet 登录到 Azure。
      
-     ```azurepowershell-interactive
-     Connect-AzAccount
+     ```
+     Connect-AzAccount -Environment AzureChinaCloud
+
      # For specific instances of Azure, use the -Environment parameter.
-     Connect-AzAccount –Environment (Get-AzEnvironment –Name AzureUSGovernment)
+     Connect-AzAccount –Environment AzureChinaCloud
     
      <# If you have multiple subscriptions and want to specify a specific one, 
      get your subscription list with Get-AzSubscription and 
@@ -160,7 +161,7 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
 
 2. 验证安装的版本。
      
-     ```azurecli-interactive
+     ```
      az --version
      ``` 
 
@@ -205,14 +206,14 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
 1. 根据需要连接到 Azure 订阅。 
 2. 根据需要，使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 创建新资源组。  若要列出数据中心位置，请使用 [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation)。 
      
-     ```azurepowershell-interactive
+     ```
      # Get-AzLocation 
      New-AzResourceGroup –Name 'MyKeyVaultResourceGroup' –Location 'East China'
      ```
 
 3. 使用 [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/New-azKeyVault) 创建新的 Key Vault
     
-      ```azurepowershell-interactive
+      ```
      New-AzKeyVault -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -Location 'East US'
      ```
 
@@ -225,14 +226,14 @@ Azure 磁盘加密与 [Azure Key Vault](/key-vault/) 集成，帮助你控制和
 1. 根据需要连接到 Azure 订阅。
 2. 根据需要，使用 [az group create](/cli/group#az-group-create) 创建新资源组。 若要列出位置，请使用 [az account list-locations](/cli/account#az-account-list) 
      
-     ```azurecli-interactive
+     ```
      # To list locations: az account list-locations --output table
      az group create -n "MyKeyVaultResourceGroup" -l "East US"
      ```
 
 3. 使用 [az keyvault create](/cli/keyvault#az-keyvault-create) 创建新 Key Vault。
     
-     ```azurecli-interactive
+     ```
      az keyvault create --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --location "East US"
      ```
 
@@ -254,19 +255,19 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 
   - **为磁盘加密启用 Key Vault：** 若要启用 Azure 磁盘加密，需要使用 EnabledForDiskEncryption。
       
-     ```azurepowershell-interactive 
+     ```
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDiskEncryption
      ```
 
   - **根据需要为部署启用 Key Vault：** 在资源创建操作中引用此 Key Vault（例如，创建虚拟机）时，使 Microsoft.Compute 资源提供程序能够从此 Key Vault 中检索机密。
 
-     ```azurepowershell-interactive
+     ```
       Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForDeployment
      ```
 
   - **根据需要为模板部署启用 Key Vault：** 在模板部署中引用此 Key Vault 时，使 Azure 资源管理器能够从此 Key Vault 中获取机密。
 
-     ```azurepowershell-interactive             
+     ```            
      Set-AzKeyVaultAccessPolicy -VaultName 'MySecureVault' -ResourceGroupName 'MyKeyVaultResourceGroup' -EnabledForTemplateDeployment
      ```
 
@@ -275,18 +276,18 @@ Azure 平台需要访问 Key Vault 中的加密密钥或机密，才能使这些
 
  - **为磁盘加密启用 Key Vault：** 需要使用 Enabled-for-disk-encryption。 
 
-     ```azurecli-interactive
+     ```
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-disk-encryption "true"
      ```  
 
  - **根据需要为部署启用 Key Vault：** 在资源创建操作中引用此 Key Vault（例如，创建虚拟机）时，使 Microsoft.Compute 资源提供程序能够从此 Key Vault 中检索机密。
 
-     ```azurecli-interactive
+     ```
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-deployment "true"
      ``` 
 
  - **根据需要为模板部署启用 Key Vault：** 允许资源管理器从保管库中检索机密。
-     ```azurecli-interactive  
+     ```
      az keyvault update --name "MySecureVault" --resource-group "MyKeyVaultResourceGroup" --enabled-for-template-deployment "true"
      ```
 

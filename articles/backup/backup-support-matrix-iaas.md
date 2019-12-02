@@ -6,14 +6,14 @@ manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 09/13/2019
-ms.date: 09/23/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3c6660bf97adf0ce5a6e7bd927f5535750c4279f
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 6fca4c43bb407498d3444391a938382adde32dd1
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730559"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527942"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM 备份的支持矩阵
 可以使用 [Azure 备份服务](backup-overview.md)备份本地计算机和工作负荷以及 Azure 虚拟机 (VM)。 本文汇总了使用 Azure 备份服务备份 Azure VM 时的支持设置和限制。
@@ -48,7 +48,7 @@ ms.locfileid: "73730559"
 修改 VM 的备份策略 | 。<br/><br/> 将使用新策略中的计划和保留期设置备份 VM。 如果保留期设置已延长，则会标记并保留现有的恢复点。 如果保留期设置已缩短，则会在下一个清理作业中清理现有的恢复点，并最终将其删除。
 取消备份作业| 在快照过程中受支持。<br/><br/> 快照正在传输到保管库时不受支持。
 将 VM 备份到其他区域或订阅 |不支持。
-每日备份（通过 Azure VM 扩展） | 每日进行一次计划的备份。<br/><br/> 每日最多可以创建四个按需备份。
+每日备份（通过 Azure VM 扩展） | 每日进行一次计划的备份。<br/><br/> 该服务每天最多允许九个按需备份，但 Microsoft 仅建议并支持每天最多四个按需备份。
 每日备份（通过 MARS 代理） | 每日进行三次计划的备份。
 每日备份（通过 DPM/MABS） | 每日进行两次计划的备份。
 每月/每年备份| 使用 Azure VM 扩展备份时不受支持。 仅支持每日和每周备份。<br/><br/> 可将策略设置为按每月/每年保留期保留每日/每周备份。
@@ -62,7 +62,7 @@ ms.locfileid: "73730559"
 
 **方案** | **OS 支持**
 --- | ---
-使用 Azure VM 代理扩展进行备份 | Windows 客户端：不支持<br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2（RTM 和 SP1 Standard）
+使用 Azure VM 代理扩展进行备份 | - Windows 10 客户端（仅 64 位） <br/><br/>- Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> - Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> - Windows Server 2008 R2（RTM 和 SP1 Standard）
 使用 MARS 代理进行备份 | [支持](backup-support-matrix-mars-agent.md#support-for-direct-backups)的操作系统。
 使用 DPM/MABS 备份 | 使用 [MABS](backup-mabs-protection-matrix.md) 和 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807) 备份时支持的操作系统。
 
@@ -165,7 +165,6 @@ Azure VM 数据磁盘 | 备份包含 16 个或更少数据磁盘的 VM。
 将磁盘添加到受保护的 VM | 。
 调整受保护 VM 上的磁盘大小 | 。
 共享存储| 不建议使用群集共享卷 (CSV) 或横向扩展文件服务器备份 VM。 在备份期间，CSV 写入器可能会失败。 还原时，包含 CSV 卷的磁盘可能不会启动。
-
 
 ## <a name="vm-network-support"></a>VM 网络支持
 

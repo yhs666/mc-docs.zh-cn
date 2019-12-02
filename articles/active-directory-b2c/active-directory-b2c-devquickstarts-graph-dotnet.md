@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 09/24/2019
-ms.date: 10/23/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 7b48e9e87878c3fd8c7f797bf8dcecf31374d305
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 01898dec32226a3793dee0828de19ff5cf2c083a
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846912"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461605"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C：使用 Azure AD 图形 API
 
@@ -70,7 +70,7 @@ Azure Active Directory B2C (Azure AD B2C) 租户可能包含数千甚至数百�
 1. 选择“用户管理员”角色。 
 1. 选择“添加分配”。 
 1. 在“选择”文本框中，输入前面注册的应用程序的名称，例如 *managementapp1*。  该应用程序显示在搜索结果中后，请将它选中。
-1. 选择“设置”  （应用程序对象和服务主体对象）。 可能需要几分钟才能完全传播权限。
+1. 选择“添加”   。 可能需要几分钟才能完全传播权限。
 
 现在，你的 Azure AD B2C 应用程序拥有在 B2C 租户中删除用户或更新其密码所需的附加权限。
 
@@ -278,10 +278,11 @@ B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 
 ### <a name="search-users"></a>搜索用户
 
-可通过两种方式在 B2C 租户中搜索用户：
+可通过以下方式在 B2C 租户中搜索用户：
 
 * 引用该用户的**对象 ID**。
 * 引用该用户的登录标识符，即 `signInNames` 属性。
+* 引用任何有效的 OData 参数。 例如，"givenName"、"surname"、"displayName" 等。
 
 运行以下命令之一来搜索用户：
 
@@ -295,6 +296,9 @@ B2C Get-User <filter-query-expression>
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
 B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27consumer@fabrikam.com%27)
+B2C get-user $filter=givenName%20eq%20%27John%27
+B2C get-user $filter=surname%20eq%20%27Doe%27
+B2C get-user $filter=displayName%20eq%20%27John%20Doe%27
 ```
 
 ### <a name="delete-users"></a>删除用户
@@ -364,3 +368,4 @@ B2C Update-User <object-id-of-user> <path-to-json-file>
 * 调用图形 API 时，请使用 `api-version=1.6`。
 * 创建和更新使用者用户时，需要几个属性，如上所述。
 
+<!-- Update_Description: wording update -->

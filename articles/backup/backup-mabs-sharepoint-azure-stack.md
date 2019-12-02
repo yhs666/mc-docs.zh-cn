@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 09/25/2018
 ms.author: v-junlch
-ms.openlocfilehash: 23487a7cf8fa5a8ad216dd9cbaa27ba59ee9644c
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: d6445196fd65d60537780087cdeb19c878e642d0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67569651"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528322"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>在 Azure Stack 上备份 SharePoint 场
 在 Azure Stack 上使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
@@ -53,6 +53,7 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
 可以在前端 Web 服务器的 [MABS 安装路径]\bin 文件夹中找到 **ConfigureSharePoint.exe**。 此工具可将 SharePoint 场的凭据提供给保护代理。 应在单个 WFE 服务器上运行该工具。 如果有多个 WFE 服务器，在配置保护组时，请只选择其中一个。
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>配置 SharePoint VSS 写入器服务
+
 1. 在 WFE 服务器上的命令提示符下，切换到 [MABS 安装位置]\bin\
 2. 输入 ConfigureSharePoint-EnableSharePointProtection。
 3. 输入场管理员凭据。 此帐户应是 WFE 服务器上本地管理员组的成员。 如果场管理员不是本地管理员，请在 WFE 服务器上授予以下权限：
@@ -89,7 +90,7 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
    > 磁盘保护方法有助于实现短暂的恢复时间目标。
    >
    >
-5. 在“**指定短期目标**”页上，选择偏好的“**保留范围**”，并指定备份时间。
+5. 在“指定短期目标”  页上，选择偏好的“保留范围”  ，并指定备份时间。
 
     ![指定短期目标](./media/backup-azure-backup-sharepoint/specify-short-term-goals2.png)
 
@@ -136,6 +137,7 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
     ![摘要](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>使用 MABS 从磁盘还原 SharePoint 项
+
 在以下示例中，“*恢复 SharePoint 项*”被意外删除，需要恢复。
 ![MABS SharePoint 保护 4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -197,6 +199,7 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
+
 1. 若要恢复 SharePoint 内容数据库，请浏览各个恢复点（如上所示），并选择要还原的恢复点。
 
     ![MABS SharePoint 保护 8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)

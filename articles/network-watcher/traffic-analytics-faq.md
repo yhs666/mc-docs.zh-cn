@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 origin.date: 03/08/2018
 ms.date: 9/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7bb1affb5c4bdfbc1aca03357f6a5e557c4f6878
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: a54145ac13fe229b7764875e781305f3316d8dc0
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674868"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528385"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常见问题解答
 
@@ -60,7 +60,7 @@ ms.locfileid: "71674868"
 
 3. 若要列出分配给特定用户的所有角色，请使用 **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**。 
 
-如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 管理基于角色的访问控制](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)。
+如果未看到任何输出，请与相应的订阅管理员联系以获取运行命令的权限。 有关详细信息，请参阅[使用 Azure PowerShell 管理基于角色的访问控制](/role-based-access-control/role-assignments-powershell)。
 
 
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>流量分析在哪些 Azure 区域中可用？
@@ -105,7 +105,7 @@ Log Analytics 工作区必须存在于以下区域中：
 
 要使流日志记录正常工作，必须注册 Microsoft.Insights 提供程序。 如果不确定是否为订阅注册了 Microsoft.Insights 提供程序，请替换以下命令中的“xxxxx-xxxxx-xxxxxx-xxxx”  ，并从 PowerShell 运行以下命令：
 
-```powershell-interactive
+```
 **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
 **Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
@@ -121,7 +121,7 @@ Log Analytics 工作区必须存在于以下区域中：
 - 在上部菜单栏中选择不同的 Log Analytics 工作区。
 - 如果流量分析是最近才启用的，请尝试在 30 分钟后访问它。
     
-如果问题仍未解决，请在 [User Voice 论坛](https://feedback.azure.com/forums/217313-networking?category_id=195844)中咨询。
+如果问题仍未解决，请在 [User Voice 论坛](https://support.azure.cn/zh-cn/support/contact/)中咨询。
 
 ## <a name="what-if-i-get-this-message-analyzing-your-nsg-flow-logs-for-the-first-time-this-process-may-take-20-30-minutes-to-complete-check-back-after-some-time-2-if-the-above-step-doesnt-work-and-your-workspace-is-under-the-free-sku-then-check-your-workspace-usage-here-to-validate-over-quota-else-refer-to-faqs-for-further-information"></a>如果收到以下消息：“正在首次分析 NSG 流日志。 此过程可能需要 20-30 分钟才能完成。 请过一段时间回来查看。 2) 如果上述步骤不起作用，并且工作区位于免费 SKU，则在此处检查工作区使用情况，以验证是否超出配额，或者参阅常见问题解答中的其他信息”，该如何解决？
 
@@ -129,11 +129,11 @@ Log Analytics 工作区必须存在于以下区域中：
 - 流量分析最近才启用，可能尚未聚合足够的数据，无法获得有意义的见解。
 - 正在使用免费版 Log Analytics 工作区，并且它超出了配额限制。 可能需要使用容量更大的工作区。
     
-如果问题仍未解决，请在 [User Voice 论坛](https://feedback.azure.com/forums/217313-networking?category_id=195844)中咨询。
+如果问题仍未解决，请在 [User Voice 论坛](https://support.azure.cn/zh-cn/support/contact/)中咨询。
     
 ## <a name="what-if-i-get-this-message-looks-like-we-have-resources-data-topology-and-no-flows-information-meanwhile-click-here-to-see-resources-data-and-refer-to-faqs-for-further-information"></a>如果收到以下消息：“似乎我们已获得资源数据（拓扑），但没有流信息。 同时，请单击此处查看资源数据，并参阅常见问题解答了解其他信息”，该如何解决？
 
-仪表板上显示了资源信息，但未显示与流相关的统计信息。 由于资源之间没有通信流，因此可能不显示数据。 请在 60 分钟后重新检查状态。 如果问题仍未解决，并且确信资源之间存在通信流，请在 [User Voice 论坛](https://feedback.azure.com/forums/217313-networking?category_id=195844)中咨询。
+仪表板上显示了资源信息，但未显示与流相关的统计信息。 由于资源之间没有通信流，因此可能不显示数据。 请在 60 分钟后重新检查状态。 如果问题仍未解决，并且确信资源之间存在通信流，请在 [User Voice 论坛](https://support.azure.cn/zh-cn/support/contact/)中咨询。
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>是否可以使用 PowerShell 或 Azure 资源管理器模板或客户端配置流量分析？
 
@@ -182,7 +182,7 @@ $requestBody =
 $apiversion = "2016-09-01"
 
 armclient login
-armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
+armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
 **Get cmdlet 示例：**
 ```
@@ -199,7 +199,7 @@ $requestBody =
 
 
 armclient login
-armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
+armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/queryFlowLogStatus?api-version=${apiversion}" $requestBody
 ```
 
 
@@ -207,11 +207,11 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 流量分析是计量式的。 该计量的基础是由服务处理流日志数据，并将生成的增强日志存储在 Log Analytics 工作区中。 
 
-例如，根据[定价计划](https://azure.microsoft.com/pricing/details/network-watcher/)，就美国中西部地区而言，如果流量分析处理的存储帐户中存储的流日志数据为 10 GB，而 Log Analytics 工作区中引入的增强日志为 1 GB 则适用的费用是：10 x 2.3$ + 1 x 2.76$ = 25.76$
+例如，根据[定价计划](https://www.azure.cn/pricing/details/network-watcher/)，就“中国东部”区域而言，如果流量分析处理的存储帐户中存储的流日志数据为 10 GB，而 Log Analytics 工作区中引入的增强日志为 1 GB，则适用的费用是：10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>流量分析多久处理一次数据？
 
-请参阅“流量分析架构和数据聚合”文档中的[“数据聚合”部分](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation)
+请参阅“流量分析架构和数据聚合”文档中的[“数据聚合”部分](/network-watcher/traffic-analytics-schema#data-aggregation)
 
 ## <a name="how-does-traffic-analytics-decide-that-an-ip-is-malicious"></a>流量分析如何确定 IP 是恶意 IP？ 
 
@@ -223,7 +223,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 可以在流量分析中使 Log Analytics 的短链接。 
 - 使用[此处记录的架构](traffic-analytics-schema.md)编写查询 
 - 单击“新建警报规则”以创建警报
-- 请参阅[日志警报文档](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log)以创建警报
+- 请参阅[日志警报文档](/azure-monitor/platform/alerts-log)以创建警报
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>如何在地图视图中使用键盘导航？
 

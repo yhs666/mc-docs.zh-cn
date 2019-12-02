@@ -1,5 +1,5 @@
 ---
-title: 备份 Azure Stack VM 中的文件
+title: 备份 Azure Stack VM 中的文件 - Azure 备份
 description: 使用 Azure 备份将 Azure Stack 文件与应用程序备份和恢复到 Azure Stack 环境。
 services: backup
 author: lingliw
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/05/2018
 ms.date: 08/23/2018
 ms.author: v-junlch
-ms.openlocfilehash: c9fd3c87c5fc3e9ef76a00e2a772464d5c1bfa15
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e8fd54abefc931796df34641ccfd08181dccefd6
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330237"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528329"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>在 Azure Stack 上备份文件和应用程序
 
@@ -65,7 +65,7 @@ ms.locfileid: "71330237"
     > **不**应在 Azure 备份服务器附加的磁盘上保留操作恢复（备份）数据超过 5 天。
     >
 
-    ![“新建保护组”向导打开](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png) 
+    ![“新建保护组”向导打开](./media/backup-mabs-files-applications-azure-stack/7-select-short-term-goals.png)
 
     无需选择增量备份的间隔，只需单击“直接在恢复点之前”，即可在每个计划的恢复点之前运行快速完整备份。  如果保护的是应用程序工作负荷，Azure 备份服务器会根据同步频率计划创建恢复点（前提是应用程序支持增量备份）。 如果应用程序不支持增量备份，Azure 备份服务器会运行快速完整备份。
 
@@ -82,13 +82,13 @@ ms.locfileid: "71330237"
 
 9. 如果选择备份到 Azure，请在“指定在线保护数据”页上，确保选择要备份到 Azure 的工作负荷。 
 
-10. 在“指定在线备份计划”中，指定何时增量备份到 Azure。  
+10. 在“指定在线备份计划”中，指定何时增量备份到 Azure。 
 
     可将备份计划为每日/每周/每月/每年运行，并指定运行备份的时间/日期。 备份一天最多可以进行两次。 每次备份作业运行时，会通过 Azure 备份服务器磁盘上存储的备份数据的副本在 Azure 中创建数据恢复点。
 
 11. 在“指定在线保留策略”中，指定如何在 Azure 中保留通过每日/每周/每月/每年备份创建的恢复点。 
 
-12. 在“选择在线复制”中，指定如何进行数据的初始完整复制。  
+12. 在“选择在线复制”中，指定如何进行数据的初始完整复制。 
 
 13. 在“摘要”中检查设置。  单击“创建组”时，会进行初始数据复制。  数据复制完成后，在“状态”  页上，保护组状态显示为“正常”  。 初始备份作业根据保护组设置运行。
 
@@ -136,7 +136,7 @@ ms.locfileid: "71330237"
 2. 单击“备份基础结构”。
 3. 查看备份管理服务器。
 
-## <a name="see-also"></a>另请参阅
+## <a name="next-steps"></a>后续步骤
 
 有关使用 Azure 备份服务器保护其他工作负荷的信息，请参阅以下文章之一：
 - [备份 SharePoint 场](/backup/backup-mabs-sharepoint-azure-stack)

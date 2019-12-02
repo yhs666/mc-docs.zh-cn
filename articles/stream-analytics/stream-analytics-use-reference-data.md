@@ -7,14 +7,14 @@ ms.author: v-lingwu
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 06/21/2019
-ms.date: 08/09/2019
-ms.openlocfilehash: 39189caa7c9ad58bbaeb0d0aedb0461ccd6edc09
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+origin.date: 10/8/2019
+ms.date: 11/19/2019
+ms.openlocfilehash: 11bfb92576106ec7a054e6d83566685af37a7d59
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674738"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528227"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>使用参考数据在流分析中查找
 
@@ -33,10 +33,10 @@ ms.locfileid: "71674738"
 |**属性名称**  |**说明**  |
 |---------|---------|
 |输入别名   | 一个友好名称会用于作业查询，以便引用此输入。   |
-|存储帐户   | 存储 Blob 所在的存储帐户的名称。 如果其订阅与流分析作业相同，可以从下拉菜单中选择它。   |
+|存储帐户   | 存储 Blob 所在的存储帐户的名称。 如果它在流分析作业所在的订阅中，则可以从下拉菜单中选择它。   |
 |存储帐户密钥   | 与存储帐户关联的密钥。 如果存储帐户的订阅与流分析作业相同，则自动填充此密钥。   |
-|存储容器   | 容器对存储在 Azure Blob 服务中的 blob 进行逻辑分组。 将 blob 上传到 Blob 服务时，必须为该 blob 指定一个容器。   |
-|路径模式   | 用于对指定容器中的 Blob 进行定位的路径。 在路径中，可以选择指定一个或多个使用以下 2 个变量的实例：<BR>{date}、{time}<BR>示例 1：products/{date}/{time}/product-list.csv<BR>示例 2：products/{date}/product-list.csv<BR><br> 如果指定路径中不存在 blob，流分析作业将无限期地等待 blob 变为可用状态。   |
+|存储容器   | 容器对存储在 Microsoft Azure Blob 服务中的 blob 进行逻辑分组。 将 blob 上传到 Blob 服务时，必须为该 blob 指定一个容器。   |
+|路径模式   | 用于对指定容器中的 Blob 进行定位的路径。 在路径中，可以选择指定一个或多个使用以下 2 个变量的实例：<BR>{date}、{time}<BR>示例 1：products/{date}/{time}/product-list.csv<BR>示例 2：products/{date}/product-list.csv<BR>示例 3：product-list.csv<BR><br> 如果指定路径中不存在 blob，流分析作业将无限期地等待 blob 变为可用状态。   |
 |日期格式 [可选]   | 如果在指定的路径模式中使用了 {date}，则可以从支持格式的下拉列表中选择组织 Blob 所用的日期格式。<BR>示例：YYYY/MM/DD、MM/DD/YYYY 等。   |
 |时间格式 [可选]   | 如果在指定的路径模式中使用了 {time}，则可以从支持格式的下拉列表中选择组织 Blob 所用的时间格式。<BR>示例：HH、HH/mm 或 HH-mm。  |
 |事件序列化格式   | 为确保查询按预计的方式运行，流分析需要了解你对传入数据流使用哪种序列化格式。 对于引用数据，所支持的格式是 CSV 和 JSON。  |
@@ -50,7 +50,7 @@ ms.locfileid: "71674738"
 
 如果引用数据是缓慢变化的数据集，则使用 {date} 和 {time} 替换令牌在输入配置中指定路径模式即可实现对刷新引用数据的支持。 流分析根据此路径模式选取更新的引用数据定义。 例如，使用 `sample/{date}/{time}/products.csv` 模式时，日期格式为 **“YYYY-MM-DD”** ，时间格式为 **“HH-mm”** ，可指示流分析在 2015 年 4 月 16 日下午 5:30（UTC 时区）提取更新的 Blob`sample/2015-04-16/17-30/products.csv`。
 
-Azure 流分析每间隔一分钟都会自动扫描刷新的参考数据 Blob。
+Azure 流分析每间隔一分钟都会自动扫描刷新的参考数据 Blob。 如果以较小的延迟（例如，10:30:30）上传时间戳为 10:30:00 的 blob，你将注意到引用此 blob 的流分析作业有一个小延迟。 为了避免这种情况，建议在目标生效时间（本例中为 10:30:00）之前上传 blob，以便流分析作业有足够的时间来发现它并将其加载到内存中执行操作。 
 
 > [!NOTE]
 > 当前，流分析作业仅在计算机时间提前于 blob 名称中的编码时间时才查找 blob 刷新。 例如，该作业将尽可能查找 `sample/2015-04-16/17-30/products.csv` ，但不会早于 2015 年 4 月 16 日下午 5:30（UTC 时区）。 它*永远不会*查找编码时间早于发现的上一个 blob 的 blob。
@@ -71,7 +71,7 @@ Azure 流分析每间隔一分钟都会自动扫描刷新的参考数据 Blob。
     * 使用路径模式中的 {date}/{time}
     * 使用作业输入中定义的相同容器和路径模式来添加新 Blob
     * 使用大于序列中最后一个 Blob 指定的日期/时间  。
-3. 引用数据 Blob **不** 按 Blob 的“上次修改”时间排序，而是按 Blob 名称中使用 {date} 和 {time} 替换项指定的日期和时间排序。
+3. 参考数据 blob **不** 按 blob 的“上次修改”时间排序，而是按 blob 名称中使用 {date} 和 {time} 替换项指定的日期和时间排序。
 4. 为了避免必须列出大量 blob，请考虑删除不再对其进行处理的非常旧的 blob。 请注意，在某些情况下（如重新启动），ASA 可能需要重新处理一小部分 blob。
 
 ## <a name="azure-sql-database"></a>Azure SQL 数据库
@@ -91,7 +91,7 @@ Azure SQL 数据库参考数据由流分析作业进行检索并作为快照存�
 |---------|---------|
 |输入别名|一个友好名称会用于作业查询，以便引用此输入。|
 |订阅|选择自己的订阅|
-|数据库|包含参考数据的 Azure SQL 数据库。|
+|数据库|包含参考数据的 Azure SQL 数据库。 对于 Azure SQL 数据库托管实例，需要指定端口 3342。 例如，sampleserver.public.database.windows.net,3342 |
 |用户名|与 Azure SQL 数据库关联的用户名。|
 |密码|与 Azure SQL 数据库关联的密码。|
 |定期刷新|此选项用来选择刷新率。 选择“开启”将允许你以 DD:HH:MM 格式指定刷新率。|

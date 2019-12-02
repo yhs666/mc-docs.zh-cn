@@ -9,21 +9,23 @@ ms.topic: conceptual
 origin.date: 06/26/2017
 ms.date: 08/08/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 2b688144fa07e35fa7198a3d72a01ccc2b9e215b
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 114a4a0abdfe084a590d379fb2133c807a84a1b1
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116243"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528246"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 
 
 
 ## <a name="using-azure-backup-data-model"></a>使用 Azure 备份数据模型
+
 可使用下面提供的字段作为数据模型的一部分，创建报表和自定义现有报表。
 
 ### <a name="alert"></a>警报
+
 此表提供针对各种警报相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |
@@ -41,6 +43,7 @@ ms.locfileid: "74116243"
 | EntityState |文本 |警报对象的当前状态。 例如 Active、Deleted |
 
 ### <a name="backup-item"></a>备份项
+
 此表提供针对各种备份项相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |
@@ -59,6 +62,7 @@ ms.locfileid: "74116243"
 | ProtectionState |文本 |备份项的当前保护状态。 例如 Protected、ProtectionStopped |
 
 ### <a name="calendar"></a>日历
+
 此表提供了日历相关字段的详细信息。
 
 | 字段 | 数据类型 | 说明 |
@@ -76,6 +80,7 @@ ms.locfileid: "74116243"
 | YearDate |Date |一年结束的日期，用于筛选数据 |
 
 ### <a name="job"></a>作业
+
 此表提供针对各种作业相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |
@@ -96,6 +101,7 @@ ms.locfileid: "74116243"
 | JobUniqueId |文本 |用于标识作业的唯一 ID |
 
 ### <a name="policy"></a>策略
+
 此表提供了针对多个策略相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |
@@ -130,6 +136,7 @@ ms.locfileid: "74116243"
 | YearlyRetentionWeeksOfTheMonth |文本 |配置每年保留时的当月时间（第几周）。 例如 First、Last 等。 |
 
 ### <a name="protected-server"></a>受保护的服务器
+
 此表提供针对多个受保护服务器相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |
@@ -146,9 +153,10 @@ ms.locfileid: "74116243"
 | ProtectedServerName |文本 |受保护的服务器的名称 |
 | ProtectedServerType |文本 |备份的受保护服务器的类型。 例如 IaaSVMContainer |
 | ProtectedServerName |文本 |备份项所属的受保护服务器的名称 |
-| RegisteredContainerId |文本 |注册用于备份的容器的 ID |
+| RegisteredContainerId |文本 |用于备份的容器注册 ID |
 
 ### <a name="storage"></a>存储
+
 此表提供针对各种存储相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |
@@ -160,6 +168,7 @@ ms.locfileid: "74116243"
 | LastUpdatedDate |Date |所选行的上次更新时间 |
 
 ### <a name="time"></a>时间
+
 此表提供时间相关字段的详细信息。
 
 | 字段 | 数据类型 | 说明 |
@@ -172,6 +181,7 @@ ms.locfileid: "74116243"
 | TimeKey |文本 |表示时间的键值 |
 
 ### <a name="vault"></a>保管库
+
 此表提供针对各种保管库相关字段的基本字段和聚合。
 
 | 字段 | 数据类型 | 说明 |

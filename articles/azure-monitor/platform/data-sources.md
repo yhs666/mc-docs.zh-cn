@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 05/23/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c5d5080137469a2d1167cdbaaaf2f651d76816bf
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 4479f5178362ead4350b34349141dfaf25d9c6d6
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730557"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528396"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor 的监视数据源
 Azure Monitor 基于包含[日志](data-platform-logs.md)和[指标](data-platform-metrics.md)的[通用监视数据平台](data-platform.md)。 将数据收集到此平台后，可以使用 Azure Monitor 中的一组通用工具统一分析来自多个资源的数据。 还可以将监视数据发送到其他位置以支持特定的方案，某些资源可能会将数据写入到其他位置，然后可以在日志或指标中收集数据。
@@ -81,7 +81,7 @@ Azure 应用程序中的监视数据源可以组织为层，最高的层是应�
 
 
 ## <a name="azure-resources"></a>Azure 资源
-指标和资源级诊断日志提供  Azure 资源的内部操作的信息。 这些日志适用于大多数 Azure 服务，监视解决方案和见解将收集特定服务的其他数据。
+指标和资源日志提供有关  Azure 资源的内部操作的信息。 这些日志适用于大多数 Azure 服务，监视解决方案和见解将收集特定服务的其他数据。
 
 ![Azure 资源收集](media/data-sources/azure-resources.png)
 
@@ -130,12 +130,12 @@ Azure 中的、其他云中的以及本地的计算资源都有要监视的来�
 
 
 ### <a name="azure-monitor-for-vms"></a>用于 VM 的 Azure Monitor 
-[用于 VM 的 Azure Monitor](../insights/vminsights-overview.md) 为虚拟机提供自定义的监视体验，对 Azure Monitor 核心功能做了补充，包括服务状态和 VM 运行状况的监视。 它要求在 Windows 和 Linux 虚拟机上安装 Dependency Agent，并与 Log Analytics 代理集成，以收集有关虚拟机上运行的进程和外部进程依赖项的发现数据。
+用于 VM 的 Azure Monitor 为虚拟机提供自定义的监视体验，对 Azure Monitor 核心功能做了补充，包括服务状态和 VM 运行状况的监视。 它要求在 Windows 和 Linux 虚拟机上安装 Dependency Agent，并与 Log Analytics 代理集成，以收集有关虚拟机上运行的进程和外部进程依赖项的发现数据。
 
 | 目标 | 说明 | 参考 |
 |:---|:---|:---|
-| Azure Monitor 日志 | 存储有关代理中的进程和依赖项的数据。 | [使用用于 VM 的 Azure Monitor（预览版）映射了解应用程序组件](../insights/vminsights-maps.md) |
-| VM 存储 | 用于 VM 的 Azure Monitor 在自定义位置存储运行状态信息。 这仅适用于 Azure 门户以及 [Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) 中的用于 VM 的 Azure Monitor。 | [了解 Azure 虚拟机的运行状况](../insights/vminsights-health.md)<br>[Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
+| Azure Monitor 日志 | 存储有关代理中的进程和依赖项的数据。 | 使用用于 VM 的 Azure Monitor（预览版）映射了解应用程序组件 |
+| VM 存储 | 用于 VM 的 Azure Monitor 在自定义位置存储运行状态信息。 这仅适用于 Azure 门户以及 [Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) 中的用于 VM 的 Azure Monitor。 | 了解 Azure 虚拟机的运行状况<br>[Azure 资源运行状况 REST API](https://docs.microsoft.com/rest/api/resourcehealth/) |
 
 
 
@@ -176,10 +176,10 @@ Azure Monitor 中的详细应用程序监视是通过 [Application Insights](/az
 |:---|:---|:---|
 | Azure Monitor 日志 | 存储 AKS 的监视数据，包括库存、日志和事件。 指标数据还会存储在“日志”中，这样就可以在门户中利用其分析功能。 | [使用适用于容器的 Azure Monitor 了解 AKS 群集性能](../insights/container-insights-analyze.md) |
 | Azure Monitor 指标 | 指标数据将存储在指标数据库中，以驱动可视化和警报。 | [在指标资源管理器中查看容器指标](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Azure Kubernetes 服务 | 为了提供近实时体验，用于容器的 Azure Monitor 直接通过 Azure 门户中的 Azure Kubernetes 服务显示数据。 | [如何使用用于容器的 Azure Monitor（预览版）实时查看容器日志](../insights/container-insights-live-logs.md) |
+| Azure Kubernetes 服务 | 在门户中提供对 Azure Kubernetes 服务 (AKS) 容器日志 (stdout/stderror)、事件和 Pod 指标的直接访问。 | 如何实时查看 Kubernetes 日志、事件和 Pod 指标  |
 
 ### <a name="azure-monitor-for-vms"></a>用于 VM 的 Azure Monitor
-[用于 VM 的 Azure Monitor](../insights/vminsights-overview.md) 提供自定义的体验用于监视虚拟机。 前面的[操作系统（来宾）](#operating-system-guest)部分介绍了用于 VM 的 Azure Monitor 收集的数据。
+用于 VM 的 Azure Monitor 提供了用于监视虚拟机的自定义体验。 前面的[操作系统（来宾）](#operating-system-guest)部分介绍了用于 VM 的 Azure Monitor 收集的数据。
 
 ## <a name="custom-sources"></a>自定义来源
 除了应用程序的标准层之外，还可能需要监视具有不能与其他数据源一起收集的遥测数据的其他资源。 对于这些资源，可使用 Azure Monitor API 将此数据写入到指标或日志。

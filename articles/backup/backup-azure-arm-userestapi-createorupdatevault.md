@@ -1,21 +1,22 @@
 ---
 title: Azure 备份：使用 REST API 创建恢复服务保管库
-description: 使用 REST API 管理 Azure VM 备份的备份和还原操作
+description: 本文介绍如何使用 REST API 管理 Azure VM 备份的备份和还原操作。
 ms.reviewer: pullabhk
 author: lingliw
 manager: digimobile
-keywords: REST API、Azure VM 备份、Azure VM 还原；
+keywords: REST API, Azure VM 备份, Azure VM 还原;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/21/2018
+origin.date: 08/21/2018
+ms.date: 09/21/2019
 ms.author: v-lingwu
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: d35b8e83a2ea1bbcb9b1f7dd64790566ca0460e1
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 5403aa4e83c843bdad00acaeb524f7552e7b00c6
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104181"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528261"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 创建 Azure 恢复服务保管库
 

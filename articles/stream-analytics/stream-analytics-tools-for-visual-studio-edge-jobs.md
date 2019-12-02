@@ -1,5 +1,5 @@
 ---
-title: 适用于 Visual Studio 的 Azure 流分析工具中的流分析 Edge 作业
+title: Visual Studio 中的 Azure 流分析 Edge 作业
 description: 本文介绍如何使用适用于 Visual Studio 的流分析工具在 IoT Edge 作业上创作、调试和创建流分析。
 services: stream-analytics
 author: rockboyfor
@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 12/07/2018
-ms.date: 09/30/2018
-ms.openlocfilehash: c1f881e6d8d04c9ef6cf00a914c968045eaa65c7
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.date: 11/19/2019
+ms.openlocfilehash: d6c7909ae7496b9fef28d0d5716e28da04243dcf
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674746"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528215"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>使用 Visual Studio 工具开发流分析 Edge 作业
 
@@ -24,15 +24,15 @@ ms.locfileid: "71674746"
 
 若要完成本教程，需要具备以下先决条件：
 
-* 安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/)、[Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) 或 [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326)。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。  
+* 安装 [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)、[Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/) 或 [Visual Studio 2013 Update 4](https://www.microsoft.com/download/details.aspx?id=45326)。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。  
 
 * 请按照[安装说明](stream-analytics-tools-for-visual-studio-edge-jobs.md)安装用于 Visual Studio 的流分析工具。
-
+ 
 ## <a name="create-a-stream-analytics-edge-project"></a>创建流分析 Edge 项目 
 
 在 Visual Studio 中，选择“文件”   > “新建”   > “项目”  。 导航到左侧的“模板”列表，展开“Azure 流分析” > “流分析 Edge” > “Azure 流分析 Edge 应用程序”。     提供项目的名称、位置和解决方案名称，选择“确定”。 
 
-![Visual Studio 中的新 Edge 项目](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
+![Visual Studio 中的新流分析 Edge 项目](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
 创建项目后，导航到“解决方案资源管理器”查看文件夹层次结构。 
 

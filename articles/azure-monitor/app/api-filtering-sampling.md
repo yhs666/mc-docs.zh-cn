@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 origin.date: 11/23/2016
 author: lingliw
-ms.date: 6/4/2019
+ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b2f2a6350a8fab77e62df85dc97343b76a936a23
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: bad3088b6277dcd6ae4a64437170072d22c2d00d
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970881"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528341"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK 中的筛选和预处理遥测 | Microsoft Azure
 
@@ -26,11 +26,11 @@ ms.locfileid: "72970881"
 
 开始之前：
 
-* 为应用程序安装相应的 SDK：[ASP.NET](asp-net.md)、[ASP.NET Core](asp-net-core.md)、[用于 .NET/.NET Core 的非 HTTP/辅助角色](worker-service.md)或 [Java](../../azure-monitor/app/java-get-started.md)。
+* 为应用程序安装相应的 SDK：[ASP.NET](asp-net.md)、[ASP.NET Core](asp-net-core.md)、[用于 .NET/.NET Core 的非 HTTP/辅助角色](worker-service.md)、[Java](../../azure-monitor/app/java-get-started.md) 或 [JavaScript](javascript.md)
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>筛选：ITelemetryProcessor
+## <a name="filtering"></a>筛选
 
 使用此技术可以直接控制要在遥测流中包含或排除的内容。 可以通过筛选删除要发送到 Application Insights 的遥测项。 可以将其与采样结合使用，也可以单独使用。
 
@@ -199,7 +199,30 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>添加属性：ITelemetryInitializer
+### <a name="javascript-web-applications"></a>JavaScript Web 应用程序
+
+**使用 ITelemetryInitializer 进行筛选**
+
+1. 创建遥测初始化程序回调函数。 回调函数将 `ITelemetryItem` 作为参数，该项是正在处理的事件。 从此回调返回 `false` 将导致筛选掉遥测项。  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+        return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. 添加遥测初始化程序回调：
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## <a name="addmodify-properties-itelemetryinitializer"></a>添加/修改属性：ITelemetryInitializer
+
 
 通过遥测初始值设定项使用其他信息来扩充遥测，以及/或者重写通过标准遥测模块设置的遥测属性。
 

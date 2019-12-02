@@ -7,15 +7,16 @@ manager: digimobile
 keywords: Log Analytics; Azure 备份; 警报; 诊断设置; 操作组
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/04/2019
+origin.date: 06/04/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 11d5d71891205b75a5ca5e09b82b321a8d4abbb8
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: f945e4f85d80c67812d3bf149a2701b6a1a0770b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104163"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528248"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>使用 Azure Monitor 进行大规模监视
 
@@ -29,15 +30,15 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 ## <a name="using-log-analytics-workspace"></a>使用 Log Analytics 工作区
 
 > [!NOTE]
-> 来自 Azure VM 备份、Azure 备份代理、System Center Data Protection Manager、Azure VM 中的 SQL 备份以及 Azure 文件共享备份的数据将通过诊断设置传送到 Log Analytics 工作区。 
+> 来自 Azure VM 备份、Azure 备份代理、System Center Data Protection Manager、Azure VM 中的 SQL 备份以及 Azure 文件共享备份的数据将通过诊断设置传送到 Log Analytics 工作区。 即将添加对 Microsoft Azure 备份服务器 (MABS) 的支持
 
-若要进行大规模监视/报告，需要使用两个 Azure 服务的功能。 诊断设置将多个 Azure 资源管理器资源的数据发送到另一个资源。  *Log Analytics* 生成自定义警报，在其中，可以使用操作组定义其他通知通道。 
+若要进行大规模监视/报告，需要使用两个 Azure 服务的功能。 诊断设置将多个 Azure 资源管理器资源的数据发送到另一个资源。  *Log Analytics* 生成自定义警报，在其中，可以使用操作组定义其他通知通道。
 
 以下部分详细介绍了如何使用 Log Analytics 大规模监视 Azure 备份。
 
 ### <a name="configure-diagnostic-settings"></a>配置诊断设置
 
-恢复服务保管库等 Azure 资源管理器资源会记录有关计划的操作和用户触发的操作的信息作为诊断数据。 
+恢复服务保管库等 Azure 资源管理器资源会记录有关计划的操作和用户触发的操作的信息作为诊断数据。
 
 在“监视”部分，选择“诊断设置”并指定恢复服务保管库的诊断数据的目标。 
 
@@ -66,21 +67,21 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 
 选择任意概览磁贴即可查看进一步的信息。 下面是显示的一些报表：
 
-* 非日志备份作业
+- 非日志备份作业
 
    ![备份作业的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-backupjobsnonlog.png)
 
-* 来自 Azure 资源备份的警报
+- 来自 Azure 资源备份的警报
 
    ![还原作业的 Log Analytics 图形](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertsazure.png)
 
 类似地，单击其他磁贴即可查看有关还原作业、云存储、备份项、来自本地资源备份的警报以及日志备份作业的报表。
- 
+
 这些图形随模板一起提供。 如果需要，可以编辑图形或添加更多图形。
 
 ### <a name="create-alerts-by-using-log-analytics"></a>使用 Log Analytics 创建警报
 
-在 Azure Monitor 中，可以在 Log Analytics 工作区内创建你自己的警报。 在工作区中，可以使用 Azure 操作组来选择首选的通知机制。  
+在 Azure Monitor 中，可以在 Log Analytics 工作区内创建你自己的警报。 在工作区中，可以使用 Azure 操作组来选择首选的通知机制。 
 
 > [!IMPORTANT]
 > 有关创建此查询所产生的成本的信息，请参阅 [Azure Monitor 定价](https://azure.microsoft.com/pricing/details/monitor/)。
@@ -115,7 +116,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 
 默认图形提供可对其生成警报的基本方案的 Kusto 查询。 还可以修改查询，以获取要对其发出警报的数据。 将以下示例 Kusto 查询粘贴到“日志”页中，然后基于查询创建警报： 
 
-* 所有成功的备份作业
+- 所有成功的备份作业
 
     ````Kusto
     AzureDiagnostics
@@ -124,8 +125,8 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Completed"
     ````
-    
-* 所有失败的备份作业
+
+- 所有失败的备份作业
 
     ````Kusto
     AzureDiagnostics
@@ -134,8 +135,8 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
     | where OperationName == "Job" and JobOperation_s == "Backup"
     | where JobStatus_s == "Failed"
     ````
-    
-* 所有成功的 Azure VM 备份作业
+
+- 所有成功的 Azure VM 备份作业
 
     ````Kusto
     AzureDiagnostics
@@ -158,7 +159,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
     | project-away Resource
     ````
 
-* 所有成功的 SQL 日志备份作业
+- 所有成功的 SQL 日志备份作业
 
     ````Kusto
     AzureDiagnostics
@@ -181,7 +182,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
     | project-away Resource
     ````
 
-* 所有成功的 Azure 备份代理作业
+- 所有成功的 Azure 备份代理作业
 
     ````Kusto
     AzureDiagnostics
@@ -209,7 +210,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 保管库中的诊断数据将传送到 Log Analytics 工作区，但会出现一定的延迟。 从恢复服务保管库推送每个事件 20 到 30 分钟后，这些事件将抵达 Log Analytics 工作区。  下面是有关延迟的更多详细信息：
 
 - 在所有解决方案中，一旦创建备份服务的内置警报，就会立即推送这些警报。 因此，它们通常会在 20 到 30 分钟后显示在 Log Analytics 工作区中。
-- 在所有解决方案中，在完成临时备份作业和还原作业后，会立即推送这些作业。 
+- 在所有解决方案中，在完成按需备份作业和还原作业后，会立即推送这些作业。 
 - 对于除 SQL 备份以外的所有解决方案，在完成计划的备份作业后，会立即推送这些作业。 
 - 对于 SQL 备份，由于日志备份可每隔 15 分钟发生，所有已完成的计划备份作业的信息（包括日志）将每隔 6 小时进行批处理和推送。
 - 在所有解决方案中，备份项、策略、恢复点、存储等其他信息每天至少推送一次。 
@@ -223,7 +224,7 @@ Azure 备份在恢复服务保管库中提供[内置的监视和警报功能](ba
 还可以使用活动日志来获取事件通知，例如备份成功。 遵循以下步骤开始：
 
 1. 登录 Azure 门户。
-1. 打开相关的恢复服务保管库。 
+1. 打开相关的恢复服务保管库。
 1. 在保管库的属性中，打开“活动日志”部分。 
 
 若要识别相应的日志并创建警报：

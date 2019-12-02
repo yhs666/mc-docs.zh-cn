@@ -1,6 +1,6 @@
 ---
 title: 删除 Microsoft Azure 备份恢复服务保管库
-description: 本文介绍如何删除 Microsoft Azure 备份恢复服务保管库。
+description: 本文介绍如何删除依赖项，然后删除 Microsoft Azure 备份恢复服务 (MARS) 保管库。
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/20/2019
 ms.date: 11/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4ca523a7b1065830422ade08ca5985808b6feeb4
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d7ac10709846f7b98889f1d10a7a9de41f8976d6
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730564"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528256"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>删除 Azure 备份恢复服务保管库
 
@@ -34,7 +34,7 @@ ms.locfileid: "73730564"
 
   ![删除受保护的服务器出错。](./media/backup-azure-delete-vault/error-message.jpg)
 
-- 如果备份项处于软删除状态，将显示以下警告消息；需要等到这些项被永久删除。 有关详细信息，请参阅[此文章](https://aka.ms/SoftDeleteCloudWorkloads)。
+- 如果备份项处于软删除状态，将显示以下警告消息，你将需要等到这些备份项被永久删除。 有关详细信息，请参阅[此文](https://aka.ms/SoftDeleteCloudWorkloads)。
 
    ![删除保管库出错。](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
@@ -47,7 +47,6 @@ ms.locfileid: "73730564"
 我在云中有受保护的项（例如 laaS 虚拟机或 Azure 文件共享）  | 执行[删除云中的受保护项](#delete-protected-items-in-the-cloud)中的步骤
 我在本地和云中都有受保护的项 | 按顺序执行以下所有部分中的步骤： <br> 1.[删除云中的受保护项](#delete-protected-items-in-the-cloud)<br> 2.[从 MARS 管理控制台删除备份项](#delete-backup-items-from-the-mars-management-console) <br> 3.[从 MABS 管理控制台删除备份项](#delete-backup-items-from-the-mabs-management-console)
 我在本地或云中没有任何受保护的项，但仍然收到保管库删除错误 | 执行[使用 Azure 资源管理器删除恢复服务保管库](#delete-the-recovery-services-vault-by-using-azure-resource-manager)中的步骤
-
 
 ## <a name="delete-protected-items-in-the-cloud"></a>删除云中的受保护项
 
@@ -69,8 +68,8 @@ ms.locfileid: "73730564"
 
          ![“删除备份数据”窗格。](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. 查看“通知”图标：  ![“通知”图标。](./media/backup-azure-delete-vault/messages.png) 完成该过程后，服务将显示以下消息：“正在停止 <备份项> 的备份并删除备份数据。   已成功完成该操作”。 
-6. 在“备份项”菜单中选择“刷新”，确保已删除该备份项。  
+3. 查看“通知”图标：  ![“通知”图标。](./media/backup-azure-delete-vault/messages.png) 完成该过程后，服务将显示以下消息：“正在停止 <备份项> 的备份并删除备份数据。   已成功完成该操作”。 
+4. 在“备份项”菜单中选择“刷新”，确保已删除该备份项。  
 
       ![“删除备份项”页。](./media/backup-azure-delete-vault/empty-items-list.png)
 
@@ -81,12 +80,11 @@ ms.locfileid: "73730564"
 1. 在保管库仪表板菜单中，选择“备份基础结构”  。
 2. 根据本地方案选择以下选项之一：
 
-      - 对于 MARS，请依次选择“受保护的服务器”、“Azure 备份代理”。   然后选择要删除的服务器。 
+      - 对于 MARS，请依次选择“受保护的服务器”、“Azure 备份代理”。   然后选择要删除的服务器。
 
         ![对于 MARS，请选择保管库打开其仪表板。](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - 对于 MABS 或 DPM，请选择“备份管理服务器”。  然后选择要删除的服务器。 
-
+      - 对于 MABS 或 DPM，请选择“备份管理服务器”。  然后选择要删除的服务器。
 
           ![对于 MABS，请选择保管库打开其仪表板。](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -102,15 +100,13 @@ ms.locfileid: "73730564"
 
 4. 选中许可复选框，然后选择“删除”。 
 
-
 5. 查看“通知”图标![删除备份数据](./media/backup-azure-delete-vault/messages.png)。  操作完成后，服务将显示以下消息：正在停止“备份项”的备份并删除备份数据。  已成功完成该操作”。 
 6. 在“备份项”菜单中选择“刷新”，确保已删除该备份项。  
 
 此过程完成后，可以继续从管理控制台删除备份项：
-    
-   - [从 MARS 管理控制台删除备份项](#delete-backup-items-from-the-mars-management-console)
-    - [从 MABS 管理控制台删除备份项](#delete-backup-items-from-the-mabs-management-console)
 
+- [从 MARS 管理控制台删除备份项](#delete-backup-items-from-the-mars-management-console)
+- [从 MABS 管理控制台删除备份项](#delete-backup-items-from-the-mabs-management-console)
 
 ### <a name="delete-backup-items-from-the-mars-management-console"></a>从 MARS 管理控制台删除备份项
 
@@ -140,11 +136,12 @@ ms.locfileid: "73730564"
 可以使用两种方法从 MABS 管理控制台删除备份项。
 
 #### <a name="method-1"></a>方法 1
+
 若要停止保护并删除备份数据，请执行以下步骤：
 
-1.  打开 DPM 管理员控制台，在导航栏中选择“保护”  。
-2.  在显示窗格中，选择要删除的保护组成员。 右键单击并选择“停止对组成员的保护”选项。 
-3.  在“停止保护”对话框中选择“删除受保护的数据”，并选中“删除在线存储”复选框。    然后选择“停止保护”。 
+1. 打开 DPM 管理员控制台，在导航栏中选择“保护”  。
+2. 在显示窗格中，选择要删除的保护组成员。 右键单击并选择“停止对组成员的保护”选项。 
+3. 在“停止保护”对话框中选择“删除受保护的数据”，并选中“删除在线存储”复选框。    然后选择“停止保护”。 
 
     ![在“停止保护”窗格中选择“删除受保护的数据”。](./media/backup-azure-delete-vault/delete-storage-online.png)
 
@@ -159,12 +156,12 @@ ms.locfileid: "73730564"
     ![删除在线存储。](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
 #### <a name="method-2"></a>方法 2
+
 打开 **MABS 管理**控制台。 在“选择数据保护方法”下，清除“我需要在线保护”复选框。  
 
   ![选择数据保护方法。](./media/backup-azure-delete-vault/data-protection-method.png)
 
 删除本地备份项后，遵循门户中的后续步骤。
-
 
 ## <a name="delete-the-recovery-services-vault"></a>删除恢复服务保管库
 
@@ -186,71 +183,73 @@ ms.locfileid: "73730564"
 - 如果在 Azure VM 备份中使用 SQL 并为 SQL 实例启用了自动保护，请先禁用自动保护。
 
     ```PowerShell
-        Disable-AzRecoveryServicesBackupAutoProtection 
-           [-InputItem] <ProtectableItemBase> 
-           [-BackupManagementType] <BackupManagementType> 
-           [-WorkloadType] <WorkloadType> 
-           [-PassThru] 
-           [-VaultId <String>] 
-           [-DefaultProfile <IAzureContextContainer>] 
-           [-WhatIf] 
-           [-Confirm] 
-           [<CommonParameters>] 
+        Disable-AzRecoveryServicesBackupAutoProtection
+           [-InputItem] <ProtectableItemBase>
+           [-BackupManagementType] <BackupManagementType>
+           [-WorkloadType] <WorkloadType>
+           [-PassThru]
+           [-VaultId <String>]
+           [-DefaultProfile <IAzureContextContainer>]
+           [-WhatIf]
+           [-Confirm]
+           [<CommonParameters>]
     ```
 
-  [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0)如何对 Azure 备份保护的项禁用保护 
+  [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupautoprotection?view=azps-2.6.0)如何对 Azure 备份保护的项禁用保护。
 
 - 停止保护并删除云中所有受备份保护的项的数据（例如 laaS VM、Azure 文件共享等）：
 
     ```PowerShell
-       Disable-AzRecoveryServicesBackupProtection 
-       [-Item] <ItemBase> 
-       [-RemoveRecoveryPoints] 
-       [-Force] 
-       [-VaultId <String>] 
-       [-DefaultProfile <IAzureContextContainer>] 
-       [-WhatIf] 
-       [-Confirm] 
-       [<CommonParameters>] 
+       Disable-AzRecoveryServicesBackupProtection
+       [-Item] <ItemBase>
+       [-RemoveRecoveryPoints]
+       [-Force]
+       [-VaultId <String>]
+       [-DefaultProfile <IAzureContextContainer>]
+       [-WhatIf]
+       [-Confirm]
+       [<CommonParameters>]
     ```
-    [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)如何对备份保护的项禁用保护。 
+
+    [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0)如何对备份保护的项禁用保护。
 
 - 对于使用 Azure 备份代理 (MARS) 备份到 Azure 的受保护本地文件和文件夹，请使用以下 PowerShell 命令从每个 MARS PowerShell 模块中删除备份的数据：
 
-    ```
+    ```powershell
     Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
     然后，将显示以下提示：
-     
-    *Microsoft Azure 备份。确实要删除此备份策略吗?删除的备份数据会保留 14 天。之后，备份数据将永久删除。<br/> [Y] 是 [A] 全部为“是”[N] 否 [L] 全部为“否”[S] 暂停 [?] 帮助(默认选项为“Y”):*
 
+    *Microsoft Azure 备份。确实要删除此备份策略吗?删除的备份数据会保留 14 天。之后，备份数据将永久删除。<br/> [Y] 是 [A] 全部为“是”[N] 否 [L] 全部为“否”[S] 暂停 [?] 帮助(默认选项为“Y”):*
 
 - 对于使用 MABS（Microsoft Azure 备份服务器）或 DPM (System Center Data Protection Manager) 在 Azure 中进行保护的本地计算机，请使用以下命令删除 Azure 中的备份数据。
 
-    ```
-    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin> 
+    ```powershell
+    Get-OBPolicy | Remove-OBPolicy -DeleteBackup -SecurityPIN <Security Pin>
     ```
 
-    然后，将显示以下提示： 
-         
-   *Microsoft Azure 备份。确实要删除此备份策略吗?删除的备份数据会保留 14 天。之后，备份数据将永久删除。<br/> [Y] 是 [A] 全部为“是”[N] 否 [L] 全部为“否”[S] 暂停 [?] 帮助(默认选项为“Y”):*
+    然后，将显示以下提示：
 
-删除备份的数据后，取消注册所有本地容器和管理服务器。 
+   Microsoft Azure 备份  确实要删除此备份策略吗? 删除的备份数据会保留 14 天。 该时间过后，备份数据会被永久删除。 <br/>
+   [Y] 是 [A] 全部是 [N] 否 [L] 全部否 [S] 暂停  [?] 帮助 (默认值为 "Y"):*
+
+删除备份的数据后，取消注册所有本地容器和管理服务器。
 
 - 对于使用 Azure 备份代理 (MARS) 备份到 Azure 的受保护本地文件和文件夹：
 
     ```PowerShell
-    Unregister-AzRecoveryServicesBackupContainer 
-              [-Container] <ContainerBase> 
-              [-PassThru] 
-              [-VaultId <String>] 
-              [-DefaultProfile <IAzureContextContainer>] 
-              [-WhatIf] 
-              [-Confirm] 
-              [<CommonParameters>] 
+    Unregister-AzRecoveryServicesBackupContainer
+              [-Container] <ContainerBase>
+              [-PassThru]
+              [-VaultId <String>]
+              [-DefaultProfile <IAzureContextContainer>]
+              [-WhatIf]
+              [-Confirm]
+              [<CommonParameters>]
     ```
-    [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0)如何从保管库中取消注册 Windows 服务器或其他容器。 
+
+    [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0)如何从保管库中取消注册 Windows 服务器或其他容器。
 
 - 对于使用 MABS（Microsoft Azure 备份服务器）或 DPM (System Center Data Protection Manager) 在 Azure 中进行保护的本地计算机：
 
@@ -267,57 +266,57 @@ ms.locfileid: "73730564"
 
     [详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/unregister-azrecoveryservicesbackupcontainer?view=azps-2.6.0)如何从保管库中取消注册备份管理容器。
 
-永久删除备份的数据并取消注册所有容器后，继续删除保管库。 
+永久删除备份的数据并取消注册所有容器后，继续删除保管库。
 
-若要强制删除恢复服务保管库，请执行以下操作： 
+若要强制删除恢复服务保管库，请执行以下操作：
 
    ```PowerShell
-       Remove-AzRecoveryServicesVault 
-      -Vault <ARSVault> 
-      [-DefaultProfile <IAzureContextContainer>] 
-      [-WhatIf] 
-      [-Confirm] 
-      [<CommonParameters>]        
+       Remove-AzRecoveryServicesVault
+      -Vault <ARSVault>
+      [-DefaultProfile <IAzureContextContainer>]
+      [-WhatIf]
+      [-Confirm]
+      [<CommonParameters>]
    ```
 
-[详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)如何删除恢复服务保管库。 
+[详细了解](https://docs.microsoft.com/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault)如何删除恢复服务保管库。
 
 ## <a name="delete-the-recovery-services-vault-by-using-cli"></a>使用 CLI 删除恢复服务保管库
 
 首先，请阅读 **[开始之前](#before-you-start)** 部分，以了解依赖项和保管库删除过程。
 
 > [!NOTE]
-> 目前，Azure 备份 CLI 仅支持管理 Azure VM 备份，因此，仅当保管库包含 Azure VM 备份时，以下命令才能删除保管库。 如果保管库包含非 Azure VM 类型的任何备份项，则无法使用 Azure 备份 CLI 删除该保管库。 
+> 目前，Azure 备份 CLI 仅支持管理 Azure VM 备份，因此，仅当保管库包含 Azure VM 备份时，以下命令才能删除保管库。 如果保管库包含非 Azure VM 类型的任何备份项，则无法使用 Azure 备份 CLI 删除该保管库。
 
-若要删除现有的恢复服务保管库，请执行以下命令： 
+若要删除现有的恢复服务保管库，请执行以下命令：
 
-- 停止保护并删除备份数据 
-
-    ```CLI
-    az backup protection disable --container-name 
-                             --item-name 
-                             [--delete-backup-data {false, true}] 
-                             [--ids] 
-                             [--resource-group] 
-                             [--subscription] 
-                             [--vault-name] 
-                             [--yes] 
-    ```
-
-    有关详细信息，请参阅 [此文](/cli/azure/backup/protection#az-backup-protection-disable)。 
-
-- 删除现有的恢复服务保管库： 
+- 停止保护并删除备份数据
 
     ```CLI
-    az backup vault delete [--force] 
-                       [--ids] 
-                       [--name] 
-                       [--resource-group] 
-                       [--subscription] 
-                       [--yes] 
+    az backup protection disable --container-name
+                             --item-name
+                             [--delete-backup-data {false, true}]
+                             [--ids]
+                             [--resource-group]
+                             [--subscription]
+                             [--vault-name]
+                             [--yes]
     ```
 
-    有关详细信息，请参阅 [此文](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest) 
+    有关详细信息，请参阅 [此文](/cli/azure/backup/protection#az-backup-protection-disable)。
+
+- 删除现有的恢复服务保管库：
+
+    ```CLI
+    az backup vault delete [--force]
+                       [--ids]
+                       [--name]
+                       [--resource-group]
+                       [--subscription]
+                       [--yes]
+    ```
+
+    有关详细信息，请参阅 [此文](https://docs.microsoft.com/cli/azure/backup/vault?view=azure-cli-latest)
 
 ## <a name="delete-the-recovery-services-vault-by-using-azure-resource-manager"></a>使用 Azure 资源管理器删除恢复服务保管库
 
@@ -345,6 +344,7 @@ ms.locfileid: "73730564"
    ```azurepowershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
+
 2. 如果保管库不为空，将出现以下错误消息：“由于此保管库中存在现有资源，因此无法删除此保管库。”  若要删除保管库中受保护的项或容器，请运行以下命令：
 
    ```azurepowershell
@@ -352,7 +352,6 @@ ms.locfileid: "73730564"
    ```
 
 3. 在 Azure 门户中，确保已删除该保管库。
-
 
 ## <a name="next-steps"></a>后续步骤
 

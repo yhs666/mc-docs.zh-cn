@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/14/2019
 ms.date: 07/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6392bfa88245197412730ba79f0963c1c739cbcf
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ab67a8722182142d57e49639cb42b9e85a208051
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730038"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527913"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>管理并维护 Windows 和 Linux 的 Log Analytics 代理
 
@@ -95,7 +95,7 @@ ms.locfileid: "73730038"
 2. 打开“控制面板” 
 3. 选择“Microsoft Monitoring Agent”，然后单击“Azure Log Analytics”选项卡   。
 4. 若要删除工作区，请选中该工作区，然后单击“删除”  。 如果还需代理停止向任何其他工作区报告，请重复此步骤。
-5. 若要添加工作区，请单击“添加”，然后在“添加 Log Analytics 工作区”对话框中粘贴工作区 ID 和工作区密钥（主密钥）   。 如果计算机应向 Azure China Cloud 云中的 Log Analytics 工作区报告，请从“Azure 云”下拉列表中选择“Azure 美国政府”。
+5. 若要添加工作区，请单击“添加”，然后在“添加 Log Analytics 工作区”对话框中粘贴工作区 ID 和工作区密钥（主密钥）   。 如果计算机应向 Azure 中国云中的 Log Analytics 工作区报告，请从“Azure 云”下拉列表中选择“Azure 中国政府”。
 6.  单击“确定”以保存你的更改。
 
 #### <a name="remove-a-workspace-using-powershell"></a>使用 PowerShell 删除工作区
@@ -117,7 +117,7 @@ $mma.AddCloudWorkspace($workspaceId, $workspaceKey)
 $mma.ReloadConfiguration()
 ```
 
-#### <a name="add-a-workspace-in-azure-for-us-government-using-powershell"></a>使用 PowerShell 在 Azure 美国政府版中添加工作区
+#### <a name="add-a-workspace-in-azure-for-china-government-using-powershell"></a>使用 PowerShell 在 Azure 中国政府版中添加工作区
 
 ```powershell
 $workspaceId = "<Your workspace Id>"

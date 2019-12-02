@@ -1,30 +1,34 @@
 ---
-title: Azure 备份服务器和 DPM 常见问题解答
-description: 针对以下常见问题的解答：Azure 备份服务器和 DPM。
+title: Azure 备份服务器和 DPM (Data Protection Manager) 常见问题解答
+description: 本文解答有关 Microsoft Azure 备份服务器 (MABS) 和 DPM 的常见问题。
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 origin.date: 09/20/2019
-ms.date: 07/05/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3f824e0bb537f78b32f9290f8a37792b79f6aea7
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 4bb99686b4bb92657f2af04ab40523f28f54cee7
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730279"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528382"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure 备份服务器和 DPM - 常见问题解答
+
+## <a name="general-questions"></a>一般问题
+
 本文解答有关 Azure 备份服务器和 DPM 的常见问题。
 
-### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server-br"></a>是否可以使用 Azure 备份服务器为物理服务器创建裸机恢复 (BMR) 备份？ <br/>
+### <a name="can-i-use-azure-backup-server-to-create-a-bare-metal-recovery-bmr-backup-for-a-physical-server"></a>是否可以使用 Azure 备份服务器为物理服务器创建裸机恢复 (BMR) 备份？
+
 是的。
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>是否可以向多个保管库注册服务器？
-否。 一个 DPM 或 Azure 备份服务器只能注册到一个保管库。
 
+否。 一个 DPM 或 Azure 备份服务器只能注册到一个保管库。
 
 ### <a name="can-i-use-dpm-to-back-up-apps-in-azure-stack"></a>可以使用 DPM 来备份 Azure Stack 中的应用吗？
 否。 可以使用 Azure 备份来保护 Azure Stack，但 Azure 备份不支持使用 DPM 来备份 Azure Stack 中的应用。
@@ -44,11 +48,11 @@ ms.locfileid: "73730279"
 - [请按照下列步骤](backup-azure-backup-server-vmware.md)备份 VMware 服务器。
 
 ### <a name="do-i-need-a-separate-license-to-recover-a-full-on-premises-vmwarehyper-v-cluster"></a>是否需要单独的许可证才能恢复完整的本地 VMware/Hyper-V 群集？
+
 不需要单独的 VMware/Hyper-V 保护许可。
 
 - 如果你是 System Center 客户，使用 System Center Data Protection Manager (DPM) 来保护 VMware VM。
 - 如果不是 System Center 客户，可以使用 Azure 备份服务器（即用即付）来保护 VMware VM。
-
 
 ## <a name="sharepoint"></a>SharePoint
 

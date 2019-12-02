@@ -1,24 +1,21 @@
 ---
-title: 用于 Azure 部署的链接模板 | Azure
+title: 用于部署的链接模板
 description: 介绍如何使用 Azure Resource Manager 模板中的链接模板创建一个模块化的模板的解决方案。 演示如何传递参数值、指定参数文件和动态创建的 URL。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/17/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 6c750efbc3ed555339ad05ac92c7c9f4932fa145
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 10/02/2019
+ms.date: 11/25/2019
+ms.openlocfilehash: 5f26c8b6e264df935d31999c207535fb3f989ff7
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156093"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389596"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>部署 Azure 资源时使用链接模版和嵌套模版
 
 若要部署解决方案，可以使用单个模板或包含任意相关模板的主模板。 相关模板可以是从主模板链接到的单独文件，也可以是嵌套在主模板中的模板。
 
-对于中小型解决方案，单个模板更易于理解和维护。 可以查看单个文件中的所有资源和值。 对于高级方案，使用链接模板可将解决方案分解为目标组件，并重复使用模板。
+对于中小型解决方案，单个模板更易于理解和维护。 可以查看单个文件中的所有资源和值。 对于高级方案，使用链接模板可将解决方案分解为目标组件。 可以轻松地将这些模板重复用于其他方案。
 
 使用链接模板时，需创建一个用于在部署期间接收参数值的主模板。 主模板包含所有链接模板，并根据需要将值传递给这些模板。
 
@@ -28,7 +25,7 @@ ms.locfileid: "71156093"
 > 对于链接模板或嵌套模板，只能使用[增量](deployment-modes.md)部署模式。
 >
 
-## <a name="link-or-nest-a-template"></a>链接或嵌套模板
+## <a name="deployments-resource"></a>部署资源
 
 若要链接到另一个模板，请将一个**部署**资源添加到主模板。
 
@@ -48,7 +45,7 @@ ms.locfileid: "71156093"
 
 为部署资源提供的属性将因要链接到外部模板，还是要将内联模板嵌套在主模板中而异。
 
-### <a name="nested-template"></a>嵌套模板
+## <a name="nested-template"></a>嵌套模板
 
 若要将模板嵌套在主模板中，请使用 **template** 属性并指定模板语法。
 
@@ -95,9 +92,17 @@ ms.locfileid: "71156093"
 
 嵌套模板需要与标准模板[相同的属性](resource-group-authoring-templates.md)。
 
-### <a name="external-template-and-external-parameters"></a>外部模板和外部参数
+## <a name="external-template"></a>外部模板
 
-若要链接到外部模板和参数文件，请使用 **templateLink** 和 **parametersLink**。 链接到某个模板时，资源管理器服务必须能够访问该模板。 不能指定本地文件，或者只能在本地网络中使用的文件。 只能提供包含 **http** 或 **https** 的 URI 值。 一种做法是将链接模板放入存储帐户，并对该项使用 URI。
+若要链接到外部模板，请使用 **templateLink** 属性。 不能指定本地文件，或者只能在本地网络中使用的文件。 只能提供包含 **http** 或 **https** 的 URI 值。 资源管理器必须能够访问模板。
+
+一种做法是将链接模板放入存储帐户，并对该项使用 URI。
+
+可以在外部文件中或以内联方式为外部模板提供参数。
+
+### <a name="external-parameters"></a>外部参数
+
+提供外部参数文件时，请使用 **parametersLink** 属性：
 
 ```json
 "resources": [
@@ -106,15 +111,15 @@ ms.locfileid: "71156093"
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.chinacloudapi.cn/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -122,11 +127,11 @@ ms.locfileid: "71156093"
 
 无需为模板或参数提供 `contentVersion` 属性。 如果未提供内容版本值，将部署模板的当前版本。 如果提供内容版本值，它必须与链接的模板中的版本相匹配；否则，部署失败并产生错误。
 
-### <a name="external-template-and-inline-parameters"></a>外部模板和内联参数
+### <a name="inline-parameters"></a>内联参数。
 
 或者，可以提供内联参数。 不能同时使用内联参数和指向参数文件的链接。 同时指定 `parametersLink` 和 `parameters` 时，部署将失败，并出现错误。
 
-若要将值从主模板传递给链接模板，请使用**参数**。
+若要将值从主模板传递给链接模板，请使用 **parameters** 属性。
 
 ```json
 "resources": [
@@ -141,6 +146,7 @@ ms.locfileid: "71156093"
           "contentVersion":"1.0.0.0"
        },
        "parameters": {
+          "storageAccountEndPoint": "https://core.chinacloudapi.cn/",
           "StorageAccountName":{"value": "[parameters('StorageAccountName')]"}
         }
      }
@@ -562,4 +568,4 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 * 若要了解如何定义一个资源而创建多个实例，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。
 * 有关在存储帐户中设置模板和生成 SAS 令牌的步骤，请参阅[使用 Resource Manager 模板和 Azure PowerShell 部署资源](resource-group-template-deploy.md)或[使用 Resource Manager 模板和 Azure CLI 部署资源](resource-group-template-deploy-cli.md)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

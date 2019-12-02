@@ -9,48 +9,48 @@ editor: ''
 ms.assetid: 53dfd236-97f1-4778-b376-be91aa14b842
 ms.service: service-bus-relay
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 11/01/2018
-ms.date: 11/26/2018
+origin.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 732994c37222175abbd2c912a61b9170065eea46
-ms.sourcegitcommit: 68f7c41974143a8f7bd9b7a54acf41c09893e587
+ms.openlocfilehash: bc43753fd21461efc87f0c1c0e1f95abf87f1486
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332181"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528349"
 ---
-# <a name="expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>使用 Azure WCF 中继向外部客户端公开本地 WCF REST 服务
+# <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>教程：使用 Azure WCF 中继向外部客户端公开本地 WCF REST 服务
 
-本教程介绍如何使用 Azure 中继功能构建简单的 WCF 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
+本教程介绍如何使用 Azure 中继功能构建 WCF 中继客户端应用程序和服务。 有关使用[服务总线消息传送](../service-bus-messaging/service-bus-messaging-overview.md)的类似教程，请参阅[服务总线队列入门](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)。
 
-通过此教程，可以了解创建 WCF 中继客户端和服务应用程序所需的步骤。 正如原始的 WCF，服务是公开一个或多个终结点的构造，其中每个终结点都公开一个或多个服务操作。 服务的终结点用于指定可在其中找到服务的地址、包含客户端必须与服务进行通信的信息的绑定，以及定义服务向其客户端提供的功能的协定。 WCF 和 WCF 中继之间的主要区别在于：终结点在云中公开，而不是在本地计算机中公开。
+通过此教程，可以了解创建 WCF 中继客户端和服务应用程序的步骤。 正如原始的 WCF，服务是公开一个或多个终结点的构造。 每个终结点公开一个或多个服务操作。 服务的终结点用于指定可在其中找到服务的地址、包含客户端必须与服务进行通信的信息的绑定，以及定义服务向其客户端提供的功能的协定。 WCF 和 WCF 中继之间的主要区别在于：终结点在云中公开，而不是在本地计算机中公开。
 
-完成本教程中的一系列主题后，将具有一项正在运行的服务和可以调用服务操作的客户端。 第一个主题描述了如何设置帐户。 后续步骤描述了如何定义使用协定的服务、如何实现服务，以及如何使用代码配置该服务。 这些主题还描述了如何托管和运行该服务。 创建的服务是自托管的，并且客户端和服务在同一台计算机上运行。 可以通过使用代码或配置文件配置服务。
+按顺序完成本教程的每个部分后，你将获得一个正常运行的服务。 此外，你还会获得一个可以调用服务操作的客户端。 
 
-最后三个步骤介绍如何创建客户端应用程序、如何配置客户端应用程序，以及如何创建和使用可以访问主机功能的客户端。
-
-在本教程中，你将执行以下步骤：
+在本教程中，你将执行以下任务：
 
 > [!div class="checklist"]
+>
+> * 安装本教程的必备组件。
 > * 创建中继命名空间。
-> * 创建 WCF 服务协定
-> * 实现 WCF 协定
-> * 托管并运行 WCF 服务以向中继服务注册
-> * 创建服务协定的 WCF 客户端
-> * 配置 WCF 客户端
-> * 实现 WCF 客户端
-> * 运行应用程序。 
+> * 创建 WCF 服务协定。
+> * 实现 WCF 协定。
+> * 托管并运行 WCF 服务以向中继服务注册。
+> * 创建服务协定的 WCF 客户端。
+> * 配置 WCF 客户端。
+> * 实现 WCF 客户端。
+> * 运行应用程序。
 
 ## <a name="prerequisites"></a>先决条件
 
 若要完成本教程，需要满足以下先决条件：
 
-- Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- [Visual Studio 2015 或更高版本](http://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2017。
-- 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://www.azure.cn/downloads/)安装它。
+* Azure 订阅。 如果没有订阅，请在开始之前[创建一个试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* [Visual Studio 2015 或更高版本](https://www.visualstudio.com)。 本教程中的示例使用 Visual Studio 2019。
+* 用于 .NET 的 Azure SDK。 从 [SDK 下载页](https://www.azure.cn/downloads/)安装它。
 
 ## <a name="create-a-relay-namespace"></a>创建中继命名空间
 第一步是创建命名空间并获取[共享访问签名 (SAS)](../service-bus-messaging/service-bus-sas.md) 密钥。 命名空间为每个通过中继服务公开的应用程序提供应用程序边界。 创建服务命名空间时，系统自动生成 SAS 密钥。 服务命名空间与 SAS 密钥的组合为 Azure 提供了用于验证应用程序访问权限的凭据。
@@ -58,34 +58,38 @@ ms.locfileid: "68332181"
 [!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
 
 ## <a name="define-a-wcf-service-contract"></a>定义 WCF 服务协定
-此服务协定指定服务支持的操作（方法或函数的 Web 服务术语）。 约定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性应用于每个接口，并且必须将 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性应用于每个操作。 如果具有 [ServiceContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicecontractattribute.aspx) 属性的接口中的方法没有 [OperationContractAttribute](https://msdn.microsoft.com/library/system.servicemodel.operationcontractattribute.aspx) 属性，则该方法是不公开的。 该过程后面的示例中提供了这些任务的代码。 有关协定和服务的更多讨论，请参阅 WCF 文档中的 [设计和实现服务](https://msdn.microsoft.com/library/ms729746.aspx) 。
+
+服务协定指定服务支持的操作。 操作是 Web 服务方法或函数。 约定通过定义 C++、C# 或 Visual Basic 接口来创建。 接口中的每个方法都对应一个特定的服务操作。 必须将 [ServiceContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicecontractattribute) 属性应用于每个接口，并且必须将 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 属性应用于每个操作。 如果具有 [ServiceContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicecontractattribute) 属性的接口中的方法没有 [OperationContractAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.operationcontractattribute) 属性，则该方法是不公开的。 该过程后面的示例中提供了这些任务的代码。 有关协定和服务的更多讨论，请参阅[设计和实现服务](https://docs.microsoft.com/dotnet/framework/wcf/designing-and-implementing-services)。
 
 ### <a name="create-a-relay-contract-with-an-interface"></a>使用接口创建中继协定
 
-1. 在“开始”菜单中右键单击 Visual Studio，以便以管理员身份启动该程序，然后选择“以管理员身份运行”。
-2. 创建新的控制台应用程序项目。 单击“文件”菜单并选择“新建”，然后单击“项目”。 在“新建项目”对话框中，单击“Visual C#”（如果“Visual C#”未出现，则在“其他语言”下方查看）。 单击“控制台应用(.NET Framework)”模板，并将其命名为 **EchoService**。 单击“确定”以创建该项目  。
+1. 以管理员身份启动 Microsoft Visual Studio。 为此，请右键单击 Visual Studio 程序图标，并选择“以管理员身份运行”  。
+1. 在 Visual Studio 中选择“创建新项目”  。
+1. 在“创建新项目”中，选择适用于 C# 的“控制台应用(.NET Framework)”，然后选择“下一步”。   
+1. 将项目命名为 *EchoService* 并选择“创建”  。
 
     ![创建控制台应用][2]
 
-3. 安装服务总线 NuGet 包。 该包自动添加对服务总线库和 WCF **System.ServiceModel**的引用。 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 是用于以编程方式访问 WCF 基本功能的命名空间。 服务总线使用 WCF 的许多对象和属性来定义服务约定。
-
-    在解决方案资源管理器中右键单击该项目，然后单击“管理 NuGet 包...”。单击“浏览”选项卡，然后搜索“WindowsAzure.ServiceBus”。 确保在“版本”  框中选定项目名称。 单击“安装” 并接受使用条款。
+1. 在“解决方案资源管理器”  中，右键单击项目，并选择“管理 NuGet 包”  。 在“NuGet 包管理器”中选择“浏览”，然后搜索并选择“WindowsAzure.ServiceBus”。    选择“安装”  并接受使用条款。
 
     ![服务总线包][3]
-4. 在解决方案资源管理器中，双击 Program.cs 文件以在编辑器中将其打开（如果尚未打开）。
-5. 在文件的顶部添加以下 using 语句：
+
+   该包自动添加对服务总线库和 WCF `System.ServiceModel` 的引用。 [System.ServiceModel](https://docs.microsoft.com/dotnet/api/system.servicemodel) 是用于以编程方式访问 WCF 基本功能的命名空间。 服务总线使用 WCF 的许多对象和属性来定义服务约定。
+
+1. 在 *Program.cs* 顶部添加以下 `using` 语句：
 
     ```csharp
     using System.ServiceModel;
     using Microsoft.ServiceBus;
     ```
-6. 将命名空间的默认名称 **EchoService** 更改为 **Microsoft.ServiceBus.Samples**。
+
+1. 将命名空间名称从其默认名称 `EchoService` 更改为 `Microsoft.ServiceBus.Samples`。
 
    > [!IMPORTANT]
-   > 本教程使用 C# 命名空间 **Microsoft.ServiceBus.Samples**，它是基于协定的管理类型的命名空间，此类型在[配置 WCF 客户端](#configure-the-wcf-client)步骤中的配置文件内使用。 在构建此示例时，可以指定任何想要的命名空间，在配置文件中修改了协定以及相应服务的命名空间后，本教程才会生效。 在 App.config 文件中指定的命名空间必须与在 C# 文件中指定的命名空间相同。
+   > 本教程使用 C# 命名空间 `Microsoft.ServiceBus.Samples`，它是基于协定的管理类型的命名空间，此类型用于[配置 WCF 客户端](#configure-the-wcf-client)部分中的配置文件。 在生成此示例时，可以指定所需的任何命名空间。 但是，只有在应用程序配置文件中相应地修改协定和服务的命名空间之后，本教程才会生效。 在 *App.config* 文件中指定的命名空间必须与在 C# 文件中指定的命名空间相同。
    >
-   >
-7. 直接在 `Microsoft.ServiceBus.Samples` 命名空间声明后面（但在命名空间内）定义一个名为 `IEchoContract` 的新接口，然后将 `ServiceContractAttribute` 属性应用于该接口，命名空间值为 `https://samples.microsoft.com/ServiceModel/Relay/`。 该命名空间值不同于在整个代码范围内使用的命名空间。 相反，该命名空间值将用作此协定的唯一标识符。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。 在命名空间声明的后面粘贴以下代码：
+
+1. 直接在 `Microsoft.ServiceBus.Samples` 命名空间声明后面（但在命名空间内）定义一个名为 `IEchoContract` 的新接口，然后将 `ServiceContractAttribute` 属性应用于该接口，命名空间值为 `https://samples.microsoft.com/ServiceModel/Relay/`。 在命名空间声明的后面粘贴以下代码：
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -94,26 +98,30 @@ ms.locfileid: "68332181"
     }
     ```
 
+    该命名空间值不同于在整个代码范围内使用的命名空间。 相反，该命名空间值将用作此协定的唯一标识符。 显式指定命名空间可防止将默认的命名空间值添加到约定名称中。
+
    > [!NOTE]
-   > 通常情况下，服务协定命名空间包含一个包括版本信息的命名方案。 服务协定命名空间中包括的版本信息可以使服务通过将新服务协定定义为新命名空间并将其公开到新的终结点上，来隔离重大更改。 以这种方式，客户端可以继续使用旧的服务协定，而无需进行更新。 版本信息可能包含日期或内部版本号。 有关详细信息，请参阅 [服务版本控制](https://go.microsoft.com/fwlink/?LinkID=180498)。 鉴于此教程的目的，服务协定命名空间的命名方案不包含版本信息。
+   > 通常情况下，服务协定命名空间包含一个包括版本信息的命名方案。 服务协定命名空间中包括的版本信息可以使服务通过将新服务协定定义为新命名空间并将其公开到新的终结点上，来隔离重大更改。 以这种方式，客户端可以继续使用旧的服务协定，而无需进行更新。 版本信息可能包含日期或内部版本号。 有关详细信息，请参阅 [服务版本控制](https://docs.microsoft.com/dotnet/framework/wcf/service-versioning)。 对于本教程，服务协定命名空间的命名方案不包含版本信息。
    >
-   >
-8. 在 `IEchoContract` 接口中，为 `IEchoContract` 协定在接口中公开的单个操作声明一个方法，然后将 `OperationContractAttribute` 属性应用到你希望将其作为公共 WCF 中继协定的一部分进行公开的方法中，如下所示：
+
+1. 在 `IEchoContract` 接口中，为 `IEchoContract` 协定在接口中公开的单个操作声明一个方法，然后将 `OperationContractAttribute` 属性应用到你希望将其作为公共 WCF 中继协定的一部分进行公开的方法中，如下所示：
 
     ```csharp
     [OperationContract]
     string Echo(string text);
     ```
-9. 直接在 `IEchoContract` 接口定义之后声明从 `IEchoContract` 中继承并同样继承到 `IClientChannel` 接口的通道，如下所示：
+
+1. 直接在 `IEchoContract` 接口定义之后声明从 `IEchoContract` 中继承并同样继承到 `IClientChannel` 接口的通道，如下所示：
 
     ```csharp
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
 
     通道是主机和客户端用来互相传递信息的 WCF 对象。 随后，将针对通道编写代码，以在两个应用程序之间回显信息。
-10. 在“生成”菜单中，单击“生成解决方案”或按 **Ctrl+Shift+B** 以确认到目前为止操作的准确性。
 
-### <a name="example"></a>示例
+1. 选择“生成” > “生成解决方案”，或按 Ctrl+Shift+B 以确认到目前为止操作的准确性   。
+
+### <a name="example-of-a-wcf-contract"></a>WCF 协定的示例
 
 以下代码显示了定义 WCF 中继协定的基本接口。
 
@@ -144,7 +152,8 @@ namespace Microsoft.ServiceBus.Samples
 既然已创建接口，可以实现该接口。
 
 ## <a name="implement-the-wcf-contract"></a>实现 WCF 协定
-创建 Azure 中继首先需要创建使用接口定义的协定。 有关创建接口的详细信息，请参阅上一步。 下一步是实现该接口。 此步骤包括创建名为 `EchoService` 的类，用于实现用户定义的 `IEchoContract` 接口。 实现接口后，即可使用 App.config 配置文件配置接口。 该配置文件包含应用程序所需的信息，如服务的名称、协定的名称，以及用来与中继服务通信的协议类型。 该过程后面的示例中提供了这些任务所用的代码。 有关如何实现服务协定的更多常规讨论，请参阅 WCF 文档中的 [实现服务协定](https://msdn.microsoft.com/library/ms733764.aspx) 。
+
+创建 Azure 中继首先需要使用接口创建协定。 有关创建接口的详细信息，请参阅上一部分。 下一个过程实现接口。 此任务包括创建名为 `EchoService` 的类，用于实现用户定义的 `IEchoContract` 接口。 实现接口后，即可使用 *App.config* 配置文件配置接口。 配置文件包含应用程序所需的信息。 此信息包括服务的名称、协定的名称，以及用来与中继服务通信的协议类型。 该过程后面的示例中提供了这些任务所用的代码。 有关如何实现服务协定的更多常规讨论，请参阅[实现服务协定](https://docs.microsoft.com/dotnet/framework/wcf/implementing-service-contracts)。
 
 1. 紧随 `IEchoContract` 接口定义之后，创建名为 `EchoService` 的新类。 `EchoService` 类实现 `IEchoContract` 接口。
 
@@ -154,8 +163,9 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
 
-    与其他接口实现类似，可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main` 方法所在的文件相同。
-2. 将 [ServiceBehaviorAttribute](https://msdn.microsoft.com/library/system.servicemodel.servicebehaviorattribute.aspx) 属性应用于 `IEchoContract` 接口。 该属性指定服务名称和命名空间。 完成后， `EchoService` 类将如下所示：
+    与其他接口实现类似，可以在另一个文件中实现定义。 但是，在本教程中，实现所在的文件与接口定义和 `Main()` 方法所在的文件相同。
+
+1. 将 [ServiceBehaviorAttribute](https://docs.microsoft.com/dotnet/api/system.servicemodel.servicebehaviorattribute) 属性应用于 `IEchoContract` 接口。 该属性指定服务名称和命名空间。 完成后， `EchoService` 类将如下所示：
 
     ```csharp
     [ServiceBehavior(Name = "EchoService", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -163,7 +173,8 @@ namespace Microsoft.ServiceBus.Samples
     {
     }
     ```
-3. 在 `EchoService` 类中，实现 `IEchoContract` 接口中定义的 `Echo` 方法。
+
+1. 在 `EchoService` 类中，实现 `IEchoContract` 接口中定义的 `Echo` 方法。
 
     ```csharp
     public string Echo(string text)
@@ -172,14 +183,16 @@ namespace Microsoft.ServiceBus.Samples
         return text;
     }
     ```
-4. 单击“生成”，然后单击“生成解决方案”以确认工作的准确性。
+
+1. 选择“生成” > “生成解决方案”，或按 Ctrl+Shift+B   。
 
 ### <a name="define-the-configuration-for-the-service-host"></a>定义服务主机的配置
 
-1. 配置文件非常类似于 WCF 配置文件。 该配置文件包括服务名称、终结点（即，Azure 中继公开的、让客户端和主机相互通信的位置）和绑定（用于通信的协议类型）。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 是由服务定义的绑定之一。
-2. 在**解决方案资源管理器**中，双击 App.config 文件以在 Visual Studio 编辑器中将其打开。
-3. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
-4. 在 `<system.serviceModel>` 标记中，添加 `<services>` 元素。 可以在单个配置文件中定义多个中继应用程序。 但是，本教程只定义一个。
+该配置文件类似于 WCF 配置文件。 其中包括服务名称、终结点和绑定。 终结点是 Azure 中继公开的、让客户端和主机相互通信的位置。 绑定是用于通信的协议类型。 此处的主要差别在于，配置的服务终结点是指 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 绑定，它不是 .NET Framework 的一部分。 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 是由服务定义的绑定之一。
+
+1. 在“解决方案资源管理器”  中，双击“App.config”  在 Visual Studio 编辑器中将其打开。
+1. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
+1. 在 `<system.serviceModel>` 标记中，添加 `<services>` 元素。 可以在单个配置文件中定义多个中继应用程序。 但是，本教程只定义一个。
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -191,22 +204,26 @@ namespace Microsoft.ServiceBus.Samples
       </system.serviceModel>
     </configuration>
     ```
-5. 在 `<services>` 元素中，添加 `<service>` 元素来定义服务名称。
+
+1. 在 `<services>` 元素中，添加 `<service>` 元素来定义服务名称。
 
     ```xml
     <service name="Microsoft.ServiceBus.Samples.EchoService">
     </service>
     ```
-6. 在 `<service>` 元素中，定义终结点协定的位置，以及终结点绑定的类型。
+
+1. 在 `<service>` 元素中，定义终结点协定的位置，以及终结点绑定的类型。
 
     ```xml
     <endpoint contract="Microsoft.ServiceBus.Samples.IEchoContract" binding="netTcpRelayBinding"/>
     ```
 
-    终结点用于定义客户端会在何处查找主机应用程序。 接下来，本教程使用此步骤创建一个通过 Azure 中继完全公开主机的 URI。 绑定声明我们要将 TCP 用作协议，以与中继服务进行通信。
-7. 在“生成”菜单中，单击“生成解决方案”以确认工作的准确性。
+    终结点用于定义客户端会在何处查找主机应用程序。 接下来，本教程使用此步骤创建一个通过 Azure 中继完全公开主机的 URI。 绑定声明我们将 TCP 用作协议，以与中继服务进行通信。
 
-### <a name="example"></a>示例
+1. 选择“生成” > “生成解决方案”，或按 Ctrl+Shift+B 以确认到目前为止操作的准确性   。
+
+### <a name="example-of-implementation-of-a-service-contract"></a>服务协定的实现示例
+
 下面的代码显示服务协定的实现。
 
 ```csharp
@@ -222,7 +239,7 @@ namespace Microsoft.ServiceBus.Samples
     }
 ```
 
-以下代码显示了与该服务主机关联的 App.config 文件的基本格式。
+以下代码显示了与该服务主机关联的 *App.config* 文件的基本格式。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -248,6 +265,7 @@ namespace Microsoft.ServiceBus.Samples
 此步骤介绍如何运行 Azure 中继服务。
 
 ### <a name="create-the-relay-credentials"></a>创建中继凭据
+
 1. 在 `Main()`中，创建两个变量，将命名空间和从控制台窗口中读取的 SAS 密钥存储在其中。
 
     ```csharp
@@ -272,39 +290,43 @@ namespace Microsoft.ServiceBus.Samples
 Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
 ```
 
-"sb" 是服务总线方案的缩写，并指示我们正在使用 TCP 作为协议。 先前当 [NetTcpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.nettcprelaybinding.aspx) 被指定为绑定时，在配置文件中也指示了这一点。
+值“sb”是服务总线方案的缩写。 它指示我们正在使用 TCP 作为协议。 先前当 [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) 被指定为绑定时，在配置文件中也指示了此方案。
 
 对于本教程中，URI 是 `sb://putServiceNamespaceHere.chinacloudapi.cn/EchoService`。
 
 ### <a name="create-and-configure-the-service-host"></a>创建并配置服务主机
-1. 将连接模式设置为 `AutoDetect`
+
+1. 仍在 `Main()` 中，将连接模式设置为 `AutoDetect`。
 
     ```csharp
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
     ```
 
     连接模式描述服务用于与中继服务进行通信的协议；连接模式为 HTTP 或 TCP。 使用默认设置 `AutoDetect`，服务将尝试通过 TCP（如果可用）或 HTTP（如果 TCP 不可用）连接到 Azure 中继。 请注意这与服务为客户端通信指定的协议不同。 为客户端通信指定的协议由所使用的绑定所决定。 例如，服务可以使用 [BasicHttpRelayBinding](https://msdn.microsoft.com/library/microsoft.servicebus.basichttprelaybinding.aspx) 绑定，该绑定指定其终结点通过 HTTP 与客户端通信。 同一个服务可以指定 **ConnectivityMode.AutoDetect**，以便服务通过 TCP 与 Azure 中继通信。
-2. 使用之前在本部分中创建的 URI 创建服务主机。
+1. 使用之前在本部分中创建的 URI 创建服务主机。
 
     ```csharp
     ServiceHost host = new ServiceHost(typeof(EchoService), address);
     ```
 
-    该服务主机是可实例化服务的 WCF 对象。 在这里将传递要创建的服务类型（`EchoService` 类型），以及要公开服务的地址。
-3. 在 Program.cs 文件的顶部，添加对 [System.ServiceModel.Description](https://msdn.microsoft.com/library/system.servicemodel.description.aspx) 和 [Microsoft.ServiceBus.Description](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.description?view=azure-dotnet) 的引用。
+    该服务主机是可实例化服务的 WCF 对象。 在这里传递想要创建的服务类型（`EchoService` 类型），以及想要公开服务的地址。
+
+1. 在 *Program.cs* 文件的顶部，添加对 [System.ServiceModel.Description](https://docs.microsoft.com/dotnet/api/system.servicemodel.description) 和 [Microsoft.ServiceBus.Description](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.description) 的引用。
 
     ```csharp
     using System.ServiceModel.Description;
     using Microsoft.ServiceBus.Description;
     ```
-4. 返回到 `Main()`，配置终结点以启用公开访问。
+
+1. 返回到 `Main()`，配置终结点以启用公开访问。
 
     ```csharp
     IEndpointBehavior serviceRegistrySettings = new ServiceRegistrySettings(DiscoveryType.Public);
     ```
 
-    此步骤告知中继服务，可以通过检查项目的 ATOM 源来公开查找你的应用程序。 如果将 **DiscoveryType** 设置为 **private**，客户端将仍将能够访问该服务。 但是，当搜索中继命名空间时不会显示该服务。 相反，客户端必须事先知道终结点路径。
-5. 将服务凭据应用到 App.config 文件中定义的服务终结点：
+    此步骤告知中继服务可以通过检查项目的 Atom 馈送公开找到应用程序。 如果将 `DiscoveryType` 设置为 `private`，客户端仍可以访问该服务。 但是，当搜索 `Relay` 命名空间时不会显示该服务。 相反，客户端必须事先知道终结点路径。
+
+1. 将服务凭据应用到 *App.config* 文件中定义的服务终结点：
 
     ```csharp
     foreach (ServiceEndpoint endpoint in host.Description.Endpoints)
@@ -314,30 +336,33 @@ Uri address = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "Ec
     }
     ```
 
-    如在上一步中所述，可能已经在配置文件中声明多个服务和终结点。 如果已配置，此代码将遍历配置文件并且搜索可能应用了凭据的每个终结点。 但是，对于本教程中，配置文件只有一个终结点。
+    如前所述，可能已经在配置文件中声明多个服务和终结点。 如果已配置，此代码将遍历配置文件并且搜索可能应用了凭据的每个终结点。 对于本教程，配置文件只有一个终结点。
 
 ### <a name="open-the-service-host"></a>打开服务主机
 
-1. 打开服务。
+1. 仍在 `Main()` 中，添加以下行以打开服务。
 
     ```csharp
     host.Open();
     ```
-2. 通知用户该服务正在运行，并说明如何关闭服务。
+
+1. 通知用户该服务正在运行，并说明如何关闭服务。
 
     ```csharp
     Console.WriteLine("Service address: " + address);
     Console.WriteLine("Press [Enter] to exit");
     Console.ReadLine();
     ```
-3. 完成后，关闭服务主机。
+
+1. 完成后，关闭服务主机。
 
     ```csharp
     host.Close();
     ```
-4. 按 **Ctrl+Shift+B** 生成项目。
 
-### <a name="example"></a>示例
+1. 按 Ctrl+Shift+B 生成项目。
+
+### <a name="example-that-hosts-a-service-in-a-console-application"></a>在控制台应用程序中托管服务的示例
 
 完成的服务代码应如下所示。 该代码包括本教程中前面步骤中使用的服务协定和实现，并将服务托管在控制台应用程序中。
 
@@ -416,25 +441,31 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>创建服务协定的 WCF 客户端
-下一步将创建客户端应用程序，并定义将在后续步骤中实现的服务协定。 请注意，这些步骤中的许多步骤类似于用来创建服务的步骤：定义协定、编辑 App.config 文件、使用凭据连接到中继服务等。 该过程后面的示例中提供了这些任务所用的代码。
 
-1. 通过执行以下操作为客户端通在当前 Visual Studio 解决方案中创建一个新的项目：
+下一任务是创建客户端应用程序，并定义稍后要实现的服务协定。 这些步骤类似于创建服务的步骤：定义协定、编辑 *App.config* 文件、使用凭据连接到中继服务等。 该过程后面的示例中提供了这些任务所用的代码。
 
-   1. 在解决方案资源管理器中，在包含该服务的同一解决方案中，右键单击当前解决方案（不是项目），然后单击“添加”。 然后单击“新建项目”。
-   2. 在“添加新项目”对话框中，单击“Visual C#”（如果未显示“Visual C#”，则在“其他语言”下方查看），然后选择“控制台应用(.NET Framework)”模板，并将其命名为“EchoClient”。
-   3. 单击 **“确定”** 。
-      <br />
-2. 在解决方案资源管理器中，双击 **EchoClient** 项目中的 Program.cs 文件以在编辑器中将其打开（如果尚未打开）。
-3. 将命名空间名称从其默认名称 `EchoClient` 更改为 `Microsoft.ServiceBus.Samples`。
-4. 安装[服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)：在解决方案资源管理器中，右键单击“EchoClient”项目，然后单击“管理 NuGet 包”。 单击“浏览”选项卡，并搜索 `21Vianet Azure Service Bus`。 单击“安装” 并接受使用条款。
+1. 在当前 Visual Studio 解决方案中为客户端创建一个新的项目：
 
-    ![][3]
-5. 为 Program.cs 文件中的 [System.ServiceModel](https://msdn.microsoft.com/library/system.servicemodel.aspx) 命名空间添加 `using` 语句。
+   1. 在“解决方案资源管理器”  中，右键单击当前解决方案（而非项目），并选择“添加”   > “新建项目”  。
+   1. 在“添加新项目”中，选择适用于 C# 的“控制台应用(.NET Framework)”，然后选择“下一步”。   
+   1. 将项目命名为 *EchoClient*，然后选择“创建”。 
+
+1. 在“解决方案资源管理器”中的“EchoClient”项目内，双击“Program.cs”文件以在编辑器中将其打开（如果尚未打开）。   
+1. 将命名空间名称从其默认名称 `EchoClient` 更改为 `Microsoft.ServiceBus.Samples`。
+1. 安装[服务总线 NuGet 包](https://www.nuget.org/packages/WindowsAzure.ServiceBus)：
+
+   1. 在“解决方案资源管理器”中，右键单击“EchoClient”并选择“管理 NuGet 包”    。
+   1. 选择“浏览”，然后搜索并选择“WindowsAzure.ServiceBus”。   选择“安装”  并接受使用条款。
+
+      ![安装服务总线包][4]
+
+1. 为 *Program.cs* 文件中的 [System.ServiceModel](https://docs.microsoft.com/dotnet/api/system.servicemodel) 命名空间添加 `using` 语句。
 
     ```csharp
     using System.ServiceModel;
     ```
-6. 如下面的示例中所示，将服务协定定义添加到命名空间。 请注意，此定义等同于“服务”项目中所使用的定义。 `Microsoft.ServiceBus.Samples` 命名空间的顶部。
+
+1. 如下面的示例中所示，将服务协定定义添加到命名空间。 此定义等同于 **Service** 项目中所使用的定义。 在 `Microsoft.ServiceBus.Samples` 命名空间的顶部添加此代码。
 
     ```csharp
     [ServiceContract(Name = "IEchoContract", Namespace = "https://samples.microsoft.com/ServiceModel/Relay/")]
@@ -446,10 +477,12 @@ namespace Microsoft.ServiceBus.Samples
 
     public interface IEchoChannel : IEchoContract, IClientChannel { }
     ```
-7. 按 **Ctrl+Shift+B** 生成客户端。
 
-### <a name="example"></a>示例
-下面的代码显示了 **EchoClient** 项目中的 Program.cs 文件的当前状态。
+1. 按 Ctrl+Shift+B 生成客户端。
+
+### <a name="example-of-the-echoclient-project"></a>EchoClient 项目的示例
+
+以下代码演示了 **EchoClient** 项目中的 *Program.cs* 文件的当前状态。
 
 ```csharp
 using System;
@@ -479,11 +512,11 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>配置 WCF 客户端
 
-在此步骤中，可以为之前在本教程中创建的访问服务的基本客户端应用程序创建 App.config 文件。 此 App.config 文件用于定义终结点的协定、绑定和名称。 该过程后面的示例中提供了这些任务所用的代码。
+在此步骤中，可以为之前在本教程中创建的访问服务的基本客户端应用程序创建 *App.config* 文件。 此 *App.config* 文件用于定义终结点的协定、绑定和名称。 该过程后面的示例中提供了这些任务所用的代码。
 
-1. 在解决方案资源管理器的 **EchoClient** 项目中，双击“App.config”以在 Visual Studio 编辑器中打开该文件。
-2. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
-3. 在 system.serviceModel 元素中，添加 `<client>` 元素。
+1. 在“解决方案资源管理器”中的“EchoClient”项目内，双击“App.config”以在 Visual Studio 编辑器中打开该文件    。
+1. 在 `<appSettings>` 元素中，将占位符替换为服务命名空间的名称以及在先前步骤中复制的 SAS 密钥。
+1. 在 `system.serviceModel` 元素中添加 `<client>` 元素。
 
     ```xml
     <?xmlversion="1.0"encoding="utf-8"?>
@@ -495,8 +528,9 @@ namespace Microsoft.ServiceBus.Samples
     </configuration>
     ```
 
-    此步骤声明你正在定义一个 WCF 样式的客户端应用程序。
-4. 在 `client` 元素中，定义终结点的名称、协定和绑定类型。
+    此代码声明要定义 WCF 样式的客户端应用程序。
+
+1. 在 `client` 元素中，定义终结点的名称、协定和绑定类型。
 
     ```xml
     <endpoint name="RelayEndpoint"
@@ -504,12 +538,13 @@ namespace Microsoft.ServiceBus.Samples
                     binding="netTcpRelayBinding"/>
     ```
 
-    此步骤定义终结点的名称、服务中定义的协定，以及客户端应用程序使用 TCP 与 Azure 中继进行通信的事实。 终结点名称在下一步中用于将此终结点配置与服务 URI 链接。
-5. 单击“文件”，然后单击“全部保存”。
+    此代码定义终结点的名称。 它还定义服务中定义的协定，以及客户端应用程序使用 TCP 与 Azure 中继进行通信的事实。 终结点名称在下一步中用于将此终结点配置与服务 URI 链接。
 
-### <a name="example"></a>示例
+1. 选择“文件” > “全部保存”。  
 
-下面的代码显示了 Echo 客户端的 App.config 文件。
+### <a name="example-of-the-appconfig-file"></a>App.config 文件的示例
+
+以下代码演示 Echo 客户端的 *App.config* 文件。
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -531,25 +566,28 @@ namespace Microsoft.ServiceBus.Samples
 ```
 
 ## <a name="implement-the-wcf-client"></a>实现 WCF 客户端
-在此步骤中，实现了可访问之前在本教程中创建的服务的基本客户端应用程序。 与服务相似，该客户端执行许多相同的操作访问 Azure 中继：
 
-1. 设置连接模式。
-2. 创建用于定位主机服务的 URI。
-3. 定义安全凭据。
-4. 将凭据应用到连接。
-5. 打开连接。
-6. 执行应用程序特定的任务。
-7. 关闭连接。
+在此部分，实现可访问之前在本教程中创建的服务的基本客户端应用程序。 与服务相似，该客户端执行许多相同的操作访问 Azure 中继：
 
-但是，主要的区别之一在于，客户端应用程序使用通道连接到中继服务，而服务则使用对 **ServiceHost** 的调用。 该过程后面的示例中提供了这些任务所用的代码。
+* 设置连接模式。
+* 创建用于定位主机服务的 URI。
+* 定义安全凭据。
+* 将凭据应用到连接。
+* 打开连接。
+* 执行应用程序特定的任务。
+* 关闭连接。
+
+但是，主要的区别之一在于，客户端应用程序使用通道连接到中继服务。 服务使用对 **ServiceHost** 的调用。 该过程后面的示例中提供了这些任务所用的代码。
 
 ### <a name="implement-a-client-application"></a>实现客户端应用程序
-1. 将连接模式设置为 **AutoDetect**。 在 **EchoClient** 应用程序的 `Main()` 方法中添加以下代码。
+
+1. 将连接模式设置为 `AutoDetect` 在 **EchoClient** 应用程序的 `Main()` 方法中添加以下代码。
 
     ```csharp
     ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
     ```
-2. 定义变量以保存用于服务命名空间的值，以及从控制台读取的 SAS 密钥。
+
+1. 定义变量以保存用于服务命名空间的值，以及从控制台读取的 SAS 密钥。
 
     ```csharp
     Console.Write("Your Service Namespace: ");
@@ -557,36 +595,42 @@ namespace Microsoft.ServiceBus.Samples
     Console.Write("Your SAS Key: ");
     string sasKey = Console.ReadLine();
     ```
-3. 创建用于定义中继项目中主机位置的 URI。
+
+1. 创建用于定义中继项目中主机位置的 URI。
 
     ```csharp
     Uri serviceUri = ServiceBusEnvironment.CreateServiceUri("sb", serviceNamespace, "EchoService");
     ```
-4. 创建服务命名空间终结点的凭据对象。
+
+1. 创建服务命名空间终结点的凭据对象。
 
     ```csharp
     TransportClientEndpointBehavior sasCredential = new TransportClientEndpointBehavior();
     sasCredential.TokenProvider = TokenProvider.CreateSharedAccessSignatureTokenProvider("RootManageSharedAccessKey", sasKey);
     ```
-5. 创建加载在 App.config 文件中所述的配置的通道工厂。
+
+1. 创建加载在 *App.config* 文件中所述的配置的通道工厂。
 
     ```csharp
     ChannelFactory<IEchoChannel> channelFactory = new ChannelFactory<IEchoChannel>("RelayEndpoint", new EndpointAddress(serviceUri));
     ```
 
     通道工厂是创建通道（通过该通道，服务和客户端可以进行通信）的一个 WCF 对象。
-6. 应用凭据。
+
+1. 应用凭据。
 
     ```csharp
     channelFactory.Endpoint.Behaviors.Add(sasCredential);
     ```
-7. 创建并打开服务通道。
+
+1. 创建并打开服务通道。
 
     ```csharp
     IEchoChannel channel = channelFactory.CreateChannel();
     channel.Open();
     ```
-8. 编写用于回显的基本用户界面和功能。
+
+1. 编写用于回显的基本用户界面和功能。
 
     ```csharp
     Console.WriteLine("Enter text to echo (or [Enter] to exit):");
@@ -605,17 +649,18 @@ namespace Microsoft.ServiceBus.Samples
     }
     ```
 
-    请注意，代码使用通道对象的实例作为服务代理。
-9. 关闭通道，并关闭工厂。
+    代码使用通道对象的实例作为服务代理。
+
+1. 关闭通道，并关闭工厂。
 
     ```csharp
     channel.Close();
     channelFactory.Close();
     ```
 
-### <a name="example"></a>示例
+### <a name="example-code-for-this-tutorial"></a>本教程的示例代码
 
-完成的代码应如下所示，演示了如何创建客户端应用程序、如何调用服务操作以及如何在完成操作调用后关闭客户端。
+完成的代码应如下所示。 此代码演示如何创建客户端应用程序、如何调用服务操作以及如何在完成操作调用后关闭客户端。
 
 ```csharp
 using System;
@@ -638,6 +683,7 @@ namespace Microsoft.ServiceBus.Samples
         static void Main(string[] args)
         {
             ServiceBusEnvironment.SystemConnectivity.Mode = ConnectivityMode.AutoDetect;
+
 
             Console.Write("Your Service Namespace: ");
             string serviceNamespace = Console.ReadLine();
@@ -683,43 +729,48 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="run-the-applications"></a>运行应用程序
 
-1. 按 **Ctrl+Shift+B** 生成解决方案。 这会生成你在先前步骤中创建的客户端项目和服务项目。
-2. 在运行客户端应用程序之前，必须确保服务应用程序正在运行。 在 Visual Studio 的解决方案资源管理器中，右键单击“EchoService”解决方案，然后单击“属性”。
-3. 在“解决方案属性”对话框中，单击“启动项目”，然后单击“多启动项目”按钮。 **EchoService** 显示在列表的最前面。
-4. 将 **EchoService** 和 **EchoClient** 项目的“操作”框设置为“启动”。
+1. 按 Ctrl+Shift+B 生成解决方案。 此操作生成在先前步骤中创建的客户端项目和服务项目。
+1. 在运行客户端应用程序之前，必须确保服务应用程序正在运行。 在“解决方案资源管理器”中，右键单击“EchoService”解决方案并选择“属性”    。
+1. 在“属性页”中选择“通用属性” > “启动项目”，然后选择“多个启动项目”     。 **EchoService** 显示在列表的最前面。
+1. 将 **EchoService** 和 **EchoClient** 项目的“操作”  框设置为“启动”  。
 
-    ![][5]
-5. 单击“项目依赖项” 。 在“项目”框中，选择“EchoClient”。 在“依赖于”框中，确保选中“EchoService”。
+    ![项目属性页][5]
 
-    ![][6]
-6. 单击“确定”关闭“属性”对话框。
-7. 按 **F5** 运行这两个项目。
-8. 此时会打开两个控制台窗口并提示输入命名空间名称。 必须先运行服务，因此在“EchoService”控制台窗口中输入命名空间，然后按“Enter”。
-9. 接下来，会提示你提供 SAS 密钥。 输入 SAS 密钥并按“ENTER”。
+1. 选择“项目依赖项”  。 在“项目”中选择“EchoClient”。   对于“依赖于”，请确保选择“EchoService”。  
 
-    以下是来自控制台窗口的示例输出。 请注意，此处提供的值仅限于示例目的。
+    ![项目依赖项][6]
+
+1. 选择“确定”关闭“属性页”。  
+1. 按 F5 运行这两个项目。
+1. 此时会打开两个控制台窗口并提示输入命名空间名称。 必须先运行服务，因此请在“EchoService”  控制台窗口中输入命名空间，然后按 Enter。
+1. 接下来，控制台会提示输入 SAS 密钥。 输入 SAS 密钥并按 Enter。
+
+    以下是来自控制台窗口的示例输出。 此处的值只是示例。
 
     `Your Service Namespace: myNamespace` `Your SAS Key: <SAS key value>`
 
     服务应用程序将其正在侦听的地址打印到控制台窗口中，如下面的示例中所示。
 
     `Service address: sb://mynamespace.servicebus.chinacloudapi.cn/EchoService/` `Press [Enter] to exit`
-10. 在 **EchoClient** 控制台窗口中，输入之前为服务应用程序输入的相同信息。 请按照前面的步骤，为客户端应用程序输入相同的服务命名空间和 SAS 密钥值。
-11. 输入这些值后，客户端将打开服务通道并提示你输入如以下控制台输出示例中所示的某些文本。
+
+1. 在 **EchoClient** 控制台窗口中，输入之前为服务应用程序输入的相同信息。 为客户端应用程序输入相同的服务命名空间和 SAS 密钥值。
+1. 输入这些值后，客户端将打开服务通道并提示你输入如以下控制台输出示例中所示的某些文本。
 
     `Enter text to echo (or [Enter] to exit):`
 
-    输入要发送到服务应用程序的某些文本，并按“Enter”。 此文本通过 Echo 服务操作发送到服务并显示在服务控制台窗口中，如下面的示例输出所示。
+    输入要发送到服务应用程序的一些文本，然后按 Enter。 此文本通过 Echo 服务操作发送到服务并显示在服务控制台窗口中，如下面的示例输出所示。
 
     `Echoing: My sample text`
 
-    客户端应用程序接收 `Echo` 操作的返回值（此为原始文本），并将其打印到控制台窗口。 以下是来自客户端控制台窗口的示例输出。
+    客户端应用程序接收 `Echo` 操作的返回值（此为原始文本），并将其打印到控制台窗口。 以下文本是来自客户端控制台窗口的示例输出。
 
     `Server echoed: My sample text`
-12. 可以继续以这种方式将来自客户端的短信发送至服务。 完成后，在客户端和服务控制台窗口中按 Enter 以结束这两个应用程序。
+
+1. 可以继续以这种方式将来自客户端的短信发送至服务。 完成后，在客户端和服务控制台窗口中按 Enter 以结束这两个应用程序。
 
 ## <a name="next-steps"></a>后续步骤
-转到以下教程： 
+
+转到以下教程：
 
 > [!div class="nextstepaction"]
 >[向网络外部的客户端公开本地 WCF REST 服务](service-bus-relay-rest-tutorial.md)

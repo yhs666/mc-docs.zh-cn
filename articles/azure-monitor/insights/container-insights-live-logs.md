@@ -8,18 +8,18 @@ author: mgoedtel
 ms.author: v-lingwu
 origin.date: 07/12/2019
 ms.date: 07/19/2019
-ms.openlocfilehash: b5ed7402e9833e50d83f2338dce23b672c09e7d1
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 0fe768783a2327a9f14247c8b61d236728a4017b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041107"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528369"
 ---
 # <a name="how-to-view-logs-and-events-in-real-time-preview"></a>如何实时查看日志和事件（预览）
 适用于容器的 Azure Monitor 包含一项功能，该功能目前为预览版，可以实时查看 Azure Kubernetes 服务 (AKS) 容器日志 (stdout/stderr) 和事件，不需运行 kubectl 命令。 选择任一选项后，“节点”、“控制器”和“容器”视图上的性能数据表下方将显示新窗格    。 它显示了容器引擎生成的实时日志记录和事件，可以进一步实时排查问题。
 
 >[!NOTE]
->此功能在所有 Azure 区域均可用，包括Azure 中国。 它目前在 Azure 美国政府版中不可用。
+>此功能在所有 Azure 区域均可用，包括Azure 中国。 它目前在 Azure 中国政府版中不可用。
 
 >[!NOTE]
 >**Azure Kubernetes 服务群集用户角色**需要群集资源访问权限才能使用此功能。 [详细了解 Azure Kubernetes 群集用户角色](https://docs.microsoft.com/azure/aks/control-kubeconfig-access#available-cluster-roles-permissions)。

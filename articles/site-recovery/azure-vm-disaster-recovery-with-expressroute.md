@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/08/2019
 ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6c3239d56751bc16b509f0233d8d82be9e0d7a96
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: dcdd8dd77425ee8267052e3b65ada15b9ca15955
+ms.sourcegitcommit: 734ab3eff1b4d8e87659a3d32a8e5a05d2e381ae
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134409"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528626"
 ---
 <!-- NOTICE:  THIS ARTICLE CHANGE ASIA EAST TO CHINA EAST REGION AND HONG KONG TO GUANG ZHOU-->
 <!-- Notice:  Target Location CHANGE TO Azure China North with Singpore to Tian Jing -->
@@ -51,7 +51,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
 
 - 在故障转移到次要区域前预配网络组件：
     - 为 Azure VM 启用复制时，Site Recovery 可以根据源网络设置自动部署目标 Azure 区域中的网络资源，如网络、子网和网关。
-    - Site Recovery 无法自动设置网络资源，如 VNet 网关。
+    - Site Recovery 无法自动设置网络资源，如 VPN 网关。
     - 建议在故障转移前预配这些额外的网络资源。 此部署会导致较短的停机时间，如果在部署规划期间未考虑此停机时间，则它可能会影响整体恢复时间。
 - 定期进行灾难恢复演练：
     - 演练如何在不丢失数据或不停机的情况下验证复制策略，并且不影响生产环境。 它有助于避免可能对 RTO 产生负面影响的最新配置问题。
@@ -69,7 +69,7 @@ Site Recovery 通过将 Azure VM 数据复制到 Azure 来实现 Azure VM 的灾
     - 配置和启用复制时，Site Recovery 会在目标 Azure 区域中设置网络、子网和网关子网，以匹配源区域中的网络、子网和网关子网。 此外，Site Recovery 还会在源虚拟网络和目标虚拟网络之间进行映射。
     - 如果不希望 Site Recovery 自动执行此操作，请在启用复制前创建目标端网络资源。
 3. 创建其他网络元素：
-    - Site Recovery 不会在次要区域中创建路由表、VNet 网关、VNet 网关连接、VNet 对等互连或其他网络资源和连接。
+    - Site Recovery 不会在次要区域中创建路由表、VPN 网关、VPN 网关连接、VNet 对等互连或其他网络资源和连接。
     - 在从主要区域运行故障转移之前，需要在次要区域中创建这些其他网络元素。
     - 可以使用[恢复计划](site-recovery-create-recovery-plans.md)和自动化脚本来设置和连接这些网络资源。
 1. 如果为控制网络流量而部署了网络虚拟设备 (NVA)，请注意：

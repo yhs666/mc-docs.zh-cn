@@ -9,12 +9,12 @@ manager: digimobile
 ms.author: v-lingwu
 origin.date: 08/13/2019
 ms.date: 08/23/2019
-ms.openlocfilehash: 67784b478c4dd4f671c03bdef85cdc0bdffff668
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 368c1784c576b00375e05b7350f7f143f6cd92a5
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730468"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528420"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Azure Monitor 中的监视解决方案
 监视解决方案利用 Azure 中的服务来提供特定应用程序或服务的更多操作见解。 本文简要概述了 Azure 中的监视解决方案，并详细介绍如何了使用和安装这些解决方案。
@@ -86,7 +86,7 @@ ms.locfileid: "73730468"
 
 * 解决方案的每项安装只能使用一个 Log Analytics 工作区和一个自动化帐户。 可将解决方案单独安装到多个工作区。
 * 如果解决方案需要自动化帐户，则必须将 Log Analytics 工作区和自动化帐户相互链接。 一个 Log Analytics 工作区只能链接到一个自动化帐户，而一个自动化帐户也只能链接到一个 Log Analytics 工作区。
-* 若要进行链接，Log Analytics 工作区和自动化帐户必须位于相同的资源组和区域中。 美国东部区域的工作区以及美国东部 2 区的自动化帐户除外。
+* 若要进行链接，Log Analytics 工作区和自动化帐户必须位于相同的资源组和区域中。 中国东部区域的工作区以及中国东部的自动化帐户例外。
 
 ### <a name="create-a-link-between-a-log-analytics-workspace-and-automation-account"></a>在 Log Analytics 工作区和自动化帐户之间创建链接
 如何指定 Log Analytics 工作区和自动化帐户取决于解决方案的安装方法。

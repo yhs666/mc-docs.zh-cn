@@ -1,6 +1,6 @@
 ---
 title: 排查 System Center Data Protection Manager 问题 - Azure 备份
-description: 排查 System Center Data Protection Manager 中的问题。
+description: 在本文中，了解使用 System Center Data Protection Manager 时可能遇到的问题的解决方案。
 ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/30/2019
 ms.date: 07/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 412513f0f1a74fb3400a46be18b3fd0ecff886f7
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ece441977a08996c08c9d87a6a7810d44d9a4cd9
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730340"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528245"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 
@@ -61,6 +61,7 @@ ms.locfileid: "73730340"
 如果 Data Protection Manager 服务器无法访问受保护的服务器，则会出现此错误。
 
 若要解决此问题，请执行以下操作：
+
 - 确保使用最新版本的 Azure 备份代理。
 - 确保在 Data Protection Manager 服务器与受保护服务器之间建立连接（网络/防火墙/代理）。
 - 若要保护 SQL 服务器，请确保“登录属性” > “NT AUTHORITY\SYSTEM”属性显示已启用“sysadmin”设置。   
@@ -70,17 +71,20 @@ ms.locfileid: "73730340"
 此错误是在恢复 Data Protection Manager/Azure 备份服务器数据的过程中发生的。 在恢复过程中使用的保管库凭据文件不属于 Data Protection Manager/Azure 备份服务器的恢复服务保管库。
 
 若要解决此问题，请执行以下步骤：
+
 1. 从 Data Protection Manager/Azure 备份服务器所注册到的恢复服务保管库中下载保管库凭据文件。
 2. 尝试使用下载的最新保管库凭据文件将服务器注册到保管库。
 
 ## <a name="error-no-recoverable-data-or-selected-server-not-a-data-protection-manager-server"></a>错误：没有可恢复的数据，或选定的服务器不是 Data Protection Manager 服务器
 
 此错误的原因如下：
+
 - 未将其他 Data Protection Manager/Azure 备份服务器注册到恢复服务保管库。
 - 服务器尚未上传元数据。
 - 选定的服务器不是 Data Protection Manager/Azure 备份服务器。
 
 如果已将其他 Data Protection Manager/Azure 备份服务器注册到恢复服务保管库，请执行以下步骤来解决此问题：
+
 1. 确保安装最新的 Azure 备份代理。
 2. 确保安装最新的代理后，先等待一天，然后启动恢复过程。 夜间备份作业会将所有受保护的备份的元数据上传到云。 然后，可以使用备份数据进行恢复。
 
@@ -91,7 +95,7 @@ ms.locfileid: "73730340"
 > [!IMPORTANT]
 > 如果忘记或遗失了加密通行短语，则没有其他任何方法可恢复数据。 唯一的办法就是重新生成通行短语。 使用新的通行短语来加密今后的备份数据。
 >
-> 恢复数据时，请始终提供与 Data Protection Manager/Azure 备份服务器关联的相同加密通行短语。 
+> 恢复数据时，请始终提供与 Data Protection Manager/Azure 备份服务器关联的相同加密通行短语。
 >
 
 

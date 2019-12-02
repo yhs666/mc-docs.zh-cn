@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/11/2019
 ms.date: 11/14/2019
 ms.author: dacurwin
-ms.openlocfilehash: c1266afaeb26c4110aa8f871ff5c5a42de14d576
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: b65dadb5ec9eaccee8b6e097f5200c5a87790d94
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116349"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528411"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>管理和监视已备份的 SQL Server 数据库
 
@@ -118,7 +118,7 @@ Azure 备份在“备份作业”门户中显示所有手动触发的作业。  
 - 差异备份
 - 日志备份
 
-需要指定“仅限复制的完整备份”的保留期，而临时完整备份的保留期将自动设置为从当前时间算起的 45 天。
+虽然需要为仅复制完整备份指定保留期限，但按需完整备份的保留期限将自动设置为从当前时间算起 45 天。
 
 有关详细信息，请参阅 [SQL Server 备份类型](backup-architecture.md#sql-server-backup-types)。
 

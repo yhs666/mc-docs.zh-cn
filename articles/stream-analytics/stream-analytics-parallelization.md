@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/07/2018
 ms.date: 06/21/2019
-ms.openlocfilehash: 963dda49126004a1edc7885cbda7374f05a9dc96
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 9007f235c073889b8e9fb0f6746545a38850b05b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169629"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528198"
 ---
 # <a name="leverage-query-parallelization-in-azure-stream-analytics"></a>利用 Azure 流分析中的查询并行化
 本文说明了如何利用 Azure 流分析中的并行化。 了解如何通过配置输入分区和调整分析查询定义来缩放流分析作业。
@@ -54,15 +54,15 @@ Power BI 不支持分区。 但仍可对输入进行分区，如[本节](#multi-
 若要深入了解分区，请参阅以下文章：
 
 * [事件中心功能概述](../event-hubs/event-hubs-features.md#partitions)
-* [Data partitioning](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning#partitioning-azure-blob-storage)（数据分区）
+* [Data partitioning](https://docs.microsoft.com/azure/architecture/best-practices/data-partitioning)（数据分区）
+
 
 ## <a name="embarrassingly-parallel-jobs"></a>易并行作业
 易并行作业是 Azure 流分析中最具可缩放性的方案  。 它将查询的一个实例的输入的一个分区连接到输出的一个分区。 实现此并行需满足以下要求：
 
 1. 如果查询逻辑取决于同一个查询实例正在处理的相同键，则必须确保事件转到输入的同一个分区。 对于事件中心或 IoT 中心，这意味着事件数据必须已设置 **PartitionKey** 值。 或者，可以使用已分区的发件人。 对于 Blob 存储，这意味着事件将发送到相同的分区文件夹。 如果查询逻辑不需要由同一个查询实例处理相同的键，则可忽略此要求。 举例来说，简单的选择项目筛选器查询就体现了此逻辑。  
-   <!--Not Available on IoT Hub-->
 
-2. 在输入端布置数据后，务必确保查询已进行分区。 这需要在所有步骤中使用 PARTITION BY  。 允许采用多个步骤，但必须使用相同的键对其进行分区。 在兼容性级别 1.0 和 1.1 中，必须将分区键设置为 **PartitionId** 才能实现完全并行作业。 对于使用兼容性级别 1.2 和更高版本的作业，可在输入设置中将自定义列指定为分区键，即使不使用 PARTITION BY 子句，该作业也会自动并行化。
+2. 在输入端布置数据后，务必确保查询已进行分区。 这需要在所有步骤中使用 PARTITION BY  。 允许采用多个步骤，但必须使用相同的键对其进行分区。 在兼容性级别 1.0 和 1.1 中，必须将分区键设置为 **PartitionId** 才能实现完全并行作业。 对于兼容级别为 1.2 或更高的作业，可以在输入设置中将自定义列指定为“分区键”，即使没有 PARTITION BY 子句，作业也会自动并行化。 对于事件中心输出，必须将属性“分区键列”设置为使用“PartitionId”。
 
 3. 大多数输出都可以利用分区，但如果使用不支持分区的输出类型，作业将不会实现完全并行。 有关详细信息，请参阅[输出部分](#outputs)。
 
@@ -79,7 +79,7 @@ Power BI 不支持分区。 但仍可对输入进行分区，如[本节](#multi-
 ### <a name="simple-query"></a>简单查询
 
 * 输入：具有 8 个分区的事件中心
-* 输出：具有 8 个分区的事件中心
+* 输出：具有 8 个分区的事件中心（必须将“分区键列”设置为使用“PartitionId”）
 
 查询：
 
@@ -146,7 +146,7 @@ PowerBI 输出当前不支持分区。 因此，此方案不易并行。
 
 ### <a name="compatibility-level-12---multi-step-query-with-different-partition-by-values"></a>兼容性级别 1.2 - 使用不同 PARTITION BY 值的多步骤查询 
 * 输入：具有 8 个分区的事件中心
-* 输出：具有 8 个分区的事件中心
+* 输出：具有 8 个分区的事件中心（必须将“分区键列”设置为使用“TollBoothId”）
 
 查询：
 

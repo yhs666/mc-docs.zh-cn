@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c31b3220be19e0200a8d393448d5233f9f79f150
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: fcc964d0ce29b17d4bd1273afb712201ba191112
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104152"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528267"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>使用 Azure 备份 MARS 代理备份 Windows 计算机
 
@@ -22,18 +22,19 @@ ms.locfileid: "70104152"
 本文介绍如何执行以下操作：
 
 > [!div class="checklist"]
+>
 > * 验证先决条件，并创建恢复服务保管库。
 > * 下载和设置 MARS 代理
 > * 创建备份策略和计划。
-> * 执行临时备份。
+> * 执行按需备份。
 
 ## <a name="about-the-mars-agent"></a>关于 MARS 代理
 
 Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的文件、文件夹和状态备份到 Azure 中的恢复服务保管库。 可按如下所述运行代理：
 
-- 直接在本地 Windows 计算机上运行该代理，使这些计算机能够直接备份到 Azure 中的备份恢复服务保管库。
-- 在运行 Windows（与 Azure VM 备份扩展一起运行）的 Azure VM 上运行代理，以备份 VM 上的特定文件和文件夹。
-- 在 Microsoft Azure 备份服务器 (MABS) 或 System Center Data Protection Manager (DPM) 服务器上运行该代理。 在此方案中，计算机和工作负荷将备份到 MABS/DPM，然后 MABS/DPM 将通过 MARS 代理备份到 Azure 中的保管库。
+* 直接在本地 Windows 计算机上运行该代理，使这些计算机能够直接备份到 Azure 中的备份恢复服务保管库。
+* 在运行 Windows（与 Azure VM 备份扩展一起运行）的 Azure VM 上运行代理，以备份 VM 上的特定文件和文件夹。
+* 在 Microsoft Azure 备份服务器 (MABS) 或 System Center Data Protection Manager (DPM) 服务器上运行该代理。 在此方案中，计算机和工作负荷将备份到 MABS/DPM，然后 MABS/DPM 将通过 MARS 代理备份到 Azure 中的保管库。
 可备份的内容取决于该代理的安装位置。
 
 > [!NOTE]
@@ -43,17 +44,17 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的文件、文�
 
 ## <a name="before-you-start"></a>开始之前
 
-- [了解](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Azure 备份如何使用 MARS 代理备份 Windows 计算机。
-- [了解](backup-architecture.md#architecture-back-up-to-dpmmabs)在辅助 MABS 或 DPM 服务器上运行 MARS 代理的备份体系结构。
-- [查看](backup-support-matrix-mars-agent.md) MARS 代理支持的内容以及可以备份的内容。
-- 验证要备份的计算机的 Internet 访问权限。
-- 要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个[免费帐户](https://azure.microsoft.com/free/)。
+* [了解](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders) Azure 备份如何使用 MARS 代理备份 Windows 计算机。
+* [了解](backup-architecture.md#architecture-back-up-to-dpmmabs)在辅助 MABS 或 DPM 服务器上运行 MARS 代理的备份体系结构。
+* [查看](backup-support-matrix-mars-agent.md) MARS 代理支持的内容以及可以备份的内容。
+* 验证要备份的计算机的 Internet 访问权限。
+* 要将服务器或客户端备份到 Azure，你需要一个 Azure 帐户。 如果没有帐户，只需几分钟的时间就能创建一个[免费帐户](https://azure.microsoft.com/free/)。
 
 ### <a name="verify-internet-access"></a>验证 Internet 访问
 
 如果计算机的 Internet 访问状态受限，请确保计算机或代理上的防火墙设置允许以下 URL 和 IP 地址：
 
-**URL**
+#### <a name="urls"></a>URL
 
 - www\.msftncsi.com
 - *.Microsoft.com
@@ -61,10 +62,10 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的文件、文�
 - *.microsoftonline.com
 - *.chinacloudapi.cn
 
-**IP 地址**
+#### <a name="ip-addresses"></a>IP 地址
 
-- 20.190.128.0/18
-- 40.126.0.0/18
+* 20.190.128.0/18
+* 40.126.0.0/18
 
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
@@ -82,16 +83,16 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的文件、文�
 
 4. 对于“名称”，请输入一个友好名称以标识保管库  。
 
-   - 名称对于 Azure 订阅需要是唯一的。
-   - 该名称可以包含 2 到 50 个字符。
-   - 名称必须以字母开头，只能包含字母、数字和连字符。
+   * 名称对于 Azure 订阅需要是唯一的。
+   * 该名称可以包含 2 到 50 个字符。
+   * 名称必须以字母开头，只能包含字母、数字和连字符。
 
 5. 选择要在其中创建保管库的 Azure 订阅、资源组和地理区域。 备份数据将发送到保管库。 然后单击“创建”  。
 
     ![创建恢复服务保管库步骤 3](./media/backup-try-azure-backup-in-10-mins/rs-vault-step-3.png)
 
-   - 创建保管库可能需要一段时间。
-   - 可以在门户的右上区域中监视状态通知。 如果在几分钟后看不到保管库，请单击“刷新”  。
+   * 创建保管库可能需要一段时间。
+   * 可以在门户的右上区域中监视状态通知。 如果在几分钟后看不到保管库，请单击“刷新”  。
 
      ![单击“刷新”按钮](./media/backup-try-azure-backup-in-10-mins/refresh-button.png)
 
@@ -106,16 +107,16 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
       ![设置新保管库的存储配置](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
 
-- 如果使用 Azure 作为主要备份存储终结点，则我们建议继续使用默认的“异地冗余”设置。 
-- 如果不使用 Azure 作为主要备份存储终结点，则选择“本地冗余”  ，以减少 Azure 存储成本。
-- 详细了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)。
+* 如果使用 Azure 作为主要备份存储终结点，则我们建议继续使用默认的“异地冗余”设置。 
+* 如果不使用 Azure 作为主要备份存储终结点，则选择“本地冗余”  ，以减少 Azure 存储成本。
+* 详细了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)。
 
 ## <a name="download-the-mars-agent"></a>下载 MARS 代理
 
 下载 MARS 代理并将其安装到所要备份的计算机上。
 
-- 如果已在任何计算机上安装该代理，请确保运行最新版本。
-- 可以在门户中或使用[直接下载](https://aka.ms/azurebackup_agent)获取最新版本
+* 如果已在任何计算机上安装该代理，请确保运行最新版本。
+* 可以在门户中或使用[直接下载](https://aka.ms/azurebackup_agent)获取最新版本
 
 1. 在保管库中的“开始使用”下，单击“备份”。  
 
@@ -142,37 +143,37 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
 1. 在要备份的计算机上运行 **MARSagentinstaller.exe** 文件。
 2. 在 MARS 代理安装向导中选择“安装设置”，并指定代理的安装位置以及用于缓存的位置。   。
-   - Azure 备份在将数据快照发送到 Azure 之前，会使用缓存来存储这些快照。
-   - 缓存位置的可用空间应该至少为所要备份的数据大小的 5%。
+   * Azure 备份在将数据快照发送到 Azure 之前，会使用缓存来存储这些快照。
+   * 缓存位置的可用空间应该至少为所要备份的数据大小的 5%。
 
      ![MARS 向导 - 安装设置](./media/backup-configure-vault/mars1.png)
 
-2. 在“代理配置”中，指定 Windows 计算机上运行的代理如何连接到 Internet。   。
+3. 在“代理配置”中，指定 Windows 计算机上运行的代理如何连接到 Internet。   。
 
-   - 如果使用自定义代理，请指定代理设置，并根据需要指定凭据。
-   - 请记住，代理需要有权访问[这些 URL](#verify-internet-access)。
+   * 如果使用自定义代理，请指定代理设置，并根据需要指定凭据。
+   * 请记住，代理需要有权访问[这些 URL](#verify-internet-access)。
 
      ![MARS 向导 - Internet 访问](./media/backup-configure-vault/mars2.png)
 
-3. 在“安装”中复查先决条件检查结果，然后单击“安装”。  
-4. 安装代理后，单击“继续注册”。 
-5. 在“注册服务器向导” > “保管库标识”中，浏览并选择已下载的凭据文件。    。
+4. 在“安装”中复查先决条件检查结果，然后单击“安装”。  
+5. 安装代理后，单击“继续注册”。 
+6. 在“注册服务器向导” > “保管库标识”中，浏览并选择已下载的凭据文件。    。
 
     ![注册 - 保管库凭据](./media/backup-configure-vault/register1.png)
 
-6. 在“加密设置”中，指定用于加密和解密计算机备份的通行短语。 
+7. 在“加密设置”中，指定用于加密和解密计算机备份的通行短语。 
 
-    - 将加密通行短语保存在安全的位置。
-    - 如果你丢失或忘记了该通行短语，Microsoft 无法帮助恢复备份数据。 请将文件保存在安全的位置。 还原备份时需要用到它。
+    * 将加密通行短语保存在安全的位置。
+    * 如果你丢失或忘记了该通行短语，Microsoft 无法帮助恢复备份数据。 请将文件保存在安全的位置。 还原备份时需要用到它。
 
-7. 单击“完成”。  现已安装代理，且已向保管库注册计算机。 接下来可以配置和计划备份。
+8. 单击“完成”  。 现已安装代理，且已向保管库注册计算机。 接下来可以配置和计划备份。
 
 ## <a name="create-a-backup-policy"></a>创建备份策略
 
 备份策略指定何时生成数据快照来创建恢复点，以及恢复点的保留期限。
 
-- 使用 MARS 代理配置备份策略。
-- Azure 备份不会自动考虑夏令时 (DST)。 这可能会导致实际时间与计划的备份时间存在一定的偏差。
+* 使用 MARS 代理配置备份策略。
+* Azure 备份不会自动考虑夏令时 (DST)。 这可能会导致实际时间与计划的备份时间存在一定的偏差。
 
 按如下所述创建策略：
 
@@ -187,10 +188,10 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 6. 在“选择要备份的项”页中，单击“下一步”。  
 7. 在“指定备份计划”页中，指定何时创建每日备份或每周备份。   。
 
-    - 创建备份时会创建一个恢复点。
-    - 在环境中创建的恢复点数目取决于备份计划。
+    * 创建备份时会创建一个恢复点。
+    * 在环境中创建的恢复点数目取决于备份计划。
 
-1. 可以计划每日备份，每天最多备份三次。 例如，以下屏幕截图显示了两个每日备份，一个在午夜创建，另一个在下午 6 点创建。
+8. 可以计划每日备份，每天最多备份三次。 例如，以下屏幕截图显示了两个每日备份，一个在午夜创建，另一个在下午 6 点创建。
 
     ![每日计划](./media/backup-configure-vault/day-schedule.png)
 
@@ -198,22 +199,22 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
     ![每周日程安排](./media/backup-configure-vault/week-schedule.png)
 
-8. 在“选择保留策略”页上，指定如何存储数据的历史副本。   。
+10. 在“选择保留策略”页上，指定如何存储数据的历史副本。   。
 
-   - 保留设置指定要存储哪些恢复点，以及要存储多长时间。
-   - 例如，在设置每日保留设置时，可以指明在针对每日保留指定的时间，要将最新恢复点保留指定的天数。 另举一例，可以指定每月保留策略，指明在每个月的 30 日创建的恢复点应保留 12 个月。
-   - 每日和每周恢复点保留期通常与备份计划相一致。 这意味着，根据计划触发备份时，备份创建的恢复点将存储每日或每周保留策略中指定的持续时间。
-   - 例如，在以下屏幕截图中：
-     - 在午夜和下午 6 点创建的每日备份将保留 7 天。
-     - 在星期六的午夜和下午 6 点创建的备份将保留 4 周。
-     - 在当月最后一周的星期六午夜和下午 6 点创建的备份将保留 12 个月。 - 在 3 月份最后一周的星期六创建的备份将保留 10 年。
+* 保留设置指定要存储哪些恢复点，以及要存储多长时间。
+* 例如，在设置每日保留设置时，可以指明在针对每日保留指定的时间，要将最新恢复点保留指定的天数。 另举一例，可以指定每月保留策略，指明在每个月的 30 日创建的恢复点应保留 12 个月。
+  * 每日和每周恢复点保留期通常与备份计划相一致。 这意味着，根据计划触发备份时，备份创建的恢复点将存储每日或每周保留策略中指定的持续时间。
+  * 例如，在以下屏幕截图中：
+    * 在午夜和下午 6 点创建的每日备份将保留 7 天。
+    * 在星期六的午夜和下午 6 点创建的备份将保留 4 周。
+    * 在当月最后一周的星期六午夜和下午 6 点创建的备份将保留 12 个月。 - 在 3 月份最后一周的星期六创建的备份将保留 10 年。
 
    ![保留示例](./media/backup-configure-vault/retention-example.png)
 
-11. 在“选择初始备份类型”中，指定如何通过网络或脱机创建初始备份。   。
+12. 在“选择初始备份类型”中，指定如何通过网络或脱机创建初始备份。   。
 
-10. 在“确认”中复查信息，然后单击“完成”   。
-11. 在向导完成创建备份计划后，请单击“**关闭**”。
+13. 在“确认”中复查信息，然后单击“完成”   。
+14. 在向导完成创建备份计划后，请单击“**关闭**”。
 
 ### <a name="perform-the-initial-backup-offline"></a>脱机执行初始备份
 
@@ -232,8 +233,8 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
 可以通过启用网络限制，来控制 MARS 代理使用网络带宽的方式。 如果你需要在工作时间备份数据，但想要控制用于备份和还原活动的带宽量，则限制会很有帮助。
 
-- Azure 备份网络限制在本地操作系统上使用[服务质量 (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top)。
-- 针对备份的网络限制适用于 Windows Server 2008 R2 和更高版本，以及 Windows 7 和更高版本。 操作系统应该运行最新的服务包。
+* Azure 备份网络限制在本地操作系统上使用[服务质量 (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top)。
+* 针对备份的网络限制适用于 Windows Server 2008 R2 和更高版本，以及 Windows 7 和更高版本。 操作系统应该运行最新的服务包。
 
 按如下所述启用网络限制：
 
@@ -243,7 +244,7 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
     ![网络限制](./media/backup-configure-vault/throttling-dialog.png)
 3. 指定在工作时间和下班时间允许的带宽。 带宽值最小为 512 Kbps，最大为 1,023 MBps。  。
 
-## <a name="run-an-ad-hoc-backup"></a>运行临时备份
+## <a name="run-an-on-demand-backup"></a>运行按需备份
 
 1. 在 MARS 代理中，单击“立即备份”。  随即会启动通过网络执行的初始复制。
 
@@ -254,15 +255,14 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 
 完成初始备份后，备份控制台中显示“**作业已完成**”状态。
 
-## <a name="ad-hoc-backup-policy-retention-behavior"></a>临时备份策略保留行为
+## <a name="on-demand-backup-policy-retention-behavior"></a>按需备份策略保留行为
 
 * 有关详细信息，请参阅[创建备份策略](backup-configure-vault.md#create-a-backup-policy)的步骤 8
 
 | “备份计划”选项 | 备份数据将保留多长时间？
 | -- | --
-| 计划备份间隔：*天 | **默认保留期**：相当于每日备份的保留期（以天为单位） <br/><br/> **例外**：如果为长期保留（周、月、年）设置的每日计划备份失败，则会考虑将在此失败的计划备份之后立即触发的临时备份进行长期保留。 否则，将考虑进行下一次计划备份以进行长期保留。<br/><br/> **示例**：如果（假设）在星期四上午 8:00 进行的计划备份失败，并且考虑每周/每月/每年保留相同的备份，则在下一次计划备份（比如）星期五上午 8:00 之前触发的第一个临时备份将自动标记为每周/每月/每年保留，使之适用于星期四上午 8:00 备份。
-| 计划备份间隔：*每周 | **默认保留期**：1 天 <br/> 使用每周备份策略为数据源执行的临时备份将在第二天删除，即使它们是数据源的最新备份也是如此。 <br/><br/> **例外**：如果为长期保留（周、月、年）设置的每周计划备份失败，则会考虑将在此失败的计划备份之后立即触发的临时备份进行长期保留。 否则，将考虑进行下一次计划备份以进行长期保留。 <br/><br/> **示例**：如果（假设）在星期四上午 8:00 进行的计划备份失败，并且考虑每月/每年保留相同的备份，则在下一次计划备份（比如）星期四上午 8:00 之前触发的第一个临时备份将自动标记为每月/每年保留，使之适用于星期四上午 8:00 备份
-
+| 计划备份间隔：*天 | **默认保留期**：相当于“每日备份的保留期(以天为单位)” <br/><br/> **例外**：如果为长期保留（周、月、年）设置的每日计划备份失败，则会考虑将在此失败的计划备份之后立即触发的按需备份进行长期保留。 否则，将考虑进行下一次计划备份以进行长期保留。<br/><br/> **示例**：如果（假设）在星期四上午 8:00 进行的计划备份失败，并且考虑每周/每月/每年保留相同的备份，则在下一次计划备份（比如）星期五上午 8:00 之前触发的第一个按需备份将自动标记为每周/每月/每年保留，使之适用于星期四上午 8:00 备份。
+| 计划备份间隔：*每周 | **默认保留期**：1 天 <br/> 使用每周备份策略为数据源执行的按需备份将在第二天删除，即使它们是数据源的最新备份也是如此。 <br/><br/> **例外**：如果为长期保留（周、月、年）设置的每周计划备份失败，则会考虑将在此失败的计划备份之后立即触发的按需备份进行长期保留。 否则，将考虑进行下一次计划备份以进行长期保留。 <br/><br/> **示例**：如果（假设）在星期四上午 8:00 进行的计划备份失败，并且考虑每月/每年保留相同的备份，则在下一次计划备份（比如）星期四上午 8:00 之前触发的第一个按需备份将自动标记为每月/每年保留，使之适用于星期四上午 8:00 备份
 
 ## <a name="next-steps"></a>后续步骤
 

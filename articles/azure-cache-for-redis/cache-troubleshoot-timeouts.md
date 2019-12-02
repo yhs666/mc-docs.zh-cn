@@ -1,26 +1,18 @@
 ---
-title: 排查 Azure Cache for Redis 超时问题 | Microsoft Docs
+title: 排查 Azure Cache for Redis 超时问题
 description: 了解如何解决 Azure Cache for Redis 的常见超时问题
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/18/2019
-ms.date: 11/11/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: cc71d59e8b8361d02e353b10328f16249f03ea29
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 44b8329def6f3d9e4b2aad1ae4998f78b1a76849
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934413"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461625"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>排查 Azure Cache for Redis 超时问题
 
@@ -35,7 +27,7 @@ ms.locfileid: "73934413"
 
 ## <a name="redis-server-patching"></a>Redis 服务器修补
 
-Azure Cache for Redis 定期更新其服务器软件，作为它提供的托管服务功能的一部分。 此[修补](cache-failover.md)活动主要在幕后进行。 在故障转移期间，当修补 Redis 服务器节点时，连接到这些节点的 Redis 客户端在这些节点之间切换连接时可能会遇到临时超时。 有关修补可能对应用程序产生的副作用以及如何改进其修补事件处理的详细信息，请参阅[故障转移如何影响我的客户端应用程序](cache-failover.md#how-does-a-failover-impact-my-client-application)。
+Azure Cache for Redis 定期更新其服务器软件，作为它提供的托管服务功能的一部分。 此[修补](cache-failover.md)活动主要在幕后进行。 在故障转移期间，当修补 Redis 服务器节点时，连接到这些节点的 Redis 客户端在这些节点之间切换连接时可能会遇到临时超时。 有关修补可能对应用程序产生的副作用以及如何改进其修补事件处理的详细信息，请参阅[故障转移如何影响我的客户端应用程序](cache-failover.md#how-does-a-failover-affect-my-client-application)。
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>StackExchange.Redis 超时异常
 
@@ -127,3 +119,4 @@ StackExchange.Redis 使用名为 `synctimeout` 的配置设置进行同步操作
 - [如何制定基准和测试缓存的性能？](cache-faq.md#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 - [如何监视 Azure Redis 缓存](cache-how-to-monitor.md)
 
+<!-- Update_Description: link update -->

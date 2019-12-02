@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 10/12/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 079143e261b90719d6ea7f656abcadab1f181b5f
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 5f773d4d0b3c0a9ef96b7054d267812b4bf71e50
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730402"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528392"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>网络性能监视器解决方案常见问题解答
 
@@ -95,6 +95,41 @@ NPM 根据每个网络路径、网段和构成网络跃点所属的不正常路�
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>如何在 NPM 中创建警报？
 请参阅[文档中的警报部分](/azure-monitor/insights/network-performance-monitor#alerts)获取分步说明。
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>哪个是针对警报的默认 Log Analytics 查询？
+性能监视器查询
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+服务连接监视器查询
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+ExpressRoute 监视器查询：线路查询
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+专用对等互连
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Microsoft 对等互连
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+常见查询   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
 
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM 是否可以将路由器和服务器作为单个设备进行监视？
 NPM 只能识别源与目标 IP 之间的底层网络跃点（交换机、路由器、服务器等）的 IP 和主机名。 此外，它还能识别这些已识别的跃点之间的延迟。 它不会单独监视这些底层跃点。
@@ -108,17 +143,23 @@ NPM 只能识别源与目标 IP 之间的底层网络跃点（交换机、路由
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>是否可以获取 ExpressRoute 的传入和传出带宽信息？
 可以捕获主要和辅助带宽的传入和传出值。
 
-如需对等互连级信息，请在日志搜索中使用下面所述的查询
+如需 MS 对等互连级信息，请在日志搜索中使用下面所述的查询
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+如需专用对等互连级信息，请在日志搜索中使用下面所述的查询
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-如需线路级信息，请使用下面所述的查询 
+如需线路级信息，请在日志搜索中使用下面所述的查询
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM 的性能监视器支持哪些区域？
 NPM 可以通过某个[受支持区域](../../azure-monitor/insights/network-performance-monitor.md#supported-regions)中托管的工作区，监视全球任意位置的网络之间的连接
@@ -140,8 +181,8 @@ NPM 使用跟踪路由的修改版来发现从源代理到目标的拓扑。 不
 * 网络设备不允许 ICMP_TTL_EXCEEDED 流量。
 * 防火墙阻止了来自网络设备的 ICMP_TTL_EXCEEDED 响应。
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>我收到测试运行不正常的警报，但在 NPM 的丢失和延迟图中并没有看到过高的值。 如何查看运行不正常的项目？
-如果源和目标之间的端到端延迟超过其间的任何路径的阈值，NPM 会引发警报。 某些网络有多个路径连接相同的源和目标。 如果任何路径不正常，NPM 会引发警报。 图中看到的丢失和延迟是所有路径的平均值，因此可能无法表现单个路径的具体值。 若要了解超出阈值的位置，请查看警报中的“SubType”列。 如果问题是某个路径导致的，则 SubType 值为 NetworkPath（对应于性能监视器测试）、EndpointPath（对应于服务连接监视器测试）和 ExpressRoutePath（对应于 ExpressRotue 监视器测试）。 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>我收到测试运行不正常的警报，但在 NPM 的丢失和延迟图中并没有看到过高的值。 如何查看运行不正常的项目？
+如果源和目标之间的端到端延迟超过其间的任何路径的阈值，NPM 会引发警报。 某些网络有多个路径连接相同的源和目标。 如果任何路径不正常，NPM 会引发警报。 图中看到的丢失和延迟是所有路径的平均值，因此可能无法表现单个路径的具体值。 若要了解超出阈值的位置，请查看警报中的“SubType”列。 如果问题是某个路径导致的，则 SubType 值为 NetworkPath（适用于性能监视器测试）、EndpointPath（适用于服务连接监视器测试）和 ExpressRoutePath（适用于 ExpressRotue 监视器测试）。 
 
 用于了解路径是否正常的示例查询：
 

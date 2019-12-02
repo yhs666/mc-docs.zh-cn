@@ -1,5 +1,5 @@
 ---
-title: Azure 时序见解预览版用例 | Microsoft Docs
+title: 预览版用例 - Azure 时序见解 | Microsoft Docs
 description: 了解 Azure 时序见解预览版用例。
 author: ashannon7
 ms.author: dpalled
@@ -9,14 +9,14 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 origin.date: 09/24/2019
-ms.date: 11/04/2019
+ms.date: 12/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: e35fbe6ef72683b2854a9999a788af22dad87e91
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 4bdcbe59842817c20fc689c203ed978d3af9b99c
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914399"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389598"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure 时序见解预览版用例
 
@@ -44,7 +44,7 @@ Azure 时序见解是一种端到端的平台即服务产品/服务。 它用于
 大多数客户都认为，获得见解所需的最短时间是时序见解的突出功能之一：
 
 * 时序见解无需前期数据准备。 
-* 时序见解可在几分钟内快速将你连接到 Azure IoT 中心或 Azure 事件中心中的数十亿个事件。 
+* 时序见解可在几分钟内快速将你连接到 Azure IoT 中心或 Azure 事件中心实例中的数十亿个事件。 
 * 连接后，可直观显示和分析数十亿事件，发现异常，发现数据的隐藏趋势。
 
 时序见解直观且易于使用。 连一行代码也无需编写即可与数据交互。 尽管时序见解为熟悉 SQL 的高级用户提供了一种基于文本的细粒度查询语言，但你也不需要学习任何新语言。 为初学者提供“选择+单击”式探索模式。

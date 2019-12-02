@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 09/18/2018
 ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 584c246908dbcadc8bef6e2b175744fee8454980
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: b962eeb9f934462c568b5a20d9c97b0d7fd66ea4
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330130"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527993"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>快速入门：使用 Azure CLI 创建服务总线队列
 本快速入门介绍了如何使用 Azure CLI 和服务总线 Java 库通过服务总线来发送和接收消息。 最后，如果对更多的技术细节感兴趣，可以[阅读说明](#understand-the-sample-code)，了解示例代码的重要元素。
@@ -28,12 +28,12 @@ ms.locfileid: "71330130"
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
-如果使用“试用”按钮来启动 Cloud Shell，请使用凭据登录到 Azure。  
+如果使用“试用”按钮启动 PowerShell，请使用凭据登录到 Azure。  
 
-如果在 Web 浏览器中启动 Cloud Shell，不管是直接这样做还是在 Azure 门户中这样做，则请在 Cloud Shell 左上角看到 **PowerShell** 时切换到 **Bash**。 
+如果在 Web 浏览器中启动了 PowerShell（不管是直接操作还是通过 Azure 门户），请在 PowerShell 左上角看到 **PowerShell** 时切换到 **Bash**。 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>使用 Azure CLI 创建资源
-在 Cloud Shell 中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：Java 示例程序要求队列名称为 BasicQueue，因此请不要更改它。 可能需要逐一复制/粘贴命令，这样就可以先替换值，然后再运行它们。 
+在 PowerShell 中的 Bash 提示符下，发出以下命令以预配服务总线资源。 请务必将所有占位符替换为适当的值：Java 示例程序要求队列名称为 BasicQueue，因此请不要更改它。 可能需要逐一复制/粘贴命令，这样就可以先替换值，然后再运行它们。 
 
 ```azurecli
 # Create a resource group
@@ -188,7 +188,7 @@ connectionString=$(az servicebus namespace authorization-rule keys list --resour
 
 ## <a name="clean-up-resources"></a>清理资源
 
-在 Azure Cloud Shell 中，运行以下命令来删除资源组、命名空间和所有相关资源：
+在 Azure PowerShell 中，运行以下命令来删除资源组、命名空间和所有相关资源：
 
 ```azurecli
 az group delete --resource-group myResourceGroup

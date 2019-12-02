@@ -9,14 +9,14 @@ ms.topic: conceptual
 origin.date: 06/08/2018
 ms.date: 07/05/2018
 ms.author: v-junlch
-ms.openlocfilehash: d23175abc1f06d4e22caa628fd0cef3c84fb8caa
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: be021dd9b11d36359fb09047b65ad3cc36835a91
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730396"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528404"
 ---
-# <a name="back-up-a-sharepoint-farm-to-azure"></a>将 SharePoint 场备份到 Azure
+# <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>使用 MABS 将 SharePoint 场备份到 Azure
 使用 Azure 备份服务器 (MABS) 将 SharePoint 场备份到 Azure，其方法与备份其他数据源极为类似。 Azure 备份提供灵活的备份计划来创建每日、每周、每月或每年备份点，并提供适用于各种备份点的保留策略选项。 利用该技术，不仅可以存储本地磁盘副本以实现快速的恢复时间目标 (RTO)，还可以将副本存储到 Azure 以进行经济高效的长期保留。
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint 支持的版本与相关保护方案
@@ -44,11 +44,13 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
 如果 SharePoint 场有使用 SQL Server 别名配置的 SQL Server 数据库，请在 MABS 将要保护的前端 Web 服务器上安装 SQL Server 客户端组件。
 
 ### <a name="sharepoint-server"></a>SharePoint Server
-尽管性能取决于许多因素，例如 SharePoint 场的大小，但一般做法是使用一台 MABS 服务器来保护 25 TB 的 SharePoint 场。
+
+尽管性能取决于许多因素（例如 SharePoint 场的大小），但一般指导原则是一个 MABS 可以保护一个 25 TB 的 SharePoint 场。
 
 ### <a name="whats-not-supported"></a>不支持的功能
-- 保护 SharePoint 场的 MABS 不会保护搜索索引或应用程序服务数据库。 需要单独为这些数据库配置保护。
-- MABS 不提供横向扩展文件服务器 (SOFS) 共享托管的 SharePoint SQL Server 数据库备份。
+
+* 保护 SharePoint 场的 MABS 不会保护搜索索引或应用程序服务数据库。 需要单独为这些数据库配置保护。
+* MABS 不提供横向扩展文件服务器 (SOFS) 共享托管的 SharePoint SQL Server 数据库备份。
 
 ## <a name="configure-sharepoint-protection"></a>配置 SharePoint 保护
 必须使用 **ConfigureSharePoint.exe** 配置 SharePoint VSS 写入器服务（WSS 写入器服务），才能使用 MABS 保护 SharePoint。
@@ -168,8 +170,8 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
    >
 8. 选择要使用的“恢复过程”  。
 
-   - 如果 SharePoint 场未更改，并且与正在还原的恢复点相同，请选择“不使用恢复场进行恢复”  。
-   - 如果 SharePoint 场自创建恢复点后已更改，请选择“使用恢复场进行恢复”  。
+   * 如果 SharePoint 场未更改，并且与正在还原的恢复点相同，请选择“不使用恢复场进行恢复”  。
+   * 如果 SharePoint 场自创建恢复点后已更改，请选择“使用恢复场进行恢复”  。
 
      ![恢复过程](./media/backup-azure-backup-sharepoint/recovery-process.png)
 9. 提供暂时恢复数据库的暂存 SQL Server 实例位置，并在要恢复该项的 MABS 和运行 SharePoint 的服务器上提供暂存文件共享。
@@ -200,15 +202,16 @@ Azure 备份服务器以 LocalSystem 帐户的身份运行。 若要备份 SQL S
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>使用 DPM 从 Azure 还原 SharePoint 数据库
+
 1. 若要恢复 SharePoint 内容数据库，请浏览各个恢复点（如上所示），并选择要还原的恢复点。
 
     ![MABS SharePoint 保护 8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
 2. 双击 SharePoint 恢复点以显示可用的 SharePoint 目录信息。
 
-    > [!NOTE]
-    > 由于 SharePoint 场在 Azure 中受长期保留保护，因此 MABS 上没有可用的目录信息（元数据）。 因此，每当需要恢复时间点 SharePoint 内容数据库时，都需要重新编录 SharePoint 场。
-    >
-    >
+   > [!NOTE]
+   > 由于 SharePoint 场在 Azure 中受长期保留保护，因此 MABS 上没有可用的目录信息（元数据）。 因此，每当需要恢复时间点 SharePoint 内容数据库时，都需要重新编录 SharePoint 场。
+   >
+   >
 3. 单击“**重新编目**”。
 
     ![MABS SharePoint 保护 10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)

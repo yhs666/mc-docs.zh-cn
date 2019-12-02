@@ -6,14 +6,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-origin.date: 05/06/2019
-ms.date: 06/12/2019
-ms.openlocfilehash: f2521ffee5fb6a33213443cd00780849a46870f9
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+origin.date: 11/11/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 6ad21e4b446497c99b9a623890cc2a7842da8cad
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970974"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528279"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新用于容器的 Azure Monitor 以启用指标
 用于容器的 Azure Monitor 即将引入此项支持：从 Azure Kubernetes 服务 (AKS) 群集节点和 pod 收集指标，并将其写入 Azure Monitor 指标存储。 此项更改旨在更及时地呈现性能图表中的聚合计算结果（平均值、计数、最大值、最小值与总和），支持在 Azure 门户仪表板中固定性能图表，以及支持指标警报。
@@ -29,8 +29,12 @@ ms.locfileid: "72970974"
 
 上述任一过程会将“监视指标发布者”角色分配到群集的服务主体，以便可将代理收集的数据发布到群集资源。  监视指标发布者仅有权向资源推送指标，而无法更改任何状态、更新资源或读取任何数据。 有关角色的更多信息，请参阅[“监视指标发布者”角色](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)。
 
-## <a name="prerequisites"></a>先决条件 
-在开始之前，请确保你是 AKS 群集资源上的 **[所有者](../../role-based-access-control/built-in-roles.md#owner)** 角色的成员，这样才能收集节点和 pod 上的自定义性能指标。 
+## <a name="prerequisites"></a>先决条件
+
+在开始之前，请确认以下事项：
+
+* 自定义指标只在一部分 Azure 区域中可用。 受支持的区域列表在[此处](../platform/metrics-custom-overview.md#supported-regions)记录。
+* 你是 AKS 群集资源上的 **[所有者](../../role-based-access-control/built-in-roles.md#owner)** 角色的成员，这样才能收集节点和 Pod 自定义性能指标。 
 
 如果选择使用 Azure CLI，首先需要在本地安装和使用 CLI。 必须运行 Azure CLI 2.0.59 或更高版本。 若要确定版本，请运行 `az --version`。 如果需要安装或升级 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 
 

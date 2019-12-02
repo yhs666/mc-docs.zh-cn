@@ -1,6 +1,6 @@
 ---
 title: 备份 Azure VM 中的 SQL Server 数据库 | Microsoft Docs
-description: 了解如何备份 Azure VM 中的 SQL Server 数据库
+description: 本文介绍如何使用 Azure 备份在 Azure 虚拟机上备份 SQL Server 数据库。
 ms.reviewer: vijayts
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 09/11/2019
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3677b86975d26860745ccfa16723615a91654a7
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: ab8ca94ab73f615f63c61134809c9cbfab7beb7b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116369"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528240"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>备份 Azure VM 中的 SQL Server 数据库
 
@@ -25,10 +25,10 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 本文介绍如何执行以下操作：
 
 > [!div class="checklist"]
+>
 > * 创建并配置保管库。
 > * 发现数据库并设置备份。
 > * 为数据库设置自动保护。
-
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -42,7 +42,6 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 > [!NOTE]
 > 可以同时针对某个 Azure VM 以及该 VM 上运行的 SQL Server 数据库启用 Azure 备份，这不会发生冲突。
 
-
 ### <a name="establish-network-connectivity"></a>建立网络连接
 
 对于所有操作，SQL Server VM 都需要连接到 Azure 公共 IP 地址。 如果未连接到 Azure 公共 IP 地址，VM 操作（数据库发现、配置备份、计划备份、还原恢复点等）将会失败。
@@ -53,27 +52,26 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 - **允许使用 NSG 标记进行访问**。  如果使用 NSG 来限制连接，则应使用 AzureBackup 服务标记来允许对 Azure 备份进行出站访问。 此外，还应使用针对 Azure AD 和 Azure 存储的[规则](/virtual-network/security-overview#service-tags)，允许为身份验证和数据传输建立连接。 可以通过门户或 PowerShell 实现此目的。
 
-    若要使用门户创建规则：
-    
-    - 在“所有服务”中，转到“网络安全组”并选择网络安全组。  
-    - 在“设置”下选择“出站安全规则”。  
-    - 选择“设置”  （应用程序对象和服务主体对象）。 根据[安全规则设置](/virtual-network/manage-network-security-group#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 确保选项“目标”设置为“服务标记”，“目标服务标记”设置为“AzureBackup”。    
-    - 单击“添加”以保存新建的出站安全规则。 
-    
+    若要使用门户创建规则，请执行以下操作：
+
+  * 在“所有服务”中，转到“网络安全组”并选择网络安全组。  
+  * 在“设置”下选择“出站安全规则”。  
+  * 选择“添加”   。 根据[安全规则设置](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)中所述，输入创建新规则所需的所有详细信息。 确保选项“目标”设置为“服务标记”，“目标服务标记”设置为“AzureBackup”。    
+  * 单击“添加”以保存新建的出站安全规则。 
+
    若要使用 Powershell 创建规则：
 
-   - 添加 Azure 帐户凭据并更新国家云<br/>
+  * 添加 Azure 帐户凭据并更新国家云<br/>
     ``Add-AzureRmAccount``
-  - 选择 NSG 订阅<br/>
+  * 选择 NSG 订阅<br/>
     ``Select-AzureRmSubscription "<Subscription Id>"``
-  - 选择 NSG<br/>
+  * 选择 NSG<br/>
     ```$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"```
-  - 添加针对 Azure 备份服务标记的允许出站规则<br/>
+  * 添加针对 Azure 备份服务标记的允许出站规则<br/>
    ```Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"```
-  - 保存 NSG<br/>
+  * 保存 NSG<br/>
     ```Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg```
 
-   
 - **允许使用 Azure 防火墙标记进行访问**。 如果使用 Azure 防火墙，请使用 AzureBackup [FQDN 标记](/firewall/fqdn-tags)创建一个应用程序规则。 此规则允许对 Azure 备份进行出站访问。
 - **部署用于路由流量的 HTTP 代理服务器**。 在 Azure VM 中备份 SQL Server 数据库时，该 VM 上的备份扩展将使用 HTTPS API 将管理命令发送到 Azure 备份，并将数据发送到 Azure 存储。 备份扩展还使用 Azure AD 进行身份验证。 通过 HTTP 代理路由这三个服务的备份扩展流量。 该扩展是为了访问公共 Internet 而配置的唯一组件。
 
@@ -90,14 +88,13 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 避免在数据库名称中使用以下元素：
 
-  * 尾部和前导空格
-  * 尾部感叹号 (!)
-  * 右方括号 (])
-  * 分号“;”
-  * 正斜杠“/”
+* 尾部和前导空格
+* 尾部感叹号 (!)
+* 右方括号 (])
+* 分号“;”
+* 正斜杠“/”
 
 可对不支持的字符使用别名，但我们建议避免这样做。 有关详细信息，请参阅 [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)（了解表服务数据模型）。
-
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -119,9 +116,9 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 5. 在“备份目标” > “发现 VM 中的数据库”中，选择“开始发现”以搜索订阅中不受保护的 VM。    此搜索过程需要花费一段时间，具体取决于订阅中不受保护的 VM 数量。
 
-   - 发现后，未受保护的 VM 应会按名称和资源组列在列表中。
-   - 如果某个 VM 未按预期列出，请查看它是否已保管库中备份。
-   - 可能有多个 VM 同名，但它们属于不同的资源组。
+   * 发现后，未受保护的 VM 应会按名称和资源组列在列表中。
+   * 如果某个 VM 未按预期列出，请查看它是否已保管库中备份。
+   * 可能有多个 VM 同名，但它们属于不同的资源组。
 
      ![在搜索 VM 中的数据库期间，备份将会挂起。](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
@@ -133,12 +130,12 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 8. Azure 备份将发现该 VM 上的所有 SQL Server 数据库。 在发现期间，后台将发生以下情况：
 
-    - Azure 备份将 VM 注册到用于备份工作负荷的保管库。 已注册 VM 上的所有数据库只能备份到此保管库。
-    - Azure 备份在 VM 上安装 AzureBackupWindowsWorkload 扩展。 不会在 SQL 数据库中安装任何代理。
-    - Azure 备份在 VM 上创建服务帐户 NT Service\AzureWLBackupPluginSvc。
-      - 所有备份和还原操作使用该服务帐户。
-      - NT Service\AzureWLBackupPluginSvc 需要 SQL sysadmin 权限。 在市场中创建的所有 SQL Server VM 已预装 SqlIaaSExtension。 AzureBackupWindowsWorkload 扩展使用 SQLIaaSExtension 自动获取所需的权限。
-    - 如果 VM 不是从市场创建的，或者使用的是 SQL 2008 和 2008 R2，则该 VM 上可能未安装 SqlIaaSExtension，并且发现操作将会失败并出现错误消息 UserErrorSQLNoSysAdminMembership。 若要解决此问题，请按照[设置 VM 权限](backup-azure-sql-database.md#set-vm-permissions)中的说明操作。
+    * Azure 备份将 VM 注册到用于备份工作负荷的保管库。 已注册 VM 上的所有数据库只能备份到此保管库。
+    * Azure 备份在 VM 上安装 AzureBackupWindowsWorkload 扩展。 不会在 SQL 数据库中安装任何代理。
+    * Azure 备份在 VM 上创建服务帐户 NT Service\AzureWLBackupPluginSvc。
+      * 所有备份和还原操作使用该服务帐户。
+      * NT Service\AzureWLBackupPluginSvc 需要 SQL sysadmin 权限。 在市场中创建的所有 SQL Server VM 已预装 SqlIaaSExtension。 AzureBackupWindowsWorkload 扩展使用 SQLIaaSExtension 自动获取所需的权限。
+    * 如果 VM 不是从市场创建的，或者使用的是 SQL 2008 和 2008 R2，则该 VM 上可能未安装 SqlIaaSExtension，并且发现操作将会失败并出现错误消息 UserErrorSQLNoSysAdminMembership。 若要解决此问题，请按照[设置 VM 权限](backup-azure-sql-database.md#set-vm-permissions)中的说明操作。
 
         ![选择 VM 和数据库](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -170,9 +167,9 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 5. 在“备份策略”中选择一个策略，然后选择“确定”。  
 
-   - 选择“HourlyLogBackup”作为默认策略。
-   - 选择前面为 SQL 创建的现有备份策略。
-   - 根据 RPO 和保留范围定义新策略。
+   * 选择“HourlyLogBackup”作为默认策略。
+   * 选择前面为 SQL 创建的现有备份策略。
+   * 根据 RPO 和保留范围定义新策略。
 
      ![选择“备份策略”](./media/backup-azure-sql-database/select-backup-policy.png)
 
@@ -188,11 +185,11 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 备份策略定义备份创建时间以及这些备份的保留时间。
 
-- 策略是在保管库级别创建的。
-- 多个保管库可以使用相同的备份策略，但必须向每个保管库应用该备份策略。
-- 创建备份策略时，每日完整备份是默认设置。
-- 可以添加差异备份，但仅在将完整备份配置为每周发生时，才能这样做。
-- 了解[不同类型的备份策略](backup-architecture.md#sql-server-backup-types)。
+* 策略是在保管库级别创建的。
+* 多个保管库可以使用相同的备份策略，但必须向每个保管库应用该备份策略。
+* 创建备份策略时，每日完整备份是默认设置。
+* 可以添加差异备份，但仅在将完整备份配置为每周发生时，才能这样做。
+* 了解[不同类型的备份策略](backup-architecture.md#sql-server-backup-types)。
 
 创建备份策略：
 
@@ -204,20 +201,20 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 3. 在“策略名称”处输入新策略的名称  。
 4. 在“完整备份策略”中选择一个**备份频率**。  选择“每日”或“每周”。  
 
-   - 如果选择“每日”，请选择备份作业开始时的小时和时区。 
-   - 如果选择“每周”，请选择备份作业开始时的星期、小时和时区。 
-   - 运行完整备份，因为无法禁用“完整备份”选项。 
-   - 选择“完整备份”以查看策略。 
-   - 对于每日完整备份，无法创建差异备份。
+   * 如果选择“每日”，请选择备份作业开始时的小时和时区。 
+   * 如果选择“每周”，请选择备份作业开始时的星期、小时和时区。 
+   * 运行完整备份，因为无法禁用“完整备份”选项。 
+   * 选择“完整备份”以查看策略。 
+   * 对于每日完整备份，无法创建差异备份。
 
      ![新备份策略字段](./media/backup-azure-sql-database/full-backup-policy.png)  
 
 5. 对于“保留范围”，默认已选择所有选项。  清除任何不需要的保留范围限制，然后设置要使用的间隔。
 
-    - 任何类型的备份（完整、差异和日志）的最短保留期均为七天。
-    - 恢复点已根据其保留范围标记为保留。 例如，如果选择每日完整备份，则每天只触发一次完整备份。
-    - 根据每周保留范围和每周保留设置，将会标记并保留特定日期的备份。
-    - 每月和每年保留范围的行为类似。
+    * 任何类型的备份（完整、差异和日志）的最短保留期均为七天。
+    * 恢复点已根据其保留范围标记为保留。 例如，如果选择每日完整备份，则每天只触发一次完整备份。
+    * 根据每周保留范围和每周保留设置，将会标记并保留特定日期的备份。
+    * 每月和每年保留范围的行为类似。
 
        ![保留范围间隔设置](./media/backup-azure-sql-database/retention-range-interval.png)
 
@@ -229,8 +226,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 8. 在“差异备份策略”中，选择“启用”打开频率和保留控件。  
 
-    - 每天只能触发一次差异备份。
-    - 差异备份最多可以保留 180 天。 如需更长的保留期，请使用完整备份。
+    * 每天只能触发一次差异备份。
+    * 差异备份最多可以保留 180 天。 如需更长的保留期，请使用完整备份。
 
 9. 选择“确定”保存策略，并返回“备份策略”主菜单。  
 
@@ -241,8 +238,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
     ![编辑日志备份策略](./media/backup-azure-sql-database/log-backup-policy-editor.png)
 
 13. 在“备份策略”菜单中，选择是否启用“SQL 备份压缩”。  
-    - 默认已禁用压缩。
-    - Azure 备份在后端使用 SQL 本机备份压缩。
+    * 默认已禁用压缩。
+    * Azure 备份在后端使用 SQL 本机备份压缩。
 
 14. 完成备份策略的编辑后，选择“确定”。 
 
@@ -250,9 +247,9 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 可以启用自动保护，以便自动将所有现有数据库和将来的数据库备份到独立 SQL Server 实例或 Always On 可用性组。
 
-- 可以一次性选择进行自动保护的数据库数目没有限制。
-- 启用自动保护时，无法选择在实例中保护数据库，或者在实例中排除对其的保护。
-- 如果实例已包含某些受保护的数据库，即使在启用自动保护后，它们也仍会根据相应的策略受到保护。 以后添加的所有不受保护的数据库只会应用在启用自动保护时定义的、在“配置备份”下列出的单个策略。  但是，以后可以更改与自动保护的数据库关联的策略。  
+* 可以一次性选择进行自动保护的数据库数目没有限制。
+* 启用自动保护时，无法选择在实例中保护数据库，或者在实例中排除对其的保护。
+* 如果实例已包含某些受保护的数据库，即使在启用自动保护后，它们也仍会根据相应的策略受到保护。 以后添加的所有不受保护的数据库只会应用在启用自动保护时定义的、在“配置备份”下列出的单个策略。  但是，以后可以更改与自动保护的数据库关联的策略。  
 
 若要启用自动保护：
 
@@ -267,7 +264,6 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
 ![针对该实例禁用自动保护](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
 ## <a name="next-steps"></a>后续步骤
 
 了解如何：

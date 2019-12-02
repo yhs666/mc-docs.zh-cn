@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 82ed5b748d9ec9bad980205b8f21aa63fc8ff069
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 9ea97dd9b85190ed219e6ea5db17420733945fc4
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730566"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528316"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>运行 Azure 备份服务器的无人参与安装
 
@@ -61,10 +61,12 @@ ms.locfileid: "73730566"
 **/x**：卸载路径</br>
 
 ## <a name="next-steps"></a>后续步骤
+
 安装备份服务器之后，了解如何准备服务器或开始保护工作负荷。
 
 - [准备备份服务器工作负荷](backup-azure-microsoft-azure-backup.md)
 - [使用备份服务器备份 VMware 服务器](backup-azure-backup-server-vmware.md)
+- [使用备份服务器备份 SQL Server](backup-azure-sql-mabs.md)
 - [将 Modern Backup Storage 添加到备份服务器](backup-mabs-add-storage.md)
 
 <!-- Update_Description: link update -->

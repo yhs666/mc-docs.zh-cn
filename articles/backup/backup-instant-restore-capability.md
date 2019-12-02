@@ -9,17 +9,18 @@ ms.topic: conceptual
 origin.date: 04/23/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6089610c45e736ceab8cd8004a4c31597fa42f11
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f9de9d2cfda0925fde776f3a9bcdb86d696d0247
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330235"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528377"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>使用 Azure 备份即时还原功能获得更高的备份和还原性能
 
 > [!NOTE]
-> 根据用户的反馈，我们正在将“VM 备份堆栈 V2”  重命名为“即时还原”  ，以减少与 Azure Stack 功能的混淆。<br/><br/> 所有 Azure 备份用户现在已升级到**即时还原**。
+> 根据用户的反馈，我们正在将“VM 备份堆栈 V2”  重命名为“即时还原”  ，以减少与 Azure Stack 功能的混淆。
+> 所有 Azure 备份用户现在已升级到**即时还原**。
 
 即时还原的新模型提供以下功能增强：
 
@@ -27,15 +28,15 @@ ms.locfileid: "71330235"
 * 默认情况下，可在本地保留快照两天，这缩短了备份和还原时间。 此默认快照保留期值可配置为 1 到 5 天的任何值。
 * 最大支持 4 TB 的磁盘。 Azure 备份不建议重设磁盘大小。 若要注册 Azure 备份大磁盘的受限公共预览版以支持大于 4 TB 且最大 30 TB 的磁盘，请参阅[备份磁盘大小高达 30 TB 的 VM](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb)。
 * 支持标准 SSD 磁盘、标准 HDD 磁盘和高级 SSD 磁盘。
-*   还原时可以使用非托管 VM 的原始存储帐户（按磁盘）。 即使 VM 的磁盘跨存储帐户进行分布，也具备此能力。 这可以加快各种 VM 配置的还原操作。
-
+* 还原时可以使用非托管 VM 的原始存储帐户（按磁盘）。 即使 VM 的磁盘跨存储帐户进行分布，也具备此能力。 这可以加快各种 VM 配置的还原操作。
+* 若要通过 Instant Restore 备份使用高级存储的 VM，建议从总的已分配存储空间中分配 *50%* 的可用空间，这**只**在首次备份时是必需的。 首次备份完成后，50% 的可用空间不再是备份的要求。
 
 ## <a name="whats-new-in-this-feature"></a>功能亮点
 
 目前，备份作业包括两个阶段：
 
-1.  获取 VM 快照。
-2.  将 VM 快照传输到 Azure 恢复服务保管库。
+1. 获取 VM 快照。
+2. 将 VM 快照传输到 Azure 恢复服务保管库。
 
 只有在完成阶段 1 和 2 之后，才认为已创建恢复点。 在执行此项升级的过程中，完成快照后会立即创建恢复点，可以在相同的还原流中，使用此快照恢复点类型执行还原。 可以在 Azure 门户中使用“快照”作为恢复点类型来识别此恢复点，快照传输到保管库后，恢复点类型将更改为“快照和保管库”。
 
@@ -47,7 +48,7 @@ ms.locfileid: "71330235"
 
 * 快照将连同磁盘一起存储，以提高恢复点的创建速度并加快还原操作。 因此，可以查看 7 天内创建的快照的相应存储成本。
 * 增量快照作为页 blob 存储。 使用非托管磁盘的所有用户需要为其本地存储帐户中存储的快照付费。 由于托管 VM 备份使用的还原点集合在基础存储级别使用 Blob 快照，因此对于托管磁盘，你将看到与 Blob 快照定价对应的成本，并且成本是递增的。
-* 对于高级存储帐户，为即时恢复点创建的快照计入分配空间的 10 TB 限制。
+* 对于高级存储帐户，为即时恢复点创建的快照计入分配空间的 10-TB 限制。
 * 可以根据还原需求配置快照保留期。 可按如下所述，在备份策略边栏选项卡中根据要求将快照保留期设置为最短一天。 如果不经常执行还原，这可帮助节省保留快照的成本。
 * 这是单向升级，一旦升级到即时还原，就不能回退。
 
@@ -75,10 +76,11 @@ ms.locfileid: "71330235"
 > 从 Az PowerShell 版本 1.6.0 开始，可以使用 PowerShell 在策略中更新即时还原快照保留期
 
 ```powershell
-PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
+
 每个策略的默认快照保留期设置为 2 天。 用户可以将此值更改为 1 到 5 天。 就每周策略来说，快照保留期固定为 5 天。
 
 ## <a name="frequently-asked-questions"></a>常见问题
@@ -86,7 +88,8 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>哪些因素影响即时还原的成本？
 快照将连同磁盘一起存储，以加速恢复点的创建和还原操作。 因此，你会看到与 VM 备份策略中选择的快照保留期相对应的存储成本。
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>在高级存储帐户中，为即时恢复点创建的快照是否会占用 10 TB 快照限制？
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>在高级存储帐户中，为即时恢复点创建的快照是否会占用 10-TB 快照限制？
+
 是的，对于高级存储帐户，为即时恢复点创建的快照会占用 10 TB 的已分配快照空间。
 
 ### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>在 5 天期限内，快照保留的工作方式是怎样的？
@@ -105,7 +108,8 @@ PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 除非删除快照（第 1 层），否则新模型不允许删除还原点（第 2 层）。 建议将还原点（第 2 层）保留期设置为大于快照保留期。
 
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>为何我即使在备份策略中设置了保留期，我的快照也仍然存在？
-如果恢复点包含快照并且存在最新可用的 RP，则该快照会一直保留到下一次成功备份为止。 这符合当前设计的 GC 策略，该策略强制要求始终至少有一个最新的 RP，以防 VM 中的问题导致所有备份进一步出错。 正常情况下，在 RP 过期后，将在最多 24 小时内予以清理。
+
+如果恢复点包含快照并且存在最新可用的 RP，则该快照会一直保留到下一次成功备份为止。 这符合当前设计的“垃圾回收”(GC) 策略，该策略强制要求始终至少有一个最新的 RP，以防 VM 中的问题导致所有备份进一步出错。 正常情况下，在 RP 过期后，将在最多 24 小时内予以清理。
 
 
 

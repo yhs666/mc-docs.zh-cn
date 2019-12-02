@@ -9,12 +9,12 @@ origin.date: 07/18/2018
 ms.date: 07/07/2017
 ms.author: v-lingwu
 ms.subservice: autoscale
-ms.openlocfilehash: 678c4aae021d4c440ad43a0259d1d234045828ed
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 432c308bd42f75cd8c7f92818635e6c34d1cc420
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737330"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528400"
 ---
 # <a name="best-practices-for-autoscale"></a>自动缩放最佳实践
 Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scale-sets/)、[云服务](/cloud-services/)、[应用服务 - Web 应用](/app-service/)和 [API 管理服务](/api-management/api-management-key-concepts)。
@@ -49,8 +49,8 @@ Azure Monitor 自动缩放仅适用于[虚拟机规模集](/virtual-machine-scal
 
 我们 *建议不要* 使用如同以下示例的自动缩放设置，其中针对扩大和缩小条件的阈值相同或非常相似：
 
-* 当线程计数 <= 600 时，按 1 计数增加实例
-* 当线程计数 >= 600 时，按 1 计数减少实例
+* 当线程计数 >= 600 时，按 1 计数增加实例
+* 当线程计数 <= 600 时，按 1 计数减少实例
 
 让我们看一下可能会导致看起来令人困惑的行为的示例。 请考虑以下情景。
 

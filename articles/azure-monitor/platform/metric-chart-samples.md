@@ -9,12 +9,12 @@ origin.date: 01/29/2019
 ms.date: 08/29/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: 0bc255353d576663a782ff15fd9351314ab5cb51
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 0e20aa287536f0ddbf887dc561e6a138525f01af
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736504"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527953"
 ---
 # <a name="metric-chart-samples"></a>指标图表示例
 
@@ -34,7 +34,7 @@ Azure 平台提供了[一千多个指标](/azure-monitor/platform/metrics-suppor
 
 ## <a name="application-availability-by-region"></a>各个区域的应用程序可用性
 
-查看各个区域的应用程序可用性，以确定哪些地理位置遇到问题。 此图表显示 Application Insights 可用性指标。 可以看到，受监视的应用程序没有遇到来自美国东部数据中心的可用性问题，但它正在经历来自美国西部和东亚的部分可用性问题。
+查看各个区域的应用程序可用性，以确定哪些地理位置遇到问题。 此图表显示 Application Insights 可用性指标。 可以看到，受监视的应用程序没有遇到来自中国东部数据中心的可用性问题，但它正在经历来自美国西部和东亚的部分可用性问题。
 
 ![各个位置的平均可用性图表](./media/metric-chart-samples/availability-run-location.png)
 

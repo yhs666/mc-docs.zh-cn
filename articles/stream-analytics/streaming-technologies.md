@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 上选择实时分析和流式处理技术
+title: 在 Azure 上选择实时和流处理解决方案
 description: 了解如何选择适当的实时分析和流式处理技术，以便在 Azure 上构建应用程序。
 author: lingliw
 ms.author: v-lingwu
@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/15/2019
 ms.date: 08/09/2019
-ms.openlocfilehash: fa6e6d3d2ab68653779080b7a2f12e29a44947c7
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 5a48103deac4c6f14e05a0b880d5740711f354b3
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674733"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528258"
 ---
 # <a name="choose-a-real-time-analytics-and-streaming-processing-technology-on-azure"></a>在 Azure 上选择实时分析和流式处理技术
 

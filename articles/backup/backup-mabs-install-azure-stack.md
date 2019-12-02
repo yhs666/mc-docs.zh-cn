@@ -1,6 +1,6 @@
 ---
 title: 在 Azure Stack 上安装 Azure 备份服务器 | Microsoft Docs
-description: 使用 Azure 备份服务器保护或备份 Azure Stack 中的工作负荷。
+description: 本文介绍如何使用 Azure 备份服务器保护或备份 Azure Stack 中的工作负荷。
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 01/31/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3c661d9892bab4bbedf2b0ffc4e91c0e427ddc1d
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 4fe03be30b7876ecfd9b4ecdcadda37ec7287d33
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330263"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528339"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 
@@ -26,6 +26,7 @@ ms.locfileid: "71330263"
 >
 
 ## <a name="azure-backup-server-protection-matrix"></a>Azure 备份服务器保护矩阵
+
 Azure 备份服务器保护以下 Azure Stack 虚拟机工作负荷。
 
 | 受保护的数据源 | 保护和恢复 |
@@ -70,12 +71,14 @@ Azure备份服务器将备份数据存储在附加到虚拟机的 Azure 磁盘�
 在 Azure 中存储备份数据会缩减 Azure Stack 上的备份基础结构。 如果数据的存在已超过五天，应将其存储在 Azure 中。
 
 若要将备份数据存储在 Azure 中，请创建或使用恢复服务保管库。 准备备份 Azure 备份服务器工作负荷时，请[配置恢复服务保管库](backup-azure-microsoft-azure-backup.md#create-a-recovery-services-vault)。 配置后，每次运行备份作业时，都会在保管库中创建恢复点。 每个恢复服务保管库最多可容纳 9999 个恢复点。 根据所创建的恢复点数量以及保留期限，可以将备份数据保留多年。 例如，可以每月创建恢复点，并将其保留五年。
- 
+
 ### <a name="scaling-deployment"></a>扩展部署
+
 如果想要扩展部署，可以使用以下选项：
-  - 纵向扩展 - 将 Azure 备份服务器虚拟机的大小从 A 系列增加到 D 系列，并[根据 Azure Stack 虚拟机说明](/azure-stack/user/azure-stack-manage-vm-disks)增加本地存储。
-  - 卸载数据 - 将旧数据发送到 Azure，并仅保留附加到 Azure 备份服务器的存储上的最新数据。
-  - 横向扩展 - 添加更多 Azure 备份服务器来保护工作负荷。
+
+- 纵向扩展 - 将 Azure 备份服务器虚拟机的大小从 A 系列增加到 D 系列，并[根据 Azure Stack 虚拟机说明](/azure-stack/user/azure-stack-manage-vm-disks)增加本地存储。
+- 卸载数据 - 将旧数据发送到 Azure，并仅保留附加到 Azure 备份服务器的存储上的最新数据。
+- 横向扩展 - 添加更多 Azure 备份服务器来保护工作负荷。
 
 ### <a name="net-framework"></a>.NET framework
 
@@ -93,6 +96,7 @@ Azure 备份服务器虚拟机必须加入域。 拥有管理员特权的域用�
 
 > [!NOTE]
 > Azure 备份服务器设计为在专用的单一用途虚拟机上运行。 不能在以下计算机上安装 Azure 备份服务器：
+>
 > - 作为域控制器运行的计算机
 > - 安装了应用程序服务器角色的计算机
 > - 运行 Exchange Server 的计算机
@@ -115,7 +119,7 @@ Azure 备份服务器虚拟机必须加入域。 拥有管理员特权的域用�
 
 ## <a name="download-azure-backup-server-installer"></a>下载 Azure 备份服务器安装程序
 
-可通过两种方式下载 Azure 备份服务器安装程序。 从 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=55269)下载 Azure 备份服务器安装程序。 也可以在配置恢复服务保管库时下载 Azure 备份服务器安装程序。 以下步骤引导你在配置恢复服务保管库时从 Azure 门户下载安装程序。
+可通过两种方式下载 Azure 备份服务器安装程序。 从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=55269)下载 Azure 备份服务器安装程序。 也可以在配置恢复服务保管库时下载 Azure 备份服务器安装程序。 以下步骤引导你在配置恢复服务保管库时从 Azure 门户下载安装程序。
 
 1. 在 Azure 门户中，从 Azure Stack 虚拟机[登录到自己的 Azure 订阅](https://portal.azure.cn/)。
 2. 在左侧菜单中，选择“所有服务”  。
@@ -306,7 +310,7 @@ Azure 备份服务器与 Data Protection Manager 共享代码。 在 Azure 备�
 
 ## <a name="add-backup-storage"></a>添加备份存储
 
-第一个备份副本保存在已附加到 Azure 备份服务器计算机的存储中。 有关添加磁盘的详细信息，请参阅[添加新式备份存储](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801)。
+第一个备份副本保存在已附加到 Azure 备份服务器计算机的存储中。 有关添加磁盘的详细信息，请参阅[添加新式备份存储](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801)。
 
 > [!NOTE]
 > 即使你打算将数据发送到 Azure，也需要添加备份存储。 在 Azure 备份服务器体系结构中，恢复服务保管库将保存数据的第二个副本，而本地存储将保存第一个（必需的）备份副本。 
@@ -332,7 +336,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 ### <a name="recovering-from-loss-of-connectivity"></a>连接断开后进行恢复
 
-如果防火墙或代理阻止访问 Azure，请将防火墙/代理配置文件中的以下域地址加入允许列表：
+如果防火墙或代理阻止访问 Azure，请将防火墙/代理配置文件中的以下域地址添加到允许列表：
 
 - `http://www.msftncsi.com/ncsi.txt`
 - \*.Microsoft.com
@@ -356,7 +360,7 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
 
 ## <a name="next-steps"></a>后续步骤
 
-[为 DPM 准备环境](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)一文包含了有关受支持 Azure 备份服务器配置的信息。
+[为 DPM 准备环境](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801)一文包含了有关受支持 Azure 备份服务器配置的信息。
 
 可以使用以下文章深入了解如何使用 Azure 备份服务器来保护工作负荷。
 

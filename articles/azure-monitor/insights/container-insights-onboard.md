@@ -6,14 +6,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-origin.date: 07/12/2019
-ms.date: 10/25/2019
-ms.openlocfilehash: 7faaf8c2500b81df78ff4359da783f4a65289db5
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+origin.date: 11/11/2019
+ms.date: 11/18/2019
+ms.openlocfilehash: 70ab38b7be78b7efbb9396aa9672d3356b1e7191
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970976"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528285"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何为容器启用 Azure Monitor  
 
@@ -42,6 +42,24 @@ ms.locfileid: "72970976"
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 * 默认情况下不收集 Prometheus 指标。 在[配置代理](container-insights-agent-config.md)收集 Prometheus 指标之前，请务必查看 Prometheus [文档](https://prometheus.io/)以了解可以定义的内容。
+## <a name="supported-configurations"></a>支持的配置
+
+用于容器的 Azure Monitor 正式支持以下内容。
+
+- 环境：本地 Kubernetes、Azure 和 Azure Stack 上的 AKS 引擎。 有关详细信息，请参阅 [Azure Stack 上的 AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
+- Kubernetes 和支持策略的版本与 [AKS 支持](../../aks/supported-kubernetes-versions.md)的版本相同。 
+
+## <a name="network-firewall-requirements"></a>网络防火墙要求
+
+下表中的信息列出了 Azure 中国区的代理和防火墙配置信息。
+
+|代理资源|端口 |说明 | 
+|--------------|------|-------------|
+| *.ods.opinsights.azure.cn | 443 | 数据引入 |
+| *.oms.opinsights.azure.cn | 443 | OMS 载入 |
+| \* .blob.core.windows.net | 443 | 用于监视出站连接。 |
+| microsoft.com | 80 | 用于网络连接。 仅当代理映像版本为 ciprod09262019 或更低版本时，才需要此项。 |
+| dc.services.visualstudio.com | 443 | 用于使用 Azure 公有云 Application Insights 进行代理遥测。 |
 
 ## <a name="components"></a>组件
 

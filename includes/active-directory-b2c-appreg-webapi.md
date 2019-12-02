@@ -1,18 +1,23 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-origin.date: 09/30/2019
-ms.date: 10/22/2019
+origin.date: 10/16/2019
+ms.date: 11/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: 2bd5774ef58149d4dd301f8d3ee807848455e933
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 12b8be8d16c35812509bb010db4b8e985af61e68
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846917"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461583"
 ---
 Web API 资源需要先在租户中注册，然后才能接受并响应通过提供访问令牌的客户端应用程序所提出的受保护资源请求。
+
+若要在 Azure AD B2C 租户中注册应用程序，可以使用当前“应用程序”体验  。
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在顶部菜单中选择“目录 + 订阅”  筛选器，然后选择包含Azure AD B2C 租户的目录。

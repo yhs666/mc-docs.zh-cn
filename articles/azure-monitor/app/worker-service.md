@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 09/15/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d3db602690416ba7d83b8ad4a8b10f1f6ee246f9
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: edef90608406ca7a7abf1414bdeaa2714d97033c
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730509"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528360"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>适用于辅助角色服务应用程序（非 HTTP 应用）的 Application Insights
 
@@ -28,7 +28,7 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ## <a name="prerequisites"></a>先决条件
 
-有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)。
+有效的 Application Insights 检测密钥。 将任何遥测数据发送到 Application Insights 都需要使用此密钥。 如果需要创建新的 Application Insights 资源来获取检测密钥，请参阅[创建 Application Insights 资源](/azure-monitor/app/create-new-resource)。
 
 ## <a name="using-application-insights-sdk-for-worker-services"></a>使用适用于辅助角色服务的 Application Insights SDK
 
@@ -298,7 +298,7 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 运行应用程序。 上述所有示例中的示例辅助角色每秒对 bing.com 发出 http 调用，并使用 ILogger 发出几个日志。 这些行包装在用于创建操作的 `TelemetryClient` 的 `StartOperation` 调用内部（在此示例中，`RequestTelemetry` 名为“operation”）。 Application Insights 将收集这些 ILogger 日志（默认为警告或更高级别）和依赖项，这些日志将通过父子关系关联到 `RequestTelemetry`。 这种关联也会跨进程/网络边界发生。 例如，如果对另一个受监视组件发出调用，则该组件也会关联到此父级。
 
-可将 `RequestTelemetry` 的此自定义操作视为等效于典型 Web 应用程序中的传入 Web 请求。 尽管不一定要使用操作，但操作最适合 [Application Insights 关联数据模型](https://docs.microsoft.com/azure/azure-monitor/app/correlation) - `RequestTelemetry` 充当父操作，在辅助角色迭代中生成的每个遥测数据被视为在逻辑上属于同一操作。 此方法还确保生成的所有遥测数据（自动和手动）具有相同的 `operation_id`。 由于采样基于 `operation_id`，因此采样算法会在单个迭代中保留或删除所有遥测数据。
+可将 `RequestTelemetry` 的此自定义操作视为等效于典型 Web 应用程序中的传入 Web 请求。 尽管不一定要使用操作，但操作最适合 [Application Insights 关联数据模型](/azure-monitor/app/correlation) - `RequestTelemetry` 充当父操作，在辅助角色迭代中生成的每个遥测数据被视为在逻辑上属于同一操作。 此方法还确保生成的所有遥测数据（自动和手动）具有相同的 `operation_id`。 由于采样基于 `operation_id`，因此采样算法会在单个迭代中保留或删除所有遥测数据。
 
 下面列出了 Application Insights 自动收集的整个遥测数据。
 
@@ -313,6 +313,10 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 ### <a name="dependencies"></a>依赖项
 
 默认情况已启用依赖项收集。 [此文](asp-net-dependencies.md#automatically-tracked-dependencies)介绍了自动收集的依赖项，并提供了执行手动跟踪的步骤。
+
+### <a name="eventcounter"></a>EventCounter
+
+`EventCounterCollectionModule` 默认已启用，它会从 .NET Core 3.0 应用收集默认的计数器集。 它还包含有关自定义列表的说明。
 
 ### <a name="manually-tracking-additional-telemetry"></a>手动跟踪附加遥测数据
 
@@ -362,7 +366,7 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ### <a name="sampling"></a>采样
 
-适用于辅助角色服务的 Application Insights SDK 支持固定速率采样和自适应采样。 自适应采样默认已启用。 为辅助角色服务配置采样的方式与对 [ASP.NET Core 应用程序](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications)使用的方式相同。
+适用于辅助角色服务的 Application Insights SDK 支持固定速率采样和自适应采样。 自适应采样默认已启用。 为辅助角色服务配置采样的方式与对 [ASP.NET Core 应用程序](/azure-monitor/app/sampling#configuring-adaptive-sampling-for-aspnet-core-applications)使用的方式相同。
 
 ### <a name="adding-telemetryinitializers"></a>添加 TelemetryInitializer
 
@@ -404,7 +408,7 @@ Application Insights 正在发布名为 `Microsoft.ApplicationInsights.WorkerSer
 
 ### <a name="adding-telemetry-processors"></a>添加遥测处理程序
 
-可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
+可以使用 `IServiceCollection` 中的扩展方法 `AddApplicationInsightsTelemetryProcessor` 将自定义遥测处理程序添加到 `TelemetryConfiguration`。 使用[高级筛选方案](/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer)中的遥测处理程序可以更直接地控制要在发送到 Application Insights 服务的遥测数据中包含或排除哪些内容。 使用以下示例。
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -502,7 +506,7 @@ using Microsoft.ApplicationInsights.Channel;
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>是否可以使用状态监视器之类的工具来启用 Application Insights 监视？
 
-否。 [状态监视器](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now)和[状态监视器 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 目前仅支持 ASP.NET 4.x。
+否。 [状态监视器](/azure-monitor/app/monitor-performance-live-website-now)和[状态监视器 v2](/azure-monitor/app/status-monitor-v2-overview) 目前仅支持 ASP.NET 4.x。
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>如果在 Linux 中运行应用程序，是否支持所有功能？
 

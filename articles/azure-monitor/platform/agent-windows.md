@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/07/2019
 ms.date: 10/25/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 914a8b411a46863327b7ef934067ee70b6951051
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 115e8361f580b05acfac0426a35c44c91785cf56
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730040"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527897"
 ---
 # <a name="connect-windows-computers-to-azure-monitor"></a>将 Windows 计算机连接到 Azure Monitor
 
@@ -38,7 +38,7 @@ ms.locfileid: "73730040"
 若要了解支持的配置，请查看[支持的 Windows 操作系统](log-analytics-agent.md#supported-windows-operating-systems)和[网络防火墙配置](log-analytics-agent.md#network-firewall-requirements)。
 
 ## <a name="obtain-workspace-id-and-key"></a>获取工作区 ID 和密钥
-在安装适用于 Windows 的 Log Analytics 代理前，需要先获得 Log Analytics 工作区的工作区 ID 和秘钥。  安装期间每种安装方法需要此信息才能正确配置代理，并确保它能在 Azure 商业版和美国政府云中与 Azure Monitor 成功通信。 
+在安装适用于 Windows 的 Log Analytics 代理前，需要先获得 Log Analytics 工作区的工作区 ID 和秘钥。  安装期间每种安装方法都需要此信息才能正确配置代理，并确保它能在 Azure 商业版和中国政府云中与 Azure Monitor 成功通信。 
 
 1. 在 Azure 门户中，单击“所有服务”  。 在资源列表中，键入“Log Analytics”  。 开始键入时，会根据输入筛选该列表。 选择“Log Analytics”  。
 2. 在 Log Analytics 工作区列表中，选择要将代理配置为向其报告的工作区。
@@ -75,7 +75,7 @@ ms.locfileid: "73730040"
 4. 在“目标文件夹”页面上更改或保留默认安装文件夹，然后单击“下一步”   。
 5. 在“代理安装选项”页上，选择将代理连接到 Azure Log Analytics，单击“下一步”。     
 6. 在“Azure Log Analytics”页上执行以下操作： 
-   1. 粘贴前面复制的“工作区 ID”和“工作区密钥(主密钥)”。    如果计算机应向 Azure 政府云中的 Log Analytics 工作区报告，请从“Azure 云”下拉列表中选择“Azure 美国政府版”。    
+   1. 粘贴前面复制的“工作区 ID”和“工作区密钥(主密钥)”。    如果计算机应向 Azure 政府云中的 Log Analytics 工作区报告，请从“Azure 云”  下拉列表中选择“Azure 中国政府”  。  
    2. 如果计算机需要通过代理服务器来与 Log Analytics 通信，请单击“高级”并提供代理服务器的 URL 和端口号。   如果代理服务器要求身份验证，请键入用于在代理服务器上进行身份验证的用户名和密码，并单击“下一步”。   
 7. 提供所需的配置设置后，单击“下一步”。 <br><br> ![粘贴工作区 ID 和主键](media/agent-windows/log-analytics-mma-setup-laworkspace.png)<br><br>
 8. 在“准备安装”页上检查所做的选择，并单击“安装”。  
@@ -109,7 +109,7 @@ ms.locfileid: "73730040"
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
-   或者，要将代理配置为向 Azure 美国政府版云报告，请键入： 
+   或者，要将代理配置为向 Azure 中国政府版云报告，请键入： 
 
      ```dos
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1

@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-origin.date: 08/23/2019
-ms.date: 10/24/2019
+origin.date: 10/16/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 4783aa33288073d4bc848aab80ec7fcb9c78c110
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: a4f2552f28fc85c84c5a212229ed47fae508acee
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847130"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461608"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>教程：在 Azure Active Directory B2C 中注册应用程序
 
@@ -35,6 +35,10 @@ ms.locfileid: "72847130"
 如果尚未创建自己的 [Azure AD B2C 租户](tutorial-create-tenant.md)，请立即创建一个。 可以使用现有的 Azure AD B2C 租户。
 
 ## <a name="register-a-web-application"></a>注册 Web 应用程序
+
+若要在 Azure AD B2C 租户中注册应用程序，可以使用当前“应用程序”体验  。 
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 1. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
@@ -55,6 +59,8 @@ ms.locfileid: "72847130"
 ## <a name="create-a-client-secret"></a>创建客户端机密
 
 如果应用程序将代码交换为令牌，则需要创建应用程序机密。
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 在“Azure AD B2C - 应用程序”  页中，选择已创建的应用程序，例如 webapp1  。
 1. 选择“密钥”，然后选择“生成密钥”。  

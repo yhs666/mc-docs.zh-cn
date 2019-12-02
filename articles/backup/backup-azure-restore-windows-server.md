@@ -1,6 +1,6 @@
 ---
-title: 将 Azure 中的数据还原到 Windows Server 或 Windows 计算机
-description: 了解如何将 Azure 中存储的数据还原到 Windows Server 或 Windows 计算机。
+title: 将 Azure 中的数据还原到 Windows Server - Azure 备份
+description: 本文介绍如何将 Azure 中存储的数据还原到安装了 Microsoft Azure 恢复服务 (MARS) 代理的 Windows Server 或 Windows 计算机。
 ms.reviewer: saurse
 author: lingliw
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 09/07/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 9eb63760dad918fd055a0a52b82dce14299c8644
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d34bb82a9e9a2814d223c7b8e3cbe45bb184500a
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730342"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528247"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure 资源管理器部署模型将文件还原到 Windows
 
@@ -72,11 +72,9 @@ ms.locfileid: "73730342"
 
     ![恢复数据向导“浏览和恢复文件”页的屏幕截图](./media/backup-azure-restore-windows-server/samemachine_browserecover_instantrestore.png)
 
-
 8. 在 Windows 资源管理器中，复制想要还原的文件和文件夹，将其粘贴到服务器或计算机本地的任何位置。 可从恢复卷直接打开或流式传输文件，并验证是否恢复的是正确的版本。
 
     ![Windows 资源管理器的屏幕截图，其中已突出显示“复制”](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
-
 
 9. 完成后，在“浏览和恢复文件”页上，选择“卸载”。   然后选择“是”，确认要卸载该卷  。
 
@@ -86,7 +84,6 @@ ms.locfileid: "73730342"
     > 如果不选择“卸载”，恢复卷将保持装载 6 个小时（从装载时算起）。  但是，如果正在持续进行文件复制，装载时间延长至最多 24 小时。 装载卷时，不会运行任何备份操作。 计划为在装载卷时运行的任何备份操作会在卸载恢复卷后运行。
     >
 
-
 ## <a name="use-instant-restore-to-restore-data-to-an-alternate-machine"></a>使用即时还原将数据还原到另一台计算机
 如果整个服务器断开连接，仍可将 Azure 备份中的数据恢复到另一台计算机。 下面的步骤演示了工作流。
 
@@ -95,7 +92,7 @@ ms.locfileid: "73730342"
 
 * *源计算机* � 从其中创建备份并且当前不可用的原始计算机。
 * *目标计算机* � 要将数据恢复到的计算机。
-* *示例保管库* � 源计算机和目标计算机将注册到的恢复服务保管库。 <br/>
+* *示例保管库* � 源计算机和目标计算机将注册到的恢复服务保管库。
 
 > [!NOTE]
 > 无法将备份还原到运行较低 操作系统版本的目标计算机。 例如，在 Windows 7 计算机中创建的备份可以还原到 Windows 7（或更高版本）的计算机上。 但是，在 Windows 8 计算机上创建的备份无法还原到 Windows 7 计算机。
@@ -117,7 +114,6 @@ ms.locfileid: "73730342"
 5. 提供对应于示例保管库的保管库凭据文件，并选择“下一步”。 
 
     如果保管库凭据文件无效（或已过期），请在 Azure 门户中从示例保管库下载新的保管库凭据文件。 提供有效的保管库凭据后，会显示相应备份保管库的名称。
-
 
 6. 在“选择备份服务器”窗格中，从显示的计算机列表中选择源计算机并提供通行短语。  然后，选择“下一步”  。
 
@@ -152,6 +148,7 @@ ms.locfileid: "73730342"
     >
 
 ## <a name="next-steps"></a>后续步骤
+
 恢复文件和文件夹后，可以[管理备份](backup-azure-manage-windows-server.md)。
 
 <!-- Update_Description: wording update -->

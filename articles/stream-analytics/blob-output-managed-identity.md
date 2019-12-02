@@ -1,19 +1,18 @@
 ---
-title: 使用托管标识在 Azure Blob 存储输出（预览版）中对 Azure 流分析作业进行身份验证
+title: 使用托管标识 Azure 流分析验证 blob 输出
 description: 本文介绍如何使用托管标识在 Azure Blob 存储输出中对 Azure 流分析作业进行身份验证。
 author: lingliw
-ms.author: v-lingwu
-ms.reviewer: jasonh
+ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
-ms.date: 07/12/2019
-ms.openlocfilehash: 6506017ee3e24d5d6abe6bab098c921813f52856
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.date: 11/12/2019
+ms.openlocfilehash: b7de0a1940d15058d4420bd33751dd03592039d5
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674803"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527955"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>使用托管标识在 Azure Blob 存储输出（预览版）中对 Azure 流分析作业进行身份验证
 
@@ -25,7 +24,7 @@ ms.locfileid: "71674803"
 
 1. 在 Azure 门户中创建新的流分析作业，或打开现有的作业。 在屏幕左侧的菜单栏中，选择“配置”下面的“托管标识”。   确保选择“使用系统分配的托管标识”，然后单击屏幕底部的“保存”按钮。 
 
-   ![配置流分析托管标识](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![配置流分析托管标识](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. 在 Azure Blob 存储输出接收器的输出属性窗口中，选择“身份验证模式”下拉列表并选择“托管标识”。  有关其他输出属性的信息，请参阅[了解 Azure 流分析的输出](./stream-analytics-define-outputs.md)。 完成后，单击“保存”。 
 

@@ -1,5 +1,5 @@
 ---
-title: 如何排查 Log Analytics Windows 代理的问题 | Microsoft Docs
+title: 排查 Log Analytics Windows 代理的问题
 description: 描述 Azure Monitor 中 Log Analytics Windows 代理最常见问题的症状、原因和解决方法。
 author: lingliw
 manager: digimobile
@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/12/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3ff541099e673bcab33c3e2c5eb0f917685a9c5
-ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
+ms.openlocfilehash: 385cd34990e228c13a250e73974a39decf68e959
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906411"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527907"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何排查 Log Analytics Windows 代理的问题 
 
@@ -31,7 +31,7 @@ ms.locfileid: "73906411"
 
 ## <a name="connectivity-issues"></a>连接问题
 
-如果代理通过代理服务器或防火墙通信，某些限制可能会阻止源计算机和 Azure Monitor 服务发起的通信。 如果通信受阻或者配置不当，在尝试安装代理或者配置代理的后期设置以向其他工作区报告时，注册到工作区可能会失败，或者在成功注册后代理通信失败。 本部分将介绍排查此类 Windows 代理问题的方法。 
+如果代理通过代理服务器或防火墙通信，某些限制可能会阻止源计算机和 Azure Monitor 服务发起的通信。 如果由于配置错误而阻止了通信，则在尝试安装代理或在安装后将代理配置为向其他工作区报告时，注册到工作区可能会失败。 成功注册后，代理通信可能会失败。 本部分将介绍排查此类 Windows 代理问题的方法。
 
 请仔细检查防火墙或代理是否配置为允许下表中所述的端口和 URL。 此外，请确认没有为 Web 流量启用 HTTP 检查，因为它可能会阻止代理与 Azure Monitor 之间的安全 TLS 通道。  
 

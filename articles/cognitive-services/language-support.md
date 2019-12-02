@@ -3,20 +3,20 @@ title: 语言支持
 titleSuffix: Azure Cognitive Services
 description: 可以通过 Azure 认知服务生成能够与用户进行看、听、说交流并能理解用户的应用程序。 这些服务支持三十多种语言，允许用户与应用程序自然地进行通信。
 services: cognitive-services
-author: erhopf
+author: lingliw
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 origin.date: 11/04/2019
-ms.date: 10/18/2019
-ms.author: v-tawe
+ms.date: 11/19/2019
+ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: e8ba7d923bd8f851dcb9b5ceb08449d8565a5a86
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 5e407432c575db6c141385959d7f0459b0d8323d
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178867"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528073"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure 认知服务的自然语言支持
 
@@ -29,17 +29,9 @@ ms.locfileid: "74178867"
 各个 Azure 认知服务支持以下核心语言：
 
 * 中文
-* 英语
-* 法语
-* 德语
-* 意大利语
-* 日语
-* 朝鲜语
-* 葡萄牙语
-* 西班牙语
 
 > [!NOTE]
-> 不支持 LUIS、文本分析和语音转文本。
+> ¹ 不支持 LUIS、文本分析和语音转文本。
 
 ## <a name="additional-language-availability-by-service"></a>按服务分类的其他语言可用性
 

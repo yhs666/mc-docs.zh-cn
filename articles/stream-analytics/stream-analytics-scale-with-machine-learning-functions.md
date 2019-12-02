@@ -9,14 +9,14 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
 ms.date: 08/09/2019
-ms.openlocfilehash: 03fc4665249aef1ecd3431a93d3c6984261d5599
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: dee09021076ff46ff82e4e29b7ab6dc890b60e0b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674790"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528042"
 ---
-# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-functions"></a>使用 Azure 机器学习工作室函数缩放流分析作业
+# <a name="scale-your-stream-analytics-job-with-azure-machine-learning-studio-classic-functions"></a>使用 Azure 机器学习工作室（经典）函数缩放流分析作业
 
 本文介绍如何有效缩放使用 Azure 机器学习函数的 Azure 流分析作业。 有关如何缩放流分析作业的常规信息，请参阅文章 [缩放作业](stream-analytics-scale-jobs.md)。
 
@@ -49,7 +49,7 @@ ms.locfileid: "71674790"
 
 若要每秒处理 200,000 个事件，流分析作业需要 40 个并发连接，也就是 12 个 SU。 下图显示了从流分析作业到机器学习 Web 服务终结点的请求：每 6 个 SU 最多具有 20 个机器学习 Web 服务的并发连接。
 
-![使用机器学习函数 2 缩放流分析的作业示例](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "Scale Stream Analytics with Machine Learning Functions two job example")
+![使用机器学习函数两作业缩放流分析的示例](./media/stream-analytics-scale-with-ml-functions/stream-analytics-scale-with-ml-functions-00.png "使用机器学习函数两作业缩放流分析的示例")
 
 一般情况下，“B”代表批大小、“L”代表批大小为 B 时的 Web 服务延迟（以毫秒为单位），“N”个 SU 的流分析作业的吞吐量为：
 

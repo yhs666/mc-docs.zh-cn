@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 02/19/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 45c801a4c9812b5274848369c25269dfbbdbda9b
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 2a4cd206906d3aa7a1a9764d04efc8ffcdad5076
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730571"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528264"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
 
@@ -70,7 +70,7 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 --- | --- | ---
 **完整** | 完整备份包含整个数据源。 占用的网络带宽比差异或增量备份更多。 | 用于初始备份。
 **差异** |  差异备份存储自初始完整备份以来发生更改的块。 使用较少的网络带宽和存储量，且不保留未更改数据的冗余副本。<br/><br/> 效率不高，因为需要传输并存储每次后续备份之后未发生更改的数据块。 | Azure 备份不使用此备份类型。
-**增量** | 增量备份仅存储自上次备份以来发生更改的数据块。 存储和网络效率高。 <br/><br/> 使用增量备份时，无需使用完整备份进行补充。 | DPM/MABS 使用此备份类型来备份磁盘，备份到 Azure 的所有方案都使用此备份类型。
+**增量** | 增量备份仅存储自上次备份以来发生更改的数据块。 存储和网络效率高。 <br/><br/> 使用增量备份时，无需使用完整备份进行补充。 | DPM/MABS 使用此备份类型来备份磁盘，备份到 Azure 的所有方案都使用此备份类型。 不用于 SQL Server 备份。
 
 ## <a name="sql-server-backup-types"></a>SQL Server 备份类型
 
@@ -89,7 +89,7 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 - 数据源 A 由每月备份的 10 个存储块 A1-A10 组成。
 - 第一个月，存储块 A2、A3、A4 和 A9 变化，第二个月，存储块 A5 变化。
 - 对于差异备份，在第二个月，将备份已更改的块 A2、A3、A4 和 A9。 第三个月，会再次备份这些相同的存储块，以及已更改的存储块 A5。 下次进行完整备份之前，将继续对已更改的存储块进行备份。
-- 对于增量备份，在第二个月，块 A2、A3、A4 和 A9 将标记为已更改和已传输。 在第三个月，仅标记已更改的存储块 A5，并进行传输。 
+- 对于增量备份，在第二个月，块 A2、A3、A4 和 A9 将标记为已更改和已传输。 在第三个月，仅标记已更改的存储块 A5，并进行传输。
 
 ![备份方法比较图](./media/backup-architecture/backup-method-comparison.png)
 
@@ -99,11 +99,11 @@ Azure 备份提供不同的备份代理，具体取决于要备份哪种类型�
 
 **功能** | **本地 Windows Server 计算机（直接备份）** | **Azure VM** | **DPM/MABS 中的计算机或应用**
 --- | --- | --- | ---
-备份到保管库 | ![是][green] | ![是][green] | ![是][green] 
-依次备份到 DPM/MABS 磁盘和 Azure | | | ![是][green] 
-压缩发送的备份数据 | ![是][green] | 传输数据时不使用压缩。 存储消耗略有提高，但还原速度更快。  | ![是][green] 
-运行增量备份 |![是][green] |![是][green] |![是][green] 
-备份已删除重复数据的磁盘 | | | ![部分][yellow]<br/><br/> 仅适用于本地部署的 DPM/MABS 服务器。 
+备份到保管库 | ![是][green] | ![是][green] | ![是][green]
+依次备份到 DPM/MABS 磁盘和 Azure | | | ![是][green]
+压缩发送的备份数据 | ![是][green] | 传输数据时不使用压缩。 存储消耗略有提高，但还原速度更快。  | ![是][green]
+运行增量备份 |![是][green] |![是][green] |![是][green]
+备份已删除重复数据的磁盘 | | | ![部分][yellow]<br/><br/> 仅适用于本地部署的 DPM/MABS 服务器。
 
 ![表键](./media/backup-architecture/table-key.png)
 
@@ -135,7 +135,7 @@ Azure VM 需要能够访问 Internet 才能执行控制命令。 如果备份 VM
     - MARS 代理仅使用 Windows 系统写入操作来捕获快照。
     - 该代理不使用任何应用程序 VSS 写入器，因此不会捕获应用一致性快照。
 1. 使用 VSS 创建快照后，MARS 代理将在配置备份时指定的缓存文件夹中创建一个虚拟硬盘 (VHD)。 该代理还会存储每个数据块的校验和。
-1. 除非运行即席备份，否则增量备份会根据指定的计划运行。
+1. 除非运行按需备份，否则增量备份会根据指定的计划运行。
 1. 在增量备份中，将会标识已更改的文件，并创建新的 VHD。 该 VHD 经过压缩和加密，然后发送到保管库。
 1. 增量备份完成后，新 VHD 将与初始复制后创建的 VHD 合并。 此合并的 VHD 提供最新状态，用于对现行备份进行比较。
 
@@ -149,7 +149,7 @@ Azure VM 需要能够访问 Internet 才能执行控制命令。 如果备份 VM
     - 使用 DPM/MABS 可以保护备份的卷、共享、文件和文件夹。 还可以保护计算机系统状态/裸机，并使用应用感知的备份设置来保护特定的应用。
 1. 为 DPM/MABS 中的计算机或应用设置保护时，请选择备份到 MABS/DPM 本地磁盘进行短期存储，并备份到 Azure 进行联机保护。 此外，可以指定何时要运行备份到本地 DPM/MABS 存储的操作，以及何时要运行联机备份到 Azure 的操作。
 1. 受保护工作负荷的磁盘将根据指定的计划备份到本地 MABS/DPM 磁盘。
-4. DPM/MABS 磁盘由在 DPM/MABS 服务器上运行的 MARS 代理备份到保管库。
+1. DPM/MABS 磁盘由在 DPM/MABS 服务器上运行的 MARS 代理备份到保管库。
 
 ![备份 DPM 或 MABS 保护的计算机和工作负荷](./media/backup-architecture/architecture-dpm-mabs.png)
 
@@ -158,15 +158,15 @@ Azure VM 需要能够访问 Internet 才能执行控制命令。 如果备份 VM
 Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure VM 至少包含两个磁盘：一个磁盘用于操作系统，另一个用作临时磁盘。 Azure VM 还可以使用数据磁盘来存储应用数据。 磁盘以 VHD 的形式进行存储。
 
 - 在 Azure 上的标准或高级存储帐户中，VHD 以页 Blob 的形式进行存储：
-    - **标准存储：** 为运行不关注延迟的工作负荷的 VM 提供可靠、低成本的磁盘支持。 标准存储可以使用标准固态硬盘 (SSD) 或标准机械硬盘 (HDD)。
-    - **高级存储：** 高性能磁盘支持。 使用高级·SSD 磁盘。
+  - **标准存储：** 为运行不关注延迟的工作负荷的 VM 提供可靠、低成本的磁盘支持。 标准存储可以使用标准固态硬盘 (SSD) 或标准机械硬盘 (HDD)。
+  - **高级存储：** 高性能磁盘支持。 使用高级·SSD 磁盘。
 - 磁盘具有不同的性能层：
-    - **标准 HDD 磁盘：** 基于 HDD，用作经济高效的存储。
-    - **标准 SSD 磁盘：** 结合了高级 SSD 磁盘和标准 HDD 磁盘的特点。 提供的一致性能和可靠性超过 HDD，而性价比仍然很高。
-    - **高级·SSD 磁盘：** 基于 SSD，为运行 I/O 密集型工作负荷的 VM 提供高性能和低延迟。
+  - **标准 HDD 磁盘：** 基于 HDD，用作经济高效的存储。
+  - **标准 SSD 磁盘：** 结合了高级 SSD 磁盘和标准 HDD 磁盘的特点。 提供的一致性能和可靠性超过 HDD，而性价比仍然很高。
+  - **高级·SSD 磁盘：** 基于 SSD，为运行 I/O 密集型工作负荷的 VM 提供高性能和低延迟。
 - 磁盘可以是托管磁盘或非托管磁盘：
-    - **非托管磁盘：** VM 使用的传统磁盘类型。 对于这些磁盘，可以创建自己的存储帐户，并在创建磁盘时指定该存储帐户。 然后需要确定如何最大限度地利用 VM 的存储资源。
-    - **托管磁盘：** Azure 将为你创建和管理存储帐户。 你只需指定磁盘大小和性能层，Azure 就会自动创建托管磁盘。 当你添加磁盘和缩放 VM 时，Azure 将处理存储帐户。
+  - **非托管磁盘：** VM 使用的传统磁盘类型。 对于这些磁盘，可以创建自己的存储帐户，并在创建磁盘时指定该存储帐户。 然后需要确定如何最大限度地利用 VM 的存储资源。
+  - **托管磁盘：** Azure 将为你创建和管理存储帐户。 你只需指定磁盘大小和性能层，Azure 就会自动创建托管磁盘。 当你添加磁盘和缩放 VM 时，Azure 将处理存储帐户。
 
 有关磁盘存储和 VM 可用的磁盘类型的详细信息，请参阅以下文章：
 
@@ -174,7 +174,7 @@ Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure 
 - [适用于 Linux VM 的 Azure 托管磁盘](../virtual-machines/linux/managed-disks-overview.md)
 - [VM 可用的磁盘类型](../virtual-machines/windows/disks-types.md)
 
-### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>备份和还原使用高级存储的 Azure VM 
+### <a name="back-up-and-restore-azure-vms-with-premium-storage"></a>备份和还原使用高级存储的 Azure VM
 
 可以通过 Azure 备份来备份使用高级存储的 Azure VM：
 
@@ -202,10 +202,10 @@ Azure VM 使用磁盘来存储其操作系统、应用和数据。 每个 Azure 
 
 - 查看支持矩阵，以[了解备份方案支持的功能和限制](backup-support-matrix.md)。
 - 为以下方案之一设置备份：
-    - [备份 Azure VM](backup-azure-arm-vms-prepare.md)。
-    - 不使用备份服务器[直接备份 Windows 计算机](tutorial-backup-windows-server-to-azure.md)。
-    - [设置 MABS](backup-azure-microsoft-azure-backup.md) 以备份到 Azure，然后将工作负荷备份到 MABS。
-    - [设置 DPM](backup-azure-dpm-introduction.md) 以备份到 Azure，然后将工作负荷备份到 DPM。
+  - [备份 Azure VM](backup-azure-arm-vms-prepare.md)。
+  - 不使用备份服务器[直接备份 Windows 计算机](tutorial-backup-windows-server-to-azure.md)。
+  - [设置 MABS](backup-azure-microsoft-azure-backup.md) 以备份到 Azure，然后将工作负荷备份到 MABS。
+  - [设置 DPM](backup-azure-dpm-introduction.md) 以备份到 Azure，然后将工作负荷备份到 DPM。
 
 
 [green]: ./media/backup-architecture/green.png

@@ -1,5 +1,5 @@
 ---
-title: 了解和调整 Azure 流分析中的流单元
+title: Azure 流分析中的流单元
 description: 本文介绍 Azure 流分析中的流单元设置和影响性能的其他因素。
 services: stream-analytics
 author: lingliw
@@ -8,14 +8,14 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 06/21/2019
-ms.date: 08/21/2019
-ms.openlocfilehash: c82850ed95b2c655269855497f6ec04e4c9f05e4
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+origin.date: 10/28/2019
+ms.date: 11/19/2019
+ms.openlocfilehash: ca29cb3a4945671a25cfba901d97e3aea657fa4f
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674754"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528408"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>了解和调整流式处理单元
 
@@ -35,6 +35,7 @@ SU % 利用率指标（范围从 0% 到 100%）描述了工作负载的内存使
     ![Azure 门户流分析作业配置][img.stream.analytics.preview.portal.settings.scale]
 
 4. 使用滑块设置作业的 SU。 请注意，只能设置特定的 SU。 
+5. 即使在作业运行时，也可以更改分配给作业的 SU 数量。 如果作业使用[未分区输出](/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output)或包含一个[使用不同 PARTITION BY 值的多步骤查询](/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values)，则这是不可能的。 作业还应该至少有 6 个 SU，以便在作业运行时更改此设置。 在作业运行时，你可能只能从一组 SU 值中进行选择。 
 
 ## <a name="monitor-job-performance"></a>监视作业性能
 使用 Azure 门户时，可以跟踪作业的吞吐量：
@@ -52,7 +53,7 @@ SU % 利用率指标（范围从 0% 到 100%）描述了工作负载的内存使
 有关如何选择正确的 SU 数量的详细信息，请参阅此页：[扩展 Azure 流分析作业以增加吞吐量](stream-analytics-scale-jobs.md)
 
 > [!Note]
-> 选择特定作业所需的 SU 数目时，需根据输入的分区配置以及为作业定义的查询来决定。 可为作业选择的最大数目为 SU 配额。 默认情况下，每个 Azure 订阅的配额为最多 200 个 SU，这适用于特定区域的所有分析作业。 若要增加订阅的 SU 数，使其超过此配额，请联系 [Azure 支持部门](https://support.microsoft.com)。 每个作业的 SU 有效值以 1、3、6 开始，往上再按 6 递增。
+> 选择特定作业所需的 SU 数目时，需根据输入的分区配置以及为作业定义的查询来决定。 可为作业选择的最大数目为 SU 配额。 默认情况下，每个 Azure 订阅的配额为最多 500 个 SU，这适用于特定区域的所有分析作业。 若要增加订阅的 SU 数，使其超过此配额，请联系 [Microsoft 支持部门](https://support.microsoft.com)。 每个作业的 SU 有效值以 1、3、6 开始，往上再按 6 递增。
 
 ## <a name="factors-that-increase-su-utilization"></a>SU 利用率提高的因素 
 

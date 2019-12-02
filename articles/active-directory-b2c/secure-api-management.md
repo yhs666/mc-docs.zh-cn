@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 08/31/2019
-ms.date: 10/24/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 11c4959088c1009c36299c24accf4adecfe1f4ec
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: e35bc44e1839f5b77ffe4c9e197b07f587f08b9d
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847152"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461609"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>使用 Azure AD B2C 保护 Azure API 管理 API
 
@@ -36,11 +36,16 @@ ms.locfileid: "72847152"
 
 使用 Azure AD B2C 保护 Azure API 管理中的 API 时，需要为 APIM 中创建的[入站策略](../api-management/api-management-howto-policies.md)提供多个值。 首先，请记下以前在 Azure AD B2C 租户中创建的应用程序的 ID。 如果使用的是在先决条件中创建的应用程序，请使用 *webbapp1* 的应用程序 ID。
 
-1. 在 [Azure 门户](https://portal.azure.cn)中浏览到你的 Azure AD B2C 租户。
-1. 在“管理”下选择“应用程序”。  
-1. 记下 *webapp1* 或以前创建的其他应用程序的“应用程序 ID”中的值。 
+可以使用当前**应用程序**体验获取应用程序 ID。
 
-  ![B2C 应用程序的 ID 在 Azure 门户中的位置](./media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
+
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
+1. 在顶部菜单中选择“目录 + 订阅”  筛选器，然后选择包含Azure AD B2C 租户的目录。
+1. 在左侧菜单中，选择“Azure AD B2C”  。 或者，选择“所有服务”  并搜索并选择“Azure AD B2C”  。
+1. 在“管理”下选择“应用程序”。  
+1. 记下 webapp1  或以前创建的其他应用程序的“应用程序 ID”列中的值。 
+
 
 ## <a name="get-token-issuer-endpoint"></a>获取令牌颁发者终结点
 
@@ -263,4 +268,3 @@ https://yourb2ctenant.b2clogin.cn/99999999-0000-0000-0000-999999999999/v2.0/
 有关 Azure API 管理策略的更多详细信息，请参阅 [APIM 策略参考索引](../api-management/api-management-policies.md)。
 
 <!-- Update_Description: wording update -->
-

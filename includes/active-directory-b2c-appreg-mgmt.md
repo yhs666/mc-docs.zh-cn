@@ -1,17 +1,22 @@
 ---
 author: mmacy
 ms.service: active-directory-b2c
+ms.subservice: B2C
 ms.topic: include
-origin.date: 10/01/2019
-ms.date: 10/22/2019
+origin.date: 10/16/2019
+ms.date: 11/25/2019
 ms.author: v-junlch
-ms.openlocfilehash: f7be54c83bedb0e45e573e466c3ac7683d1e39d7
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 752e55c5e139bd52110ee8a7717573fb415d22dc
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846911"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461601"
 ---
+若要在 Azure AD B2C 租户中注册应用程序，可以使用当前“应用程序”体验  。
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
+
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 在顶部菜单中选择“目录 + 订阅”  筛选器，然后选择包含Azure AD B2C 租户的目录。
 1. 在左侧菜单中，选择“Azure Active Directory”（而不是“Azure AD B2C”）。   或者选择“所有服务”，然后搜索并选择“Azure Active Directory”。  

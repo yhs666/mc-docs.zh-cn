@@ -1,6 +1,6 @@
 ---
 title: 在 Visual Studio 中配置和使用存储模拟器 | Microsoft Docs
-description: 在 Visual Studio 中配置和使用存储模拟器
+description: 配置和使用存储模拟器，该模拟器是一个在本地开发计算机上模拟 Azure 中提供的 Blob、队列和表存储服务的实用程序。
 services: visual-studio-online
 author: ghogen
 manager: douge
@@ -13,12 +13,12 @@ ms.topic: conceptual
 origin.date: 08/17/2017
 ms.date: 09/26/2018
 ms.author: v-junlch
-ms.openlocfilehash: a54ab606b18b34d69a3734169b3e94abdf652501
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: d68d7b016fc251edb4447ce997622f0976c45163
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52645306"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528238"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>在 Visual Studio 中配置和使用存储模拟器
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -42,7 +42,7 @@ Azure SDK 开发环境包含存储模拟器，这是一个用于模拟本地开�
 > 
 
 ## <a name="initializing-and-running-the-storage-emulator"></a>初始化和运行存储模拟器
-可指定在 Visual Studio 中运行或调试服务的时间，Visual Studio 将自动启动存储模拟器。 在解决方案资源管理器中打开 **Azure** 项目的快捷菜单，然后选择“属性”。 在“开发”选项卡上的“启动 Azure 存储模拟器”列表中，选择“True”（如果尚未设置为该值）。
+可指定在 Visual Studio 中运行或调试服务的时间，Visual Studio 将自动启动存储模拟器。 在解决方案资源管理器中打开 **Azure** 项目的快捷菜单，然后选择“属性”。  在“开发”选项卡上的“启动 Azure 存储模拟器”列表中，选择“True”（如果尚未设置为该值）。   
 
 当你第一次从 Visual Studio 中运行或调试服务时，存储模拟器将启动一个初始化过程。 此过程保留用于存储模拟器的本地端口，并创建存储模拟器数据库。 完成后，除非删除存储模拟器数据库，否则不需要再次运行此过程。
 

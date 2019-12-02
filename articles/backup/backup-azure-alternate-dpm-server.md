@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/09/2019
 ms.date: 11/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ffd2b05e006d2bf94c8c5aa0070d85886804c021
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: bfc118e50a9a341e78c4d4e058550a1e355f0da3
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730370"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528217"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>从 Azure 备份服务器恢复数据
 可使用 Azure 备份服务器恢复已备份到恢复服务保管库的数据。 用于执行此操作的过程已集成到 Azure 备份服务器管理控制台中，且与其他 Azure 备份组件的恢复工作流类似。
@@ -24,7 +24,8 @@ ms.locfileid: "73730370"
 
 若要从 Azure 备份服务器恢复数据，请执行以下操作：
 
-1. 在 Azure 备份服务器管理控制台的“恢复”  选项卡中，单击“添加外部 DPM”  （位于屏幕左上角）。   
+1. 在 Azure 备份服务器管理控制台的“恢复”  选项卡中，单击“添加外部 DPM”  （位于屏幕左上角）。
+
     ![添加外部 DPM](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. 从与要恢复数据的“Azure 备份服务器”  关联的保管库下载新的“保管库凭据”  ，从注册到恢复服务保管库的 Azure 备份服务器列表中选择 Azure 备份服务器，并提供与要恢复数据的服务器关联的“加密密码”  。
 
@@ -79,7 +80,8 @@ ms.locfileid: "73730370"
     ![清除外部 DPM](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 
 ## <a name="troubleshooting-error-messages"></a>错误消息疑难解答
-| 没有。 | 错误消息 | 疑难解答步骤 |
+
+| 否。 | 错误消息 | 疑难解答步骤 |
 |:---:|:--- |:--- |
 | 1. |此服务器未注册到保管库凭据所指定的保管库。 |**原因：** 当所选保管库凭据文件不属于与 Azure 备份服务器（在其上进行恢复尝试）关联的恢复服务保管库时，会出现此错误。 <br> **解决方法：** 从 Azure 备份服务器所注册到的恢复服务保管库中下载保管库凭据文件。 |
 | 2. |可恢复的数据不可用，或所选服务器不是 DPM 服务器。 |**原因：** 没有其他 Azure 备份服务器注册到恢复服务保管库或服务器尚未上传元数据，或者所选服务器不是 Azure 备份服务器（使用 Windows Server 或 Windows Client）。 <br> **解决方法：** 如果有其他 Azure 备份服务器注册到了恢复服务保管库，请确保安装了最新 Azure 备份代理。 <br>如果有其他 Azure 备份服务器注册到了恢复服务保管库，请等到安装之后的某一天来启动恢复过程。 每夜执行的作业会将所有受保护备份的元数据上传到云。 数据可用于恢复。 |

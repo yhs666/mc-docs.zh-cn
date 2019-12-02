@@ -11,15 +11,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/25/2019
-ms.date: 10/30/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 5c27ecfb7ca5dde83f4e3d71756f70fee184820b
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: d3235293edbd089842c62da39c857517679fa167
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068930"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461628"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure 资源管理器资源提供程序操作
 
@@ -101,8 +101,12 @@ ms.locfileid: "73068930"
 > | 操作 | Microsoft.ADHybridHealthService/logs/read | 获取租户的代理安装和注册日志。 |
 > | 操作 | Microsoft.ADHybridHealthService/operations/read | 获取系统支持的操作的列表。 |
 > | 操作 | Microsoft.ADHybridHealthService/register/action | 注册 ADHybrid 运行状况服务资源提供程序并启用 ADHybrid 运行状况服务资源的创建。 |
+> | 操作 | Microsoft.ADHybridHealthService/reports/availabledeployments/read | 获取 DevOps 为客户事件提供支持时使用的可用区域的列表。 |
 > | 操作 | Microsoft.ADHybridHealthService/reports/badpassword/read | 获取 Active Directory 联合身份验证服务中的所有用户的错误密码尝试列表。 |
 > | 操作 | Microsoft.ADHybridHealthService/reports/badpassworduseridipfrequency/read | 获取包含新排队的用于以下用途的报告作业的状态和最终结果的 Blob SAS URI：显示给定租户中每 UserId 每 IPAddress 的错误用户名/密码尝试频率。 |
+> | 操作 | Microsoft.ADHybridHealthService/reports/consentedtodevopstenants/read | 获取 DevOps 已许可租户的列表。 通常用于客户支持。 |
+> | 操作 | Microsoft.ADHybridHealthService/reports/isdevops/read | 获取一个值，该值指示租户是否为 DevOps 许可的租户。 |
+> | 操作 | Microsoft.ADHybridHealthService/reports/selectdevopstenant/read | 更新所选 DevOps 租户的 userid(objectid)。 |
 > | 操作 | Microsoft.ADHybridHealthService/reports/selecteddeployment/read | 获取给定租户的所选部署。 |
 > | 操作 | Microsoft.ADHybridHealthService/reports/tenantassigneddeployment/read | 对于给定的租户 id，获取租户存储位置。 |
 > | 操作 | Microsoft.ADHybridHealthService/reports/updateselecteddeployment/read | 获取将从中访问数据的地理位置。 |
@@ -4709,8 +4713,8 @@ ms.locfileid: "73068930"
 > | 操作 | Microsoft.Search/searchServices/delete | 删除搜索服务。 |
 > | 操作 | Microsoft.Search/searchServices/deleteQueryKey/delete | 删除查询密钥。 |
 > | 操作 | Microsoft.Search/searchServices/listAdminKeys/action | 读取管理密钥。 |
-> | 操作 | Microsoft.Search/searchServices/listQueryKeys/action | 返回给定的 Azure 搜索服务的查询 API 密钥的列表。 |
-> | 操作 | Microsoft.Search/searchServices/listQueryKeys/read | 返回给定的 Azure 搜索服务的查询 API 密钥的列表。 |
+> | 操作 | Microsoft.Search/searchServices/listQueryKeys/action | 返回给定的 Azure 认知搜索服务的查询 API 密钥的列表。 |
+> | 操作 | Microsoft.Search/searchServices/listQueryKeys/read | 返回给定的 Azure 认知搜索服务的查询 API 密钥的列表。 |
 > | 操作 | Microsoft.Search/searchServices/read | 读取搜索服务。 |
 > | 操作 | Microsoft.Search/searchServices/regenerateAdminKey/action | 再生成管理密钥。 |
 > | 操作 | Microsoft.Search/searchServices/start/action | 启动搜索服务。 |
@@ -6169,3 +6173,4 @@ ms.locfileid: "73068930"
 - [Azure 资源的自定义角色](custom-roles.md)
 - [Azure 资源的内置角色](built-in-roles.md)
 
+<!-- Update_Description: wording update -->

@@ -5,18 +5,18 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: v-junlch
-origin.date: 09/19/2019
-ms.date: 10/23/2019
+origin.date: 10/14/2019
+ms.date: 11/22/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 60f53580c583b78fd1173c9e6bd8e71c563d4c09
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: f36845cd19fadea889fb6fe6860f8cb6a19b21d3
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847127"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461586"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在 Web 应用程序中启用身份验证
 
@@ -36,9 +36,15 @@ ms.locfileid: "72847127"
 * [创建用户流](tutorial-create-user-flows.md)，以便在应用程序中启用用户体验。
 * 安装带有 ASP.NET 和 Web 开发  工作负荷的 [Visual Studio 2019](https://www.visualstudio.com/downloads/)。
 
-## <a name="update-the-application"></a>更新应用程序
+## <a name="update-the-application-registration"></a>更新应用程序注册
 
-在按照先决条件完成的教程中，已在 Azure AD B2C 中添加了 Web 应用程序。 若要与教程中的示例通信，需添加一个指向 Azure AD B2C 中的应用程序的重定向 URI。
+在按照先决条件完成的教程中，你已在 Azure AD B2C 中注册了 Web 应用程序。 若要与教程中的示例通信，需添加重定向 URI 并为注册的应用程序创建客户端机密（密钥）。
+
+### <a name="add-a-redirect-uri-reply-url"></a>添加重定向 URI（回复 URL）
+
+可以使用当前**应用程序**体验更新应用程序。
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
@@ -46,8 +52,13 @@ ms.locfileid: "72847127"
 1. 选择“应用程序”，然后选择“webapp1”应用程序。  
 1. 在“回复 URL”下添加 `https://localhost:44316`。 
 1. 选择“保存”  。
-1. 在属性页上，记录你在配置 Web 应用程序时要使用的应用程序 ID。
-1. 依次选择“密钥”、“生成密钥”、“保存”。    记录你在配置 Web 应用程序时要使用的密钥。
+1. 在属性页上，记录应用程序 ID，以便在稍后配置 Web 应用程序时使用。
+
+### <a name="create-a-client-secret"></a>创建客户端机密
+
+接下来，为注册的 Web 应用程序创建客户端机密。 Web 应用程序代码示例在请求令牌时使用此代码来证明其身份。
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## <a name="configure-the-sample"></a>配置示例
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 06/18/2019
 ms.date: 11/14/2019
 ms.author: dacurwin
-ms.openlocfilehash: 52ff6656031e280d2fa2a5a25703943b4b8387ce
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: e7af4ea9298a1c03899ba7c1fdff6d7eaed049bb
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116348"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528318"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>排查使用 Azure 备份进行 SQL Server 数据库备份的问题
 
@@ -32,8 +32,7 @@ ms.locfileid: "74116348"
 
 | severity | 说明 | 可能的原因 | 建议的操作 |
 |---|---|---|---|
-| 警告 | 此数据库的当前设置不支持关联策略中的特定备份类型。 | <li>只能对 master 数据库执行完整数据库备份操作。 不能执行差异备份和事务日志备份。 </li> <li>简单恢复模式中的任何数据库都不允许进行事务日志备份。</li> | 将数据库设置修改为支持策略中的所有备份类型。 或者，将当前策略更改为只包含受支持的备份类型。 否则，在计划备份期间将跳过不受支持的备份类型，或无法为临时备份执行备份作业。
-
+| 警告 | 此数据库的当前设置不支持关联策略中的特定备份类型。 | <li>只能对 master 数据库执行完整数据库备份操作。 不能执行差异备份和事务日志备份。 </li> <li>简单恢复模式中的任何数据库都不允许进行事务日志备份。</li> | 将数据库设置修改为支持策略中的所有备份类型。 或者，将当前策略更改为只包含受支持的备份类型。 否则，在计划备份期间将跳过不受支持的备份类型，或者按需备份的备份作业将失败。
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -52,7 +51,7 @@ ms.locfileid: "74116348"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-| 日志链已中断。 | 数据库或 VM 是通过其他备份解决方案备份的，该解决方案截断了日志链。|<ul><li>检查是否正在使用其他备份解决方案或脚本。 如果是，请停止其他备份解决方案。 </li><li>如果备份是临时日志备份，请触发完整备份来启动新的日志链。 对于计划的日志备份，不需要执行任何操作，因为 Azure 备份服务会自动触发完整备份来解决此问题。</li>|
+| 日志链已中断。 | 数据库或 VM 是通过其他备份解决方案备份的，该解决方案截断了日志链。|<ul><li>检查是否正在使用其他备份解决方案或脚本。 如果是，请停止其他备份解决方案。 </li><li>如果备份是按需日志备份，请触发完整备份来启动新的日志链。 对于计划的日志备份，不需要执行任何操作，因为 Azure 备份服务会自动触发完整备份来解决此问题。</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -64,7 +63,7 @@ ms.locfileid: "74116348"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-| 此数据源缺少首次完整备份。 | 数据库缺少首次完整备份。 日志备份和差异备份基于完整备份，因此，在触发差异备份或日志备份之前，必须先创建完整备份。 | 触发临时完整备份。   |
+| 此数据源缺少首次完整备份。 | 数据库缺少首次完整备份。 日志备份和差异备份基于完整备份，因此，在触发差异备份或日志备份之前，必须先创建完整备份。 | 触发按需完整备份。   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 
@@ -84,7 +83,7 @@ ms.locfileid: "74116348"
 |---|---|---|
 | 由于无法将数据库脱机，还原失败。 | 执行还原时，需将目标数据库脱机。 Azure 备份无法将此数据脱机。 | 使用 Azure 门户上错误菜单中的“其他详细信息”缩小根本原因的范围。 有关详细信息，请参阅 [SQL Server 文档](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms)。 |
 
-###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
+### <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
@@ -95,7 +94,6 @@ ms.locfileid: "74116348"
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
 | 用于恢复的日志备份包含批量记录的更改。 它不能用来按照 SQL 准则随时停止。 | 当数据库处于批量记录恢复模式时，批量记录的事务与下一日志事务之间的数据将无法恢复。 | 请选择要恢复到的另一时间点。 [了解详细信息](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))。
-
 
 ### <a name="fabricsvcbackuppreferencecheckfailedusererror"></a>FabricSvcBackupPreferenceCheckFailedUserError
 
@@ -131,8 +129,7 @@ ms.locfileid: "74116348"
 
 | 错误消息 | 可能的原因 | 建议的操作 |
 |---|---|---|
-操作被阻止，因为保管库已达到 24 小时内允许的最大此类操作数量限制。 | 达到 24 小时内允许的最大操作数量限制后，会出现此错误。 此错误通常发生在执行大规模操作（例如修改策略或自动保护）时。 与 CloudDosAbsoluteLimitReached 不同，没有太多的办法可以消除此状态，实际上，Azure 备份服务将在内部针对所有有问题的项重试操作。<br> 例如：如果使用某个策略保护了大量的数据源，而你尝试修改该策略，则会针对每个受保护项触发配置保护作业，因此有时可能会达到每日允许的最大此类操作数量限制。| Azure 备份服务会在 24 小时后自动重试此操作。 
-
+操作被阻止，因为保管库已达到 24 小时内允许的最大此类操作数量限制。 | 达到 24 小时内允许的最大操作数量限制后，会出现此错误。 此错误通常发生在执行大规模操作（例如修改策略或自动保护）时。 与 CloudDosAbsoluteLimitReached 不同，没有太多的办法可以消除此状态，实际上，Azure 备份服务将在内部针对所有有问题的项重试操作。<br> 例如：如果使用某个策略保护了大量的数据源，而你尝试修改该策略，则会针对每个受保护项触发配置保护作业，因此有时可能会达到每日允许的最大此类操作数量限制。| Azure 备份服务会在 24 小时后自动重试此操作。
 
 ## <a name="re-registration-failures"></a>重新注册失败
 
@@ -151,7 +148,7 @@ ms.locfileid: "74116348"
 
 这些症状可能是以下一种或多种原因造成的：
 
-* 从门户中删除或卸载了某个扩展。 
+* 从门户中删除或卸载了某个扩展。
 * 从该 VM 的“控制面板”中的“卸载或更改程序”下卸载了某个扩展。  
 * 已通过就地磁盘还原将该 VM 还原到某个时间点。
 * 该 VM 已关闭较长时间，因此其上的扩展配置已过期。
@@ -189,6 +186,7 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 在执行还原操作期间，可以通过将包含数据库文件映射的 JSON 文件放入目标还原路径，来替代目标还原文件路径。 创建 `database_name.json` 文件，并将其放入 *C:\Program Files\Azure Backup\bin\plugins\SQL* 位置。
 
 该文件的内容应采用以下格式：
+
 ```json
 [
   {
@@ -228,7 +226,6 @@ SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
   ```
-
 
 应在触发还原操作之前放置此文件。
 

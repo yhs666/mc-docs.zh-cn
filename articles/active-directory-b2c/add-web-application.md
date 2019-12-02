@@ -1,26 +1,30 @@
 ---
-title: 添加 Web 应用程序 - Azure Active Directory B2C | Microsoft Docs
-description: 了解如何向 Active Directory B2C 租户添加 Web 应用程序。
+title: 添加 Web API 应用程序 - Azure Active Directory B2C | Microsoft Docs
+description: 了解如何向 Active Directory B2C 租户添加 Web API 应用程序。
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: v-junlch
 origin.date: 04/16/2019
-ms.date: 10/24/2019
+ms.date: 11/22/2019
 ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 27fcb4520b65a10fbc9066fafbd83958ef233b26
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 0bae2772f1e83d618692836cbcd1f7fb98031634
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847125"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461580"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>向 Azure Active Directory B2C 租户添加 Web API 应用程序
 
- 在租户中注册 Web API 资源，以便他们可以接受并响应提供访问令牌的客户端应用程序的请求。 本文介绍如何在 Azure Active Directory B2C (Azure AD B2C) 中注册应用程序。
+ 在租户中注册 Web API 资源，以便他们可以接受并响应提供访问令牌的客户端应用程序的请求。 本文介绍如何在 Azure Active Directory B2C (Azure AD B2C) 中注册 Web API。
+
+若要在 Azure AD B2C 租户中注册应用程序，可以使用当前“应用程序”体验  。
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 请确保使用的是包含 Azure AD B2C 租户的目录。 选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
@@ -41,7 +45,7 @@ ms.locfileid: "72847125"
 
 ## <a name="grant-permissions"></a>授予权限
 
-若要从应用程序调用受保护的 Web API，需授予应用程序访问该 API 的权限。 例如，在[教程：在 Azure Active Directory B2C 中注册应用程序](tutorial-register-applications.md)中，在 Azure AD B2C 中创建了名为 *webapp1* 的 Web 应用程序。 可使用此应用程序调用 Web API。
+若要从应用程序调用受保护的 Web API，需授予应用程序访问该 API 的权限。 例如，在[教程：在 Azure Active Directory B2C 中注册应用程序](tutorial-register-applications.md)中，在 Azure AD B2C 中注册了一个名为 webapp1  的 Web 应用程序。 可使用此应用程序调用 Web API。
 
 [!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 

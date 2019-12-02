@@ -8,19 +8,20 @@ manager: digimobile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-origin.date: 08/09/2019
-ms.date: 05/31/2019
-ms.openlocfilehash: 87635fd302be4f820e91dd6c029d20b2d8eadfc0
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+origin.date: 10/8/2019
+ms.date: 11/19/2019
+ms.openlocfilehash: 697af455db0b0f78bf887d8552388473beeae5c6
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674832"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528100"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>了解 Azure 流分析的输出
-本文将介绍适用于 Azure 流分析作业的不同类型的输出。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。 
 
-设计流分析查询时，使用 [INTO 子句](https://msdn.microsoft.com/azure/stream-analytics/reference/into-azure-stream-analytics)引用输出的名称。 可针对每个作业使用单个输出，如果需要，也可通过在查询中提供多个 INTO 子句，针对每个流式处理作业使用多个输出。
+本文介绍适用于 Azure 流分析作业的输出类型。 输出可帮助存储和保存流分析作业的结果。 使用输出数据，可进一步进行业务分析和数据的数据仓储。
+
+设计流分析查询时，使用 [INTO 子句](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics)引用输出的名称。 可针对每个作业使用单个输出，也可通过在查询中提供多个 INTO 子句，针对每个流式处理作业使用多个输出（如果需要）。
 
 要创建、编辑和测试流分析作业输出，可使用 [Azure 门户](stream-analytics-quick-create-portal.md#configure-job-output)、[Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job)、[.Net API](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet)、[REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output) 和 [Visual Studio](stream-analytics-quick-create-vs.md)。
 
@@ -42,20 +43,20 @@ ms.locfileid: "71674832"
 | 属性名称 | 说明 |
 | --- | --- |
 | 输出别名 |在查询中使用的友好名称，用于将查询输出定向到此数据库。 |
-| 数据库 | 数据库的名称（正在向该数据库发送输出）。 |
-| 服务器名称 | SQL 数据库服务器名称。 |
-| 用户名 | 有权写入到数据库的用户名。 流分析仅支持 SQL 身份验证。 |
+| 数据库 | 将输出发送到的数据库的名称。 |
+| 服务器名称 | SQL 数据库服务器名称。 对于 Azure SQL 数据库托管实例，需要指定端口 3342。 例如 *sampleserver.public.database.windows.net,3342* |
+| 用户名 | 对数据库拥有写入访问权限的用户名。 流分析仅支持 SQL 身份验证。 |
 | 密码 | 用于连接到数据库的密码。 |
-| 表 | 将写入输出的表名称。 表名称区分大小写，并且该表架构应与字段数量以及作业输出正在生成的字段类型完全匹配。 |
-
-> [!NOTE]
+| 表 | 将写入输出的表名称。 表名称区分大小写。 此表的架构应与字段数量以及作业输出生成的字段类型完全匹配。 |
+|继承分区方案| 一个用于继承先前查询步骤的分区方案，以启用具有多个表的写入器的完全并行拓扑的选项。 有关详细信息，请参阅从 [Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。|
+|最大批数| 每个批量插入事务一起发送的推荐记录数上限。|
 > 目前，流分析中的作业输出支持 Azure SQL 数据库产品/服务。 但是，不支持附加了数据库，运行 SQL Server 的 Azure 虚拟机。 这在将来的版本中可能会有所改变。
 > 
 
 ## <a name="blob-storage"></a>Blob 存储
 Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于在云中存储大量非结构化数据。 有关 Blob 存储及其用法的简介，请参阅[如何使用 Blob](../storage/blobs/storage-dotnet-how-to-use-blobs.md)。
 
-下表列出了用于创建 Blob 输出的属性名称及其说明。
+下表列出了用于创建 Blob 或 ADLS Gen2 输出的属性名称及其说明。
 
 | 属性名称       | 说明                                                                      |
 | ------------------- | ---------------------------------------------------------------------------------|
@@ -129,7 +130,8 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 批大小 |批处理操作的记录数。 默认值 (100) 对大部分作业来说都已足够。 有关修改设置的详细信息，请参阅[表批处理操作规范](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._table_batch_operation)。 |
 
 ## <a name="service-bus-queues"></a>服务总线队列
-[服务总线队列](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)为一个或多个竞争使用方提供先入先出 (FIFO) 消息传递方式。 通常情况下，接收方会按照消息添加到队列中的临时顺序来接收并处理消息，并且每条消息仅由一个消息使用方接收并处理。
+
+[服务总线队列](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)为一个或多个竞争使用方提供 FIFO 消息传递方式。 通常，接收方按照消息添加到队列中的临时顺序来接收并处理消息。 每条消息仅由一个消息使用方接收并处理。
 
 下表列出了用于创建队列输出的属性名称及其说明。
 
@@ -145,24 +147,27 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
 | 格式 |仅适用于 JSON 类型。 “行分隔”指定通过新行分隔各个 JSON 对象，从而格式化输出  。 “数组”指定输出会被格式化为 JSON 对象的数组  。 |
 | 属性列 | 可选。 需要作为传出消息的用户属性而不是有效负载附加的逗号分隔列。 [输出的自定义元数据属性](#custom-metadata-properties-for-output)部分详细介绍了此功能。 |
+| 系统属性列 | 可选。 需要附加到传出消息而不是附加到有效负载的系统属性和相应列名的键值对。 [服务总线队列和主题输出的系统属性](#system-properties-for-service-bus-queue-and-topic-outputs)部分详细介绍了此功能。  |
 
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
 
 ## <a name="service-bus-topics"></a>服务总线主题
-服务总线队列提供的是从发送方到接收方的一对一通信方法，而[服务总线主题](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)提供的则是一对多形式的通信。
+服务总线队列提供从发送方到接收方的一对一通信方法。 [服务总线主题](https://msdn.microsoft.com/library/azure/hh367516.aspx)提供一对多形式的通信。
 
-下表列出了用于创建主题输出的属性名称及其说明。
+下表列出了用于创建服务总线主题输出的属性名称及其说明。
 
 | 属性名称 | 说明 |
 | --- | --- |
-| 输出别名 |该名称是在查询中使用的友好名称，用于将查询输出定向到此服务总线主题。 |
-| 服务总线命名空间 |服务总线命名空间是包含一组消息传递实体的容器。 创建新的事件中心后，还创建了服务总线命名空间 |
-| 主题名称 |主题是消息传递实体，类似于事件中心和队列。 设计用于从多个不同的设备和服务收集事件流。 在创建主题时，还会为其提供特定的名称。 发送到主题的消息在创建订阅后才会提供给用户，因此请确保主题下存在一个或多个订阅 |
-| 主题策略名称 |创建主题时，还可以在“主题配置”选项卡上创建共享的访问策略。每个共享访问策略具有名称、所设权限以及访问密钥。 |
-| 主题策略密钥 |用于验证对服务总线命名空间的访问权限的共享访问密钥 |
-| 事件序列化格式 |输出数据的序列化格式。  支持 JSON、CSV 和 Avro。 |
-| 编码 |如果使用 CSV 或 JSON 格式，则必须指定一种编码格式。 目前只支持 UTF-8 编码格式 |
+| 输出别名 |该名称是在查询中使用的易记名称，用于将查询输出定向到此服务总线主题。 |
+| 服务总线命名空间 |一组消息处理实体的容器。 创建新的事件中心后，还创建了 Service Bus 命名空间。 |
+| 主题名称 |主题是消息传递实体，类似于事件中心和队列。 设计用于从设备和服务收集事件流。 在创建主题时，还会为其提供特定的名称。 发送到主题的消息在创建订阅后才会提供给用户，因此请确保主题下存在一个或多个订阅 |
+| 主题策略名称 |创建服务总线主题时，还可以在主题的“配置”选项卡上创建共享的访问策略  。每个共享访问策略具有名称、所设权限以及访问密钥。 |
+| 主题策略密钥 |用于对服务总线命名空间的访问权限进行身份验证的共享访问密钥。 |
+| 事件序列化格式 |输出数据的序列化格式。 支持 JSON、CSV 和 Avro。 |
+| 编码 |如果使用 CSV 或 JSON 格式，则必须指定一种编码格式。 目前只支持 UTF-8 这种编码格式。 |
 | 分隔符 |仅适用于 CSV 序列化。 流分析支持大量的常见分隔符以对 CSV 格式的数据进行序列化。 支持的值为逗号、分号、空格、制表符和竖线。 |
+| 属性列 | 可选。 需要作为传出消息的用户属性而不是有效负载附加的逗号分隔列。 [输出的自定义元数据属性](#custom-metadata-properties-for-output)部分详细介绍了此功能。 |
+| 系统属性列 | 可选。 需要附加到传出消息而不是附加到有效负载的系统属性和相应列名的键值对。 [服务总线队列和主题输出的系统属性](#system-properties-for-service-bus-queue-and-topic-outputs)部分详细介绍了此功能。 |
 
 分区数[基于服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。
 
@@ -172,10 +177,10 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 <!-- Not Available on Azure Cosmos DB output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.-->
 
 > [!Note]
-> 目前，Azure 流分析仅支持使用 SQL API 连接到 CosmosDB  。
+> 目前，Azure 流分析仅支持使用 SQL API 连接到 Azure Cosmos DB。
 > 尚不支持使用其他 Azure Cosmos DB API。 如果使用其他 API 将 Azure 流分析指向 创建的 Azure Cosmos DB 帐户，则可能无法正确存储数据。
 
-下表描述了用于创建 Azure Cosmos DB 输出的属性。 <a name="custom-metadata-properties-for-output"></a>
+下表描述了用于创建 Azure Cosmos DB 输出的属性。
 
 | 属性名称 | 说明 |
 | --- | --- |
@@ -185,65 +190,108 @@ Azure Blob 存储提供了一种经济高效且可缩放的解决方案，用于
 | 帐户 ID | Azure Cosmos DB 帐户的名称或终结点 URI。 |
 | 帐户密钥 | Azure Cosmos DB 帐户的共享访问密钥。 |
 | 数据库 | Azure Cosmos DB 数据库名称。 |
-| 集合名称模式 | 要使用的集合的集合名称或其模式。 <br />可以使用可选的 {partition} 令牌（其中分区从 0 开始）构造集合名称格式。 两个示例：  <br /><ul><li> _MyCollection_：必须存在一个名为“MyCollection”的集合。</li>  <li> _MyCollection{partition}_ ：基于分区依据列。</li></ul> 分区依据列集合必须存在：“MyCollection0”、“MyCollection1”、“MyCollection2”等。 |
-| 分区键 | 可选。 仅当在集合名称模式中使用 partition 令牌时，才需要此项。<br /> 分区键是输出事件中字段的名称，该字段用于指定跨集合分区输出的键。<br /> 对于单个集合输出，可以使用任何任意输出列。 例如 PartitionId。 |
+| 容器名称 | 要使用的容器名称，该名称必须在 Cosmos DB 中存在。 示例：  <br /><ul><li> _MyContainer_：名为“MyContainer”的容器必须存在。</li>|
 | 文档 ID |可选。 输出事件中的字段的名称，该字段用于指定插入或更新操作所基于的主键。
 
 <!-- Not Available on ## Azure Functions-->
 
 <!-- Not Available on Azure Functions output from Stream Analytics is currently not available in the Azure China (21Vianet) and Azure Germany (T-Systems International) regions.-->
 
-<!-- Notice From Global site on 07/16/2018-->
+Azure 流分析通过 HTTP 触发器调用 Azure Functions。 提供具有以下可配置属性的 Azure Functions 输出适配器：
+
+| 属性名称 | 说明 |
+| --- | --- |
+| 函数应用 |Azure Functions 应用的名称。 |
+| 函数 |Azure Functions 应用中的函数的名称。 |
+| 键 |若要使用其他订阅中的 Azure 函数，可提供用于访问该函数的密钥。 |
+| 最大批大小 |此属性可用于设置将发送到 Azure 函数的每个输出批的最大大小。 输入单元以字节为单位。 默认情况下，此值为 262,144 字节 (256 KB)。 |
+| 最大批数  |一个用于指定发送到 Azure Functions 的每个批中的最大事件数的属性。 默认值为 100。 |
+
+当 Azure 流分析从 Azure 函数收到 413（“http 请求实体过大”）异常时，它将减小发送到 Azure Functions 的批的大小。 在 Azure 函数代码中，使用此异常以确保 Azure 流分析不会发送过大的批。 另请确保函数中使用的最大批次数和最大批次大小值与在流分析门户中输入的值一致。
+
+> [!NOTE]
+> 在测试连接过程中，流分析会将空批发送到 Azure Functions，以测试两者之间的连接是否正常。 确保 Functions 应用处理空批请求，以确保通过连接测试。
+
+另外，如果时间窗口中没有任何事件登录，则不生成任何输出。 因此，不会调用 **computeResult** 函数。 此行为与内置窗口化聚合函数一致。
+
+## <a name="custom-metadata-properties-for-output"></a>输出的自定义元数据属性 
+
+可将查询列作为用户属性附加到传出的消息。 这些列不会进入有效负载。 这些属性以字典形式在输出消息中提供。 键是列名，值是属性字典中的列值。   支持除“记录”和“数组”以外的其他所有流分析数据类型。  
+
+支持的输出： 
+* 服务总线队列 
+* 服务总线主题 
+* 事件中心 
+
+以下示例将 `DeviceId` 和 `DeviceStatus` 这两个字段添加到了元数据。 
+* 查询：`select *, DeviceId, DeviceStatus from iotHubInput`
+* 输出配置：`DeviceId,DeviceStatus`
+
+![属性列](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+以下屏幕截图显示了在事件中心通过[服务总线资源管理器](https://github.com/paolosalvatori/ServiceBusExplorer)检查的输出消息属性。
+
+![事件自定义属性](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
+## 服务总线队列和主题输出的系统属性 <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>
+可将查询列作为[系统属性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties)附加到传出的服务总线队列或主题消息。 这些列不会进入有效负载，而是将查询列值填充到相应的 BrokeredMessage [系统属性](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties)中。
+支持这些系统属性 - `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`。
+这些列的字符串值将分析成相应的系统属性值类型，任何分析失败将被视为数据错误。
+此字段以 JSON 对象格式提供。 有关此格式的详细信息如下：
+* 用大括号 {} 括住。
+* 以键值对的形式编写。
+* 键和值必须是字符串。
+* 键是系统属性名称，值是查询列名。
+* 键和值以冒号分隔。
+* 每个键值对以逗号分隔。
+
+下面演示了此属性的用法 �
+
+* 查询：`select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* 系统属性列：`{ "MessageId": "column1", "PartitionKey": "column2"}`
+
+这会在服务总线队列消息的 `MessageId` 中设置 `column1` 的值，并在 PartitionKey 中设置 `column2` 的值。
 
 ## <a name="partitioning"></a>分区
 
 下表汇总了分区支持，以及每个输出类型的输出写入器数目：
 
+| 输出类型 | 分区支持 | 分区键  | 输出写入器数目 |
+| --- | --- | --- | --- |
+| Azure Data Lake Store | 是 | 在路径前缀模式中使用 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY 或 MM-DD-YYYY。 HH 用于时间格式。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure SQL 数据库 | 是，但需要启用。 | 基于查询中的 PARTITION BY 子句。 | 如果已启用“继承分区”选项，请遵循[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 若要详细了解在将数据载入 Azure SQL 数据库时如何提高写入吞吐量性能，请参阅[从 Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。 |
+| Azure Blob 存储 | 是 | 在路径模式中使用事件字段中的 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY 或 MM-DD-YYYY。 HH 用于时间格式。 可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 | 按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure 事件中心 | 是 | 是 | 按分区对齐方式变化。<br /> 如果事件中心输出的分区键与上游（上一个）查询步骤不相符，写入器的数量与事件中心输出中的分区数量相同。 每个写入器使用 [EventHubSender 类](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet)将事件发送到特定分区。 <br /> 如果事件中心输出的分区键与上游（上一个）查询步骤不相符，写入器的数量与该上一步骤中的分区数量相同。 每个写入器使用 **EventHubClient** 中的 [SendBatchAsync 类](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet)将事件发送到所有输出分区。 |
+| Power BI | 否 | 无 | 不适用。 |
+| Azure 表存储 | 是 | 任何输出列。  | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure 服务总线主题 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出主题中的分区数量相同。  |
+| Azure 服务总线队列 | 是 | 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。| 与输出队列中的分区数量相同。 |
+| Azure Cosmos DB | 是 | 基于查询中的 PARTITION BY 子句。 | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
+| Azure Functions | 是 | 基于查询中的 PARTITION BY 子句。 | 按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 |
 
-|       输出类型       |   分区支持    |                                                                                                                                                                分区键                                                                                                                                                                 |                                                                                                                                                                                                                                                                                                                                                                                                          输出写入器数目                                                                                                                                                                                                                                                                                                                                                                                                           |
-|-------------------------|---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|  Azure Data Lake Store  |            是            |                                                                                         在 Path 前缀模式中使用 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。                                                                                         |                                                                                                                                                                                                                                                                                                                                                                     按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。                                                                                                                                                                                                                                                                                                                                                                      |
-|   Azure SQL 数据库    |            是            |                                                                                                                                                基于查询中的 PARTITION BY 子句                                                                                                                                                 |                                                                                                                                                                                                                                                          按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。 若要详细了解在将数据载入 SQL Azure 数据库时如何提高写入吞吐量性能，请访问[从 Azure 流分析输出到 Azure SQL 数据库](stream-analytics-sql-output-perf.md)。                                                                                                                                                                                                                                                           |
-|   Azure Blob 存储    |            是            | 在 Path 模式中使用事件字段中的 {date} 和 {time} 标记。 选择日期格式，例如 YYYY/MM/DD、DD/MM/YYYY、MM-DD-YYYY。 HH 用于时间格式。 作为[预览版](https://aka.ms/ASApreview1)的一部分，可以通过单个自定义事件属性 {fieldname} 或 {datetime:\<specifier>} 对 blob 输出进行分区。 |                                                                                                                                                                                                                                                                                                                                                                     按照[完全可并行化的查询](stream-analytics-scale-jobs.md)的输入分区。                                                                                                                                                                                                                                                                                                                                                                      |
-|     Azure 事件中心     |            是            |                                                                                                                                                                     是                                                                                                                                                                      | 按分区对齐方式变化。<br /> 输出事件中心分区键与上游（上一个）查询步骤相同时，编写器的数量与输出事件中心分区的数量相同。 各编写器使用 EventHub 的 [EventHubSender class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) 将事件发送到特定分区。 <br /> 输出事件中心分区键与上游（上一个）查询步骤不相同时，编写器的数量与之前步骤中的分区数量不相同。 各编写器使用 EventHubClient [SendBatchAsync class](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) 将事件发送到所有输出分区。 |
-|        Power BI         |            否             |                                                                                                                                                                     无                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                               不适用。                                                                                                                                                                                                                                                                                                                                                                                                               |
-|   Azure 表存储   |            是            |                                                                                                                                                              任何输出列。                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                      按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。                                                                                                                                                                                                                                                                                                                                                                       |
-| Azure 服务总线主题 |            是            |                                                                 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。                                                                 |                                                                                                                                                                                                                                                                                                                                                                                            与输出主题中的分区数量相同。                                                                                                                                                                                                                                                                                                                                                                                            |
-| Azure 服务总线队列 |            是            |                                                                 自动选择。 分区数基于[服务总线 SKU 和大小](../service-bus-messaging/service-bus-partitioning.md)。 分区键是每个分区的唯一整数值。                                                                 |                                                                                                                                                                                                                                                                                                                                                                                            与输出队列中的分区数量相同。                                                                                                                                                                                                                                                                                                                                                                                            |
-|     Azure Cosmos DB     |            是            |                                                                                                          在 Collection 命名模式中使用 {partition} 标记。 {partition} 值基于查询中的 PARTITION BY 子句。                                                                                                           |                                                                                                                                                                                                                                                                                                                                                                      按照[完全并行化的查询](stream-analytics-scale-jobs.md)的输入分区。                                                                                                                                                                                                                                                                                                                                                                       |
-|     Azure Functions     |            否             |                                                                                                                                                                     无                                                                                                                                                                     |                                                                                                                                                                                                                                                                                                                                                                                                               不适用。                                                                                                                                                                                                                                                                                                                                                                                                               |
-|  <!-- 不可用于  | Azure Data Lake Store --> |                                                                                                                                                                                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-
-<!-- Not Available on | Power BI -->
-
-<!-- Not Available on | Azure Function -->
+还可以在查询中使用 `INTO <partition count>`子句（请参阅 [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count)）来控制输出写入器的数量，这可能有助于实现所需的作业拓扑。 如果输出适配器未分区，则一个输入分区中缺少数据将导致延迟最多可达延迟到达的时间量。 在这种情况下，输出将合并到单个写入器，这可能会导致管道中出现瓶颈。 若要了解有关延迟到达策略的详细信息，请参阅 [Azure 流分析事件顺序注意事项](stream-analytics-out-of-order-and-late-events.md)。
 
 ## <a name="output-batch-size"></a>输出批大小
-Azure 流分析使用大小可变的批来处理事件和写入到输出。 通常流分析引擎不会一次写入一条消息，而是使用批来提高效率。 输入和输出事件速率都很高时，它会使用更大的批。 输出速率低时，使用较小的批来保证低延迟。 
+Azure 流分析使用大小可变的批来处理事件和写入到输出。 通常流分析引擎不会一次写入一条消息，而是使用批来提高效率。 当传入和传出事件的速率较高时，流分析将使用更大的批。 输出速率低时，使用较小的批来保证低延迟。
 
-下表介绍了输出批处理的一些注意事项：
+下表阐述了输出批处理的一些注意事项：
 
 | 输出类型 | 最大消息大小 | 批大小优化 |
 | :--- | :--- | :--- |
-| Azure Data Lake Store | 请参阅 [Data Lake Storage 限制](../azure-subscription-service-limits.md) | 每个编写操作最高 4 MB |
-| Azure SQL 数据库 | 每个单次批量插入最大行数 10000<br />每个单次批量插入最小行数 100 <br />另请参阅 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md) |  每个批最初都以最大批大小来批量插入，并可能会根据来自 SQL 的可重试错误将批拆分为二（直到达到最小批大小）。 |
-| Azure Blob 存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 最大 Blob 块大小为 4 MB<br />最大 blob 块计数为 50000 |
-| Azure 事件中心   | 每个消息 256 KB <br />另请参阅[事件中心限制](../event-hubs/event-hubs-quotas.md) |   输入输出分区不相同时，每个事件会分别打包到 EventData 中，并按批发送（批的大小不得超出最大消息大小，高级 SKU 的最大消息大小为 1 MB）。 <br /><br />  输入输出分区相同时，多个事件打包到单个 EventData，以最大消息大小发送。  |
-| Power BI | 请参阅 [Power BI Rest API 限制](https://msdn.microsoft.com/library/dn950053.aspx) |
-| Azure 表存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits) | 默认为每个单一事务 100 个实体，并且可根据需要配置为更小的值。 |
-| Azure 服务总线队列   | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |
-| Azure 服务总线主题 | 每个消息 256 KB</br> 另请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md) | 每个消息单一事件 |
-
-<!-- Not Available on | Azure Cosmos DB -->
-
-<!-- Not Available on | Azure Function -->
-
-<!-- Not Available on | Azure Data Lake Store -->
-
-<!-- Not Available on | Power BI -->
+| Azure Data Lake Store | 请参阅 [Data Lake Storage 限制](../azure-subscription-service-limits.md)。 | 每个写入操作最高 4 MB。 |
+| Azure SQL 数据库 | 可使用最大批计数进行配置。 默认情况下，单个批量插入操作最多可插入 10,000 行，最少可插入 100 行。<br />请参阅 [Azure SQL 限制](../sql-database/sql-database-resource-limits.md)。 |  每个批最初是按照最大批计数批量插入的。 根据 SQL 的可重试错误对半拆分批（直到达到最小批计数）。 |
+| Azure Blob 存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits)。 | 最大 Blob 块大小为 4 MB。<br />最大 Blob 块计数为 50,000。 |
+| Azure 事件中心  | 每条消息 256 KB 或 1 MB。 <br />请参阅[事件中心限制](../event-hubs/event-hubs-quotas.md)。 |  如果输入/输出分区未对齐，则每个事件将单独打包成不超过最大消息大小的 `EventData`，并在批中发送。 如果使用[自定义元数据属性](#custom-metadata-properties-for-output)，也会发生这种情况。 <br /><br />  如果输入/输出分区已对齐，则多个事件将打包成不超过最大消息大小的单个 `EventData` 实例，然后发送。 |
+| Power BI | 请参阅 [Power BI REST API 限制](https://msdn.microsoft.com/library/dn950053.aspx)。 |
+| Azure 表存储 | 参阅 [Azure 存储限制](../azure-subscription-service-limits.md#storage-limits)。 | 默认为单个事务 100 个实体。 可根据需要将其配置为更小的值。 |
+| Azure 服务总线队列   | 在标准层中为每条消息 256 KB，在高级层中为 1MB。<br /> 请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md)。 | 对每条消息使用单个事件。 |
+| Azure 服务总线主题 | 在标准层中为每条消息 256 KB，在高级层中为 1MB。<br /> 请参阅[服务总线限制](../service-bus-messaging/service-bus-quotas.md)。 | 对每条消息使用单个事件。 |
+| Azure Cosmos DB   | 请参阅 [Azure Cosmos DB 限制](../azure-subscription-service-limits.md#azure-cosmos-db-limits)。 | 批大小和写入频率根据 Azure Cosmos DB 响应动态调整。 <br /> 流分析不会施加预先确定的限制。 |
+| Azure Functions   | | 默认批大小为 262,144 字节 (256 KB)。 <br /> 每批的默认事件计数为 100。 <br />
 
 ## <a name="next-steps"></a>后续步骤
 > [!div class="nextstepaction"]
+> 
 > [快速入门：使用 Azure 门户创建流分析作业](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 11/13/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 688823b071bfd6c2a0d0260fdfae395abae77273
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0710da1672930942a9b2f1c3dc88c205d5388022
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730414"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528226"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
 
@@ -78,7 +78,7 @@ A. 可以，Azure 中的“日志”页和高级分析门户基于相同的代�
 
 答：可以在 Azure 门户中查看视图和已安装解决方案的列表。 单击“所有服务”。  在资源列表中，选择“监视”，然后单击“...更多”。   选择的是上次使用的工作区，但可以选择任何其他的工作区。 
 
-### <a name="q-why-i-cant-create-workspaces-in-west-central-us-region"></a>问： 为何无法在“美国中西部”区域创建工作区？ 
+### <a name="q-why-i-cant-create-workspaces-in-china-region"></a>问： 为何无法在中国区域创建工作区？ 
 
 答：此区域暂时有容量限制。 此限制计划将于 2019 年 9 月底予以解除。
 

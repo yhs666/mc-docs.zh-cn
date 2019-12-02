@@ -10,12 +10,12 @@ ms.topic: article
 origin.date: 01/23/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5c887c0e6e6d690e01a02a9b34b5da697fe49be2
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 01f55ddf421957be75492debe8115c48d2199dcf
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330312"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528036"
 ---
 # <a name="service-bus-faq"></a>服务总线常见问题解答
 
@@ -102,7 +102,7 @@ ms.locfileid: "71330312"
 
 “服务总线定价和计费”一文介绍了服务总线中的计费计量。有关服务总线定价选项的具体信息，请参阅[服务总线定价详细信息](https://www.azure.cn/pricing/details/messaging/)。
 
-还可以访问 [Azure 支持常见问题解答](http://go.microsoft.com/fwlink/?LinkID=185083)了解常规的 Azure 定价信息。 
+还可以访问 [Azure 支持常见问题解答](https://support.azure.cn/zh-cn/support/contact/)了解常规的 Azure 定价信息。 
 
 ### <a name="how-do-you-charge-for-service-bus"></a>服务总线如何收取费用？
 有关服务总线定价的完整信息，请参阅[服务总线定价][Pricing overview]。 除标示的价格外，还需为在其中部署应用程序的数据中心之外的相关数据输出支付费用。
@@ -112,6 +112,13 @@ ms.locfileid: "71330312"
 
 ### <a name="does-service-bus-charge-for-storage"></a>服务总线是否对存储收费？
 否，服务总线不对存储收费。 但是，对每个队列/主题可以保留的数据最大量设有配额限制。 请参阅下一个常见问题。
+
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>我有一个服务总线标准命名空间。 为什么我在资源组 '$system' 下看到收费信息？
+Azure 服务总线最近升级了计费组件。 因此，如果你有服务总线标准命名空间，则可能会在资源组 '$system' 下看到资源 '/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system' 的行项目。
+
+这些费用表示已预配服务总线标准命名空间的每个 Azure 订阅的基本费用。 
+
+请务必注意，这些不是新的费用，即它们也存在于以前的计费模型中。 唯一的更改是它们现在列在 '$system' 下。 这是由于新的计费系统中的限制所致，新的计费系统将订阅级别的费用分组，而不是绑定到 '$system' 资源 ID 下的特定资源。
 
 ## <a name="quotas"></a>配额
 
@@ -135,7 +142,7 @@ Azure 保留禁用在给定月份超过使用配额的客户帐户的权利，�
 有关可能的服务总线异常的列表，请参阅[异常概述][Exceptions overview]。
 
 ### <a name="what-is-a-shared-access-signature-and-which-languages-support-generating-a-signature"></a>什么是共享访问签名？哪些语言支持生成签名？
-共享访问签名是基于 SHA-256 安全哈希或 URI 的身份验证机制。 有关如何在 Node.js、PHP、Java 和 C\# 中生成自己的签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
+共享访问签名是基于 SHA-256 安全哈希或 URI 的身份验证机制。 有关如何在 Node.js、PHP、Java、Python 和 C# 中生成自己的签名的信息，请参阅[共享访问签名][Shared Access Signatures]一文。
 
 ## <a name="subscription-and-namespace-management"></a>订阅和命名空间管理
 ### <a name="how-do-i-migrate-a-namespace-to-another-azure-subscription"></a>如何将命名空间迁移到另一个 Azure 订阅中？
@@ -144,7 +151,7 @@ Azure 保留禁用在给定月份超过使用配额的客户帐户的权利，�
 
 #### <a name="portal"></a>门户
 
-若要使用 Azure 门户将服务总线命名空间迁移到其他订阅，可按照[此处](../azure-resource-manager/resource-group-move-resources.md#use-portal)的说明操作。 
+若要使用 Azure 门户将服务总线命名空间迁移到其他订阅，可按照[此处](../azure-resource-manager/resource-group-move-resources.md#use-the-portal)的说明操作。 
 
 #### <a name="powershell"></a>PowerShell
 
@@ -164,7 +171,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 ## <a name="next-steps"></a>后续步骤
 若要了解有关服务总线的详细信息，请参阅以下文章：
 
-- [Azure 服务总线高级版简介（博客文章）](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Azure 服务总线高级版简介（博客文章）](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 - [服务总线概述](./service-bus-messaging-overview.md)
 - [服务总线队列入门](./service-bus-dotnet-get-started-with-queues.md)
 

@@ -5,21 +5,21 @@ services: security-center
 documentationcenter: na
 author: lingliw
 manager: digimobile
-editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/22/2019
+origin.date: 03/20/2019
+ms.date: 11/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: aa4f093463f3540cbb3113fa2c3bd573e3575f0b
-ms.sourcegitcommit: 5191c30e72cbbfc65a27af7b6251f7e076ba9c88
+ms.openlocfilehash: 1e24d2720c6e7737e59e96213596cc1f237ee33d
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67570217"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528283"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>在 Azure 安全中心保护计算机和应用程序
 Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的安全状态。 在安全中心识别潜在的安全漏洞时，它会创建一些建议，这些建议会指导完成配置所需控件的过程。 建议适用于以下 Azure 资源类型：虚拟机 (VM) 和计算机、应用程序、网络、SQL，以及“标识和访问”。
@@ -31,7 +31,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 
 可以选择“建议”来查看所有问题的列表。  有关如何应用建议的详细信息，请参阅[在 Azure 安全中心实施安全建议](security-center-recommendations.md)。
 
-有关计算和应用服务建议的完整列表，请参阅[建议](security-center-virtual-machine-recommendations.md)。
+有关计算和应用服务建议的完整列表，请参阅[建议](security-center-virtual-machine-protection.md#compute-and-app-recs)。
 
 若要继续，请在“资源”或安全中心主菜单中选择“计算和应用”。  
 ![安全中心仪表板](./media/security-center-virtual-machine-recommendations/overview.png)
@@ -43,7 +43,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 - **VM 和计算机**：列出 VM 和计算机及其当前安全状态。
 - **云服务**：列出安全中心监视的 Web 角色和辅助角色。
 - **应用服务**：列出应用服务环境及其当前安全状态。
-- **容器(预览)** ：列出在 IaaS Linux 计算机上托管的容器，并对其 Docker 配置进行安全评估。
+- **容器**：列出容器及其配置的安全评估。
 - **计算资源(预览)** ：列出针对计算资源（例如 Service Fabric 群集和事件中心）的建议。
 
 若要继续，请在“资源安全机制”下选择“计算和应用”。  
@@ -83,7 +83,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 
 
 > [!NOTE]
-> 此处提供的安全建议与“建议”磁贴下的内容相同。  请参阅[在 Azure 安全中心实施安全建议](security-center-recommendations.md)，详细了解如何应用建议。
+> 此处提供的安全建议与“建议”磁贴下的内容相同。  有关如何解决建议的详细信息，请参阅[在 Azure 安全中心实施安全建议](security-center-recommendations.md)。
 >
 >
 
@@ -123,7 +123,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 ![更新 OS 版本](./media/security-center-virtual-machine-recommendations/security-center-monitoring-fig8-new4.png)
 
 ### <a name="app-services"></a>应用程序服务
-需要在订阅中启用应用服务，才能查看应用服务信息。 有关如何启用此功能的说明，请参阅[使用 Azure 安全中心保护应用服务](security-center-app-services.md)。
+若要查看应用服务信息，必须在订阅中启用应用服务。 有关如何启用此功能的说明，请参阅[使用 Azure 安全中心保护应用服务](security-center-app-services.md)。
 [!NOTE]
 > 监视应用服务的功能以预览版提供，仅适用于安全中心的标准层。
 
@@ -152,7 +152,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 
 2. 选择一条建议即可查看其说明，以及不正常资源、正常资源和未扫描资源的列表。
 
-   - “已通过的评估”列下面是已通过的评估的列表。   这些评估的严重性始终为绿色。
+   - “已通过的评估”列下面是已通过的评估的列表。  这些评估的严重性始终为绿色。
 
    - 从评估说明列表、不正常和正常资源列表以及未扫描的资源列表中选择一个已通过的评估。 不正常的资源有一个对应的选项卡，但其中的列表始终为空，因为评估已经通过。
 
@@ -168,7 +168,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 
    ![安装 MMS](./media/security-center-virtual-machine-recommendations/install-mms.png)
 
-若要将新规模集设置为自动安装 Azure Monitoring Agent，请执行以下操作：
+若要将新规模集设置为自动安装 Microsoft Monitoring Agent，请执行以下操作：
 1. 转到 Azure Policy，单击“定义”。 
 2. 搜索策略“为 Windows 虚拟机规模集部署 Log Analytics 代理”，然后单击它。 
 3. 单击“分配”  。
@@ -177,7 +177,7 @@ Azure 安全中心可分析 Azure 资源、非 Azure 服务器以及虚拟机的
 若要将所有现有的规模集设置为安装 Azure Monitoring Agent，请在 Azure Policy 中转到“修正”，将现有的策略应用到现有的规模集。 
 
 
-## <a name="compute-and-app-recommendations"></a>计算和应用建议
+## 计算和应用建议 <a name="compute-and-app-recs"></a>
 |资源类型|安全功能分数|建议|说明|
 |----|----|----|----|
 |应用服务|20 个|只能通过 HTTPS 访问 Web 应用程序|仅限通过 HTTPS 访问 Web 应用程序。|

@@ -1,21 +1,21 @@
 ---
 title: Azure 备份：从 Azure VM 备份恢复文件和文件夹
-description: 从 Azure 虚拟机恢复点恢复文件
+description: 本文介绍如何从 Azure 虚拟机恢复点恢复文件和文件夹。
 ms.reviewer: pullabhk
 author: lingliw
 manager: digimobile
 keywords: 项级恢复; 从 Azure VM 备份恢复文件; 从 Azure VM 还原文件
 ms.service: backup
 ms.topic: conceptual
-origin.date: 07/05/2019
+origin.date: 03/01/2019
 ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4b8eb3ff869c7eae0332d8bd0dc8ef942e32104a
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 64ed4e88ae3cee188f388ab5ddfe5666d6a5cbf1
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730346"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528250"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>从 Azure 虚拟机备份恢复文件
 
@@ -134,21 +134,21 @@ Windows 存储空间是用于将存储器虚拟化的一种 Windows 技术。 �
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 列出卷组中所有逻辑卷、名称及其路径。
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 将逻辑卷装载到所选的路径。
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>对于 RAID 阵列
@@ -157,7 +157,7 @@ $ mount <LV path> </mountpath>
 
 ```bash
 #!/bin/bash
-$ mdadm -detail -scan
+mdadm –detail –scan
 ```
 
  相关 RAID 磁盘显示为 `/dev/mdm/<RAID array name in the protected VM>`
@@ -166,7 +166,7 @@ $ mdadm -detail -scan
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 如果 RAID 磁盘中配置了另一 LVM，请使用前述 LVM 分区相关过程，但使用卷名称代替 RAID 磁盘名称
@@ -179,6 +179,7 @@ $ mount [RAID Disk Path] [/mountpath]
 
 |服务器 OS | 兼容的客户端 OS  |
 | --------------- | ---- |
+| Windows Server 2019    | Windows 10 |
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |

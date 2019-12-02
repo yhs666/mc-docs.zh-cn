@@ -9,12 +9,12 @@ origin.date: 09/24/2018
 ms.date: 11/04/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: b6a8ad33ed119e7d75763e44cfd423f392123be2
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: e1824cf1484f51eb55f4b984a1ed590ead2fec0d
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730548"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528286"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>使用 InfluxData Telegraf 代理收集 Linux VM 的自定义指标
 
@@ -70,7 +70,7 @@ ms.locfileid: "73730548"
 ssh azureuser@XXXX.XX.XXX 
 ```
 
-将 SSH 连接命令粘贴到某个 Shell（例如 Azure Cloud Shell 或 Bash on Ubuntu on Windows）中来创建连接，或者使用所选 SSH 客户端来创建连接。 
+将 SSH 连接命令粘贴到某个 Shell（例如 Windows 上的 Bash on Ubuntu）中来创建连接，或者使用所选 SSH 客户端来创建连接。 
 
 ## <a name="install-and-configure-telegraf"></a>安装和配置 Telegraf 
 

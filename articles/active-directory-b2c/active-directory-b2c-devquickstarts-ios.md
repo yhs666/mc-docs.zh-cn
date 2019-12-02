@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 origin.date: 11/30/2018
-ms.date: 10/23/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 625df702cafd133b5f21adaa3fb960bc03c7827b
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 3213128c61468c5991e77a354191a72e34bd9b30
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846900"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461603"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C：使用 iOS 应用程序登录
 
@@ -38,7 +38,9 @@ Microsoft 标识平台使用开放式标准，例如 OAuth2 和 OpenID Connect�
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-记录**应用程序 ID**，以便在以后的步骤中使用。 接下来，在列表中选择应用程序并记录**自定义重定向 URI**，也可在稍后的步骤中使用。 例如，`com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
+记录“应用程序(客户端) ID”，以便在后续步骤中使用  。
+
+还记录自定义重定向 URI，以便在后续步骤中使用。 例如，`com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`。
 
 ## <a name="create-your-user-flows"></a>创建用户流
 在 Azure AD B2C 中，每个用户体验由[用户流](active-directory-b2c-reference-policies.md)定义。 此应用程序包含一个标识体验：合并的登录和注册。 创建用户流时，请务必：

@@ -15,12 +15,12 @@ ms.workload: na
 origin.date: 06/21/2019
 ms.date: 09/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c0bdfec98a56dc0c9ba78f2310d77c14ea4be63c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 484797d765ccced6044b6c4f5272b1522acbbc70
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329636"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528326"
 ---
 # <a name="create-a-service-bus-namespace-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建服务总线命名空间
 
@@ -35,7 +35,7 @@ ms.locfileid: "71329636"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://azure.microsoft.com/free/)。
+如果没有 Azure 订阅，请在开始前[创建一个试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 ## <a name="create-a-service-bus-namespace"></a>创建服务总线命名空间
 
@@ -105,9 +105,9 @@ ms.locfileid: "71329636"
 
 若要通过部署模板创建服务总线命名空间，请执行以下操作：
 
-1. 从以下代码块中选择“试用”  ，然后按照说明登录 Azure Cloud shell。
+1. 从以下代码块中选择“试一试”  ，然后按照说明登录到 Azure PowerShell。
 
-    ```azurepowershell-interactive
+    ```
     $serviceBusNamespaceName = Read-Host -Prompt "Enter a name for the service bus namespace to be created"
     $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $resourceGroupName = "${serviceBusNamespaceName}rg"
@@ -128,9 +128,9 @@ ms.locfileid: "71329636"
 
 ## <a name="verify-the-deployment"></a>验证部署
 
-若要查看部署的服务总线命名空间，可以从 Azure 门户打开资源组，或者使用以下 Azure PowerShell 脚本。 如果 Cloud shell 仍处于打开状态，则无需复制/运行以下脚本的第一行和第二行。
+若要查看部署的服务总线命名空间，可以从 Azure 门户打开资源组，或者使用以下 Azure PowerShell 脚本。 如果 PowerShell 仍处于打开状态，则无需复制/运行以下脚本的第一行和第二行。
 
-```azurepowershell-interactive
+```
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
 $resourceGroupName = "${serviceBusNamespaceName}rg"
 
@@ -147,9 +147,9 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="clean-up-resources"></a>清理资源
 
-不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。 如果 Cloud shell 仍处于打开状态，则无需复制/运行以下脚本的第一行和第二行。
+不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。 如果 PowerShell 仍处于打开状态，则无需复制/运行以下脚本的第一行和第二行。
 
-```azurepowershell-interactive
+```
 $serviceBusNamespaceName = Read-Host -Prompt "Enter the same service bus namespace name used earlier"
 $resourceGroupName = "${serviceBusNamespaceName}rg"
 

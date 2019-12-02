@@ -8,17 +8,17 @@ author: lingliw
 origin.date: 07/24/2019
 ms.date: 08/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 591c48cd2b67ddeff6b7fd8c3fc366f0e345f334
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 75b293875cb9bce0e17135938164a46c0ebf7c8f
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970980"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528395"
 ---
 # <a name="using-service-map-solution-in-azure"></a>使用 Azure 中的服务映射解决方案
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 可使用服务映射如所想一般作为提供重要服务的互连系统查看服务器。 服务映射显示 TCP 连接的任何体系结构中服务器、进程、入站和出站连接延迟和端口之间的连接，只需安装代理，无需任何其他配置。
 
-本指南介绍载入和使用服务映射的详细信息。 有关配置此解决方案的必备组件的信息，请参阅[启用用于 VM 的 Azure Monitor 概述](vminsights-enable-overview.md#prerequisites)。 总而言之，需要以下项：
+本指南介绍载入和使用服务映射的详细信息。 总而言之，需要以下项：
 
 * 用于启用此解决方案的 Log Analytics 工作区。
 
@@ -27,15 +27,15 @@ ms.locfileid: "72970980"
 * 安装在 Windows 计算机或 Linux 服务器上的 Dependency Agent。
 
 >[!NOTE]
->如果已部署服务映射，现在还可以在面向 VM 的 Azure Monitor 中查看映射，其中包括监视 VM 运行状况和性能的附加功能。 若要了解详细信息，请参阅[面向 VM 的 Azure Monitor 概述](../../azure-monitor/insights/vminsights-overview.md)。 若要了解服务映射解决方案与用于 VM 的 Azure Monitor 映射功能之间的差异，请参阅以下[常见问题解答](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map)。
+>如果已部署服务映射，现在还可以在面向 VM 的 Azure Monitor 中查看映射，其中包括监视 VM 运行状况和性能的附加功能。
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 在 [https://portal.azure.cn](https://portal.azure.cn) 中登录 Azure 门户。
 
 ## <a name="enable-service-map"></a>启用服务映射
 
-1. 从 [Azure 市场](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview)或者使用[从解决方案库中添加监视解决方案](solutions.md)中所述的过程，启用服务映射解决方案。
-1. 在要获取数据的每台计算机上[安装 Windows 上的 Dependency Agent](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows) 或[安装 Linux 上的 Dependency Agent](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux)。 依赖关系代理可以监视与直接邻居之间的连接，因此不需要在每台计算机上都具有代理。
+1. 从 [Azure 市场](https://market.azure.cn/zh-cn)或者使用[从解决方案库中添加监视解决方案](solutions.md)中所述的过程，启用服务映射解决方案。
+1. 在希望从中获取数据的每台计算机的 Windows 上安装 Dependency Agent。 依赖关系代理可以监视与直接邻居之间的连接，因此不需要在每台计算机上都具有代理。
 
 在 Azure 门户从 Log Analytics 工作区访问服务映射，并选择左窗格中的“解决方案”  选项。<br><br> ![选择工作区中的“解决方案”选项](./media/service-map/select-solution-from-workspace.png)。<br> 从解决方案列表中选择“ServiceMap(workspaceName)”  ，并在服务映射解决方案概述页面单击“服务映射摘要”标题。<br><br> ![服务映射摘要标题](./media/service-map/service-map-summary-tile.png)。
 

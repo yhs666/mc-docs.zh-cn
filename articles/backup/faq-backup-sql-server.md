@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 0c1df11725db83d301dbfa4bfeb2d22f5837a287
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 0599544dc411fe54e0b70f6f41588df5fcc7c2df
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116351"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528378"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>有关备份 Azure VM 上运行的 SQL Server 数据库的常见问题解答
 
@@ -66,7 +66,7 @@ ms.locfileid: "74116351"
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>是否可跨区域保护可用性组？
 
-Azure 备份恢复服务保管库可以检测并保护保管库所在的同一区域中的所有节点。 如果 SQL Server Always On 可用性组跨多个 Azure 区域，请从包含主要节点的区域设置备份。 Azure 备份可根据备份优先顺序检测并保护可用性组中的所有数据库。 如果不符合备份优先顺序，备份将会失败，并出现失败警报。
+Azure 备份恢复服务保管库可以检测并保护保管库所在的同一区域中的所有节点。 如果 SQL Server Always On 可用性组跨多个 Azure 区域，请从包含主要节点的区域设置备份。 Azure 备份可根据备份首选项检测并保护可用性组中的所有数据库。 如果不符合备份优先顺序，备份将会失败，并出现失败警报。
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>成功的备份作业是否会创建警报？
 
@@ -74,7 +74,7 @@ Azure 备份恢复服务保管库可以检测并保护保管库所在的同一�
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>“备份作业”菜单中是否会显示计划的备份作业？
 
-“备份作业”菜单只显示临时备份作业。  对于计划的作业，请[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
+“备份作业”菜单只显示按需备份作业。  对于计划的作业，请[使用 Azure Monitor 进行监视](backup-azure-monitoring-use-azuremonitor.md)。
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>未来的数据库会自动添加备份吗？
 

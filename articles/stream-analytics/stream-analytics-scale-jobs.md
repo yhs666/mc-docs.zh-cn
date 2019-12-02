@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/22/2017
 ms.date: 06/21/2019
-ms.openlocfilehash: c7d7904ea5efbcdae3a71dafc5915c94ac5dfd74
-ms.sourcegitcommit: 01788fd533b6de9475ef14e84aa5ddd55a1fef27
+ms.openlocfilehash: 4079e7f2101352e8a263c4474e4be1c9bcbb16ed
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70169615"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528051"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>扩展 Azure 流分析作业以增加吞吐量
 本文介绍如何优化流分析查询，增加流分析作业的吞吐量。 可以使用以下指南来扩展作业，以便处理较高负载并充分利用更多的系统资源（如更多带宽、更多 CPU 资源、更多内存）。
@@ -24,7 +24,7 @@ ms.locfileid: "70169615"
 -   [创建可并行的作业](stream-analytics-parallelization.md)
 
 <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>
-## <a name="case-1---your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 - 在各个输入分区中，查询本质上是完全可并行的
+## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>案例 1 � 在各个输入分区中，查询本质上是完全可并行的
 如果在各个输入分区中，查询本质上是完全可并行的，则可以按照以下步骤操作：
 1.  通过使用 PARTITION BY  关键字来创作查询使之易并行。 请参阅[此页](stream-analytics-parallelization.md)易并行作业部分中的更多详细信息。
 2.  根据查询中使用的输出类型，某些输出可能是不可并行的，或者需要进一步配置来实现易并行。 例如，SQL 和 SQL DW 输出是不可并行的。 请始终先合并输出，然后再将其发送到输出接收器。 Blob、表、ADLS、服务总线和 Azure Function 会自动并行化。 CosmosDB 和事件中心都需要设置 PartitionKey 配置来匹配 PARTITION BY  字段（通常是 PartitionId）。 对于事件中心，还要格外注意匹配所有输入和所有输出的分区数量，以避免分区之间的交叉。 

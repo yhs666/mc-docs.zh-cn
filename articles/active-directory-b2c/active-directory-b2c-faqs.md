@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 08/31/2019
-ms.date: 10/23/2019
+origin.date: 10/14/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 743af399a561c78da6cd922a9ff467bece17628a
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 25515f8d8b3e2c2cae59cc995a5027d356450c1e
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846897"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461602"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C：常见问题 (FAQ)
 
@@ -31,6 +31,7 @@ ms.locfileid: "72846897"
 Azure AD 和 Azure AD B2C 是独立的产品/服务，不能在同一租户中共存。 Azure AD 租户表示组织。 Azure AD B2C 租户表示信赖方应用使用的标识集合。 通过自定义策略，Azure AD B2C 可以联合 Azure AD，允许对组织中的员工进行身份验证。
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-into-office-365"></a>我可以使用 Azure AD B2C 提供 Office 365 的社交登录吗？
+
 Azure AD B2C 不用于 Microsoft Office 365 用户的身份验证。  Azure AD B2C 提供用于生成 Web 和移动应用程序的标识和访问管理平台。  当 Azure AD B2C 配置为联合 Azure AD 租户时，Azure AD 租户将管理员工对依赖 Azure AD B2C 的应用程序的访问权限。
 
 ### <a name="what-are-local-accounts-in-azure-ad-b2c-how-are-they-different-from-work-or-school-accounts-in-azure-ad"></a>什么是 Azure AD B2C 中的本地帐户？ 它们与 Azure AD 中的工作或学校帐户有何不同？
@@ -77,6 +78,18 @@ Azure AD B2C 还支持[自定义策略](active-directory-b2c-overview-custom.md)
 
 与 Microsoft Dynamics 365 门户的集成可用。 请参阅[配置 Dynamics 365 门户以使用 Azure AD B2C 进行身份验证](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c)。
 
+### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>Azure AD B2C 是否可以与 SharePoint 本地 2016 或更早版本一起使用？
+
+Azure AD B2C 不适用于 SharePoint 外部合作伙伴共享的情况；请改为参阅 [Azure AD B2B](https://cloudblogs.microsoft.com/enterprisemobility/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview/)。
+
+### <a name="what-reporting-and-auditing-features-does-azure-ad-b2c-provide-are-they-the-same-as-in-azure-ad-premium"></a>Azure AD B2C 提供哪些报告和审核功能？ 它们是否与 Azure AD Premium 中提供的功能相同？
+
+否，Azure AD B2C 不支持与 Azure AD Premium 相同的报告集。 但是，有许多共性：
+
+*  登录报告提供每次登录的记录以及简短的详细信息。
+*  审核报告包括管理活动和应用程序活动。
+*  使用情况报告包括用户数、登录次数和 MFA 次数。
+
 ### <a name="can-i-localize-the-ui-of-pages-served-by-azure-ad-b2c-what-languages-are-supported"></a>我可以本地化 Azure AD B2C 所提供页面的 UI 吗？ 支持哪些语言？
 
 可以，请参阅[语言自定义](active-directory-b2c-reference-language-customization.md)。 我们提供 36 种语言的翻译版本，并且你可以根据需要替代任何字符串。
@@ -87,18 +100,25 @@ Azure AD B2C 还支持[自定义策略](active-directory-b2c-overview-custom.md)
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>如何删除 Azure AD B2C 租户？
 
-请按照以下步骤删除 Azure AD B2C 租户：
+请按照以下步骤删除 Azure AD B2C 租户。
 
+可以使用当前**应用程序**体验。 
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
+
+1. 以订阅管理员  身份登录到 [Azure 门户](https://portal.azure.cn/)。 使用在注册 Azure 时使用的同一工作或学校帐户。
+1. 在顶部菜单中选择“目录 + 订阅”  筛选器，然后选择包含Azure AD B2C 租户的目录。
+1. 在左侧菜单中，选择“Azure AD B2C”  。 或者，选择“所有服务”  并搜索并选择“Azure AD B2C”  。
 1. 删除 Azure AD B2C 租户中的所有**用户流(策略)** 。
 1. 删除你在 Azure AD B2C 租户中注册的所有**应用程序**。
-1. 接下来，以订阅管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。 使用在注册 Azure 时使用的同一工作或学校帐户。
-1. 切换到要删除的 Azure AD B2C 租户。
 1. 在左侧菜单中，选择“Azure Active Directory”  。
 1. 在“管理”下，选择“用户”   。
-1. 依次选择每个用户（排除当前以订阅管理员身份登录的用户）。 选择页面底部的“删除”  ，并在出现提示时选择“是”  。
+1. 依次选择每个用户（不包括你当前作为用户登录的订阅管理员  用户）。 选择页面底部的“删除”  ，并在出现提示时选择“是”  。
 1. 在“管理”  下，选择“应用注册”  或“应用注册(旧版)”  。
 1. 选择“查看所有应用程序” 
 1. 选择名为“b2c-extensions-app”  的应用程序，选择“删除”  ，然后在出现提示时选择“是”  。
+1. 在“管理”下，选择“用户设置”   。
+1. 如果存在，请在“LinkedIn 帐户连接”  下选择“否”  ，然后选择“保存”  。
 1. 在“管理”下，选择“属性”  
 1. 在“Azure 资源的访问管理”  下，选择“是”  ，然后选择“保存”  。
 1. 从 Azure 门户注销，然后重新登录以刷新你的访问权限。

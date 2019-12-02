@@ -1,20 +1,20 @@
 ---
 title: 准备 DPM 服务器将工作负载备份到 Azure
-description: 介绍了如何将 DPM 数据备份到 Azure 恢复服务保管库。
+description: 本文介绍如何使用 Azure 备份服务准备将 System Center Data Protection Manager (DPM) 备份到 Azure。
 ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
 ms.service: backup
 ms.topic: conceptual
 origin.date: 08/26/2019
-ms.date: 01/30/2019
+ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d36f9ab36b3f3c1d5d2210c319d492d0cc6bbeb4
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 9bc4dbc60642d3df42b7b670d0889887922a7a32
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730558"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528386"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>使用 System Center DPM 准备将工作负载备份到 Azure
 
@@ -96,8 +96,8 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
 
 - 保管库凭据仅在注册工作流的过程中使用。
 - 你需负责确保保管库凭据文件安全且不会泄露。
-    -  如果失去了对凭据的控制权，则保管库凭据可能会被用来向保管库注册其他计算机。
-    - 但是，备份数据是使用属于客户的通行短语加密的，因此现有的备份数据不会泄露。
+  - 如果失去了对凭据的控制权，则保管库凭据可能会被用来向保管库注册其他计算机。
+  - 但是，备份数据是使用属于客户的通行短语加密的，因此现有的备份数据不会泄露。
 - 确保将文件保存在可从 DPM 服务器访问的位置。 如果将它存储在文件共享/SMB 中，请检查访问权限。
 - 保管库凭据会在 48 小时后过期。 可以根据需要任意下载新的保管库凭据。 不过，在注册工作流中只能使用最新的保管库凭据文件。
 - Azure 备份服务不知道证书的私钥，并且私钥在门户或服务中不可用。
@@ -142,15 +142,15 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
 2. 在“代理配置”  中，根据需要指定代理设置。
 
     ![代理配置](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Proxy.png)
-9. 在“备份保管库”  中，浏览到已下载的保管库凭据文件并选择该文件。
+3. 在“备份保管库”  中，浏览到已下载的保管库凭据文件并选择该文件。
 
     ![保管库凭据](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Credentials.jpg)
 
-10. 在“限制设置”  中，可以选择性地为备份启用带宽限制。 可以为指定的工作小时和天数设置速度限制。
+4. 在“限制设置”  中，可以选择性地为备份启用带宽限制。 可以为指定的工作小时和天数设置速度限制。
 
     ![限制设置](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_Throttling.png)
 
-11. 在“恢复文件夹设置”  中，指定可在数据恢复期间使用的位置。
+5. 在“恢复文件夹设置”  中，指定可在数据恢复期间使用的位置。
 
     - Azure 备份将此位置用作已恢复数据的临时保存区域。
     - 完成数据恢复后，Azure 备份将清除此区域中的数据。
@@ -158,7 +158,7 @@ Azure 备份代理 | 如果 DPM 正在 System Center 2012 SP1 上运行，请安
 
     ![恢复文件夹设置](../../includes/media/backup-install-agent/DPM_SetupOnlineBackup_RecoveryFolder.png)
 
-12. 在“加密设置”  中，生成或提供通行短语。
+6. 在“加密设置”  中，生成或提供通行短语。
 
     - 通行短语用于加密向云中进行的备份。
     - 至少指定 16 个字符.

@@ -8,18 +8,18 @@ ms.topic: article
 origin.date: 01/03/2019
 ms.date: 11/18/2019
 ms.author: v-yeche
-ms.openlocfilehash: 73d1f716b6e59fa51064ec6010852d0c12415e04
-ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
+ms.openlocfilehash: 1a6a1b8e94281e4570023ea9be14c5897e3e4d59
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74154828"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74527944"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>启用和查看 Azure Kubernetes 服务 (AKS) 中 Kubernetes 主节点的日志
 
 使用 Azure Kubernetes 服务 (AKS)，可以提供 *kube-apiserver* 和 *kube-controller-manager* 等主组件作为托管服务。 创建和管理运行 *kubelet* 与容器运行时的节点，并通过托管的 Kubernetes API 服务器部署应用程序。 为帮助排查应用程序和服务问题，可能需要查看这些主组件生成的日志。 本文介绍如何使用 Azure Monitor 日志从 Kubernetes 主组件启用和查询日志。
 
-## <a name="before-you-begin"></a>开始之前
+## <a name="before-you-begin"></a>准备阶段
 
 本文要求在 Azure 帐户中运行一个现有的 AKS 群集。 如果还没有 AKS 群集，请使用 [Azure CLI][cli-quickstart] 或 [Azure 门户][portal-quickstart]创建一个。 Azure Monitor 日志适用于支持 RBAC 和不支持 RBAC 的 AKS 群集。
 
@@ -43,7 +43,10 @@ Azure Monitor 日志是在 Azure 门户中启用和管理的。 若要为 AKS �
     
 1. 输入名称（例如 myAKSClusterLogs  ），然后选择“发送到 Log Analytics”选项。 
 1. 选择现有工作区或者创建新的工作区。 如果创建工作区，请提供工作区名称、资源组和位置。
-1. 在可用日志列表中，选择要启用的日志。 常见日志包括 kube-apiserver  、kube-controller-manager  和 kube-scheduler  。 你可以启用其他日志，例如 kube-audit  和 cluster-autoscaler  。 启用 Log Analytics 工作区后，可以返回并更改收集的日志。
+1. 在可用日志列表中，选择要启用的日志。 常见日志包括 kube-apiserver  、kube-controller-manager  和 kube-scheduler  。 你可以启用其他日志，例如 kube-audit  。 启用 Log Analytics 工作区后，可以返回并更改收集的日志。
+    
+    <!--Not Available on and *cluster-autoscaler*-->
+    
 1. 准备就绪后，选择“保存”以启用收集选定日志。 
 
 以下示例门户屏幕截图显示了“诊断设置”窗口： 
@@ -117,7 +120,7 @@ AzureDiagnostics
 
 为帮助分析日志数据，下表详细说明了用于每个事件的架构：
 
-| 字段名               | 说明 |
+| 字段名称               | 说明 |
 |--------------------------|-------------|
 | *resourceId*             | 生成日志的 Azure 资源 |
 | *time*                   | 上传日志的时间戳 |

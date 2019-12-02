@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 09/10/2019
 ms.date: 09/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fa4c2cd3b72a53ae86af878d8d1254d8b1eed5f0
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 26294c976452cbf01abf1bae3bd8706697f4f263
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674617"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528310"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>使用实时功能管理虚拟机访问
 
@@ -39,7 +39,7 @@ ms.locfileid: "71674617"
 
 如果启用了实时访问，安全中心会通过创建 NSG 规则来锁定发往 Azure VM 的入站流量。 你需要选择要锁定 VM 上的哪些端口的入站流量。 这些端口将受实时解决方案控制。
 
-当用户请求访问 VM 时，安全中心会检查该用户是否具有允许用户成功请求访问 VM 的[基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 权限。 如果请求获得批准，安全中心将自动配置网络安全组 (NSG) 和 Azure 防火墙，以便在指定的时间内允许入站流量到达选定端口和请求的源 IP 地址或范围。 在该时间到期后，安全中心会将 NSG 还原为以前的状态。 但是，那些已经建立的连接不会中断。
+当用户请求访问 VM 时，安全中心会检查用户是否具有该 VM 的[基于角色的访问控制 (RBAC)](../role-based-access-control/role-assignments-portal.md) 权限。 如果请求获得批准，安全中心将自动配置网络安全组 (NSG) 和 Azure 防火墙，以便在指定的时间内允许入站流量到达选定端口和请求的源 IP 地址或范围。 在该时间到期后，安全中心会将 NSG 还原为以前的状态。 但是，那些已经建立的连接不会中断。
 
  > [!NOTE]
  > 如果对 Azure 防火墙后面的 VM 批准了 JIT 访问请求，则安全中心会自动更改 NSG 和防火墙策略规则。 在指定的时间内，规则将允许将入站流量发送到选定的端口以及请求的源 IP 地址或范围。 此时间过后，安全中心会将防火墙和 NSG 规则还原到其以前的状态。
@@ -56,17 +56,18 @@ ms.locfileid: "71674617"
 
 ## <a name="configure-jit-on-a-vm"></a>在 VM 上配置 JIT
 
-可通过两种方式在 VM 上配置 JIT 策略：
+可通过三种方式在 VM 上配置 JIT 策略：
 
 - [在 Azure 安全中心配置 JIT 访问](#jit-asc)
+- [在 Azure VM 边栏选项卡中配置 JIT 访问](#jit-vm)
 - [以编程方式在 VM 上配置 JIT 策略](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>在 ASC 中配置 JIT
+## <a name="configure-jit-in-security-center"></a>在安全中心配置 JIT
 
-在 ASC 中，可以配置 JIT 策略并使用 JIT 策略请求访问 VM
+在安全中心，可以配置 JIT 策略并使用 JIT 策略请求访问 VM
 
 
-### 在 ASC 中的 VM 上配置 JIT 访问 <a name="jit-asc"></a>
+### 在安全中心的 VM 上配置 JIT 访问 <a name="jit-asc"></a>
 
 1. 打开“安全中心”  仪表板。
 
@@ -114,11 +115,11 @@ ms.locfileid: "71674617"
 >如果为 VM 启用 JIT VM 访问，Azure 安全中心将在与所选端口关联的网络安全组和 Azure 防火墙中为该端口创建“拒绝所有入站流量”规则。 如果为所选端口创建了其他规则，则现有的规则优先于新的“拒绝所有入站流量”规则。 如果所选端口没有现有的规则，则新的“拒绝所有入站流量”规则在网络安全组和 Azure 防火墙中的优先级最高。
 
 
-## <a name="request-jit-access-via-asc"></a>通过 ASC 请求 JIT 访问
+## <a name="request-jit-access-via-security-center"></a>通过安全中心请求 JIT 访问
 
-若要通过 ASC 请求访问 VM：
+若要通过安全中心请求访问 VM，请执行以下操作：
 
-1. 在“恰时 VM 访问”  下，选择“配置”  选项卡。
+1. 在“实时 VM 访问”下，选择“已配置”选项卡   。
 
 2. 在“虚拟机”  下，单击要请求访问的 VM。 这会勾选该 VM。
 
@@ -133,14 +134,14 @@ ms.locfileid: "71674617"
 
       ![JIT 详细信息](./media/security-center-just-in-time/just-in-time-details.png)
 
-4. 在“请求访问”下，为每个 VM 配置要打开的端口、要为其打开该端口的源 IP 地址以及将打开该端口的时间范围  。 只能请求对在实时策略中配置的端口的访问权限。 每个端口都有一个从实时策略派生的最大允许时间。
+4. 在“请求访问”下，为每个 VM 配置要打开的端口、要为其打开该端口的源 IP 地址以及将打开该端口的时间范围  。 只能请求访问在实时策略中配置的端口。 每个端口都有一个从实时策略派生的最大允许时间。
 
 5. 单击“打开端口”。 
 
 > [!NOTE]
 > 如果请求访问的用户使用代理，则“我的 IP”选项可能无法使用  。 可能需要定义组织的完整 IP 地址范围。
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>通过 ASC 编辑 JIT 访问策略
+## <a name="edit-a-jit-access-policy-via-security-center"></a>通过安全中心编辑 JIT 访问策略
 
 可以对 VM 的现有实时策略进行以下更改：添加并配置要保护该 VM 的新端口，或更改与已保护的端口相关的任何其他设置。
 
@@ -151,7 +152,7 @@ ms.locfileid: "71674617"
 1. 在“JIT VM 访问配置”下，可以编辑已保护的端口的现有设置，也可以添加新的自定义端口  。 
   ![jit vm 访问](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>在 ASC 中审核 JIT 访问活动
+## <a name="audit-jit-access-activity-in-security-center"></a>审核安全中心的 JIT 访问活动
 
 可以使用日志搜索深入了解 VM 活动。 若要查看日志，请执行以下操作：
 
@@ -166,6 +167,56 @@ ms.locfileid: "71674617"
 
 修改筛选器并单击“应用”来创建搜索和日志。 
 
+
+
+## 在 Azure VM 页配置 JIT 访问 <a name="jit-vm"></a>
+
+为方便起见，可以使用 JIT 直接从安全中心的 VM 页连接到 VM。
+
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>通过 Azure VM 页在 VM 上配置 JIT 访问
+
+若要轻松地在 VM 间进行实时访问，可以将 VM 设置为仅允许从 VM 内直接进行实时访问。
+
+1. 在 Azure 门户中，选择“虚拟机”  。
+2. 单击要实行实时访问限制的虚拟机。
+3. 在菜单中，单击“配置”  。
+4. 在“实时访问”下，单击“启用实时策略”   。 
+
+此操作可为使用以下设置的 VM 启用实时访问：
+
+- Windows 服务器：
+    - RDP 端口 3389
+    - 允许的最长访问时间为三小时
+    - 允许的源 IP 地址设置为“任何”
+- Linux 服务器：
+    - SSH 端口 22
+    - 允许的最长访问时间为三小时
+    - 允许的源 IP 地址设置为“任何”
+     
+如果 VM 已启用实时访问，则在转到其配置页时，将看到实时访问已启用。可使用链接打开 Azure 安全中心中的策略，以便查看和更改设置。
+
+![VM 中的 JIT 配置](./media/security-center-just-in-time/jit-vm-config.png)
+
+### <a name="request-jit-access-to-a-vm-via-the-azure-vm-blade"></a>通过 Azure VM 边栏选项卡请求对 VM 的 JIT 访问权限
+
+在 Azure 门户中，尝试连接到 VM 时，Azure 会检查是否在该 VM 上配置实时访问策略。
+
+- 如果在 VM 上配置了 JIT 策略，则可以单击“请求访问”，以便根据 VM 的 JIT 策略集进行访问  。 
+
+  >![jit 请求](./media/security-center-just-in-time/jit-request.png)
+
+  使用以下默认参数请求访问权限：
+
+  - **源 IP**：“任何”(*)（无法更改）
+  - **时间范围**：3 小时（无法更改） <!--Isn't this set in the policy-->
+  - **端口号**：在 Windows 中为 RDP 端口 3389/在 Linux 中为端口 22（可更改）
+
+    > [!NOTE]
+    > 批准对受 Azure 防火墙保护的 VM 的请求后，安全中心将为用户提供正确的连接详细信息（来自 DNAT 表的端口映射）用于连接 VM。
+
+- 如果没有在 VM 上配置 JIT，将提示你配置 JIT 策略。
+
+  ![jit 提示](./media/security-center-just-in-time/jit-prompt.png)
 
 ## 以编程方式在 VM 上配置 JIT 策略 <a name="jit-program"></a>
 

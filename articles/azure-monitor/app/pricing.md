@@ -9,17 +9,17 @@ ms.reviewer: mbullwin
 origin.date: 10/28/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3047c1d91f895b0dc9919a1537e35384ac3728f6
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 88a95a68f3244b575f48f31a7a4f8ef7dd259d19
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730001"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528412"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 
 > [!NOTE]
-> 本文介绍如何了解和控制 Application Insights 的成本。  相关文章[监视使用情况和估算成本](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs)介绍了如何针对不同的定价模型查看多个 Azure 监视功能的使用情况及估算成本。
+> 本文介绍如何了解和控制 Application Insights 的成本。  相关文章[监视使用情况和估算成本](/azure-monitor/platform/usage-estimated-costs)介绍了如何针对不同的定价模型查看多个 Azure 监视功能的使用情况及估算成本。
 
 无论 Web 应用程序托管在 Azure 中还是本地，Application Insights 都会提供所需的功能让你监视其可用性、性能和使用情况。 Application Insights 支持 .NET、Java 和 Node.js 等流行语言和框架，并与 Azure DevOps、Jira 和 PagerDuty 等 DevOps 流程和工具相集成。 必须了解哪些因素决定了应用程序的监视成本。 本文介绍应用程序监视成本的造成因素，以及如何主动监控这些成本。
 
@@ -33,15 +33,15 @@ ms.locfileid: "73730001"
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>估算应用程序的管理成本 
 
-如果你尚未使用 Application Insights，可以使用 [Azure Monitor 定价计算器](https://azure.microsoft.com/pricing/calculator/?service=monitor)来估算 Application Insights 的使用成本。 首先在搜索框中输入“Azure Monitor”，然后单击生成的“Azure Monitor”磁贴。 在页面中向下滚动到“Azure Monitor”，然后从“类型”下拉列表中选择“Application Insights”。  在此处可以输入每月预期要收集的数据量 (GB)，因此，问题是 Application Insights 在监视应用程序时要收集多少数据。 
+如果你尚未使用 Application Insights，可以使用 [Azure Monitor 定价计算器](/pricing/calculator/?service=monitor)来估算 Application Insights 的使用成本。 首先在搜索框中输入“Azure Monitor”，然后单击生成的“Azure Monitor”磁贴。 在页面中向下滚动到“Azure Monitor”，然后从“类型”下拉列表中选择“Application Insights”。  在此处可以输入每月预期要收集的数据量 (GB)，因此，问题是 Application Insights 在监视应用程序时要收集多少数据。 
 
 可通过两种方法找到此问题的解答：使用 ASP.NET SDK 中提供的默认监视和自适应采样，或根据其他类似客户遇到的情况估算可能的数据引入量。
 
 ### <a name="data-collection-when-using-sampling"></a>使用采样时的数据收集
 
-使用 ASP.NET SDK 的[自适应采样](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)时，数据量会自动调整，以保持在默认 Application Insights 监视功能的最大指定流量速率范围内。 如果应用程序产生的遥测数据很少（例如在调试时或由于用量较小），则只要数量低于配置的每秒事件数级别，采样处理器就不会丢弃项。 对于数据量较高的应用程序，使用默认阈值每秒 5 个事件时，自适应采样会将每日事件数限制为 432,000 个。 使用典型的平均事件大小 1 KB 相当于托管应用程序的每个节点每月（31 天）可引入 13.4 GB 的遥测数据（因为采样是在每个节点本地完成的。） 
+使用 ASP.NET SDK 的[自适应采样](/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)时，数据量会自动调整，以保持在默认 Application Insights 监视功能的最大指定流量速率范围内。 如果应用程序产生的遥测数据很少（例如在调试时或由于用量较小），则只要数量低于配置的每秒事件数级别，采样处理器就不会丢弃项。 对于数据量较高的应用程序，使用默认阈值每秒 5 个事件时，自适应采样会将每日事件数限制为 432,000 个。 使用典型的平均事件大小 1 KB 相当于托管应用程序的每个节点每月（31 天）可引入 13.4 GB 的遥测数据（因为采样是在每个节点本地完成的。） 
 
-对于不支持自适应采样的 SDK，可以使用[引入采样](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)（Application Insights 收到数据时根据要保留的数据百分比采样），或使用 [ASP.NET、ASP.NET Core 和 Java 网站的固定速率采样](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications)来减少从 Web 服务器和 Web 浏览器发送的流量
+对于不支持自适应采样的 SDK，可以使用[引入采样](/azure-monitor/app/sampling#ingestion-sampling)（Application Insights 收到数据时根据要保留的数据百分比采样），或使用 [ASP.NET、ASP.NET Core 和 Java 网站的固定速率采样](/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications)来减少从 Web 服务器和 Web 浏览器发送的流量
 
 ### <a name="learn-from-what-similar-customers-collect"></a>参考类似客户收集的信息
 
@@ -98,7 +98,7 @@ systemEvents
 | summarize sum(BillingTelemetrySizeInBytes) by BillingTelemetryType, bin(timestamp, 1d) | render barchart  
 ```
 
-请注意，可以在 [Azure 日志警报](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)中使用此查询来对数据量设置警报。  
+请注意，可以在 [Azure 日志警报](/azure-monitor/platform/alerts-unified-log)中使用此查询来对数据量设置警报。  
 
 若要了解有关遥测数据更改的详细信息，请使用查询按类型查看事件计数：
 
@@ -124,7 +124,6 @@ dependencies
 
 Azure 在 [Azure 成本管理 + 计费](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json)中心提供大量有用的功能。 例如，使用“成本分析”功能可以查看 Azure 资源的开支。 按资源类型添加筛选器（添加到 Application Insights 的 microsoft.insights/components）可以跟踪开支。
 
-[从 Azure 门户下载使用情况](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal)可以更好地了解使用情况。
 在下载的电子表格中，可以看到每天每个 Azure 资源的使用情况。 在此 Excel 电子表格中，可通过以下方式查找 Application Insights 资源的使用情况：先按“计量类别”列进行筛选，以显示“Application Insights”和“Log Analytics”，然后按“实例 ID”列添加一个“包含 microsoft.insights/components”的筛选器。  由于所有 Azure Monitor 组件只有一个日志后端，因此，大多数 Application Insights 使用情况都是根据计量类别为 Log Analytics 的计量表报告的。  只有传统定价层和多步骤 Web 测试中的 Application Insights 资源才使用计量类别 Application Insights 进行报告。  使用情况显示在“使用的数量”列中，每个条目的单位显示在“度量单位”列中。  有更多详细信息可帮助你[了解自己的 Microsoft Azure 帐单](https://docs.microsoft.com/azure/billing/billing-understand-your-bill)。 
 
 
@@ -208,7 +207,7 @@ Application Insights 资源的默认保留期为 90 天。 可以为每个 Appli
 
 ## <a name="data-transfer-charges-using-application-insights"></a>使用 Application Insights 时的数据传输费
 
-向 Application Insights 发送数据可能会产生数据带宽费。 如 [Azure 带宽定价页](https://azure.microsoft.com/pricing/details/bandwidth/)中所述，在两个区域中的 Azure 服务之间传输数据将按正常费率收取出站数据传输费。 入站数据传输是免费的。 但是，相比 Application Insights 日志数据引入费，此传输费很低（只占几个百分比）。 因此，控制 Log Analytics 的成本需要注重引入的数据量，[此处](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume)提供了相关的指导。   
+向 Application Insights 发送数据可能会产生数据带宽费。 如 [Azure 带宽定价页](https://www.azure.cn/en-us/pricing/details/bandwidth/)中所述，在两个区域中的 Azure 服务之间传输数据将按正常费率收取出站数据传输费。 入站数据传输是免费的。 但是，相比 Application Insights 日志数据引入费，此传输费很低（只占几个百分比）。 因此，控制 Log Analytics 的成本需要注重引入的数据量，[此处](/azure-monitor/app/pricing#managing-your-data-volume)提供了相关的指导。   
 
 ## <a name="limits-summary"></a>限制摘要
 

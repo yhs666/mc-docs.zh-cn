@@ -9,19 +9,19 @@ ms.topic: conceptual
 origin.date: 02/13/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: bfac609392bc6d342ae6e2e9d8eeb942c91e6757
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 3d11a59b1c26aef10602ba5ee0aea64254cd992b
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730032"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528403"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Application Insights 连接器管理解决方案（已弃用）
 
 ![Application Insights 符号](./media/app-insights-connector/app-insights-connector-symbol.png)
 
 >[!NOTE]
-> 在[跨资源查询](../../azure-monitor/log-query/cross-workspace-query.md)的支持下，不再需要 Application Insights 连接器管理解决方案。 该解决方案已被弃用并从 Azure 市场中删除，同时 Azure 商业云的 OMS 门户将于 2019 年 1 月 15 日正式弃用。 Azure 美国政府云将于 2019 年 3 月 30 日停用该门户。
+> 在[跨资源查询](../../azure-monitor/log-query/cross-workspace-query.md)的支持下，不再需要 Application Insights 连接器管理解决方案。 该解决方案已被弃用并从 Azure 市场中删除，同时 Azure 商业云的 OMS 门户将于 2019 年 1 月 15 日正式弃用。 Azure 中国政府云将于 2019 年 3 月 30 日停用该门户。
 >
 >现有连接将继续运行到 2019 年 6 月 30 日为止。  随着 OMS 门户被弃用，将无法从门户中配置和删除现有的连接。 有关使用 PowerShell 删除现有连接的脚本，请参阅下面的[使用 PowerShell 删除连接器](#removing-the-connector-with-powershell)。
 >

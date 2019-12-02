@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: v-lingwu
 origin.date: 09/12/2019
 ms.date: 09/20/2019
-ms.openlocfilehash: 172150e4fb9aded8f77aec58abb2b7fe155d130b
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 02feb884d7c215361d46824b7d687e55fec98ed7
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730083"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528357"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -110,9 +110,13 @@ provisioningState       : Succeeded
 要启用 Azure Monitor 对 Azure 门户中的 AKS 群集的监视，请执行以下操作：
 
 1. 在 Azure 门户中选择“监视”。  
+
 2. 从列表中选择容器  。
+
 3. 在“监视 - 容器”页上，选择“非监视群集”   。
+
 4. 从非监视群集的列表中找到容器，然后单击“启用”  。   
+
 5. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。  
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。 
 
@@ -136,7 +140,9 @@ provisioningState       : Succeeded
     ![Kubernetes 服务链接](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. 在容器列表中，选择一个容器。
+
 5. 在容器概述页面中，选择“监视容器”  。  
+
 6. 在“载入到用于容器的 Azure Monitor”页上，如果现有 Log Analytics 工作区与群集在同一订阅中，请从下拉列表中选择该工作区  。  
     列表预先选择了 AKS 容器在订阅中部署到的默认工作区和位置。 
 
@@ -258,6 +264,7 @@ provisioningState       : Succeeded
     编辑 **aksResourceTagValues** 的值，以匹配为 AKS 群集指定的现有标记值。
 
 5. 将此文件以“existingClusterParam.json”文件名保存到本地文件夹  。
+
 6. 已做好部署此模板的准备。 
 
    * 若要使用 Azure PowerShell 进行部署，请在包含模板的文件夹中使用以下命令：
@@ -265,6 +272,7 @@ provisioningState       : Succeeded
        ```powershell
        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
        ```
+       
        配置更改可能需要几分钟才能完成。 完成后，系统会显示包含结果的消息，如下所示：
 
        ```powershell
@@ -363,4 +371,6 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 * 如果在尝试载入解决方案时遇到问题，请查看[故障排除指南](container-insights-troubleshoot.md)
 
-* 启用监视来捕获 AKS 群集节点和 Pod 的运行状况指标后，可在 Azure 门户中找到这些运行状况指标。 要了解如何将 Azure Monitor 用于容器，请参阅[查看 Azure Kubernetes 服务运行状况](container-insights-analyze.md)。
+* 启用监视以收集 AKS 群集及其上运行的工作负荷的运行状况和资源利用率，了解[如何使用](container-insights-analyze.md)用于容器的 Azure Monitor。
+
+

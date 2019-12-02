@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 02/20/2018
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b4d95bf222d277817f43e9728a83eb49c5ddf694
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ac3cb98b3e46e3200e7cbe4eca906bcd534188f6
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730399"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528409"
 ---
 # <a name="service-connectivity-monitor"></a>服务连接监视器
 
@@ -124,16 +124,13 @@ netsh advfirewall firewall add rule name="NPMDICMPV6TimeExceeded" protocol="icmp
 
 * 如果应用程序运行速度缓慢，请确定应用程序性能差是由于网络问题，还是由于应用程序提供商一端出现某种问题。
 
-## <a name="gcc-office-urls-for-us-government-customers"></a>适用于美国政府客户的 GCC Office URL
-对于美国政府弗吉尼亚区域，只有 DOD URL 是内置的 NPM。 使用 GCC URL 的客户需要创建自定义测试，并单独添加每个 URL。
+## <a name="gcc-office-urls-for-china-government-customers"></a>适用于中国政府客户的 GCC Office URL
+对于中国政府弗吉尼亚区域，只有 DOD URL 是内置的 NPM。 使用 GCC URL 的客户需要创建自定义测试，并单独添加每个 URL。
 
 | 字段 | GCC |
 |:---   |:--- |
 | Office 365 门户和共享 | portal.apps.mil |
 | Office 365 身份验证和标识 |  <br> * login.chinacloudapi.cn <br> |
-| Office Online | * adminwebservice.gov.us.microsoftonline.com <br>  * adminwebservice-s1-bn1a.microsoftonline.com <br> * adminwebservice-s1-dm2a.microsoftonline.com <br> * becws.gov.us.microsoftonline.com <br> * provisioningapi.gov.us.microsoftonline.com <br> * officehome.msocdn.us <br> * prod.msocdn.us <br> * portal.office365.us <br> * webshell.suite.office365.us <br> * www .office365.us <br> * activation.sls.microsoft.com <br> * crl.microsoft.com <br> * go.microsoft.com <br> * insertmedia.bing.office.net <br> * ocsa.officeapps.live.com <br> * ocsredir.officeapps.live.com <br> * ocws.officeapps.live.com <br> * office15client.microsoft.com <br>* officecdn.microsoft.com <br> * officecdn.microsoft.com.edgesuite.net <br> * officepreviewredir.microsoft.com <br> * officeredir.microsoft.com <br> * ols.officeapps.live.com  <br> * r.office.microsoft.com <br> * cdn.odc.officeapps.live.com <br> * odc.officeapps.live.com <br> * officeclient.microsoft.com |
-| Exchange Online | * outlook.office365.us <br> * attachments.office365-net.us <br> * autodiscover-s.office365.us <br> * manage.office365.us <br> * scc.office365.us |
-| MS 团队 | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>后续步骤
 [搜索日志](../../azure-monitor/log-query/log-query-overview.md)以查看详细的网络性能数据记录。

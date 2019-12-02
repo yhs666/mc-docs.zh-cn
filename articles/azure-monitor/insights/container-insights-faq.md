@@ -6,14 +6,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: v-lingwu
-origin.date: 08/14/2019
+origin.date: 10/15/2019
 ms.date: 10/29/2019
-ms.openlocfilehash: 52a6965c8de4442f0b7f6428fc7a12312bef84ef
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: a39800c2316643a0199b83a3a591440279c2b308
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041105"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528368"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>用于容器的 Azure Monitor 常见问题解答
 
@@ -69,11 +69,11 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ```
 
-有关此问题的详细状况，请查看以下 [github 链接](https://github.com/moby/moby/issues/22920)。
+有关此问题的详细信息，请查看以下 [GitHub 链接](https://github.com/moby/moby/issues/22920)。
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>如何解决启用实时日志时遇到的 Azure AD 错误？ 
 
-你可能会看到以下错误：**在请求中指定的回复 URL 与为应用程序“<应用程序 ID\>”配置的回复 URL 不匹配**。 此问题的解决方法可在[如何使用用于容器的 Azure Monitor 实时查看容器日志](container-insights-live-logs.md#configure-aks-with-azure-active-directory)一文中找到。 
+你可能会看到以下错误：**在请求中指定的回复 URL 与为应用程序“<应用程序 ID\>”配置的回复 URL 不匹配**。
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>为何在载入后不能升级群集？
 

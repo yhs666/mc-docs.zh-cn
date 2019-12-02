@@ -5,18 +5,18 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: v-junlch
-origin.date: 07/24/2019
-ms.date: 11/11/2019
+origin.date: 10/14/2019
+ms.date: 11/22/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: ebbb6f5e5ecd49dfacfc2c300c153aaeaafea72f
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 994292d1b977fc6b4905c27353a104b59868e4f7
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934372"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461575"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>教程：使用 Azure Active Directory B2C (Azure AD B2C) 在单页应用程序中启用身份验证
 
@@ -48,6 +48,9 @@ ms.locfileid: "73934372"
 ## <a name="update-the-application"></a>更新应用程序
 
 在按照先决条件完成的第二个教程中，你已在 Azure AD B2C 中注册了 Web 应用程序。 若要与教程中的示例通信，需添加一个指向 Azure AD B2C 中的应用程序的重定向 URI。
+
+可以使用当前**应用程序**体验更新应用程序。
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
@@ -125,7 +128,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
     请使用有效的电子邮件地址，并使用验证码进行验证。 设置密码。 输入请求的属性的值。
 
-    ![登录/注册用户流提供的注册页](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![登录/注册用户流提供的注册页](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. 选择“创建”，  在 Azure AD B2C 目录中创建本地帐户。
 

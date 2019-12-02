@@ -10,12 +10,12 @@ origin.date: 04/22/2019
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 309ce8021500d52a0eea8b6b2c28d98e125d634c
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 7afb8d95c29d3545e72aa649e44545c225a12dae
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73729956"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528047"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>实时指标流：以 1 秒的延迟进行监视和诊断
 
@@ -44,10 +44,6 @@ ms.locfileid: "73729956"
 3. 在 [Azure 门户](https://portal.azure.cn)中，打开应用的 Application Insights 资源，然后打开实时流。
 
 4. 如果可能在筛选器中使用客户名称等敏感数据，请[确保控制通道的安全](#secure-the-control-channel)。
-
-### <a name="nodejs"></a>Node.js
-
-要将实时指标与 Node.js 一起使用，必须更新到 SDK 的 1.30 版或更高版本。 默认情况下，Node.js SDK 中禁用了实时指标。 若要启用实时指标，请在初始化 SDK 时将 `setSendLiveMetrics(true)` 添加到[配置方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
 
 ### <a name="no-data-check-your-server-firewall"></a>没有数据？ 请检查服务器的防火墙
 
@@ -100,14 +96,6 @@ ms.locfileid: "73729956"
 如果要监视特定服务器角色实例，则可以按服务器进行筛选。
 
 ![采样的实时失败](./media/live-stream/live-stream-filter.png)
-
-## <a name="sdk-requirements"></a>SDK 要求
-
-### <a name="net"></a>.NET
-自定义实时指标流适用于 2.4.0-beta2 或更高版本的 [Application Insights SDK for Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/)。 请记得从 NuGet 包管理器中选择“包括预发行版”选项。
-
-### <a name="nodejs"></a>Node.js
-实时指标流随 1.3.0 版或更高版本的 [Application Insights SDK for Node.JS](https://npmjs.com/package/applicationinsights) 提供。 在代码中配置 SDK 时，请记得使用 `setSendLiveMetrics(true)`。
 
 ## <a name="secure-the-control-channel"></a>确保控制通道的安全
 指定的自定义筛选器条件将发回到 Application Insights SDK 中的“实时指标”组件。 筛选器可能包含 customerID 等敏感信息。 可以使用机密 API 密钥以及检测密钥来保护通道的安全。
@@ -165,7 +153,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ### <a name="azure-function-apps"></a>Azure 函数应用
 
-对于使用 API 密钥来保护通道的 Azure 函数应用 (v2)，可以通过一个环境变量来实现。 
+对于使用 API 密钥保护通道的 Azure 函数应用 (v2)，可以通过一个环境变量来实现。
 
 从 Application Insights 资源中创建一个 API 密钥，并转到你的 Function App 的**应用程序设置**。 选择“添加新设置”  并输入名称 `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` 和与你的 API 密钥对应的值。
 
@@ -193,11 +181,30 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 >在筛选条件中输入 CustomerID 等潜在的敏感信息之前，我们强烈建议设置经过身份验证的通道。
 >
 
+## <a name="supported-features-table"></a>支持的功能表
+
+| 语言                         | 基本指标       | 性能指标 | 自定义筛选    | 样本遥测数据    | CPU 按进程划分 |
+|----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
+| .NET                             | 支持 (V2.7.2+) | 支持 (V2.7.2+) | 支持 (V2.7.2+) | 支持 (V2.7.2+) | 支持 (V2.7.2+)  |
+| .NET Core（目标=.NET Framework）| 支持 (V2.4.1+) | 支持 (V2.4.1+) | 支持 (V2.4.1+) | 支持 (V2.4.1+) | 支持 (V2.4.1+)  |
+| .NET Core（目标=.NET Core）     | 支持 (V2.4.1+) | 支持*          | 支持 (V2.4.1+) | 支持 (V2.4.1+) | **不支持**    |
+| Azure Functions v2               | 支持           | 支持           | 支持           | 支持           | **不支持**    |
+| Java                             | 支持 (V2.0.0+) | 支持 (V2.0.0+) | **不支持**   | **不支持**   | **不支持**    |
+| Node.js                          | 支持 (V1.3.0+) | 支持 (V1.3.0+) | **不支持**   | 支持 (V1.3.0+) | **不支持**    |
+
+基本指标包括请求、依赖项和异常率。 性能指标（性能计数器）包括内存和 CPU。 示例遥测显示了有关失败的请求和依赖项、异常、事件和跟踪的详细信息流。
+
+ \* PerfCounters 支持在不针对 .NET Framework 的 .NET Core 版本之间略有不同：
+
+- 在适用于 Windows 的 Azure 应用服务中运行时，支持 PerfCounters 指标。 （AspNetCore SDK 版本 2.4.1 或更高版本）
+- 当应用在任何 Windows 计算机（VM、云服务或本地等）上运行时（AspNetCore SDK 版本 2.7.1 或更高版本），支持 PerfCounters，但针对 .NET Core 2.0 或更高版本的应用除外。
+- 当应用以最新 Beta 版本（即，AspNetCore SDK 版本 2.8.0-beta1 或更高版本）在任何地方（Linux、Windows、适用于 Linux 的应用服务、容器等） 运行时，都支持 PerfCounters，但针对 .NET Core 2.0 或更高版本的应用除外。
+
+默认情况下，Node.js SDK 中禁用了实时指标。 若要启用实时指标，请在初始化 SDK 时将 `setSendLiveMetrics(true)` 添加到[配置方法](https://github.com/Microsoft/ApplicationInsights-node.js#configuration)。
+
 ## <a name="troubleshooting"></a>故障排除
 
 没有数据？ 如果应用程序位于受保护的网络中：实时指标流使用不同于其他 Application Insights 遥测功能的 IP 地址。 请确保在防火墙中开放[这些 IP 地址](../../azure-monitor/app/ip-addresses.md)。
-
-
 
 ## <a name="next-steps"></a>后续步骤
 * [使用 Application Insights 监视使用情况](../../azure-monitor/app/usage-overview.md)

@@ -5,18 +5,18 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: v-junlch
-origin.date: 09/19/2019
-ms.date: 10/23/2019
+origin.date: 10/14/2019
+ms.date: 11/22/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 4938565b76a12a58b3e3288ed9f2d2211194d265
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 34d933fb12133a1ebc55f4e74017cb2d89aadf2c
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846907"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461612"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 授予对 ASP.NET Web API 的访问权限
 
@@ -38,14 +38,18 @@ ms.locfileid: "72846907"
 
 ## <a name="add-a-web-api-application"></a>添加 Web API 应用程序
 
-Web API 资源需要先在租户中注册，然后才能接受并响应提供访问令牌的客户端应用程序所提出的受保护资源请求。
+Web API 资源需要先在租户中注册，然后才能接受并响应通过提供访问令牌的客户端应用程序所提出的受保护资源请求。
+
+若要在 Azure AD B2C 租户中注册应用程序，可以使用当前“应用程序”体验  。
+
+#### <a name="applicationstabapplications"></a>[应用程序](#tab/applications/)
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 2. 请确保使用包含 Azure AD B2C 租户的目录，方法是选择顶部菜单中的“目录 + 订阅”筛选器，然后选择包含租户的目录  。
 3. 选择 Azure 门户左上角的“所有服务”，然后搜索并选择“Azure AD B2C”   。
 4. 选择“应用程序”，然后选择“添加”   。
 5. 输入应用程序的名称。 例如，“webapi1”  。
-6. 对于“包括 Web 应用/Web API”和“允许隐式流”，请选择“是”。   
+6. 对于“包括 Web 应用/Web API”，请选择“是”。  
 7. 对于“回复 URL”，请输入 Azure AD B2C 要将应用程序请求的任何令牌返回到的终结点  。 本教程中的示例在本地运行并在 `https://localhost:44332` 上进行侦听。
 8. 对于“应用 ID URI”，请输入 Web API 使用的标识符。  包括域在内的完整标识符 URI 是为你生成的。 例如，`https://contosotenant.partner.onmschina.cn/api`。
 9. 单击**创建**。

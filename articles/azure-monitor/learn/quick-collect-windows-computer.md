@@ -15,12 +15,12 @@ origin.date: 08/22/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 51c39a112644ebb32cefcf1ab514844791bf5c76
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 38f91c6d98904fe7070c791acc1d54f9c792e156
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116196"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528218"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>使用 Azure Monitor 从混合环境中的 Windows 计算机收集数据
 
@@ -44,7 +44,7 @@ ms.locfileid: "74116196"
    * 为新的 Log Analytics 工作区  提供名称，如 DefaultLAWorkspace  。  
    * 如果选择的默认值不合适，请从下拉列表中选择要链接到的**订阅**。
    * 对于“资源组”  ，选择包含一个或多个 Azure 虚拟机的现有资源组。  
-   * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://azure.microsoft.com/regions/services/)。
+   * 选择向其部署 VM 的“位置”  。  如需其他信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/zh-cn/home/features/products-by-region)。
 <!-- OMS is unavailable -->
 
 
@@ -87,7 +87,7 @@ ms.locfileid: "74116196"
 
 7. 在“Azure Log Analytics”页上完成以下步骤： 
 
-   1. 粘贴前面复制的“工作区 ID”和“工作区密钥(主密钥)”。   如果计算机应向 Azure 政府版中的 Log Analytics 工作区报告，请在“Azure 云”下拉列表中选择“Azure 美国政府”。    
+   1. 粘贴前面复制的“工作区 ID”和“工作区密钥(主密钥)”。   如果计算机应向 Azure 政府版中的 Log Analytics 工作区报告，请在“Azure 云”列表中选择“Azure 中国政府”。    
    2. 如果计算机需要通过代理服务器来与 Log Analytics 服务通信，请选择“高级”并提供代理服务器的 URL 和端口号。  如果代理服务器要求身份验证，请输入用于在代理服务器上进行身份验证的用户名和密码，然后选择“下一步”。   
 
 8. 添加配置设置后，选择“下一步”： 

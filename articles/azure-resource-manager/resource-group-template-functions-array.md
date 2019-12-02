@@ -1,18 +1,15 @@
 ---
-title: Azure Resource Manager 模板函数 - 数组和对象 | Azure
+title: 模板函数 - 数组和对象
 description: 介绍可在 Azure Resource Manager 模板中用来处理数组和对象的函数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 07/31/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: db05fc54f0c43b87d1b7b7e6e888c5b944b9eac9
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 11/25/2019
+ms.openlocfilehash: 2aa746c8aa999446b76673192575181dabca2a19
+ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156203"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74389593"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的数组和对象函数
 
@@ -1393,4 +1390,4 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 若要查看如何部署已创建的模板，请参阅[使用 Azure Resource Manager 模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update, update cmdlet-->
+<!-- Update_Description: update meta properties, wording update, update link -->

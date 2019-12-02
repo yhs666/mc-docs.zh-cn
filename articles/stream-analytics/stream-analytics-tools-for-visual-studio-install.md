@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 05/22/2018
 ms.date: 11/26/2018
-ms.openlocfilehash: e3485eb7b341c2efef4b7a8c9618eda361327acb
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 6ba3a0e18c084e7fef75c84e6a78b2101ae500d5
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674741"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528231"
 ---
 # <a name="install-azure-stream-analytics-tools-for-visual-studio"></a>安装适用于 Visual Studio 的 Azure 流分析工具
 

@@ -5,16 +5,16 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: lingliw
-originate.date: 03/15/2019
+origin.date: 03/15/2019
 ms.date: 08/20/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 5a03e353da3d495c4e44a57f3f8e7791abe7c3d4
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: d44578a6f0bc54dba79b68a668acb4ff81303cad
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970880"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528340"
 ---
 # <a name="application-map-triage-distributed-applications"></a>应用程序映射：会审分布式应用程序
 
@@ -181,13 +181,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+从 Application Insights Java SDK 2.5.0 开始，可以通过将 `<RoleName>` 添加到 `ApplicationInsights.xml` 文件来指定云角色名称，例如
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 如果你通过 Application Insights Spring Boot 入门版使用 Spring Boot，则唯一需要执行的更改是在 application.properties 文件中为应用程序设置自定义名称。
 
 `spring.application.name=<name-of-app>`
 
 Spring Boot 入门版会自动将云角色名称分配给你为 spring.application.name 属性输入的值。
-
-有关 Java 关联以及如何为非 SpringBoot 应用程序配置云角色名称的详细信息，请查看有关关联的[此部分](correlation.md)内容。
 
 ### <a name="clientbrowser-side-javascript"></a>客户端/浏览器端 JavaScript
 
@@ -226,7 +235,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 另一个方案是，应用在容器化环境中运行，仅仅了解单个服务器可能无法获得足够的信息来找出给定的问题，因此需要替代云角色实例的值。
 
-有关如何使用遥测数据初始化表达式替代云角色名称属性的详细信息，请参阅[添加属性：ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)。
+有关如何使用遥测数据初始化表达式替代云角色名称属性的详细信息，请参阅[添加属性：ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)。
 
 ## <a name="troubleshooting"></a>故障排除
 

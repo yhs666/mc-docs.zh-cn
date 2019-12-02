@@ -1,6 +1,6 @@
 ---
 title: 关于 Azure VM 备份
-description: 了解 Azure VM 备份并注意一些最佳做法。
+description: 本文介绍 Azure 备份服务如何备份 Azure 虚拟机，以及如何遵循最佳做法。
 author: lingliw
 manager: digimobile
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 09/13/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8863f3abeeb5dd3809a9669eea9cec48b3fff8d0
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 48f42a9f8809cdbae94e7bb12d9e94662773a657
+ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730591"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74528269"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>概要了解 Azure VM 备份
 
@@ -35,10 +35,10 @@ ms.locfileid: "73730591"
     - 可以通过并行备份每个 VM 磁盘来优化备份。
     - 对于每个要备份的磁盘，Azure 备份将读取磁盘上的块，识别并只传输自上次备份以来已发生更改的数据块（增量传输）。
     - 快照数据可能不会立即复制到保管库。 在高峰期，可能需要好几个小时才能完成复制。 每日备份策略规定的 VM 备份总时间不会超过 24 小时。
- 1. 在 Windows VM 上启用 Azure 备份后，对 VM 所做的更改包括：
-    -   在 VM 中安装 Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660
-    -   将卷影复制服务 (VSS) 的启动类型从手动更改为自动
-    -   添加 IaaSVmProvider Windows 服务
+1. 在 Windows VM 上启用 Azure 备份后，对 VM 所做的更改包括：
+    - 在 VM 中安装 Microsoft Visual C++ 2013 Redistributable(x64) - 12.0.40660
+    - 将卷影复制服务 (VSS) 的启动类型从手动更改为自动
+    - 添加 IaaSVmProvider Windows 服务
 
 1. 数据传输完成后，会删除快照并创建恢复点。
 
@@ -141,11 +141,12 @@ OS 磁盘 | 4095 GB | 17 GB
 此示例中，VM 的实际大小为 17 GB + 30 GB + 0 GB = 47 GB。 此受保护实例大小 (47 GB) 成为按月计费的基础。 随着 VM 中数据量的增长，用于计费的受保护实例大小也会相应变化。
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
+
 ## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>公共预览版：备份磁盘大小最大为 30 TB 的 VM
 
 Azure 备份现在支持大小更大且功能更强大的 [Azure 托管磁盘](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)（最大为 30 TB）的公共预览版。 该预览版为托管虚拟机提供生产级别的支持。
 
-虚拟机的备份（每个磁盘大小高达 30TB，VM 中所有磁盘的最大合计容量为 256TB）应该可以无缝运行，而不会影响现有备份。 如果虚拟机已配置了 Azure 备份，则无需用户操作即可运行大容量磁盘的备份。
+虚拟机的备份（每个磁盘大小高达 30 TB，VM 中所有磁盘的最大合计容量为 256 TB）应该可以不间断运行，而不会影响现有备份。 如果虚拟机已配置了 Azure 备份，则无需用户操作即可运行大容量磁盘的备份。
 
 所有具有配置了备份的大磁盘的 Azure 虚拟机都应成功备份。
 

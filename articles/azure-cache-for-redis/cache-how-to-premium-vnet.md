@@ -1,26 +1,18 @@
 ---
-title: 为高级 Azure Redis 缓存配置虚拟网络 | Microsoft Docs
+title: 为高级 Azure Cache for Redis 配置虚拟网络
 description: 了解如何为高级层 Azure Redis 缓存实例创建和管理虚拟网络支持
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8b1e43a0-a70e-41e6-8994-0ac246d8bf7f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/15/2017
-ms.date: 10/29/2019
+ms.date: 11/22/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8bf24a467f20e7f25d567c4c630471330709a230
-ms.sourcegitcommit: ef527d8613af1768f05f4ea054ffe2e3b742335f
+ms.openlocfilehash: e13ed951d1685108a9100747de0ca8e19fd88168
+ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068802"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74461639"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上很灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -105,7 +97,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 
 #### <a name="outbound-port-requirements"></a>出站端口要求
 
-出站端口有七个要求。
+出站端口有九个要求。
 
 - 与 Internet 的所有出站连接都可以通过客户端的本地审核设备建立。
 - 其中三个端口将流量路由到为 Azure 存储和 Azure DNS 提供服务的 Azure 终结点。
@@ -114,7 +106,8 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 | 端口 | 方向 | 传输协议 | 目的 | 本地 IP | 远程 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80、443 |出站 |TCP |Azure 存储/PKI (Internet) 上的 Redis 依赖关系 | （Redis 子网） |* |
-| 53 |出站 |TCP/UDP |DNS (Internet/VNet) 上的 Redis 依赖关系 | （Redis 子网） | 168.63.129.16 和 169.254.169.254 <sup>1</sup> 以及子网的任何自定义 DNS 服务器 <sup>3</sup> |
+| 443 | 出站 | TCP | Azure 密钥保管库上的 Redis 依赖关系 | （Redis 子网） | AzureKeyVault <sup>1</sup> |
+| 53 |出站 |TCP/UDP |DNS (Internet/VNet) 上的 Redis 依赖关系 | （Redis 子网） | 168.63.129.16 和 169.254.169.254 <sup>2</sup> 以及子网的任何自定义 DNS 服务器 <sup>3</sup> |
 | 8443 |出站 |TCP |Redis 的内部通信 | （Redis 子网） | （Redis 子网） |
 | 10221-10231 |出站 |TCP |Redis 的内部通信 | （Redis 子网） | （Redis 子网） |
 | 20226 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
@@ -122,7 +115,9 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 | 15000-15999 |出站 |TCP |Redis 的内部通信和异地复制 | （Redis 子网） |（Redis 子网）（地域副本对等子网） |
 | 6379-6380 |出站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
-<sup>1</sup> Microsoft 拥有的这些 IP 地址用于对为 Azure DNS 提供服务的主机 VM 进行寻址。
+<sup>1</sup> 可以将服务标记“AzureKeyVault”用于资源管理器网络安全组。
+
+<sup>2</sup> Microsoft 拥有的这些 IP 地址用于对为 Azure DNS 提供服务的主机 VM 进行寻址。
 
 <sup>3</sup> 没有自定义 DNS 服务器的子网或忽略自定义 DNS 的更新 redis 缓存不需要。
 
@@ -136,7 +131,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 
 | 端口 | 方向 | 传输协议 | 目的 | 本地 IP | 远程 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379、6380 |入站 |TCP |与 Redis 的客户端通信、Azure 负载均衡 | （Redis 子网） | （Redis 子网）、虚拟网络、Azure 负载均衡器 <sup>2</sup> |
+| 6379、6380 |入站 |TCP |与 Redis 的客户端通信、Azure 负载均衡 | （Redis 子网） | （Redis 子网）、虚拟网络、Azure 负载均衡器 <sup>1</sup> |
 | 8443 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 | 8500 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
 | 10221-10231 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网）、Azure 负载均衡器 |
@@ -145,7 +140,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 | 16001 |入站 |TCP/UDP |Azure 负载均衡 | （Redis 子网） |Azure 负载均衡器 |
 | 20226 |入站 |TCP |Redis 的内部通信 | （Redis 子网） |（Redis 子网） |
 
-<sup>2</sup> 可以使用服务标记“AzureLoadBalancer”（资源管理器）或“AZURE_LOADBALANCER”（经典）来创作 NSG 规则。
+<sup>1</sup> 可以使用服务标记“AzureLoadBalancer”（资源管理器）或“AZURE_LOADBALANCER”（经典）来创作 NSG 规则。
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>其他 VNET 网络连接要求
 
@@ -159,7 +154,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-vnet"></a>如何验证缓存是否在 VNET 中正常工作？
 
 >[!IMPORTANT]
->连接到 VNET 中托管的 Azure Redis 缓存实例时，缓存客户端必须位于同一 VNET 中或已启用 VNET 对等互连的 VNET 中。 这包括任何测试应用程序或诊断 ping 工具。 无论客户端应用程序在哪里托管，都必须配置网络安全组，这样客户端的网络流量才能到达 Redis 实例。
+>连接到 VNET 中托管的 Azure Redis 缓存实例时，缓存客户端必须位于同一 VNET 中，或位于同一 Azure 区域中已启用 VNET 对等互连的 VNET 中。 当前不支持全局 VNET 对等互连。 这包括任何测试应用程序或诊断 ping 工具。 无论客户端应用程序在哪里托管，都必须配置网络安全组，这样客户端的网络流量才能到达 Redis 实例。
 >
 >
 
