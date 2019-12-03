@@ -1,20 +1,20 @@
 ---
-title: 使用 PowerShell 创建和管理 Azure S2S VPN 连接 | Microsoft Docs
+title: Azure VPN 网关：创建和管理 S2S VPN 连接：教程
 description: 教程 - 使用 Azure PowerShell 模块创建和管理 S2S VPN 连接
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
-origin.date: 02/11/2019
-ms.date: 05/27/2019
+origin.date: 10/17/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: de19b1a4805f9f4babf34e97e1dcb13c2973519c
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 0d7d8d8ac74a3affe9f63866a791df065a0ee009
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195026"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552980"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>教程：使用 PowerShell 创建和管理 S2S VPN 连接
 
@@ -98,10 +98,10 @@ $lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng1 `
-  -ConnectionType IPsec -SharedKey "Azure@!b2C3"
+  -ConnectionType IPsec -SharedKey "Azure@!b2C3" -ConnectionProtocol IKEv2
 ```
 
-若要使用 BGP，请添加可选的“ **-EnableBGP $True**”属性，以便为连接启用 BGP。 此项默认禁用。
+若要使用 BGP，请添加可选的“ **-EnableBGP $True**”属性，以便为连接启用 BGP。 此项默认禁用。 参数“-ConnectionProtocol”是可选的（IKEv2 作为默认值）。 可以通过指定“-ConnectionProtocol IKEv1”  来创建与 IKEv1 协议的连接。
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>更新 VPN 连接预共享密钥、BGP 和 IPsec/IKE 策略
 
