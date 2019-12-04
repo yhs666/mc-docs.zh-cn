@@ -18323,6 +18323,586 @@
       "source_path": "articles/xplat-cli-install.md",
       "redirect_url": "https://docs.microsoft.com/zh-cn/cli/azure/install-azure-cli?view=azure-cli-latest",
       "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/connectors/connectors-overview.md",
+        "redirect_url": "/connectors/apis-list",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-administer-use-management-portal.md",
+        "redirect_url": "/hdinsight/hdinsight-administer-use-portal-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-analyze-flight-delay-data-linux.md",
+        "redirect_url": "/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-analyze-flight-delay-data.md",
+        "redirect_url": "/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-apps-install-cask.md",
+        "redirect_url": "https://docs.cask.co/cdap/4.3.0-SNAPSHOT/en/admin-manual/installation/azure-hdinsight.html",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-apps-install-dataiku.md",
+        "redirect_url": "https://doc.dataiku.com/dss/latest/hadoop/distributions/hdinsights.html",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-apps-install-datameer.md",
+        "redirect_url": "https://documentation.datameer.com/documentation/display/DAS70/Home",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-apps-install-h2o.md",
+        "redirect_url": "https://www.h2o.ai/blog/use-h2o-ai-on-azure-hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-apps-install-streamsets.md",
+        "redirect_url": "https://streamsets.com/documentation/datacollector/latest/help/datacollector/UserGuide/Getting_Started/GettingStarted_Title.html",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-debug-ambari-tez-view.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-debug-tez-ui.md",
+        "redirect_url": "/hdinsight/hdinsight-debug-ambari-tez-view",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-extend-hadoop-virtual-network.md",
+        "redirect_url": "/hdinsight/hdinsight-plan-virtual-network-deployment",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-access-yarn-app-logs.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-access-yarn-app-logs-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-collect-debug-heap-dumps.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-collect-debug-heap-dump-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-customize-cluster.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-customize-cluster-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-giraph-install.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-giraph-install-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-install-mono.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-migrate-dotnet-to-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-install-presto.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-script-actions.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-script-actions-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-solr-install-linux.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hadoop-solr-install.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-hbase-build-java-maven.md",
+        "redirect_url": "/hdinsight/hbase/apache-hbase-build-java-maven-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-mahout.md",
+        "redirect_url": "/hdinsight/hadoop/apache-hadoop-mahout-linux-mac",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-migrate-from-windows-to-linux.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-monitor-use-ambari-api.md",
+        "redirect_url": "/hdinsight/hdinsight-hadoop-manage-ambari",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-run-samples.md",
+        "redirect_url": "/hdinsight/hadoop/apache-hadoop-run-samples-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-use-oozie-coordinator-time.md",
+        "redirect_url": "/hdinsight/hdinsight-use-oozie-linux-mac",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hdinsight-use-oozie.md",
+        "redirect_url": "/hdinsight/hdinsight-use-oozie-linux-mac",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-dotnet-avro-serialization.md",
+        "redirect_url": "https://docs.microsoft.com/en-us/dotnet/api/overview/azure/hdinsight?view=azure-dotnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-query-console.md",
+        "redirect_url": "/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-hive-remote-desktop.md",
+        "redirect_url": "/hdinsight/hadoop/apache-hadoop-use-hive-ambari-view",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-mapreduce-remote-desktop.md",
+        "redirect_url": "/hdinsight/hadoop/apache-hadoop-use-mapreduce-ssh",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-curl.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-powershell.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
+        "redirect_url": "/hdinsight/hadoop/apache-hadoop-use-pig-ssh",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-ssh.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hive-analyze-sensor-data.md",
+        "redirect_url": "/hdinsight/hdinsight-analyze-twitter-data-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/apache-hive-analyze-website-log.md",
+        "redirect_url": "/hdinsight/hdinsight-analyze-twitter-data-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hadoop/hdinsight-use-pig.md",
+        "redirect_url": "/hdinsight/",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux.md",
+        "redirect_url": "/hdinsight/hbase/apache-hbase-query-with-phoenix",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/hbase/apache-troubleshoot-hbase.md",
+        "redirect_url": "/hdinsight/hdinsight-troubleshoot-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-job-slowness-liststatus.md",
+        "redirect_url": "/hdinsight/hdinsight-troubleshoot-guide",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/storm/apache-storm-deploy-monitor-topology.md",
+        "redirect_url": "/hdinsight/storm/apache-storm-deploy-monitor-topology-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/storm/apache-storm-sensor-data-analysis.md",
+        "redirect_url": "https://azure.microsoft.com/resources/samples/hdinsight-java-storm-eventhub/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/hdinsight/storm/apache-storm-tutorial-get-started-linux.md",
+        "redirect_url": "/hdinsight/storm/apache-storm-overview",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-get-started-physical",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md",
+        "redirect_url": "/iot-hub/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-auto-device-config-cli.md",
+        "redirect_url": "/iot-hub/iot-hub-automatic-device-management-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-auto-device-config.md",
+        "redirect_url": "/iot-hub/iot-hub-automatic-device-management",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-create-using-cli-nodejs.md",
+        "redirect_url": "/iot-hub/iot-hub-create-using-cli",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md",
+        "redirect_url": "/iot-hub/quickstart-control-device-dotnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-csharp-firmware-update.md",
+        "redirect_url": "/iot-hub/tutorial-firmware-update",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-csharp-getstarted.md",
+        "redirect_url": "/iot-hub/quickstart-send-telemetry-dotnet",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-csharp-process-d2c.md",
+        "redirect_url": "/iot-hub/tutorial-routing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-csharp-twin-how-to-configure.md",
+        "redirect_url": "/iot-hub/tutorial-device-twins",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-node-device-management-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-node-node-device-management-get-started",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-node-direct-methods.md",
+        "redirect_url": "/iot-hub/quickstart-control-device-node",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-node-schedule-jobs.md",
+        "redirect_url": "/iot-hub/iot-hub-node-node-schedule-jobs",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-getstarted.md",
+        "redirect_url": "/iot-hub/iot-hub-node-node-twin-getstarted",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-csharp-node-twin-how-to-configure.md",
+        "redirect_url": "/iot-hub/tutorial-device-twins",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-device-management-iothub-explorer.md",
+        "redirect_url": "/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md",
+        "redirect_url": "/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-get-started-simulated.md",
+        "redirect_url": "/iot-hub/quickstart-send-telemetry-node",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-get-started-physical",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-how-to.md",
+        "redirect_url": "/iot-hub/",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-c-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-get-started-physical",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-intel-edison-kit-node-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-get-started-physical",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-dotnet-core.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-dotnet-core.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-java.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-java.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-iot-edge-create-module-js.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/module_development/iot-hub-iot-edge-create-module-js.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-iot-edge-overview.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/doc/iot-hub-iot-edge-overview.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-iot-edge-physical-device.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/ble_gateway/iot-hub-iot-edge-physical-device.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-java-java-direct-methods.md",
+        "redirect_url": "/iot-hub/quickstart-control-device-java",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-java-java-firmware-update.md",
+        "redirect_url": "/iot-hub/tutorial-firmware-update",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-java-java-getstarted.md",
+        "redirect_url": "/iot-hub/quickstart-send-telemetry-java",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-java-java-process-d2c.md",
+        "redirect_url": "/iot-hub/tutorial-routing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-java-java-twin-how-to-configure.md",
+        "redirect_url": "/iot-hub/tutorial-device-twins",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-linux-iot-edge-get-started.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-linux-iot-edge-get-started.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-linux-iot-edge-simulated-device.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-linux-iot-edge-simulated-device.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-node-node-direct-methods.md",
+        "redirect_url": "/iot-hub/quickstart-control-device-node",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-node-node-firmware-update.md",
+        "redirect_url": "/iot-hub/tutorial-firmware-update",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-node-node-getstarted.md",
+        "redirect_url": "/iot-hub/quickstart-send-telemetry-node",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-node-node-process-d2c.md",
+        "redirect_url": "/iot-hub/tutorial-routing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-node-node-twin-how-to-configure.md",
+        "redirect_url": "/iot-hub/tutorial-device-twins",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-python-getstarted.md",
+        "redirect_url": "/iot-hub/quickstart-send-telemetry-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-python-python-direct-methods.md",
+        "redirect_url": "/iot-hub/quickstart-control-device-python",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-python-python-firmware-update.md",
+        "redirect_url": "/iot-hub/tutorial-firmware-update",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-python-python-process-d2c.md",
+        "redirect_url": "/iot-hub/tutorial-routing",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-python-python-twin-how-to-configure.md",
+        "redirect_url": "/iot-hub/tutorial-device-twins",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-get-started-physical",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md",
+        "redirect_url": "/iot-hub/iot-hub-get-started-physical",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-store-data-in-azure-table-storage.md",
+        "redirect_url": "/iot-hub/tutorial-routing#routing-to-a-storage-account",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-what-is-iot-hub.md",
+        "redirect_url": "/iot-hub/about-iot-hub",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-windows-iot-edge-get-started.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/hello_world/iot-hub-windows-iot-edge-get-started.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-hub/iot-hub-windows-iot-edge-simulated-device.md",
+        "redirect_url": "https://github.com/Azure/iot-edge/tree/master/v1/samples/simulated_device_cloud_upload/iot-hub-windows-iot-edge-simulated-device.md",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-create-transparent-gateway-linux.md",
+        "redirect_url": "/iot-edge/how-to-create-transparent-gateway",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-create-transparent-gateway-windows.md",
+        "redirect_url": "/iot-edge/how-to-create-transparent-gateway",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-debug-multiple-modules-vscode.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-c-module.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-csharp-function.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-csharp-module.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-java-module.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-multiple-modules-vscode.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-node-module.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-develop-python-module.md",
+        "redirect_url": "/iot-edge/how-to-vs-code-develop-module",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-install-iot-core.md",
+        "redirect_url": "/iot-edge/how-to-install-iot-edge-windows",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-install-iot-edge-linux-arm.md",
+        "redirect_url": "/iot-edge/how-to-install-iot-edge-linux",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-install-iot-edge-windows-with-windows.md",
+        "redirect_url": "/iot-edge/how-to-install-iot-edge-windows",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-register-device-cli.md",
+        "redirect_url": "/iot-edge/how-to-register-device",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-register-device-portal.md",
+        "redirect_url": "/iot-edge/how-to-register-device",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-register-device-vscode.md",
+        "redirect_url": "/iot-edge/how-to-register-device",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/iot-edge/how-to-visual-studio-develop-csharp-module.md",
+        "redirect_url": "/iot-edge/how-to-visual-studio-develop-module",
+        "redirect_document_id": true
+    },
+    {
+        "source_path": "articles/iot-edge/quickstart.experimental.md",
+        "redirect_url": "/iot-edge/quickstart",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
+        "redirect_url": "/logic-apps/logic-apps-using-sap-connector",
+        "redirect_document_id": true
     }
   ]
 }
