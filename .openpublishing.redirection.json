@@ -18903,7 +18903,23 @@
         "source_path": "articles/logic-apps/logic-apps-using-sap-connector-old.md",
         "redirect_url": "/logic-apps/logic-apps-using-sap-connector",
         "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/changing-maintenance-schedule.md",
+      "redirect_url": "/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-overview-workload.md",
+      "redirect_url": "/sql-data-warehouse/sql-data-warehouse-overview-what-is",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
+      "redirect_url": "/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
+      "redirect_document_id": false
     }
+
   ]
 }
 
