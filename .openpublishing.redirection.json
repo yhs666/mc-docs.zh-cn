@@ -18905,6 +18905,31 @@
         "redirect_document_id": true
     },
     {
+      "source_path": "articles/key-vault/key-vault-get-started.md",
+      "redirect_url": "/key-vault/key-vault-overview",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/key-vault/key-vault-security-attributes.md",
+        "redirect_url": "/key-vault/key-vault-security-controls",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/key-vault/key-vault-use-from-web-application.md",
+        "redirect_url": "/key-vault/tutorial-net-create-vault-azure-web-app",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/key-vault/key-vault-versions.md",
+        "redirect_url": "/key-vault",
+        "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/key-vault/key-vault-whatis.md",
+        "redirect_url": "/key-vault/basic-concepts",
+        "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-data-warehouse/changing-maintenance-schedule.md",
       "redirect_url": "/sql-data-warehouse/maintenance-scheduling#change-a-maintenance-schedule",
       "redirect_document_id": false
