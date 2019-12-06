@@ -32,6 +32,8 @@ groups:
     title: Linux
   - id: client-operating-system-macos
     title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
 - id: programming-languages-set-two
   title: 编程语言
   prompt: 选择编程语言
