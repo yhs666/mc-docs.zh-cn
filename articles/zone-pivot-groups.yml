@@ -35,14 +35,6 @@ groups:
     title: MacOS
   - id: client-operating-system-windows
     title: Windows
-- id: client-operating-system-set-two
-  title: 编程语言
-  prompt: 选择客户端操作系统
-  pivots:
-  - id: client-operating-system-linux
-    title: Linux
-  - id: client-operating-system-macos
-    title: MacOS
 - id: programming-languages-set-two
   title: 编程语言
   prompt: 选择编程语言
