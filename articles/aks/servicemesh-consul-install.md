@@ -7,7 +7,7 @@ ms.topic: article
 origin.date: 10/09/2019
 ms.date: 10/28/2019
 ms.author: v-yeche
-zone_pivot_groups: client-operating-system-set-two
+zone_pivot_groups: client-operating-system
 ms.openlocfilehash: 30b2dd7d4f3f03992cd05feeff0654a252d2ef9c
 ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
