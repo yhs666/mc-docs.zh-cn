@@ -11,10 +11,10 @@ metadata:
   ms.service: app-service
   ms.topic: landing-page
   origin.date: 01/23/2017
-  ms.date: 09/04/2019
+  ms.date: 11/25/2019
   ms.author: v-tawe
 abstract:
-  description: 使用 Azure 应用服务可以采用所选编程语言构建和托管 Web 应用、移动后端以及 RESTful API，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows 和 Linux，并支持从 GitHub、Azure DevOps 或任何 Git 存储库进行自动部署。 可以参考我们的快速入门、教程和示例来了解如何使用 Azure 应用服务。
+  description: 使用 Azure 应用服务可以采用所选编程语言构建和托管 Web 应用、移动后端以及 RESTful API，而无需管理基础结构。 它提供自动缩放和高可用性，支持 Windows，并支持从 GitHub、Azure DevOps 或任何 Git 存储库进行自动部署。 可以参考我们的快速入门、教程和示例来了解如何使用 Azure 应用服务。
 sections:
   - title: 5 分钟快速入门
     items:
@@ -67,9 +67,9 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: 将 <a href="/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET 与 Azure SQL DB 配合使用</a>或将 <a href="/app-service-web/app-service-web-tutorial-nodejs-mongodb-app">Node.js 与 MongoDB 配合使用</a>来创建应用程序
+          - html: 将 <a href="/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET 与 Azure SQL DB 配合使用</a>或将 <a href="/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js 与 MongoDB 配合使用</a>来创建应用程序
           - html: <a href="/app-service/app-service-web-tutorial-custom-domain">将现有自定义域映射到应用程序</a>
-          - html: <a href="/app-service/app-service-web-tutorial-custom-SSL">将现有 SSL 证书绑定到应用程序</a>
+          - html: <a href="/app-service/configure-ssl-certificate">在 Azure 应用服务中使用 SSL 绑定保护自定义 DNS 名称</a>
   - title: 示例
     items:
       - type: paragraph
@@ -80,3 +80,15 @@ sections:
         items:
           - html: '<a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a>'
           - html: <a href="/cli/appservice/plan?view=azure-cli-latest">Azure CLI 2.0</a>
+  - title: 参考
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: 命令行
+            html: '<p><a href="https://docs.microsoft.com/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/appservice">Azure CLI</a></p>'
+          - title: 语言
+            html: <p><a href="/dotnet/index">.NET</a></p><p><a href="/java/index">Java</a></p>
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/appservice">REST API 参考</a></p>'

@@ -10,18 +10,17 @@ ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 08/08/2016
-ms.date: 09/03/2019
+origin.date: 10/01/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: c5af9fd8c47587f22a540b2e1fd2ec25352e3da5
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 55896559fcd8dee28aef24137bc278770fac7fc4
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806866"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555881"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>为 Azure 应用服务配置 TLS 相互身份验证
 
@@ -33,11 +32,20 @@ ms.locfileid: "70806866"
 
 ## <a name="enable-client-certificates"></a>启用客户端证书
 
-若要将应用设置为要求提供客户端证书，需要将应用的 `clientCertEnabled` 设置指定为 `true`。 若要设置该设置，请在 Azure PowerShell 中运行以下命令。
+若要将应用设置为要求提供客户端证书，需要将应用的 `clientCertEnabled` 设置指定为 `true`。 若要设置该设置，请在 Azure CLI 中运行以下命令。
 
 ```azurecli
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
+
+## <a name="exclude-paths-from-requiring-authentication"></a>使路径不要求身份验证
+
+为应用程序启用相互身份验证时，应用根目录下的所有路径都需要客户端证书才能进行访问。 若要允许某些路径对匿名访问保持开放，可以将排除路径定义为应用程序配置的一部分。
+
+可以通过选择“配置”   > “常规设置”  并定义排除路径来配置排除路径。 在此示例中，应用程序的 `/public` 路径下的任何内容都不会请求客户端证书。
+
+![证书排除路径][exclusion-paths]
+
 
 ## <a name="access-client-certificate"></a>访问客户端证书
 
@@ -191,7 +199,7 @@ export class AuthorizationHandler {
             const incomingCert: pki.Certificate = pki.certificateFromPem(pem);
 
             // Validate certificate thumbprint
-            const fingerPrint = md.sha1.create().update(asn1.toDer((pki as any).certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
+            const fingerPrint = md.sha1.create().update(asn1.toDer(pki.certificateToAsn1(incomingCert)).getBytes()).digest().toHex();
             if (fingerPrint.toLowerCase() !== 'abcdef1234567890abcdef1234567890abcdef12') throw new Error('UNAUTHORIZED');
 
             // Validate time validity
@@ -215,3 +223,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

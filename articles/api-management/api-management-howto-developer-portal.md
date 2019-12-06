@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 11/04/2019
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: be7c1dd8c2c733a596b69f4c1998313a2317da2e
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: b10d4ffc77bd9c81c83f32fcbe7030c530025875
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389074"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657624"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理开发人员门户概述
 
@@ -26,7 +26,10 @@ ms.locfileid: "74389074"
 
 本文介绍了 API 管理中开发人员门户的自承载版本与托管版本之间的差异。 此外介绍此门户的体系结构，并提供常见问题的解答。
 
-> [!IMPORTANT]
+> [!WARNING]
+> 目前正在推出适用于 API 管理服务的新的开发人员门户。
+> 如果你的服务是新创建的或开发人员层服务，则你应该已有最新版本。 否则，你可能会遇到问题（例如，使用发布功能时）。 该功能推出预计将于 2019 年 11 月 22 日（星期五）前完成。
+>
 > [了解如何从开发人员门户预览版迁移到正式版](#preview-to-ga)。
 
 ![API 管理开发人员门户](media/api-management-howto-developer-portal/cover.png)
@@ -115,7 +118,31 @@ API 管理内容包括 API、操作、产品和订阅等实体。
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>使用交互式控制台时出现 CORS 错误。 我该怎么办？
 
-交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数 (例如，来源为 https://contoso.com) ，或使用通配符值 `*` 。
+交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数，也可以使用通配符 `*` 值。 例如：
+
+```XML
+<cors>
+    <allowed-origins>
+        <origin>*</origin>
+    </allowed-origins>
+    <allowed-methods>
+        <method>GET</method>
+        <method>POST</method>
+        <method>PUT</method>
+        <method>DELETE</method>
+        <method>HEAD</method>
+        <method>OPTIONS</method>
+        <method>PATCH</method>
+        <method>TRACE</method>
+    </allowed-methods>
+    <allowed-headers>
+        <header>*</header>
+    </allowed-headers>
+    <expose-headers>
+        <header>*</header>
+    </expose-headers>
+</cors>
+```
 
 ## <a name="next-steps"></a>后续步骤
 

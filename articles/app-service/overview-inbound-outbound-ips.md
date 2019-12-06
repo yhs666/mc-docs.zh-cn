@@ -9,23 +9,23 @@ editor: ''
 ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2019
-ms.date: 09/05/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 7cc31ee68082ff2ce568e908ca9809f84ae7194f
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 17652619fe319c13c271651e9deab4c3d48ce552
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806816"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555941"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure 应用服务中的入站和出站 IP 地址
 
-[Azure 应用服务](overview.md)是多租户服务。 应用与其他应用共享网络基础结构。 因此，应用的入站和出站 IP 地址可能不同，在某些情况下甚至可能会更改。 
+[Azure 应用服务](overview.md)是一个多租户服务（[应用服务环境](environment/intro.md)除外）。 不在应用服务环境中（不在[隔离层](https://www.azure.cn/pricing/details/app-service/)中）的应用与其他应用共享网络基础结构。 因此，应用的入站和出站 IP 地址可能不同，在某些情况下甚至可能会更改。 
 
+[应用服务环境](environment/intro.md)使用专用网络基础结构，因此，应用服务环境中运行的应用将获取静态专用 IP 地址用于入站和出站连接。
 
 ## <a name="when-inbound-ip-changes"></a>入站 IP 更改时
 
@@ -33,7 +33,7 @@ ms.locfileid: "70806816"
 
 - 删除应用，然后在不同的资源组中重新创建它。
 - 删除资源组和区域组合中的最后一个应用，然后重新创建它。 
-- 在证书续订等操作期间删除现有的 SSL 绑定（请参阅[续订证书](app-service-web-tutorial-custom-ssl.md#renew-certificates)）。
+- 删除现有的 SSL 绑定，例如在证书续订期间（请参阅[续订证书](configure-ssl-certificate.md#renew-certificate)）。
 
 ## <a name="find-the-inbound-ip"></a>找到入站 IP
 
@@ -53,7 +53,7 @@ nslookup <app-name>.chinacloudsites.cn
 
 在较低层（“基本”、“标准”和“高级”）与“高级 V2”层之间缩放应用时，应用的出站 IP 地址集会发生更改。    
 
-无论是哪个定价层，你都可以通过查找 `possibleOutboundIPAddresses` 属性或者在 Azure 门户的“属性”边栏选项卡中的“其他出站 IP 地址”  字段中查找你的应用可以使用的所有可能的出站 IP 地址。  请参阅[查找出站 IP](#find-outbound-ips)。
+无论是哪个定价层，你都可以通过查找 `possibleOutboundIpAddresses` 属性或者在 Azure 门户的“属性”边栏选项卡中的“其他出站 IP 地址”  字段中查找你的应用可以使用的所有可能的出站 IP 地址。  请参阅[查找出站 IP](#find-outbound-ips)。
 
 ## <a name="find-outbound-ips"></a>查找出站 IP
 

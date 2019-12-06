@@ -1,5 +1,6 @@
 ---
-title: 将适用于 iOS 和 macOS 的 MSAL 配置为使用不同的标识提供者 | Microsoft 标识平台
+title: 将适用于 iOS 和 macOS 的 MSAL 配置为使用不同的标识提供者
+titleSuffix: Microsoft identity platform
 description: 了解如何在适用于 iOS 和 macOS 的 MSAL 中使用不同的颁发机构，例如 B2C、主权云和来宾用户。
 services: active-directory
 documentationcenter: ''
@@ -13,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 08/28/2019
-ms.date: 11/01/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6d39ca03cd225350567875b27b64478ba48a73
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: b130e6571ce98b093d9fe2aef695101b6b8ded1b
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831048"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655251"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>如何：将适用于 iOS 和 macOS 的 MSAL 配置为使用不同的标识提供者
 
@@ -34,7 +35,7 @@ ms.locfileid: "73831048"
 在 `MSALPublicClientApplication` 中配置了 `https://login.partner.microsoftonline.cn/common` 的默认颁发机构 URL，这适用于大多数 Azure Active Directory (AAD) 方案。 除非要实现国家云等高级方案或要使用 B2C，否则不需要更改它。
 
 > [!NOTE]
-> 不支持使用 Active Directory 联合身份验证服务作为标识提供者 (ADFS) 的新式身份验证。 ADFS 是通过联合支持的。
+> 不支持使用 Active Directory 联合身份验证服务作为标识提供者 (ADFS) 的新式身份验证（有关详细信息，请参阅[面向开发人员的 ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)）。 ADFS 是通过联合支持的。
 
 ## <a name="change-the-default-authority"></a>更改默认颁发机构
 
@@ -255,3 +256,4 @@ do{
 
 详细了解[身份验证流和应用程序方案](authentication-flows-app-scenarios.md)
 
+<!-- Update_Description: link update -->

@@ -10,18 +10,17 @@ ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/11/2019
-ms.date: 09/05/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 77e670c0f991e19c6958846dc764f99bf7d7efdb
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: a779415ee9d406a1a1f9ca45a07b2854ab268cbd
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806684"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555932"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>监视 Azure 应用服务中的应用
 [Azure 应用服务](overview.md)针对 [Azure 门户](https://portal.azure.cn)中的 Web 应用、移动后端和 API 应用提供内置监视功能。
@@ -72,7 +71,7 @@ ms.locfileid: "70806684"
 
 | 指标 | 说明 |
 | --- | --- |
-| **平均响应时间** | 应用处理请求的平均时间，以毫秒为单位。 |
+| **平均响应时间** | 应用处理请求的平均时间（以秒为单位）。 |
 | **平均内存工作集** | 应用使用的平均内存量，以 MiB 为单位。 |
 | **连接** | 沙盒中存在的绑定套接字的数目（w3wp.exe 及其子进程）。  绑定套接字是通过调用 bind()/connect() API 创建的，并一直保留到通过 CloseHandle()/closesocket() 关闭所述的套接字。 |
 | **CPU 时间** | 应用消耗的 CPU 量，以秒为单位。 有关此指标的详细信息，请参阅 [CPU 时间与 CPU 百分比](#cpu-time-vs-cpu-percentage)。 |
@@ -162,11 +161,10 @@ ms.locfileid: "70806684"
 
 托管在“基本”、“标准”或“高级”应用服务计划中的应用服务应用支持自动缩放。 使用自动缩放可以配置用于监视应用服务计划指标的规则。 规则可以增加或减少实例计数，并根据需要提供更多的资源。 规则还有助于避免过度预配应用，从而节省资金。
 
-有关自动缩放的详细信息，请参阅[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及[有关 Azure Monitor 自动缩放的最佳做法](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)。
+有关自动缩放的详细信息，请参阅[如何缩放](../monitoring-and-diagnostics/insights-how-to-scale.md)以及[有关 Azure Monitor 自动缩放的最佳做法](../azure-monitor/platform/autoscale-best-practices.md)。
 
-[fzilla]:http://go.microsoft.com/fwlink/?LinkId=247914
-[vmsizes]:/cloud-services/cloud-services-sizes-specs
-
+[fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
+[vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169
 
 <!-- Images. -->
 [http403]: ./media/web-sites-monitor/http403.png

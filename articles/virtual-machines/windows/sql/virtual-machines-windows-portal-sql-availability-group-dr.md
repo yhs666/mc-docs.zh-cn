@@ -1,5 +1,5 @@
 ---
-title: SQL Server 可用性组 - Azure 虚拟机 - 灾难恢复 | Azure
+title: 在不同区域中的 Azure 虚拟机上配置 Always On 可用性组 | Azure
 description: 本文介绍如何使用不同区域中的副本在 Azure 虚拟机上配置 SQL Server Always On 可用性组。
 services: virtual-machines
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 origin.date: 05/02/2017
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9161fc9acbd8e19adc8a7f24580067124842a051
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: a295a9ffdb863d2022fc4816833e3c83b987aedb
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116967"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74593683"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>在位于不同区域的 Azure 虚拟机上配置 Always On 可用性组
 
@@ -69,9 +69,9 @@ ms.locfileid: "74116967"
     >[!NOTE]
     >在某些情况下，可能需要使用 PowerShell 创建 VNet 到 VNet 连接。 例如，使用不同的 Azure 帐户时无法在门户中配置连接。 这种情况请参阅[使用 Azure 门户配置 VNet 到 VNet 连接](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)。
 
-1. [在新区域中创建域控制器](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)。
+1. [在新区域中创建域控制器](https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100)。
 
-    <!--Notice: URL ture /active-directory/active-directory-new-forest-virtual-machine.md to https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100-->
+    <!--Notice: URL ture /active-directory/active-directory-new-forest-virtual-machine.md to https://docs.microsoft.com/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100-->
     
     如果主站点中的域控制器不可用，此域控制器可提供身份验证。
 
@@ -167,7 +167,7 @@ ms.locfileid: "74116967"
 
 测试连接后，将主副本移回主数据中心，将可用性模式设置回其正常运行的设置。 下表显示了本文档所述体系结构的正常运行的设置：
 
-| Location | 服务器实例 | 角色 | 可用性模式 | 故障转移模式
+| 位置 | 服务器实例 | 角色 | 可用性模式 | 故障转移模式
 | ----- | ----- | ----- | ----- | -----
 | 主数据中心 | SQL-1 | 主要 | 同步 | 自动
 | 主数据中心 | SQL-2 | 次要 | 同步 | 自动

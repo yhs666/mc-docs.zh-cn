@@ -16,18 +16,18 @@ origin.date: 06/06/2019
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 27773e386d6c9167f8484c9f372adde4dc1c3a4a
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: fcfebbbcf4c91bdafc643f889d7e8a8611876d73
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806842"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555901"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Azure 应用服务访问限制 #
 
 使用访问限制可以定义一个按优先级排序的允许/拒绝列表，用于控制在网络中对应用的访问。 该列表可以包含 IP 地址或 Azure 虚拟网络子网。 如果存在一个或多个条目，则在列表末尾会存在一个隐式的“拒绝所有”。
 
-访问限制功能适用于所有应用服务托管工作负荷，包括 Web 应用、API 应用、Linux 应用、Linux 容器应用和 Functions。
+访问限制功能适用于所有应用服务托管的工作负荷，包括 Web 应用、API 应用和 Functions。
 
 向应用发出请求时，将会根据访问限制列表中的 IP 地址规则评估 FROM IP 地址。 如果 FROM 地址位于配置为使用 Microsoft.Web 服务终结点的子网中，则会根据访问限制列表中的虚拟网络规则比较源子网。 如果列表中的规则不允许访问该地址，则服务会以 [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) 状态代码进行答复。
 
@@ -97,11 +97,11 @@ ms.locfileid: "70806842"
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>访问限制规则的编程操作 ##
 
-新的访问限制功能目前没有适用的 CLI 或 PowerShell，但是可以通过 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 操作在资源管理器中的应用配置上手动设置值。 例如，可以使用 resources.azure.com 并编辑 ipSecurityRestrictions 块以添加所需的 JSON。
+新的访问限制功能目前没有适用的 CLI 或 PowerShell，但是可以通过 [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT 操作在资源管理器中的应用配置上手动设置值。
 
 此信息在资源管理器中的位置为：
 
-management.azure.com/subscriptions/subscription ID/resourceGroups/resource groups/providers/Microsoft.Web/sites/web app name/config/web?api-version=2018-02-01   
+management.chinacloudapi.cn/subscriptions/**subscription ID**/resourceGroups/**resource groups**/providers/Microsoft.Web/sites/**web app name**/config/web?api-version=2018-02-01
 
 前面的示例的 JSON 语法为：
 

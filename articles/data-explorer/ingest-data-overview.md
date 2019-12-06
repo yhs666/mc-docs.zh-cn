@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 02/18/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: f7a4ec8113da237df859302f2d90e1e3393629a1
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 1ca412d5edce1e9679d7183d7fb87fc311bed8eb
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020862"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657776"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 数据资源管理器数据引入
 
@@ -42,6 +42,8 @@ Azure 数据资源管理器支持多种引入方法，每种方法都有自己�
 ### <a name="ingestion-using-pipelines-connectors-and-plugins"></a>使用管道、连接器和插件的引入
 
 Azure 数据资源管理器目前支持：
+
+<!-- * Event Grid pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Ingest Azure Blobs into Azure Data Explorer](ingest-data-event-grid.md). -->
 
 * 事件中心管道，该管道可以使用 Azure 门户中的管理向导进行管理。 有关详细信息，请参阅[将数据从事件中心引入到 Azure 数据资源管理器](ingest-data-event-hub.md)。
 
@@ -112,15 +114,13 @@ Kusto 提供可与以下项一起用于引入和查询数据的客户端 SDK：
 * 有哪些延迟要求？ 
 * 可以使用现有的托管引入管道吗？ 
 
-对于具有基于事件中心等消息传递服务的现有基础结构的组织，使用连接器可能是最合适的解决方案。 排队引入适合大数据量。
+对于具有基于消息服务（例如事件中心和 IoT 中心）的现有基础结构的组织，使用连接器可能是最合适的解决方案。 排队引入适合大数据量。
 
 ## <a name="supported-data-formats"></a>受支持的数据格式
 
-对于“从查询引入”以外的所有引入方法，请设置适当的数据格式，使 Azure 数据资源管理器能够对其进行分析。 支持的数据格式包括：
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON（行分隔，多行）、Avro
-* ZIP 和 GZIP 
+对于“从查询引入”以外的所有引入方法，请设置适当的数据格式，使 Azure 数据资源管理器能够对其进行分析。 
+* 支持的数据格式包括：TXT、CSV、TSV、TSVE、PSV、SCSV、SOH、JSON（行分隔、多行）、Avro 和 Parquet。 
+* 支持 ZIP 和 GZIP 压缩。
 
 > [!NOTE]
 > 正在引入数据时，根据目标表列推断数据类型。 如果记录不完整或者无法将字段解析为所需的数据类型，则将使用 NULL 值填充相应的表列。

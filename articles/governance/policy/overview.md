@@ -2,18 +2,18 @@
 title: Azure Policy 概述
 description: Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理 Azure 环境中的策略定义。
 author: DCtheGeek
-ms.author: v-biyu
+ms.author: v-tawe
 origin.date: 12/06/2018
 ms.date: 10/12/2019
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e018ec39c4cdfb4a3ad23f30406d1c4587ffa0ac
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: da446e5556e1c096385079cbea6c741eb9c7f07c
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389083"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657989"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 服务概述
 
@@ -65,7 +65,7 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 
 ## <a name="policy-assignment"></a>策略分配
 
-策略分配是在特定作用域内发生的已分配的策略定义。 此作用域的范围是从[管理组](../management-groups/index.md)到资源组。 术语“作用域”指分配到策略定义的所有资源组、订阅或管理组  。 策略分配由所有子资源继承。 此设计意味着应用于资源组的策略也应用于该资源组中的资源。 但是，可以从策略分配中排除子作用域。
+策略分配是在特定作用域内发生的已分配的策略定义。 此作用域的范围是从[管理组](../management-groups/overview.md)到资源组。 术语“作用域”指分配到策略定义的所有资源组、订阅或管理组  。 策略分配由所有子资源继承。 此设计意味着应用于资源组的策略也应用于该资源组中的资源。 但是，可以从策略分配中排除子作用域。
 
 例如，可以在订阅作用域中分配阻止创建网络资源的策略。 可以排除订阅中用于网络基础结构的资源组。 然后可以向信任的用户授予此网络资源组的访问权限，包括创建网络资源。
 
@@ -77,7 +77,7 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 
 策略参数通过减少必须创建的策略定义数量来帮助简化策略管理。 在创建策略定义时可定义参数，以使其更为通用。 然后就可以为不同方案重复使用该策略定义。 要执行此操作，请在分配策略定义时传入不同的值。 例如，为订阅指定一组位置。
 
-在创建策略定义时定义参数。 在定义参数后，会为它指定一个名称，并且可选择为其提供一个值。 例如，可以为标题为“位置”的策略定义一个参数  。 然后，可在分配策略时赋予其不同的值，如 EastUS 或 WestUS   。
+在创建策略定义时定义参数。 在定义参数后，会为它指定一个名称，并且可选择为其提供一个值。 例如，可以为标题为“位置”的策略定义一个参数  。 然后，可在分配策略时赋予其不同的值，如“chinanorth2”  或“chinaeast2”  。
 
 有关策略参数的详细信息，请参阅[定义结构 - 参数](./concepts/definition-structure.md#parameters)。
 
@@ -142,4 +142,4 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - [使用门户分配策略定义](assign-policy-portal.md)
 - [使用 Azure CLI 分配策略定义](assign-policy-azurecli.md)
 - [使用 PowerShell 分配策略定义](assign-policy-powershell.md)
-- 参阅[使用 Azure 管理组来组织资源](../management-groups/index.md)，了解什么是管理组
+- 参阅[使用 Azure 管理组来组织资源](../management-groups/overview.md)，了解什么是管理组

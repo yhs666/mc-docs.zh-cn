@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 04/01/2019
-ms.date: 07/22/2019
+origin.date: 10/07/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3b256fec1fae0198f0a5790bcaab5303d7d83f9a
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 84ad432314874923b6bfdf22ef826fb064c88475
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514239"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658040"
 ---
 # <a name="virtual-network-peering"></a>虚拟网络对等互连
 
@@ -93,7 +93,10 @@ VNet 对等互连和全局 VNet 对等互连均支持网关传输。 仅当网�
 
 利用虚拟网络对等互连的入口和出口流量会产生少许费用。 有关 VNet 对等互连和全局 VNet 对等互连定价的详细信息，请参阅[定价页面](https://www.azure.cn/pricing/details/networking/)。
 
-网关传输是一种对等互连属性，可以让一个虚拟网络利用对等互连的虚拟网络中的 VPN/ExpressRoute 网关进行跨界连接或 VNet 到 VNet 连接。 在此方案中，通过远程网关传递的流量需要缴纳 [VPN 网关费用](https://www.azure.cn/pricing/details/vpn-gateway/)或 ExpressRoute 网关费用，而不会产生 [VNet 对等互连费用](https://www.azure.cn/pricing/details/networking/)。 例如，如果 VNetA 具有用于本地连接的 VPN 网关，并且 VNetB 对等互连到配置了合适属性的 VNetA，则从 VNetB 发送到本地的流量将按 VPN 网关定价或 ExpressRoute 定价仅收取出口费用。 不会产生 VNet 对等互连费用。 了解如何[针对虚拟网络对等互连配置 VPN 网关传输](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fvirtual-network%2ftoc.json)。
+“网关传输”是一种对等互连属性，可以让一个虚拟网络利用对等互连虚拟网络中的 VPN/ExpressRoute 网关进行跨界连接或 VNet 到 VNet 连接。 到对等互连 VNet 中网关（入口或出口）的流量将产生 VNet 对等互连费用。 有关更多详细信息，请参阅 [VPN 网关费用](https://www.azure.cn/pricing/details/vpn-gateway/) 或 ExpressRoute 网关费用和 [VNet 对等互连费用](https://www.azure.cn/pricing/details/networking/)。
+
+>[!NOTE]
+> 本文档的以前版本已指出，VNet 对等互连费用不适用于网关传输。 已更新此文档，以按定价页反映准确定价。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -107,7 +110,8 @@ VNet 对等互连和全局 VNet 对等互连均支持网关传输。 仅当网�
     |                                   |[不同](create-peering-different-deployment-models-subscriptions.md)|
 
     <!-- Not Available on [hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)-->
+
 * 了解所有[虚拟网络对等互连设置以及如何对其进行更改](virtual-network-manage-peering.md)。
 * 通过我们的 [VNet 对等互连常见问题解答](virtual-networks-faq.md#vnet-peering)获取常见的 VNet 对等互连和全局 VNet 对等互连问题的答案
 
-<!--Update_Description: wording update， Update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

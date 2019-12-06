@@ -15,12 +15,12 @@ ms.topic: conceptual
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: 404713170a3534fb2411b3925d063c4d91891034
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 52755106ee113e93b80fb214fdd5658d002a5ca6
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006570"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657951"
 ---
 # <a name="getting-started"> </a>关于 Azure 应用服务中的移动应用
 
@@ -45,7 +45,7 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 ## <a name="mobile-apps-features"></a>移动应用功能
 以下功能对于支持云的移动开发十分重要：
 
-* **身份验证和授权**：支持标识提供者，包括适用于企业身份验证的 Azure Active Directory，以及 Facebook、Google、Twitter 和 Microsoft 帐户等社交提供程序。 移动应用可为每个提供者提供 OAuth 2.0 服务。 还可以为标识提供者集成 SDK，获取特定于提供者的功能。
+* **身份验证和授权**：支持标识提供者，包括用于企业身份验证的 Azure Active Directory，以及 Microsoft 帐户等社交提供程序。 移动应用可为每个提供者提供 OAuth 2.0 服务。 还可以为标识提供者集成 SDK，获取特定于提供者的功能。
 
     深入了解[身份验证功能]。
 
@@ -86,11 +86,11 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 
 若要开始在 Azure 应用服务中使用移动应用，请完成[入门]教程。 该教程介绍生成移动后端和所选客户端的基础知识， 并介绍集成身份验证、脱机同步和推送通知。 可以多次完成该教程，每个客户端应用程序一次。
 
-有关移动应用的详细信息，请查看[学习路线图]。
+<!-- For more information about Mobile Apps, review our [learning map]. -->
+
 有关 Azure 应用服务平台的详细信息，请参阅 [Azure 应用服务]。
 
 <!-- URLs. -->
-[Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
 [入门]: app-service-mobile-ios-get-started.md
 [Azure 表存储]:../cosmos-db/table-storage-how-to-use-dotnet.md
 [Azure Cosmos DB]: ../cosmos-db/sql-api-get-started.md
@@ -106,6 +106,4 @@ Azure 应用服务中的移动应用功能为企业开发人员和系统集成�
 [自动缩放]: ../app-service/web-sites-scale.md
 [过渡环境]: ../app-service/deploy-staging-slots.md
 [虚拟网络]: ../app-service/web-sites-integrate-with-vnet.md
-
-[学习路线图]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
 [Azure 应用服务]: ../app-service/overview.md

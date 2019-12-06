@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 10/22/2019
-ms.date: 11/05/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1e0e1547ba208017edc54f912521ea42ddf1106
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: cd88a3371f879f46746acb900cbb72d9e0af8ffb
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831002"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655258"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft 标识平台访问令牌
 
@@ -149,7 +149,7 @@ JWT 拆分成三个部分：
 | `onprem_sid`| 字符串，采用 [SID 格式](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 如果用户使用了本地身份验证，则此声明会提供其 SID。 可在旧版应用程序中将 `onprem_sid` 用于授权。|
 | `pwd_exp`| int，UNIX 时间戳 | 指示用户的密码何时过期。 |
 | `pwd_url`| String | 可向用户发送的，以重置其密码的 URL。 |
-| `in_corp`| 布尔值 | 表示客户端是否从企业网络登录。 如果不是，则不包括该声明。 |
+| `in_corp`| boolean | 表示客户端是否从企业网络登录。 如果不是，则不包括该声明。 |
 | `nickname`| String | 用户的附加名称，不同于名字或姓氏。|
 | `family_name` | String | 根据用户对象中的定义提供用户的姓氏。 |
 | `given_name` | String | 根据用户对象中的设置提供用户的名字。 |
@@ -265,9 +265,9 @@ https://login.partner.microsoftonline.cn/common/v2.0/.well-known/openid-configur
 | 在 Web 上[单一登录](v1-protocols-openid-connect-code.md#single-sign-out) | 已撤销 | 一直有效 | 已撤销 | 一直有效 | 一直有效 |
 
 > [!NOTE]
-> “不基于密码”登录是指用户在未键入密码的情况下登录。 例如，在 Windows Hello 中进行人脸登录、使用 FIDO 密钥或 PIN 登录。
+> “不基于密码”登录是指用户在未键入密码的情况下登录。 例如，在 Windows Hello 中使用人脸登录、使用 FIDO2 密钥或 PIN 登录。
 >
-> Windows 主刷新令牌存在已知问题。 如果 PRT 是通过密码获取，然后用户通过 Hello 登录，这不会更改 PRT 的来源，并且它会在用户更改密码时遭撤销。
+> Windows 10 上的主刷新令牌 (PRT) 基于凭据进行隔离。 例如，Windows Hello 和密码有各自的 PRT，彼此隔离。 当用户使用 Hello 凭据（PIN 或生物识别）登录，然后更改密码时，先前获得的基于密码的 PRT 将被撤销。 使用密码重新登录会使旧的 PRT 无效，并请求一个新的 PRT。
 >
 > 在用于提取新访问令牌和刷新令牌时，刷新令牌不会失效或撤销。  
 

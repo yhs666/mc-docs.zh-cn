@@ -16,18 +16,20 @@ origin.date: 01/04/2017
 ms.date: 01/21/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: ef4244d7797e9b415d06b292775649aaabed2f5f
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 7a7db81243cc0ff11862b3319382a7f0353f71e6
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806808"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555940"
 ---
 # <a name="app-service-overview"></a>应用服务概述
 
-Azure 应用服务是用于托管 Web 应用程序、REST API 和移动后端的服务  。 可以使用 .NET、NET Core、Java、Ruby、Node.js、PHP 或 Python 等偏好的语言进行开发。 
+Azure 应用服务是用于托管 Web 应用程序、REST API 和移动后端的服务  。 可以使用 .NET、NET Core、Java、Ruby、Node.js、PHP 或 Python 等偏好的语言进行开发。
 
-应用服务不仅可将 Microsoft Azure 的强大功能（例如安全性、负载均衡、自动缩放和自动管理）添加到应用程序。 还可以利用其 DevOps 功能，例如从 Azure DevOps、GitHub、Docker 中心和其他源持续部署，以及包管理、过渡环境、自定义域和 SSL 证书。 
+应用服务不仅可将 Microsoft Azure 的强大功能（例如安全性、负载均衡、自动缩放和自动管理）添加到应用程序。 还可以利用其 DevOps 功能，例如包管理、过渡环境、自定义域和 SSL 证书。
+
+<!-- continuous deployment from Azure DevOps, GitHub, Docker Hub, and other sources, -->
 
 使用应用服务时，需要支付 Azure 计算资源的使用费。 使用的计算资源量由运行应用的应用服务计划确定  。 有关详细信息，请参阅 [Azure 应用服务计划概述](overview-hosting-plans.md)。
 
@@ -44,7 +46,7 @@ Azure 应用服务是用于托管 Web 应用程序、REST API 和移动后端的
 * **API 和移动功能** - 应用服务针对 RESTful API 方案提供统包式 CORS 支持，通过启用身份验证、脱机数据同步、推送通知等功能简化移动应用方案。
 * **无服务器代码** - 按需运行代码片段或脚本，无需显式预配或管理基础结构，并且只需为代码实际使用的计算时间付费（请参阅 [Azure Functions](/azure-functions/)）。
 
-除了应用服务，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，应用服务是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)。 如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。 
+除了应用服务，Azure 还提供可用来托管网站和 Web 应用程序的其他服务。 大多数情况下，应用服务是最佳选择。  对于微服务体系结构，请考虑使用 [Service Fabric](/service-fabric)。 如果需要更好地控制运行代码的 VM，请考虑使用 [Azure 虚拟机](/virtual-machines/)。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -1,7 +1,7 @@
 ---
-title: 使用 Azure 负载均衡器运行状况探测来缩放服务并为其提供高可用性
-titlesuffix: Azure Load Balancer
-description: 了解如何使用运行状况探测来监视负载均衡器后的实例
+title: 使用运行状况探测进行缩放，并为服务提供高可用性
+titleSuffix: Azure Load Balancer
+description: 本文介绍如何使用运行状况探测监视 Azure 负载均衡器背后的实例
 services: load-balancer
 documentationcenter: na
 author: WenJason
@@ -13,14 +13,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 09/17/2019
-ms.date: 11/11/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 41ca916b7f463dc6690f7c3afa8a6d8b2cd0418c
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: 4273d9192f5434cef4b942093e7eff3f3371e718
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742277"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530647"
 ---
 # <a name="load-balancer-health-probes"></a>负载均衡器运行状况探测
 
@@ -49,6 +49,9 @@ ms.locfileid: "73742277"
 - 探测的协议
 - 探测的端口
 - 使用 HTTP(S) 探测时用于 HTTP GET 的 HTTP 路径
+
+> [!NOTE]
+> 使用 Azure PowerShell、Azure CLI、模板或 API 时，不强制使用或检查探测定义。 仅在使用 Azure 门户时才进行探测验证测试。
 
 ## <a name="understanding-application-signal-detection-of-the-signal-and-reaction-of-the-platform"></a>了解应用程序信号、信号检测和平台反应
 
@@ -158,7 +161,7 @@ HTTP 和 HTTPS 探测构建在 TCP 探测的基础之上，发出包含指定路
 
 来宾代理探测是对 VM 中来宾代理执行的检查。 仅当实例处于“就绪”状态时，负载均衡器才侦听并响应“HTTP 200 正常”响应。 （其他状态包括“繁忙”、“正在回收”或“正在停止”。）
 
-有关详细信息，请参阅[配置运行状况探测的服务定义文件 (csdef)](https://msdn.microsoft.com/library/azure/ee758710.aspx) 或[开始为云服务创建公共负载均衡器](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services)。
+有关详细信息，请参阅[配置运行状况探测的服务定义文件 (csdef)](https://msdn.microsoft.com/library/azure/ee758710.aspx) 或[开始为云服务创建公共负载均衡器](/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services)。
 
 如果来宾代理无法使用“HTTP 200 正常”响应，则负载均衡器会将实例标记为无响应。 然后停止向该实例发送流。 负载均衡器继续检查实例。 
 

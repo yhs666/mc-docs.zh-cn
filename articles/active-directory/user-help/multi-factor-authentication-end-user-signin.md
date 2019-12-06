@@ -1,7 +1,6 @@
 ---
-title: 使用双重验证进行 Azure MFA 登录 - Azure Active Directory | Microsoft Docs
-description: 本页提供有关在何处查看 Azure MFA 支持的各种登录方法的指导。
-keywords: 用户身份验证, 登录体验, 使用手机登录, 使用办公电话登录
+title: 使用双重验证登录 - Azure AD
+description: 了解如何使用各种双重验证方法登录到工作或学校帐户。
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -10,20 +9,21 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-origin.date: 03/19/2019
-ms.date: 04/10/2019
+origin.date: 04/02/2017
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bec9efe2269b19845306c8f620c4dc5ecbd3a95
-ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
+ms.openlocfilehash: 120ec85365b50d1e6babdb18be4629dcb3739c6c
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471969"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655424"
 ---
-# <a name="the-sign-in-experience-with-azure-multi-factor-authentication"></a>Azure 多重身份验证的登录体验
+# <a name="sign-in-to-your-work-or-school-account-using-two-factor-verification"></a>使用双重验证登录到工作或学校帐户
+
 > [!NOTE]
 > 本文旨在逐步讲解典型的登录体验。 有关登录的帮助或者要排查问题，请参阅[使用 Azure 多重身份验证时遇到问题](multi-factor-authentication-end-user-troubleshoot.md)。
 
@@ -34,7 +34,7 @@ ms.locfileid: "59471969"
 | --- |
 | [通过拨打我的手机或办公电话](#signing-in-with-a-phone-call) |
 | [通过向我的手机发送短信](#signing-in-with-a-text-message)
-| [使用来自 Microsoft Authenticator 应用的通知](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
+| [使用来自 Microsoft 验证器应用的通知](#to-sign-in-with-a-notification-from-the-microsoft-authenticator-app) |
 | 使用来自 Microsoft Authenticator 应用的验证码
 | [使用备用方法，因为我暂时无法使用首选方法](#signing-in-with-an-alternate-method) |
 
@@ -61,7 +61,7 @@ ms.locfileid: "59471969"
 
    ![Microsoft 发送通知](./media/multi-factor-authentication-end-user-signin/notify.png)
 
-3. 打开手机上的通知，选择“验证”键。 如果公司需要 PIN，请在此处输入。
+3. 打开手机上的通知，选择“验证”  键。 如果公司需要 PIN，请在此处输入。
 4. 现在，应该已登录。
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>使用验证码通过 Microsoft Authenticator 应用登录
@@ -79,7 +79,7 @@ ms.locfileid: "59471969"
 有时，没有将手机或设备设置为首选验证方法。 由于会有这种情况，因此我们建议为帐户设置备用方法。 以下部分介绍当主要方法不可用时如何使用替代方法进行登录。
 
 1. 使用用户名和密码登录到 Office 365 等应用程序或服务。
-2. 选择“使用其他验证选项”。 此时会显示不同的验证选项，具体将取决于设置了多少个选项。
+2. 选择“使用其他验证选项”  。 此时会显示不同的验证选项，具体将取决于设置了多少个选项。
 3. 选择替代方法并登录。
 
    ![使用替代方法](./media/multi-factor-authentication-end-user-signin/alt.png)
@@ -91,4 +91,4 @@ ms.locfileid: "59471969"
 
 - 了解如何[开始使用 Microsoft 验证器应用](microsoft-authenticator-app-how-to.md)，以便使用通知（而不是短信和电话呼叫）登录。
 
-<!-- Update_Description: link update -->
+<!-- Update_Description: wording update -->

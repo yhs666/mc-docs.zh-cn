@@ -1,33 +1,33 @@
 ---
-title: 使用 WebJobs 运行后台任务 - Azure 应用服务
+title: 使用 WebJobs 运行后台任务 - Azure应用服务
 description: 了解如何使用 WebJobs 在 Azure 应用服务 Web 应用、API 应用或移动应用中运行后台任务。
-services: app-service
 author: ggailey777
-manager: jeconnoc
-editor: jimbe
-ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
+manager: gwallace
+s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.topic: article
+ms.topic: conceptual
 origin.date: 10/16/2018
-ms.date: 09/05/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 4a910de75df583580a978c4c4a5153368cc3eba7
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 49a51c3b9f5339af88612beece0f84e3267e0eec
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806860"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555945"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>在 Azure 应用服务中使用 WebJobs 运行后台任务
 
-## <a name="overview"></a>概述
-WebJobs 是 [Azure 应用服务](https://docs.azure.cn/app-service/)的一项功能，可以在与 Web 应用、API 应用或移动应用相同的上下文中运行程序或脚本。 使用 Web 作业无需支付额外的费用。
-
 本文介绍如何使用 [Azure 门户](https://portal.azure.cn)部署 WebJobs，以便上传可执行文件或脚本。 有关如何使用 Visual Studio 开发和部署 WebJobs 的信息，请参阅[使用 Visual Studio 部署 WebJobs](webjobs-dotnet-deploy-vs.md)。
 
+## <a name="overview"></a>概述
+WebJobs 是 [Azure 应用服务](index.yml)的一项功能，可以在与 Web 应用、API 应用或移动应用相同的上下文中运行程序或脚本。 使用 Web 作业无需支付额外的费用。
+
 可以结合 WebJobs 使用 Azure WebJobs SDK 来简化许多编程任务。 有关详细信息，请参阅[什么是 WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)。
+
+<!-- Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md). -->
 
 ## <a name="webjob-types"></a>Web 作业类型
 
@@ -109,16 +109,16 @@ when making changes in one don't forget the other two.
 
     ![“Web 作业”页](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. 使用表中指定的“添加 Web 作业” 设置。 
+3. 使用表中指定的“添加 Web 作业”设置。 
 
    ![“添加 Web 作业”页](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |
-   | **名称** | myTriggeredWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。|
-   | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
-   | **类型** | 触发 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
-   | **触发器** | 手动 | |
+   | **名称** | myTriggeredWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。|
+   | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
+   | **类型** | 触发 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
+   | **触发器** | 手动 | |
 
 4. 单击 **“确定”** 。
 
@@ -147,17 +147,17 @@ when making changes in one don't forget the other two.
 
    ![“Web 作业”页](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. 使用表中指定的“添加 Web 作业” 设置。 
+3. 使用表中指定的“添加 Web 作业”设置。 
 
    ![“添加 Web 作业”页](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
    | 设置      | 示例值   | 说明  |
    | ------------ | ----------------- | ------------ |
-   | **名称** | myScheduledWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。 |
-   | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
-   | **类型** | 触发 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
-   | **触发器** | 计划 | 要使计划可靠运行，请启用 Always On 功能。 Always On 仅在基本、标准和高级定价层中提供。|
-   | **CRON 表达式** | 0 0/20 * * * * | 以下部分介绍了 [CRON 表达式](#ncrontab-expressions)。 |
+   | **名称** | myScheduledWebJob | 在应用服务应用中唯一的名称。 必须以字母或数字开头，且不能包含除“-”和“_”以外的特殊字符。 |
+   | **文件上传** | ConsoleApp.zip | 一个 *.zip* 文件，其中包含可执行文件或脚本文件，以及运行程序或脚本所需的所有支持文件。 [支持的文件类型](#acceptablefiles)部分中列出了支持的可执行文件或脚本文件类型。 |
+   | **类型** | 触发 | 本文前面介绍了 [Web 作业类型](#webjob-types)。 |
+   | **触发器** | 计划 | 要使计划可靠运行，请启用 Always On 功能。 Always On 仅在基本、标准和高级定价层中提供。|
+   | **CRON 表达式** | 0 0/20 * * * * | 以下部分介绍了 [CRON 表达式](#ncrontab-expressions)。 |
 
 4. 单击 **“确定”** 。
 
@@ -176,6 +176,8 @@ when making changes in one don't forget the other two.
 ```
 
 若要了解详细信息，请参阅[计划触发的 Web 作业](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob)。
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a>查看作业历史记录
 

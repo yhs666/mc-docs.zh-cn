@@ -1,25 +1,25 @@
 ---
-title: 登录身份验证期间的用户名查找 - Azure Active Directory | Microsoft Docs
-description: 屏幕上的消息如何反映登录期间的用户名查找
+title: 登录期间的用户名查找 - Azure Active Directory | Microsoft Docs
+description: 屏幕上的消息如何反映 Azure Active Directory 登录期间的用户名查找
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 04/15/2019
-ms.date: 07/04/2019
+origin.date: 11/08/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: kexia
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72e3f570ebe9e158a24aab97491f9fa0db4df289
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: bd9b37a8d4d0fe2e044bf666d0459ba83c2ee61d
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568751"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655427"
 ---
 # <a name="home-realm-discovery-for-azure-active-directory-sign-in-pages"></a>Azure Active Directory 登录页的主领域发现
 

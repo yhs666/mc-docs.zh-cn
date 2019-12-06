@@ -17,12 +17,12 @@ origin.date: 07/25/2018
 ms.date: 09/03/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f47cd90c88e070755fb24e76161588109495f278
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 20f687936ab1aa5215eb48e329f92b2a84d335fd
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806839"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555910"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>为 Azure 应用服务配置 PremiumV2 层
 
@@ -102,7 +102,7 @@ az appservice list-locations --sku P1V2
 
 ### <a name="azure-cli"></a>Azure CLI
 
-以下命令在 _P1V2_ 中创建应用服务计划。 可以在 Cloud Shell 中运行此命令。 用于 `--sku` 的选项有 P1V2、_P2V2_ 和 _P3V2_。
+以下命令在 _P1V2_ 中创建应用服务计划。 可以在 Azure CLI 中运行它。 用于 `--sku` 的选项有 P1V2、_P2V2_ 和 _P3V2_。
 
 ```azurecli
 az appservice plan create \

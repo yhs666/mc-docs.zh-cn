@@ -6,20 +6,23 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 06/24/2019
-ms.date: 10/08/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47cf468f8c9505c6d7812e16ef1eea51abb3f377
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 300cc1a8469edb1002cc9d477dcfcc96b1f81c0c
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72291949"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655296"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>部署 Azure AD 自助式密码重置
+
+> [!NOTE]
+> 本指南介绍自助式密码重置及其部署方法。 如果正在寻找自助式密码重置工具以重新进入你的帐户，请转到 [https://passwordreset.activedirectory.windowsazure.cn](https://passwordreset.activedirectory.windowsazure.cn)。 
 
 自助式密码重置 (SSPR) 是一项 Azure Active Directory 功能，可让员工自行重置其密码，而无需联系 IT 工作人员。 员工必须注册自助式密码重置或者在其中注册才能使用该服务。 在注册期间，员工可以选择其组织启用的一种或多种身份验证方法。
 

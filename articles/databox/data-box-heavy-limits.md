@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: heavy
 ms.topic: article
-origin.date: 07/03/2019
-ms.date: 07/22/2019
+origin.date: 08/28/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 1e4b57ee14848430cbd0f4a5bc5c2794c6a3f96f
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: 110061e3f4867ecdd6f11d9faf3b0b10019954ae
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298151"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530608"
 ---
 # <a name="azure-data-box-heavy-limits"></a>Azure Data Box Heavy 限制
 
@@ -27,7 +27,8 @@ ms.locfileid: "68298151"
 
 ## <a name="data-box-heavy-limits"></a>Data Box Heavy 限制
 
-- Data Box 每个节点最多可存储 10 亿个文件。
+- Data Box Heavy 每个节点最多可存储 10 亿个文件。
+- Data Box Heavy 支持云中每个节点最多 512 个容器或共享。 用户共享中的顶层目录将成为云中的容器或 Azure 文件共享。
 
 ## <a name="azure-storage-limits"></a>Azure 存储限制
 

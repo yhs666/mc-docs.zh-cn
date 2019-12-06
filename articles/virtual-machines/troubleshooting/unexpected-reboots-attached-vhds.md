@@ -1,5 +1,5 @@
 ---
-title: 在 Azure VM 上排查附加 VHD 的 VM 的意外重启 | Azure
+title: 排查附加 VHD 的 VM 的意外重启 | Azure
 description: 如何排查 VM 的意外重启。
 keywords: ssh 连接被拒绝, ssh 错误, azure ssh, SSH 连接失败
 services: virtual-machines
@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 11/01/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5858d19ded82e8e604d883a94ebe7025678f06aa
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: d3be4ecb5e9b2896fba15aee3481efce5f730cc3
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116873"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592450"
 ---
 # <a name="troubleshoot-unexpected-reboots-of-vms-with-attached-vhds"></a>排查附加 VHD 的 VM 意外重启
 

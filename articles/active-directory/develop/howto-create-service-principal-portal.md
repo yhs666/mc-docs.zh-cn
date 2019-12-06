@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/14/2019
-ms.date: 11/05/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4126198e8bb24e73eed469c8a4e2eaee97a4255d
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 55bf15215c2ebda4826a25ca67099f4352059ad4
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830985"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655260"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>如何：使用门户创建可访问资源的 Azure AD 应用程序和服务主体
 
@@ -52,7 +52,7 @@ ms.locfileid: "73830985"
 
 可将作用域设置为订阅、资源组或资源级别。 较低级别的作用域会继承权限。 例如，将某个应用程序添加到资源组的“读取者”角色意味着该应用程序可以读取该资源组及其包含的所有资源。
 
-1. 导航到要将应用程序分配到的作用域级别。 例如，若要在订阅范围内分配角色，请依次选择“所有服务”和“订阅”   。
+1. 在 Azure 门户中，选择希望将应用程序分配到的范围级别。 例如，若要在订阅范围内分配角色，请搜索并选择“订阅”  ，或在“主页”  页上选择“订阅”  。
 
    ![例如，在订阅范围内分配角色](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -106,7 +106,7 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
     ![选择“上传证书”并选择要添加的证书](./media/howto-create-service-principal-portal/upload-cert.png)
 
-1. 选择“设置”  （应用程序对象和服务主体对象）。
+1. 选择“添加”   。
 
 在门户中将证书注册到应用程序后，需要启用客户端应用程序代码才能使用该证书。
 

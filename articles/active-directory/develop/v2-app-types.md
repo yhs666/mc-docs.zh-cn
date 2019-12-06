@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/06/2019
-ms.date: 11/07/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7362c7b182c697bfc2a19759d735ad97fc3df69d
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 03e29b396be336db52028fbaa6ea1ae51acf9db5
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830889"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655397"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft 标识平台的应用程序类型
 
@@ -91,7 +91,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 
 ## <a name="web-apis"></a>Web API
 
-可以使用 Microsoft 标识平台终结点来保护 Web 服务，例如应用的 RESTful Web API。 Web API 使用 OAuth 2.0 访问令牌而不是 ID 令牌和会话 Cookie 来保护数据以及对传入的请求进行身份验证。 Web API 调用方会在 HTTP 请求的授权标头中附加一个访问令牌，如下所示：
+可以使用 Microsoft 标识平台终结点来保护 Web 服务，例如应用的 RESTful Web API。 Web API 可以在多种平台和语言中实现。 它们还可以在 Azure Functions 中使用 HTTP 触发器实现。 Web API 使用 OAuth 2.0 访问令牌而不是 ID 令牌和会话 Cookie 来保护数据以及对传入的请求进行身份验证。 Web API 调用方会在 HTTP 请求的授权标头中附加一个访问令牌，如下所示：
 
 ```
 GET /api/items HTTP/1.1

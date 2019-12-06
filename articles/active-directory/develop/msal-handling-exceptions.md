@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/08/2019
-ms.date: 11/05/2019
+origin.date: 11/13/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 223ae8db08d4261aae41129ac8dab1334e83d6be
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 87f7e190b4e2a8ee32bdbde9019ae575030c1732
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830972"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655353"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>处理 MSAL 异常和错误
 
@@ -41,7 +41,7 @@ Microsoft 身份验证库 (MSAL) 中的异常旨在帮助应用开发人员进�
 
 [MSALError 枚举](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128)中列出了完整的错误列表。
 
-MSAL 生成的所有错误将连同 `MSALErrorDomain` 域一起返回。 
+MSAL 生成的所有错误将连同 `MSALErrorDomain` 域一起返回。
 
 对于系统错误，MSAL 将从系统 API 返回原始 `NSError`。 例如，如果令牌获取因未建立网络连接而失败，则 MSAL 将返回错误，同时返回 `NSURLErrorDomain` 域和 `NSURLErrorNotConnectedToInternet` 代码。
 
@@ -241,6 +241,17 @@ Swift
     application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
+## <a name="msal-for-python-error-handling"></a>MSAL for Python 错误处理
+
+在 MSAL for Python 中，大多数错误都作为 API 调用的返回值传达。 此错误以字典形式表示，其中包含来自 Microsoft 标识平台的 JSON 响应。
+
+* 成功的响应包含 `"access_token"` 键。 响应的格式通过 OAuth2 协议定义。 有关详细信息，请参阅 [5.1 成功响应](https://tools.ietf.org/html/rfc6749#section-5.1)
+* 错误响应包含 `"error"`，并且通常包含 `"error_description"`。 响应的格式通过 OAuth2 协议定义。 有关详细信息，请参阅 [5.2 错误响应](https://tools.ietf.org/html/rfc6749#section-5.2)
+
+返回错误时，`"error_description"` 键包含用户可读的消息，而该消息通常又包含 Microsoft 标识平台错误代码。 有关各种错误代码的详细信息，请参阅[身份验证和授权错误代码](/active-directory/develop/reference-aadsts-error-codes)。
+
+在 MSAL for Python 中，异常很罕见，因为系统对大多数错误的处理方式是返回错误值。 只有在特定情况下（例如在 API 参数格式不正确的情况下）尝试使用库的方式出现问题时，才会引发 `ValueError` 异常。
+
 ## <a name="net-exceptions"></a>.NET 异常
 
 处理异常时，可以使用异常类型本身和 `ErrorCode` 成员来区分不同的异常。 `ErrorCode` 值是 [MsalError](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet) 类型的常量。
@@ -343,7 +354,6 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
  }
 }
 ```
-
 
 ## <a name="javascript-errors"></a>JavaScript 错误
 

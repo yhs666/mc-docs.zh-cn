@@ -6,15 +6,15 @@ author: WenJason
 ms.service: storage
 ms.topic: quickstart
 origin.date: 10/26/2018
-ms.date: 04/08/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.subservice: files
-ms.openlocfilehash: a68e840ae139acbada655b60d38c0f86e18c3929
-ms.sourcegitcommit: b7cefb6ad34a995579a42b082dcd250eb79068a2
+ms.openlocfilehash: 1675c1b074585234e98dfc129cc58c2c5829586a
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890174"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655222"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>快速入门：使用 Azure CLI 创建和管理 Azure 文件共享
 本指南介绍通过 Azure CLI 来使用 [Azure 文件共享](storage-files-introduction.md)的基本知识。 Azure 文件共享与其他文件共享一样，只不过是存储在云中并由 Azure 平台提供支持。 Azure 文件共享支持行业标准 SMB 协议，可以跨多个计算机、应用程序和实例进行文件共享。 
@@ -108,20 +108,16 @@ az storage directory create \
 ```
 
 ### <a name="upload-a-file"></a>上传文件
-若要演示如何使用 [`az storage file upload`](https://docs.azure.cn/cli/storage/file) 命令来上传文件，请首先在 Cloud Shell 暂存驱动器上创建要上传的文件。 以下示例创建并上传该文件：
+若要演示如何使用 [`az storage file upload`](https://docs.azure.cn/cli/storage/file) 命令来上传文件，请首先创建要上传的文件。 以下示例创建并上传该文件：
 
 ```azurecli
-date > ~/clouddrive/SampleUpload.txt
-
 az storage file upload \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
     --share-name "myshare" \
-    --source "~/clouddrive/SampleUpload.txt" \
+    --source "./filepath/SampleUpload.txt" \
     --path "myDirectory/SampleUpload.txt"
 ```
-
-如果在本地运行 Azure CLI，请将 `~/clouddrive` 替换为计算机上的现有路径。
 
 上传文件以后，即可使用 [`az storage file list`](https://docs.azure.cn/cli/storage/file) 命令，确保文件已上传到 Azure 文件共享：
 
@@ -138,15 +134,12 @@ az storage file list \
 可以使用 [`az storage file download`](https://docs.azure.cn/cli/storage/file) 命令下载已上传到 PowerShell 暂存驱动器的文件的副本：
 
 ```azurecli
-# Delete an existing file by the same name as SampleDownload.txt, if it exists, because you've run this example before
-rm -rf ~/clouddrive/SampleDownload.txt
-
 az storage file download \
     --account-name $STORAGEACCT \
     --account-key $STORAGEKEY \
     --share-name "myshare" \
     --path "myDirectory/SampleUpload.txt" \
-    --dest "~/clouddrive/SampleDownload.txt"
+    --dest "./filepath/SampleDownload.txt"
 ```
 
 ### <a name="copy-files"></a>复制文件
@@ -183,7 +176,7 @@ az storage file list \
     --output table
 ```
 
-虽然 `az storage file copy start` 命令可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的文件移动，但我们仍建议你使用 AzCopy 进行较大型 （就要移动的文件的数量或大小而言）的移动。详细了解 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md) 和 [Windows 版 AzCopy](../common/storage-use-azcopy.md)。 AzCopy 必须安装在本地。 AzCopy 在 Cloud Shell 中不可用。 
+虽然 `az storage file copy start` 命令可以方便地用于 Azure 文件共享和 Azure Blob 存储容器之间的文件移动，但我们仍建议你使用 AzCopy 进行较大型 （就要移动的文件的数量或大小而言）的移动。详细了解 [Linux 版 AzCopy](../common/storage-use-azcopy-linux.md) 和 [Windows 版 AzCopy](../common/storage-use-azcopy.md)。
 
 ## <a name="create-and-manage-share-snapshots"></a>创建和管理共享快照
 可以通过 Azure 文件共享执行的另一项有用的任务是创建共享快照。 快照保存 Azure 文件共享在某个时间点的副本。 共享快照类似于你可能已经熟悉的某些操作系统技术：

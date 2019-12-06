@@ -1,32 +1,32 @@
 ---
-title: 管理组的 PowerShell 示例 - Azure Active Directory | Microsoft Docs
+title: 管理组的 PowerShell V2 示例 - Azure AD | Microsoft Docs
 description: 本页提供的 PowerShell 示例适用于在 Azure Active Directory 中管理组
 keywords: Azure AD, Azure Active Directory, PowerShell, 组, 组管理
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 06/14/2019
-ms.date: 08/28/2019
+origin.date: 11/08/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687c55830310e0435268a91ef1eb8a587b210bf4
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: c07e97ecae1c2da239801272464d3879441da11e
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134349"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655422"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>用于组管理的 Azure Active Directory 版本 2 cmdlet
 
 > [!div class="op_single_selector"]
-> * [Azure 门户](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Azure 门户](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 

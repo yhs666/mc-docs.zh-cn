@@ -1,19 +1,19 @@
 ---
-title: 跨界 Azure 连接的 VPN 网关设置 | Microsoft Docs
+title: Azure VPN 网关：配置设置
 description: 了解用于 Azure 虚拟网络网关的 VPN 网关设置。
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 10/03/2019
-ms.date: 11/11/2019
+origin.date: 11/04/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 533cb8b972ffc0a8ac8c97363641689fe99e14a0
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: 0c259e79a9bbd449b8b5052e2ba4568243d264e4
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742295"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552988"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>关于 VPN 网关配置设置
 
@@ -76,9 +76,9 @@ az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --r
 
 如果具有 VPN 网关并且希望使用不同的网关 SKU，则可以采用的选项是调整网关 SKU 的大小，或者更改为另一个 SKU。 如果更改为另一个网关 SKU，这会完全删除现有网关并构建一个新网关。 构建网关最多可能需要 45 分钟。 与之相比，当调整网关 SKU 的大小时，停机时间非常短，因为这不需要删除并重建网关。 如果能够调整网关 SKU 的大小而不需要更改它，则这是首选方式。 但是，大小调整有如下规则：
 
-1. 可以在 VpnGw1 SKU、VpnGw2 SKU 和 VpnGw3 SKU 之间调整大小。
+1. 除基本 SKU 外，可以将 VPN 网关 SKU 的大小调整为同一代（第 1 代或第 2 代）中的另一个 VPN 网关 SKU。 例如，第 1 代的 VpnGw1 可以调整为第 1 代的 VpnGw2，但不能调整为第 2 代的 VpnGw2。
 2. 使用旧版网关 SKU 时，仍可在基本、标准和高性能 SKU 之间调整大小。
-3. 不能从基本/标准/高性能 SKU 调整为新版 VpnGw1/VpnGw2/VpnGw3 SKU  ， 而只能[更改](#change)为新版 SKU。
+3. 不能从基本/标准/高性能 SKU 调整为 VpnGw SKU  。 而只能[更改](#change)为新版 SKU。
 
 #### <a name="resizegwsku"></a>重设网关大小
 

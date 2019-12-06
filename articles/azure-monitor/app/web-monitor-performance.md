@@ -10,12 +10,12 @@ origin.date: 05/10/2018
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: f05937c6e896d27b6f0c3da0b6d351179fb22183
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c60fed4d76bf738b7102c2a9cc41778c8051f484
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730515"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658108"
 ---
 # <a name="monitor-performance-in-web-applications"></a>在 Web 应用程序中监视性能
 
@@ -117,7 +117,7 @@ HTTP 请求包括对页面、数据和图像的所有 GET 或 POST 请求。
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>通过性能调查体验来发现和修复性能瓶颈
 
-可以使用新的性能调查体验来审查 Web 应用中性能低下的操作。 可以快速选择一个特定的性能低下的操作，并使用[探查器](../../azure-monitor/app/profiler.md)深入到代码中来查明导致操作性能低下的根源。 使用新的为选定操作显示的持续时间分布，只需一瞥，便可快速评估客户的体验有多糟糕。 你可以看到每个性能低下的操作影响了多少用户交互。 在下面的示例中，我们决定更详细地查看“GET Customers/Details”操作的体验。 在持续时间分布中，我们可以看到有三个峰值。 最左侧的峰值约为 400 ms，表示响应体验很棒。 中间峰值约为 1.2 s，表示体验一般。 最后一个是 3.6 s，这里出现一个小的峰值，表示 99% 的体验，这可能会导致我们的客户因不满意而离开。 该体验比同一操作的很棒体验慢十倍。 
+可以使用新的性能调查体验来审查 Web 应用中性能低下的操作。 可以快速选择一个特定的性能低下的操作，并使用探查器深入到代码中来查明导致操作性能低下的根本原因。 使用新的为选定操作显示的持续时间分布，只需一瞥，便可快速评估客户的体验有多糟糕。 你可以看到每个性能低下的操作影响了多少用户交互。 在下面的示例中，我们决定更详细地查看“GET Customers/Details”操作的体验。 在持续时间分布中，我们可以看到有三个峰值。 最左侧的峰值约为 400 ms，表示响应体验很棒。 中间峰值约为 1.2 s，表示体验一般。 最后一个是 3.6 s，这里出现一个小的峰值，表示 99% 的体验，这可能会导致我们的客户因不满意而离开。 该体验比同一操作的很棒体验慢十倍。 
 
 ![“GET Customers/Details”三个持续时间峰值](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 

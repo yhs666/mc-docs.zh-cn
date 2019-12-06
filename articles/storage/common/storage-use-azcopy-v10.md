@@ -5,15 +5,15 @@ author: WenJason
 ms.service: storage
 ms.topic: conceptual
 origin.date: 10/23/2019
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: d25ccf20159c4975b5a6ada66ae658a42c937ed2
-ms.sourcegitcommit: 99c408fd0f1fc264acaed41f1a77fea4ebbc0e0f
+ms.openlocfilehash: e6677ea7ec7e77c79d074456cf51da84846f45d9
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74354343"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655466"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 入门
 
@@ -221,7 +221,7 @@ azcopy login --identity --aad-endpoint https://login.partner.microsoftonline.cn
 
 ##### <a name="using-a-user-assigned-managed-identity"></a>使用用户分配的托管标识
 
-首先，确保已在 VM 上启用用户分配的托管标识。 请参阅[用户分配的托管标识](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)。
+首先，确保已在 VM 上启用用户分配的托管标识。 请参阅[用户分配的托管标识](/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#user-assigned-managed-identity)。
 
 然后，在命令控制台中，键入以下任意命令并按 ENTER 键。
 

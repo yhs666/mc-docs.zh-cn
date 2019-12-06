@@ -1,9 +1,10 @@
 ---
-title: 初始化客户端应用程序（适用于 .NET 的 Microsoft 身份验证库）| Azure
+title: 初始化客户端应用程序（适用于 .NET 的 Microsoft 身份验证库）
+titleSuffix: Microsoft identity platform
 description: 了解如何使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 初始化公共客户端和机密客户端应用程序。
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -13,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 04/12/2019
-ms.date: 06/18/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2066aced5b7d930d74753d6457dd493183efe5d0
-ms.sourcegitcommit: 9d5fd3184b6a47bf3b60ffdeeee22a08354ca6b1
+ms.openlocfilehash: 3c6f41b098d2717b3c3f8ab2f2eeea9c3b65e24c
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67305866"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655329"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>使用 MSAL.NET 初始化客户端应用程序
 本文介绍如何使用适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 初始化公共客户端和机密客户端应用程序。  若要详细了解客户端应用程序类型和应用程序配置选项，请阅读[概述](msal-client-applications.md)。
@@ -101,7 +102,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 可在公共客户端或机密客户端应用程序生成器中设置的修饰符包括：
 
-|参数 | 说明|
+|修饰符 | 说明|
 |--------- | --------- |
 |`.WithAuthority()` 7 个重写 | 将应用程序默认颁发机构设置为 Azure AD 颁发机构，有时还可以选择 Azure 云、受众、租户（租户 ID 或域名），或直接提供颁发机构 URI。|
 |`.WithAdfsAuthority(string)` | 将应用程序默认颁发机构设置为 ADFS 颁发机构。|
@@ -120,7 +121,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 可在 Xamarin.iOS 上的公共客户端应用程序生成器中设置的修饰符包括：
 
-|参数 | 说明|
+|修饰符 | 说明|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **仅限 Xamarin.iOS**：设置 iOS 密钥链安全组（为实现缓存持久性）。|
 
@@ -128,7 +129,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 可在机密客户端应用程序生成器中设置的修饰符包括：
 
-|参数 | 说明|
+|修饰符 | 说明|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | 设置用于在 Azure AD 中识别应用程序的证书。|
 |`.WithClientSecret(string clientSecret)` | 设置用于在 Azure AD 中识别应用程序的客户端机密（应用密码）。|
@@ -163,3 +164,4 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
+<!-- Update_Description: wording update -->

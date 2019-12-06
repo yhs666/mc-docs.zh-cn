@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 08/29/2018
-ms.date: 09/20/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e3c3ccaf1238676409c5679b0b3bf3f2688ea3f4
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 29d070aed34f69b70c8c995963c29d15004692d6
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156334"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555798"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>证书和应用服务环境 
 
@@ -65,7 +65,7 @@ ASE 是单租户系统。 由于它是单一租户，某些只能在 ASE 中使�
 - 基于 IP 的 SSL，仅在外部 ASE 中受支持。  ILB ASE 不支持基于 IP 的 SSL。
 - KeyVault 托管的证书 
 
-[应用服务 SSL 教程](https://docs.azure.cn/app-service/app-service-web-tutorial-custom-ssl)中提供了有关上传和管理这些证书的说明。  如果只需将证书配置为与分配到 Web 应用的自定义域名相匹配，则遵照这些说明操作即可。 若要上传使用默认域名的 ILB ASE Web 应用的证书，则需要根据前文所述，在证书的 SAN 中指定 scm 站点。 
+[在 Azure 应用服务中添加 SSL 证书](../configure-ssl-certificate.md)中提供了有关上传和管理这些证书的说明。  如果只需将证书配置为与分配到 Web 应用的自定义域名相匹配，则遵照这些说明操作即可。 若要上传使用默认域名的 ILB ASE Web 应用的证书，则需要根据前文所述，在证书的 SAN 中指定 scm 站点。 
 
 ## <a name="tls-settings"></a>TLS 设置 
 
@@ -83,7 +83,7 @@ ASE 是单租户系统。 由于它是单一租户，某些只能在 ASE 中使�
 4. 复制指纹。
 5. 转到“应用程序设置”。 创建应用设置 WEBSITE_LOAD_ROOT_CERTIFICATES，并使用指纹作为值。 如果有多个证书，可将其放到同一个设置中，并用逗号分隔（不要包含空格），例如 
 
-        84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
+    84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
 配置了该设置的应用所在的同一个应用服务计划中的所有应用都可以使用该证书。 如果需要将该证书提供给不同应用服务计划中的应用使用，则需要在该应用服务计划中的应用上重复“应用设置”操作。 若要检查是否设置了证书，请转到 Kudu 控制台，并在 PowerShell 调试控制台中发出以下命令：
 

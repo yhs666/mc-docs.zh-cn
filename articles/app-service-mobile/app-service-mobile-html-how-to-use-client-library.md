@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
-ms.openlocfilehash: dccaeed13e5678173a7ecfe213136dff862c8c32
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 440df2d9c9c8bf76d380099019189f880ec5d61b
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006586"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657931"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 JavaScript 客户端库
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -64,7 +64,7 @@ import * as WindowsAzure from 'azure-mobile-apps-client';
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>如何：对用户进行身份验证
-Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权：Facebook、Google、Microsoft 帐户和 Twitter。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [身份验证入门] 教程。
+Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权：Microsoft 帐户。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅 [身份验证入门] 教程。
 
 支持两种身份验证流：服务器流和客户端流。  服务器流依赖于提供者的 Web 身份验证界面，因此可提供最简便的身份验证体验。 客户端流依赖于提供程序特定的 SDK，因此允许与设备特定的功能（例如单一登录）进行更深入的集成。
 

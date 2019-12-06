@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/18/2019
-ms.date: 08/12/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 2df0c8eb3098ade07cc430b879cde53b794003c9
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 5648006699ad1e6b7a49005edd74daeed0d42eab
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806851"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555946"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>用于事件驱动的后台处理的 Azure WebJobs SDK 入门
 
@@ -45,16 +45,12 @@ ms.locfileid: "70806851"
 
 ## <a name="webjobs-nuget-packages"></a>WebJobs NuGet 包
 
-1. 安装以下 NuGet 包的最新稳定版本 3.x 版：
+1. 安装 `Microsoft.Azure.WebJobs.Extensions` NuGet 包的最新稳定版本 3.x，其中包括 `Microsoft.Azure.WebJobs`。
 
-   * `Microsoft.Azure.WebJobs`
-   * `Microsoft.Azure.WebJobs.Extensions`
-
-     下面是适用于版本 3.0.4 的**包管理器控制台**命令：
+     下面是 3.0.2 版的“包管理器控制台”命令  ：
 
      ```powershell
-     Install-Package Microsoft.Azure.WebJobs -version 3.0.4
-     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.1
+     Install-Package Microsoft.Azure.WebJobs.Extensions -version 3.0.2
      ```
 
 ## <a name="create-the-host"></a>创建主机
@@ -91,16 +87,9 @@ ms.locfileid: "70806851"
 
 在本部分，设置使用 [ASP.NET Core 日志记录框架](https://docs.microsoft.com/aspnet/core/fundamentals/logging)的控制台日志记录。
 
-1. 安装以下 NuGet 包的最新稳定版本：
+1. 安装 `Microsoft.Extensions.Logging.Console` NuGet 包的最新稳定版本，其中包括 `Microsoft.Extensions.Logging`。
 
-   * `Microsoft.Extensions.Logging` - 日志记录框架。
-   * `Microsoft.Extensions.Logging.Console` - 用于将日志发送到控制台的控制台提供程序。
-
-   下面是 2.2.0 版的“包管理器控制台”命令  ：
-
-   ```powershell
-   Install-Package Microsoft.Extensions.Logging -version 2.2.0
-   ```
+   下面是版本 2.2.0 的“包管理器控制台”命令： 
 
    ```powershell
    Install-Package Microsoft.Extensions.Logging.Console -version 2.2.0
@@ -156,10 +145,10 @@ ms.locfileid: "70806851"
 
 1. 安装 [Microsoft.Azure.WebJobs.Extensions.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage) NuGet 包的最新稳定版本，即 3.x 版。 
 
-    下面是适用于版本 3.0.3 的**包管理器控制台**命令：
+    下面是 3.0.4 版的“包管理器控制台”命令  ：
 
     ```powershell
-    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.3
+    Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
 2. 在 `ConfigureWebJobs` 扩展方法中，调用 [`HostBuilder`](https://docs.microsoft.com/dotnet/api/microsoft.extensions.hosting.hostbuilder) 实例上的 `AddAzureStorage` 方法来初始化存储扩展。 此时，`ConfigureWebJobs` 方法如下例所示：
@@ -371,7 +360,7 @@ WebJobs SDK 在 Azure 的“应用程序设置”中查找存储连接字符串�
 若要利用 [Application Insights](../azure-monitor/app/app-insights-overview.md) 日志记录，请更新日志记录代码以执行以下操作：
 
 * 使用默认[筛选](webjobs-sdk-how-to.md#log-filtering)添加 Application Insights 日志记录提供程序；在本地运行时，所有“信息”和更高级别的日志将转到控制台和 Application Insights。
-* 将 `LoggerFactory` 对象放在 `using` 块中，以确保在主机退出时刷新日志输出。
+* 将 [LoggerFactory](./webjobs-sdk-how-to.md#logging-and-monitoring) 对象放在 `using` 块中，以确保在主机退出时刷新日志输出。
 
 1. 为 Application Insights 日志记录提供程序安装 NuGet 包的最新稳定版本 3.x 版：`Microsoft.Azure.WebJobs.Logging.ApplicationInsights`。
 

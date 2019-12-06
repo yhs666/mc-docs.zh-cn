@@ -9,12 +9,12 @@ ms.topic: tutorial
 origin.date: 05/09/2019
 ms.date: 06/10/2019
 ms.author: v-jay
-ms.openlocfilehash: d1cdd507686963d849d054061f3537f07e3a9401
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 992ffc28c2204b0c154b337a19a200e73cecdcae
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726503"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530628"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>教程：通过 REST API 将数据复制到 Azure Data Box Blob 存储  
 

@@ -7,18 +7,17 @@ author: tfitzmac
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 01/03/2019
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 879440a00af60334a01b42eb67c3d07ba89f213d
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: b8e7f17da98725af822c45bfe7c09e943e06be1c
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806760"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555800"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>有关使用 Azure 资源管理器模板部署 Web 应用的指南
 
@@ -48,7 +47,7 @@ ms.locfileid: "70806760"
 **第 3 层**
 * 源代码管理 - 依赖于 Web 应用。
 * MSDeploy 站点扩展 - 依赖于 Web 应用。
-* 以服务器场为目标的 Application Insights 实例 - 依赖于 Web 应用。
+* 以 Web 应用为目标的 Azure Application Insights 实例 - 依赖于 Web 应用。
 
 **第 4 层**
 * 应用服务证书 - 依赖于存在的源代码管理或 MSDeploy； 若都不存在，则依赖于 Web 应用。
@@ -116,6 +115,7 @@ Web 应用的名称必须全局唯一。 可以使用某个可能唯一的命名
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+如果模板包括用于 SSL 绑定的 [Microsoft.Web/certificates](https://docs.microsoft.com/azure/templates/microsoft.web/certificates) 资源，且证书存储在 Key Vault 中，则须确保应用服务标识可以访问该证书。
 
 在 Azure 中，应用服务服务主体的 ID 为 **abfa0a7c-a6b6-4736-8310-5855508787cd**。 若要为应用服务服务主体授予对 Key Vault 的访问权限，请使用：
 

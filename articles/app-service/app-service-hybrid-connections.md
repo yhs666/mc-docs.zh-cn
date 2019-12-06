@@ -10,18 +10,17 @@ ms.assetid: 66774bde-13f5-45d0-9a70-4e9536a4f619
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 06/06/2019
-ms.date: 09/03/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.custom: seodec18
-ms.openlocfilehash: d69a229c8982b8a20465906f5beb51b97394cd69
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 9131032ad321267c4d270f8bcd2bf16c6ababcbf
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806846"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74556018"
 ---
 # <a name="azure-app-service-hybrid-connections"></a>Azure 应用服务混合连接 #
 
@@ -40,7 +39,7 @@ ms.locfileid: "70806846"
 如果应用发出了与配置的混合连接终结点匹配的 DNS 请求，则会通过混合连接重定向出站 TCP 流量。  
 
 > [!NOTE]
-> 这意味着，始终应该尽量为混合连接使用 DNS 名称。 如果终结点使用 IP 地址，某些客户端软件不会执行 DNS 查找。
+> 这意味着，始终应该尽量为混合连接使用 DNS 名称。 如果终结点使用 IP 地址，某些客户端软件不会执行 DNS 查找。 
 >
 
 ### <a name="app-service-hybrid-connection-benefits"></a>应用服务混合连接的优势 ###
@@ -64,6 +63,9 @@ ms.locfileid: "70806846"
 - 访问使用动态端口（例如 FTP 被动模式或扩展被动模式）的基于 TCP 的服务。
 - 支持 LDAP，因为它可能需要 UDP。
 - 支持 Active Directory，因为无法将应用服务辅助角色加入域。
+
+### <a name="prerequisites"></a>先决条件 ###
+ - Windows 应用服务是必需的。 仅在 Windows 中提供。  
 
 ## <a name="add-and-create-hybrid-connections-in-your-app"></a>在应用中添加和创建混合连接 ##
 
@@ -220,6 +222,12 @@ ms.locfileid: "70806846"
     armclient login
     armclient put /subscriptions/ebcidic-asci-anna-nath-rak1111111/resourceGroups/myapp-rg/providers/Microsoft.Web/sites/myhcdemoapp/hybridConnectionNamespaces/demo-relay/relays/relay-demo-hc?api-version=2016-08-01 @hctest.json
 
+## <a name="secure-your-hybrid-connections"></a>保护混合连接 ##
+
+任何在基础 Azure 服务总线中继上有足够权限的用户都可以将现有的混合连接添加到应用服务 Web 应用。 这意味着，如果必须阻止他人重复使用这个相同的混合连接（例如，如果目标资源是一项没有设置任何其他的安全措施来防止未经授权的访问的服务，则必须这样做），则必须锁定对 Azure 服务总线中继的访问。
+
+可以通过 `Reader` 访问权限来访问中继的任何人都将能够  看到混合连接（在尝试通过 Azure 门户将它添加到 Web 应用时），但却无法添加它，  因为缺少检索用于建立中继连接的连接字符串的权限。 若要成功添加混合连接，他们必须具有 `listKeys` 权限 (`Microsoft.Relay/namespaces/hybridConnections/authorizationRules/listKeys/action`)。 `Contributor` 角色或者任何其他包含此权限（在中继上）的角色都会允许用户使用混合连接并将其添加到自己的 Web 应用。
+
 ## <a name="troubleshooting"></a>故障排除 ##
 
 “已连接”状态表示，至少有一个 HCM 配置了该混合连接，且可以访问 Azure。 如果混合连接状态未显示“已连接”，则表示未在任何可访问 Azure 的 HCM 上配置该混合连接  。
@@ -253,7 +261,7 @@ ms.locfileid: "70806846"
 
 <!--Links-->
 [HCService]: /service-bus-relay/relay-hybrid-connections-protocol/
-[portal]: http://portal.azure.cn/
-[oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
-[sbpricing]: http://www.azure.cn/pricing/details/service-bus/
+[portal]: https://portal.azure.cn/
+[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[sbpricing]: https://www.azure.cn/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

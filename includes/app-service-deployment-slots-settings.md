@@ -2,15 +2,15 @@
 author: cephalin
 ms.service: app-service
 ms.topic: include
-origin.date: 06/18/2019
-ms.date: 09/04/2019
+origin.date: 09/18/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 202643d51771a24a39b6a2bd962aad1bf205ac08
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 15f0079fe46c9731bdad2b538905f7ade47ed1a7
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806765"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555968"
 ---
 从另一个部署槽克隆配置时，可以编辑克隆的配置。 某些配置元素在交换时遵循内容（不特定于槽），而其他配置元素会在交换之后保留在同一个槽（特定于槽）。 以下列表显示交换槽时会更改的设置。
 
@@ -20,7 +20,6 @@ ms.locfileid: "70806765"
 * 应用设置（可以配置为停在槽中）
 * 连接字符串（可以配置为停在槽中）
 * 处理程序映射
-* 监视和诊断设置
 * 公用证书
 * WebJobs 内容
 * 混合连接 *
@@ -28,19 +27,20 @@ ms.locfileid: "70806765"
 * 服务终结点 *
 * Azure 内容分发网络 *
 
-标有星号 (*) 的功能已计划粘滞到槽。 
+标有星号 (*) 的功能计划取消交换。 
 
 **不交换的设置**：
 
 * 发布终结点
 * 自定义域名
-* 私有证书和 SSL 绑定
+* 非公共证书和 TLS/SSL 设置
 * 缩放设置
 * Web 作业计划程序
 * IP 限制
 * Always On
-* 协议设置（HTTPS、TLS 版本、客户端证书）
 * 诊断日志设置
 * 跨域资源共享 (CORS)
 
-<!-- VNET and hybrid connections not yet sticky to slot -->
+> [!NOTE]
+> 应用于不交换的设置的某些应用设置也不交换。 例如，由于诊断日志设置不会交换，因此相关的应用设置（如 `WEBSITE_HTTPLOGGING_RETENTION_DAYS` 和 `DIAGNOSTICS_AZUREBLOBRETENTIONDAYS`）也不会交换，即使它们未显示为槽设置也是如此。
+>

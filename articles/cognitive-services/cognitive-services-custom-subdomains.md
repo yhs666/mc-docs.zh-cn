@@ -1,7 +1,7 @@
 ---
 title: 自定义子域
 titleSuffix: Azure Cognitive Services
-description: 每个认知服务资源的自定义子域名都是通过 Azure 门户、Azure Cloud Shell 或 Azure CLI 创建的。
+description: 每个认知服务资源的自定义子域名是通过 Azure 门户、Azure Powershell 或 Azure CLI 创建的。
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 07/24/2019
 ms.date: 10/11/2019
 ms.author: v-tawe
-ms.openlocfilehash: 9f905621583eb5e8d11cd96d894deffb2b4aabf8
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 69f87093789455a823a57b5c180ae013f18fb46f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528077"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658113"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>认知服务的自定义子域名
 

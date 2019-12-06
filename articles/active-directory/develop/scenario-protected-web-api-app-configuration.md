@@ -1,5 +1,6 @@
 ---
-title: 受保护的 Web API - 应用代码配置 | Azure
+title: 受保护的 Web API - 应用代码配置
+titleSuffix: Microsoft identity platform
 description: 了解如何生成受保护的 Web API 和配置应用程序的代码。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 05/07/2019
-ms.date: 08/26/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baf03b91c0a430a777ddfcb6a6ce1494adf71e86
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 12ca3a3ae40d77771a55809dfdb67b69b1b04dc8
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134253"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655303"
 ---
 # <a name="protected-web-api-code-configuration"></a>受保护的 Web API：代码配置
 
@@ -123,9 +124,11 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
     // Instead of using the default validation (validating against a single tenant,
     // as we do in line-of-business apps),
     // we inject our own multitenant validation logic (which even accepts both v1 and v2 tokens).
-    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.ValidateAadIssuer;
+    options.TokenValidationParameters.IssuerValidator = AadIssuerValidator.GetIssuerValidator(options.Authority).Validate;;
 });
 ```
+
+此代码片段摘自 [Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/blob/154282843da2fc2958fad151e2a11e521e358d42/Microsoft.Identity.Web/WebApiServiceCollectionExtensions.cs#L50-L63) 中的 ASP.NET Core Web Api 增量教程。 执行更多操作的 `AddProtectedWebApi` 方法是从 Startup.cs 调用的
 
 ## <a name="token-validation"></a>令牌验证
 
@@ -155,6 +158,10 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 | `ValidateTokenReplay` | 确保令牌未重放。 （适用于某些一次性协议的特殊情况。） |
 
 所有验证程序与 `TokenValidationParameters` 类的属性相关联，其本身已从 ASP.NET/ASP.NET Core 配置初始化。 在大多数情况下，无需更改参数。 有一种情况例外，非单租户应用不适用上述过程。 （此类应用是指接受任何组织中的用户的 Web 应用。）在这种情况下，必须验证颁发者。
+
+## <a name="token-validation-in-azure-functions"></a>Azure Functions 中的令牌验证
+
+也可以在 Azure Functions 中验证传入的访问令牌。 可以在以 [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions)、[NodeJS](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) 和 [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) 编写的 Azure Functions 中找到验证令牌的示例。
 
 ## <a name="next-steps"></a>后续步骤
 

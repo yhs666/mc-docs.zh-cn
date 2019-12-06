@@ -10,17 +10,17 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 09/25/2019
-ms.date: 11/13/2019
+origin.date: 11/14/2019
+ms.date: 11/26/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397ef8451f6daa729d7602e5910734fa2383787e
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: e74fddb5d1eb6910e46cb0576c9047c5bf97f601
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084713"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655382"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect 的自定义安装
 如果希望有更多的安装选项，可以使用 Azure AD Connect“自定义设置”。  如果拥有多个林或希望配置未覆盖在快速安装中的可选功能，可以使用它。 它适用于[**快速安装**](how-to-connect-install-express.md)不能满足部署或拓扑的所有情况。
@@ -86,7 +86,9 @@ ms.locfileid: "74084713"
 ![连接目录](./media/how-to-connect-install-custom/connectdir02.png)
 
 #### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>不支持企业管理员和域管理员帐户
-从内部版本 1.4.###.# 起，不再支持使用企业管理员或域管理员帐户作为 AD DS 连接器帐户。  如果在指定“使用现有帐户”  时尝试输入是企业管理员或域管理员的帐户，你将收到错误。
+从内部版本 1.4.18.0 起，不再支持使用企业管理员或域管理员帐户作为 AD DS 连接器帐户。  如果在指定“使用现有帐户”  时尝试输入是企业管理员或域管理员的帐户，你将收到以下错误：
+
+  **“不允许对 AD 林帐户使用企业或域管理员帐户。让 Azure AD Connect 为你创建帐户，或者指定一个具有适当权限的同步帐户。&lt;了解更多&gt;”**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 登录配置
 在此页中，可以查看本地 AD DS 中存在的 UPN 域，以及已在 Azure AD 中验证的 UPN 域。 还可以在此页中配置要用于 userPrincipalName 的属性。

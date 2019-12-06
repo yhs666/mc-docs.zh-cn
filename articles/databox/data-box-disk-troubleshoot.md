@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 06/14/2019
 ms.date: 07/22/2019
 ms.author: v-jay
-ms.openlocfilehash: 0885e6aa5de54864c8a9155cf98f07b8a232f196
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: d900479614ad9589f0269fc8ea9f5152e3e7f380
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298156"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530606"
 ---
 # <a name="use-logs-to-troubleshoot-validation-issues-in-azure-data-box-disk"></a>使用日志排查 Azure Data Box Disk 中的验证问题
 

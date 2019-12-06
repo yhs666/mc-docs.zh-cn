@@ -1,19 +1,19 @@
 ---
-title: 为点到站点 VPN 客户端播发自定义路由 | Azure | Microsoft Docs
+title: Azure VPN 网关：为 P2S VPN 客户端播发自定义路由
 description: 向点到站点客户端播发自定义路由的步骤
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/26/2019
-ms.date: 11/11/2019
+origin.date: 11/11/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 11e6b3f1153bd2f768f23d0e1077085172ef386a
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: 07a611f4b2d6ea61804b090bd3893c80d311485a
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831409"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552975"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>为 P2S VPN 客户端播发自定义路由
 
@@ -52,7 +52,14 @@ ms.locfileid: "73831409"
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
+## <a name="to-delete-custom-routes"></a>删除自定义路由
 
+使用以下示例删除自定义路由：
+
+  ```azurepowershell
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
+  ```
 ## <a name="next-steps"></a>后续步骤
 
 有关其他 P2S 路由信息，请参阅[关于点到站点路由](vpn-gateway-about-point-to-site-routing.md)。

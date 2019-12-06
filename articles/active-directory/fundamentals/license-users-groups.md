@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 09/18/2018
-ms.date: 11/13/2019
+origin.date: 09/06/2018
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d874b2f0fe2cc682ebb78c41abf928c658653c
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: ed2a15fe3e7371d57a578169b5cd0572f71abb48
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084710"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655381"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>在 Azure Active Directory 门户中分配或删除许可证
 
@@ -88,6 +88,8 @@ ms.locfileid: "74084710"
 1. 选择“分配”。 
 
     用户会添加到已许可用户列表，并有权访问所包含的 Azure AD 服务。
+    > [!NOTE]
+    > 也可以从用户的“许可证”  页将许可证直接分配给用户。 如果用户有一个通过组成员关系分配的许可证，并且你希望直接将相同的许可证分配给该用户，那么只能从步骤 1 中提到的“产品”  页进行分配。
 
 ### <a name="to-assign-a-license-to-a-group"></a>向组分配许可证的步骤
 

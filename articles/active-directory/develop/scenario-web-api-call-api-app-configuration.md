@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 11/06/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f03f98c3bead3f5dceb4ede0534f772e4158825e
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: ffbd3099bcbaafb828c5fff4c0caaedf109d440c
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830918"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655399"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>调用 Web API 的 Web API - 代码配置
 
@@ -141,6 +141,8 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
      }
 }
 ```
+
+还可以在 [NodeJS 和 Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61) 中看到代理流实现的示例。
 
 ## <a name="protocol"></a>协议
 

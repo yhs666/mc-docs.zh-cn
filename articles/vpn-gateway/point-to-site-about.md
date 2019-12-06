@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 01/18/2019
-ms.date: 08/05/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: f8b3159fbe468ee0bb80f159123c547bc6218ee5
-ms.sourcegitcommit: 235c6c8a11af703474236c379aa6310e84ff03a3
+ms.openlocfilehash: d0a9c41414f3500bbeef7afa4576ec4201361221
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68732377"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552993"
 ---
 # <a name="about-point-to-site-vpn"></a>关于点到站点 VPN
 

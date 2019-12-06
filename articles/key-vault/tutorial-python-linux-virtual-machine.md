@@ -10,12 +10,12 @@ origin.date: 09/05/2018
 ms.date: 07/29/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 5aedecc1f3c38ff6ff13efb2e4be89d1d7bba473
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 3d8ef65f9d2fd1e8a2bfe5ed210199ebf1582a5f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425851"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657880"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>教程：使用 Linux VM 和 Python 应用在 Azure 密钥保管库中存储机密
 
@@ -63,7 +63,7 @@ az login
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。
 
-通过以下代码在美国西部位置，使用 `az group create` 命令创建资源组。 将 `YourResourceGroupName` 替换所选名称。
+通过以下代码在中国东部位置，使用 `az group create` 命令创建资源组。 将 `YourResourceGroupName` 替换为所选名称。
 
 ```azurecli
 # To list locations: az account list-locations --output table

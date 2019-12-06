@@ -6,13 +6,13 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 09/24/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 388b73f152b1cfb61434061898f3189974c311d6
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+ms.date: 12/02/2019
+ms.openlocfilehash: 665ddb871487228603fe591549497f377f1c7c80
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191592"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530659"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>使用转储和还原迁移 PostgreSQL 数据库
 可以使用 [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) 将 PostgreSQL 数据库提取到转储文件，并使用 [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) 从 pg_dump 创建的存档文件中还原 PostgreSQL 数据库。
@@ -35,7 +35,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb -f testdb
 ```
 
 
-## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pg_restore"></a>使用 pg_restore 将数据还原到目标 Azure Database for PostrgeSQL
+## <a name="restore-the-data-into-the-target-azure-database-for-postgresql-using-pg_restore"></a>使用 pg_restore 将数据还原到目标 Azure Database for PostgreSQL
 创建目标数据库后，可以使用 pg_restore 命令和 -d、--dbname 参数将数据从转储文件还原到目标数据库。
 ```bash
 pg_restore -v --no-owner --host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump

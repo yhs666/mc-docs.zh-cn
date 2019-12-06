@@ -3,15 +3,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: heavy
 ms.topic: include
-origin.date: 05/21/2019
-ms.date: 06/10/2019
+origin.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: ec9d1921794a9ca1d12ce9af4ededf43e4e2e8ee
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: d4b8b912e8d9cdf5899b76bfe63ea3ca40e1c372
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726526"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530601"
 ---
 - 不要直接将文件复制到任何预创建的共享。 需要在共享下创建文件夹，然后将文件复制到该文件夹。
 - StorageAccount_BlockBlob 和 StorageAccount_PageBlob 下的文件夹为容器   。 例如，容器创建为 StorageAccount_BlockBlob/container 和 StorageAccount_PageBlob/container   。
@@ -21,3 +21,4 @@ ms.locfileid: "66726526"
 - Azure Blob 存储不支持目录。 如果在 StorageAccount_BlockBlob 文件夹下创建文件夹，将以 blob 的名义创建虚拟文件夹  。 对于 Azure 文件，将维护实际的目录结构。
 - 在 StorageAccount_BlockBlob 和 StorageAccount_PageBlob 文件夹下创建的任何空目录层次结构（没有任何文件）都不会上传   。
 - 如果将数据上传到 Azure 时发生任何错误，则会在目标存储帐户中创建一个错误日志。 当上传完成时，可以找到此错误日志的路径，并且可以查看此日志来采取纠正措施。 在验证上传的数据之前，不要删除源中的数据。
+- 将数据上传到 Azure 文件存储时，不会保留文件元数据和 NTFS 权限。 例如，复制数据时，不会保留文件的“上次修改时间”属性  。

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: integration
 ms.topic: article
 origin.date: 08/12/2019
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2d9ef16006e17e5bc9f5555c08a4069554d70507
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 0155c427783c1de940ab810adee094e8455a70f6
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292470"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657618"
 ---
 # <a name="configure-a-custom-domain-name"></a>配置自定义域名 
 

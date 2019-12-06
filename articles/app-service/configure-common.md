@@ -5,30 +5,31 @@ keywords: azure 应用服务, web 应用, 应用设置, 环境变量
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 08/13/2019
-ms.date: 09/03/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: e121697015aba7382cd18d398649610b2304c270
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 4e3e73970bdc179684a9873b8e2291eec1d6475d
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806880"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555808"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>在 Azure 门户中配置应用服务应用
 
 本主题介绍如何使用 [Azure 门户]配置 Web 应用、移动后端或 API 应用的常用设置。
 
 ## <a name="configure-app-settings"></a>配置应用设置
+
+<!-- For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container. -->
 
 在应用服务中，应用设置是作为环境变量传递给应用程序代码的变量。
 
@@ -37,6 +38,10 @@ ms.locfileid: "70806880"
 ![应用程序设置](./media/configure-common/open-ui.png)
 
 对于 ASP.NET 和 ASP.NET Core 开发人员而言，在应用服务中设置应用设置类似于在 Web.config  或 appsettings.json  中的 `<appSettings>` 内进行设置，但应用服务中的值会替代 Web.config  或 appsettings.json  中的值。 可以在 Web.config  或 appsettings.json  中保留开发设置（例如，本地 MySQL 密码），但在应用服务中保留生产机密（例如 Azure MySQL 数据库密码）会更安全。 相同的代码在本地调试时使用开发设置，部署到 Azure 时使用生产机密。
+
+<!-- Other language stacks, likewise, get the app settings as environment variables at runtime. For language-stack specific steps, see: -->
+
+应用程序设置在存储时始终进行加密（静态加密）。
 
 > [!NOTE]
 > 也可以使用 [Key Vault 引用](app-service-key-vault-references.md)从 [Key Vault](/key-vault/) 解析应用设置。
@@ -53,6 +58,8 @@ ms.locfileid: "70806880"
 
 完成后，单击“更新”。  别忘了返回“配置”页并单击“保存”。  
 
+<!-- > [!NOTE] -->
+<!-- > In a default Linux container or a custom Linux container, any nested JSON key structure in the app setting name like `ApplicationInsights:InstrumentationKey` needs to be configured in App Service as `ApplicationInsights__InstrumentationKey` for the key name. In other words, any `:` should be replaced by `__` (double underscore). -->
 
 ### <a name="edit-in-bulk"></a>批量编辑
 
@@ -95,6 +102,9 @@ ms.locfileid: "70806880"
 
 例如，可以使用环境变量 `MYSQLCONNSTR_connectionString1` 的形式访问名为 *connectionstring1* 的 MySql 连接字符串。 
 
+<!--  For language-stack specific steps, see: -->
+
+连接字符串在存储时始终进行加密（静态加密）。
 
 > [!NOTE]
 > 也可以使用 [Key Vault 引用](app-service-key-vault-references.md)从 [Key Vault](/key-vault/) 解析连接字符串。
@@ -144,9 +154,11 @@ ms.locfileid: "70806880"
 
 ![常规设置](./media/configure-common/open-general.png)
 
-在此处可以配置应用的某些常用设置。 某些设置要求[纵向扩展到更高的定价层](web-sites-scale.md)。
+在此处可以配置应用的某些常用设置。 某些设置要求[纵向扩展到更高的定价层](manage-scale-up.md)。
 
-- **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。 对于 Linux 应用和自定义的容器应用，还可以设置可选的启动命令或文件。
+<!-- For Linux apps and custom container apps, you can also set an optional start-up command or file. -->
+
+- **堆栈设置**：用于运行应用的软件堆栈，包括语言和 SDK 版本。
 - **平台设置**：用于配置托管平台的设置，包括：
     - **位数**：32 位或 64 位。
     - **WebSocket 协议**：例如，[ASP.NET SignalR] 或 [socket.io](https://socket.io/)。
@@ -154,7 +166,7 @@ ms.locfileid: "70806880"
     - **托管管道版本**：IIS [管道模式]。 如果某个旧式应用需要旧版 IIS，请将此选项设置为“经典”。 
     - **HTTP 版本**：设置为 **2.0**，以启用对 [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 协议的支持。
     > [!NOTE]
-    > 大多数新型浏览器仅支持通过 TLS 的 HTTP/2 协议，而非加密流量继续使用 HTTP/1.1。 若要确保客户端浏览器使用 HTTP/2 连接到应用，请[绑定第三方证书](app-service-web-tutorial-custom-ssl.md)。
+    > 大多数新型浏览器仅支持通过 TLS 的 HTTP/2 协议，而非加密流量继续使用 HTTP/1.1。 为确保客户端浏览器通过 HTTP/2 连接到应用，请[在 Azure 应用服务中使用 SSL 绑定保护自定义 DNS 名称](configure-ssl-bindings.md)。
     - **ARR 相关性**：在多实例部署中，请确保在会话的整个生存期内，将客户端路由到同一实例。 对于无状态应用程序，请将此选项设置为“关闭”。 
 - **调试**：为 [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug)、[ASP.NET Core](/visualstudio/debugger/remote-debugging-azure) 启用远程调试。 此选项在 48 小时后会自动关闭。
 - **传入的客户端证书**：要求在[相互身份验证](app-service-web-configure-tls-mutual-auth.md)中使用客户端证书。
@@ -193,13 +205,13 @@ ms.locfileid: "70806880"
 
 若要配置虚拟应用程序和目录，请指定每个虚拟目录及其相对于网站根目录 (`D:\home`) 的物理路径。 还可选中“应用程序”  复选框，将虚拟目录标记为应用程序。
 
-
+<!-- ### Containerized apps -->
 
 ## <a name="next-steps"></a>后续步骤
 
 - [在 Azure 应用服务中配置自定义域名]
 - [设置 Azure 应用服务中的过渡环境]
-- [为 Azure 应用服务中的应用启用 HTTPS]
+- [在 Azure 应用服务中使用 SSL 绑定保护自定义 DNS 名称](configure-ssl-bindings.md)
 - [启用诊断日志](troubleshoot-diagnostic-logs.md)
 - [在 Azure 应用服务中缩放应用]
 - [在 Azure 应用服务中监视基础知识]
@@ -211,8 +223,7 @@ ms.locfileid: "70806880"
 [Azure 门户]: https://portal.azure.cn/
 [在 Azure 应用服务中配置自定义域名]: ./app-service-web-tutorial-custom-domain.md
 [设置 Azure 应用服务中的过渡环境]: ./deploy-staging-slots.md
-[为 Azure 应用服务中的应用启用 HTTPS]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: /app-service/web-sites-monitor#webendpointstatus
 [在 Azure 应用服务中监视基础知识]: ./web-sites-monitor.md
 [管道模式]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application
-[在 Azure 应用服务中缩放应用]: ./web-sites-scale.md
+[在 Azure 应用服务中缩放应用]: ./manage-scale-up.md

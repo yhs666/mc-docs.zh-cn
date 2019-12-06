@@ -4,30 +4,29 @@ description: 排查 Azure 应用服务中的域和 SSL 证书问题
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 03/01/2019
-ms.date: 09/05/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 16e597c5c1a90b23d137958e2a9de46f5c679184
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 3c37b4ecb07f2969d979c3968f59100c5fb95053
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806723"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555947"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>排查 Azure 应用服务中的域和 SSL 证书问题
 
 本文列出了为 Azure 应用服务中的 Web 应用配置域或 SSL 证书时可能遇到的常见问题。 此外，还描述了这些问题的可能原因和解决方案。
 
-对于本文中的任何内容，如果需要更多帮助，可以联系 [MSDN 和 Stack Overflow 论坛](https://azure.microsoft.com/support/forums/)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://azure.microsoft.com/support/options/)并选择“获取支持”。 
+对于本文中的任何内容，如果需要更多帮助，可以联系 [MSDN 和 Stack Overflow 论坛](https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs)上的 Azure 专家。 或者，也可以提出 Azure 支持事件。 请转到 [Azure 支持站点](https://support.azure.cn/support/contact/)并选择“获取支持”。 
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -72,6 +71,8 @@ ms.locfileid: "70806723"
 ### <a name="you-cant-purchase-an-app-service-certificate"></a>无法购买应用服务证书 
 
 #### <a name="symptom"></a>症状
+
+<!-- You can't purchase an [Azure App Service certificate](./configure-ssl-certificate.md#import-an-app-service-certificate) from the Azure portal. -->
 
 #### <a name="cause-and-solution"></a>原因和解决方法
 此问题可能是由以下任何原因导致的：
@@ -191,7 +192,7 @@ Internet 浏览器可能仍在缓存域的旧 IP 地址。
 应用服务证书已续订，但使用应用服务证书的应用仍在使用旧证书。 此外，出现需要 HTTPS 协议的警告。
 
 #### <a name="cause"></a>原因 
-Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何更改发生，则会同步证书资源。 在轮换或更新证书时，应用程序有时仍会检索旧证书而不是最近更新的证书， 原因是同步证书资源的作业尚未运行。 
+应用服务会在 48 小时内自动同步证书。 在轮换或更新证书时，应用程序有时仍会检索旧证书而不是最近更新的证书， 原因是同步证书资源的作业尚未运行。 单击“同步”。同步操作会自动更新应用服务中证书的主机名绑定，而不会导致应用停机。
  
 #### <a name="solution"></a>解决方案
 
@@ -248,7 +249,7 @@ Azure 应用服务每隔 8 小时会运行一个后台作业，如果有任何�
     **解决方案**：若要请求提高限制，请联系 [Azure 支持](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)。
 - Azure 订阅类型不支持购买应用服务域。
 
-    **解决方案**：将 Azure 订阅升级到其他订阅类型，例如即用即付订阅。
+    **解决方案**：将 Azure 订阅升级到其他订阅类型，例如预付费订阅。
 
 ### <a name="you-cant-add-a-host-name-to-an-app"></a>无法将主机名添加到应用 
 

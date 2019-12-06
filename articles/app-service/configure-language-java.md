@@ -11,15 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 origin.date: 04/12/2019
-ms.date: 09/03/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 70dabae19b5465c181644e12905275057c93ec2b
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: c271394bf430a78d4dd4e02f8e3aeb3e75f3e016
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583574"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555985"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Windows Java 应用
 
@@ -33,7 +34,7 @@ Azure 应用服务可让 Java 开发人员在完全托管的基于 Windows 的�
 
 如果不使用这些方法，则部署方法将取决于存档类型：
 
-- 若要将 .war 文件部署到 Tomcat，请使用 `/api/wardeploy/` 终结点对存档文件执行 POST 操作。 有关此 API 的详细信息，请参阅[此文档](deploy-zip.md#deploy-war-file)。
+- 若要将 .war 文件部署到 Tomcat，请使用 `/api/wardeploy/` 终结点对存档文件执行 POST 操作。 有关此 API 的详细信息，请参阅[此文档](/app-service/deploy-zip#deploy-war-file)。
 
 不要使用 FTP 来部署 .war。 FTP 工具设计用来上传启动脚本、依赖项或其他运行时文件。 它不是用于部署 Web 应用的最佳选项。
 
@@ -53,7 +54,7 @@ Azure 应用服务可让 Java 开发人员在完全托管的基于 Windows 的�
 
 ### <a name="app-logging"></a>应用日志记录
 
-通过 Azure 门户或 [Azure CLI](/cli/webapp/log#az-webapp-log-config) 启用[应用程序日志记录](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enablediag)，以将应用服务配置为向本地文件系统或 Azure Blob 存储写入应用程序的标准控制台输出和标准控制台错误流。 在完成配置并经过 12 个小时后，将禁用记录到应用服务本地文件系统实例。 如果需要保留日志更长时间，请将应用程序配置为向 Blob 存储容器写入输出。 可以在 */LogFiles/Application/* 目录中找到 Java 和 Tomcat 应用日志。
+通过 Azure 门户或 [Azure CLI](/cli/webapp/log#az-webapp-log-config) 启用[应用程序日志记录](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)，以将应用服务配置为向本地文件系统或 Azure Blob 存储写入应用程序的标准控制台输出和标准控制台错误流。 在完成配置并经过 12 个小时后，将禁用记录到应用服务本地文件系统实例。 如果需要保留日志更长时间，请将应用程序配置为向 Blob 存储容器写入输出。 可以在 */LogFiles/Application/* 目录中找到 Java 和 Tomcat 应用日志。
 
 如果应用程序使用 [Logback](https://logback.qos.ch/) 或 [Log4j](https://logging.apache.org/log4j) 进行跟踪，则你可以遵照[在 Application Insights 中浏览 Java 跟踪日志](/azure-monitor/app/java-trace-logs)中的日志记录框架配置说明，将这些用于审查的跟踪写入到 Azure Application Insights。
 
@@ -62,14 +63,16 @@ Azure 应用服务可让 Java 开发人员在完全托管的基于 Windows 的�
 
 Azure 应用服务原生支持通过 Azure 门户和 CLI 进行优化和自定义。 请查看以下文章了解非特定于 Java 的 Web 应用配置：
 
-- [配置应用设置](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [设置自定义域](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [启用 SSL](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+<!-- - [Add a CDN](../cdn/cdn-add-to-web-app.md) -->
+
+- [配置应用设置](configure-common.md#configure-app-settings)
+- [设置自定义域](app-service-web-tutorial-custom-domain.md)
+- [配置 SSL 绑定](configure-ssl-bindings.md)
 - [配置 Kudu 站点](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### <a name="set-java-runtime-options"></a>设置 Java 运行时选项
 
-若要设置分配的内存或其他 JVM 运行时选项，请使用这些选项创建名为 `JAVA_OPTS` 的[应用设置](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)。 应用服务在启动时，会将此设置作为环境变量传递给 Java 运行时。
+若要设置分配的内存或其他 JVM 运行时选项，请使用这些选项创建名为 `JAVA_OPTS` 的[应用设置](configure-common.md#configure-app-settings)。 应用服务在启动时，会将此设置作为环境变量传递给 Java 运行时。
 
 在 Azure 门户中 Web 应用的“应用程序设置”下，创建名为 `JAVA_OPTS` 且包含其他设置的新应用设置，例如 `-Xms512m -Xmx1204m`。 
 
@@ -98,13 +101,13 @@ Azure 应用服务原生支持通过 Azure 门户和 CLI 进行优化和自定�
 
 在 Azure CLI 中使用以下命令启用 Web 套接字支持：
 
-```azurecli-interactive
+```azurecli
 az webapp config set --name <app-name> --resource-group <resource-group-name> --web-sockets-enabled true
 ```
 
 然后重启应用程序：
 
-```azurecli-interactive
+```azurecli
 az webapp stop --name <app-name> --resource-group <resource-group-name>
 az webapp start --name <app-name> --resource-group <resource-group-name>
 ```
@@ -134,7 +137,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="authenticate-users-easy-auth"></a>对用户进行身份验证（简易身份验证）
 
-在 Azure 门户中使用“身份验证和授权”选项设置应用身份验证。  在此处，可以使用 Azure Active Directory 或社交登录名（例如 Facebook、Google、或 GitHub）启用身份验证。 仅当配置单个身份验证提供程序时，Azure 门户配置才起作用。 有关详细信息，请参阅[将应用服务应用配置为使用 Azure Active Directory 登录](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)，以及其他标识提供者的相关文章。 如果需要启用多个登录提供程序，请遵照[自定义应用服务身份验证](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)一文中的说明。
+在 Azure 门户中使用“身份验证和授权”选项设置应用身份验证。  在此处，可以使用 Azure Active Directory 或社交登录名（例如 GitHub）启用身份验证。 仅当配置单个身份验证提供程序时，Azure 门户配置才起作用。 有关详细信息，请参阅[将应用服务应用配置为使用 Azure Active Directory 登录](configure-authentication-provider-aad.md)，以及其他标识提供者的相关文章。 如果需要启用多个登录提供程序，请遵照[自定义应用服务身份验证](app-service-authentication-how-to.md)一文中的说明。
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat 和 Wildfly
 
@@ -172,7 +175,7 @@ public int getServerPort()
 
 ### <a name="configure-tlsssl"></a>配置 TLS/SSL
 
-遵照[绑定现有的自定义 SSL 证书](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)中的说明上传现有的 SSL 证书，并将其绑定到应用程序的域名。 默认情况下，应用程序仍允许 HTTP 连接 - 请遵循教程中的具体步骤来强制实施 SSL 和 TLS。
+按照[在 Azure 应用服务中使用 SSL 绑定保护自定义 DNS 名称](configure-ssl-bindings.md)中的说明上传现有的 SSL 证书，并将其绑定到应用程序的域名。 默认情况下，应用程序仍允许 HTTP 连接 - 请遵循教程中的具体步骤来强制实施 SSL 和 TLS。
 
 ### <a name="use-keyvault-references"></a>使用 KeyVault 引用
 
@@ -182,34 +185,8 @@ public int getServerPort()
 
 若要在 Spring 或 Tomcat 配置文件中注入这些机密，请使用环境变量注入语法 (`${MY_ENV_VAR}`)。 有关 Spring 配置文件，请参阅这篇有关[外部化配置](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)的文档。
 
-
-## <a name="configure-apm-platforms"></a>配置 APM 平台
-
-本部分介绍如何使用 NewRelic 和 AppDynamics 应用程序性能监视 (APM) 平台连接 Linux 上的 Azure 应用服务中部署的 Java 应用程序。
-
-### <a name="configure-new-relic"></a>配置 NewRelic
-
-1. 在 [NewRelic.com](https://newrelic.com/signup) 上创建一个 New Relic 帐户
-2. 从 NewRelic 下载 Java 代理，其文件名类似于 *newrelic-java-x.x.x.zip*。
-3. 复制你的许可证密钥，稍后需要使用它来配置代理。
-4. 使用 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)创建新目录 */home/site/wwwroot/apm*。
-5. 将解压缩后的 New Relic Java 代理文件上传到 */home/site/wwwroot/apm* 下的某个目录中。 代理文件应位于 */home/site/wwwroot/apm/newrelic* 中。
-6. 修改 */home/site/wwwroot/apm/newrelic/newrelic.yml* 中的 YAML 文件，并将占位符许可证值替换为自己的许可密钥。
-7. 在 Azure 门户中，浏览到你在应用服务中的应用程序并创建一个新的应用程序设置。
-    - 如果你的应用使用的是 **Java SE**，请创建一个名为 `JAVA_OPTS` 且值为 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的环境变量。
-    - 如果你使用的是 **Tomcat**，请创建一个名为 `CATALINA_OPTS` 且值为 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar` 的环境变量。
-
-### <a name="configure-appdynamics"></a>配置 AppDynamics
-
-1. 在 [AppDynamics.com](https://www.appdynamics.com/community/register/) 上创建一个 AppDynamics 帐户
-2. 从 AppDynamics 网站下载 Java 代理，其文件名类似于 *AppServerAgent-x.x.x.xxxxx.zip*
-3. 使用 [Kudu 控制台](https://github.com/projectkudu/kudu/wiki/Kudu-console)创建新目录 */home/site/wwwroot/apm*。
-4. 将 Java 代理文件上传到 */home/site/wwwroot/apm* 下的某个目录中。 代理文件应位于 */home/site/wwwroot/apm/appdynamics* 中。
-5. 在 Azure 门户中，浏览到你在应用服务中的应用程序并创建一个新的应用程序设置。
-    - 如果你使用的是 **Java SE**，请创建一个名为 `JAVA_OPTS` 且值为 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 的环境变量，其中，`<app-name>` 是你的应用服务名称。
-    - 如果你使用的是 **Tomcat**，请创建一个名为 `CATALINA_OPTS` 且值为 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` 的环境变量，其中，`<app-name>` 是你的应用服务名称。
-
->  如果你已有 `JAVA_OPTS` 或 `CATALINA_OPTS` 的环境变量，请将 `-javaagent:/...` 选项追加到当前值的末尾。
+<!-- Azure App Service on Linux -->
+<!-- ## Configure APM platforms -->
 
 ## <a name="data-sources"></a>数据源
 
@@ -273,7 +250,7 @@ public int getServerPort()
 1. 在 [Azure CLI](/cli) 中安装 webapp 扩展：
 
     ```azurecli
-    az extension add -�name webapp
+    az extension add --name webapp
     ```
 
 2. 运行以下 CLI 命令，创建从本地系统到应用服务的 SSH 隧道：
@@ -284,7 +261,7 @@ public int getServerPort()
 
 3. 使用 SFTP 客户端连接到本地隧道端口，并将文件上传到 */home/tomcat/lib* 文件夹中。
 
-另外，也可以使用某个 FTP 客户端上传 JDBC 驱动程序。 请遵循这些[用于获取 FTP 凭据的说明](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)。
+另外，也可以使用某个 FTP 客户端上传 JDBC 驱动程序。 请遵循这些[用于获取 FTP 凭据的说明](deploy-configure-credentials.md)。
 
 ## <a name="configuring-tomcat"></a>配置 Tomcat
 
@@ -330,4 +307,4 @@ Azure 支持的 Java 开发工具包 (JDK) 为提供 [Azul Systems](https://www.
 本主题提供了对 Windows 上的 Azure 应用服务的支持的 Java 运行时声明。
 
 - 若要详细了解如何使用 Azure 应用服务托管 Web 应用程序，请参阅[应用服务概述](overview.md)。
-- 有关 Java on Azure 开发的信息，请参阅 [Azure for Java 开发人员中心](https://docs.microsoft.com/java/azure/?view=azure-java-stable)。
+- 有关 Java on Azure 开发的信息，请参阅 [Azure for Java 开发人员中心](https://docs.azure.cn/java/?view=azure-java-stable)。

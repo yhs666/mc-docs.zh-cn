@@ -7,14 +7,14 @@ manager: digimobile
 ms.service: load-balancer
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 09/02/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 92e930487e4d122d5c1c02cd063e29f185b07d4e
-ms.sourcegitcommit: 9495256a549d25ffddc4f42f3e12a607530409d0
+ms.openlocfilehash: c754cc421d958795363fddf4d9764df152381724
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71333657"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655456"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Azure VPN 网关的安全控制
 
@@ -35,7 +35,7 @@ ms.locfileid: "71333657"
 
 | 安全控制 | Yes/No | 注释|
 |---|---|--|
-| Azure 监视支持（Log Analytics、App Insights 等）| 是 | 请参阅 [Azure Monitor 诊断日志/警报](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor 指标/警报](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)。  |
+| Azure 监视支持（Log Analytics、App Insights 等）| 是 | 请参阅 [Azure Monitor 指标/警报](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md)。  |
 | 控制和管理平面日志记录和审核| 是 | Azure 资源管理器活动日志。 |
 | 数据平面日志记录和审核 | 是 | [Azure Monitor 诊断日志](../azure-resource-manager/resource-group-audit.md)，用于 VPN 连接日志记录和审核。 |
 

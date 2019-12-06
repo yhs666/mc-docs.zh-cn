@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 驱动程序扩展 - Azure Windows VM | Azure
+title: 适用于 Windows 的 NVIDIA GPU 驱动程序扩展 | Azure
 description: 用于在运行 Windows 的 N 系列计算 VM 上安装 NVIDIA GPU 驱动程序的 Azure 扩展。
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 01/09/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 33f7143f8df78c3984911a7047185cadb24195ee
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: b5dffd891c43cdedc1e3a208538a5a515e3bbc68
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831388"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74593684"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>适用于 Windows 的 NVIDIA GPU 驱动程序扩展
 

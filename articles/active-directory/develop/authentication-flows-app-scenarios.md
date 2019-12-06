@@ -14,16 +14,16 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 09/27/2019
-ms.date: 11/05/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 911566f8842e406bf203b0340f9e7a54311a2292
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 09a15c546c232eb4c0438fcc75d6682a6675f6bd
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830996"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655259"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>身份验证流和应用程序方案
 
@@ -87,7 +87,7 @@ Microsoft 标识平台 (v2.0) 终结点支持各种新式应用程序体系结�
   - 调用 Web API 的 Web 应用
   - 调用 Web API 的 Web API
   - 守护程序应用（即使实施为 Linux 守护程序或 Windows 服务等控制台服务）
- 
+
   此类应用使用 [ConfidentialClientApplication](msal-client-applications.md) 类。
 
 ## <a name="application-scenarios"></a>应用程序方案
@@ -144,6 +144,7 @@ Microsoft 标识平台终结点支持各种应用体系结构的身份验证：
 
 ![设备代码流](./media/scenarios/device-code-flow-app.svg)
 
+可以在公共客户端应用程序中使用[用户名/密码流](https://aka.ms/msal-net-up)，不过我们并不建议使用。 在某些方案中仍需要此流。
 
 但是，使用此流将对应用程序施加约束。 例如，使用此流的应用程序无法将需要执行多重身份验证的用户登录。 应用程序也无法受益于单一登录。
 
@@ -300,11 +301,11 @@ Microsoft 身份验证库支持多种平台：
 |--|--|--|--|--|--|--|
 | [单页应用](scenario-spa-overview.md) <br/>[![单页应用](./media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](./media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [用于让用户登录的 Web 应用](scenario-web-app-sign-user-overview.md) <br/>[![用于让用户登录的 Web 应用](./media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
-| [用于调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md) <br/> <br/>[![调用 Web API 的 Web 应用](./media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png) <br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/> ![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
-| [用于调用 Web API 的 桌面应用](scenario-desktop-overview.md) <br/> <br/>[![用于调用 Web API 的桌面应用](./media/scenarios/desktop-app.svg)](scenario-desktop-overview.md)![设备代码流](./media/scenarios/device-code-flow-app.svg) | ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/> ![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> MSAL.objc |
+| [用于调用 Web API 的 Web 应用](scenario-web-app-call-api-overview.md) <br/> <br/>[![调用 Web API 的 Web 应用](./media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python| ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>Flask + MSAL Python
+| [用于调用 Web API 的 桌面应用](scenario-desktop-overview.md) <br/> <br/>[![用于调用 Web API 的桌面应用](./media/scenarios/desktop-app.svg)](scenario-desktop-overview.md)![设备代码流](./media/scenarios/device-code-flow-app.svg) | ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python <br/> ![iOS / Objective C 或 swift](./media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
 | [用于调用 Web API 的移动应用](scenario-mobile-overview.md) <br/> [![用于调用 Web API 的移动应用](./media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](./media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](./media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS / Objective C 或 swift](./media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](./media/sample-v2-code/small_logo_Android.png) MSAL.Android
-| [守护程序应用](scenario-daemon-overview.md) <br/> [![守护程序应用](./media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
-| [用于调用 Web API 的 Web API](scenario-web-api-call-api-overview.md) <br/><br/> [![用于调用 Web API 的 Web API](./media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
+| [守护程序应用](scenario-daemon-overview.md) <br/> [![守护程序应用](./media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
+| [用于调用 Web API 的 Web API](scenario-web-api-call-api-overview.md) <br/><br/> [![用于调用 Web API 的 Web API](./media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](./media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](./media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](./media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
 另请参阅[按 OS/语言列出的 Microsoft 支持的库](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)。
 

@@ -1,23 +1,23 @@
 ---
 title: 获取策略符合性数据
-description: Azure Policy 的评估和效果确定了符合性。 了解如何获取符合性详细信息。
+description: Azure Policy 的评估和效果确定了符合性。 了解如何获取 Azure 资源的符合性详细信息。
 author: DCtheGeek
 ms.author: v-tawe
 origin.date: 02/01/2019
-ms.date: 10/15/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: d7452f61bef6171a8ea2202ca6f046e2e6401328
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: a498e08c933f2614d7d249ea65007b8046fc8951
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526698"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657937"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>获取 Azure 资源的符合性数据
 
-Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../../management-groups/index.md)中的资源提供的见解和控制度。 可通过许多不同的方式运用这种控制，例如，防止在错误的位置创建资源、强制实施常见且一致的标记用法，或者审核相应配置和设置的现有资源。 在所有情况下，数据都由 Azure Policy 生成，使你能够了解环境的符合性状态。
+Azure Policy 的最大优势之一在于它针对订阅或订阅[管理组](../../management-groups/overview.md)中的资源提供的见解和控制度。 可通过许多不同的方式运用这种控制，例如，防止在错误的位置创建资源、强制实施常见且一致的标记用法，或者审核相应配置和设置的现有资源。 在所有情况下，数据都由 Azure Policy 生成，使你能够了解环境的符合性状态。
 
 可通过多种方式访问策略和计划分配生成的符合性信息：
 
@@ -133,46 +133,31 @@ Azure 门户展示了一个图形体验用于可视化和了解环境中的符�
 “资源符合性”选项卡上的资源列表显示当前分配的现有资源的评估状态。  此选项卡默认为“不符合”，但是可以进行筛选。 
 创建资源的请求所触发的事件（追加、审核、拒绝、部署）显示在“事件”选项卡下。 
 
+<!-- > [!NOTE] -->
+<!-- > For an AKS Engine policy, the resource shown is the resource group. -->
+
 ![Azure Policy 符合性事件的示例](../media/getting-compliance-data/compliance-events.png)
 
-右键单击要收集其更多详细信息的事件所在的行，然后选择“显示活动日志”。  活动日志页将会打开，其中的搜索结果经过预先筛选，显示分配和事件的详细信息。 活动日志提供有关这些事件的其他上下文和信息。
+对于[“资源提供程序”模式](../concepts/definition-structure.md#resource-provider-modes)资源，在“资源符合性”选项卡上  选择资源或右键单击行并选择“查看符合性详细信息”  即可打开组件符合性详细信息。 此页还提供多个选项卡，用于查看分配给此资源的策略、事件、组件事件以及更改历史记录。
+
+![Azure Policy 组件符合性详细信息的示例](../media/getting-compliance-data/compliance-components.png)
+
+回到资源符合性页，右键单击要收集其更多详细信息的事件所在的行，然后选择“显示活动日志”。  活动日志页将会打开，其中的搜索结果经过预先筛选，显示分配和事件的详细信息。 活动日志提供有关这些事件的其他上下文和信息。
 
 ![Azure Policy 符合性活动日志的示例](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>了解不符合性
 
-<a name="change-history-preview"></a>
+<!-- <a name="change-history-preview"></a> -->
 
 当确定资源为**不符合**时，有许多可能的原因。 若要确定资源**不符合**的原因或查找负责的更改，请参阅[确定不符合性](./determine-non-compliance.md)。
 
 ## <a name="command-line"></a>命令行
 
-可以使用 REST API（包括使用 [ARMClient](https://github.com/projectkudu/ARMClient)）或 Azure PowerShell 来检索门户中提供的相同信息。 有关 REST API 的完整详细信息，请参阅 [Azure Policy Insights](https://docs.microsoft.com/rest/api/policy-insights/) 参考文章。 REST API 参考页上针对每个操作提供了一个绿色的“试用”按钮，使用该按钮可在浏览器中直接试用该操作。
+可以使用 REST API（包括使用 [ARMClient](https://github.com/projectkudu/ARMClient)）、Azure PowerShell 和 Azure CLI（预览版）来检索门户中提供的相同信息。
+有关 REST API 的完整详细信息，请参阅 [Azure Policy Insights](https://docs.microsoft.com/rest/api/policy-insights/) 参考文章。 REST API 参考页上针对每个操作提供了一个绿色的“试用”按钮，使用该按钮可在浏览器中直接试用该操作。
 
-若要在 Azure PowerShell 中使用以下示例，请使用此示例代码构造身份验证令牌。 然后，将示例中的 $restUri 替换为字符串，以检索随后可分析的 JSON 对象。
-
-```powershell
-# Login first with Connect-AzAccount -EnvironmentName AzureChinaCloud command
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+对于 REST API 示例，请使用 ARMClient 或类似工具处理向 Azure 进行身份验证的问题。
 
 ### <a name="summarize-results"></a>汇总结果
 
@@ -291,7 +276,7 @@ https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Mic
 ### <a name="azure-powershell"></a>Azure PowerShell
 
 适用于 Azure Policy 的 Azure PowerShell 模块在 PowerShell 库中以 [Az.PolicyInsights](https://www.powershellgallery.com/packages/Az.PolicyInsights) 的形式提供。
-使用 PowerShellGet，可以使用 `Install-Module -Name Az.PolicyInsights` 安装模块（请确保已安装了最新版 [Azure PowerShell](https://docs.azure.cn/powershell-install-configure)）：
+使用 PowerShellGet，可以使用 `Install-Module -Name Az.PolicyInsights` 安装模块（请确保已安装了最新版 [Azure PowerShell](https://docs.azure.cn/powershell/azure/install-az-ps)）：
 
 ```powershell
 # Install from PowerShell Gallery via PowerShellGet
@@ -422,4 +407,4 @@ Trent Baker
 - 查看[了解策略效果](../concepts/effects.md)。
 - 了解如何[以编程方式创建策略](programmatically-create.md)。
 - 了解如何[修正不符合的资源](remediate-resources.md)。
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

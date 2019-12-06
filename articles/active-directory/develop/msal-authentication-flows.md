@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/16/2019
-ms.date: 11/05/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b76e73c99801abb4222ea33f3ace06d1645ed78c
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 1d89de36c15508d69a997efe306225f213845074
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830979"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655356"
 ---
 # <a name="authentication-flows"></a>身份验证流
 
@@ -203,7 +203,7 @@ IWA 不会绕过多重身份验证。 如果配置了多重身份验证，需要
 - 你已提供某种方式让用户许可应用程序（请参阅[请求单个用户的许可](v2-permissions-and-consent.md#requesting-individual-user-consent)）。
 - 你已提供某种方式让租户管理员许可应用程序（请参阅[管理员许可](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)）。
 
-已针对 .NET Desktop、.NET Core 和 Windows 通用平台应用启用 IWA 流。 在 .NET Core 上，只有采用用户名的重载可用。 .NET Core 平台无法请求用于登录操作系统的用户名。
+已针对 .NET Desktop、.NET Core 和 Windows 通用平台应用启用 IWA 流。 在 .NET Core 上，必须向 IWA 提供用户名，因为 .NET Core 无法从操作系统获取用户名。
   
 有关许可的详细信息，请参阅 [v2.0 权限和许可](v2-permissions-and-consent.md)。
 

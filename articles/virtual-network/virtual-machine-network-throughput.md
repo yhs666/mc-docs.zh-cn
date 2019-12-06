@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 04/26/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 95e31b5e29a778662fb35470dcf730d9ae1fd793
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 4303e8b7ba4f5c026fe57cfe9e8adf96a9aba39c
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514243"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658053"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>虚拟机网络带宽
 
@@ -55,13 +55,13 @@ Azure 虚拟机必须有一个（但也可能有多个）连接的网络接口�
 
 ## <a name="flow-limits-and-recommendations"></a>流限制和建议
 
-目前，Azure 网络堆栈支持网络流总计为 250K 且为 CPU 核心数大于 8 的 VM 提供良好性能的方案，以及网络流总计为 100k 且为 CPU 核心数小于 8 的 VM 提供良好性能的方案。 超过此限制时，网络性能会逐渐下降，且额外增加的流会有一个流总计为 1M（500K 入站和 500K 出站）的硬性上限，然后额外的流数会下降。
+目前，Azure 网络堆栈支持网络流总计为 250K 且为 CPU 核心数大于 8 的 VM 提供良好性能的方案，以及网络流总计为 100k 且为 CPU 核心数小于 8 的 VM 提供良好性能的方案。 超过此限制后，由于超出的流量，网络性能会正常下降，直到达到 500K 总流量（250K 入站流量和 250K 出站流量）的硬限制，然后丢弃超出的流量。
 
 ||CPU 核心数 <8 的 VM|CPU 核心数 >8 的 VM|
 |---|---|---|
 |<b>性能良好</b>|100K 流 |250K 流|
 |<b>性能下降</b>|大于 100k 流|大于 250K 流|
-|<b>流限制</b>|1M 流|1M 流|
+|<b>流限制</b>|500K 流|500K 流|
 
 [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) 中提供的指标用于跟踪 VM 或 VMSS 实例上的网络流数和流创建速率。
 

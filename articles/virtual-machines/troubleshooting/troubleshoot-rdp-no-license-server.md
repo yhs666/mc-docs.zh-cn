@@ -13,12 +13,12 @@ ms.workload: infrastructure
 origin.date: 10/23/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: f187cdfe69e6ec32a1b221f5e998862add0fb90d
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: 99db001a06f0be63047e8c702b8b00a7ebfc4c5c
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116939"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594046"
 ---
 # <a name="remote-desktop-license-server-isnt-available-when-you-connect-to-an-azure-vm"></a>连接到 Azure VM 时，远程桌面许可证服务器不可用
 
@@ -61,7 +61,8 @@ mstsc /v:<Server>[:<Port>] /admin
     mstsc /v:<Server>[:<Port>] /admin
     ```
 
-   <!-- Not Availabl one [Virtual Machine Serial Console on Azure](serial-console-windows.md)-->
+    <!-- Not Availabl one [Virtual Machine Serial Console on Azure](serial-console-windows.md)-->
+    
 2. 检查 VM 上是否已启用远程桌面会话主机角色。 如果启用了该角色，请确保它正常运行。 打开权限提升的 CMD 实例并执行以下步骤：
 
     1. 使用以下命令检查远程桌面会话主机角色的状态：

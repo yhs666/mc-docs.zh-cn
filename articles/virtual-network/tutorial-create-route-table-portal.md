@@ -16,15 +16,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 origin.date: 12/12/2018
-ms.date: 06/10/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: f98f3bb091f638e8db61e9a46fce0b65f910f82d
-ms.sourcegitcommit: df1b896faaa87af1d7b1f06f1c04d036d5259cc2
+ms.openlocfilehash: 0f984539a7543152b68786ff37c89fdd6826d428
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66250330"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658057"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>教程：使用 Azure 门户通过路由表路由网络流量
 
@@ -59,7 +59,7 @@ ms.locfileid: "66250330"
     | 订阅 | 选择订阅。 |
     | 资源组 | 选择“新建”，输入 *myResourceGroup*，然后选择“确定”   。 |
     | 位置 | 保留默认值“中国东部”。 
-    | BGP 路由传播 | 保留默认值“已启用”。  |
+    | 虚拟网络网关路由传播 | 保留默认值“已启用”。  |
 
 1. 选择“创建”  。
 
@@ -145,6 +145,7 @@ ms.locfileid: "66250330"
     ![关联路由表](./media/tutorial-create-route-table-portal/associate-route-table.png)
 
 <a name="create-a-network-virtual-appliance"></a>
+
 ## <a name="create-an-nva"></a>创建 NVA
 
 NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如果需要，可以选择不同的操作系统。 本教程假设使用 **Windows Server 2016 Datacenter**。
@@ -393,11 +394,11 @@ NVA 是帮助实现网络功能（例如路由和防火墙优化）的 VM。 如
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你创建了一个路由表并将其关联到了某个子网。 还创建了一个简单 NVA，用于将流量从公共子网路由到专用子网。 了解如何执行该操作后，可以部署 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps/category/networking)中提供的其他预配置 NVA。 这些 NVA 可以执行许多有用的网络功能。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
+在本教程中，你创建了一个路由表并将其关联到了某个子网。 还创建了一个简单 NVA，用于将流量从公共子网路由到专用子网。 了解如何执行该操作后，可以部署 [Azure 市场](https://market.azure.cn/marketplace/apps/category/networking)中提供的其他预配置 NVA。 这些 NVA 可以执行许多有用的网络功能。 若要了解有关路由的详细信息，请参阅[路由概述](virtual-networks-udr-overview.md)和[管理路由表](manage-route-table.md)。
 
 尽管可以在一个虚拟网络中部署多个 Azure 资源，但 Azure 无法将某些 PaaS 服务的资源部署到虚拟网络。 可以限制访问某些 Azure PaaS 服务的资源。 不过，只能对来自虚拟网络子网的流量进行这种限制。 若要了解如何限制 Azure PaaS 资源的网络访问，请继续学习下一篇教程。
 
 > [!div class="nextstepaction"]
 > [限制 PaaS 资源的网络访问](tutorial-restrict-network-access-to-resources.md)
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

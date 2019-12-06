@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/15/2019
-ms.date: 11/07/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6075136b7073be9f424d4b2285b762f840579a1f
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: c15ddc0334d32a604b51e67ba6e13e2057f450d0
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830936"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655376"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft 标识平台代码示例（v2.0 终结点）
 
@@ -106,6 +106,18 @@ ms.locfileid: "73830936"
 | -------- | ------------------- |
 | ![此图显示了 ASP.NET Core 徽标](./media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [dotnet-native-aspnetcore-v2](https://aka.ms/msidentity-aspnetcore-webapi-calls-msgraph) 的 ASP.NET Core Web API（服务）  |
 | ![此图显示了 ASP.NET 徽标](./media/sample-v2-code/logo_NET.png)</p>ASP.NET MVC | [ms-identity-aspnet-webapi-onbehalfof](https://github.com/Azure-Samples/ms-identity-aspnet-webapi-onbehalfof) 的 Web API（服务） |
+
+## <a name="azure-functions-as-web-apis"></a>Azure Functions 作为 Web API
+
+以下示例演示如何使用 HttpTrigger 保护 Azure Functions 并通过 Microsoft 标识平台终结点公开 Web API，以及如何从 Web API 调用下游 API。
+
+| 平台 | 示例 |
+| -------- | ------------------- |
+| ![此图显示了 ASP.NET Core 徽标](./media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core 2.2 | [dotnet-native-aspnetcore-v2](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions) 的 ASP.NET Core Web API（服务）Azure Functions  |
+| ![此图显示了 Node.js 徽标](./media/sample-v2-code/logo_nodejs.png)</p>NodeJS | [NodeJS 和 passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions) 的 Web API（服务） |
+| ![此图显示了 Python 徽标](./media/sample-v2-code/logo_python.png)</p>Python | [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions) 的 Web API（服务） |
+| ![此图显示了 Node.js 徽标](./media/sample-v2-code/logo_nodejs.png)</p>NodeJS | [使用代理流的 NodeJS 和 passport-azure-ad](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions) 的 Web API（服务） |
+
 
 ## <a name="other-microsoft-graph-samples"></a>其他 Microsoft Graph 示例
 

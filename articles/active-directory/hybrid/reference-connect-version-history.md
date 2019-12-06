@@ -2,27 +2,23 @@
 title: Azure AD Connect：版本发布历史记录 | Microsoft Docs
 description: 本文列出 Azure AD Connect 和 Azure AD Sync 的所有版本
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/07/2019
-ms.date: 11/13/2019
+ms.date: 11/26/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b285396bb7e219b8e1f1c50a47c7d9094d80a25d
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: 1ceb1cb682837ae8d06600ddd29d63ddf9bb22da
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084598"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655404"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect：版本发行历史记录
 Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特性和功能。 并非所有的新增内容都适用于所有受众。
@@ -36,17 +32,25 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 --------- | --------- |
 从 Azure AD Connect 升级的步骤 | [从旧版升级到最新版](how-to-upgrade-previous-version.md) Azure AD Connect 的不同方法。
 所需的权限 | 有关应用更新时所需的权限，请参阅[帐户和权限](reference-connect-accounts-permissions.md#upgrade)。
-
-下载 | [下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
+下载| [下载 Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)。
 
 >[!NOTE]
 >发布新版 Azure AD Connect 的过程要求采取多种质量控制措施来确保服务的功能正常运行，遵循此过程时，我们会更新新发行版的版本号以及发布状态，以反映最近的状态。
 遵循此过程时，发行版的版本号将以“X”形式显示在次要版本号位置，例如“1.3.X.0”- 这表示此文档中的发行说明适用于以“1.3”开头的所有版本。 完成发布过程后，我们会立即将发行版本号更新为最近发布的版本，并将发布状态更新为“已发布供下载和自动升级”。
-并非所有版本的 Azure AD Connect 都可用于自动升级。 版本状态将指示版本是否可用于自动升级或仅供下载。 如果在 Azure AD Connect 服务器上启用了自动升级，那么该服务器将自动升级到针对自动升级发布的最新版 Azure AD Connect。 请注意，并非所有 Azure AD Connect 配置都有资格进行自动升级。 请点击此链接阅读有关[自动升级](/active-directory/hybrid/how-to-connect-install-automatic-upgrade)的详细信息
+并非所有版本的 Azure AD Connect 都可用于自动升级。 版本状态将指示版本是否可用于自动升级或仅供下载。 如果在 Azure AD Connect 服务器上启用了自动升级，那么该服务器将自动升级到针对自动升级发布的最新版 Azure AD Connect。 请注意，并非所有 Azure AD Connect 配置都有资格进行自动升级。 请点击此链接阅读有关[自动升级](how-to-connect-install-automatic-upgrade.md)的详细信息
+
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>版本状态
+2019/11/08：已发布，供下载。 不适用于自动升级
+
+>[!IMPORTANT]
+>在此版 Azure AD Connect 中，由于内部架构更改，如果使用 MSOnline PowerShell 管理 ADFS 信任关系配置设置，则必须将 MSOnline PowerShell 模块更新到 1.1.183.57 或更高版本
+### <a name="fixed-issues"></a>修复的问题
+
+此版本修复了已加入混合 Azure AD 的现有设备的问题。 此版本包含新的设备同步规则，用于纠正此问题。
+请注意，此规则更改可能导致从 Azure AD 中删除过时设备。 这不应该担心，因为在进行条件访问授权期间，Azure AD 不使用这些设备对象。 对某些客户来说，通过此规则更改删除的设备数可能会超出删除阈值。 如果发现在 Azure AD 中删除设备对象时超出“导出删除阈值”，建议你允许删除操作完成。 [如何在删除操作数超出删除阈值时允许删除操作完成](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>版本状态
 2019/9/28：已发布给选定租户，可自动升级。 不可供下载。
@@ -81,8 +85,8 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 在连接器属性页上添加了同步服务管理器弃用警告。 此警告通知用户应通过 AADC 向导进行更改。
 - 针对用户密码策略问题添加了新错误。
 - 防止不当配置通过域和 OU 筛选器进行组筛选。 已筛选出输入组的域/OU 时，组筛选将显示一条错误消息，并在问题得到解决之前阻止用户继续操作。
-- 用户不再可以在旧 UI 中为 Active Directory 域服务或 Azure Active Directory 创建连接器。
-- 在同步服务管理器中修复了自定义 UI 控件的辅助功能
+- 用户不再可以在 Synchronization Service Manager UI 中为 Active Directory 域服务或 Azure Active Directory 创建连接器。
+- 在 Synchronization Service Manager 中修复了自定义 UI 控件的辅助功能。
 - 为 Azure AD Connect 中的所有登录方法启用了六个联合管理任务。  （以前，所有登录只能使用“更新 AD FS SSL 证书”任务。）
 - 添加了将登录方法从联合更改为 PHS 或 PTA 时的警告，指出所有 Azure AD 域和用户将转换为托管身份验证。
 - 从“重置 Azure AD 和 AD FS 信任”任务中删除了令牌签名证书，并添加了单独的子任务来更新这些证书。
@@ -121,7 +125,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 
 ### <a name="fixed-issues"></a>修复的问题 
 
-- 修复了 Azure Active Directory Connect 内部版本 1.3.20.0 中存在的特权提升漏洞。  在某些情况下，此漏洞可能允许攻击者在特权帐户的上下文中执行两个 powershell cmdlet，并执行特权操作。  此安全更新通过禁用这些 cmdlet 来解决此问题。 有关详细信息，请参阅[安全更新](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)。
+- 修复了 Azure Active Directory Connect 内部版本 1.3.20.0 中存在的特权提升漏洞。  在某些情况下，此漏洞可能允许攻击者在特权帐户的上下文中执行两个 powershell cmdlet，并执行特权操作。  此安全更新通过禁用这些 cmdlet 来解决此问题。 有关详细信息，请参阅[安全更新](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000)。
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -134,7 +138,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 添加了对域刷新的支持 
 - “Exchange 邮件公用文件夹”功能已推出正式版 
 - 改进了发生服务故障时在向导中处理错误的方法 
-- 在连接器属性页上添加了旧 UI 的警告链接。 
+- 在连接器属性页的 Synchronization Service Manager UI 中添加了警告链接。 
 - “统一组写回”功能现已推出正式版 
 - 改进了当 DC 缺少 LDAP 控制措施时显示的 SSPR 错误消息 
 - 添加了在安装期间出现的 DCOM 注册表错误的诊断方法  
@@ -160,7 +164,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 - 修复了 LocalDB 出现的 VSS 错误  
 - 修复了当对象类型不在范围内时出现的误导性错误消息 
 - 更正了以下问题：在服务器上安装 Azure AD PowerShell 可能会导致某个程序集与 Azure AD Connect 相冲突。 
-- 修复了在旧 UI 中更新连接器凭据时，暂存服务器上出现的 PHS bug。 
+- 修复了在 Synchronization Service Manager UI 中更新连接器凭据时，暂存服务器上出现的 PHS Bug。 
 - 修复了一些内存泄漏问题 
 - 其他自动升级修复 
 - 对导出和未确认的导入处理进行了其他修复 
@@ -264,7 +268,7 @@ Azure Active Directory (Azure AD) 团队会定期更新 Azure AD Sync 的新特�
 ### <a name="new-features-and-improvements"></a>新增功能和改进
 
 - Azure AD Connect 中的 Ping Federate 集成现已公开发布。 [深入了解如何将 Azure AD 与 Ping Federate 联合](/active-directory/connect/active-directory-aadconnect-user-signin#federation-with-pingfederate)
-- Azure AD Connect 现在每次更新时都可在 AD FS 中创建 Azure AD 信任的备份，并将其存储在单独的文件中以便轻松还原（如果需要）。 
+- Azure AD Connect 现在每次更新时都可在 AD FS 中创建 Azure AD 信任的备份，并将其存储在单独的文件中以便轻松还原（如果需要）。 [详细了解 Azure AD Connect 中的新增功能和 Azure AD 信任管理](https://aka.ms/fedtrustinaadconnect)。
 - 新的故障排除工具有助于解决更改主要电子邮件地址和隐藏全局地址列表中的帐户的问题
 - 已更新 Azure AD Connect，以包括最新版 SQL Server 2012 本机客户端
 - 如果在“更改用户登录”任务中将用户登录切换为“密码哈希同步”或“直通身份验证”，将默认启用“无缝单一登录”复选框。
@@ -1170,7 +1174,7 @@ AD FS 管理
 
 **新的受支持方案：**
 
-* 支持多个本地 Exchange 组织。 有关详细信息，请参阅 [包含多个 Active Directory 林的混合部署](https://technet.microsoft.com/library/jj873754.aspx)。
+* 支持多个本地 Exchange 组织。 有关详细信息，请参阅 [包含多个 Active Directory 林的混合部署](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150))。
 
 **已解决的问题：**
 

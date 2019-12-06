@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
 origin.date: 09/06/2019
-ms.date: 11/01/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: shoatman
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b39066760e532568fcff52457c07c2c6c32e909
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 578eb213bda62137db347b9f4c0edc0987366f5b
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831040"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655366"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>适用于 Android 的 ADAL 到 MSAL 迁移指南
 
@@ -30,43 +30,40 @@ ms.locfileid: "73831040"
 
 ## <a name="difference-highlights"></a>差异重点说明
 
-ADAL 适用于 Azure Active Directory v1.0 终结点。 Microsoft 身份验证库 (MSAL) 适用于 Microsoft 标识平台（前称为 Azure Active Directory v2.0 终结点）。
+ADAL 适用于 Azure Active Directory v1.0 终结点。 Microsoft 身份验证库 (MSAL) 适用于 Microsoft 标识平台--前称为 Azure Active Directory v2.0 终结点。 Microsoft 标识平台与 Azure Active Directory v1.0 的不同之处在于：
 
-Microsoft 标识平台与 Azure Active Directory v1.0 的不同之处在于：
-
-- 支持：
+支持：
   - 组织标识 (Azure Active Directory)
 
 - 与以下协议的标准兼容：
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-MSAL 公共 API 引入了重要的可用性更改，包括：
+MSAL 公共 API 引入了重要的更改，其中包括：
 
 - 用于访问令牌的新模型：
   - ADAL 允许通过 `AuthenticationContext`（表示服务器）访问令牌。 MSAL 允许通过 `PublicClientApplication`（表示客户端）访问令牌。 客户端开发人员无需为每个要交互的颁发机构创建新的 `PublicClientApplication` 实例。 只需一个 `PublicClientApplication` 配置。
   - 除使用资源标识符以外，还支持使用范围请求访问令牌。
-  - 对增量许可的支持。 开发人员可以请求范围，包括应用注册期间未包含的范围。
-  - 颁发机构验证 -> 已知颁发机构
-      * 在运行时不再验证颁发机构；而是由开发人员在开发过程中声明“已知颁发机构”列表。
+  - 对增量许可的支持。 当用户在应用中访问越来越多的功能时，开发人员可以请求范围，包括应用注册期间未包含的范围。
+  - 不再在运行时验证颁发机构， 而是由开发人员在开发过程中声明“已知颁发机构”列表。
 - 令牌 API 更改：
-  - 在 ADAL 中，`AcquireToken` 首先尝试发出静默请求，如果该请求失败，则发出交互式请求。 此行为会导致某些开发人员仅依赖于 `AcquireToken`，而这有时意味着，用户交互可能在意外的时刻发生。 MSAL 要求开发人员留意用户收到 UI 提示的时间。
+  - 在 ADAL 中，`AcquireToken()` 首先发出静默请求。 如果该请求失败，则发出交互式请求。 此行为导致某些开发人员仅依赖于 `AcquireToken`，这又导致系统有时候以意外方式提示用户提供凭据。 MSAL 要求开发人员留意用户收到 UI 提示的时间。
     - `AcquireTokenSilent` 始终生成成功或失败的静默请求。
-    - `AcquireToken` 始终生成交互式（通过 UI 提示用户）请求。
-- MSAL 支持来自默认浏览器或嵌入式 Web 视图的登录 UI 交互：
+    - `AcquireToken` 始终生成一个通过 UI 提示用户的请求。
+- MSAL 支持来自默认浏览器或嵌入式 Web 视图的登录：
   - 默认情况下，使用设备上的默认浏览器。 这样，MSAL 就可以使用已为一个或多个登录帐户提供的身份验证状态 (Cookie)。 如果未提供身份验证状态，则在授权期间通过 MSAL 进行的身份验证将导致创建身份验证状态 (Cookie)，以便为同一浏览器中使用的其他 Web 应用程序提供便利。
 - 新的异常模型：
-  - 异常更明确地指出了发生的异常类型，以及开发人员需要采取哪些措施来解决该异常
+  - 异常更明确地定义了发生的错误类型，以及开发人员需要采取哪些措施来解决该错误。
 - MSAL 支持 `AcquireToken` 和 `AcquireTokenSilent` 调用的参数对象。
 - MSAL 支持以下项的声明性配置：
-  - 客户端 ID、重定向 URI
+  - 客户端 ID、重定向 URI。
   - 嵌入式浏览器与默认浏览器
   - 颁发机构
   - 读取和连接超时等 HTTP 设置
 
 ## <a name="your-app-registration-and-migration-to-msal"></a>应用注册以及到 MSAL 的迁移
 
-无需对现有应用注册进行任何更改即可使用 MSAL。 若要利用增量/渐进式许可，可能需要查看注册，以识别要增量请求的特定范围。 下面是有关范围和增量许可的详细信息。
+不需更改现有应用注册即可使用 MSAL。 若要利用增量/渐进式许可，可能需要查看注册，以识别要增量请求的特定范围。 下面是有关范围和增量许可的详细信息。
 
 在门户上的应用注册中，将会看到“API 权限”选项卡。  其中提供了应用当前配置为请求访问的 API 和权限（范围）的列表。 其中还显示与每个 API 权限关联的范围名称列表。
 
@@ -97,12 +94,12 @@ MSAL 公共 API 引入了重要的可用性更改，包括：
 
 ### <a name="authenticate-and-request-permissions-only-as-needed"></a>仅在有需要时才进行身份验证并请求权限
 
-若要利用增量许可，需要创建应用要在应用注册中使用的权限（范围）列表，然后根据以下条件将其组织成两份列表：
+若要利用增量许可，请创建应用要在应用注册中使用的权限（范围）列表，并根据以下条件将其组织成两份列表：
 
 - 用户在登录期间首次与应用交互时你要请求的范围。
 - 与应用的某项重要功能关联的权限（你还需要向用户解释为何需要这些权限）。
 
-组织范围后，需要根据要请求其令牌的资源 (API) 组织每个列表。 以及同时希望用户授权的任何其他范围。
+组织范围后，请根据要请求其令牌的资源 (API) 组织每个列表。 以及同时希望用户授权的任何其他范围。
 
 用于向 MSAL 发出请求的参数对象支持：
 
@@ -133,8 +130,8 @@ MSAL 不提供用于启用或禁用颁发机构验证的标志。 颁发机构�
 如果尝试使用 Microsoft 未知的颁发机构，并且未在配置中包含该颁发机构，将会收到 `UnknownAuthorityException`。
 
 ### <a name="logging"></a>日志记录
-现在可按如下所示在配置中以声明方式配置日志记录
- 
+现在可在配置中以声明方式配置日志记录，如下所示：
+
  ```
  "logging": {
     "pii_enabled": false,
@@ -304,3 +301,4 @@ public enum LogLevel
 }
 ```
 
+<!-- Update_Description: wording update -->

@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 origin.date: 01/11/2019
-ms.date: 11/12/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4daea524e8990b3e1badecd08da0aae97a2c4988
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: aa89e4b7e9bc5916656cdd41bdafc38e732a2b0a
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084477"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655293"
 ---
 # <a name="how-to-configure-password-writeback"></a>操作说明：配置密码写回服务
 
@@ -100,7 +100,7 @@ ms.locfileid: "74084477"
     * **写入 pwdLastSet**
 9. 选择“应用”/“确定”  以应用更改，并退出所有打开的对话框。
 
-由于授权源在本地，因此密码复杂性策略从同一已连接的数据源应用。 请确保已更改“最短密码长度”的现有组策略。 组策略不应设置为 1，这意味着密码至少应存在一天的时间才能更新。 需要确保将其设置为 0。 这些设置可以在“计算机配置”>“策略”>“Windows 设置”>“安全设置”>“帐户策略”  下的 `gpmc.msc` 中找到。 运行 `gpupdate /force` 以确保更改生效。 
+由于授权源在本地，因此密码复杂性策略从同一已连接的数据源应用。 请确保已更改“最短密码期限”的现有组策略。 组策略不应设置为 1，这意味着密码至少应存在一天的时间才能更新。 需要确保将其设置为 0。 这些设置可以在“计算机配置”>“策略”>“Windows 设置”>“安全设置”>“帐户策略”  下的 `gpmc.msc` 中找到。 运行 `gpupdate /force` 以确保更改生效。 
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: 5e6bea3516be9c09135c1949f91958f4dc9a0470
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 11d217597464193ddcac7982eaa1bf2499c895af
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020697"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657957"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>使用 Azure CLI 创建 Azure 数据资源管理器群集和数据库
 
@@ -37,11 +37,12 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="configure-the-cli-parameters"></a>配置 CLI 参数
 
-如果在 Azure Cloud Shell 中运行命令，则不需要执行以下步骤。 如果在本地运行 CLI，请按以下步骤登录到 Azure 并设置当前订阅：
+如果在 Azure CLI 中运行命令，则不需要执行以下步骤。 如果在本地运行 CLI，请按以下步骤登录到 Azure 并设置当前订阅：
 
 1. 运行以下命令来登录到 Azure：
 
     ```azurecli
+    az cloud set -n AzureChinaCloud
     az login
     ```
 

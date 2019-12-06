@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 05/30/2019
-ms.date: 06/10/2019
+origin.date: 08/07/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 78a0b3665f706350efe7365a7708320d45237094
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 279edaa8dac8a667b2a1e380e92f82036249f6cf
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726518"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530603"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>使用 Azure 门户管理 Azure Data Box 和 Azure Data Box Heavy
 
@@ -124,7 +124,7 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 2. 单击“下载订单历史记录”。  在下载的历史记录中，会看到一个有关承运人跟踪日志的记录。 将有两组日志对应于 Data Box Heavy 上的两个节点。 如果向下滚动到该日志的底部，则可看到以下内容的链接：
     
    - **复制日志** - 包含一个文件列表，其中的文件是在将数据从 Data Box 复制到 Azure 存储帐户的过程中出错的。
-   - **审核日志** - 包含有关 Data Box 启动的信息，以及当它位于 Azure 数据中心外部时在其上共享访问权限的信息。
+   - **审核日志** - 包含有关当 Data Box 在 Azure 数据中心外部时如何启动它和访问其上共享的信息。
    - **BOM 文件** - 包含在**准备寄送**过程中可以下载的文件的列表（也称文件清单），其中包含文件名、文件大小和文件校验和。
 
        ```
@@ -208,7 +208,8 @@ Data Box 订单完成以后，会擦除设备磁盘上的数据。 当设备清�
 |Received     | 已收到你的设备并在 Azure 数据中心对其进行了扫描。 <br> 在检查发运的设备后，将启动设备上传。      |
 |数据复制     | 正在复制数据。 可以在 Azure 门户中跟踪订单的复制进度。 <br> 请等待数据复制完成。 |
 |已完成       |已成功完成订单。<br> 从服务器中删除本地数据之前，请验证数据是否已在 Azure 中。         |
-|已完成但出错| 数据复制已完成，但在复制期间发生错误。 <br> 请使用 Azure 门户中提供的路径查看复制日志。   |
+|已完成但出错| 数据复制已完成，但在复制期间发生错误。 <br> 请使用 Azure 门户中提供的路径查看复制日志。 请参阅[上传完成但显示错误时复制日志的示例](/databox/data-box-logs#upload-completed-with-errors)。   |
+|已完成但出现警告| 数据复制已完成，但数据已修改。 数据具有非关键 blob 或文件名错误，已通过更改文件或 blob 名称修复这些错误。 <br> 请使用 Azure 门户中提供的路径查看复制日志。 对数据中的修改进行注释。 请参阅[当上传完成但出现警告时复制日志的示例](/databox/data-box-logs#upload-completed-with-warnings)。   |
 |已取消            |订单已取消。 <br> 你取消了订单，或者由于遇到错误，服务取消了订单。 如果不能在 90 天内履行订单，则订单也将取消并且会向你发送通知。     |
 |清理 | 已擦除设备磁盘上的数据。 当 Azure 门户中提供了可供下载的订单历史记录时，可以认为设备清理已完成。|
 

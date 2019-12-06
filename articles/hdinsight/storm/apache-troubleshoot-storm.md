@@ -11,15 +11,15 @@ ms.assetid: 74E51183-3EF4-4C67-AA60-6E12FAC999B5
 ms.service: hdinsight
 ms.devlang: na
 ms.topic: article
-origin.date: 08/15/2019
-ms.date: 09/23/2019
+origin.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 164c50406db586510b296d60029e425c48814299
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 59989714e9326884cda4fa7f182e6aedcdad46da
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389502"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657952"
 ---
 # <a name="troubleshoot-apache-storm-by-using-azure-hdinsight"></a>使用 Azure HDInsight 对 Apache Storm 进行故障排除
 
@@ -147,12 +147,29 @@ Storm 工作节点运行以下服务：
 识别 Storm 服务的 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/) 配置文件。
  
 ### <a name="on-head-nodes"></a>在头节点上
-从 /usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml 读取 Nimbus Log4J 配置。
- 
-### <a name="on-worker-nodes"></a>在工作节点上
-从 /usr/hdp/\<HDP version\>/storm/log4j2/cluster.xml 读取监督器 Log4J 配置。
- 
-从 /usr/hdp/\<HDP version\>/storm/log4j2/worker.xml 读取工作节点 Log4J 配置文件。
- 
-示例：/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml /usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml
 
+Nimbus Log4J 配置是从 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` 读取的。
+
+### <a name="on-worker-nodes"></a>在工作节点上
+
+监督器 Log4J 配置是从 `/usr/hdp/\<HDP version>/storm/log4j2/cluster.xml` 读取的。
+
+工作节点 Log4J 配置文件是从 `/usr/hdp/\<HDP version>/storm/log4j2/worker.xml` 读取的。
+
+示例：`/usr/hdp/2.6.0.2-76/storm/log4j2/cluster.xml`
+`/usr/hdp/2.6.0.2-76/storm/log4j2/worker.xml`
+
+---
+
+## <a name="not-a-leader-exception"></a>不是领导者异常
+
+提交拓扑时，用户可能会收到类似于以下内容的错误消息：`Topology submission exception, cause not a leader, the current leader is NimbusInfo`。
+
+若要解决此问题，用户可能需要提交票证以重启/重新引导节点。 有关详细信息，请参阅 [https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html](https://community.hortonworks.com/content/supportkb/150287/error-ignoring-exception-while-trying-to-get-leade.html)。
+
+---
+
+## <a name="next-steps"></a>后续步骤
+
+如果你的问题未在本文中列出，或者无法解决问题，请访问以下渠道以获取更多支持：
+- 如果需要更多帮助，可以从 [Azure 门户](https://portal.azure.cn/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)提交支持请求。 从菜单栏中选择“支持”  ，或打开“帮助 + 支持”  中心。 

@@ -1,20 +1,20 @@
 ---
-title: 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备：Azure 资源管理器：PowerShell | Microsoft Docs
+title: Azure VPN 网关：将网关连接到多个基于策略的本地 VPN 设备
 description: 使用 Azure 资源管理器和 PowerShell 将基于路由的 Azure VPN 网关配置到多个基于策略的 VPN 设备。
 services: vpn-gateway
 documentationcenter: na
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 11/30/2018
-ms.date: 03/25/2019
+origin.date: 10/17/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: d4ee84239e2315f286c651efd5697421e0a25fbb
-ms.sourcegitcommit: df1adc5cce721db439c1a7af67f1b19280004b2d
+ms.openlocfilehash: cef5a306926aa1fc9935eeaf3957a1eb490d00b1
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63850299"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552984"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>使用 PowerShell 将 Azure VPN 网关连接到多个基于策略的本地 VPN 设备
 
@@ -24,7 +24,7 @@ ms.locfileid: "63850299"
 
 ## <a name="about"></a>关于基于策略的 VPN 网关和基于路由的 VPN 网关
 
-基于策略与基于路由的 VPN 设备的差异体现在如何在连接上设置 IPsec 流量选择器：
+基于策略与基于路由的 VPN 设备的差异体现在如何在连接上设置 IPsec 流量选择器： 
 
 * **基于策略**的 VPN 设备使用两个网络的前缀组合来定义如何通过 IPsec 隧道加密/解密流量。 它通常构建在执行数据包筛选的防火墙设备的基础之上。 IPsec 隧道加密和解密将添加到数据包筛选及处理引擎。
 * **基于路由**的 VPN 设备使用任意到任意（通配）流量选择器，允许路由/转发表将流量定向到不同的 IPsec 隧道。 它通常构建在其中每个 IPsec 隧道建模为网络接口或 VTI（虚拟隧道接口）的路由器平台的基础之上。
@@ -40,18 +40,18 @@ ms.locfileid: "63850299"
 ### <a name="azure-support-for-policy-based-vpn"></a>Azure 对基于策略的 VPN 的支持
 目前，Azure 支持两种 VPN 网关模式：基于路由的 VPN 网关和基于策略的 VPN 网关。 两者基于不同的内部平台，因而规格也不同：
 
-|                          | 基于策略的 VPN 网关 | **RouteBased VPN 网关**               |
-| ---                      | ---                         | ---                                      |
-| **Azure 网关 SKU**    | 基本                       | 基本、标准、高性能、VpnGw1、VpnGw2、VpnGw3 |
-| **IKE 版本**          | IKEv1                       | IKEv2                                    |
-| **最大S2S 连接** | **1**                       | 基本/标准：10 个<br> 高性能：30 |
-|                          |                             |                                          |
+|                          | 基于策略的 VPN 网关  | **RouteBased VPN 网关**       |**RouteBased VPN 网关**                          |
+| ---                      | ---                         | ---                              |---                                                 |
+| **Azure 网关 SKU**    | 基本                       | 基本                            | 标准、高性能、VpnGw1、VpnGw2、VpnGw3  |
+| **IKE 版本**          | IKEv1                       | IKEv2                            | IKEv1 和 IKEv2                                    |
+| **最大S2S 连接** | **1**                       | 10 个                               |标准：10 个<br> 其他 SKU：30                     |
+|                          |                             |                                  |                                                    |
 
 使用自定义 IPsec/IKE 策略时，现在可以通过选项“**PolicyBasedTrafficSelectors**”将 Azure 基于路由的 VPN 网关配置为使用基于前缀的流量选择器，以便连接到基于策略的本地 VPN 设备。 此功能允许从 Azure 虚拟网络和 VPN 网关连接到多个基于策略的本地 VPN/防火墙设备，从当前基于 Azure Policy 的 VPN 网关中删除单个连接限制。
 
 > [!IMPORTANT]
 > 1. 若要启用此连接，基于策略的本地 VPN 设备必须支持 **IKEv2**，才能连接到基于路由的 Azure VPN 网关。 请查看 VPN 设备规格。
-> 2. 通过基于策略的 VPN 设备采用此机制进行连接的本地网络只能连接到 Azure 虚拟网络；不能经由相同的 Azure VPN 网关传输到其他本地网络或虚拟网络。
+> 2. 通过基于策略的 VPN 设备采用此机制进行连接的本地网络只能连接到 Azure 虚拟网络；不能经由相同的 Azure VPN 网关传输到其他本地网络或虚拟网络  。
 > 3. 配置选项是自定义 IPsec/IKE 连接策略的一部分。 如果启用基于策略的流量选择器选项，则必须指定完整的策略（IPsec/IKE 加密和完整性算法、密钥强度和 SA 生存期）。
 
 下图显示了在选择基于策略的 VPN 时，经由 Azure VPN 网关的传输路由为何无法工作：
@@ -188,7 +188,7 @@ $connection6  = Get-AzVirtualNetworkGatewayConnection -Name $Connection16 -Resou
 $connection6.UsePolicyBasedTrafficSelectors
 ```
 
-如果行返回“True”，则表示对连接配置了基于策略的流量选择器；否则返回“False”。
+如果行返回“True”，则表示对连接配置了基于策略的流量选择器；否则返回“False”   。
 
 ### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3.对连接启用/禁用基于策略的流量选择器
 获取连接资源后，可以启用或禁用该选项。

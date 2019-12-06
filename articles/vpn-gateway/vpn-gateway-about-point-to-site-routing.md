@@ -1,19 +1,19 @@
 ---
-title: 关于 Azure 点到站点路由 | Microsoft Docs
+title: Azure VPN 网关：关于 P2S 路由
 description: 本文介绍点到站点 VPN 路由的工作原理。
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 10/08/2019
-ms.date: 11/11/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 74ba888dee283d2d2832b6cc831e2a2b13503211
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: 072b1188c027c06af72ef03630d5393dabc7b46a
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742297"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552990"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>关于点到站点 VPN 路由
 
@@ -210,7 +210,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 ### <a name="routes-added"></a>已添加的路由
 
-* 已添加路由的客户端：10.1.0.0/16、192.168.0.0/24
+* 已添加到 Windows 客户端的路由：10.1.0.0/16、192.168.0.0/24
 
 * 已添加到非 Windows 客户端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、10.101.0.0/16、192.168.0.0/24
 
@@ -240,7 +240,7 @@ Windows 客户端可以访问 VNet 和其他分支机构 (Site1)，但必须将�
 
 ### <a name="routes-added"></a>已添加的路由
 
-* 已添加路由的客户端：10.1.0.0/16、192.168.0.0/24
+* 已添加到 Windows 客户端的路由：10.1.0.0/16、192.168.0.0/24
 
 * 已添加到非 Windows 客户端的路由：10.1.0.0/16、10.2.0.0/16、10.3.0.0/16、10.101.0.0/16、192.168.0.0/24
 

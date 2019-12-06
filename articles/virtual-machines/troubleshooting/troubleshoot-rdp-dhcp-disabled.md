@@ -1,5 +1,5 @@
 ---
-title: 由于 DHCP 被禁用而无法远程连接到 Azure 虚拟机 | Azure
+title: 因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机 | Azure
 description: 了解如何排查由于 DHCP 客户端服务在 Azure 中被禁用而导致的 RDP 问题。| Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 origin.date: 11/13/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: c101834ff87653a1e457e05b97c37e3c172ce6a1
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: b0ee828950bed6bc6631adf38bb6dea42debe518
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116936"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594203"
 ---
 # <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>因 DHCP 客户端服务已禁用而无法通过 RDP 连接到 Azure 虚拟机
 

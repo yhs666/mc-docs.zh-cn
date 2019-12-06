@@ -1,19 +1,19 @@
 ---
-title: 针对 Azure 资源中的数组属性创作策略
+title: 针对资源中的数组属性创作策略
 description: 了解如何使用 Azure Policy 定义规则来创建数组参数、创建数组语言表达式的规则、评估 [*] 别名，以及将元素追加到现有数组。
 author: DCtheGeek
 ms.author: v-tawe
 origin.date: 03/06/2019
-ms.date: 10/15/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1ffccb0ff11ed5c93c71d70dec6d9258d0a650a2
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 0ebbd49f844deff8d18b00761cccd6823523c580
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526666"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657950"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>针对 Azure 资源中的数组属性创作策略
 
@@ -213,4 +213,4 @@ Azure 资源管理器属性往往定义为字符串和布尔值。 存在一个�
 - 查看[了解策略效果](../concepts/effects.md)。
 - 了解如何[以编程方式创建策略](programmatically-create.md)。
 - 了解如何[修正不符合的资源](remediate-resources.md)。
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

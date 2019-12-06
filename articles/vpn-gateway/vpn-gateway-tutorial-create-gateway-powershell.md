@@ -1,20 +1,20 @@
 ---
-title: 使用 PowerShell 创建和管理 Azure VPN 网关 | Microsoft Docs
+title: Azure VPN 网关：创建和管理网关：教程
 description: 教程 - 使用 Azure PowerShell 模块创建和管理 VPN 网关
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: tutorial
-origin.date: 07/23/2019
-ms.date: 09/02/2019
+origin.date: 11/04/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.custom: mvc
-ms.openlocfilehash: 014298eeef9e07bbbebe47fa32e4ce5b484d6caf
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.openlocfilehash: 3d00357c084e409952f80d4c7410933b3e59929b
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131727"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552981"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>教程：使用 PowerShell 创建和管理 VPN 网关
 
@@ -22,7 +22,7 @@ Azure VPN 网关在客户本地与 Azure 之间提供跨界连接。 本教程�
 
 > [!div class="checklist"]
 > * 创建 VPN 网关
-> * 查看公用 IP 地址
+> * 查看公共 IP 地址
 > * 调整 VPN 网关大小
 > * 重置 VPN 网关
 
@@ -103,7 +103,7 @@ $vnet   = New-AzVirtualNetwork `
 Azure VPN 网关通过 Internet 与本地 VPN 设备进行通信，执行 IKE（Internet 密钥交换）协商并建立 IPsec 隧道。 使用 [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress) 和 [New-AzVirtualNetworkGatewayIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) 创建一个公共 IP 地址并将其分配给 VPN 网关，如以下示例中所示：
 
 > [!IMPORTANT]
-> 目前，只能为网关使用“动态”公用 IP 地址。 Azure VPN 网关不支持静态 IP 地址。
+> 目前，只能为网关使用“动态”公共 IP 地址。 Azure VPN 网关不支持静态 IP 地址。
 
 ```azurepowershell
 $gwpip    = New-AzPublicIpAddress -Name $GwIP1 -ResourceGroupName $RG1 `
@@ -127,7 +127,7 @@ New-AzVirtualNetworkGateway -Name $Gw1 -ResourceGroupName $RG1 `
 关键参数值：
 * GatewayType：对于站点到站点和 VNet 到 VNet 连接，请使用 **Vpn**
 * VpnType：使用 **RouteBased** 与更广范围的 VPN 设备和更多路由功能进行交互
-* GatewaySku：默认值为 **VpnGw1**；如果需要更高的吞吐量或更多连接，请将其更改为 VpnGw2 或 VpnGw3。 有关详细信息，请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
+* GatewaySku：默认值为“VpnGw1”；如果需要更高的吞吐量或更多连接，请将其更改为另一个 VpnGw SKU  。 有关详细信息，请参阅[网关 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku)。
 
 完成网关创建后，可以在虚拟网络与另一个 VNet 之间创建连接，或者在虚拟网络与本地位置之间创建连接。 还可以配置从客户端计算机到 VNet 的 P2S 连接。
 
@@ -180,7 +180,7 @@ Remove-AzResourceGroup -Name $RG1
 
 > [!div class="checklist"]
 > * 创建 VPN 网关
-> * 查看公用 IP 地址
+> * 查看公共 IP 地址
 > * 调整 VPN 网关大小
 > * 重置 VPN 网关
 

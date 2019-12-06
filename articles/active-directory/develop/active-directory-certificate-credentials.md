@@ -1,5 +1,6 @@
 ---
-title: Azure AD 中的证书凭据 | Microsoft Docs
+title: Azure AD 中的证书凭据
+titleSuffix: Microsoft identity platform
 description: 本文介绍如何注册和使用用于应用程序身份验证的证书凭据
 services: active-directory
 documentationcenter: .net
@@ -12,19 +13,19 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 06/24/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: nacanuma, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00d3fa4608e0aebcebcb80c1caad6e728584fee9
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 03c17f6d34de9610467a7412078daa33d6352025
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568555"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655253"
 ---
 # <a name="certificate-credentials-for-application-authentication"></a>用于应用程序身份验证的证书凭据
 
@@ -133,6 +134,9 @@ Gh95kHCOEGq5E_ArMBbDXhwKR577scxYaoJ1P{a lot of characters here}KKJDEg"
    `keyCredentials` 属性具有多个值，因此可上传多个证书实现更丰富的密钥管理。
    
 ## <a name="code-sample"></a>代码示例
+
+> [!NOTE]
+> 必须通过使用证书的哈希值并将其转换为 base64 字符串来计算 X5T 标头。 在 C# 中，它看起来类似于：`System.Convert.ToBase64String(cert.GetCertHash());`
 
 [在守护程序应用中使用证书向 Azure AD 进行身份验证](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)中的代码示例演示了应用程序如何使用自己的凭据进行身份验证。 它还演示了如何使用 `New-SelfSignedCertificate` Powershell命令[创建自签名证书](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential#create-a-self-signed-certificate)。 还可以利用和使用[应用创建脚本](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/blob/master/AppCreationScripts/AppCreationScripts.md)执行创建证书、计算指纹等操作。
 

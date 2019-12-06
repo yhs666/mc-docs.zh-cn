@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 origin.date: 04/24/2019
-ms.date: 07/04/2019
+ms.date: 11/26/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ea882b885596c969cd7d29f79d19350b73c957
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: ba5644569e3f4c5a998954d536418289d7535e4e
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568622"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655405"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Azure AD Connect 同步：与 Azure Active Directory 同步的属性
 本主题列出通过 Azure AD Connect 同步进行同步的属性。  
@@ -65,7 +65,7 @@ ms.locfileid: "67568622"
 | company |X |X | | |
 | countryCode |X |X | | |
 | department |X |X | | |
-| 说明 |X |X |X | |
+| 说明 | | |X | |
 | displayName |X |X |X | |
 | dLMemRejectPerms |X |X |X | |
 | dLMemSubmitPerms |X |X |X | |
@@ -252,7 +252,8 @@ ms.locfileid: "67568622"
 | title |X |X | | |
 | unauthOrig |X |X |X | |
 | url |X |X | | |
-| usageLocation |X | | |机械属性。 用户所在的国家/地区。 用于进行许可证分配。 |
+| usageLocation |X | | |机械属性。 用户所在的国家/地区
+上获取。 用于进行许可证分配。 |
 | userPrincipalName |X | | |UPN 是用户的登录 ID。 大多数情况下与 [mail] 值相同。 |
 | wWWHomePage |X |X | | |
 

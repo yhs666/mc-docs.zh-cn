@@ -1,5 +1,5 @@
 ---
-title: 管理员角色说明和权限 - Azure Active Directory | Microsoft Docs
+title: 管理员角色说明和权限 - Azure AD | Microsoft Docs
 description: 管理员角色可以添加用户、分配管理角色、重置用户密码、管理用户许可证，或者管理域。
 services: active-directory
 author: curtand
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-origin.date: 10/28/2019
-ms.date: 11/14/2019
+origin.date: 11/12/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0e4fac34c0590d3c8b80a7a7669961865992fdc
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: 509d4e02f18e922cb6b538355f6f86e2d2af2794
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084793"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655433"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory 中的管理员角色权限
 
@@ -76,12 +76,12 @@ ms.locfileid: "74084793"
 
 > [!IMPORTANT]
 > 具有此角色的用户可以更改可能有权访问 Azure Active Directory 内外敏感或私有信息或关键配置的用户的凭据。 更改用户的凭据可能意味着假定用户标识和权限的能力。 例如：
-
-* 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予身份验证管理员的特权。 通过此路径，身份验证管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
-* Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
-* 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
-* Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
-* 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
+>
+>- 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予身份验证管理员的特权。 通过此路径，身份验证管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
+>- Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
+>- 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
+>- Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
+>- 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
 
 ### <a name="azure-devops-administratorazure-devops-administrator-permissions"></a>[Azure DevOps 管理员](#azure-devops-administrator-permissions)
 
@@ -140,7 +140,7 @@ In | 有权执行的操作
 [合规性管理器](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 跟踪、分配并验证组织的法规合规性活动
 [Office 365 安全与合规中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理数据治理<br>执行法律和数据调查<br>管理数据主体请求<br><br>此角色的权限与 Office 365 安全与合规中心基于角色的访问控制中的[合规性管理员角色组](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 查看所有 Intune 审核数据
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 拥有只读权限，可以管理警报<br>可以创建和修改文件策略并允许执行文件管理操作<br> 可以查看数据管理下的所有内置报表
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 拥有只读权限，可以管理警报<br>可以创建和修改文件策略并允许执行文件管理操作<br>可以查看数据管理下的所有内置报表
 
 ### <a name="compliance-data-administratorcompliance-data-administrator-permissions"></a>[合规性数据管理员](#compliance-data-administrator-permissions)
 
@@ -152,7 +152,7 @@ In | 有权执行的操作
 [合规性管理器](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 跟踪、分配并验证组织的法规合规性活动
 [Office 365 安全与合规中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理数据治理<br>执行法律和数据调查<br>管理数据主体请求<br><br>此角色的权限与 Office 365 安全与合规中心基于角色的访问控制中的[合规性数据管理员角色组](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center)相同。
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 查看所有 Intune 审核数据
-[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 拥有只读权限，可以管理警报<br>可以创建和修改文件策略并允许执行文件管理操作<br> 可以查看数据管理下的所有内置报表
+[Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 拥有只读权限，可以管理警报<br>可以创建和修改文件策略并允许执行文件管理操作<br>可以查看数据管理下的所有内置报表
 
 ### <a name="conditional-access-administratorconditional-access-administrator-permissions"></a>[条件访问管理员](#conditional-access-administrator-permissions)
 
@@ -214,14 +214,14 @@ In | 有权执行的操作
 > [!NOTE]
 > 全局读取者角色目前存在一些限制 -
 >
->* SharePoint 管理中心 - SharePoint 管理中心不支持全局读取者角色。 [Microsoft 365 管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)内“管理中心”的左下窗格不会显示“SharePoint”。
->* [OneDrive 管理中心](https://admin.onedrive.com/) - OneDrive 管理中心不支持全局读取者角色。
->* [Azure AD 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - 全局读取者无法读取企业应用的预配模式。
->* [M365 管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage) - 全局读取者无法读取客户密码箱请求。 在 M365 管理中心左窗格中的“支持”下，看不到“客户密码箱请求”选项卡。  
->* [M365 安全中心](https://security.microsoft.com/homepage) - 全球读取者无法读取敏感度和保留标签。 在 M365 安全中心的左窗格中看不到“敏感度标签”、“保留标签”和“标签分析”选项卡。   
->* [Teams 管理中心](https://admin.teams.microsoft.com) - 全球读取者无法读取“Teams 生命周期”、“分析和报告”、“IP 电话设备管理”和“应用目录”。    
->* [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) 不支持全局读取者角色。
->* [Azure 信息保护](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - 仅支持全局读取者执行[中心报告](https://docs.microsoft.com/azure/information-protection/reports-aip)，并且仅当租户不在[统一标签平台](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上时才支持此操作。
+>- SharePoint 管理中心 - SharePoint 管理中心不支持全局读取者角色。 [Microsoft 365 管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage)内“管理中心”的左下窗格不会显示“SharePoint”。
+>- [OneDrive 管理中心](https://admin.onedrive.com/) - OneDrive 管理中心不支持全局读取者角色。
+>- [Azure AD 门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) - 全局读取者无法读取企业应用的预配模式。
+>- [M365 管理中心](https://admin.microsoft.com/Adminportal/Home#/homepage) - 全局读取者无法读取客户密码箱请求。 在 M365 管理中心左窗格中的“支持”下，看不到“客户密码箱请求”选项卡。  
+>- [M365 安全中心](https://security.microsoft.com/homepage) - 全球读取者无法读取敏感度和保留标签。 在 M365 安全中心的左窗格中看不到“敏感度标签”、“保留标签”和“标签分析”选项卡。   
+>- [Teams 管理中心](https://admin.teams.microsoft.com) - 全球读取者无法读取“Teams 生命周期”、“分析和报告”、“IP 电话设备管理”和“应用目录”。    
+>- [Privileged Access Management (PAM)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) 不支持全局读取者角色。
+>- [Azure 信息保护](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) - 仅支持全球读取者执行[中心报告](https://docs.microsoft.com/azure/information-protection/reports-aip)，并且仅当 Azure AD 组织不在[统一标记平台](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)上时才支持此角色。
 >
 > 这些功能目前正在开发中。
 >
@@ -242,17 +242,16 @@ In | 有权执行的操作
 
 > [!IMPORTANT]
 > 具有此角色的用户可以更改可能有权访问 Azure Active Directory 内外敏感或私有信息或关键配置的用户的密码。 更改用户的密码可能意味着假定用户标识和权限的能力。 例如：
-
-* 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予支持人员管理员的特权。 通过此路径，支持人员管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
-* Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
-* 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
-* Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
-* 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
-
-> [!NOTE]
-> 使用[管理单元（预览版）](/active-directory/users-groups-roles/directory-administrative-units)可向一部分用户委托管理权限，并向一部分用户应用策略。
 >
-> 在 [Azure 门户](https://portal.azure.cn/)中，此角色以前称为“密码管理员”。 我们已将其名称更改为“支持管理员”，以便与 Azure AD PowerShell、Azure AD 图形 API 和 Microsoft 图形 API 中的名称相匹配。
+>- 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予支持人员管理员的特权。 通过此路径，支持人员管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
+>- Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置具有访问权限。
+>- 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
+>- Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
+>- 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
+
+使用[管理单元（现已公开预览）](/active-directory/users-groups-roles/directory-administrative-units)，可以委派对一部分用户的管理权限并将策略应用于一部分用户。
+
+在 [Azure 门户](https://portal.azure.cn/)中，此角色以前称为“密码管理员”。 Azure AD 中的“支持管理员”名称现在与其在 Azure AD PowerShell、Azure AD 图形 API 和 Microsoft Graph API 中的名称匹配。
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune 管理员](#intune-service-administrator-permissions)
 
@@ -321,7 +320,7 @@ In | 有权执行的操作
 
 In | 有权执行的操作
 --- | ---
-[Microsoft 365 安全中心](https://protection.office.com) | 跨 Microsoft 365 服务监视与安全相关的策略<br>管理安全威胁和警报 | 安全读取者角色的所有权限<br>此外，还能够执行除了重置密码以外的所有“标识保护中心”操作
+[Microsoft 365 安全中心](https://protection.office.com) | 跨 Microsoft 365 服务监视与安全相关的策略<br>管理安全威胁和警报<br>查看报告
 [Privileged Identity Management](/active-directory/privileged-identity-management/pim-configure) | 安全读取者角色的所有权限<br>无法管理 Azure AD 角色分配或设置 
 [Office 365 安全与合规中心](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 管理安全策略<br>查看、调查和响应安全威胁<br>查看报告
 Azure 高级威胁防护 | 监视和响应可疑安全活动
@@ -413,12 +412,12 @@ Windows Defender ATP 和 EDR | 查看并调查警报。 在 Windows Defender ATP
 
 > [!IMPORTANT]
 > 具有此角色的用户可以更改可能有权访问 Azure Active Directory 内外敏感或私有信息或关键配置的用户的密码。 更改用户的密码可能意味着假定用户标识和权限的能力。 例如：
-
-* 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予用户管理员的特权。 通过此路径，用户管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
-* Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
-* 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
-* Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
-* 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
+>
+>- 应用程序注册和企业应用程序所有者，可以管理他们拥有的应用的凭据。 这些应用程序可能在 Azure AD 或其他位置拥有未授予用户管理员的特权。 通过此路径，用户管理员可能能够假定应用程序所有者的身份，然后通过更新应用程序的凭据来进一步假定特权应用程序的标识。
+>- Azure 订阅所有者，可能对 Azure 中的敏感或私有信息或关键配置拥有访问权限。
+>- 安全组和 Office 365 组所有者，可以管理组成员身份。 这些组可能会授予对 Azure AD 或其他位置敏感或私有信息或关键配置的访问权限。
+>- Azure AD 之外的其他服务中的管理员，如 Exchange Online、Office 安全与合规中心以及人力资源系统。
+>- 高级管理人员、法律顾问和人力资源员工之类的非管理员，可能有权访问敏感或私有信息。
 
 ## <a name="role-permissions"></a>角色权限
 

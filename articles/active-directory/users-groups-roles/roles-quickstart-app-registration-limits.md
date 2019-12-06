@@ -1,25 +1,25 @@
 ---
-title: 授予个人权限以突破应用注册的限制 - Azure Active Directory | Microsoft Docs
-description: 在 Azure AD Active Directory 中分配自定义角色以授予创建无限数目的应用注册的权限。
+title: 去除创建应用注册的限制 - Azure AD | Microsoft Docs
+description: 在 Azure AD Active Directory 中分配自定义角色以授予创建无限数目的应用注册的权限
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 07/31/2019
-ms.date: 11/14/2019
+origin.date: 11/08/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88c594807db7b3dbf707f3f2488d8e03ecc27b21
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: f4d8f609a0bcf71d018fb6b343466daa1eace3bc
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084712"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655420"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>快速入门：授权创建无限数目的应用注册的权限
 
@@ -34,7 +34,7 @@ ms.locfileid: "74084712"
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>使用 Azure AD 门户创建新的自定义角色
 
 1. 使用 Azure AD 组织中的“特权角色管理员”或“全局管理员”权限登录到  [Azure 门户](https://portal.azure.cn)。
-1. 依次选择“Azure Active Directory”、“角色和管理员”、“新建自定义角色”。 ****  ****  ****
+1. 依次选择“Azure Active Directory”  、“角色和管理员”  和“新建自定义角色”  。
 
     ![在“角色和管理员”页中创建或编辑角色](./media/roles-create-custom/new-custom-role.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "74084712"
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>使用 Azure AD 门户将角色分配给用户
 
 1. 使用 Azure AD 组织中的“特权角色管理员”或“全局管理员”权限登录到  [Azure 门户](https://portal.azure.cn)。
-1. 依次选择“Azure Active Directory”、“角色和管理员”。 ****  ****
+1. 依次选择“Azure Active Directory”、“角色和管理员”。  
 1. 选择“应用程序注册创建者”角色，然后选择“添加分配”。 
 1. 选择所需的用户，然后单击“选择”将该用户添加到该角色。 
 

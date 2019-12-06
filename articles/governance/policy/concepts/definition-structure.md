@@ -1,26 +1,26 @@
 ---
 title: 策略定义结构的详细信息
-description: 介绍 Azure Policy 如何使用资源策略定义，通过描述何时强制实施策略和要实现的效果为组织中的资源建立约定。
+description: 描述如何使用策略定义为组织中的 Azure 资源建立约定。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 03/13/2019
-ms.date: 10/15/2019
+origin.date: 11/04/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e7be829cd7534ff70f34a3cf98619b82df3c1052
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 965fa8e3df9cb7f38ce0f55227ebe1db1d8bda77
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526551"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657588"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 定义结构
 
 Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述资源符合性，以及在资源不符合的情况下会产生什么影响。
 通过定义约定，可以控制成本并更轻松地管理资源。 例如，可指定仅允许特定类型的虚拟机。 或者，可要求所有资源都拥有特定标记。 策略由所有子资源继承。 如果将策略应用到资源组，则会将其应用到该资源组中的所有资源。
 
-可以在此处找到 Azure Policy 使用的架构：[https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json](https://schema.management.azure.com/schemas/2018-05-01/policyDefinition.json)
+策略定义架构可在此处找到：[https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 使用 JSON 创建策略定义。 策略定义包含以下各项的元素：
 
@@ -83,6 +83,8 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 在创建强制执行标记或位置的策略时，应该使用 `indexed`。 虽然并不是必需的，但是它会阻止不支持标记和位置的资源，使其不会在符合性结果中显示为不兼容。 资源组是一个例外  。 在资源组上强制执行位置或标记的策略应将“mode”  设为 `all`，并专门针对 `Microsoft.Resources/subscriptions/resourceGroups` 类型。 请在[强制执行资源组标记](../samples/enforce-tag-rg.md)查看相关示例。 如需支持标记的资源的列表，请参阅 [Azure 资源的标记支持](../../../azure-resource-manager/tag-support.md)。
 
+<!-- ### <a name="resource-provider-modes" />Resource Provider modes (preview) -->
+
 ## <a name="parameters"></a>parameters
 
 参数可减少策略定义的数量，有助于简化策略管理。 使用类似窗体中字段的参数 - `name`、`address`、`city`、`state`。 这些参数始终不变，但其值会基于窗体中的各填写内容变化。
@@ -129,7 +131,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 ### <a name="using-a-parameter-value"></a>使用参数值
 
-在策略规则中，使用以下 `parameters` 部署值函数语法引用参数：
+在策略规则中，使用以下 `parameters` 函数语法引用参数：
 
 ```json
 {
@@ -218,18 +220,18 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 条件用于评估 **field** 或 **value** 访问器是否符合特定标准。 支持的条件有：
 
-- `"equals": "value"`
-- `"notEquals": "value"`
-- `"like": "value"`
-- `"notLike": "value"`
-- `"match": "value"`
-- `"matchInsensitively": "value"`
-- `"notMatch": "value"`
-- `"notMatchInsensitively": "value"`
-- `"contains": "value"`
-- `"notContains": "value"`
-- `"in": ["value1","value2"]`
-- `"notIn": ["value1","value2"]`
+- `"equals": "stringValue"`
+- `"notEquals": "stringValue"`
+- `"like": "stringValue"`
+- `"notLike": "stringValue"`
+- `"match": "stringValue"`
+- `"matchInsensitively": "stringValue"`
+- `"notMatch": "stringValue"`
+- `"notMatchInsensitively": "stringValue"`
+- `"contains": "stringValue"`
+- `"notContains": "stringValue"`
+- `"in": ["stringValue1","stringValue2"]`
+- `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
 - `"less": "value"`
@@ -267,7 +269,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 - `tags['''<tagName>''']`
   - 此括号语法通过双撇号进行转义，可支持在其中包含撇号的标记名称。
   - 其中“\<tagName\>”是要验证其条件的标记的名称  。
-  - 示例：`tags['''My.Apostrophe.Tag''']`，其中“\<tagName\>”是标记的名称  。
+  - 示例：`tags['''My.Apostrophe.Tag''']`，其中 'My.Apostrophe.Tag'  是标记的名称。
 - 属性别名 - 若要查看列表，请参阅[别名](#aliases)。
 
 > [!NOTE]
@@ -277,7 +279,7 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 参数值可以传递给标记字段。 将参数传递给标记字段可在策略分配期间提高策略定义的灵活性。
 
-在以下示例中，`concat` 用于为名为 tagName 参数值的标记创建标记字段查找  。 如果该标记不存在，则使用“追加”效果来添加该标记，该效果使用 `resourcegroup()` 查找函数在审计资源父资源组上使用同一命名标记集的值来添加该标记  。
+在以下示例中，`concat` 用于为名为 tagName 参数值的标记创建标记字段查找  。 如果该标记不存在，则使用 **modify** 效果通过 `resourcegroup()` 查找函数，使用在已审核资源父资源组上设置的相同命名标记的值来添加标记。
 
 ```json
 {
@@ -286,11 +288,17 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
@@ -385,39 +393,13 @@ Azure Policy 使用资源策略定义来建立资源约定。 每个定义描述
 
 Azure Policy 支持以下类型的效果：
 
-- **Deny**：会在活动日志中生成一个事件，并使请求失败
-- **Audit**：会在活动日志中生成一个警告事件，但不会使请求失败
 - **Append**：会将定义的字段集添加到请求
-- **AuditIfNotExists**：如果资源不存在，则启用审核
-- **DeployIfNotExists**：如果资源不存在，则部署一个资源
+- **Audit**：会在活动日志中生成一个警告事件，但不会使请求失败
+- **AuditIfNotExists**：如果相关资源不存在，则会在活动日志中生成一个警告事件
+- **Deny**：会在活动日志中生成一个事件，并使请求失败
+- **DeployIfNotExists**：如果相关资源尚不存在，则会部署该资源
 - **Disabled**：不评估资源是否符合策略规则
-- **EnforceRegoPolicy**：在 Azure Kubernetes 服务（预览版）中配置 Open Policy Agent 许可控制器
-
-对于 **append**，必须提供以下详细信息：
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-值可以是字符串或 JSON 格式对象。
-
-AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并应用规则   。 如果资源与规则不匹配，则会实现效果。 例如，可以要求为所有虚拟网络部署网络观察程序。 有关更多信息，请参阅[在扩展不存在的情况下审核](../samples/audit-ext-not-exist.md)示例。
-
-**DeployIfNotExists** 效果需要策略规则的 **details** 部分中的 **roleDefinitionId** 属性。 有关详细信息，请参阅[修正 - 配置策略定义](../how-to/remediate-resources.md#configure-policy-definition)。
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
+- **Modify**：在资源中添加、更新或删除定义的标记
 
 有关每种效果、评估顺序、属性和示例的完整详细信息，请参阅[了解 Azure Policy 效果](effects.md)。
 
@@ -617,6 +599,6 @@ AuditIfNotExists 和 DeployIfNotExists 评估相关的资源是否存在，并�
 - 在 [Azure Policy 示例](../samples/index.md)中查看示例。
 - 查看[了解策略效果](effects.md)。
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
-- 了解如何[获取符合性数据](../how-to/getting-compliance-data.md)。
-- 了解如何[修正不符合的资源](../how-to/remediate-resources.md)。
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
+- 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

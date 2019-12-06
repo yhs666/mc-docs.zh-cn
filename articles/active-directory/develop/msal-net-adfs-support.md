@@ -1,5 +1,6 @@
 ---
-title: 适用于 .NET 的 Microsoft 身份验证库中的 AD FS 支持 | Azure
+title: 适用于 .NET 的 Microsoft 身份验证库中的 AD FS 支持
+titleSuffix: Microsoft identity platform
 description: 了解适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 中的 Active Directory 联合身份验证服务 (AD FS) 支持。
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,20 +14,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 07/16/2019
-ms.date: 10/25/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5e9d93b5e38c09c97225644953c4f72a439dd86
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: 563c42b99fe0703d3e2af4c259b9e29022f27586
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912782"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655330"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET 中的 Active Directory 联合身份验证服务支持
-使用 Windows Server 中的 Active Directory 联合身份验证服务 (AD FS) 可将基于 OpenID Connect 和 OAuth 2.0 的身份验证与授权添加到开发中的应用程序。 然后，这些应用程序可以根据 AD FS 直接对用户进行身份验证。 
+使用 Windows Server 中的 Active Directory 联合身份验证服务 (AD FS) 可将基于 OpenID Connect 和 OAuth 2.0 的身份验证与授权添加到开发中的应用程序。 然后，这些应用程序可以根据 AD FS 直接对用户进行身份验证。 有关详细信息，请阅读[面向开发人员的 AD FS 方案](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)。
 
 适用于 .NET 的 Microsoft 身份验证库 (MSAL.NET) 支持根据 AD FS 使用两种身份验证方案：
 
@@ -61,3 +62,4 @@ MSAL.NET 支持连接到 AD FS 2019，后者符合 Open ID Connect 规范并了�
 
  如果需要支持直接连接 AD FS 2016 的方案，请使用最新版本的 [Azure Active Directory 身份验证库](active-directory-authentication-libraries.md#microsoft-supported-client-libraries)。 将本地系统升级到 AD FS 2019 后，即可使用 MSAL.NET。
 
+<!-- Update_Description: wording update -->

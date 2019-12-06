@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-origin.date: 04/01/2019
-ms.date: 06/10/2019
+origin.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 10c64518286ca92e94b4bdc9b885fdccd8981125
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: d7356cc55fa32f553c209cef62aca563e4b08e8a
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726467"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530617"
 ---
 # <a name="azure-data-box-disk-limits"></a>Azure Data Box 磁盘限制
 
@@ -23,7 +23,7 @@ ms.locfileid: "66726467"
 
 ## <a name="data-box-service-limits"></a>Data Box 服务限制
 
- - 在 Azure 公有云的所有 Azure 区域中，Data Box 服务仅在中国东部、中国东部 2、中国北部、中国北部 2 提供。
+ - Data Box 服务在[区域可用性](data-box-disk-overview.md#region-availability)中列出的 Azure 区域中提供。
  - Data Box 磁盘支持单个存储帐户。
 
 ## <a name="data-box-disk-performance"></a>Data Box 磁盘性能
@@ -51,6 +51,7 @@ ms.locfileid: "66726467"
 - 写入到 *BlockBlob* 和 *PageBlob* 共享中的每个文件将分别上传为块 blob 和页 blob。
 - 在 *BlockBlob* 和 *PageBlob* 文件夹下创建的任何空目录层次结构（没有任何文件）都不会上传。
 - 如果将数据上传到 Azure 时发生任何错误，则会在目标存储帐户中创建一个错误日志。 当上传完成时，可以在门户中找到此错误日志的路径，你可以查看此日志来采取纠正措施。 在验证上传的数据之前，不要删除源中的数据。
+- 将数据上传到 Azure 文件存储时，不会保留文件元数据和 NTFS 权限。 例如，复制数据时，不会保留文件的“上次修改时间”属性  。
 - 如果按顺序指定了托管磁盘，请查看以下附加注意事项：
 
     - 在一个资源组的所有预先创建的文件夹和所有 Data Box Disk 中，只能包含一个具有给定名称的托管磁盘。 这意味着，上传到预先创建的文件夹的 VHD 应具有唯一的名称。 确保给定的名称与资源组中现有的托管磁盘不匹配。 如果有多个 VHD 同名，只会将一个 VHD 转换为使用该名称的托管磁盘。 其他 VHD 会作为页 Blob 上传到临时存储帐户中。

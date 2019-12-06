@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 origin.date: 08/06/2019
-ms.date: 09/03/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b241b2a2645bf1fc972f8e382bc03ed3acd07af8
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: b78ad8cddba56a773f01979e98e0908891fa4470
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806890"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555995"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>教程：在 Azure 应用服务中生成 ASP.NET Core 和 SQL 数据库应用
 
@@ -381,7 +381,7 @@ git push azure master
 - 在 *DotNetCoreSqlDb.csproj* 中包括了对 `Microsoft.Extensions.Logging.AzureAppServices` 的引用。
 - 在 *Program.cs* 中调用 `loggerFactory.AddAzureWebAppDiagnostics()`。
 
-若要将应用服务中的 ASP.NET Core [日志级别](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)从默认级别 `Error` 设置为 `Information`，请在 Cloud Shell 中使用 [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令。
+若要将应用服务中的 ASP.NET Core [日志级别](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level)从默认级别 `Error` 设置为 `Information`，请在 Azure CLI 中使用 [`az webapp log config`](/cli/webapp/log?view=azure-cli-latest#az-webapp-log-config) 命令。
 
 ```azurecli
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
@@ -405,13 +405,15 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="manage-your-azure-app"></a>管理 Azure 应用
 
-转到 [Azure 门户](https://portal.azure.cn)查看创建的应用。
+若要查看所创建的应用，请在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“应用服务”  "。
 
-在左侧菜单中单击“应用服务”，然后单击 Azure 应用的名称。 
+![在 Azure 门户中选择应用服务](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+在“应用服务”页上，选择 Azure 应用的名称  。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-默认情况下，门户将显示应用的  “概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 页面左侧的选项卡显示可以打开的不同配置页。
+默认情况下，门户将显示应用的  “概述”页。 在此页中可以查看应用的运行状况。 在此处还可以执行基本的管理任务，例如浏览、停止、启动、重新启动和删除。 该页左侧显示可以打开的不同配置页。
 
 ![Azure 门户中的“应用服务”页](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

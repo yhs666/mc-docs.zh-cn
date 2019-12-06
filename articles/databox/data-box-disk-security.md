@@ -1,20 +1,20 @@
 ---
-title: Microsoft Azure Data Box 磁盘概述 | Microsoft Docs
-description: 介绍 Azure Data Box 磁盘 - 用于将大量数据传输到 Azure 的云解决方案
+title: Microsoft Azure Data Box Disk 安全功能 | 关于数据的 Microsoft Docs
+description: 介绍针对 Azure Data Box Disk 实现的安全功能，Azure Data Box Disk 是一种云解决方案，用于将大量数据传输到 Azure
 services: databox
 author: WenJason
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-origin.date: 01/09/2019
-ms.date: 02/25/2019
+origin.date: 11/04/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: ed75f8dd0f8d35e66d91ac9b371a15e1e2d75e6c
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 195d152b9f8b7c4b4f8eb9cf78441515d078d78b
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626951"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530614"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 安全性和数据保护
 
@@ -63,6 +63,8 @@ Data Box 服务受以下功能的保护。
 
 
 ## <a name="managing-personal-data"></a>管理个人数据
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 Azure Data Box 磁盘在服务中收集并显示以下关键实例中的个人信息：
 

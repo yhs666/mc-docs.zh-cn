@@ -1,5 +1,5 @@
 ---
-title: 在门户中创建 SQL Server Windows VM | Azure
+title: 快速入门 - 在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机 | Azure
 description: 本教程介绍如何在 Azure 门户中创建 Windows SQL Server 2017 虚拟机。
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,12 @@ origin.date: 07/11/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
 ms.reviewer: jroth
-ms.openlocfilehash: f5de061fc2016e8cdaab8a00c17382bac50a55ea
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: ee042d68fd794b2b80eefbb3a635b18161a8c5a2
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116969"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74594648"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>快速入门：在 Azure 门户中创建 SQL Server 2017 Windows 虚拟机
 

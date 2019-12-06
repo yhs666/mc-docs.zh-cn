@@ -16,12 +16,12 @@ ms.date: 08/12/2019
 ms.author: v-johch
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: e52bac9b287ea1135ade50a2b0e1c628248c8bfe
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: d380d044d534ee1ded5553c3d34dfbacb9a6a451
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878549"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555966"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>从本地 Git 部署到 Azure 应用服务
 
@@ -70,7 +70,7 @@ az webapp create --name <app-name> --resource-group <group-name> --plan <plan-na
 
 如果不使用此帐户级 URL，也可以使用应用级凭据启用本地 Git。 Azure 应用服务会自动为每个应用生成这些凭据。 
 
-在 Cloud Shell 中运行以下命令以获取应用凭据。 请将 \<app-name> 和 \<group-name> 替换为应用和 Azure 资源组的名称。
+在 Azure CLI 中运行以下命令以获取应用凭据。 请将 \<app-name> 和 \<group-name> 替换为应用和 Azure 资源组的名称。
 
 ```azurecli
 az webapp deployment list-publishing-credentials --name <app-name> --resource-group <group-name> --query scmUri --output tsv

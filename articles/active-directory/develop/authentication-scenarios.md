@@ -14,17 +14,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 origin.date: 10/15/2019
-ms.date: 11/05/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0df63c582ce914ba731817a601045ff95d370ff
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 8cee4f997bd6596c9e808bccd12981abe38c45b1
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830988"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655256"
 ---
 # <a name="authentication-basics"></a>身份验证基础知识
 
@@ -75,7 +75,7 @@ Azure AD 还提供 Azure Active Directory B2C，使组织能够使用社交标�
 
 令牌仅在有限的时间内有效。 通常，STS 会提供一对令牌：一个用于访问应用程序或受保护资源的访问令牌，以及一个在访问令牌即将过期时用于刷新访问令牌的刷新令牌。 
 
-访问令牌作为 `Authenticate` 标头中的持有者令牌传递给 Web API。 应用可向 STS 提供刷新令牌，如果用户对应用的访问权限未吊销，则应用将取回新的访问令牌和新的刷新令牌。 用户离职的场景就是这样处理的。 当 STS 收到刷新令牌时，如果用户不再获得授权，则 STS 不会颁发另一个有效的访问令牌。
+访问令牌作为 `Authorization` 标头中的持有者令牌传递给 Web API。 应用可向 STS 提供刷新令牌，如果用户对应用的访问权限未吊销，则应用将取回新的访问令牌和新的刷新令牌。 用户离职的场景就是这样处理的。 当 STS 收到刷新令牌时，如果用户不再获得授权，则 STS 不会颁发另一个有效的访问令牌。
 
 ## <a name="application-model"></a>应用程序模型
 
@@ -99,8 +99,9 @@ Microsoft 标识平台：
 * 保存运行时支持身份验证所需的所有数据。
 * 保存所有数据，以确定应用可能需要访问的资源，以及在哪些情况下应满足给定的请求。
 * 提供用于在应用开发人员的租户和任何其他 Azure AD 租户中实现应用配置的基础设施。
+* 在令牌请求期间处理用户同意并帮助跨租户动态预配应用
 
-在请求令牌期间处理用户许可，并简化各个租户中的应用动态预配。“许可”是资源所有者授权客户端应用程序使用特定的权限代表资源所有者访问受保护资源的过程。 Microsoft 标识平台：
+同意是资源所有者授权客户端应用程序代表资源所有者在特定权限下访问受保护资源的过程。 Microsoft 标识平台：
 
 * 使用户和管理员能够动态地同意或拒绝应用以他们的名义访问资源。
 * 使管理员能够最终决定允许执行哪些应用、哪些用户可以使用特定的应用，以及如何访问目录资源。
@@ -173,3 +174,4 @@ MSAL 使用浏览器获取令牌，与对 Web 应用一样，将身份验证委�
 请参阅[身份验证流和应用方案](authentication-flows-app-scenarios.md)来详细了解 Microsoft 标识平台支持的其他用户身份验证方案。
 请参阅 [MSAL 库](msal-overview.md)，了解可以借助哪些 Microsoft 库在单个简化编程模型中开发可以处理 Azure AD 帐户和 Azure AD B2C 用户的应用程序。
 
+<!-- Update_Description: wording update -->

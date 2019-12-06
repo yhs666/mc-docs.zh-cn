@@ -1,7 +1,6 @@
 ---
-title: Azure 负载均衡器中的出站规则
-titlesuffix: Azure Load Balancer
-description: 使用出站规则定义出站网络地址转换
+title: 出站规则 - Azure 负载均衡器
+description: 通过此学习路径，开始使用出站规则来定义出站网络地址转换。
 services: load-balancer
 documentationcenter: na
 author: WenJason
@@ -12,14 +11,14 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 7/17/2019
-ms.date: 11/11/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 4044428d3b49c6391dd0b78000f3f9d55473b25c
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: cad38f021c92bc1b6c0e4fd7df847f9928b65179
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742258"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530644"
 ---
 # <a name="load-balancer-outbound-rules"></a>负载均衡器出站规则
 
@@ -87,7 +86,7 @@ API 版本“2018-07-01”允许按如下所示构建出站规则定义：
 
 出站规则的所有前端中的每个公共 IP 地址最多提供 64,000 个可用作 SNAT 端口的临时端口。  负载均衡器以 8 的倍数分配 SNAT 端口。 如果提供的值不能被 8 整除，则会拒绝配置操作。  如果尝试分配的 SNAT 端口数超过了可用端口数（基于公共 IP 地址数确定），则会拒绝配置操作。  例如，如果为每个 VM 分配 10,000 个端口，并且后端池中的 7 个 VM 共享单个公共 IP 地址，则会拒绝该配置（7 x 10,000 个 SNAT 端口 > 64,000 个 SNAT 端口）。  将更多的公共 IP 地址添加到出站规则的前端即可实现该方案。
 
-可以通过将端口数指定为 0，恢复为[基于后端池大小的自动 SNAT 端口分配](load-balancer-outbound-connections.md#preallocatedports)。 在这种情况下，根据该表，前 50 个 VM 实例将获得 1024 个端口，而 51-100 个 VM 实例将获得 512 个端口，依此类推。 让多个前端具有与出站规则关联的公共 IP 不会增加分配给每个 VM 实例的端口数。
+可以通过将端口数指定为 0，恢复为[基于后端池大小的自动 SNAT 端口分配](load-balancer-outbound-connections.md#preallocatedports)。 在这种情况下，根据该表，前 50 个 VM 实例将获得 1024 个端口，而 51-100 个 VM 实例将获得 512 个端口，依此类推。
 
 ### <a name="idletimeout"></a>控制出站流空闲超时
 

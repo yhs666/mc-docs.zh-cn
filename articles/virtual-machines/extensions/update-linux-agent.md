@@ -1,5 +1,5 @@
 ---
-title: 从 GitHub 更新 Azure Linux 代理 | Azure
+title: 如何更新 VM 上的 Azure Linux 代理 | Azure
 description: 了解如何为 Azure 中的 Linux VM 更新 Azure Linux 代理
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 08/02/2017
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: a4a3146db5c438baffe31d947f6972b23eec21d2
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: 2e00aacdbbeffc495190f13a5db0528a3343aa83
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831404"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74592451"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>如何更新 VM 上的 Azure Linux 代理
 

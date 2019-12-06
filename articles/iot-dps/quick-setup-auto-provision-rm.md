@@ -2,19 +2,20 @@
 title: 使用 Azure 资源管理器模板设置设备预配 | Microsoft Docs
 description: Azure 快速入门 - 使用模板设置 Azure IoT 中心设备预配服务
 author: wesmc7777
-ms.author: wesmc
-ms.date: 06/18/2018
+ms.author: v-yiso
+origin.date: 11/08/2019
+ms.date: 12/09/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5467b05b75c647fd32309d3abeda8d62481b6adb
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: a0760903e2f3148b670b1216ab725e4273c23d1f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389543"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657876"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
 
@@ -23,7 +24,7 @@ ms.locfileid: "74389543"
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
+- 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 本快速入门要求在本地运行 Azure CLI。 必须安装 Azure CLI 2.0 或更高版本。 运行 `az --version` 即可查找版本。 如果需要安装或升级 CLI，请参阅[安装 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)。
 
 
@@ -248,7 +249,7 @@ ms.locfileid: "74389543"
    }
    ```
 
-2. 将 **iotHubName** 值添加到 parameter 节。 如果更改名称，请确保遵循适用于 IoT 中心的命名约定。 名称应该 3-50 个字符长，只能包含大写或小写字母数字字符或连字符（“-”）。 
+2. 将 **iotHubName** 值添加到 parameter 节。  IoT 中心名称在 Azure 中必须是全局唯一的，因此，你可能需要向示例名称添加一个唯一的前缀或后缀，或者选择一个新名称。 请确保名称遵循 IoT 中心的正确命名约定：名称长度应为 3-50 个字符，只能包含大写或小写字母数字字符或连字符（“-”）。 
 
    ```json
     "parameters": {
@@ -259,7 +260,7 @@ ms.locfileid: "74389543"
    
    ```
 
-3. 将 **provisioningServiceName** 值添加到 parameter 节。 如果更改名称，请确保遵循适用于 IoT 中心设备预配服务的命名约定。 名称应该 3-64 个字符长，只能包含大写或小写字母数字字符或连字符（“-”）。
+3. 将 **provisioningServiceName** 值添加到 parameter 节。 你还需要为预配服务选择一个全局唯一的名称。 请确保名称遵循 IoT 中心设备预配服务的正确命名约定：名称长度应为 3-64 个字符，只能包含大写或小写字母数字字符或连字符（“-”）。
 
    ```json
     "parameters": {
@@ -321,7 +322,7 @@ ms.locfileid: "74389543"
 
 ## <a name="clean-up-resources"></a>清理资源
 
-本教程系列中的其他快速入门教程是在本文的基础上制作的。 如果打算继续学习后续的快速入门或相关教程，请不要清理在本快速入门中创建的资源。 如果不打算继续，可以使用 Azure CLI [删除单个资源][lnk-az-resource-command]（例如 IoT 中心或预配服务），或者删除资源组及其所有资源。
+本教程系列中的其他快速入门教程是在本文的基础上制作的。 如果打算继续学习后续的快速入门或相关教程，请不要清除在本快速入门中创建的资源。 如果不打算继续，可以使用 Azure CLI [删除单个资源][lnk-az-resource-command]（例如 IoT 中心或预配服务），或者删除资源组及其所有资源。
 
 若要删除预配服务，请运行以下命令：
 
@@ -347,11 +348,11 @@ az group delete --name {your resource group name}
 在本快速入门中，你已部署 IoT 中心和设备预配服务实例，并链接了这两个资源。 若要了解如何使用此设置来预配模拟设备，请继续学习本快速入门中关于如何创建模拟设备的内容。
 
 > [!div class="nextstepaction"]
-> [创建模拟设备快速入门](./quick-create-simulated-device.md)
+> [快速入门：创建模拟设备](./quick-create-simulated-device.md)
 
 
 <!-- Links -->
-[lnk-free-trial]: www.azure.cn/pricing/1rmb-trial
+[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial
 [lnk-CLI-install]: https://docs.microsoft.com/cli/azure/install-az-cli2
 [lnk-login-command]: https://docs.microsoft.com/cli/azure/get-started-with-az-cli2
 [lnk-az-account-command]: https://docs.microsoft.com/cli/azure/account

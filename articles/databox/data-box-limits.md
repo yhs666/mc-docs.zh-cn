@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 05/21/2019
-ms.date: 06/10/2019
+origin.date: 08/27/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: f49b9fb8426cbae15d5defaa257abb03f1e79b1b
-ms.sourcegitcommit: 67a78cae1f34c2d19ef3eeeff2717aa0f78de38e
+ms.openlocfilehash: 91885193b6e53edb0acb3882d2cadc62c2b9afc3
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66726527"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530602"
 ---
 # <a name="azure-data-box-limits"></a>Azure Data Box 限制
 
@@ -27,6 +27,7 @@ ms.locfileid: "66726527"
 ## <a name="data-box-limits"></a>Data Box 限制
 
 - Data Box 最多可存储 5 亿个文件。
+- Data Box 在云中最多支持 512 个容器或共享。 用户共享中的顶层目录将成为云中的容器或 Azure 文件共享。 
 
 ## <a name="azure-storage-limits"></a>Azure 存储限制
 

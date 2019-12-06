@@ -10,14 +10,14 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-origin.date: 08/06/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 630b70ca6e9bb7fcedfcf9a7ac40088c6d289dcb
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+origin.date: 11/08/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: 8c13832645fb9785859f10b24f8d88a4315248b0
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736652"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655461"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>联机迁移到 Azure DB for MySQL 时存在的已知问题/迁移限制
 
@@ -84,7 +84,7 @@ ms.locfileid: "70736652"
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **解决方法**：如果 LOB 对象大于 32 KB，请联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)。 
+    **解决方法**：如果 LOB 对象大于 32 KB，请通过[询问 Azure 数据库迁移](mailto:AskAzureDatabaseMigrations@service.microsoft.com)联系工程团队。
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>从 AWS RDS MySQL 联机迁移时的限制
 
@@ -131,4 +131,10 @@ ms.locfileid: "70736652"
     CREATE INDEX partial_name ON customer (name(10));
     ```
 
-- 在 DMS 中，可在单个迁移活动中迁移的数据库数目限制为 4 个。
+- 在 Azure 数据库迁移服务中，可在单个迁移活动中迁移的数据库数目限制为 4 个。
+
+- **错误：** 行太大 (> 8126)。 将某些列更改为 TEXT 或 BLOB 可能会有帮助。 在当前的行格式中，0 字节的 BLOB 前缀以内联方式存储。
+
+  **限制**：使用 InnoDB 存储引擎迁移到 Azure Database for MySQL 且任意表行过大（>8126 字节）时，会发生此错误。
+
+  **解决方法**：更新其行大小大于 8126 字节的表的架构。 我们建议不要更改严格模式，因为更改后会截断数据。 不支持更改 page_size。

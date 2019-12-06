@@ -6,14 +6,14 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: conceptual
 origin.date: 04/22/2019
-ms.date: 08/12/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: bb0485f7026fa9456e7b463f57b8e61dadf23a0e
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: 9f64f9d948d7c655c5d4c754b120a7d277549e47
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732436"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655458"
 ---
 # <a name="set-up-alerts-on-vpn-gateway-metrics"></a>基于 VPN 网关指标设置警报
 
@@ -70,6 +70,3 @@ ms.locfileid: "68732436"
 
    ![用于管理警报规则的按钮](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric/metric-alert8.png "选择")
 
-## <a name="next-steps"></a>后续步骤
-
-若要基于隧道诊断日志配置警报，请参阅[基于 VPN 网关诊断日志设置警报](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md)。

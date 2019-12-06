@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 02/18/2019
-ms.date: 08/12/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4d11a0935654897067bf6792a5f5f6338ff5577b
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 4ccd47391d73c82107c835c4d75291c3e49cbf19
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806844"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555920"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>如何使用 Azure WebJobs SDK 进行事件驱动的后台处理
 
@@ -41,6 +41,8 @@ ms.locfileid: "70806844"
 > * Azure Functions C# 类库的示例代码类似于 WebJobs SDK 代码，不过，在 WebJobs SDK 项目中，无需指定 `FunctionName` 特性。
 > * 某些绑定类型，例如 HTTP (Webhook) 以及基于 HTTP 的事件网格，只在 Functions 中受支持。
 >
+
+<!-- > For more information, see [Compare the WebJobs SDK and Azure Functions](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md#compare-functions-and-webjobs). -->
 
 ## <a name="webjobs-host"></a>WebJobs 主机
 
@@ -128,7 +130,7 @@ static void Main()
 
 ### <a name="jobhost-servicepointmanager-settings"></a>管理并发连接数（版本 2.*x*）
 
-在版本 3.*x* 中，连接限制默认为无限次连接。 如果出于某种原因需要更改此限制，则可以使用 [WinHttpHander](https://docs.microsoft.com/dotnet/api/system.net.http.winhttphandler) 类的 [MaxConnectionsPerServer](https://docs.microsoft.com/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 属性。
+在版本 3.*x* 中，连接限制默认为无限次连接。 如果出于某种原因需要更改此限制，则可以使用 [`WinHttpHandler`](https://docs.microsoft.com/dotnet/api/system.net.http.winhttphandler) 类的 [`MaxConnectionsPerServer`](https://docs.microsoft.com/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) 属性。
 
 在版本 2.*x* 中，使用 [ServicePointManager.DefaultConnectionLimit](https://docs.microsoft.com/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API 控制主机的并发连接数。 在 2.*x* 中，应在启动 WebJobs 主机之前，在默认值 2 的基础上增大此值。
 

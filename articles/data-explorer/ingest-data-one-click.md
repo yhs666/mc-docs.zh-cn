@@ -7,13 +7,13 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 10/31/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: 8c939ea7fa08740cee293b695236126fd099e942
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/02/2019
+ms.openlocfilehash: c2a68d0525c5ba3306fece4c787e6be11ea5de08
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021013"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657777"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>使用一键式引入将数据引入 Azure 数据资源管理器
 
@@ -24,11 +24,12 @@ ms.locfileid: "74021013"
 * 如果没有 Azure 订阅，请在开始前创建一个[试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 * 登录到[应用程序](https://dataexplorer.azure.cn/)。
 * 创建 [Azure 数据资源管理器群集和数据库](create-cluster-database-portal.md)
+* 登录到 [Web UI](https://dataexplorer.azure.cn/) 并[添加到群集的连接](/data-explorer/web-query-data#add-clusters)
 * Azure 存储中的数据源。
 
 ## <a name="ingest-new-data"></a>引入新数据
 
-1. 在左侧菜单中右键单击数据库或表行，然后选择“引入新数据(预览版)”   
+1. 在 Web UI 的左侧菜单中右键单击“数据库”或“表”行，然后选择“引入新数据(预览版)”   
 
     ![在 Web UI 中选择一键式引入](media/ingest-data-one-click/one-click-ingestion-in-webui.png)   
  

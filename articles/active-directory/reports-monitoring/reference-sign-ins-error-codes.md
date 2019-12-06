@@ -1,9 +1,9 @@
 ---
-title: Azure Active Directory 门户中的登录活动报告错误代码 | Microsoft Docs
+title: Azure Active Directory 门户中的错误代码 | Microsoft Docs
 description: 登录活动报告错误代码参考。
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 origin.date: 08/08/2019
-ms.date: 10/25/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 828b7a8e38ecbcb0bf3803e48c51934c999032d6
-ms.sourcegitcommit: e60779782345a5428dd1a0b248f9526a8d421343
+ms.openlocfilehash: c1f676338e2f0146b9248e3f4bc7c2f95fbc8a7e
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72912669"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655435"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>登录活动报告错误代码 
 
@@ -120,6 +120,7 @@ ms.locfileid: "72912669"
 |50177|直通用户不支持外部质询。|
 |50178|直通用户不支持会话控制。|
 |50180|需要 Windows 集成身份验证。 为租户启用无缝 SSO。|
+|50181|登录过程中与 OTP 相关的失败。 |
 |50201|在登录期间应向用户提供附加信息时，将向用户显示此消息提示中断。|
 |51001|本地安全标识符中不存在域提示 - 本地 UPN。|
 |51004|用户帐户在目录中不存在。|

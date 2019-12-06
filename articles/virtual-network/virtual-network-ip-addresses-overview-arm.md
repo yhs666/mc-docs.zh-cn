@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/05/2019
-ms.date: 11/11/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7a0f7a42b98af385a787f757e53788262350bee4
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: ac9f4fe724e4345b7252efef8661edaead92d427
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831367"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658044"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Azure 中的 IP 地址类型和分配方法
 
@@ -135,7 +135,7 @@ ms.locfileid: "73831367"
 
 ### <a name="application-gateways"></a>应用程序网关
 
-将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将“动态”基本公共 IP 地址分配给应用程序网关 V1 前端配置。 
+将公共 IP 地址分配给网关的**前端**配置可以将其与 Azure [应用程序网关](../application-gateway/application-gateway-introduction.md?toc=%2fvirtual-network%2ftoc.json)相关联。 此公共 IP 地址充当负载均衡型 VIP。 只能将动态  基本公共 IP 地址分配给应用网关 V1 前端配置，并且只能将静态  标准 SKU 地址分配给 V2 前端配置。
 
 <!--MOONCAKE: Not Available on Application Gateway V2 front-end configuration-->
 
@@ -147,9 +147,7 @@ ms.locfileid: "73831367"
 | 虚拟机 |Linux |是 |是 |
 | 面向 Internet 的负载均衡器 |前端配置 |是 |是 |
 | VPN 网关 |网关 IP 配置 |是 |否 |
-| 应用程序网关 |前端配置 |是（仅限 V1） | |
-
-<!--MOONCAKE: Previw on Yes (V2 only) -->
+| 应用程序网关 |前端配置 |是（仅限 V1） |是（仅限 V2） |
 
 ## <a name="private-ip-addresses"></a>专用 IP 地址
 专用 IP 地址能够让 Azure 资源在不使用可访问 Internet 的 IP 地址的情况下，与[虚拟网络](virtual-networks-overview.md)或本地网络中的其他资源（通过 VPN 网关或 ExpressRoute 线路）通信。
@@ -197,13 +195,13 @@ ms.locfileid: "73831367"
 | 应用程序网关 |前端配置 |是 |是 |
 
 ## <a name="limits"></a>限制
-Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://support.azure.cn/zh-cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
+Azure 中的[网络限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)全面阐述了对 IP 寻址施加的限制。 这些限制根据区域和订阅设置。 可以[与支持人员联系](https://support.azure.cn/support/support-azure/)，根据业务需求将默认限制提高到最大限制。
 
 ## <a name="pricing"></a>定价
-公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/reserved-ip-addresses/)页。
+公共 IP 地址可能会产生少许费用。 有关 Azure 中 IP 地址定价的详细信息，请阅读 [IP 地址定价](https://www.azure.cn/pricing/details/ip-addresses/)页。
 
 ## <a name="next-steps"></a>后续步骤
 * [使用 Azure 门户通过静态公共 IP 部署 VM](virtual-network-deploy-static-pip-arm-portal.md)
 * [通过 Azure 门户使用静态专用 IP 地址部署 VM](virtual-networks-static-private-ip-arm-pportal.md)
 
-<!--Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

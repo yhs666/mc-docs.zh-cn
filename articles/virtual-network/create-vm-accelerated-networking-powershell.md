@@ -1,5 +1,5 @@
 ---
-title: 创建具有加速网络的 Azure 虚拟机 | Azure
+title: 创建具有加速网络的 Azure VM - Azure PowerShell
 description: 了解如何创建具有加速网络的 Linux 虚拟机。
 services: virtual-network
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 origin.date: 01/04/2018
-ms.date: 09/16/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: cef2775b86a473596ece745098c0a1f409141944
-ms.sourcegitcommit: 43f569aaac795027c2aa583036619ffb8b11b0b9
+ms.openlocfilehash: fd822207dccb3be9c987d6f7b7fe01c6cf491af8
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70920974"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657669"
 ---
-# <a name="create-a-windows-virtual-machine-with-accelerated-networking"></a>创建具有加速网络的 Windows 虚拟机
+# <a name="create-a-windows-virtual-machine-with-accelerated-networking-using-azure-powershell"></a>使用 Azure PowerShell 创建具有加速网络的 Windows 虚拟机
 
 本教程介绍如何创建具有加速网络的 Windows 虚拟机 (VM)。 若要使用加速网络创建 Linux VM，请参阅[使用加速网络创建 Linux VM](create-vm-accelerated-networking-cli.md)。 使用加速网络可以实现对 VM 的单根 I/O 虚拟化 (SR-IOV)，大幅提升其网络性能。 这种高性能路径会绕过数据路径中的主机，降低延迟、抖动，以及受支持 VM 类型上的最苛刻网络工作负荷的 CPU 利用率。 下图显示了具有和没有加速网络的两个 VM 之间的通信：
 
@@ -45,6 +45,7 @@ ms.locfileid: "70920974"
 从 Azure 库即可支持以下分发：
 * **Windows Server 2016 Datacenter** 
 * **Windows Server 2012 R2 Datacenter**
+* **Windows Server 2019 Datacenter**
 
 ### <a name="supported-vm-instances"></a>支持的 VM 实例
 大多数常规用途实例以及具有 2 个或更多 vCPU 的计算优化实例都支持加速网络。  这些受支持的系列包括：D/DSv2 和 F/Fs
@@ -307,4 +308,4 @@ Start-AzVmss -ResourceGroupName "myResourceGroup" `
 * 必须在 VM 的 NIC 上禁用加速网络，或者如果在可用性集/VMSS 中，则必须在集合/​​VMSS 中的所有 VM 上禁用。
 * 一旦加速网络被禁用，VM/可用性集/VMSS 即可移至不支持加速网络的新大小并重启。
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

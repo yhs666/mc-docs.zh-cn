@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/12/2019
-ms.date: 09/23/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: e023877706dbcb8640a0d51ae32b6daf7cd579e0
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 7ae0527462ee9e432fa599b6840b70d25cfda3c8
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306481"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658025"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Azure 虚拟网络常见问题 (FAQ)
 
@@ -30,14 +30,11 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 
 使用 VNet：
 
-* 创建只有专用私有云的 VNet。 
-    有时不需要适用于解决方案的跨界配置。 创建 VNet 时，VNet 中的服务和 VM 可以在云中安全地互相直接通信。 在解决方案中，还可以为需要进行 Internet 通信的 VM 和服务配置终结点连接。
+* 创建只有专用私有云的 VNet。 有时不需要适用于解决方案的跨界配置。 创建 VNet 时，VNet 中的服务和 VM 可以在云中安全地互相直接通信。 在解决方案中，还可以为需要进行 Internet 通信的 VM 和服务配置终结点连接。
 
-* 安全地扩展数据中心。 
-    借助 VNet，可以构建传统的站点到站点 (S2S) VPN，以便安全地缩放数据中心容量。 S2S VPN 使用 IPSEC 提供企业 VPN 网关和 Azure 之间的安全连接。
+* 安全地扩展数据中心。 借助 VNet，可以构建传统的站点到站点 (S2S) VPN，以便安全地缩放数据中心容量。 S2S VPN 使用 IPSEC 提供企业 VPN 网关和 Azure 之间的安全连接。
 
-* 实现混合云方案。 
-    利用 VNet 可灵活地支持一系列混合云方案。 可以安全地将基于云的应用程序连接到任何类型的本地系统，例如大型机和 Unix 系统。
+* 实现混合云方案。 利用 VNet 可灵活地支持一系列混合云方案。 可以安全地将基于云的应用程序连接到任何类型的本地系统，例如大型机和 Unix 系统。
 
 ### <a name="how-do-i-get-started"></a>如何开始？
 请访问[虚拟网络文档](/virtual-network/)帮助自己入门。 该内容提供了所有 VNet 功能的概述和部署信息。
@@ -112,7 +109,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 是的。 可以添加、删除和修改 VNet 使用的 CIDR 块。
 
 ### <a name="if-i-am-running-my-services-in-a-vnet-can-i-connect-to-the-internet"></a>如果我在 VNet 中运行服务，是否可以连接到 Internet？
-是的。 VNet 中部署的所有服务都可以在出站方向连接到 Internet。 若要详细了解 Azure 中的出站 Internet 连接，请参阅[出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。 如果希望在入站方向连接到通过资源管理器部署的某个资源，该资源必须具有分配给它的公用 IP 地址。 若要详细了解公共 IP 地址，请参阅[公共 IP 地址](virtual-network-public-ip-address.md)。 Azure 中部署的每个云服务都具有分配给它的可公开寻址的 VIP。 你将定义 PaaS 角色的输入终结点和虚拟机的终结点，以使这些服务可以接受来自 Internet 的连接。
+是的。 VNet 中部署的所有服务都可以在出站方向连接到 Internet。 若要详细了解 Azure 中的出站 Internet 连接，请参阅[出站连接](../load-balancer/load-balancer-outbound-connections.md?toc=%2fvirtual-network%2ftoc.json)。 如果希望在入站方向连接到通过资源管理器部署的某个资源，该资源必须具有分配给它的公共 IP 地址。 若要详细了解公共 IP 地址，请参阅[公共 IP 地址](virtual-network-public-ip-address.md)。 Azure 中部署的每个云服务都具有分配给它的可公开寻址的 VIP。 你将定义 PaaS 角色的输入终结点和虚拟机的终结点，以使这些服务可以接受来自 Internet 的连接。
 
 ### <a name="do-vnets-support-ipv6"></a>VNet 是否支持 IPv6？
 否。 目前无法共同使用 IPv6 和 VNet。
@@ -141,7 +138,7 @@ Azure 虚拟网络 (VNet) 是你自己的网络在云中的表示形式。 它�
 请参考 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。
 
 ### <a name="can-i-modify-my-dns-servers-after-i-have-created-the-network"></a>创建网络后是否可以修改 DNS 服务器？
-是的。 可以随时更改 VNet 的 DNS 服务器列表。 如果更改 DNS 服务器列表，则需要重新启动 VNet 中的每个 VM，以使其拾取新的 DNS 服务器。
+是的。 可以随时更改 VNet 的 DNS 服务器列表。 如果更改 DNS 服务器列表，则需在 VNet 中所有受影响的 VM 上执行 DHCP 租约续订，使新的 DNS 设置生效。 对于运行 Windows OS 的 VM，若要这样做，可以直接在 VM 上键入 `ipconfig /renew`。 对于其他 OS 类型，请参阅与特定 OS 类型对应的 DHCP 租约续订文档。 
 
 ### <a name="what-is-azure-provided-dns-and-does-it-work-with-vnets"></a>什么是 Azure 提供的 DNS？它是否适用于 VNet？
 Azure 提供的 DNS 是由 Azure 提供的多租户 DNS 服务。 Azure 在此服务中注册所有 VM 和云服务角色实例。 此服务通过主机名为相同云服务内包含的 VM 和角色实例提供名称解析，并通过 FQDN 为相同 VNet 中的 VM 和角色实例提供名称解析。 若要详细了解 DNS，请参阅 [VM 和云服务角色实例的名称解析](virtual-networks-name-resolution-for-vms-and-role-instances.md)。
@@ -213,9 +210,11 @@ Azure 提供的 DNS 是由 Azure 提供的多租户 DNS 服务。 Azure 在此�
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>是否存在我可以将其中的资源部署到 VNet 的 Azure 服务完整列表？
 是的，有关详细信息，请参阅[Azure 服务的虚拟网络集成](virtual-network-for-azure-services.md)。
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>可以从 VNet 限制对哪些 Azure PaaS 资源的访问？
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>如何从 VNet 限制对 Azure PaaS 资源的访问？
 
-通过某些 Azure PaaS 服务（例如 Azure 存储和 Azure SQL 数据库）部署的资源只能通过使用虚拟网络服务终结点限制对 VNet 中的资源的访问。 有关详细信息，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。
+通过某些 Azure PaaS 服务（例如 Azure 存储和 Azure SQL 数据库）部署的资源可以通过使用虚拟网络服务终结点限制对 VNet 的网络访问。 有关详细信息，请参阅[虚拟网络服务终结点概述](virtual-network-service-endpoints-overview.md)。
+
+<!--MOONCAKE: NOT AVAILABLE ON Private Link-->
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>是否可以将服务移入和移出 VNet？
 否。 无法将服务移入和移出 VNet。 若要将某个资源移动到另一个 VNet，必须删除并重新部署该资源。
@@ -229,7 +228,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 可以。 可向 VNet 中的单个子网和/或附加到 VNet 的 NIC 应用[网络安全组](security-overview.md)。
 
 ### <a name="can-i-implement-a-firewall-between-vnet-connected-resources"></a>是否可在与 VNet 连接的资源之间实施防火墙？
-是的。 可以通过 Azure 市场部署许多供应商提供[防火墙网络虚拟设备](https://market.azure.cn/marketplace/apps?search=firewall)。
+是的。 可以通过 Azure 市场部署许多供应商提供[防火墙网络虚拟设备](https://market.azure.cn/marketplace/?term=firewall)。
 
 ### <a name="is-there-information-available-about-securing-vnets"></a>你们是否提供了有关保护 VNet 的信息？
 是的。 有关详细信息，请参阅 [Azure 网络安全概述](../security/security-network-overview.md?toc=%2fvirtual-network%2ftoc.json)。
@@ -251,7 +250,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 使用 VNet 对等互连（或虚拟网络对等互连）可连接虚拟网络。 使用虚拟网络之间的 VNet 对等互连连接，可通过 IPv4 地址在这些虚拟网络之间私下路由流量。 对等互连的 VNet 中的虚拟机可相互通信，如同它们处于同一网络中一样。 这些虚拟网络可以位于相同区域或不同区域中（也称为全球 VNet 对等互连）。 此外，还可跨 Azure 订阅创建 VNet 对等互连连接。
 
 ### <a name="can-i-create-a-peering-connection-to-a-vnet-in-a-different-region"></a>是否可以在另一区域创建到 VNet 的对等互连连接？
-是的。 全球 VNet 对等互连可以将不同区域中的 VNet 对等互连。 全球 VNet 对等互连适用于所有 Azure 公共区域和中国云区域。 不能通过全球对等互连的方式从 Azure 公共区域连接到国家云区域。
+是的。 全球 VNet 对等互连可以将不同区域中的 VNet 对等互连。 全球 VNet 对等互连适用于所有 Azure 公共区域、中国云区域和政府云区域。 不能通过全球对等互连的方式从 Azure 公共区域连接到国家云区域。
 
 ### <a name="what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers"></a>与全球 VNet 对等互连和负载均衡器相关的约束有哪些？
 如果两个虚拟网络位于不同的区域（全球 VNet 对等互连），则无法连接到使用基本负载均衡器的资源。 你可以连接到使用标准负载均衡器的资源。
@@ -266,13 +265,12 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
     
     <!--Not Available on - Active Directory Domain Service (ADDS)-->
     
-- Logic Apps
+- 逻辑应用
 - HDInsight
 - Azure Batch
-- AKS
 - 应用服务环境
 
-可以通过 VNet 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
+可以通过 VPN 网关经由 ExpressRoute 或 VNet-to-VNet 连接到这些资源。
 
 <!--MOONCAKE: CUSTOMIZE ON difference AAD tenant not support peering -->
 
@@ -313,27 +311,7 @@ VNet 相互之间以及与 Azure 基础结构中托管的其他服务之间相�
 
 <!--MOONCAKE: CORRECT ON REDIRECT TO virtual-network-troubleshoot-peering-issues.md-->
 
-## <a name="virtual-network-tap"></a>虚拟网络 TAP
-
-### <a name="which-azure-regions-are-available-for-virtual-network-tap"></a>可以在哪些 Azure 区域使用虚拟网络 TAP？
-虚拟网络 TAP 预览版在所有 Azure 区域中都可用。 受监视的网络接口、虚拟网络 TAP 资源和收集器或分析解决方案必须部署在同一区域中。
-
-### <a name="does-virtual-network-tap-support-any-filtering-capabilities-on-the-mirrored-packets"></a>虚拟网络 TAP 是否支持对镜像数据包使用任何筛选功能？
-虚拟网络 TAP 预览版不支持筛选功能。 当 TAP 配置被添加到网络接口后，此网络接口上所有入口和出口流量的一个深层副本会被流式传输到 TAP 目标。
-
-### <a name="can-multiple-tap-configurations-be-added-to-a-monitored-network-interface"></a>是否可以向受监视的网络接口添加多个 TAP 配置？
-受监视的网络接口仅能拥有一个 TAP 配置。 查看单个合作伙伴解决方案，以获取将 TAP 流量的多个副本流式传输到所选择的分析工具的功能。
-
-### <a name="can-the-same-virtual-network-tap-resource-aggregate-traffic-from-monitored-network-interfaces-in-more-than-one-virtual-network"></a>同一虚拟网络 TAP 资源是否可以聚合多个虚拟网络中来自受监视的网络接口的流量？
-是的。 同一虚拟网络 TAP 资源可用于聚合同一订阅或不同订阅中的对等虚拟网络中来自受监视的网络接口的镜像流量。 虚拟网络 TAP 资源和目标负载均衡器或目标网络接口必须位于同一订阅中。 所有订阅必须在同一 Azure Active Directory 租户下。
-
-### <a name="are-there-any-performance-considerations-on-production-traffic-if-i-enable-a-virtual-network-tap-configuration-on-a-network-interface"></a>如果我在网络接口上启用虚拟网络 TAP 配置，是否需要考虑生产流量的性能问题？
-虚拟网络 TAP 现为预览版。 在预览版期间，没有服务级别协议。 容量不应用于生产工作负荷。 使用 TAP 配置启用虚拟网络接口后，Azure 主机上分配给虚拟机以发送生产流量的相同资源将用于执行镜像功能并发送镜像数据包。 选择正确的 [Linux](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 或 [Windows](../virtual-machines/linux/sizes.md?toc=%2fvirtual-network%2ftoc.json) 虚拟机大小，确保有足够的资源可用于虚拟机以发送生产流量和镜像流量。
-
-### <a name="is-accelerated-networking-for-linuxcreate-vm-accelerated-networking-climd-or-windowscreate-vm-accelerated-networking-powershellmd-supported-with-virtual-network-tap"></a>虚拟网络 TAP 是否支持适用于 [Linux](create-vm-accelerated-networking-cli.md) 或 [Windows](create-vm-accelerated-networking-powershell.md) 的加速网络？
-你将能够在附加到已启用加速网络的虚拟机的网络接口上添加 TAP 配置。 但是，通过添加 TAP 配置将使虚拟机上的性能和延迟情况受到影响，因为 Azure 加速网络目前不支持卸载镜像流量。
-
-<!--Pending for verify-->
+<!--Not Available on ## Virtual network TAP-->
 
 ## <a name="virtual-network-service-endpoints"></a>虚拟网络服务终结点
 
@@ -423,5 +401,7 @@ VNet 服务终结点有助于保护 Azure 服务资源。 VNet 资源通过网�
 <!--Not Available on|Azure Service Bus| 128|-->
 <!--Not Available on |Azure Data Lake Store V1| 100|-->
 
-> [!NOTE]
+>[!NOTE]
 > Azure 服务自行决定是否对这些限制进行更改。 有关服务详细信息，请参阅相应的服务文档。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

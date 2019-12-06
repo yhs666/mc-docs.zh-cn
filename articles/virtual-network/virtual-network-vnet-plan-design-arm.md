@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/16/2018
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: bca30604c7af57beee60ddad0b85fb6dee2c130d
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 1114bab31b617d56d6d9af1082c24366df66b9b2
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203660"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658029"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -32,17 +32,20 @@ ms.locfileid: "74203660"
 
 <!--Not Available on  For suggestions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#networking)-->
 
-## <a name="regions"></a>区域
+## <a name="regions"></a>Regions
 
 在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅和区域中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：
 
 - 资源的使用者通常希望其资源的网络延迟最低。 若要确定指定位置与 Azure 区域之间的相对延迟，请参阅[查看相对延迟](../network-watcher/view-relative-latencies.md?toc=%2fvirtual-network%2ftoc.json)。
 - 是否有数据驻留、主权、符合性或复原能力需求？ 如果有，选择符合需求的区域至关重要。 
+
     <!-- Not Available on  [Azure geographies](https://www.azure.cn/global-infrastructure/geographies/) -->
+    
 - 是否需要在部署资源的相同 Azure 区域内跨 Azure 可用性区域提供复原能力？ 可将资源（如虚拟机 (VM)）部署到相同虚拟网络中的不同可用性区域。 但并非所有 Azure 区域都支持可用性区域。
+
     <!-- Not Available on [Availability zones](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
-## <a name="subscriptions"></a>Subscriptions
+## <a name="subscriptions"></a>订阅
 
 可根据需要在每个订阅中部署尽可能多的虚拟网络，直至达到[上限](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#networking-limits)。 例如，一些组织的不同部门有不同的订阅。 
 
@@ -73,13 +76,13 @@ ms.locfileid: "74203660"
 - 可将对 Azure 资源（例如 Azure 存储帐户或 Azure SQL 数据库）的访问权限限制为具有虚拟网络服务终结点的特定子网。 此外，可拒绝通过 Internet 访问资源。 可创建多个子网，并为某些子网启用服务终结点，但不启用其他项。 详细了解[服务终结点](virtual-network-service-endpoints-overview.md)，以及可为其启用的 Azure 资源。
 - 可将零个或一个网络安全组与虚拟网络中的每个子网相关联。 可将相同或不同的网络安全组关联到每个子网。 每个网络安全组都包含规则，允许或拒绝到达和来自源和目标的流量。 详细了解[网络安全组](#traffic-filtering)。
 
-## <a name="security"></a>安全
+## <a name="security"></a>安全性
 
 可使用网络安全组和网络虚拟设备来筛选虚拟网络中到达或来自资源的流量。 可控制 Azure 如何路由来自子网的流量。 还可限制组织中的人员使用虚拟网络中的资源。
 
 ### <a name="traffic-filtering"></a>流量筛选
 
-- 可使用网络安全组和/或筛选流量的 NVA 来筛选虚拟网络中资源之间的流量。 若要部署 NVA（如防火墙）来筛选流量，请参阅 [Azure 市场](https://market.azure.cn/zh-cn/marketplace/apps?search=networking&subcategories=appliances&page=1)。 使用 NVA 时，还可以创建自定义路由将流量从子网路由到 NVA。 详细了解[流量路由](#traffic-routing)。
+- 可使用网络安全组和/或筛选流量的 NVA 来筛选虚拟网络中资源之间的流量。 若要部署 NVA（如防火墙）来筛选流量，请参阅 [Azure 市场](https://market.azure.cn/marketplace/apps/category/networking?subcategories=appliances&page=1)。 使用 NVA 时，还可以创建自定义路由将流量从子网路由到 NVA。 详细了解[流量路由](#traffic-routing)。
 - 网络安全组包含多个默认安全规则，允许或拒绝到达或来自资源的流量。 可将网络安全组关联到网络接口和/或网络接口所在的子网。 若要简化安全规则的管理，建议尽可能将网络安全组与单独的子网相关联，而不是与子网内单独的网络接口相关联。
 - 如果子网中不同 VM 需要应用不同的安全规则，则可将 VM 中的网络接口与一个或多个应用程序安全组相关联。 安全规则可以在其源和/或目标中指定应用程序安全组。 该规则仅适用于属于应用程序安全组成员的网络接口。 详细了解[网络安全组](security-overview.md)和[应用程序安全组](security-overview.md#application-security-groups)。
 - Azure 在每个网络安全组中创建了多个默认安全规则。 其中一个默认规则允许所有流量在虚拟网络中的所有资源之间流动。 若要替代此行为，可使用网络安全组和/或自定义路由将流量路由到 NVA。 建议熟悉 Azure 的所有[默认安全规则](security-overview.md#default-security-rules)，并了解网络安全组规则如何应用于资源。
@@ -90,7 +93,7 @@ ms.locfileid: "74203660"
 ### <a name="traffic-routing"></a>流量路由
 
 Azure 为子网中的出站流量创建多个默认路由。 可通过创建路由表并将其关联到子网来替代 Azure 的默认路由。 替代 Azure 的默认路由的常见原因是：
-- 想要子网之间的流量流经 NVA。 了解如何[配置路由表以强制流量通过 NVA](tutorial-create-route-table-portal.md) 的详细信息。
+- 想要子网之间的流量流经 NVA。 想要详细了解如何[配置路由表以强制流量通过 NVA](tutorial-create-route-table-portal.md)。
 - 想要通过 Azure VPN 网关强制所有 Internet 绑定流量通过 NVA 或本地。 强制 Internet 流量本地进行检查和记录通常被称为强制隧道。 详细了解如何配置[强制隧道](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json)。
 
 如果需要实施自定义路由，建议熟悉 [Azure 中的路由](virtual-networks-udr-overview.md)。
@@ -101,7 +104,7 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 
 ### <a name="peering"></a>对等互连
 
-使用[虚拟网络对等](virtual-network-peering-overview.md)时，虚拟网络可位于相同的或不同的受支持 Azure 区域中。 虚拟网络可位于相同或不同的 Azure 订阅中（即使订阅属于不同的 Azure Active Directory 租户）。 建立对等之前，建议熟悉所有对等[需求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。 相同区域中对等的虚拟网络中的资源之间的带宽与资源在同一虚拟网络中的带宽相同。
+使用[虚拟网络对等](virtual-network-peering-overview.md)时，虚拟网络可位于相同的或不同的受支持 Azure 区域中。 虚拟网络可位于相同或不同的 Azure 订阅中（即使订阅属于不同的 Azure Active Directory 租户）。 建立对等之前，建议熟悉所有对等[需求和约束](virtual-network-manage-peering.md#requirements-and-constraints)。 同一区域的对等互连虚拟网络中的资源之间的带宽与资源在同一虚拟网络中的带宽相同。
 
 ### <a name="vpn-gateway"></a>VPN 网关
 
@@ -110,23 +113,23 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 <!--Not Available on [hub and spoke networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)-->
 ### <a name="name-resolution"></a>名称解析
 
-虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md)，解析对等虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。
+一个虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) 来解析对等互连虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。
 
 <!--Not Available on [private domains](../dns/private-dns-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="permissions"></a>权限
 
-Azure 对资源使用[基于角色的访问控制](../role-based-access-control/overview.md?toc=%2fvirtual-network%2ftoc.json) (RBAC)。 权限按以下层次结构分配给某个[范围](../role-based-access-control/overview.md?toc=%2fvirtual-network%2ftoc.json#scope)：订阅、管理组、资源组和单个资源。 若要了解层次结构的详细信息，请参阅[组织资源](../azure-resource-manager/management-groups-overview.md?toc=%2fvirtual-network%2ftoc.json)。 若要使用 Azure 虚拟网络及其所有相关功能（例如对等、网络安全组、服务终结点和路由表），可将组织的成员分配到内置[所有者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#owner)、[参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#contributor)或[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色，然后将该角色分配到相应的范围。 如果要为虚拟网络功能的子集分配特定权限，请创建[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)并为该角色分配[虚拟网络](manage-virtual-network.md#permissions)、[子网和服务终结点](virtual-network-manage-subnet.md#permissions)、[网络接口](virtual-network-network-interface.md#permissions)[对等](virtual-network-manage-peering.md#permissions)、[网络和应用程序安全组](manage-network-security-group.md#permissions)或[路由表](manage-route-table.md#permissions)所需的特定权限。
+Azure 对资源使用[基于角色的访问控制](../role-based-access-control/overview.md?toc=%2fvirtual-network%2ftoc.json) (RBAC)。 权限将分配到以下层次结构中的[范围](../role-based-access-control/overview.md?toc=%2fvirtual-network%2ftoc.json#scope)：管理组、订阅、资源组和单个资源。 若要了解层次结构的详细信息，请参阅[组织资源](../azure-resource-manager/management-groups-overview.md?toc=%2fvirtual-network%2ftoc.json)。 若要使用 Azure 虚拟网络及其所有相关功能（例如对等、网络安全组、服务终结点和路由表），可将组织的成员分配到内置[所有者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#owner)、[参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#contributor)或[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色，然后将该角色分配到相应的范围。 如果要为虚拟网络功能的子集分配特定权限，请创建[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)并为该角色分配[虚拟网络](manage-virtual-network.md#permissions)、[子网和服务终结点](virtual-network-manage-subnet.md#permissions)、[网络接口](virtual-network-network-interface.md#permissions)[对等](virtual-network-manage-peering.md#permissions)、[网络和应用程序安全组](manage-network-security-group.md#permissions)或[路由表](manage-route-table.md#permissions)所需的特定权限。
 
 <a name="policies"></a>
 ## <a name="policy"></a>策略
 
-通过 Azure Policy，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，以便资源符合组织标准和服务级别协议。 Azure Policy 对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义和应用仅在特定资源组或区域中允许创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
+通过 Azure Policy，可创建、分配和管理策略定义。 策略定义将在整个资源中强制实施不同的规则，使资源符合组织标准和服务级别协议。 Azure Policy 对资源进行评估，扫描并找到与所定义策略不相符的资源。 例如，可以定义并应用只允许在特定资源组或区域中创建虚拟网络的策略。 另一个策略可能要求每个子网都有一个与之关联的网络安全组。 然后，在创建和更新资源时评估此策略。
 
-策略应用于以下层次结构：订阅、管理组和资源组。 了解有关 [Azure Policy](../governance/policy/overview.md?toc=%2fvirtual-network%2ftoc.json) 或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
+策略将应用于以下层次结构：管理组、订阅和资源组。 了解有关 [Azure Policy](../governance/policy/overview.md?toc=%2fvirtual-network%2ftoc.json) 或部署某些虚拟网络[策略模板](policy-samples.md)示例的详细信息。
 
 ## <a name="next-steps"></a>后续步骤
 
-了解[虚拟网络](manage-virtual-network.md)、[子网和服务终结点](virtual-network-manage-subnet.md)、[网络接口](virtual-network-network-interface.md)、[对等互连](virtual-network-manage-peering.md)、[网络和应用程序安全组](manage-network-security-group.md)或[路由表](manage-route-table.md)的所有任务、设置和选项。
+了解适合[虚拟网络](manage-virtual-network.md)、[子网和服务终结点](virtual-network-manage-subnet.md)、[网络接口](virtual-network-network-interface.md)、[对等互连](virtual-network-manage-peering.md)、[网络和应用程序安全组](manage-network-security-group.md)或[路由表](manage-route-table.md)的所有任务、设置和选项。
 
 <!--Update_Description: wording update, update reference link-->

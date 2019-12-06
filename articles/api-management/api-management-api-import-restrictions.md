@@ -12,15 +12,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 06/26/2019
+origin.date: 11/06/2019
 ms.author: v-yiso
-ms.date: 11/04/2019
-ms.openlocfilehash: bdd2c3cbeea0180b73c453a3b8caaafb57a71518
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/09/2019
+ms.openlocfilehash: ef845ae805a0f49f6dba931100551dedf302a129
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913261"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657714"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 导入限制和已知问题
 ## <a name="about-this-list"></a>关于此列表
@@ -40,6 +40,8 @@ ms.locfileid: "72913261"
 * 源文件 URL（如果可用）应用于相对服务器 URL。
 * 忽略安全定义。
 * 不支持 API 操作的内联架构定义。 架构定义在 API 范围内定义，可在 API 操作请求或响应范围内引用。
+* 定义的 URL 参数需要是 URL 模板的一部分。
+* 不支持 **Produces** 关键字，该关键字描述 API 返回的 MIME 类型。 
 
 ### <a name="open-api-v2"> </a>OpenAPI 版本 2
 

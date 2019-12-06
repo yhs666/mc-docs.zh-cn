@@ -4,7 +4,7 @@ description: 本文概述部署服务时的工作流过程。
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: Willchen
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
@@ -14,14 +14,14 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 origin.date: 04/08/2019
-ms.date: 09/16/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 64ec79e7fc4da667b4332c3b61e902400febc7d2
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 805f53a68e7ca7b1d3be00d4aaff43e593c4f25a
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736629"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658071"
 ---
 #    <a name="workflow-of-windows-azure-classic-vm-architecture"></a>Windows Azure 经典 VM 体系结构的工作流 
 本文概述当你部署或更新虚拟机等 Azure 资源时发生的工作流过程。 
@@ -39,13 +39,14 @@ ms.locfileid: "70736629"
 
 **B**. 结构控制器负责维护和监视数据中心内的所有资源。 它与结构 OS 上的、发送来宾 OS 版本、服务包、服务配置和服务状态等信息的结构主机代理通信。
 
-**C**. 主机代理驻留在主机 OSsystem 上，负责设置来宾 OS，并与来宾代理 (WindowsAzureGuestAgent) 通信，以便将角色更新到预期的目标状态，并使用来宾代理执行检测信号检查。 如果主机代理有 10 分钟未收到检测信号响应，则主机代理会重启来宾 OS。
+**C**. 主机代理驻留在主机 OS 上，负责设置来宾 OS，并与来宾代理 (WindowsAzureGuestAgent) 通信，以便将角色更新到预期的目标状态，并使用来宾代理执行检测信号检查。 如果主机代理有 10 分钟未收到检测信号响应，则主机代理会重启来宾 OS。
 
 **C2**. WaAppAgent 负责安装、配置和更新 WindowsAzureGuestAgent.exe。
 
 **D**.  WindowsAzureGuestAgent 负责：
 
 1. 配置来宾 OS，包括防火墙、ACL、LocalStorage 资源、服务包、配置和证书。设置运行角色的用户帐户的 SID。
+2. 为角色将在其下运行的用户帐户设置 SID。
 2. 向结构传达角色状态。
 3. 启动并监视 WaHostBootstrapper，以确保角色处于目标状态。
 
@@ -78,7 +79,7 @@ ms.locfileid: "70736629"
 
 ## <a name="workflow-processes"></a>工作流过程
 
-1. 用户发出请求（例如上传 .cspkg 和 .cscfg 文件），告知要停止某个资源或做出配置更改，等等。 可以通过 Azure 门户或者某个使用服务管理 API 的工具（例如 Visual Studio 发布功能）来执行此操作。 此请求将转到 RDFE，以执行所有订阅相关的工作，然后将请求传达给 FFE。 剩余的工作流步骤是部署并启动新包。
+1. 用户发出请求（例如上传“.cspkg”和“.cscfg”文件），告知要停止某个资源或做出配置更改，等等。 可以通过 Azure 门户或者某个使用服务管理 API 的工具（例如 Visual Studio 发布功能）来执行此操作。 此请求将转到 RDFE，以执行所有订阅相关的工作，然后将请求传达给 FFE。 剩余的工作流步骤是部署并启动新包。
 2. FFE 查找正确的计算机池（根据客户的输入，例如地缘组或地理位置；以及结构提供的输入，例如计算机可用性），并与该计算机池中的主结构控制器通信。
 3. 结构控制器查找具有可用 CPU 核心的主机（或运转新主机）。 服务包和配置将复制到主机，结构控制器与主机 OS 上的主机代理通信，以部署包（配置 DIP、端口、来宾 OS，等等）。
 4. 主机代理启动来宾 OS 并与来宾代理 (WindowsAzureGuestAgent) 通信。 主机将检测信号发送到来宾，以确保角色实现其目标状态。

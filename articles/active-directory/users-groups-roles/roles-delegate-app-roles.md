@@ -1,27 +1,26 @@
 ---
-title: 委托应用程序管理员创建和管理权限 - Azure Active Directory | Microsoft Docs
+title: 委托应用程序管理员管理权限 - Azure AD | Microsoft Docs
 description: 在 Azure Active Directory 中授予应用程序访问管理权限
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 09/04/2019
-ms.date: 11/14/2019
+origin.date: 11/08/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2d980a942f20014df4496ed214f390b58d13fe1
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: ebcfef35199b7e45865f4830d2105a0ffa3575dc
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084714"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655429"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>在 Azure Active Directory 中委托应用注册权限
 

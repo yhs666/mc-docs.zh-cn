@@ -1,5 +1,5 @@
 ---
-title: 因 VM 启动到安全模式而无法远程连接 Azure 虚拟机 | Azure
+title: 因 VM 启动到安全模式而无法通过 RDP 连接到该 VM | Azure
 description: 了解如何排查因 VM 启动到安全模式而无法通过 RDP 连接到该 VM 的问题 | Azure
 services: virtual-machines-windows
 documentationCenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 origin.date: 11/13/2018
 ms.date: 11/11/2019
 ms.author: v-yeche
-ms.openlocfilehash: 01e35cff67ab01b0f397f56dc580ce02ed0af0c4
-ms.sourcegitcommit: 1fd822d99b2b487877278a83a9e5b84d9b4a8ce7
+ms.openlocfilehash: d04430cde0fe65558a3ec4bf5467ff04e8d81a90
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116932"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74593822"
 ---
 # <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>因 VM 启动到安全模式而无法通过 RDP 连接到该 VM
 
@@ -93,6 +93,7 @@ RDP 服务在安全模式下不可用。 VM 启动到安全模式时，只会加
 2. 检查启动配置数据。 在以下命令中，我们假设分配给附加 OS 磁盘的驱动器号为 F。请将此驱动器号替换为 VM 的相应值。
 
         bcdedit /store F:\boot\bcd /enum
+
     记下具有 **\windows** 文件夹的分区的标识符名称。 默认情况下，该标识符名称为“Default”。
 
     如果 VM 配置为启动到安全模式，则可在“Windows 启动加载程序”部分下看到一个名为 **safeboot** 的额外标志  。 如果未看到“安全启动”  标志，则本文不适用于你的方案。
@@ -102,9 +103,11 @@ RDP 服务在安全模式下不可用。 VM 启动到安全模式时，只会加
 3. 删除“安全启动”标志，使 VM 启动到正常模式  ：
 
         bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+        
 4. 检查启动配置数据，确保删除“安全启动”标志  ：
 
         bcdedit /store F:\boot\bcd /enum
+        
 5. [分离 OS 磁盘并重新创建 VM](../windows/troubleshoot-recovery-disks-portal.md)。 然后检查是否解决了问题。
 
 <!-- Update_Description: wording update -->

@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: ef954bdf28923fe1c4748f6b3a1397708aab5305
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: dac538bd0da5f8b89a74985790a635cbd0755352
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020696"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657960"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>使用 PowerShell 创建 Azure 数据资源管理器群集和数据库
 
@@ -38,12 +38,12 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="configure-parameters"></a>配置参数
 
-如果在 Azure Cloud Shell 中运行命令，则不需要执行以下步骤。 如果在本地运行 CLI，请按步骤 1 和 2 登录到 Azure 并设置当前订阅：
+如果在 Azure Powershell 中运行命令，则不需要执行以下步骤。 如果在本地运行 CLI，请按步骤 1 和 2 登录到 Azure 并设置当前订阅：
 
 1. 运行以下命令来登录到 Azure：
 
     ```azurepowershell
-    Connect-AzAccount
+    Connect-AzAccount -EnvironmentName AzureChinaCloud
     ```
 
 1. 设置要在其中创建群集的订阅：
@@ -51,7 +51,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
     ```azurepowershell
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-1. 在本地或 Azure Cloud Shell 中运行 Azure CLI 时，需要在设备上安装 Az.Kusto 模块：
+1. 在本地或 Azure Powershell 中运行 Azure CLI 时，需要在设备上安装 Az.Kusto 模块：
     
      ```azurepowershell
      Install-Module -Name Az.Kusto  

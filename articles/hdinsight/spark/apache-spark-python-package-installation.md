@@ -1,5 +1,5 @@
 ---
-title: 脚本操作 - 在 Azure HDInsight 上安装包含 Jupyter 的 Python 包
+title: 用于 Azure HDInsight 上包含 Jupyter 的 Python 包的脚本操作
 description: 逐步说明如何使用脚本操作配置 HDInsight Spark 群集随附的 Jupyter notebook，以使用外部 python 包。
 services: hdinsight
 author: hrasheed-msft
@@ -7,17 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 04/22/2019
-ms.date: 10/28/2019
+origin.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: bea0b0a53c16c4df91fbc14140beadf730909211
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 4b2ed498952d4517244766884871a07414f500c0
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583972"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658094"
 ---
-# <a name="use-script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-clusters-on-hdinsight"></a>在 HDInsight 上的 Apache Spark 群集中使用建本操作安装适用于 Jupyter 笔记本的外部 Python 包
+# <a name="script-action-to-install-external-python-packages-for-jupyter-notebooks-in-apache-spark-on-hdinsight"></a>在 Apache Spark on HDInsight 中为 Jupyter 笔记本安装外部 Python 包的脚本操作
+
 > [!div class="op_single_selector"]
 > * [使用单元格 magic](apache-spark-jupyter-notebook-use-external-packages.md)
 > * [使用脚本操作](apache-spark-python-package-installation.md)
@@ -36,9 +37,9 @@ ms.locfileid: "72583972"
 本文介绍如何使用脚本操作在群集上安装 [TensorFlow](https://www.tensorflow.org/) 包并通过 Jupyter Notebook 使用它作为示例。
 
 ## <a name="prerequisites"></a>先决条件
-必须满足以下条件：
 
 * Azure 订阅。 请参阅[获取 Azure 试用版](https://www.azure.cn/pricing/1rmb-trial/)。
+
 * HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
 
    > [!NOTE]
@@ -48,7 +49,7 @@ ms.locfileid: "72583972"
    
 ## <a name="support-for-open-source-software-used-on-hdinsight-clusters"></a>支持 HDInsight 群集上使用的开源软件
 
-Microsoft Azure HDInsight 服务使用围绕 Apache Hadoop 构建的开源技术生态系统。 Microsoft Azure 为开源技术提供常规级别的支持。 有关详细信息，请参阅 [Azure 支持常见问题解答网站](https://azure.microsoft.com/support/faq/)上的**支持范围**部分。 HDInsight 服务为内置组件提供附加的支持级别。
+Microsoft Azure HDInsight 服务使用围绕 Apache Hadoop 构建的开源技术生态系统。 Microsoft Azure 为开源技术提供常规级别的支持。 有关详细信息，请参阅 [Azure 支持常见问题解答网站](https://azure.microsoft.com/support/faq/)。 HDInsight 服务为内置组件提供附加的支持级别。
 
 HDInsight 服务中有两种类型的开放源代码组件：
 
@@ -83,7 +84,7 @@ HDInsight 服务中有两种类型的开放源代码组件：
 
     ```bash
     #!/usr/bin/env bash
-    /usr/bin/anaconda/bin/conda install --yes tensorflow
+    /usr/bin/anaconda/bin/conda install -c conda-forge tensorflow
     ```
 
 5. 选择“创建”  。  访问有关[如何使用自定义脚本操作](/hdinsight/hdinsight-hadoop-customize-cluster-linux)的文档。

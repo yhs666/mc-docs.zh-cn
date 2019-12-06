@@ -1,7 +1,7 @@
 ---
 title: 什么是 Azure 标准负载均衡器？
 titlesuffix: Azure Load Balancer
-description: Azure 标准负载均衡器功能概述
+description: 通过此学习路径，开始了解 Azure 标准负载均衡器功能的概述。
 services: load-balancer
 documentationcenter: na
 author: WenJason
@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/28/2019
-ms.date: 06/03/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: bb876f64a244b97f77d218e2b05d1f002399cc95
-ms.sourcegitcommit: e85021b6bddb943d275bdaf023098caa8601b801
+ms.openlocfilehash: ecb7ef1425b2af95383598aac366542c6f6c63b1
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66299689"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530641"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 标准负载均衡器概述
 
@@ -169,6 +169,8 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 >
 >使用基本 SKU 和标准 SKU 具有以下限制。
 >
+>标准 SKU 的 HA 端口和诊断只能在标准 SKU 中使用。 无法从标准 SKU 迁移到基本 SKU，并同时保留这些功能。
+>
 >根据本文所述，基本和标准 SKU 存在一定差异。  请确保理解这些差异并做好相应准备。
 >
 >必须对负载均衡器和公共 IP 资源使用匹配的 SKU。 不能混合使用基本 SKU 资源和标准 SKU 资源。 无法将独立的虚拟机、可用性集资源中的虚拟机或虚拟机规模集资源同时附加到两个 SKU。
@@ -195,7 +197,6 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 - SKU 不可变。 无法更改现有资源的 SKU。
 - 独立的虚拟机资源、可用性集资源或虚拟机规模集资源可以引用一个 SKU，绝不能同时引用两个。
 - 负载均衡器规则不能跨越两个虚拟网络。  前端及其相关的后端实例必须位于相同的虚拟网络中。  
-- 负载均衡器前端不能通过全局虚拟网络对等互连访问。
 - 标准 SKU LB 和 PIP 资源不支持[移动订阅操作](../azure-resource-manager/resource-group-move-resources.md)。
 - 考虑到 VNet 出现之前的服务和其他平台服务的运行方式带来的副作用，只有在使用内部标准负载均衡器的情况下，才可以访问没有 VNet 和其他 Azure 平台服务的 Web 辅助角色。 请勿依赖此服务，因为相应的服务本身或底层平台可能会在不通知的情况下进行更改。 在仅使用内部标准负载均衡器时，必须始终假定需要明确创建[出站连接](load-balancer-outbound-connections.md)。
 - 负载均衡器属于 TCP 或 UDP 产品，用于对这些特定的 IP 协议进行负载均衡和端口转发。  负载均衡规则和入站 NAT 规则支持 TCP 和 UDP，但不支持其他 IP 协议（包括 ICMP）。 负载均衡器不会终止、响应 UDP 或 TCP 流的有效负载，也不与之交互。 它不是一个代理。 必须使用负载均衡或入站 NAT 规则（TCP 或 UDP）中所用的同一协议在带内成功验证与前端的连接，并且必须至少有一个虚拟机为客户端生成了响应，这样才能看到前端发出的响应。   未从前端负载均衡器收到带内响应表明没有任何虚拟机能够做出响应。  在虚拟机都不能做出响应的情况下，无法与负载均衡器前端交互。  这一点也适用于出站连接，其中的[端口伪装 SNAT](load-balancer-outbound-connections.md#snat) 仅支持 TCP 和 UDP；其他任何 IP 协议（包括 ICMP）也会失败。  分配实例级公共 IP 地址即可缓解问题。

@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/18/2018
-ms.date: 10/28/2019
+origin.date: 10/25/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6078c58ad70550caf273e84e55c229372e300940
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 08346409f03773d48964968c982ee8f159ab819d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583842"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657948"
 ---
 # <a name="how-to-configure-apache-kafka-on-hdinsight-to-automatically-create-topics"></a>如何将 Apache Kafka on HDInsight 配置为自动创建主题
 
@@ -29,13 +29,11 @@ ms.locfileid: "72583842"
 
 1. 从 [Azure 门户](https://portal.azure.cn)选择 Kafka 群集。
 
-2. 从“群集概览”中选择“群集仪表板”   。 
+1. 从**群集仪表板**中，选择“Ambari 主页”  。
 
-    ![群集仪表板处于选中状态的门户的图像](./media/apache-kafka-auto-create-topics/kafka-cluster-overview.png)
+    ![群集仪表板处于选中状态的门户的图像](./media/apache-kafka-auto-create-topics/azure-portal-cluster-dashboard-ambari.png)
 
-3. 然后选择 __HDInsight 群集仪表板__。 出现提示时，进行身份验证使用群集的登录名 (admin) 凭据。
-
-    ![HDInsight 群集仪表板条目的图像](./media/apache-kafka-auto-create-topics/hdinsight-cluster-dashboard.png)
+    出现提示时，进行身份验证使用群集的登录名 (admin) 凭据。 或者，可以直接从 `https://CLUSTERNAME.azurehdinsight.cn/` 连接到 Amabri，其中 `CLUSTERNAME` 是 Kafka 群集的名称。
 
 3. 从页面左侧的列表选择 Kafka 服务。
 
@@ -51,7 +49,7 @@ ms.locfileid: "72583842"
 
     这将筛选的属性，并显示列表`auto.create.topics.enable`设置。
 
-6. 将 `auto.create.topics.enable` 的值更改为 `true`，然后选择“保存”。 添加注释，然后再次选择“保存”。
+1. 将 `auto.create.topics.enable` 的值更改为 `true`，然后选择“保存”  。 添加注释，然后选择**保存**。
 
     ![auto.create.topics.enable 条目的图像](./media/apache-kafka-auto-create-topics/auto-create-topics-enable.png)
 

@@ -6,14 +6,14 @@ ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
 origin.date: 06/25/2019
-ms.date: 08/05/2019
+ms.date: 12/02/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2635d965d7f54c4fe40303983071c182d92ee73d
-ms.sourcegitcommit: 193f49f19c361ac6f49c59045c34da5797ed60ac
+ms.openlocfilehash: bbb72614233e160fe78e30f31848dfce0c34c3b7
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68732401"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530633"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的限制
 下列各部分介绍数据库服务中的容量和功能限制。 如果想了解资源（计算、内存、存储）层，请参阅[定价层](concepts-pricing-tiers.md)一文。
@@ -22,21 +22,21 @@ ms.locfileid: "68732401"
 ## <a name="maximum-connections"></a>最大连接数
 每个定价层的最大连接数和 vCore 数如下所示： 
 
-|**定价层**| **vCore(s)**| 最大连接数  |
-|---|---|---|
-|基本| 1| 50 |
-|基本| 2| 100 |
-|常规用途| 2| 150|
-|常规用途| 4| 250|
-|常规用途| 8| 480|
-|常规用途| 16| 950|
-|常规用途| 32| 1500|
-|常规用途| 64| 1900|
-|内存优化| 2| 300|
-|内存优化| 4| 500|
-|内存优化| 8| 960|
-|内存优化| 16| 1900|
-|内存优化| 32| 1987|
+|**定价层**| **vCore(s)**| 最大连接数  | **最大用户连接数** |
+|---|---|---|---|
+|基本| 1| 55 | 50|
+|基本| 2| 105 | 100|
+|常规用途| 2| 150| 145|
+|常规用途| 4| 250| 245|
+|常规用途| 8| 480| 475|
+|常规用途| 16| 950| 945|
+|常规用途| 32| 1500| 1495|
+|常规用途| 64| 1900| 1895|
+|内存优化| 2| 300| 295|
+|内存优化| 4| 500| 495|
+|内存优化| 8| 960| 955|
+|内存优化| 16| 1900| 1895|
+|内存优化| 32| 1987| 1982|
 
 当连接数超出限制时，可能会收到以下错误：
 > 严重：很抱歉，客户端数过多

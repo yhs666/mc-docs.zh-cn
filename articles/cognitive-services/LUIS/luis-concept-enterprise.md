@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 70b37c142a03b1f5e2c6538127928ffd294dacbc
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 36b1fa49dc3de7021ff33734243667691e8a31f1
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329926"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657739"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 应用的企业策略
 查看企业应用的设计策略。
@@ -26,7 +26,7 @@ ms.locfileid: "71329926"
 
 LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。 
 
-如果 LUIS 应用请求速率超过了允许的[配额速率](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/)，你可以：
+如果 LUIS 应用请求速率超过了允许的[配额速率](https://www.azure.cn/pricing/details/cognitive-services/language-understanding-intelligent-services/)，你可以：
 
 * 将负载分散到更多具有[相同应用定义](#use-multiple-apps-with-same-app-definition)的 LUIS 应用。 这包括从[容器](luis-container-howto.md)运行 LUIS（可选）。 
 * 创建[多个密钥](#assign-multiple-luis-keys-to-same-app)并将其分配给应用。 
@@ -75,7 +75,7 @@ LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。
 * [Bot Framework SDK](https://github.com/Microsoft/botframework)
 * [调度模型教程](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)
 * [调度 CLI](https://github.com/Microsoft/botbuilder-tools)
-* 调度模型机器人示例 - .NET、Node.js
+* 调度模型机器人示例 - [.NET](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/14.nlp-with-dispatch)、[Node.js](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/javascript_nodejs/14.nlp-with-dispatch)
 
 ## <a name="next-steps"></a>后续步骤
 

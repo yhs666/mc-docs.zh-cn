@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 05/15/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: e7c0c8d19ff78a1ac8833167583aa71314832982
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: cccf463b308f3ad75e914cbbae82ac389338beb2
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514212"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658011"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 地址 168.63.129.16 是什么？
 
@@ -35,7 +35,7 @@ IP 地址 168.63.129.16 是虚拟公共 IP 地址，用于简化 Azure 平台资
 
 ## <a name="scope-of-ip-address-1686312916"></a>IP 地址 168.63.129.16 的作用域
 
-公共 IP 地址 168.63.129.16 用于所有区域和所有国家云。 此特殊公共 IP 地址由 Azure 所有，不会更改。 默认网络安全组规则允许此 IP 地址。 建议在所有本地防火墙策略中允许此 IP 地址。 此特殊 IP 地址和资源之间的通信是安全的，因为只有内部 Azure 平台才能从此 IP 地址获得消息。 如果阻止此地址，可能会在各种场景中出现意外行为。
+公共 IP 地址 168.63.129.16 用于所有区域和所有国家云。 此特殊公共 IP 地址由 Azure 所有，不会更改。 默认网络安全组规则允许此 IP 地址。 我们建议你在入站和出站方向的任何本地防火墙策略中都允许此 IP 地址。 此特殊 IP 地址和资源之间的通信是安全的，因为只有内部 Azure 平台才能从此 IP 地址获得消息。 如果阻止此地址，可能会在各种场景中出现意外行为。
 
 [Azure 负载均衡器运行状况探测](../load-balancer/load-balancer-custom-probe-overview.md)源自此 IP 地址。 如果阻止此 IP 地址，探测将失败。
 

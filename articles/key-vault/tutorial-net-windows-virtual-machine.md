@@ -10,12 +10,12 @@ origin.date: 09/05/2018
 ms.date: 07/01/2019
 ms.author: v-biyu
 ms.custom: mvc
-ms.openlocfilehash: 13850b7d8bbe38ae8e558f945ea577cd2eef6ddc
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: a9c63acdf5b14725d8e5ef8ea540849c670c3f8f
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425852"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657998"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>教程：将 Azure Key Vault 与通过 .NET 编写的 Windows 虚拟机配合使用
 
@@ -71,7 +71,7 @@ az login
 
 Azure 资源组是在其中部署和管理 Azure 资源的逻辑容器。 使用 [az group create](/cli/group#az-group-create) 命令创建资源组。 
 
-此示例在“美国西部”位置创建资源组：
+此示例在“中国东部”位置创建资源组：
 
 ```azurecli
 # To list locations: az account list-locations --output table

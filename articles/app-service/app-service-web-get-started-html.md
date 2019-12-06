@@ -10,22 +10,21 @@ ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
-origin.date: 08/24/2018
-ms.date: 02/25/2019
-ms.author: v-biyu
+origin.date: 08/23/2019
+ms.date: 11/25/2019
+ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b11b56f5118079f44cd5da77e23d466a5d372764
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: aff3c24ccece135ad0d8c174098a1f6f50563c26
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806858"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74556001"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>在 Azure 中创建静态 HTML Web 应用
 
-[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将基本 HTML+CSS 站点部署到 Azure 应用服务。 可以使用 [Azure CLI](/cli/install-azure-cli) 在本地运行这些命令
+[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。  本快速入门演示如何将基本 HTML+CSS 站点部署到 Azure 应用服务。 你将使用 [Azure CLI](/cli/install-azure-cli) 在本地完成本快速入门
 
 ![示例应用主页](media/app-service-web-get-started-html/hello-world-in-browser-az.png)
 
@@ -118,9 +117,11 @@ az webapp up --location chinaeast --name <app_name>
 
 ## <a name="manage-your-new-azure-app"></a>管理新的 Azure 应用
 
-转到 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>管理创建的 Web 应用。
+若要管理所创建的 Web 应用，请在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“应用服务”  "。 
 
-在左侧菜单中单击**应用程序服务**，然后单击 Azure 应用的名称。
+![在 Azure 门户中选择应用服务](./media/app-service-web-get-started-html/portal0.png)
+
+在“应用服务”页上，选择 Azure 应用的名称  。
 
 ![在门户中导航到 Azure 应用](./media/app-service-web-get-started-html/portal1.png)
 
@@ -138,7 +139,7 @@ az webapp up --location chinaeast --name <app_name>
 az group delete --name appsvc_rg_Windows_chinaeast
 ```
 
-此命令可能需要花费一分钟时间运行。
+此命令可能需要花费一点时间运行。
 
 ## <a name="next-steps"></a>后续步骤
 

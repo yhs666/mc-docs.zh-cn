@@ -8,12 +8,12 @@ ms.author: v-yeche
 origin.date: 10/05/2019
 ms.date: 11/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18165a17c48ab03b5b7437c9e984d8bce9e10490
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: dce1ee7b2bd84350ac4d15df6c216cfef19ff7da
+ms.sourcegitcommit: 73715ebbaeb96e80046142b8fe5bbc117d85b317
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730676"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74593689"
 ---
 # <a name="azure-disk-encryption-for-windows-vms"></a>适用于 Windows VM 的 Azure 磁盘加密 
 
@@ -49,41 +49,41 @@ Azure 磁盘加密还可用于使用高级存储的 VM。
 >  
 > Windows Server 2012 R2 Core 和 Windows Server 2016 Core 要求在 VM 安装 bdehdcfg 组件以支持加密。
 
-<!--MOONCAKE: CORRECT ON Microsoft .NET Framework--
+<!--MOONCAKE: CORRECT ON Microsoft .NET Framework-->
 <a name="networking-requirements"></a>
-## Networking requirements
-To enable Azure Disk Encryption, the VMs must meet the following network endpoint configuration requirements:
-  - To get a token to connect to your key vault, the Windows VM must be able to connect to an Azure Active Directory endpoint, \[login.chinacloudapi.cn\].
-  - To write the encryption keys to your key vault, the Windows VM must be able to connect to the key vault endpoint.
-  - The Windows VM must be able to connect to an Azure storage endpoint that hosts the Azure extension repository and an Azure storage account that hosts the VHD files.
-  -  If your security policy limits access from Azure VMs to the Internet, you can resolve the preceding URI and configure a specific rule to allow outbound connectivity to the IPs. For more information, see [Azure Key Vault behind a firewall](../../key-vault/key-vault-access-behind-firewall.md).    
+## <a name="networking-requirements"></a>网络要求
+若要启用 Azure 磁盘加密，VM 必须符合以下网络终结点配置要求：
+  - 若要获取用于连接到密钥保管库的令牌，Windows VM 必须能够连接到 Azure Active Directory 终结点 \[login.chinacloudapi.cn\]。
+  - 若要将加密密钥写入密钥保管库，Windows VM 必须能够连接到密钥保管库终结点。
+  - Windows VM 必须能够连接到托管 Azure 扩展存储库的 Azure 存储终结点和托管 VHD 文件的 Azure 存储帐户。
+  -  如果安全策略限制从 Azure VM 到 Internet 的访问，可以解析上述 URI，并配置特定的规则以允许与这些 IP 建立出站连接。 有关详细信息，请参阅[防火墙后的 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)。    
 
 <a name="group-policy-requirements"></a>
-## Group Policy requirements
+## <a name="group-policy-requirements"></a>组策略要求
 
-Azure Disk Encryption uses the BitLocker external key protector for Windows VMs. For domain joined VMs, don't push any group policies that enforce TPM protectors. For information about the group policy for "Allow BitLocker without a compatible TPM," see [BitLocker Group Policy Reference](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1).
+Azure 磁盘加密对 Windows VM 使用 BitLocker 外部密钥保护程序。 对于已加入域的 VM，请不要推送会强制执行 TPM 保护程序的任何组策略。 有关“在没有兼容 TPM 的情况下允许 BitLocker”的组策略信息，请参阅 [BitLocker 组策略参考](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings#bkmk-unlockpol1)。
 
-BitLocker policy on domain joined virtual machines with custom group policy must include the following setting: [Configure user storage of BitLocker recovery information -> Allow 256-bit recovery key](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings). Azure Disk Encryption will fail when custom group policy settings for BitLocker are incompatible. On machines that didn't have the correct policy setting, apply the new policy, force the new policy to update (gpupdate.exe /force), and then restarting may be required.
+具有自定义组策略的已加入域虚拟机上的 BitLocker 策略必须包含以下设置：[配置 BitLocker 恢复信息的用户存储 -> 允许 256 位恢复密钥](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-group-policy-settings)。 如果 BitLocker 的自定义组策略设置不兼容，Azure 磁盘加密将会失败。 在没有正确策略设置的计算机上，应用新策略，强制更新新策略 (gpupdate.exe /force)，然后可能需要重启。
 
-Azure Disk Encryption will fail if domain level group policy blocks the AES-CBC algorithm, which is used by BitLocker.
+如果域级组策略阻止了 BitLocker 使用的 AES-CBC 算法，Azure 磁盘加密将会失败。
 
 <a name="encryption-key-storage-requirements"></a>
-## Encryption key storage requirements  
+## <a name="encryption-key-storage-requirements"></a>加密密钥存储要求  
 
-Azure Disk Encryption requires an Azure Key Vault to control and manage disk encryption keys and secrets. Your key vault and VMs must reside in the same Azure region and subscription.
+Azure 磁盘加密需要 Azure Key Vault 来控制和管理磁盘加密密钥和机密。 密钥保管库和 VM 必须位于同一 Azure 区域和订阅中。
 
-For details, see [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md).
+有关详细信息，请参阅[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。
 
-## Terminology
-The following table defines some of the common terms used in Azure disk encryption documentation:
+## <a name="terminology"></a>术语
+下表定义了 Azure 磁盘加密文档中的一些常用术语：
 
-| Terminology | Definition |
+| 术语 | 定义 |
 | --- | --- |
-| Azure Key Vault | Key Vault is a cryptographic, key management service that's based on Federal Information Processing Standards (FIPS) validated hardware security modules. These standards help to safeguard your cryptographic keys and sensitive secrets. For more information, see the [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md). |
-| Azure CLI | [The Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) is optimized for managing and administering Azure resources from the command line.|
-| BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) is an industry-recognized Windows volume encryption technology that's used to enable disk encryption on Windows VMs. |
-| Key encryption key (KEK) | The asymmetric key (RSA 2048) that you can use to protect or wrap the secret.  For more information, see the [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) documentation and [Creating and configuring a key vault for Azure Disk Encryption](disk-encryption-key-vault.md). |
-| PowerShell cmdlets | For more information, see [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/overview). |
+| Azure Key Vault | Key Vault 是基于联邦信息处理标准 (FIPS) 验证的硬件安全模块。 这些标准有助于保护加密密钥和敏感机密。 有关详细信息，请参阅 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
+| Azure CLI | [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 经过了优化，可从命令行管理 Azure 资源。|
+| BitLocker |[BitLocker](https://technet.microsoft.com/library/hh831713.aspx) 是一种行业认可的 Windows 卷加密技术，用于在 Windows VM 上启用磁盘加密。 |
+| 密钥加密密钥 (KEK) | 可用于保护或包装机密的非对称密钥 (RSA 2048)。  有关详细信息，请参阅 [Azure Key Vault](https://www.azure.cn/home/features/key-vault/) 文档和[创建和配置用于 Azure 磁盘加密的密钥保管库](disk-encryption-key-vault.md)。 |
+| PowerShell cmdlet | 有关详细信息，请参阅 [Azure PowerShell cmdlet](https://docs.microsoft.com/powershell/azure/overview)。 |
 
 <!--Not Available on | Key encryption key (KEK) |  You can provide a hardware security module (HSM)-protected key or software-protected key. |-->
 

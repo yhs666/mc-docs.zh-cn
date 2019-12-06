@@ -1,27 +1,27 @@
 ---
-title: 在 Privileged Identity Management 中配置 Azure 资源角色设置 - Azure Active Directory | Microsoft Docs
+title: 在 PIM 中配置 Azure 资源角色设置 - Azure AD | Microsoft Docs
 description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中配置 Azure 资源角色设置。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-origin.date: 10/23/2019
-ms.date: 11/05/2019
+origin.date: 11/08/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6b5913bcb6964412d2f72594fa095acb65034da
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: cda7db6d1fc760fa887b3b325f97129b32f09898
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830765"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655412"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>在 Privileged Identity Management 中配置 Azure 资源角色设置
 
@@ -49,11 +49,19 @@ ms.locfileid: "73830765"
 
     ![列出多个分配和激活设置的“角色设置详细信息”页](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. 选择“编辑”打开“角色设置”窗格。 
+1. 选择“编辑”打开“角色设置”窗格。   第一个选项卡用于更新在 Privileged Identity Management 中激活角色所需的配置。
 
-    ![“编辑角色设置”页，其中包含用于更新分配和激活设置的选项](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![“编辑角色设置”页，其中的“激活”选项卡已打开](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    在每个角色的“角色设置”窗格上，有多个可以配置的设置。
+1. 选择“分配”  选项卡或页面底部的“下一步:  分配”按钮，打开分配设置选项卡。这些设置控制在 Privileged Identity Management 界面中进行的角色分配。
+
+    ![角色设置页中的角色分配表](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. 使用“通知”选项卡或页面底部的  “下一步:  激活”按钮即可转到此角色的通知设置选项卡。 这些设置控制与此角色相关的所有电子邮件通知。
+
+    ![角色设置页中的角色“通知”选项卡](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. 随时选择“更新”按钮，对角色设置进行更新。 
 
 ## <a name="assignment-duration"></a>分配持续时间
 
@@ -123,4 +131,3 @@ Privileged Identity Management 提供了两种不同的可选 Azure 多重身份
 - [在 Privileged Identity Management 中分配 Azure 资源角色](pim-resource-roles-assign-roles.md)
 - [在 Privileged Identity Management 中为 Azure 资源角色配置安全警报](pim-resource-roles-configure-alerts.md)
 
-<!-- Update_Description: wording update -->

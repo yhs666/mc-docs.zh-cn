@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 11/18/2019
-ms.openlocfilehash: 1dd0cbcea43940d344406fe688b46c7ee88dbccd
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.date: 12/09/2019
+ms.openlocfilehash: bb300bc1ac9539e4c766dd959f691e7f5a06c9e6
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831389"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657668"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -84,12 +84,16 @@ ms.locfileid: "73831389"
 
 ## <a name="add-an-external-azure-ad-group"></a>添加外部 Azure AD 组
 
-在为 Azure AD 实例中的用户启用访问之后，可将 Azure AD 组添加到 API 管理中。 然后，可以更轻松地管理具有所需产品的组中的开发人员关联。
+在为 Azure AD 租户中的用户启用访问权限之后，即可将 Azure AD 组添加到 API 管理中。 因此，可以使用 Azure AD 组控制产品可见性。
 
- > [!IMPORTANT]
- > 若要添加外部 Azure AD 组，必须先按照之前部分中的过程在“标识”选项卡中配置 Azure AD 实例  。 另外，必须通过 `Directory.Read.All` 权限为应用程序授予范围 Azure AD 图形 API 的权限。 
+若要将外部 Azure AD 组添加到 APIM 中，必须先完成上一部分。 另外，必须按照以下步骤通过 `Directory.ReadAll` 权限为注册的应用程序授予访问 Azure Active Directory Graph API 的权限。 
 
-可从 API 管理实例的“组”  选项卡添加外部 Azure AD 组。
+1. 返回到在上一部分创建的应用注册
+2. 单击“API 权限”选项卡  ，然后单击“+添加权限”按钮  
+3. 在“请求 API 权限”窗格中  选择“Microsoft API”选项卡，滚动到底部，找到“支持的旧版 API”部分下的“Azure Active Directory Graph”   磁贴并单击它。 然后，单击“应用程序权限”按钮，  选择 **Directory.ReadAll** 权限，接着使用底部的按钮添加该权限。 
+4. 单击“为 {tenantname} 授予管理员许可”按钮，以便为此目录中的所有用户授予访问权限。  
+
+现在可以从 API 管理实例的“组”  选项卡添加外部 Azure AD 组。
 
 1. 选择“组”选项卡  。
 2. 选择“添加 AAD 组”  按钮。
@@ -105,11 +109,11 @@ ms.locfileid: "73831389"
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> 开发人员门户 - 添加 Azure AD 帐户身份验证
 
-若要在开发人员门户中启用使用 AAD 登录，需要将“OAuth 按钮”  小组件添加到登录表单。
+在开发人员门户中，可以使用“OAuth 按钮”  小组件通过 AAD 登录。 此小组件已包括在默认开发人员门户内容的登录页上。
 
 ![“AAD 按钮”小组件](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-尽管每当新用户使用 AAD 登录时都会自动创建一个新帐户，但你可以考虑在注册表单中添加相同的小组件。
+尽管每当新用户使用 AAD 登录时都会自动创建一个新帐户，但你可以考虑向注册页添加同一小组件。
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>旧开发人员门户 - 如何使用 Azure AD 登录
 

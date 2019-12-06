@@ -4,24 +4,23 @@ description: 获取有关 Azure App Service Web 应用功能配置和管理常�
 services: app-service\web
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: ibiza
-ms.devlang: na
 ms.topic: article
 origin.date: 10/30/2018
-ms.date: 08/12/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: 0aebeb684dc0964ffd44e21d099fab5b4ae44efd
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 4dde079d2b421a026ac281e4ec2744dac63ee19c
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806748"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555982"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure Web 应用配置及管理常见问题解答
 
@@ -35,13 +34,31 @@ ms.locfileid: "70806748"
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>如何将自定义域名用于 Web 应用？
 
-如需获取有关将自定义域名用于 Azure Web 应用的常见问题的解答，请观看七分钟视频[添加自定义域名](https://channel9.msdn.com/blogs/Azure-App-Service-Self-Help/Add-a-Custom-Domain-Name)。 该视频演示如何添加自定义域名。 它介绍如何将自己的 URL 而非 *.chinacloudsites.cn URL 用于应用服务 Web 应用。 还可以看到有关[如何映射自定义域名](app-service-web-tutorial-custom-domain.md)的详细演示。
+有关在 Azure Web 应用中使用自定义域名的常见问题的解答，请参阅[如何映射自定义域名](app-service-web-tutorial-custom-domain.md)的详细演练。
+
+
+<!-- ## How do I purchase a new custom domain for my web app? -->
+
+<!-- To learn how to purchase and set up a custom domain for your App Service web app, see [Buy and configure a custom domain name in App Service](manage-custom-dns-buy-domain.md). -->
+
 
 ## <a name="how-do-i-upload-and-configure-an-existing-ssl-certificate-for-my-web-app"></a>如何上传和配置 Web 应用的现有 SSL 证书？
 
-若要了解如何上传和设置现有的自定义 SSL 证书，请参阅[将现有的自定义 SSL 证书绑定到 Azure Web 应用](app-service-web-tutorial-custom-ssl.md#upload)。
+若要了解如何上传和设置现有的自定义 SSL 证书，请参阅[将 SSL 证书添加到应用服务应用](configure-ssl-certificate.md)。
 
-## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>可从何处找到指南清单，了解有关资源移动操作的详细信息？
+
+## <a name="how-do-i-purchase-and-configure-a-new-ssl-certificate-in-azure-for-my-web-app"></a>如何在 Azure 中为 Web 应用购买和配置新的 SSL 证书？
+
+若要了解如何为应用服务 Web 应用购买和设置 SSL 证书，请参阅[将 SSL 证书添加到应用服务应用](configure-ssl-certificate.md)。
+
+
+## <a name="how-do-i-move-application-insights-resources"></a>如何移动 Application Insights 资源？
+
+当前，Azure Application Insights 不支持移动操作。 如果原始资源组包括 Application Insights 资源，则无法移动该资源。 如果在尝试移动应用服务应用时包括了 Application Insights 资源，则整个移动操作会失败。 不过，即使 Application Insights 和应用服务计划不与应用位于同一资源组中，应用也可以正常运行。
+
+有关详细信息，请参阅[应用服务限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)。
+
+## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>我可以在何处找到指导清单并详细了解资源移动操作？
 
 [应用服务限制](../azure-resource-manager/move-limitations/app-service-move-limitations.md)说明如何将资源移到新订阅或同一订阅的新资源组中。 可以获取有关资源移动清单的信息，了解哪些服务支持移动操作，并了解有关应用服务限制及其他主题的详细信息。
 
@@ -54,6 +71,10 @@ ms.locfileid: "70806748"
     * 键 = WEBSITE_TIME_ZONE
     * 值 = *所需时区*
 3. 选择“保存”  。
+
+对于在 Windows 上运行的应用服务，请参阅[默认时区](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones)一文中的“时区”  列了解接受的值。 
+
+<!-- For the App services that run on Linux, set the [TZ database name](https://wikipedia.org/wiki/List_of_tz_database_time_zones) as the time zone value. Here is an example of TZ database name: America/Adak. -->
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>为什么连续 Web 作业有时会失败？
 
@@ -68,6 +89,8 @@ ms.locfileid: "70806748"
 
 随即显示出站 IP 地址列表。
 
+<!-- To learn how to get the outbound IP address if your website is hosted in an App Service Environment, see [Outbound network addresses](environment/app-service-app-service-environment-network-architecture-overview.md#outbound-network-addresses). -->
+
 ## <a name="how-do-i-get-a-reserved-or-dedicated-inbound-ip-address-for-my-web-app"></a>如何获取 Web 应用的保留或专用入站 IP 地址？
 
 若要为针对 Azure 应用网站的入站调用设置专用的或保留的 IP 地址，请安装和配置基于 IP 的 SSL 证书。
@@ -76,7 +99,7 @@ ms.locfileid: "70806748"
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-outside-azure-such-as-for-a-website-hosted-elsewhere"></a>是否可以导出应用服务证书以在 Azure 外部使用（如用于在其他位置承载的网站）？ 
 
-应用服务证书被视为 Azure 资源。 不应在 Azure 服务外部使用它们。 无法导出它们以在 Azure 外部使用。 有关详细信息，请参阅[应用服务证书和自定义域的常见问题解答](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)。
+是的，可以导出这些证书以在 Azure 外部使用。 有关详细信息，请参阅[应用服务证书和自定义域的常见问题解答](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview)。
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>是否可以导出应用服务证书以用于其他 Azure 云服务？
 
@@ -97,7 +120,7 @@ ms.locfileid: "70806748"
 
 目前，Azure App Service 的 Web 应用功能符合 PCI 数据安全标准 (DSS) 3.0 版级别 1。 PCI DSS 3.1 版正在设计之中。 我们正在计划如何采用最新标准。
 
-PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 目前，大多数应用服务计划无法禁用 TLS 1.0。
+PCI DSS 3.1 版证书要求禁用传输层安全性 (TLS) 1.0。 当前，对于大多数应用服务计划，不会选择禁用 TLS 1.0。 但是，如果使用应用服务环境，或者愿意将工作负荷迁移到应用服务环境，则可以更好地控制环境。 这涉及到通过与 Azure 支持部门联系来禁用 TLS 1.0。 在不久的将来，我们计划使用户可以访问这些设置。
 
 有关详细信息，请参阅 [App Service Web 应用 PCI 标准 3.0 和 3.1 符合性](https://support.microsoft.com/help/3124528)。
 
@@ -140,11 +163,15 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 在站点层面上，有两种方法可用于控制应用服务的入站流量：
 
 * 启用动态 IP 限制。 若要了解如何启用动态 IP 限制，请参阅[适用于 Azure 网站的 IP 和域限制](https://azure.microsoft.com/blog/ip-and-domain-restrictions-for-windows-azure-web-sites/)。
-* 开启“模块安全”。 若要了解如何开启模块安全，请参阅 [Azure 网站上的 ModSecurity Web 应用程序防火墙](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/)。
+* 开启“模块安全”。 若要了解如何打开模块安全，请参阅 [Azure 网站上的 ModSecurity Web 应用程序防火墙](https://azure.microsoft.com/blog/modsecurity-for-azure-websites/)。
 
-## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>如何在应用服务 Web 应用中封锁端口？
+如果使用应用服务环境，则可以使用 [Barracuda 防火墙](https://azure.microsoft.com/blog/configuring-barracuda-web-application-firewall-for-azure-app-service-environment/)。
 
-在应用服务共享租户环境中，由于基础结构的性质，无法封锁特定端口。 TCP 端口 4016、 4018 和 4020 也可能处于打开状态，用于进行 Visual Studio 远程调试。
+## <a name="how-do-i-block-ports-in-an-app-service-web-app"></a>如何在应用服务 Web 应用中阻止端口？
+
+在应用服务共享租户环境中，由于基础结构的性质，无法封锁特定端口。 TCP 端口 4020、4022 和 4024 也可能打开，用于 Visual Studio 远程调试。
+
+在应用服务环境中，可完全控制入站和出站流量。 可以使用网络安全组限制或阻止特定端口。 有关应用服务环境的详细信息，请参阅[应用服务环境简介](https://azure.microsoft.com/blog/introducing-app-service-environment/)。
 
 ## <a name="how-do-i-capture-an-f12-trace"></a>如何捕获 F12 跟踪？
 
@@ -160,7 +187,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 3. 确认已选中“网络”  选项卡，然后选中绿色“播放”  按钮。
 4. 执行可重现问题的步骤。
 5. 选择红色“停止”  按钮。
-6. 选择“保存”  按钮（磁盘图标），保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中）*或者*右键单击 HAR 文件，然后选择“内容另存为 HAR”  （在 Chrome 中）。
+6. 选择“保存”  按钮（磁盘图标），然后保存 HAR 文件（在 Internet Explorer 和 Microsoft Edge 中），或  右键单击 HAR 文件，然后选择“保存为包含内容的 HAR”  （在 Chrome 中）。
 
 ### <a name="f12-console-output"></a>F12 控制台输出
 
@@ -182,7 +209,31 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 当前，不支持将应用服务 Web 应用连接到具有静态路由（基于策略）网关的虚拟网络。 如果目标虚拟网络已经存在，必须在连接到应用之前借助动态路由网关使网络处于点到站点 VPN 启用状态。 如果网关设置为静态路由，则无法启用点到站点 VPN。 
 
 有关详细信息，请参阅[将应用与 Azure 虚拟网络进行集成](web-sites-integrate-with-vnet.md#getting-started)。
-## <a name="why-cant-i-delete-my-app-service-plan"></a>为什么无法删除应用服务计划？
+
+## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>在应用服务环境中，为何即使有两个可用的辅助角色，也只能创建一个应用服务计划？
+
+为了提供容错能力，应用服务环境要求每个辅助角色池至少需要一个额外的计算资源。 无法为额外的计算资源分配工作负荷。
+
+<!-- For more information, see [How to create an App Service Environment](environment/app-service-web-how-to-create-an-app-service-environment.md). -->
+
+## <a name="why-do-i-see-timeouts-when-i-try-to-create-an-app-service-environment"></a>在尝试创建应用服务环境时，为何遇到超时？
+
+优势，创建应用服务环境会失败。 在这种情况下，你会在活动日志中看到以下错误：
+```
+ResourceID: /subscriptions/{SubscriptionID}/resourceGroups/Default-Networking/providers/Microsoft.Web/hostingEnvironments/{ASEname}
+Error:{"error":{"code":"ResourceDeploymentFailure","message":"The resource provision operation did not complete within the allowed timeout period.”}}
+```
+
+若要解决此问题，请确保不存在以下任何情况：
+* 子网太小。
+* 子网非空。
+* ExpressRoute 会阻碍应用服务环境的网络连接要求。
+* 错误的网络安全组会阻碍应用服务环境的网络连接要求。
+* 强制隧道处于打开状态。
+
+有关详细信息，请参阅[部署（创建）新 Azure 应用服务环境时的常见问题](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/)。
+
+## <a name="why-cant-i-delete-my-app-service-plan"></a>为何无法删除应用服务计划？
 
 如果应用服务计划与任何应用服务应用相关联，则无法删除此应用服务计划。 删除应用服务计划前，请从应用服务计划中删除所有关联的应用服务应用。
 
@@ -202,7 +253,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ## <a name="how-do-i-perform-penetration-testing-for-my-app-service-app"></a>如何对应用服务应用执行渗透测试？
 
-若要执行渗透测试，请[提交请求](https://portal.msrc.microsoft.com/engage/pentest)。
+若要执行渗透测试，请[提交请求](https://support.azure.cn/support/support-azure/)。
 
 ## <a name="how-do-i-configure-a-custom-domain-name-for-an-app-service-web-app-that-uses-traffic-manager"></a>如何为使用流量管理器的应用服务 Web 应用配置自定义域名？
 

@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/24/2017
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06c19af1fcb967b9b8fbd263d435acee003056e3
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 531b884d9a6461bc81312621f92b9c5e855d8f36
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514428"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658047"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>为 Azure 网络接口添加、更改或删除 IP 地址
 
@@ -39,7 +39,7 @@ ms.locfileid: "68514428"
 - 如果还没有 Azure 帐户，请注册[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - 如果使用门户，请打开 https://portal.azure.cn ，并使用 Azure 帐户登录。
 - 如果使用 PowerShell 命令来完成本文中的任务，请从计算机运行 PowerShell。  本教程需要 Azure PowerShell 模块 1.0.0 或更高版本。 运行 `Get-Module -ListAvailable Az` 查找已安装的版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps)（安装 Azure PowerShell 模块）。 如果在本地运行 PowerShell，则还需运行 `Connect-AzAccount -Environment AzureChinaCloud` 来创建与 Azure 的连接。
-- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
+- 如果使用 Azure 命令行界面 (CLI) 命令来完成本文中的任务，请从计算机运行 CLI。 本教程需要 Azure CLI 2.0.31 或更高版本。 运行 `az --version` 查找已安装的版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。 如果在本地运行 Azure CLI，则还需运行 `az login` 以创建与 Azure 的连接。
 
 必须将登录或连接到 Azure 所用的帐户分配给[网络参与者](../role-based-access-control/built-in-roles.md?toc=%2fvirtual-network%2ftoc.json#network-contributor)角色或分配有“[网络接口权限](virtual-network-network-interface.md#permissions)”中所列适当操作的[自定义角色](../role-based-access-control/custom-roles.md?toc=%2fvirtual-network%2ftoc.json)。
 
@@ -70,7 +70,7 @@ ms.locfileid: "68514428"
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config create](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create)|
+|CLI|[az network nic ip-config create](https://docs.azure.cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-create)|
 |PowerShell|[Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/add-aznetworkinterfaceipconfig)|
 
 <a name="change-ip-config"></a>
@@ -92,7 +92,7 @@ ms.locfileid: "68514428"
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config update](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update)|
+|CLI|[az network nic ip-config update](https://docs.azure.cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-update)|
 |PowerShell|[Set-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkinterfaceipconfig)|
 
 <a name="delete-ip-config"></a>
@@ -109,7 +109,7 @@ ms.locfileid: "68514428"
 
 |工具|命令|
 |---|---|
-|CLI|[az network nic ip-config delete](https://docs.azure.cn/zh-cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-delete)|
+|CLI|[az network nic ip-config delete](https://docs.azure.cn/cli/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-delete)|
 |PowerShell|[Remove-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/powershell/module/az.network/remove-aznetworkinterfaceipconfig)|
 
 ## <a name="ip-configurations"></a>IP 配置
@@ -133,7 +133,7 @@ ms.locfileid: "68514428"
 除了主要 IP 配置之外，网络接口还可能具有零个或多个分配给它的辅助 IP 配置。 辅助 IP 配置：
 
 - 必须具有分配给它的专用 IPv4 地址。 如果地址是 IPv4，则网络接口可以具有多个分配给它的辅助 IP 配置。 若要详细了解可以向网络接口分配多少专用和公共 IPv4 地址，请参阅 [Azure 限制](../azure-subscription-service-limits.md?toc=%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits)一文。  
-- 如果专用 IP 地址是 IPv4，则还可以具有分配给它的多个公共 IPv4 地址。 在下列方案中，向网络接口分配多个 IP 地址很有帮助：
+- 还可能有一个分配给它的公共 IPv4 地址。 在下列方案中，向网络接口分配多个 IP 地址很有帮助：
     - 在单个服务器上使用不同的 IP 地址和 SSL 证书托管多个网站或服务。
     - 虚拟机充当网络虚拟设备，例如防火墙或负载均衡器。
     - 可将任何网络接口的任何专用 IPv4 地址添加到 Azure 负载均衡器后端池。 过去，只能将主要网络接口的主要 IPv4 地址添加到后端池。 若要详细了解如何对多个 IPv4 配置进行负载均衡，请参阅[对多个 IP 配置进行负载均衡](../load-balancer/load-balancer-multiple-ip.md?toc=%2fvirtual-network%2ftoc.json)一文。 
@@ -227,4 +227,4 @@ ms.locfileid: "68514428"
 |创建具有多个 IPv4 地址的单 NIC VM|[CLI](virtual-network-multiple-ip-addresses-cli.md)、[PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 
 <!-- Not Avaiable on IPV6 -->
-<!--Update_Description: update link, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

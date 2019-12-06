@@ -5,14 +5,14 @@ author: WenJason
 ms.topic: troubleshooting
 ms.author: v-jay
 origin.date: 10/30/2019
-ms.date: 11/25/2019
+ms.date: 12/02/2019
 ms.service: storage
-ms.openlocfilehash: e2a6d6786de5157d952ec6af765acdb5c4a966cb
-ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
+ms.openlocfilehash: 4bcb11dbf5e0c068f9dbf6882f79261861b4ec3d
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328773"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655455"
 ---
 # <a name="storage-account-container-recovery"></a>存储帐户容器恢复
 
@@ -30,7 +30,7 @@ Azure 存储通过自动化副本提供数据复原能力。 但是，这不会�
 
 4. 如果复制类型为 **GRS/RA-GRS**，那么可能可以恢复帐户容器。 对于其他所有复制类型，则不可能恢复帐户容器。
 
-5. 收集以下信息，并向 Microsoft 支持部门提出支持请求。
+5. 收集以下信息，并向 Azure 支持部门提出支持请求。
 
    * 存储帐户名称：
    * 容器名称：

@@ -1,5 +1,5 @@
 ---
-title: 在 Azure 数据工厂中排查 SSIS Integration Runtime 管理问题 | Microsoft Docs
+title: '在 Azure 数据工厂中排查 SSIS Integration Runtime 管理问题 '
 description: 本文提供有关排查 SSIS Integration Runtime (SSIS IR) 管理问题的指导
 services: data-factory
 documentationcenter: ''
@@ -8,17 +8,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 07/08/2019
-ms.date: 11/11/2019
+ms.date: 12/02/2019
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sawinark
 manager: digimobile
-ms.openlocfilehash: 68f5b00c97d8abbf30b344d28e794f407aa70c8d
-ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
+ms.openlocfilehash: 5e45e949ddd1c80c3e9c85ea59e31096d89a4560
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648615"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655462"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>在 Azure 数据工厂中排查 SSIS Integration Runtime 管理问题
 
@@ -26,7 +26,7 @@ ms.locfileid: "73648615"
 
 ## <a name="overview"></a>概述
 
-如果在预配或取消预配 SSIS IR 时出现任何问题，则 Microsoft Azure 数据工厂门户中会显示错误消息，或者 PowerShell cmdlet 会返回一条错误。 错误始终以错误代码的格式显示，并附带详细的错误消息。
+如果在预配或取消预配 SSIS IR 时遇到任何问题，则 Azure 数据工厂门户中会显示错误消息，或者 PowerShell cmdlet 会返回一条错误。 错误始终以错误代码的格式显示，并附带详细的错误消息。
 
 如果错误代码为 InternalServerError，则表示服务出现了暂时性的问题，应该在以后重试该操作。 如果重试不起作用，请联系 Azure 数据工厂支持团队。
 

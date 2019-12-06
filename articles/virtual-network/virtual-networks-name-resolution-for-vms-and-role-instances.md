@@ -11,14 +11,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 03/25/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: c06d72b821907053194e55a58fbfcc4af2aaa839
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: 8cdbe13101a15c87a94e6b2be0af5039b6bbeab7
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514225"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658022"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 虚拟网络中资源的名称解析
 
@@ -166,7 +166,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 
 如果需要，可以使用 PowerShell 或 API 确定内部 DNS 后缀：
 
-* 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces)、[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show) Azure CLI 命令获取该后缀。
+* 对于 Azure 资源管理器部署模型中的虚拟网络，可以通过[网络接口 REST API](https://docs.microsoft.com/rest/api/virtualnetwork/networkinterfaces)、[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkinterface) PowerShell cmdlet 和 [az network nic show](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-show) Azure CLI 命令获取该后缀。
 * 在经典部署模型中，可以通过 [Get Deployment API](https://msdn.microsoft.com/library/azure/ee460804.aspx) 调用或 [Get-AzureVM -Debug](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet 获取该后缀。
 
 如果不想将查询转发到 Azure，应提供自己的 DNS 解析。 DNS 解决方案需要：
@@ -200,7 +200,7 @@ DNS 转发还可用于在虚拟网络之间进行 DNS 解析，可以通过本�
 使用自己的 DNS 服务器时，Azure 允许为每个虚拟网络指定多个 DNS 服务器。 也可以针对每个网络接口（适用于 Azure 资源管理器）或云服务（适用于经典部署模型）指定多个 DNS 服务器。 为网络接口或云服务指定 DNS 服务器时，其优先级高于为虚拟网络指定的 DNS 服务器。
 
 > [!NOTE]
-> 不应直接在 Windows VM 中编辑网络连接属性，例如 DNS 服务器 IP。 这是因为，在更换虚拟网络适配器后，可能会在服务修复过程中擦除这些属性。
+> 不应直接在 VM 中编辑网络连接属性，例如 DNS 服务器 IP。 这是因为，在更换虚拟网络适配器后，可能会在服务修复过程中擦除这些属性。 这同时适用于 Windows VM 和 Linux VM。
 >
 >
 

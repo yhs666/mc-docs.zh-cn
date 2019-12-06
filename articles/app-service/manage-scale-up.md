@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 08/19/2019
-ms.date: 09/20/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b7d367bb185bbaa1b0486301bbbceb39d92c6ac6
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 8c008a456c790f1c46756da10c9b09f3e7c5196f
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156285"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555957"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>在 Azure 应用服务中纵向扩展应用
 
@@ -27,7 +27,7 @@ ms.locfileid: "71156285"
 
 * [纵向扩展](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：获取更多 CPU、内存、磁盘空间和额外功能，例如专用虚拟机 (VM)、自定义域和证书、过渡槽、自动缩放以及更多功能。 可以通过更改应用所属的应用服务计划的定价层来向上缩放。
 * [横向扩展](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling)：增加用于运行应用的 VM 实例数。
-  根据定价层，最多可以向外缩放到 20 个实例。 独立层中的[应用服务环境](environment/intro.md)会进一步将横向扩展计数增加到 100 个实例  。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
+  可以横向扩展到多达 30 个实例，具体取决于定价层。 独立层中的[应用服务环境](environment/intro.md)会进一步将横向扩展计数增加到 100 个实例  。 有关向外缩放的详细信息，请参阅[手动或自动缩放实例计数](/azure-monitor/platform/autoscale-get-started)。 可在该文中了解如何使用自动缩放，即根据预定义的规则和计划自动缩放实例计数。
 
 缩放设置仅需几秒即可应用，并且会影响[应用服务计划](../app-service/overview-hosting-plans.md)中的所有应用。
 缩放设置不需要更改代码或重新部署应用程序。
@@ -35,10 +35,6 @@ ms.locfileid: "71156285"
 有关各个应用服务计划的定价和功能的信息，请参阅[应用服务定价详细信息](https://www.azure.cn/pricing/details/app-service/)。  
 
 <!-- no spending limits in mooncake -->
-> [!NOTE]
-> 在从**免费**层切换应用服务计划之前，必须首先删除对 Azure 订阅施加的[支出限制](https://azure.microsoft.com/pricing/spending-limits/)。 要查看或更改 Microsoft Azure 应用服务订阅的选项，请参阅 [Microsoft Azure 订阅][azuresubscriptions]。
-> 
-> 
 
 <a name="scalingsharedorbasic"></a>
 <a name="scalingstandard"></a>
@@ -88,12 +84,14 @@ ms.locfileid: "71156285"
 ## <a name="more-resources"></a>更多资源
 
 <!-- [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md) -->
+<!-- [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930 -->
+
 [为应用服务配置 PremiumV2 层](app-service-configure-premium-tier.md)
 
 <!-- LINKS -->
 [vmsizes]:https://www.azure.cn/pricing/details/app-service/
-<!-- [SQLaccountsbilling]:https://go.microsoft.com/fwlink/?LinkId=234930 -->
-[azuresubscriptions]: https://account.windowsazure.cn/subscriptions [portal]: https://portal.azure.cn/
+[azuresubscriptions]:https://account.windowsazure.cn/subscriptions
+[portal]: https://portal.azure.cn/
 
 <!-- IMAGES -->
 [ChooseWHP]: ./media/web-sites-scale/scale1ChooseWHP.png

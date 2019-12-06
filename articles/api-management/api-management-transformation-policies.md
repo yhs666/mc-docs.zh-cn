@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 03/11/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: 73028cf2267a23d6e2a48fe1eae796a9b1af82b1
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 12/09/2019
+ms.openlocfilehash: 53b9a4918dbf305c516edae41158ffa459f65139
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736694"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657695"
 ---
 # <a name="api-management-transformation-policies"></a>API 管理转换策略
 本主题提供以下 API 管理策略的参考。 有关添加和配置策略的信息，请参阅 [API 管理中的策略](https://go.microsoft.com/fwlink/?LinkID=398186)。
@@ -470,14 +470,21 @@ OriginalUrl.
   
 ### <a name="examples"></a>示例  
   
-#### <a name="example"></a>示例  
+#### <a name="example---adding-header-override-existing"></a>示例 - 添加标头，替代现有标头
   
 ```xml  
 <set-header name="some header name" exists-action="override">  
     <value>20</value>   
 </set-header>  
 ```  
-  
+#### <a name="example---removing-header"></a>示例 - 删除标头
+
+```xml
+ <set-header name="some header name" exists-action="delete" />
+```
+
+
+
 #### <a name="forward-context-information-to-the-backend-service"></a>将上下文信息转发到后端服务  
  此示例演示了如何在 API 级别应用策略，以便将上下文信息提供给后端服务。 
 
@@ -509,7 +516,7 @@ OriginalUrl.
 |Name|说明|必须|  
 |----------|-----------------|--------------|  
 |set-header|根元素。|是|  
-|value|指定要设置的标头的值。 如需多个标头使用同一名称，可添加更多的 `value` 元素。|是|  
+|value|指定要设置的标头的值。 如需多个标头使用同一名称，可添加更多的 `value` 元素。|否|
   
 ### <a name="properties"></a>属性  
   

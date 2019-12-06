@@ -1,19 +1,19 @@
 ---
-title: 关于进行跨界 Azure 连接的 VPN 设备 | Microsoft 文档
-description: 本文介绍用于 S2S VPN 网关跨界连接的 VPN 设备和 IPsec 参数。 提供了指向配置说明和示例的链接。
+title: Azure VPN 网关：关于连接的 VPN 设备
+description: 本文讨论用于 S2S VPN 网关跨界连接的 VPN 设备和 IPsec 参数。 提供了指向配置说明和示例的链接。
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
-origin.date: 09/20/2019
-ms.date: 11/11/2019
+origin.date: 10/17/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 8624eb7a6f24a52621d86e69fd619eb2e702bf8f
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: 0ee7ec42ef2f74faef432c5006e4092c77165044
+ms.sourcegitcommit: fac243483f641e1d01646a30197522a60599d837
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742296"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74552987"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>关于用于站点到站点 VPN 网关连接的 VPN 设备和 IPsec/IKE 参数
 
@@ -129,7 +129,7 @@ ms.locfileid: "73742296"
 
 | **属性**          |**PolicyBased**    | **RouteBased**    |
 | ---                   | ---               | ---               |
-| SDK 版本           |IKEv1              |IKEv2              |
+| SDK 版本           |IKEv1              |IKEv1 和 IKEv2    |
 | Diffie-Hellman 组  |组 2（1024 位） |组 2（1024 位） |
 | 身份验证方法 |预共享密钥     |预共享密钥     |
 | 加密和哈希算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |1.AES256、SHA1<br>2.AES256、SHA256<br>3.AES128、SHA1<br>4.AES128、SHA256<br>5. 3DES、SHA1<br>6. 3DES、SHA256 |
@@ -139,9 +139,9 @@ ms.locfileid: "73742296"
 
 | **属性**                  |**PolicyBased**| **RouteBased**                              |
 | ---                           | ---           | ---                                         |
-| SDK 版本                   |IKEv1          |IKEv2                                        |
+| SDK 版本                   |IKEv1          |IKEv1 和 IKEv2                              |
 | 加密和哈希算法 |1.AES256、SHA256<br>2.AES256、SHA1<br>3.AES128、SHA1<br>4. 3DES、SHA1 |[RouteBased QM SA 产品/服务](#RouteBasedOffers) |
-| SA 生存期（时间）            |3,600 秒  |27,000 秒                                |
+| SA 生存期（时间）            |3,600 秒  |27,000 秒                               |
 | SA 生存期（字节数）           |102,400,000 KB | -                                           |
 | 完全向前保密 (PFS) |否             |[RouteBased QM SA 产品/服务](#RouteBasedOffers) |
 | 死对等体检测 (DPD)     |不支持  |支持                                    |

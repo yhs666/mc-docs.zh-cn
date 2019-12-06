@@ -9,12 +9,12 @@ origin.date: 09/19/2019
 ms.date: 11/11/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 759059502b380d3f7672b4c41584352be3cba03e
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 4fecf4a27b5b7ee369437bf2fddf9c31414000a2
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730638"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655490"
 ---
 <!--Verified successfully-->
 本文包含适用于 Azure 虚拟机的安全建议。 请遵循这些建议来履行我们责任分担模型中所述的安全义务。 这些建议还有助于改善 Web 应用解决方案的整体安全性。 若要详细了解 Azure 采取哪些措施来履行服务提供商责任，请参阅[云计算的分担责任](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)。
@@ -39,11 +39,12 @@ ms.locfileid: "73730638"
 | 数据安全性 | 安全存储密钥和机密。 | 为应用程序所有者提供安全的集中管理选项来简化机密和密钥的管理。 这种管理可以减少意外泄密或透露的风险。 | - |
 | 网络 | 限制对管理端口的访问。 | 攻击者可能会利用猜出的常用密码和已知的未修补漏洞，扫描公有云 IP 范围中的开放管理端口，然后试图发起“轻而易举”的攻击。 可以使用[实时 (JIT) VM 访问](../articles/security-center/security-center-just-in-time.md)来锁定发往 Azure VM 的入站流量，降低遭受攻击的可能性，同时在需要时提供与 VM 的连接。 | - |
 | 网络 | 限制网络访问。 | 可以通过网络安全组限制网络访问并控制公开的终结点数。 有关详细信息，请参阅[创建、更改或删除网络安全组](../articles/virtual-network/manage-network-security-group.md)。 | - |
-| 监视 | 监视 VM。 | 可以使用[用于 VM 的 Azure Monitor](../articles/azure-monitor/insights/vminsights-overview.md) 来监视 Azure VM 和虚拟机规模集的状态。 VM 性能问题可能会导致服务中断，从而违反可用性安全原则。 | - |
+| 监视 | 监视 VM。 | 可以使用用于 VM 的 Azure Monitor 来监视 Azure VM 和虚拟机规模集的状态。 VM 性能问题可能会导致服务中断，从而违反可用性安全原则。 | - |
 
 <!--Not Available on Line 24 +1 |  [Update Management](../articles/automation/automation-update-management.md)-->
 <!--Not Available on Line 24 +1 |  [Yes](../articles/security-center/security-center-apply-system-updates.md)-->
 
+<!--Not Available on Line 36 +1 (../articles/azure-monitor/insights/vminsights-overview.md)-->
 <!--MOONCAKE: Not Available on  Line 29 [Yes](../articles/security-center/security-center-apply-disk-encryption.md)-->
 <!--MOONCAKE: LINE 33 CORRECT ON Microsoft Antimalware -->
 

@@ -1,5 +1,5 @@
 ---
-title: 创建具有加速网络的 Azure 虚拟机 | Azure
+title: 使用 Azure CLI 创建具有加速网络的 Azure VM
 description: 了解如何创建启用加速网络的 Linux 虚拟机。
 services: virtual-network
 documentationcenter: na
@@ -14,17 +14,17 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 01/10/2019
-ms.date: 07/22/2019
+ms.date: 11/25/2019
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: 934a41e81bd81d452db94ff133f20d9ab9874224
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: d94d0b4e44361d314b96d7327af9d036840b3d84
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514413"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657662"
 ---
-# <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>创建具有加速网络的 Linux 虚拟机
+# <a name="create-a-linux-virtual-machine-with-accelerated-networking-using-azure-cli"></a>使用 Azure CLI 创建具有加速网络的 Linux 虚拟机
 
 本教程介绍如何创建具有加速网络的 Linux 虚拟机 (VM)。 若要创建具有加速网络的 Windows VM，请参阅[创建具有加速网络的 Windows VM](create-vm-accelerated-networking-powershell.md)。 使用加速网络可以实现对 VM 的单根 I/O 虚拟化 (SR-IOV)，大幅提升其网络性能。 这种高性能路径会绕过数据路径中的主机，降低延迟、抖动，以及受支持 VM 类型上的最苛刻网络工作负荷的 CPU 利用率。 下图显示了具有和没有加速网络的两个 VM 之间的通信：
 
@@ -69,6 +69,7 @@ ms.locfileid: "68514413"
 在所有公共 Azure 区域和 Azure 中国云中均可用。
 
 <!--Follow the global site below-->
+
 <!-- ### Network interface creation 
 Accelerated networking can only be enabled for a new NIC. It cannot be enabled for an existing NIC.
 removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
@@ -90,9 +91,9 @@ removed per issue https://github.com/MicrosoftDocs/azure-docs/issues/9772 -->
 ## <a name="cli-creation"></a>CLI 创建
 ### <a name="create-a-virtual-network"></a>创建虚拟网络
 
-安装最新的 [Azure CLI](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/zh-cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 参数名称示例包括 myResourceGroup、myNic 和 myVm。   
+安装最新的 [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 并使用 [az login](https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login) 登录到 Azure 帐户。 在以下示例中，请将示例参数名称替换成自己的值。 参数名称示例包括 myResourceGroup、myNic 和 myVm。   
 
-使用 [az group create](https://docs.azure.cn/zh-cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
+使用 [az group create](https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create) 创建资源组。 以下示例在“chinaeast”  位置创建名为“myResourceGroup”  的资源组：
 
 ```azurecli
 az group create --name myResourceGroup --location chinaeast
@@ -100,7 +101,7 @@ az group create --name myResourceGroup --location chinaeast
 
 <!-- Not Available on  [Linux accelerated networking](https://www.azure.cn/updates/accelerated-networking-in-expanded-preview)-->
 
-使用 [az network vnet create](https://docs.azure.cn/zh-cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为 myVnet 且具有一个子网的虚拟网络： 
+使用 [az network vnet create](https://docs.azure.cn/cli/network/vnet?view=azure-cli-latest#az-network-vnet-create) 创建虚拟网络。 以下示例创建名为 myVnet 且具有一个子网的虚拟网络： 
 
 ```azurecli
 az network vnet create \
@@ -112,7 +113,7 @@ az network vnet create \
 ```
 
 ### <a name="create-a-network-security-group"></a>创建网络安全组
-使用 [az network nsg create](https://docs.azure.cn/zh-cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”  的网络安全组：
+使用 [az network nsg create](https://docs.azure.cn/cli/network/nsg?view=azure-cli-latest#az-network-nsg-create) 创建网络安全组。 以下示例创建名为“myNetworkSecurityGroup”  的网络安全组：
 
 ```azurecli
 az network nsg create \
@@ -120,7 +121,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-网络安全组包含多个默认规则，其中一个规则禁用了来自 Internet 的所有入站访问。 打开端口，以允许使用 [az network nsg rule create](https://docs.azure.cn/zh-cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 对虚拟机进行 SSH 访问：
+网络安全组包含多个默认规则，其中一个规则禁用了来自 Internet 的所有入站访问。 打开端口，以允许使用 [az network nsg rule create](https://docs.azure.cn/cli/network/nsg/rule?view=azure-cli-latest#az-network-nsg-rule-create) 对虚拟机进行 SSH 访问：
 
 ```azurecli
 az network nsg rule create \
@@ -139,7 +140,7 @@ az network nsg rule create \
 
 ### <a name="create-a-network-interface-with-accelerated-networking"></a>创建具有加速网络的网络接口
 
-使用 [az network public-ip create](https://docs.azure.cn/zh-cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建公共 IP 地址。 如果不打算从 Internet 访问虚拟机，则不需要公共 IP 地址，但必须完成本文中的步骤。
+使用 [az network public-ip create](https://docs.azure.cn/cli/network/public-ip?view=azure-cli-latest#az-network-public-ip-create) 创建公共 IP 地址。 如果不打算从 Internet 访问虚拟机，则不需要公共 IP 地址，但必须完成本文中的步骤。
 
 ```azurecli
 az network public-ip create \
@@ -147,7 +148,7 @@ az network public-ip create \
     --resource-group myResourceGroup
 ```
 
-使用 [az network nic create](https://docs.azure.cn/zh-cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建启用加速网络的网络接口。 以下示例在 myVnet 虚拟网络的 mySubnet 子网中创建名为 myNic 的网络接口，并将 myNetworkSecurityGroup 网络安全组关联到该网络接口：    
+使用 [az network nic create](https://docs.azure.cn/cli/network/nic?view=azure-cli-latest#az-network-nic-create) 创建启用加速网络的网络接口。 以下示例在 myVnet 虚拟网络的 mySubnet 子网中创建名为 myNic 的网络接口，并将 myNetworkSecurityGroup 网络安全组关联到该网络接口：    
 
 ```azurecli
 az network nic create \
@@ -163,7 +164,7 @@ az network nic create \
 ### <a name="create-a-vm-and-attach-the-nic"></a>创建 VM 并附加 NIC
 创建 VM 时，指定使用 `--nics` 创建的 NIC。 选择 [Linux 加速网络](https://www.azure.cn/updates/accelerated-networking-in-expanded-preview)中列出的大小和分发版本。 
 
-使用 [az vm create](https://docs.azure.cn/zh-cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建名为 myVM 的 VM，其具有 UbuntuLTS 映像，并且大小支持加速网络 (*Standard_DS4_v2*) ： 
+使用 [az vm create](https://docs.azure.cn/cli/vm?view=azure-cli-latest#az-vm-create) 创建 VM。 以下示例创建名为 myVM 的 VM，其具有 UbuntuLTS 映像，并且大小支持加速网络 (*Standard_DS4_v2*) ： 
 
 ```azurecli
 az vm create \
@@ -314,4 +315,4 @@ az vmss start \
 * 必须在 VM 的 NIC 上禁用加速网络，或者如果在可用性集/VMSS 中，则必须在集合/​​VMSS 中的所有 VM 上禁用。
 * 一旦加速网络被禁用，VM/可用性集/VMSS 即可移至不支持加速网络的新大小并重启。
 
-<!-- Update_Description: wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

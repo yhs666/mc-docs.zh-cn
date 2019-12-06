@@ -1,6 +1,6 @@
 ---
 title: 使用移动应用在 Android 中添加身份验证 | Azure
-description: 了解如何使用 Azure 应用服务中的移动应用功能通过各种标识提供者（包括 Google、Facebook、Twitter 和 Microsoft）对 Android 应用的用户进行身份验证。
+description: 了解如何使用 Azure 应用服务中的移动应用功能通过各种标识提供者（包括 Microsoft）对 Android 应用的用户进行身份验证。
 services: app-service\mobile
 documentationcenter: android
 author: elamalani
@@ -15,12 +15,12 @@ ms.topic: article
 origin.date: 06/25/2019
 ms.date: 09/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: aa7f5df5322c711b364d6cb0d7c0978fb58b15ad
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 278dffd3016388b1de49e81ef5d070ed92e2ea48
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006598"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657742"
 ---
 # <a name="add-authentication-to-your-android-app"></a>将身份验证添加到 Android 应用
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

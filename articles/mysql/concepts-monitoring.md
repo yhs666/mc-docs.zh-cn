@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 11/05/2018
-ms.date: 04/29/2019
-ms.openlocfilehash: bd71f6a75f1bed243b69c7c59a64820f8c3f3193
-ms.sourcegitcommit: f4351979a313ac7b5700deab684d1153ae51d725
+origin.date: 11/04/2019
+ms.date: 12/02/2019
+ms.openlocfilehash: 3ec6dab8aa0badf5ce637b8300c63ec60d2f24cf
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67845122"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530655"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>在 Azure Database for MySQL 中进行监视
 
@@ -49,7 +49,7 @@ ms.locfileid: "67845122"
 可以在服务器上启用慢查询和审核日志。 这些日志也可通过 Azure Monitor 日志、事件中心和存储帐户中的 Azure 诊断日志获得。 若要详细了解日志记录，请访问 [审核日志](concepts-audit-logs.md)和[慢查询日志](concepts-server-logs.md)文章。
 
 ## <a name="query-store"></a>查询存储
-[查询存储](concepts-query-store.md)是一项公共预览功能，可以随着时间的推移跟踪查询性能，包括查询运行时统计信息和等待事件。 此功能将查询运行时性能信息保留在 **mysql** 架构中。 你可以通过各种配置旋钮控制数据的收集和存储。
+[查询存储](concepts-query-store.md)是一项跟踪一段时间内查询性能（包括查询运行时统计信息和等待事件）的功能。 此功能将查询运行时性能信息保留在 **mysql** 架构中。 你可以通过各种配置旋钮控制数据的收集和存储。
 
 ## <a name="next-steps"></a>后续步骤
 - 有关如何基于指标创建警报的指南，请参阅[如何设置警报](howto-alert-on-metric.md)。

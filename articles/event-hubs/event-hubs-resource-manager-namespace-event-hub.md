@@ -1,6 +1,6 @@
 ---
-title: 创建具有使用者组的事件中心 - Azure 事件中心 | Azure
-description: 使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
+title: 快速入门：创建包含使用者组的事件中心 - Azure 事件中心
+description: 快速入门：使用 Azure Resource Manager 模板创建包含事件中心和使用者组的事件中心命名空间
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -9,18 +9,18 @@ editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-origin.date: 07/02/2019
-ms.date: 09/16/2019
+origin.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: a5158cb561b3fe0a3803aa069c4af4d943a31562
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 0c9393e224d4386eb732d59fbc8c33a8fbdc461d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872853"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658001"
 ---
 # <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板创建事件中心
 
@@ -32,7 +32,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 
 ## <a name="create-an-event-hub"></a>创建事件中心
 
-本快速入门使用[现有快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)：
+本快速入门使用[现有的快速入门模板](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)：
 
 ```json
 {
@@ -98,12 +98,11 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 }
 ```
 
-
-若要查找更多模板示例，请参阅 [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular)。
+若要查找更多模板示例，请参阅 [Azure 快速入门模板](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular)。
 
 若要部署模板，请执行以下操作：
 
-1. 从以下代码块中选择“试一试”  ，然后按照说明登录到 Azure PowerShell。
+1. 按说明登录到 Azure PowerShell。
 
    ```azurepowershell
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -168,7 +167,7 @@ Write-Host "Press [ENTER] to continue ..."
 [5]: ./media/event-hubs-quickstart-powershell/metrics.png
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
-[Azure Quickstart Templates]: https://azure.microsoft.com/resources/templates/?term=event+hubs
+[Azure Quickstart Templates]:  https://azure.microsoft.com/documentation/templates/?term=event+hubs
 [Using Azure PowerShell with Azure Resource Manager]: ../powershell-azure-resource-manager.md
 [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Management]: ../azure-resource-manager/manage-resources-cli.md
 [Event hub and consumer group template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-event-hubs-create-event-hub-and-consumer-group/

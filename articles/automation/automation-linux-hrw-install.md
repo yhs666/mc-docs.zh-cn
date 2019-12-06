@@ -7,15 +7,15 @@ ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
 origin.date: 06/28/2018
-ms.date: 08/26/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 12703b0f7983098abb48be53e152fe5441381404
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: cebb2ac7249d0690d89870ba00243433f8dd659b
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993763"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530631"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>部署 Linux 混合 Runbook 辅助角色
 
@@ -52,10 +52,10 @@ Linux 混合 Runbook 辅助角色的最低要求如下：
 |Glibc |GNU C 库| 2.5-12 |
 |Openssl| OpenSSL 库 | 1.0（支持 TLS 1.1 和 TLS 1.2）|
 |Curl | cURL Web 客户端 | 7.15.5|
-|Python-ctype | |
+|Python-ctype | 需要 Python 2.x |
 |PAM | 可插入验证模块|
 | **可选包** | **说明** | **最低版本**|
-| PowerShell Core | 若要运行 PowerShell Runbook，需要安装 PowerShell，请参阅[在 Linux 上安装 PowerShell Core](https://docs.microsoft.com/powershell/scripting/setup/installing-powershell-core-on-linux) 了解如何安装。  | 6.0.0 |
+| PowerShell Core | 若要运行 PowerShell Runbook，需要安装 PowerShell，请参阅[在 Linux 上安装 PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux) 了解如何安装。  | 6.0.0 |
 
 ### <a name="installation"></a>安装
 
@@ -72,7 +72,7 @@ Linux 混合 Runbook 辅助角色的最低要求如下：
 
 1. 运行以下命令，安装 Log Analytics Linux 代理。 请将 \<WorkspaceID\> 和 \<WorkspaceKey\> 替换为工作区中的相应值。
 
-   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+   [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
    ```bash
    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -107,7 +107,7 @@ Linux 混合 Runbook 辅助角色并非支持 Azure 自动化中的全套 Runboo
 * PowerShell
 
   > [!NOTE]
-  > PowerShell Runbook 要求在 Linux 计算机上安装 PowerShell Core。 请参阅[在 Linux 上安装 PowerShell Core](https://docs.microsoft.com/powershell/scripting/setup/installing-powershell-core-on-linux) 了解如何安装。
+  > PowerShell Runbook 要求在 Linux 计算机上安装 PowerShell Core。 请参阅[在 Linux 上安装 PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-linux) 了解如何安装。
 
 以下 Runbook 类型不能在 Linux 混合辅助角色上运行：
 

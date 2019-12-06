@@ -1,5 +1,5 @@
 ---
-title: Azure 数据工厂的模板概述 | Microsoft Docs
+title: Azure 数据工厂的模板概述
 description: 了解如何使用预定义的模板来快速开始使用 Azure 数据工厂。
 services: data-factory
 documentationcenter: ''
@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 origin.date: 01/04/2019
-ms.date: 11/11/2019
+ms.date: 12/02/2019
 author: WenJason
 ms.author: v-jay
 manager: digimobile
-ms.openlocfilehash: 3e4825ce62baea590bc6945e3343ba75abbb18d0
-ms.sourcegitcommit: ff8dcf27bedb580fc1fcae013ae2ec28557f48ac
+ms.openlocfilehash: 1a5ee514110574bb5e8083f333a25356efbd3faa
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648620"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655464"
 ---
 # <a name="templates"></a>模板
 
@@ -41,7 +41,7 @@ ms.locfileid: "73648620"
 
 ### <a name="out-of-the-box-data-factory-templates"></a>现成的数据工厂模板
 
-数据工厂使用 Azure 资源管理器模板来保存数据工厂管道模板。 在[官方 Azure 数据工厂 GitHub 存储库](https://github.com/Azure/Azure-DataFactory/tree/master/templates)中，可以看到所有资源管理器模板，以及现成数据工厂模板使用的清单文件。 Microsoft 提供的预定义模板包括但不限于以下各项：
+数据工厂使用 Azure 资源管理器模板来保存数据工厂管道模板。 在[官方 Azure 数据工厂 GitHub 存储库](https://github.com/Azure/Azure-DataFactory/tree/master/templates)中，可以看到所有资源管理器模板，以及现成数据工厂模板使用的清单文件。 Azure 提供的预定义模板包括但不限于以下各项：
 
 -   复制模板：
 

@@ -1,26 +1,26 @@
 ---
-title: 在 PIM 中为 Azure AD 角色配置安全警报 - Azure Active Directory | Microsoft Docs
-description: 了解如何在 Azure AD Privileged Identity Management (PIM) 中为 Azure AD 角色配置安全警报。
+title: PIM 中 Azure AD 角色的安全警报 - Azure AD | Microsoft Docs
+description: 在 Azure Active Directory 中为 Azure AD 角色 Privileged Identity Management 配置安全警报。
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-origin.date: 10/22/2019
-ms.date: 11/05/2019
+origin.date: 11/08/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31564e0f5ca3889f0b5e4f2fbe9aaac4a42faa53
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 07088fab8ed958662c9156fd9fcb482a6735f6c5
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830787"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655409"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>在 Privileged Identity Management 中为 Azure AD 角色配置安全警报
 
@@ -58,12 +58,12 @@ ms.locfileid: "73830787"
 | **预防** | 针对每个角色[要求执行 MFA](pim-how-to-change-default-settings.md)。  |
 | **门户中的缓解措施** | 要求在激活特权角色时执行多重身份验证。 |
 
-### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>此租户没有 Azure AD Premium P2
+### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>组织没有 Azure AD Premium P2
 
 | | |
 | --- | --- |
 | **严重性** | 低 |
-| **为何收到此警报？** | 当前租户没有 Azure AD Premium P2。 |
+| **为何收到此警报？** | 当前 Azure AD 组织没有 Azure AD Premium P2。 |
 | **如何修复？** | 查看有关 [Azure AD 版本](../fundamentals/active-directory-whatis.md)的信息。 升级到 Azure AD Premium P2。 |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>可能有过时的帐户充当特权角色
@@ -75,7 +75,7 @@ ms.locfileid: "73830787"
 | **如何修复？** | 请检查列表中的帐户。 如果它们不再需要访问权限，请将其从特权角色中删除。 |
 | **预防** | 确保当知道密码的用户有变化时，共享的帐户会轮换使用强密码。  |
 | **门户中的缓解措施** | 从用户的特权角色中删除其帐户。 |
-| **最佳实践** | 使用密码进行身份验证并分配给高特权管理角色（如全局管理员或安全管理员）的共享帐户、服务帐户和紧急访问帐户应针对以下情况轮换其密码：<ul><li>发生涉及误用或泄露管理访问权限的安全事件后</li><li>任何用户的权限被更改而导致他们不再是管理员之后（例如，一名曾是管理员的员工离开了 IT 或组织）</li><li>固定时间间隔（例如，每季度或每年），即使没有任何已知的安全漏洞或 IT 人员变动</li></ul>由于多个用户有权限访问这些帐户的凭据，因此应轮换这些凭据以确保已失去其角色的人员无法再访问帐户。 [了解详细信息](/active-directory/users-groups-roles/directory-admin-roles-secure) |
+| **最佳实践** | 使用密码进行身份验证并分配给高特权管理角色（如全局管理员或安全管理员）的共享帐户、服务帐户和紧急访问帐户应针对以下情况轮换其密码：<ul><li>发生涉及误用或泄露管理访问权限的安全事件后</li><li>任何用户的权限被更改而导致他们不再是管理员之后（例如，一名曾是管理员的员工离开了 IT 或组织）</li><li>固定时间间隔（例如，每季度或每年），即使没有任何已知的安全漏洞或 IT 人员变动</li></ul>由于多个用户有权限访问这些帐户的凭据，因此应轮换这些凭据以确保已失去其角色的人员无法再访问帐户。 
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>在 Privileged Identity Management 之外分配角色
 

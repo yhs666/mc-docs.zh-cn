@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 origin.date: 09/10/2018
-ms.date: 10/24/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 3a1b991e3ae165451e0eec20ae9fbf9cde562fe6
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: a400ba29c3f7e9fbbd816d2dc79bbbe6dd5786ad
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847153"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655298"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>在 Azure Active Directory B2C 自定义策略中定义 RESTful 技术配置文件
 
@@ -87,7 +87,7 @@ Azure Active Directory B2C (Azure AD B2C) 为你自己的 RESTful 服务提供�
 | 属性 | 必须 | 说明 |
 | --------- | -------- | ----------- |
 | ServiceUrl | 是 | REST API 终结点的 URL。 |
-| AuthenticationType | 是 | RESTful 声明提供程序所执行的身份验证类型。 可能的值：`None`、`Basic` 或 `ClientCertificate`。 `None` 值表示 REST API 不是匿名的。 `Basic` 值表示使用 HTTP 基本身份验证保护 REST API。 只有经验证的用户（包括 Azure AD B2C）可以访问你的 API。 `ClientCertificate`（建议）值表示 REST API 使用客户端证书身份验证来限制访问。 只有包含相应证书的服务（例如 Azure AD B2C）能够访问你的服务。 |
+| AuthenticationType | 是 | RESTful 声明提供程序所执行的身份验证类型。 可能的值：`None` 或 `ClientCertificate`。 `None` 值表示 REST API 不是匿名的。 只有经验证的用户（包括 Azure AD B2C）可以访问你的 API。 `ClientCertificate`（建议）值表示 REST API 使用客户端证书身份验证来限制访问。 只有包含相应证书的服务（例如 Azure AD B2C）能够访问你的服务。 |
 | SendClaimsIn | 否 | 指定如何将输入声明发送到 RESTful 声明提供程序。 可能的值：`Body`（默认值）、`Form`、`Header` 或 `QueryString`。 `Body` 值是在请求正文中以 JSON 格式发送的输入声明。 `Form` 值是在请求正文中以“&”分隔键值格式发送的输入声明。 `Header` 值是在请求标头中发送的输入声明。 `QueryString` 值是在请求查询字符串中发送的输入声明。 |
 | ClaimsFormat | 否 | 指定输出声明的格式。 可能的值：`Body`（默认值）、`Form`、`Header` 或 `QueryString`。 `Body` 值是在请求正文中以 JSON 格式发送的输出声明。 `Form` 值是在请求正文中以“&”分隔键值格式发送的输出声明。 `Header` 值是在请求标头中发送的输出声明。 `QueryString` 值是在请求查询字符串中发送的输出声明。 |
 | DebugMode | 否 | 在调试模式下运行技术配置文件。 在调试模式下，REST API 可以返回更多信息。 请参阅“返回错误消息”部分。 |
@@ -105,31 +105,6 @@ Azure Active Directory B2C (Azure AD B2C) 为你自己的 RESTful 服务提供�
     <Item Key="AuthenticationType">None</Item>
     <Item Key="SendClaimsIn">Body</Item>
   </Metadata>
-</TechnicalProfile>
-```
-
-如果身份验证类型设置为 `Basic`，则 **CryptographicKeys** 元素包含以下属性：
-
-| 属性 | 必须 | 说明 |
-| --------- | -------- | ----------- |
-| BasicAuthenticationUsername | 是 | 用于身份验证的用户名。 |
-| BasicAuthenticationPassword | 是 | 用于身份验证的密码。 |
-
-以下示例演示了使用基本身份验证的技术配置文件：
-
-```XML
-<TechnicalProfile Id="REST-API-SignUp">
-  <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
-  <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-  <Metadata>
-    <Item Key="ServiceUrl">https://your-app-name.chinacloudsites.cn/api/identity/signup</Item>
-    <Item Key="AuthenticationType">Basic</Item>
-    <Item Key="SendClaimsIn">Body</Item>
-  </Metadata>
-  <CryptographicKeys>
-    <Key Id="BasicAuthenticationUsername" StorageReferenceId="B2C_1A_B2cRestClientId" />
-    <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_B2cRestClientSecret" />
-  </CryptographicKeys>
 </TechnicalProfile>
 ```
 

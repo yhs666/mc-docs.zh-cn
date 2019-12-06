@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 06/25/2019
 ms.date: 08/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 49b4cb21959165d3cc876b7a6e40471e786bb09f
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: a332babeda054a797c97a8a21362aabb0d035f1c
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730186"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658115"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>在 Azure Application Insights 中跟踪依赖项 
 
@@ -131,7 +131,7 @@ ms.locfileid: "73730186"
 
 ### <a name="profile-your-live-site"></a>分析实时站点
 
-不知道时间花到哪去了？ [Application Insights 探查器](../../azure-monitor/app/profiler.md)将跟踪对实时站点的 HTTP 调用，并显示代码中有哪些函数花费了最长的时间。
+不知道时间花到哪去了？ Application Insights 探查器将跟踪对实时站点的 HTTP 调用，并显示代码中有哪些函数花费了最长的时间。
 
 ## <a name="failed-requests"></a>失败的请求
 

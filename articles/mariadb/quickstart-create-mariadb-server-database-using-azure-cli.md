@@ -7,14 +7,14 @@ ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 01/09/2019
-ms.date: 07/22/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 2d10ccdfcb042e96b3405ba41e7c9ea37c2488e9
-ms.sourcegitcommit: 1dac7ad3194357472b9c0d554bf1362c391d1544
+ms.openlocfilehash: efced4fd527d9bb3c8a60c8c413ca025c9362336
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68308895"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655440"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>使用 Azure CLI 创建 Azure Database for MariaDB 服务器
 
@@ -65,7 +65,7 @@ sku-name 参数值遵循 {定价层}\_{计算层代}\_{vCore 数} 约定，如�
 
 若要按区域和层了解有效值，请参阅[定价层](./concepts-pricing-tiers.md)。
 
-以下示例在“美国西部”区域创建一个名为 **mydemoserver** 的服务器。 该服务器在资源组 **myresourcegroup** 中，其服务器管理员登录名为 **myadmin**。 该服务器为“第 5 代”服务器，属于“常规用途”定价层，有 2 个 vCore。 服务器名称映射到 DNS 名称，必须在 Azure 中全局唯一。 将 `<server_admin_password>` 替换为你自己的服务器管理员密码。
+以下示例在“中国东部 2”区域创建一个名为 **mydemoserver** 的服务器。 该服务器在资源组 **myresourcegroup** 中，其服务器管理员登录名为 **myadmin**。 该服务器为“第 5 代”服务器，属于“常规用途”定价层，有 2 个 vCore。 服务器名称映射到 DNS 名称，必须在 Azure 中全局唯一。 将 `<server_admin_password>` 替换为你自己的服务器管理员密码。
 
 ```azurecli
 az mariadb server create --resource-group myresourcegroup --name mydemoserver  --location chinaeast2 --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 10.2

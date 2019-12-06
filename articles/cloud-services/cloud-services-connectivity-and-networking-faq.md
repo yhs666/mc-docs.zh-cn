@@ -4,7 +4,7 @@ description: 本文列出有关 Microsoft Azure 云服务的常见连接和网�
 services: cloud-services
 documentationcenter: ''
 author: genlin
-manager: cshepard
+manager: dcscontentpm
 editor: ''
 tags: top-support-issue
 ms.assetid: 84985660-2cfd-483a-8378-50eef6a0151d
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 08/23/2018
 ms.author: v-yiso
-ms.date: 03/11/2019
-ms.openlocfilehash: 1e018beb11bd904dc96e35dd8c9cd2609a9ee728
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 12/09/2019
+ms.openlocfilehash: c3c85f18cfd9d1a7dbffafc793ab54fbd60a4dce
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627238"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658088"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure 云服务的连接和网络问题：常见问题 (FAQ)
 
@@ -51,11 +51,11 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>当尝试 RDP 到我的云服务实例时，我收到消息：“此用户帐户已过期。”
 当绕过 RDP 设置中配置的到期日期时，你可能会收到“此用户帐户已过期”的错误消息。 可以在门户中执行以下步骤来更改过期日期：
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)，导航到云服务并选择“远程桌面”选项卡。
+1. 登录到 [Azure 门户](https://portal.azure.cn)，导航到云服务并选择“远程桌面”  选项卡。
 
-2. 选择“生产”或“暂存”部署槽位。
+2. 选择“生产”  或“暂存”  部署槽位。
 
-3. 更改“到期日期”字段中的日期，然后保存配置。
+3. 更改“到期日期”字段中的日期，然后保存配置。 
 
 现在，应该能够通过 RDP 连接到计算机。
 
@@ -105,13 +105,13 @@ Azure 实施多层网络安全性来防范其平台服务遭到分布式拒绝�
 - [保留现有云服务的 IP 地址](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
 - [使用服务配置文件将保留 IP 关联到云服务](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file) 
 
-只要有多个实例用于你的角色，将 RIP 与云服务进行关联就应该不会导致任何停机时间。 另外，还可以将你的 Azure 数据中心的 IP 范围列入允许列表。 可以在 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 范围。 
+只要有多个实例用于你的角色，将 RIP 与云服务进行关联就应该不会导致任何停机时间。 另外，还可以将 Azure 数据中心的 IP 范围添加到允许列表。 可以在 [Microsoft 下载中心](https://www.microsoft.com/en-us/download/details.aspx?id=41653)找到所有 Azure IP 范围。
 
 此文件包含 Azure 数据中心使用的 IP 地址范围（包括计算、SQL 和存储范围）。 每周都将发布更新的文件，反映当前已部署的范围和任何即将对 IP 范围进行的更改。 数据中心至少在一周后才会使用文件中显示的新范围。 请每周下载新的 xml 文件，并在网站上执行必要的更改以正确地标识 Azure 中运行的服务。 Azure ExpressRoute 用户可能会注意到，此文件用于在每个月第一周更新 Azure 空间的 BGP 播发。 
 
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>如何将 Azure 资源管理器虚拟网络与云服务一起使用？ 
 
-不能将云服务置于 Azure 资源管理器虚拟网络中。 可以通过对等互连将 Azure 资源管理器虚拟网络与经典部署虚拟网络连接起来。  有关详细信息，请参阅[虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md)。
+不能将云服务置于 Azure 资源管理器虚拟网络中。 可以通过对等互连将 Azure 资源管理器虚拟网络与经典部署虚拟网络连接起来。 有关详细信息，请参阅[虚拟网络对等互连](../virtual-network/virtual-network-peering-overview.md)。
 
 
 ## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>如何获取云服务使用的公共 IP 列表？

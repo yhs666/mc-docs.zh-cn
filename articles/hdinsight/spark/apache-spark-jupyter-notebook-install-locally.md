@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 06/06/2019
-ms.date: 10/28/2019
+origin.date: 11/07/2019
+ms.date: 12/09/2019
 ms.author: hrasheed
-ms.openlocfilehash: 51d89e83221398d3d44e922bf4a32b6e6ace1d47
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 2887c87cb843f78197df58a623ba76a1379acaea
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583983"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658109"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>在计算机上安装 Jupyter notebook 并连接到 HDInsight 上的 Apache Spark
 
@@ -31,9 +31,10 @@ ms.locfileid: "72583983"
 有关适用于装有 HDInsight 群集的 Jupyter notebook 的自定义内核和 Spark magic 的详细信息，请参阅 [Kernels available for Jupyter notebooks with Apache Spark Linux clusters on HDInsight](apache-spark-jupyter-notebook-kernels.md)（适用于装有 HDInsight 上的 Apache Spark Linux 群集的 Jupyter notebook 的内核）。
 
 ## <a name="prerequisites"></a>先决条件
-此处所列的先决条件不适用于安装 Jupyter。 这些先决条件适用于安装笔记本之后将 Jupyter 笔记本连接到 HDInsight 群集。
 
-* HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。
+* HDInsight 上的 Apache Spark 群集。 有关说明，请参阅[在 Azure HDInsight 中创建 Apache Spark 群集](apache-spark-jupyter-spark-sql.md)。 这是在安装笔记本后将 Jupyter 笔记本连接到 HDInsight 群集的先决条件。
+
+* 熟悉 Jupyter Notebook 和 Spark on HDInsight 的结合使用。
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>在计算机上安装 Jupyter 笔记本
 
@@ -47,7 +48,7 @@ ms.locfileid: "72583983"
 
     |群集版本 | 安装命令 |
     |---|---|
-    |v3.6 和 v3.5 |`pip install sparkmagic==0.12.7`|
+    |v3.6 和 v3.5 |`pip install sparkmagic==0.13.1`|
     |v3.4|`pip install sparkmagic==0.2.3`|
 
 1. 确保通过运行以下命令正确安装了 `ipywidgets`：
@@ -115,6 +116,10 @@ ms.locfileid: "72583983"
         "username": "{USERNAME}",
         "base64_password": "{BASE64ENCODEDPASSWORD}",
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.cn/livy"
+      },
+
+      "custom_headers" : {
+        "X-Requested-By": "livy"
       },
 
       "heartbeat_refresh_seconds": 5,
