@@ -1,25 +1,25 @@
 ---
-title: 在 Azure AD 基于角色的访问控制中创建和分配自定义角色 - Azure Active Directory | Microsoft Docs
+title: 在 Azure AD 基于角色的访问控制中创建自定义角色 | Microsoft Docs
 description: 在 Azure Active Directory 资源上创建和分配具有资源范围的自定义 Azure AD 角色。
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 09/04/2019
-ms.date: 10/11/2019
+origin.date: 11/08/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c4c03a86d8bbb5ac9bc07fd100e575bafca50d
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 396a288f7541b5f19379df11eed3f9d852210255
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292124"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655419"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>在 Azure Active Directory 中创建和分配自定义角色
 
@@ -32,7 +32,7 @@ ms.locfileid: "72292124"
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>创建新的自定义角色，授予管理应用注册所需的访问权限
 
 1. 在 Azure AD 组织中使用特权角色管理员或全局管理员权限登录 [Azure 门户](https://portal.azure.cn)。
-1. 选择“Azure Active Directory” ****  > “角色和管理员”   > **** “新建自定义角色”。
+1. 选择“Azure Active Directory”   > “角色和管理员”   >   “新建自定义角色”。
 
    ![在“角色和管理员”页中创建或编辑角色](./media/roles-create-custom/new-custom-role.png)
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 05/28/2019
-ms.date: 09/20/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: a016799ae7d327850d05c97505a941f70ae0b8f9
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: c23d437a1a18b8238c19e863accdc1a33645fd47
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041079"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555983"
 ---
 # <a name="use-an-app-service-environment"></a>使用应用服务环境 #
 
@@ -85,7 +85,7 @@ Azure 应用服务环境指将 Azure 应用服务部署到客户 Azure 虚拟网
 
 ## <a name="ip-addresses"></a>IP 地址 ##
 
-应用服务能够向应用分配专用的 IP 地址。 此功能在配置基于 IP 的 SSL 之后可用。 但是，ASE 中有一个明显的差异。 无法添加更多的 IP 地址用于 ILB ASE 中基于 IP 的 SSL。
+应用服务能够向应用分配专用的 IP 地址。 根据[将现有的自定义 SSL 证书绑定到 Azure 应用服务][ConfigureSSL] 中所述，在配置基于 IP 的 SSL 后可以使用此功能。 但是，ASE 中有一个明显的差异。 无法添加更多的 IP 地址用于 ILB ASE 中基于 IP 的 SSL。
 
 在 ASEv2 中，可以从应用使用 IP 地址，就像在多租户应用服务中一样。 ASEv2 中始终有一个备用地址，最多可包含 30 个 IP 地址。 每次使用一个地址时，会添加另一个地址，因此，始终有一个现成可用的地址。 分配另一个 IP 地址会产生一定的时间延迟，这会给快速连续添加 IP 地址带来阻碍。
 
@@ -165,4 +165,4 @@ ILB ASE 中应用的发布终结点使用创建该 ILB ASE 所用的域。 可�
 <!--Links-->
 <!-- [ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md -->
 <!-- [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/ -->
-[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md [AppDeploy]: ../deploy-local-git.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[Intro]: ./intro.md [MakeExternalASE]: ./create-external-ase.md [MakeASEfromTemplate]: ./create-from-template.md [MakeILBASE]: ./create-ilb-ase.md [ASENetwork]: ./network-info.md [UsingASE]: ./using-an-ase.md [UDRs]: ../../virtual-network/virtual-networks-udr-overview.md [NSGs]: ../../virtual-network/security-overview.md [Functions]: ../../azure-functions/index.yml [Pricing]: https://www.azure.cn/pricing/details/app-service/ [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md [ConfigureSSL]: ../configure-ssl-certificate.md [AppDeploy]: ../deploy-local-git.md [ASEWAF]: app-service-app-service-environment-web-application-firewall.md [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

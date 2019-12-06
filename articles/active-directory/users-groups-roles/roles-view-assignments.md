@@ -1,25 +1,25 @@
 ---
-title: 在管理中心查看管理员角色权限 - Azure Active Directory | Microsoft Docs
+title: 在 Azure AD 门户中查看自定义角色分配 | Microsoft Docs
 description: 现在，你可以在 Azure AD 管理中心查看和管理 Azure AD 管理员角色的成员。
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-origin.date: 09/04/2019
-ms.date: 10/11/2019
+origin.date: 11/08/2019
+ms.date: 11/26/2019
 ms.author: v-junlch
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256fdd4827d5359f8417b581fddbdefc3ba39f5d
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: a448bbe2df9ebfbd0da70abb39f76fe064502ba4
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292122"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655430"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>在 Azure Active Directory 中查看自定义角色分配
 
@@ -33,7 +33,7 @@ ms.locfileid: "72292122"
 此过程介绍如何查看组织范围的角色分配。
 
 1. 在 Azure AD 组织中使用特权角色管理员或全局管理员权限登录 [Azure 门户](https://portal.azure.cn)。
-1. 选择“Azure Active Directory”，接着选择“角色和管理员”，然后选择一个角色，将其打开并查看其属性。 ****  ****
+1. 依次选择“Azure Active Directory”、“角色和管理员”，然后选择一个角色，将其打开并查看其属性。  
 1. 选择“分配”，查看角色的分配  。
 
     ![从列表中打开一个角色时，查看角色分配和权限](./media/roles-view-assignments/role-assignments.png)
@@ -110,7 +110,7 @@ HTTP/1.1 200 OK
 
     ![在“应用注册”页中创建或编辑应用注册](./media/roles-create-custom/appreg-all-apps.png)
 
-1. 在应用注册中，选择“角色和管理员”，然后选择一个角色，查看其属性。 ****
+1. 在应用注册中，选择“角色和管理员”，然后选择一个角色，以查看其属性。 
 
     ![在“应用注册”页中查看应用注册角色分配](./media/roles-view-assignments/appreg-assignments.png)
 

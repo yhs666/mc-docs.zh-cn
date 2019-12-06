@@ -8,15 +8,15 @@ keywords: apache storm,apache storm 示例,storm java,storm 拓扑示例
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 03/14/2019
-ms.date: 10/28/2019
+ms.date: 12/09/2019
 ms.author: v-yiso
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 5e9f302b3628a400a499d0b1bcffd1b96ddfa7d3
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 5585f4705ecc6647f5b7feb2e312ea7f9370f2b4
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583611"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74658096"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>以 Java 语言创建 Apache Storm 拓扑
 
@@ -204,24 +204,24 @@ Maven 插件可用于自定义项目的生成阶段。 例如，如何编译项�
   * 对于 __HDInsight 3.4 或更早的版本__，请将源和目标 Java 版本设置为 __1.7__。
     
   * 对于 HDInsight __3.5__，请将源和目标 Java 版本设置为 __1.8__。
-    
-    在 `pom.xml` 文件的 `<plugins>` 部分添加以下文本，以包括 Apache Maven Compiler 插件。 此示例指定 1.8，因此目标 HDInsight 版本为 3.5。
-    
-    ```xml
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.3</version>
-      <configuration>
-      <source>1.8</source>
-      <target>1.8</target>
-      </configuration>
-    </plugin>
-    ```
+
+  在 `pom.xml` 文件的 `<plugins>` 部分添加以下文本，以包括 Apache Maven Compiler 插件。 此示例指定 1.8，因此目标 HDInsight 版本为 3.5。
+
+  ```xml
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+    </configuration>
+  </plugin>
+  ```
 
 ### <a name="configure-resources"></a>配置资源
 
-使用 resources 节可以包含非代码资源，例如拓扑中组件所需的配置文件。 本示例在 `pom.xml` 文件的 `<resources>` 节中添加以下文本。
+使用 resources 节可以包含非代码资源，例如拓扑中组件所需的配置文件。 本示例在 `pom.xml` 文件的 `<resources>` 节中添加以下文本。 然后保存并关闭该文件。
 
 ```xml
 <resource>
@@ -741,7 +741,7 @@ YAML 文件定义了要用于拓扑的组件以及它们之间的数据流。 �
         </plugin>
         ```
 
-   * 在 **exec-maven-plugin** `<configuration>` 节中，将 `<mainClass>` 的值从 `${storm.topology}` 更改为 `org.apache.storm.flux.Flux`。 在开发环境中本地运行拓扑时，Flux 可以使用此设置处理拓扑运行。
+   1. 在“Exec Maven Plugin”节中，导航至 `<configuration>` > `<mainClass>`，并将 `${storm.topology}` 更改为 `org.apache.storm.flux.Flux`。 在开发环境中本地运行拓扑时，Flux 可以使用此设置处理拓扑运行。
 
    * 将以下内容添加到 `<resources>` 节中的 `<includes>`。 此 XML 包括了将拓扑定义为项目一部分的 YAML 文件。
 

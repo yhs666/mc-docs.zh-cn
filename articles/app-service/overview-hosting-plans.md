@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/09/2017
-ms.date: 09/04/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 58e69dbf499c67a5cf30fa61c1a65dc97fe09628
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: db26ff48909acb58ff4b6957176f4c4cb37b4487
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806817"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555943"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure 应用服务计划概述
 
@@ -33,7 +33,7 @@ ms.locfileid: "70806817"
 - 区域（中国东部、中国东部 2 等）
 - VM 实例数
 - VM 实例大小（“小型”、“中型”、“大型”）
-- 定价层（免费、共享、基本、标准、高级、高级 V2）
+- 定价层（免费、共享、基本、标准、高级、高级 V2、独立）
 
 应用服务计划的定价层确定了所提供的应用服务功能和计划费用。  定价层有以下几个类别：
 
@@ -94,11 +94,11 @@ ms.locfileid: "70806817"
 
 随时可以提高和降低应用服务计划。 只需更改计划的定价层即可。 一开始可以选择一个较低的定价层，以后需要更多的应用服务功能时，可以提高层。
 
-例如，可以在“免费”应用服务计划中开始免费测试 Web 应用。  想要将[自定义 DNS 名称](app-service-web-tutorial-custom-domain.md)添加到 Web 应用时，只需将计划提高到“共享”层。  以后想要添加[自定义 SSL 证书](app-service-web-tutorial-custom-ssl.md)时，可将计划提高到“基本”层。  想要部署[过渡环境](deploy-staging-slots.md)时，可提高到“标准”层。  需要更多的核心、内存或存储时，可提高到同一层中的更大 VM 大小。
+例如，可以在“免费”应用服务计划中开始免费测试 Web 应用。  想要将[自定义 DNS 名称](app-service-web-tutorial-custom-domain.md)添加到 Web 应用时，只需将计划提高到“共享”层。  以后想要[创建 SSL 绑定](configure-ssl-bindings.md)时，可将计划提高到“基本”层。  想要部署[过渡环境](deploy-staging-slots.md)时，可提高到“标准”层。  需要更多的核心、内存或存储时，可提高到同一层中的更大 VM 大小。
 
 反之亦然。 如果觉得自己不再需要较高层的功能，可以降低到更低的层，从而节省资金。
 
-有关提高应用服务计划的信息，请参阅[纵向扩展 Azure 中的应用](web-sites-scale.md)。
+有关提高应用服务计划的信息，请参阅[纵向扩展 Azure 中的应用](manage-scale-up.md)。
 
 如果你的应用与其他应用在同一个应用服务计划中，可以通过隔离计算资源来提高你的应用的性能。 为此，可将应用移到单独的应用服务计划中。 有关详细信息，请参阅[将应用移到另一个应用服务计划](app-service-plan-manage.md#move)。
 

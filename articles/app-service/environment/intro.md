@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: overview
 origin.date: 04/19/2018
-ms.date: 09/20/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 99dcf6a63c1c0fd402c8dee8fe1dd39f8e5cd122
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: c2d4147ad1bf21223783efcf39eedf633bc4d7f1
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041086"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555962"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>应用服务环境简介 #
  
@@ -46,7 +46,8 @@ Azure 应用服务环境是一项 Azure 应用服务功能，可提供完全隔�
 ASE 可在隔离后只运行单个客户的应用程序，并可始终部署到虚拟网络中。 客户可以对入站和出站应用程序网络流量进行精细控制。 应用程序可以通过 VPN 建立到本地公司资源的高速安全连接。
 
 <!-- channel9 not available -->
-* ASE 附带自己的定价层，隔离套餐有助于驱动超大规模和安全性。
+
+* ASE 附带自己的定价层，了解独立产品/服务如何有助于驱动超大规模和安全性。
 * 应用服务环境 v2 提供了一个环境来保护网络子网中的应用，并提供你自己的 Azure 应用服务专用部署。
 * 可使用多个 ASE 进行水平缩放。 有关详细信息，请参阅[如何设置异地分布式应用布局](app-service-app-service-environment-geo-distributed-scale.md)。
 * 可使用 ASE 配置安全体系结构，如“AzureCon 深入探讨”中所示。
