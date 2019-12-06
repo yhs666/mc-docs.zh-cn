@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 origin.date: 09/16/2019
-ms.date: 11/18/2019
+ms.date: 12/02/2019
 ms.author: v-jay
 ms.reviewer: unknown
 ms.custom: ''
 ms.lastreviewed: 05/14/2019
-ms.openlocfilehash: a19efa205156bbbf58ea82a477c910ef0f59fa30
-ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+ms.openlocfilehash: 69821da58bf2cd346fddb9361fe5d8bd49baddd9
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020162"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655401"
 ---
 # <a name="azure-stack-hub-overview"></a>Azure Stack Hub 概述
 
@@ -112,7 +112,7 @@ Azure Stack Hub 操作员可以交付各种服务和应用，例如 [VM](azure-s
 
 - **计算**：Azure Stack Hub 租户可以通过计算资源提供程序创建自己的 VM。 计算资源提供程序包含用于创建 VM 和 VM 扩展的功能。 VM 扩展服务可帮助为 Windows 与 Linux VM 提供 IaaS 功能。 例如，可以使用计算资源提供程序预配一个 Linux VM，并在部署期间运行 Bash 脚本来配置该 VM。
 - **网络资源提供程序**：网络资源提供程序为私有云提供了一系列软件定义的网络 (SDN) 和网络功能虚拟化 (NFV) 功能。 可以使用网络资源提供程序创建软件负载均衡器、公共 IP、网络安全组和虚拟网络等资源。
-- **存储资源提供程序**：存储资源提供程序提供四个 Azure 一致性存储服务：[Blob](/storage/common/storage-introduction#blob-storage)、[队列](/storage/common/storage-introduction#queue-storage)、[表](/storage/common/storage-introduction#table-storage)和 [KeyVault](/key-vault/) 帐户管理（提供密码和证书等机密的管理与审核）。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致性存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。 
+- **存储资源提供程序**：存储资源提供程序提供四个 Azure 一致性存储服务：[Blob](/storage/common/storage-introduction#blob-storage)、[队列](/storage/common/storage-introduction#queue-storage)、 [表](/storage/common/storage-introduction#table-storage)和 [KeyVault](/key-vault/) 帐户管理（提供密码和证书等机密的管理与审核）。 存储资源提供程序还提供存储云管理服务，用于简化 Azure 一致性存储服务的服务提供程序管理。 Azure 存储可为存储和检索大量非结构化数据提供弹性，例如 Azure Blob 的文档与媒体文件，以及具有 Azure 表的结构化 NoSQL 数据。 
 
 ### <a name="optional-resource-providers"></a>可选的资源提供程序
 
@@ -147,6 +147,8 @@ Azure Stack Hub 从所有资源提供程序收集聚合用量数据，并将其�
 > 详细了解如何[向 Azure 报告 Azure Stack Hub 使用情况数据](azure-stack-usage-reporting.md)。
 
 ## <a name="next-steps"></a>后续步骤
+
+[比较 Azure Stack Hub 和全局 Azure](compare-azure-azure-stack.md)。
 
 [管理基础知识](azure-stack-manage-basics.md)。
 
