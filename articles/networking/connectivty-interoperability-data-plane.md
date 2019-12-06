@@ -1,5 +1,5 @@
 ---
-title: 'Azure 后端连接功能中的互操作性：数据平面分析 '
+title: Azure 后端连接功能中的互操作性：数据平面分析 | Azure
 description: 本文提供测试设置的数据平面分析，可用于分析 Azure 中 ExpressRoute、站点到站点 VPN 和虚拟网络对等互连之间互操作性。
 documentationcenter: na
 services: networking
@@ -9,14 +9,14 @@ ms.service: virtual-network
 ms.topic: article
 ms.workload: infrastructure-services
 origin.date: 10/18/2018
-ms.date: 04/22/2019
-ms.author: v-biyu
-ms.openlocfilehash: 9feabcc35d67fdf7e365b3f132287b5bbb409476
-ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
+ms.date: 10/17/2019
+ms.author: v-tawe
+ms.openlocfilehash: 6f74f6fc42b03aa0c7adfef0c68358311d795e78
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471975"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838915"
 ---
 # <a name="interoperability-in-azure-back-end-connectivity-features-data-plane-analysis"></a>Azure 后端连接功能中的互操作性：数据平面分析
 
@@ -41,7 +41,7 @@ ms.locfileid: "59471975"
 下图显示了 Azure 网络观察程序中的 VNet 和辐射 VNet 的图形连接视图：
 
 
-[![1]][1]
+![1][1]
 
 ### <a name="path-to-the-branch-vnet"></a>分支 VNet 的路径
 
@@ -61,11 +61,11 @@ ms.locfileid: "59471975"
 
 下图显示了网络观察程序中的中心 VNet 和分支 VNet 的图形连接视图：
 
-[![2]][2]
+![2][2]
 
 对于相同的连接，下图显示了网络观察程序中的网格视图：
 
-[![3]][3]
+![3][3]
 
 ### <a name="path-to-on-premises-location-1"></a>本地位置 1 的路径
 
@@ -303,7 +303,7 @@ ms.locfileid: "59471975"
 
 下图显示本地位置 1 VM 通过 ExpressRoute 与中心 VNet 中的 VM 建立连接的拓扑视图：
 
-[![4]][4]
+![4][4]
 
 如前文所述，测试设置使用站点到站点 VPN 作为本地位置 1 与中心 VNet 之间的备用 ExpressRoute 连接。 为了测试备份数据路径，让我们在本地位置 1 主要 CE 路由器和相应的 MSEE 之间引发一个 ExpressRoute 链接故障。 为引发 ExpressRoute 链接故障，请关闭面向 MSEE 的 CE 接口：
 
@@ -319,7 +319,7 @@ ms.locfileid: "59471975"
 
 下图显示当 ExpressRoute 连接断开时，本地位置 1 VM 通过站点到站点 VPN 连接与中心 VNet 中的 VM 建立连接的拓扑视图：
 
-[![5]][5]
+![5][5]
 
 ### <a name="path-to-the-spoke-vnet"></a>辐射 VNet 的路径
 
@@ -357,7 +357,7 @@ ms.locfileid: "59471975"
 
 ### <a name="path-to-on-premises-location-2"></a>本地位置 2 的路径
 
-如在[控制平面分析][Control-Analysis]中所述，根据网络配置，本地位置 2 看不到本地位置 1。 以下 ping 结果确认了这一事实： 
+如[控制平面分析][Control-Analysis]中所述，根据网络配置，本地位置 2 看不到本地位置 1。 以下 ping 结果确认了这一事实： 
 
     C:\Users\rb>ping 10.1.31.10
     
@@ -421,7 +421,7 @@ ms.locfileid: "59471975"
 
 ### <a name="path-to-the-branch-vnet-on-premises-location-1-and-the-remote-vnet"></a>分支 VNet、本地位置 1 和远程 VNet 的路径
 
-如在[控制平面分析][Control-Analysis]中所述，根据网络配置，分支 VNet、本地位置 1 或远程 VNet 看不到本地位置 1。 
+如[控制平面分析][Control-Analysis]中所述，根据网络配置，分支 VNet、本地位置 1 或远程 VNet 看不到本地位置 1。 
 
 ## <a name="data-path-from-the-remote-vnet"></a>远程 VNet 中的数据路径
 
@@ -455,7 +455,7 @@ ms.locfileid: "59471975"
 
 ### <a name="path-to-the-branch-vnet-and-on-premises-location-2"></a>分支 VNet 和本地位置 2 的路径
 
-如在[控制平面分析][Control-Analysis]中所述，根据网络配置，分支 VNet 或本地位置 2 看不到远程 VNet。 
+如[控制平面分析][Control-Analysis]中所述，根据网络配置，分支 VNet 或本地位置 2 看不到远程 VNet。 
 
 ### <a name="path-to-on-premises-location-1"></a>本地位置 1 的路径
 
@@ -475,6 +475,7 @@ ms.locfileid: "59471975"
 
 ## <a name="expressroute-and-site-to-site-vpn-connectivity-in-tandem"></a>串联 ExpressRoute 和站点到站点 VPN 连接
 
+<!-- not support -->
 
 ### <a name="site-to-site-vpn-as-a-secure-failover-path-for-expressroute"></a>将站点到站点 VPN 用作 ExpressRoute 的安全故障转移路径
 
@@ -486,15 +487,15 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 
 ### <a name="spoke-vnet-connectivity-by-using-vnet-peering"></a>使用 VNet 对等互连建立辐射 VNet 连接
 
-中心辐射型 VNet 体系结构的使用非常广泛。 中心是 Azure 中的一个 VNet，充当辐射 VNet 与本地网络之间的连接中心点。 辐射是与中心对等互连的 VNet，可用于隔离工作负荷。 流量通过 ExpressRoute 或 VPN 连接在本地数据中心与中心之间流动。 有关体系结构的详细信息，请参阅[在 Azure 中实现中心辐射型网络拓扑][Hub-n-Spoke]。
+中心辐射型 VNet 体系结构的使用非常广泛。 中心是 Azure 中的一个 VNet，充当辐射 VNet 与本地网络之间的连接中心点。 辐射是与中心对等互连的 VNet，可用于隔离工作负荷。 流量通过 ExpressRoute 或 VPN 连接在本地数据中心与中心之间流动。
 
-在区域内的 VNet 对等互连中，辐射 VNet 可以使用中心 VNet 网关（VPN 和 ExpressRoute 网关）来与远程网络通信。
+在区域内的 VNet 对等互连中，辐射 VNet 可以使用中心 VPN 网关（VPN 和 ExpressRoute 网关）来与远程网络通信。
 
 ### <a name="branch-vnet-connectivity-by-using-site-to-site-vpn"></a>使用站点到站点 VPN 建立分支 VNet 连接
 
 你可能想让位于不同区域中的分支 VNet 和本地网络通过中心 VNet 相互通信。 此配置的本机 Azure 解决方案是使用 VPN 建立站点到站点 VPN 连接。 替代方案是对中心内部的路由使用网络虚拟设备 (NVA)。
 
-有关详细信息，请参阅[什么是 VPN 网关？][VPN]和[部署高度可用的 NVA][Deploy-NVA]。
+有关详细信息，请参阅[什么是 VPN 网关？][VPN]。
 
 
 ## <a name="next-steps"></a>后续步骤
@@ -506,26 +507,26 @@ ExpressRoute 充当冗余的线路对，可确保高可用性。 可在不同的
 
 
 <!--Image References-->
-[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "网络观察程序中从中心 VNet 到辐射 VNet 的连接视图"
-[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "网络观察程序中从中心 VNet 到分支 VNet 的连接视图"
-[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "网络观察程序中从中心 VNet 到分支 VNet 的网格视图"
-[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "网络性能监视器中通过 ExpressRoute 1 从位置 1 VM 连接到中心 VNet 的视图"
-[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "网络性能监视器中通过站点都站点 VPN 从位置 1 VM 连接到中心 VNet 的视图"
+[1]: ./media/backend-interoperability/HubVM-SpkVM.jpg "从中心 VNet 到辐射 VNet 的连接的网络观察程序视图"
+[2]: ./media/backend-interoperability/HubVM-BranchVM.jpg "从中心 VNet 到分支 VNet 的连接的网络观察程序视图"
+[3]: ./media/backend-interoperability/HubVM-BranchVM-Grid.jpg "从中心 VNet 到分支 VNet 的连接的网络观察程序网格视图"
+[4]: ./media/backend-interoperability/Loc1-HubVM.jpg "通过 ExpressRoute 1 从位置 1 VM 到中心 VNet 的连接的网络性能监视器视图"
+[5]: ./media/backend-interoperability/Loc1-HubVM-S2S.jpg "通过站点到站点 VPN 从位置 1 VM 到中心 VNet 的连接的网络性能监视器视图"
 
 <!--Link References-->
-[Setup]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-preface
-[Configuration]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-config
-[ExpressRoute]: https://docs.azure.cn/zh-cn/expressroute/expressroute-introduction
-[VPN]: https://docs.azure.cn/zh-cn/vpn-gateway/vpn-gateway-about-vpngateways
-[VNet]: https://docs.azure.cn/zh-cn/virtual-network/tutorial-connect-virtual-networks-portal
-[Configuration]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-configuration
-[Control-Analysis]:https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-control-plane
-[Data-Analysis]: https://docs.azure.cn/zh-cn/networking/connectivty-interoperability-data-plane
-[ExR-FAQ]: https://docs.azure.cn/zh-cn/expressroute/expressroute-faqs
+[Setup]: https://docs.azure.cn/networking/connectivty-interoperability-preface
+[Configuration]: https://docs.azure.cn/networking/connectivty-interoperability-config
+[ExpressRoute]: https://docs.azure.cn/expressroute/expressroute-introduction
+[VPN]: https://docs.azure.cn/vpn-gateway/vpn-gateway-about-vpngateways
+[VNet]: https://docs.azure.cn/virtual-network/tutorial-connect-virtual-networks-portal
+[Configuration]: https://docs.azure.cn/networking/connectivty-interoperability-configuration
+[Control-Analysis]:https://docs.azure.cn/networking/connectivty-interoperability-control-plane
+[Data-Analysis]: https://docs.azure.cn/networking/connectivty-interoperability-data-plane
+[ExR-FAQ]: https://docs.azure.cn/expressroute/expressroute-faqs
 
-[ExR-S2S-CoEx]: https://docs.azure.cn/zh-cn/expressroute/expressroute-howto-coexist-resource-manager
-[Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
-[Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha
-[VNet-Config]: https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering
+[ExR-S2S-CoEx]: https://docs.azure.cn/expressroute/expressroute-howto-coexist-resource-manager
+<!-- [Hub-n-Spoke]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke -->
+<!-- [Deploy-NVA]: https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/nva-ha -->
+[VNet-Config]： https://docs.azure.cn/virtual-network/virtual-network-manage-peering
 
 
