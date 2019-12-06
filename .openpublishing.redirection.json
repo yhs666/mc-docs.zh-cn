@@ -17173,6 +17173,7 @@
     {
       "source_path": "articles/storage/common/storage-use-azcopy-linux.md",
       "redirect_url": "/storage/common/storage-use-azcopy-v10",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/application-gateway/application-gateway-backend-ssl.md",
@@ -18943,6 +18944,16 @@
       "source_path": "articles/sql-data-warehouse/viewing-maintenance-schedule.md",
       "redirect_url": "/sql-data-warehouse/maintenance-scheduling#view-a-maintenance-schedule",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/notification-hubs/configure-android-device-messaging.md",
+      "redirect_url": "//notification-hubs/configure-google-firebase-cloud-messaging",
+      "redirect_document_id": false
+    },
+    {
+        "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
+        "redirect_url": "//notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
+        "redirect_document_id": false
     }
 
   ]
