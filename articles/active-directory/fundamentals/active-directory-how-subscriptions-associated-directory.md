@@ -8,51 +8,59 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-origin.date: 03/13/2019
-ms.date: 08/27/2019
+origin.date: 10/25/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7477dae0c47cf378374ae4666101677c5e12e785
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: d4b21185e4e7a4eeb0ae3005cb3205493247c5df
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134191"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655385"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>将 Azure 订阅关联或添加到 Azure Active Directory 租户
 
-Azure 订阅与 Azure Active Directory (Azure AD) 建立了信任关系，即该订阅信任 Azure AD 对用户、服务和设备进行身份验证。 多个订阅可以信任同一个 Azure AD 目录，但每个订阅只能信任一个目录。
+Azure 订阅与 Azure Active Directory (Azure AD) 之间存在信任关系。 订阅信任 Azure AD 对用户、服务和设备执行身份验证。
 
-如果订阅过期，则将失去与该订阅关联的所有其他资源的访问权限。 但是，Azure AD Directory 仍保留在 Azure 中，可使用不同的 Azure 订阅关联和管理目录。
+多个订阅可以信任同一个 Azure AD 目录。 每个订阅只能信任一个目录。
 
-所有用户都有一个用于身份验证的“主”目录  。 但是，用户还可在其他目录中作为来宾。 可在 Azure AD 中查看每位用户的主目录和来宾目录。
+如果订阅过期，则将失去与该订阅关联的所有其他资源的访问权限。 但是，Azure AD 目录保留在 Azure 中。 可以使用不同的 Azure 订阅来关联和管理该目录。
+
+所有用户都有一个用于身份验证的“主”目录  。 用户还可以充当其他目录中的来宾。 可在 Azure AD 中查看每位用户的主目录和来宾目录。
 
 > [!Important]
-> 当你将订阅与其他目录关联时，具有使用[基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-portal.md) 分配的角色的用户将失去其访问权限。 经典订阅管理员（服务管理员和共同管理员）也将失去其访问权限。
-> 
-> 此外，如果将 Azure Kubernetes 服务 (AKS) 群集移到其他订阅，或者将拥有该群集的订阅移到新租户，该群集将会由于失去角色分配和服务主体权限而丢失功能。 有关 AKS 的详细信息，请参阅 [Azure Kubernetes 服务 (AKS)](/aks/)。
+> 当你将订阅与其他目录关联时，具有使用[基于角色的访问控制 (RBAC)](../../role-based-access-control/role-assignments-portal.md) 分配的角色的用户将失去其访问权限。 经典订阅管理员（包括服务管理员和共同管理员）也将失去其访问权限。
+>
+> 当订阅与不同的目录关联时，还会从该订阅中删除策略分配。
+>
+> 如果将 Azure Kubernetes 服务 (AKS) 群集移到其他订阅，或者将拥有该群集的订阅移到新租户，该群集将会由于失去角色分配和服务主体权限而丢失功能。 有关 AKS 的详细信息，请参阅 [Azure Kubernetes 服务 (AKS)](/aks/)。
+
 
 ## <a name="before-you-begin"></a>准备阶段
 
-要想关联或添加订阅，必须先执行以下任务：
+在关联或添加订阅之前，请执行以下任务：
 
-1. 请查看下面包含更改及你可能受到的影响的列表：
+- 请查看下面包含更改及你可能受到的影响的列表：
 
-    - 已使用 RBAC 为其分配了角色的用户将失去其访问权限
-    - 服务管理员和共同管理员将失去其访问权限
-    - 如果你有任何密钥保管库，这些密钥保管库将无法访问，而且你必须在关联后对其进行修复
-    - 如果拥有资源（如虚拟机或逻辑应用）的任何托管标识，则将必须在关联后重新启用或重新创建这些标识
-    - 如果拥有已注册的 Azure Stack，则将必须在关联后重新注册它
+  - 已使用 RBAC 为其分配了角色的用户将失去其访问权限
+  - 服务管理员和共同管理员将失去其访问权限
+  - 如果你有任何密钥保管库，这些密钥保管库将无法访问，而且你必须在关联后对其进行修复
+  - 如果对资源（例如虚拟机或逻辑应用）使用任何托管标识，则必须在关联后重新启用或重新创建这些标识
+  - 如果拥有已注册的 Azure Stack，则将必须在关联后重新注册它
 
-1. 使用符合以下条件的帐户登录：
-    - 具有该订阅的[所有者](../../role-based-access-control/built-in-roles.md#owner)角色分配。 有关如何分配“所有者”角色的详细信息，请参阅[使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](../../role-based-access-control/role-assignments-portal.md)。
-    - 同时存在于当前目录（与订阅关联）和新目录（希望以后与订阅关联）中。 
+- 使用符合以下条件的帐户登录：
 
-1. 请确保未使用 Azure 云服务提供商 (CSP) 订阅（MS-AZR-0145P、MS-AZR-0146P、MS-AZR-159P）、Microsoft 内部订阅 (MS-AZR-0015P) 或 Microsoft Imagine 订阅 (MS-AZR-0144P)。
-    
-## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>将现有订阅关联到 Azure AD 目录
+  - 具有该订阅的[所有者](../../role-based-access-control/built-in-roles.md#owner)角色分配。 有关如何分配“所有者”角色的详细信息，请参阅[使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](../../role-based-access-control/role-assignments-portal.md)。
+  - 在当前目录和新目录中存在。 当前目录已与订阅相关联。 要将新目录与订阅相关联。
+
+- 请确保未使用 Azure 云服务提供商 (CSP) 订阅（MS-AZR-0145P、MS-AZR-0146P、MS-AZR-159P）、Microsoft 内部订阅 (MS-AZR-0015P) 或 Microsoft Imagine 订阅 (MS-AZR-0144P)。
+
+## 将订阅关联到目录<a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>
+
+将现有订阅关联到 Azure AD 目录
 
 1. 登录，然后在[门户](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview)中，选择“Azure Active Directory”  。
 
@@ -66,21 +74,22 @@ Azure 订阅与 Azure Active Directory (Azure AD) 建立了信任关系，即该
   
 更改订阅目录是服务级操作，不会影响订阅的账单所有权。 帐户管理员仍可从[帐户中心](https://account.windowsazure.cn/subscriptions)更改服务管理员。 若要删除原始目录，必须将订阅的账单所有权转让给新的帐户管理员。若要详细了解如何转让账单所有权，请参阅[将 Azure 订阅所有权转让给其他帐户](/billing/billing-subscription-transfer)。
 
-## <a name="post-association-steps"></a>发布内容关联步骤
-将订阅关联到其他目录后，可能还要执行其他必须执行才能恢复操作的步骤。
+## <a name="post-association-steps"></a>关联后的步骤
 
-1. 如果有任何密钥保管库，则必须更改该密钥保管库租户 ID。 有关详细信息，请参阅[在订阅移动后更改密钥保管库租户 ID](../../key-vault/key-vault-subscription-move-fix.md)。
+将订阅关联到不同的目录后，可能需要执行以下任务来恢复操作：
 
-2. 如果已使用系统为资源分配的托管标识，则必须重新启用这些标识。 如果已使用用户分配的托管标识，则必须重新创建这些标识。 重新启用或重新创建托管标识后，必须重新建立分配给这些标识的权限。 有关详细信息，请参阅[什么是 Azure 资源的托管标识？](../managed-identities-azure-resources/overview.md)。
+- 如果有任何密钥保管库，则必须更改该密钥保管库租户 ID。 有关详细信息，请参阅[在订阅移动后更改密钥保管库租户 ID](../../key-vault/key-vault-subscription-move-fix.md)。
 
-3. 如果已使用此订阅注册 Azure Stack，则必须重新注册。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure](/azure-stack/operator/azure-stack-registration)。
+- 如果对资源使用了系统分配的托管标识，则必须重新启用这些标识。 如果使用了用户分配的托管标识，则必须重新创建这些标识。 重新启用或重新创建托管标识后，必须重新建立分配给这些标识的权限。 有关详细信息，请参阅[什么是 Azure 资源的托管标识？](../managed-identities-azure-resources/overview.md)。
+
+- 如果已使用此订阅注册了 Azure Stack，则必须重新注册。 有关详细信息，请参阅[将 Azure Stack 注册到 Azure](/azure-stack/operator/azure-stack-registration)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- 要创建新的 Azure AD 租户，请参阅[访问 Azure Active Directory 以创建新租户](active-directory-access-create-new-tenant.md)
+- 若要创建新的 Azure AD 租户，请参阅[快速入门：在 Azure Active Directory 中创建新租户](active-directory-access-create-new-tenant.md)。
 
-- 若要了解有关如何在 Azure 中控制资源访问的详细信息，请参阅[了解 Azure 中的资源访问权限](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- 若要详细了解 Azure 如何控制资源访问，请参阅[经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
-- 若要详细了解如何在 Azure AD 中分配角色，请参阅[如何使用 Azure Active Directory 为用户分配目录角色](active-directory-users-assign-role-azure-portal.md)
+- 若要详细了解如何在 Azure AD 中分配角色，请参阅[为使用 Azure Active Directory 的用户分配管理员和非管理员角色](active-directory-users-assign-role-azure-portal.md)。
 
 <!-- Update_Description: wording update -->

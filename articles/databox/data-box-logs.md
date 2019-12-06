@@ -6,15 +6,15 @@ author: WenJason
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-origin.date: 06/03/2019
-ms.date: 07/22/2019
+origin.date: 08/08/2019
+ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: b09b451390b153f1cc9d047a7d9d692a23490461
-ms.sourcegitcommit: 98cc8aa5b8d0e04cd4818b34f5350c72f617a225
+ms.openlocfilehash: e5ff86243076af6d28017d8ca42bb3711c29a2bb
+ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68298143"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530600"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy"></a>Azure Data Box 和 Azure Data Box Heavy 的跟踪与事件日志记录
 
@@ -29,7 +29,7 @@ Data Box 或 Data Box Heavy 订单会经历以下步骤：订购、设置、数�
 | 设置设备              | 在[活动日志](#query-activity-logs-during-setup)中记录的设备访问凭据                                              |
 | 将数据复制到设备        | [查看 *error.xml* 文件](#view-error-log-during-data-copy)了解数据复制状态                                                             |
 | 准备交付            | [检查 BOM 文件](#inspect-bom-during-prepare-to-ship)或设备上的清单文件                                      |
-| 将数据上传到 Azure       | [检查 *copylogs*](#review-copy-log-during-upload-to-azure)，了解在 Azure 数据中心上传数据期间是否出错                         |
+| 将数据上传到 Azure       | [检查复制日志](#review-copy-log-during-upload-to-azure)，确定在 Azure 数据中心上传数据期间是否出错                         |
 | 从设备中擦除数据   | [查看监护日志链](#get-chain-of-custody-logs-after-data-erasure)，包括审核日志和订单历史记录                |
 
 本文将详细介绍用于跟踪和审核 Data Box 或 Data Box Heavy 订单的各种机制或工具。 本文中的信息同时适用于 Data Box 和 Data Box Heavy。 在后续部分，有关 Data Box 的任何参考信息也适用于 Data Box Heavy。
@@ -65,7 +65,7 @@ Data Box 或 Data Box Heavy 订单会经历以下步骤：订购、设置、数�
 
 - 当 Data Box 抵达你的所在地时处于锁定状态。 可以使用 Azure 门户中根据订单提供的设备凭据。  
 
-    如果已安装 Data Box，你可能需要知道谁访问过设备凭据。 若要了解谁访问过“设备凭据”边栏选项卡，可以查询活动日志。   涉及到访问“设备详细信息”>“凭据”边栏选项卡的任何操作都会作为 `ListCredentials` 操作记录到活动日志。 
+    如果已安装 Data Box，你可能需要知道谁访问过设备凭据。 若要了解谁访问过“设备凭据”边栏选项卡，可以查询活动日志。   涉及到访问“设备详细信息”>“凭据”边栏选项卡的任何操作都会作为 `ListCredentials` 操作记录到活动日志。 
 
     ![查询活动日志](media/data-box-logs/query-activity-log-1.png)
 
@@ -77,7 +77,7 @@ Data Box 或 Data Box Heavy 订单会经历以下步骤：订购、设置、数�
 
 ### <a name="errorxml-file"></a>Error.xml 文件
 
-请确保复制作业已完成且未出错。 如果复制过程中出错，请从“连接和复制”页下载日志。 ****  
+请确保复制作业已完成且未出错。 如果复制过程中出错，请从“连接和复制”页下载日志。 
 
 - 如果将未经 512 字节对齐的文件复制到 Data Box 上的托管磁盘文件夹，该文件不会作为页 Blob 上传到临时存储帐户。 日志中会显示一条错误。 请删除该文件，并复制经过 512 字节对齐的文件。
 - 如果复制了 VHDX、动态 VHD 或差异 VHD（不支持这些文件），将在日志中看到错误。
@@ -196,23 +196,25 @@ BOM 或清单文件还会复制到 Azure 存储帐户。 可以使用 BOM 或清
 
 ## <a name="review-copy-log-during-upload-to-azure"></a>查看上传到 Azure 期间的复制日志
 
-在将数据上传到 Azure 期间，会创建 *copylog*。
+在将数据上传到 Azure 期间，会创建复制日志。
 
-### <a name="copylog"></a>Copylog
+### <a name="copy-log"></a>复制日志
 
-对于处理的每笔订单，Data Box 服务会在关联的存储帐户中创建 *copylog*。 *copylog* 包含已上传的文件总数，以及在将数据从 Data Box 复制到 Azure 存储帐户期间出错的文件数。
+对于处理的每笔订单，Data Box 服务会在关联的存储帐户中创建复制日志。 复制日志包含已上传的文件总数，以及在将数据从 Data Box 复制到 Azure 存储帐户期间出错的文件数。
 
 在上传到 Azure 期间，会执行循环冗余检查 (CRC) 计算。 系统会比较从数据复制开始到完成数据上传为止的 CRC。 如果 CRC 不匹配，则表示相应的文件无法上传。
 
-默认情况下，日志将写入一个名为  `copylog` 的容器中。 使用以下命名约定存储日志：
+默认情况下，日志将写入一个名为 `copylog` 的容器中。 使用以下命名约定存储日志：
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`。
 
-copylog 路径也会显示在门户的“概述”边栏选项卡上。 
+复制日志路径也会显示在门户的“概述”边栏选项卡上。 
 
-![完成后“概述”边栏选项卡中显示的 copylog 路径](media/data-box-logs/copy-log-path-1.png)
+![完成后“概述”边栏选项卡中显示的复制日志路径](media/data-box-logs/copy-log-path-1.png)
 
-以下示例描述了成功完成 Data Box 上传后 copylog 文件的常规格式：
+### <a name="upload-completed-successfully"></a>上传已成功完成 
+
+以下示例描述了成功完成 Data Box 上传后复制日志的常规格式：
 
 ```
 <?xml version="1.0"?>
@@ -223,11 +225,13 @@ copylog 路径也会显示在门户的“概述”边栏选项卡上。
 </CopyLog>
 ```
 
+### <a name="upload-completed-with-errors"></a>上传已完成但出错 
+
 上传到 Azure 的过程也有可能出现这种状态：完成但出错。
 
-![完成但出错时“概述”边栏选项卡中显示的 copylog 路径](media/data-box-logs/copy-log-path-2.png)
+![完成但出错时“概述”边栏选项卡中显示的复制日志路径](media/data-box-logs/copy-log-path-2.png)
 
-下面是上传完成但出错时的 copylog 示例：
+下面是上传完成但出错时的复制日志示例：
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -246,9 +250,15 @@ copylog 路径也会显示在门户的“概述”边栏选项卡上。
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-下面是 `copylog` 的一个示例，其中，不符合 Azure 命名约定的容器在将数据上传到 Azure 期间已重命名。
+### <a name="upload-completed-with-warnings"></a>上传已完成但出现警告
 
-容器的新唯一名称采用 `DataBox-GUID` 格式，容器的数据将放入已重命名的新容器。 `copylog` 为容器指定旧的和新的容器名称。
+如果数据中包含不符合 Azure 命名约定的容器/Blob/文件名，并且在修复数据文件的名称后将数据上传到 Azure，则上传到 Azure 的过程将会完成，但会出现警告。
+
+![完成但出现警告时“概述”边栏选项卡中显示的复制日志路径](media/data-box-logs/copy-log-path-3.png)
+
+下面是复制日志的一个示例，其中，不符合 Azure 命名约定的容器在将数据上传到 Azure 期间已重命名。
+
+容器的新唯一名称采用 `DataBox-GUID` 格式，容器的数据将放入已重命名的新容器。 复制日志为容器指定旧的和新的容器名称。
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -259,7 +269,7 @@ copylog 路径也会显示在门户的“概述”边栏选项卡上。
 </ErroredEntity>
 ```
 
-下面是 `copylog` 的一个示例，其中，不符合 Azure 命名约定的 Blob 或文件在将数据上传到 Azure 期间已重命名。 新的 Blob 或文件名称已转换为容器相对路径的 SHA256 摘要，并已根据目标类型上传到路径。 目标可以是块 Blob、页 Blob 或 Azure 文件。
+下面是复制日志的一个示例，其中，不符合 Azure 命名约定的 Blob 或文件在将数据上传到 Azure 期间已重命名。 新的 Blob 或文件名称已转换为容器相对路径的 SHA256 摘要，并已根据目标类型上传到路径。 目标可以是块 Blob、页 Blob 或 Azure 文件。
 
 `copylog` 指定旧的和新的 Blob 或文件名称，以及 Azure 中的路径。
 
@@ -288,7 +298,7 @@ copylog 路径也会显示在门户的“概述”边栏选项卡上。
 
 ### <a name="audit-logs"></a>审核日志
 
-审核日志包含有关 Data Box 或 Data Box Heavy 通电的信息，以及当它位于 Azure 数据中心外部时在其上进行共享访问的信息。 这些日志位于：`storage-account/azuredatabox-chainofcustodylogs`
+审核日志包含有关当 Data Box 或 Data Box Heavy 在 Azure 数据中心外部时如何启动它和访问其上共享的信息。 这些日志位于：`storage-account/azuredatabox-chainofcustodylogs`
 
 下面是 Data Box 中的审核日志示例：
 
@@ -345,13 +355,13 @@ The authentication information fields provide detailed information about this sp
 
 ## <a name="download-order-history"></a>下载订单历史记录
 
-Azure 门户提供订单历史记录。 如果订单处理和设备清理（从磁盘中擦除数据）已完成，请转到设备订单，然后导航到“订单详细信息”。此时会看到“下载订单历史记录”选项。   ****   有关详细信息，请参阅[下载订单历史记录](data-box-portal-admin.md#download-order-history)。
+Azure 门户提供订单历史记录。 如果订单处理和设备清理（从磁盘中擦除数据）已完成，请转到设备订单，然后导航到“订单详细信息”。  “下载订单历史记录”选项可用。  有关详细信息，请参阅[下载订单历史记录](data-box-portal-admin.md#download-order-history)。
 
 滚动浏览订单历史记录时，可以看到：
 
 - 设备的承运商跟踪信息。
 - 包含 *SecureErase* 活动的事件。 这些事件对应于磁盘上的数据擦除活动。
-- Data Box 日志链接。 会显示审核日志、*copylog* 和 *BOM* 文件的路径。 
+- Data Box 日志链接。 会显示审核日志、复制日志和 BOM 文件的路径。   
 
 下面是 Azure 门户中的订单历史记录日志的示例：
 

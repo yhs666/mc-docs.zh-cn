@@ -2,79 +2,93 @@
 title: 添加或删除用户 - Azure Active Directory | Microsoft Docs
 description: 有关如何使用 Azure Active Directory 添加新用户或删除现有用户的说明。
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-origin.date: 04/01/2019
-ms.date: 04/08/2019
+origin.date: 11/12/2019
+ms.date: 11/28/2019
 ms.author: v-junlch
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9cc4c8da182683ad233cc4c845d33e11e5a7e5a
-ms.sourcegitcommit: 2836cce46ecb3a8473dfc0ad2c55b1c47d2f0fad
+ms.openlocfilehash: cb9b45f51ab326132e85cf2bc60132192d634bb0
+ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59355878"
+ms.lasthandoff: 11/28/2019
+ms.locfileid: "74655379"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>使用 Azure Active Directory 添加或删除用户
-在 Azure Active Directory (Azure AD) 组织中添加新用户或删除现有用户。
+
+在 Azure Active Directory (Azure AD) 组织中添加新用户或删除现有用户。 只有用户管理员或全局管理员可以添加或删除用户。
 
 ## <a name="add-a-new-user"></a>添加新用户
+
 可使用 Azure Active Directory 门户创建新用户。
 
-### <a name="to-add-a-new-user"></a>添加新用户
+若要添加新用户，请执行以下步骤：
+
 1. 以组织的用户管理员身份登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 依次选择“Azure Active Directory”、“用户”、“新建用户”。
+1. 在任意页面中搜索并选择“Azure Active Directory”。 
 
-    ![“用户 - 所有用户”页，其中突出显示了“新建用户”](./media/add-users-azure-active-directory/new-user-all-users-blade.png)
+1. 依次选择“用户”、“新建用户”。  
 
-3. 在“用户”页上，填写所需的信息。
+    ![通过“用户”（Azure AD 中的“所有用户”）添加用户](./media/add-users-azure-active-directory/add-user-in-users-all-users.png)
 
-    ![添加新用户，包含用户信息的“用户”页](./media/add-users-azure-active-directory/new-user-user-blade.png)
+1. 在“用户”页上输入此用户的信息： 
 
-   - **名称（必填）。** 新用户的名字和姓氏。 例如，Mary Parker。
+   - **Name**。 必需。 新用户的名字和姓氏。 例如，*Mary Parker*。
 
-   - **用户名（必填）。** 新用户的用户名。 例如，mary@contoso.com。
-    
-       用户名的域名部分必须是初始默认域名 <_yourdomainname_>.partner.onmschina.cn，或者是一个自定义域名，例如 contoso.com。 若要详细了解如何创建自定义域名，请参阅[如何向 Azure Active Directory 添加自定义域名](add-custom-domain.md)。
+   - **用户名**。 必需。 新用户的用户名。 例如，`mary@contoso.com`。
 
-   - **个人资料。** （可选）你可以添加关于用户的详细信息。 也可以在以后添加用户信息。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
+     用户名的域名部分必须是初始默认域名 *\<yourdomainname>.partner.onmschina.cn*，或者是一个自定义域名，例如 *contoso.com*。 若要详细了解如何创建自定义域名，请参阅[使用 Azure Active Directory 门户添加自定义域名](add-custom-domain.md)。
 
-   - **组。** （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组中的详细信息，请参阅[如何创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
+   - **组**。 （可选）可以将用户添加到一个或多个现有组。 也可以在以后将用户添加到组中。 有关将用户添加到组的详细信息，请参阅[使用 Azure Active Directory 创建基本组并添加成员](active-directory-groups-create-azure-portal.md)。
 
-   - **目录角色。** （可选）你可以将用户添加到 Azure AD 管理员角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中有限的管理员角色中的一个或多个。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
+   - **目录角色**：如果需要用户的 Azure AD 管理权限，则可以将其添加到 Azure AD 角色。 可以将用户分配为全局管理员，或者分配为 Azure AD 中有限的管理员角色中的一个或多个。 有关分配角色的详细信息，请参阅[如何向用户分配角色](active-directory-users-assign-role-azure-portal.md)。
 
-4. 复制“密码”框中提供的自动生成的密码。 需要将此密码提供给用户以进行初始登录过程。
+   - **工作信息**：可在此处添加有关用户的详细信息，或者以后再添加。 有关添加用户信息的详细信息，请参阅[如何添加或更改用户个人资料信息](active-directory-users-profile-azure-portal.md)。
 
-5. 选择“创建”。
+1. 复制“密码”框中提供的自动生成的密码。  需将此密码提供给用户，供其在首次登录时使用。
 
-    用户已创建并添加到 Azure AD 租户。
+1. 选择“创建”  。
+
+随即会创建该用户，并将其添加到 Azure AD 组织中。
+
+## <a name="add-a-consumer-user"></a>添加使用者用户
+
+某些情况下，可能需要在 Azure Active Directory B2C (Azure AD B2C) 目录中手动创建所有者帐户。 有关创建使用者帐户的详细信息，请参阅[在 Azure AD B2C 中创建和删除使用者用户](../../active-directory-b2c/manage-users-portal.md)。
 
 ## <a name="add-a-new-user-within-a-hybrid-environment"></a>在混合环境内添加新用户
+
 如果你的环境中同时包含 Azure Active Directory（云）和 Windows Server Active Directory（本地），则可以通过同步现有用户帐户数据来添加新用户。 有关混合环境和用户的详细信息，请参阅[将本地目录与 Azure Active Directory 进行集成](../hybrid/whatis-hybrid-identity.md)。
 
 ## <a name="delete-a-user"></a>删除用户
+
 可使用 Azure Active Directory 门户删除现有用户。
 
-### <a name="to-delete-a-user"></a>删除用户
+若要删除用户，请执行以下步骤：
+
 1. 使用组织的用户管理员帐户登录到 [Azure 门户](https://portal.azure.cn/)。
 
-2. 选择“Azure Active Directory”，选择“用户”，然后搜索并选择要从 Azure AD 租户中删除的用户。 例如，_Mary Parker_。
+1. 在任意页面中搜索并选择“Azure Active Directory”。 
 
-3. 选择“删除用户”。
+1. 搜索并选择要从 Azure AD 租户中删除的用户。 例如，_Mary Parker_。
+
+1. 选择“删除用户”  。
 
     ![“用户 - 所有用户”页，其中突出显示了“删除用户”](./media/add-users-azure-active-directory/delete-user-all-users-blade.png)
 
-    该用户已删除并不再显示在“用户 - 所有用户”页上。 可在接下来的 30 天内于“已删除用户”页查看该用户，在此期间可将其还原。 有关还原用户的详细信息，请参阅[如何还原或永久删除最近删除的用户](active-directory-users-restore.md)。 删除某个用户后，该用户使用的任何许可证将可供其他用户使用。
+该用户已删除并不再显示在“用户 - 所有用户”页上  。 可在接下来的 30 天内于“已删除用户”页查看该用户，在此期间可将其还原  。 有关还原用户的详细信息，请参阅[使用 Azure Active Directory 还原或永久删除最近删除的用户](active-directory-users-restore.md)。
 
-    >[!Note]
-    >必须使用 Windows Server Active Directory 更新其授权来源为 Windows Server Active Directory 的用户的标识、联系信息或工作信息。 完成更新后，必须等待下一个同步周期完成才能看到更改。
+删除某个用户后，该用户使用的任何许可证可供其他用户使用。
+
+>[!Note]
+>必须使用 Windows Server Active Directory 更新其授权来源为 Windows Server Active Directory 的用户的标识、联系信息或工作信息。 完成更新后，必须等待下一个同步循环完成，然后才能看到所做的更改。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -86,6 +100,6 @@ ms.locfileid: "59355878"
 
 - [创建基本组并添加成员](active-directory-groups-create-azure-portal.md)
 
-或可执行其他用户管理任务，例如[恢复已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../users-groups-roles/index.yml)。
+或者，可以执行其他用户管理任务，例如[还原已删除的用户](active-directory-users-restore.md)。 有关其他可用操作的详细信息，请参阅 [Azure Active Directory 用户管理和文档](../users-groups-roles/index.yml)。
 
 <!-- Update_Description: wording update -->

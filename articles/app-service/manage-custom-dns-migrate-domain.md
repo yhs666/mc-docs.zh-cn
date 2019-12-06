@@ -4,25 +4,23 @@ description: 了解如何在不停机的情况下，将已分配到实时站点�
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
-editor: jimbe
+manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 06/28/2017
-ms.date: 09/04/2019
+origin.date: 10/21/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: b14d2f2292b2db74bc554647de7de012109fb192
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 140cef18587b8862f0362c1e5250bfd680c012a8
+ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806735"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555958"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>将活动 DNS 名称迁移到 Azure 应用服务
 
@@ -132,9 +130,15 @@ ms.locfileid: "70806735"
 
 在 DNS 传播发生后，DNS 查询应立即开始解析应用服务应用。
 
+## <a name="active-domain-in-azure"></a>Azure 中的活动域
+
+可以在订阅之间或者在同一订阅内部迁移 Azure 中的活动自定义域。 但是，这种不停机的迁移方案需要在特定的时间为源应用和目标应用分配同一个自定义域。 因此，需确保两个应用未部署到同一个部署单元（在内部称为“Web 空间”）。 一个域名只能分配到每个部署单元中的一个应用。
+
+可以通过查看 FTP/S URL `<deployment-unit>.ftp.chinacloudsites.chinacloudapi.cn` 的域名，找到应用的部署单元。 检查并确保源应用与目标应用的部署单元不同。 应用的部署单元由它所在的[应用服务计划](overview-hosting-plans.md)决定。 该部署单元是在创建计划时由 Azure 随机选择的，且无法更改。 [在同一资源组和同一区域中创建两个计划](app-service-plan-manage.md#create-an-app-service-plan)时，Azure 只会确保这两个计划位于同一个部署单元，但不提供任何逻辑来确保计划位于不同的部署单元。  在不同部署单元中创建计划的唯一方法是在新的资源组或区域中不断地创建计划，直到获得不同的部署单元。
+
 ## <a name="next-steps"></a>后续步骤
 
 了解如何将自定义 SSL 证书绑定到应用服务。
 
 > [!div class="nextstepaction"]
-> [将现有的自定义 SSL 证书绑定到 Azure 应用服务](app-service-web-tutorial-custom-ssl.md)
+> [将 SSL 证书绑定到 Azure 应用服务](configure-ssl-bindings.md)

@@ -11,22 +11,21 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-origin.date: 06/18/2019
-ms.date: 08/12/2019
+origin.date: 09/19/2019
+ms.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: e542db854bd48db60aa1701055abea26abb7782c
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 5a17163b22a666afbc4aa9c5e6568462060b154b
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806763"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657997"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>设置 Azure 应用服务中的过渡环境
 <a name="Overview"></a>
 
-将 Web 应用、Linux 上的 Web 应用、移动后端和 API 应用部署到 [Azure 应用服务](https://docs.azure.cn/app-service/overview)时，如果应用在“标准”  或“高级”  应用服务计划层中运行，则可以使用单独的部署槽位而不是默认的生产槽。 部署槽是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 
+将 Web 应用、移动后端和 API 应用部署到 [Azure 应用服务](https://docs.azure.cn/app-service/overview)时，如果应用在“标准”  或“高级”  应用服务计划层中运行，则可以使用单独的部署槽而不是默认的生产槽。 部署槽是具有自身主机名的实时应用。 两个部署槽（包括生产槽）之间的应用内容与配置元素可以交换。 
 
 将应用程序部署到非生产槽具有以下优点：
 
@@ -44,6 +43,7 @@ ms.locfileid: "70806763"
 必须在“标准”或“高级”层下运行应用，才能启用多个部署槽   。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，打开应用的[资源页](../azure-resource-manager/manage-resources-portal.md#manage-resources)。
+
 2. 在左窗格中，选择“部署槽” > “添加槽”   。
    
     ![添加新部署槽](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
@@ -77,6 +77,8 @@ ms.locfileid: "70806763"
 ### <a name="swap-operation-steps"></a>交换操作步骤
 
 交换两个槽时（通常是从过渡槽交换到生产槽），应用服务将执行以下操作，以确保目标槽不会出现停机：
+
+<!--    - [Continuous deployment](deploy-continuous-deployment.md) settings, if enabled. -->
 
 1. 将目标槽（例如生产槽）中的以下设置应用到源槽的所有实例： 
     - [特定于槽的](#which-settings-are-swapped)应用设置和连接字符串（如果适用）。
@@ -140,9 +142,6 @@ ms.locfileid: "70806763"
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>带预览的交换（多阶段交换）
 
-> [!NOTE]
-> Linux 上的 Web 应用不支持带预览的交换。
-
 在交换到用作目标槽的生产槽之前，请使用交换的设置验证应用的运行。 源槽在交换完成之前也已预热，这对于任务关键型应用程序是可行的。
 
 在执行交换并预览时，应用服务将执行相同的[交换操作](#AboutConfiguration)，但完成第一个步骤后会暂停。 然后，你可以在完成交换之前验证过渡槽中的结果。 
@@ -180,8 +179,8 @@ ms.locfileid: "70806763"
 
 ## <a name="configure-auto-swap"></a>配置自动交换
 
-> [!NOTE]
-> Linux 上的 Web 应用中不支持自动交换。
+<!-- > [!NOTE] -->
+<!-- > Auto swap isn't supported in web apps on Linux. -->
 
 自动交换简化了 Azure DevOps 方案，在此方案中，可连续部署应用，无需冷启动且不会给应用的客户造成停机。 启用从某个槽到生产槽的自动交换后，每次将代码更改推送到该槽时，应用服务会在源槽中预热后自动[将应用交换到生产槽](#swap-operation-steps)中。
 
@@ -204,7 +203,8 @@ ms.locfileid: "70806763"
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>指定自定义预热
-使用[自动交换](#Auto-Swap)时，某些应用可能需要在交换前自定义的预热操作。 web.config 中的 `applicationInitialization` 配置元素可用于指定自定义初始化操作。 [交换操作](#AboutConfiguration)在与目标槽交换之前等待此自定义预热操作完成。 以下是 web.config 片段的示例。
+
+某些应用在交换之前可能需要执行自定义的预热操作。 web.config 中的 `applicationInitialization` 配置元素可用于指定自定义初始化操作。 [交换操作](#AboutConfiguration)在与目标槽交换之前等待此自定义预热操作完成。 以下是 web.config 片段的示例。
 
     <system.webServer>
         <applicationInitialization>
@@ -219,6 +219,9 @@ ms.locfileid: "70806763"
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`：用于对你的站点进行预热的 ping 路径。 通过指定以斜杠开头的自定义路径作为值来添加此应用设置。 例如 `/statuscheck`。 默认值为 `/`。 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`：预热操作的有效 HTTP 响应代码。 使用以逗号分隔的 HTTP 代码列表添加此应用设置。 例如 `200,202`。 如果返回的状态代码不在列表中，则预热和交换操作会停止。 默认情况下，所有响应代码都是有效的。
+
+> [!NOTE]
+> 每次启动应用都需要运行 `<applicationInitialization>` 配置元素，而两个预热行为应用设置仅适用于槽交换。
 
 如果遇到任何问题，请参阅[排查交换问题](#troubleshoot-swaps)。
 
@@ -331,7 +334,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>使用 ARM 模板实现自动化
+
+[ARM 模板](/azure-resource-manager/template-deployment-overview)是用于自动部署和配置 Azure 资源的声明性 JSON 文件。 若要使用 ARM 模板交换槽，请在 *Microsoft.Web/sites/slots* 和 *Microsoft.Web/sites* 资源中设置两个属性：
+
+- `buildVersion`：这是一个字符串属性，表示槽中部署的应用的当前版本。 例如：“v1”、“1.0.0.1”或“2019-09-20T11:53:25.2887393-07:00”。
+- `targetBuildVersion`：这是一个字符串属性，指定槽应使用哪个 `buildVersion`。 如果 targetBuildVersion 不等于当前的 `buildVersion`，则此属性会通过查找指定了 `buildVersion` 的槽来触发交换操作。
+
+### <a name="example-arm-template"></a>示例 ARM 模板
+
+以下 ARM 模板将更新过渡槽的 `buildVersion`，并在生产槽中设置 `targetBuildVersion`。 这会交换两个槽。 该模板假设已使用名为“staging”的槽创建了一个 Web 应用。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+此 ARM 模板是幂等的，这意味着，它可以重复执行，并生成相同的槽状态。 首次执行后，`targetBuildVersion` 将与当前的 `buildVersion` 匹配，因此不会触发交换。
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>
@@ -368,6 +425,8 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
     </conditions>
     ```
 - 某些 [IP 限制规则](app-service-ip-restrictions.md)可能会阻止交换操作将 HTTP 请求发送到应用。 以 `10.` 和 `100.` 开头的 IPv4 地址范围是部署内部的地址。 应允许这些地址连接到你的应用。
+
+- 槽交换之后，应用可能会遇到意外的重启。 这是因为，在交换之后，主机名绑定配置会失去同步，这种情况本身不会导致重启。 但是，某些基础存储事件（例如存储卷故障转移）可能会检测到这些差异，因而强制所有工作进程重启。 为了尽量减少这种重启，请在所有槽中设置 [`WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG=1` 应用设置](https://github.com/projectkudu/kudu/wiki/Configurable-settings#disable-the-generation-of-bindings-in-applicationhostconfig)。  但是，此应用设置不适用于 Windows Communication Foundation (WCF) 应用。 
 
 ## <a name="next-steps"></a>后续步骤
 [阻止对非生产槽进行访问](app-service-ip-restrictions.md)

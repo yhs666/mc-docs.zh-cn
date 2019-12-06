@@ -1,19 +1,19 @@
 ---
-title: 了解如何审核计算机的内容
+title: 了解如何审核虚拟机的内容
 description: 了解 Azure Policy 如何使用 Guest Configuration 审核 Azure 计算机内部的设置。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 09/04/2019
-ms.date: 10/15/2019
+origin.date: 11/04/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 4c80a8c26be2c8169b765e2252b3ee45174a0bc7
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 4ec535d34fe1cc61a7e70251782520b1ba7887d9
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526716"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657586"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>了解 Azure Policy 的来宾配置
 
@@ -66,7 +66,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |操作系统|验证工具|注释|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) v2| |
+|Windows|[Microsoft Desired State Configuration](https://docs.microsoft.com/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| Ruby 和 Python 由来宾配置扩展安装。 |
 
 ### <a name="validation-frequency"></a>验证频率
@@ -123,7 +123,26 @@ Azure Policy 使用来宾配置资源提供程序 complianceStatus  属性在“
 > [!NOTE]
 > 需有 **DeployIfNotExists** 策略，才能让 **AuditIfNotExists**  策略返回结果。 如果没有 **DeployIfNotExists**，**AuditIfNotExists** 策略会将状态显示为“第 0 个，共 0 个”资源。
 
-来宾配置的所有内置策略包含在一个计划内，以对分配中使用的定义分组。 名为“[预览]：  审核 Linux 和 Windows 计算机中的密码安全设置”的内置计划包含 18 个策略。 对于 Windows 有六个 DeployIfNotExists  和 AuditIfNotExists  对，对于 Linux 有三个对。 [策略定义](definition-structure.md#policy-rule)逻辑将验证是否只评估目标操作系统。
+来宾配置的所有内置策略包含在一个计划内，以对分配中使用的定义分组。 名为“\[预览\]:  审核 Linux 和 Windows 计算机中的密码安全设置”的内置计划包含 18 个策略。 对于 Windows 有六个 DeployIfNotExists  和 AuditIfNotExists  对，对于 Linux 有三个对。 [策略定义](definition-structure.md#policy-rule)逻辑将验证是否只评估目标操作系统。
+
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>根据行业基线审核操作系统设置
+
+Azure Policy 中的某个计划提供根据 Microsoft“基线”审核虚拟机中的操作系统设置的功能。 定义“\[预览\]:  审核不匹配 Azure 安全基线设置的 Windows VM”包含一组完整的审核规则，这些规则基于 Active Directory 组策略中的设置。
+
+大多数设置以参数的形式提供。 使用此功能可以自定义要根据策略和组织要求审核的内容，或者将策略映射为行业法规标准等第三方信息。
+
+某些参数支持整数值范围。 例如，可以使用范围运算符设置“最长密码期限”参数，以便为计算机所有者提供灵活性。 可以审核生效的“组策略”设置是否要求用户在 70 天之内，但至少在一天之后更改其密码。 如参数的信息泡泡中所述，若要为此业务策略设置有效的审核值，请将值设置为“1,70”。
+
+如果使用 Azure 资源管理器部署模板分配策略，则可以使用参数文件从源代码管理管理这些设置。 使用 Git 之类的工具管理对审核策略的更改，并在每次签入时提供备注，以阐述为何不能将某个赋值用作预期值的理由。
+
+#### <a name="applying-configurations-using-guest-configuration"></a>使用 Guest Configuration 应用配置
+
+Azure Policy 的最新功能可以配置计算机内部的设置。 定义“在 Windows 计算机上配置时区”通过配置时区对计算机进行更改。 
+
+分配以“配置”开头的定义时，还必须分配定义“部署必备组件以在 Windows VM 上启用 Guest Configuration 策略”。   如果需要，可将这些定义合并到一个计划中。
+
+<!-- Azure Acr is not available in mc -->
+<!-- #### Assigning policies to machines outside of Azure -->
 
 ### <a name="multiple-assignments"></a>多个分配
 
@@ -131,8 +150,7 @@ Guest Configuration 策略目前仅支持为每台计算机分配相同的来宾
 
 ## <a name="built-in-resource-modules"></a>内置资源模块
 
-安装 Guest Configuration 扩展时，“GuestConfiguration”PowerShell 模块将包含在最新版本的 DSC 资源模块中。 可以使用模块页 [GuestConfiguration/](https://www.powershellgallery.com/packages/GuestConfiguration/) 中的“手动下载”链接从 PowerShell 库下载此模块。
-可将“.nupkg”文件格式重命名为“.zip”，以便于解压缩和查看。
+安装 Guest Configuration 扩展时，“GuestConfiguration”PowerShell 模块将包含在最新版本的 DSC 资源模块中。 可以使用模块页 [GuestConfiguration](https://www.powershellgallery.com/packages/GuestConfiguration/) 中的“手动下载”链接从 PowerShell 库下载此模块。 可将“.nupkg”文件格式重命名为“.zip”，以便于解压缩和查看。
 
 ## <a name="client-log-files"></a>客户端日志文件
 
@@ -176,7 +194,7 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 以下位置提供了 Policy Guest Configuration 的示例：
 
 - [示例索引 - Guest Configuration](../samples/index.md#guest-configuration)
-- [GitHub 存储库中的 Azure Policy 示例](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)。
+- [GitHub 存储库中的 Azure Policy 示例](https://github.com/Azure/azure-policy/tree/master/samples/GuestConfiguration)
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -186,4 +204,4 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
 - 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
 - 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

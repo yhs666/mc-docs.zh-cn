@@ -1,19 +1,19 @@
 ---
 title: 了解效果的工作原理
-description: Azure Policy 定义具有各种效果，可确定管理和报告符合性的方式。
+description: Azure Policy 定义具有各种效果，可确定管理和报告合规性的方式。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 03/29/2019
-ms.date: 10/15/2019
+origin.date: 11/04/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 264a320e89dc15c3fd9ae3d928120c1139eeb6d2
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 539aef9a195018af92e7c39bcad20c83e17c716d
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020883"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657587"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -27,27 +27,34 @@ Azure Policy 中的每个策略定义都有单一效果。 该效果确定了在
 - [Deny](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [已禁用](#disabled)
+- [Modify](#modify)
 
 ## <a name="order-of-evaluation"></a>评估顺序
 
 Azure Policy 首先评估通过 Azure 资源管理器创建或更新资源的请求。 Azure Policy 创建应用于资源的所有分配列表，然后根据每个定义评估资源。 Azure Policy 在将请求转交给相应的资源提供程序之前处理多个效果。 这样做可以防止资源提供程序在资源不符合 Azure Policy 的设计治理控制时进行不必要的处理。
 
 - 首先检查**已禁用**以确定是否应评估策略规则。
-- 然后评估“追加​​”  。 由于“附加”可能会改变请求，因此由“附加”所做的更改可能会阻止“审核”或“拒绝”效果的触发。
+- 然后评估 **Append** 和 **Modify**。 由于上述任一效果可能会改变请求，因此所做的更改可能会阻止 audit 或 deny 效果的触发。
 - 然后评估  “拒绝”。 通过在“审核”之前评估“拒绝”，可以防止两次记录不需要的资源。
 - 然后在请求传输到资源提供程序之前评估**审核**。
 
 资源提供程序返回成功代码后，将会评估 **AuditIfNotExists** 和 **DeployIfNotExists** 以确定是否需要其他合规性日志记录或操作。
 
-对于 **EnforceRegoPolicy** 效果，目前没有任何评估顺序。
+对于 **EnforceOPAConstraint** 或 **EnforceRegoPolicy** 效果，目前没有任何评估顺序。
 
 ## <a name="disabled"></a>已禁用
 
 对于测试情况以及在策略定义已参数化效果时，此效果很有用。 借助这种灵活性可以禁用单个分配，而无需禁用该策略的所有分配。
 
+Disabled 效果的替代效果是针对策略分配设置的 **enforcementMode**。
+如果 **enforcementMode** 设置为 _Disabled_，则仍会评估资源。 不会发生日志记录（例如活动日志）和策略效果。 有关详细信息，请参阅[策略分配 - 强制模式](./assignment-structure.md#enforcement-mode)。
+
 ## <a name="append"></a>附加
 
-附加用于在创建或更新期间向请求的资源添加其他字段。 一个常见示例是在 costCenter 等资源上添加标记，或者为存储资源指定允许的 IP。
+附加用于在创建或更新期间向请求的资源添加其他字段。 一个常见的示例是为存储资源指定允许的 IP。
+
+> [!IMPORTANT]
+> Append 旨在与非标记属性配合使用。 尽管 Append 可以在创建或更新请求期间将标记添加到资源，但我们建议对标记改用 [Modify](#modify) 效果。
 
 ### <a name="append-evaluation"></a>“附加”评估
 
@@ -61,36 +68,7 @@ Azure Policy 首先评估通过 Azure 资源管理器创建或更新资源的请
 
 ### <a name="append-examples"></a>“附加”示例
 
-示例 1：使用单个字段/值  对追加一个标记。
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-        "field": "tags.myTag",
-        "value": "myTagValue"
-    }]
-}
-```
-
-示例 2：两个**字段/值**对附加一组标记。
-
-```json
-"then": {
-    "effect": "append",
-    "details": [{
-            "field": "tags.myTag",
-            "value": "myTagValue"
-        },
-        {
-            "field": "tags.myOtherTag",
-            "value": "myOtherTagValue"
-        }
-    ]
-}
-```
-
-示例 3：使用具有数组**值**的非 **[\*]** [别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 如果非 **[\*]** 别名是数组，该效果将以整个数组的形式附加**值**。 如果数组已存在，该冲突会导致拒绝事件发生。
+示例 1：使用具有数组**值**的非 **[\*]** [别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 如果非 **[\*]** 别名是数组，该效果将以整个数组的形式附加**值**。 如果数组已存在，该冲突会导致拒绝事件发生。
 
 ```json
 "then": {
@@ -105,7 +83,7 @@ Azure Policy 首先评估通过 Azure 资源管理器创建或更新资源的请
 }
 ```
 
-示例 4：使用具有数组**值**的 **[\*]** [别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 通过使用 **[\*]** 别名，该效果会将**值**附加到可能预先存在的数组。 如果数组尚不存在，则会创建数组。
+示例 2：使用具有数组**值**的 **[\*]** [别名](definition-structure.md#aliases)的单个**字段/值**对，可在存储帐户上设置 IP 规则。 通过使用 **[\*]** 别名，该效果会将**值**附加到可能预先存在的数组。 如果该数组尚不存在，系统会创建该数组。
 
 ```json
 "then": {
@@ -117,6 +95,121 @@ Azure Policy 首先评估通过 Azure 资源管理器创建或更新资源的请
             "action": "Allow"
         }
     }]
+}
+```
+
+## <a name="modify"></a>修改
+
+Modify 用于在创建或更新期间在资源中添加、更新或删除标记。 一个常见的示例是在 costCenter 等资源中更新标记。 除非目标资源是资源组，否则 Modify 策略的 `mode` 应始终设置为 _Indexed_。 可以使用[修正任务](../how-to/remediate-resources.md)来修正现有的不合规资源。 单个 Modify 规则可以包含任意数量的操作。
+
+> [!IMPORTANT]
+> Modify 目前只能与标记配合使用。 如果你正在管理标记，我们建议使用 Modify 而不要使用 Append，因为 Modify 提供更多的操作类型，且能够修正现有的资源。 但是，如果无法创建托管标识，则我们建议使用 Append。
+
+### <a name="modify-evaluation"></a>Modify 评估
+
+Modify 在创建或更新资源期间，在资源提供程序处理请求之前进行评估。 当满足策略规则的 **if** 条件时，Modify 会在资源中添加或更新标记。
+
+当使用 Modify 效果的策略定义作为评估周期的一部分运行时，它不会更改已存在的资源。 相反，它会将符合  if 条件的任意资源标记为不符合。
+
+### <a name="modify-properties"></a>Modify 属性
+
+Modify 效果 **details** 属性包含用于定义修正任务所需的权限的所有子属性，以及用于添加、更新或删除标记值的**操作**。
+
+- **roleDefinitionIds** [必选]
+  - 此属性必须包含与可通过订阅访问的基于角色的访问控制角色 ID 匹配的字符串数组。 有关详细信息，请参阅[修正 - 配置策略定义](../how-to/remediate-resources.md#configure-policy-definition)。
+  - 定义的角色必须包含授予[参与者](../../../role-based-access-control/built-in-roles.md#contributor)角色的所有操作。
+- **operations** [必需]
+  - 要对匹配的资源完成的所有标记操作的数组。
+  - 属性：
+    - **operation** [必需]
+      - 定义要对匹配的资源执行的操作。 选项为：_addOrReplace_、_Add_、_Remove_。 _Add_ 的行为类似于 [Append](#append) 效果。
+    - **field** [必需]
+      - 要添加、替换或删除的标记。 标记名称必须遵守适用于其他[字段](./definition-structure.md#fields)的相同命名约定。
+    - **value**（可选）
+      - 要为标记设置的值。
+      - 如果 **operation** 为 _addOrReplace_ 或 _Add_，则此属性是必需的。
+
+### <a name="modify-operations"></a>Modify 操作
+
+使用 **operations** 属性数组可在单个策略定义中以不同的方式更改多个标记。 每个操作由 **operation**、**field** 和 **value** 属性组成。 operation 确定修正任务对标记执行的操作，field 确定要更改的标记，value 定义该标记的新设置。 下面是进行标记更改的示例：
+
+- 将 `environment` 标记设置为“Test”，即使它已存在并使用不同的值。
+- 删除标记 `TempResource`。
+- 将 `Dept` 标记设置为在策略分配中配置的策略参数  _DeptName_。
+
+```json
+"details": {
+    ...
+    "operations": [
+        {
+            "operation": "addOrReplace",
+            "field": "tags['environment']",
+            "value": "Test"
+        },
+        {
+            "operation": "Remove",
+            "field": "tags['TempResource']",
+        },
+        {
+            "operation": "addOrReplace",
+            "field": "tags['Dept']",
+            "value": "[parameters('DeptName')]"
+        }
+    ]
+}
+```
+
+**operation** 属性具有以下选项：
+
+|操作 |说明 |
+|-|-|
+|addOrReplace |将定义的标记和值添加到资源，即使该标记已存在并使用不同的值。 |
+|添加 |将定义的标记和值添加到资源。 |
+|删除 |从资源中删除定义的标记。 |
+
+### <a name="modify-examples"></a>Modify 示例
+
+示例 1：添加 `environment` 标记，并将现有的 `environment` 标记替换为“Test”：
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "Test"
+            }
+        ]
+    }
+}
+```
+
+示例 2：删除 `env` 标记并添加 `environment` 标记，或将现有的 `environment` 标记替换为一个参数化值：
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+        ],
+        "operations": [
+            {
+                "operation": "Remove",
+                "field": "tags['env']"
+            },
+            {
+                "operation": "addOrReplace",
+                "field": "tags['environment']",
+                "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
 }
 ```
 
@@ -234,7 +327,7 @@ AuditIfNotExists 效果的  “details”属性具有定义要匹配的相关资
 
 ## <a name="deployifnotexists"></a>DeployIfNotExists
 
-与 AuditIfNotExists 类似，DeployIfNotExists 在条件满足时执行模板部署。
+与 AuditIfNotExists 类似，DeployIfNotExists 策略定义在满足条件时执行模板部署。
 
 > [!NOTE]
 > **deployIfNotExists** 支持[嵌套模板](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)，但目前不支持[链接模版](../../../azure-resource-manager/resource-group-linked-templates.md)。
@@ -247,7 +340,7 @@ DeployIfNotExists 在资源提供程序处理资源创建或更新请求并返�
 
 ### <a name="deployifnotexists-properties"></a>DeployIfNotExists 属性
 
-DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相关资源和要执行的模板部署的所有子属性。
+DeployIfNotExists 效果的 **details** 属性包含用于定义要匹配的相关资源和要执行的模板部署的所有子属性。
 
 - **Type** [必选]
   - 指定要匹配的相关资源的类型。
@@ -355,9 +448,9 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
 此设置将产生以下结果：
 
 - 位于“chinaeast2”的资源组 B 中的任何现有资源都符合策略 2，但不符合策略 1
-- 不位于“chinaeast2”的资源组 B 中的任何现有资源都不符合策略 2，并且如果它们不在“westus”中，则也不符合策略 1
+- 不位于“chinaeast2”的资源组 B 中的任何现有资源都不符合策略 2，并且如果它们不在“chinaeast2”中，则也不符合策略 1
 - 订阅 A 中任何不在“chinanorth2”中的新资源将会被策略 1 拒绝
-- 位于“westus”的订阅 A 和资源组 B 中的任何新资源将会创建，但不符合策略 2
+- 位于“chinaeast2”的订阅 A 和资源组 B 中的任何新资源将会创建，但不符合策略 2
 
 如果策略 1 和策略 2 都具有“拒绝”效果，则情况变为：
 
@@ -375,4 +468,4 @@ DeployIfNotExists 效果的  “details”属性具有可定义要匹配的相�
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
 - 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
 - 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
-- 参阅[使用 Azure 管理组来组织资源](../../management-groups/index.md)，了解什么是管理组。
+- 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

@@ -3,17 +3,17 @@ title: 如何创建 Guest Configuration 策略
 description: 了解如何创建适用于 Windows 或 Linux VM 的 Azure Policy Guest Configuration 策略。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 07/26/2019
-ms.date: 10/15/2019
+origin.date: 09/20/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 69c26ae92444089e1832c4e5e76fc6f068eb5a1e
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 9506377b848a4dbbff2dfdc601fd0eb9d6602194
+ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526707"
+ms.lasthandoff: 11/29/2019
+ms.locfileid: "74657929"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>如何创建 Guest Configuration 策略
 
@@ -55,9 +55,45 @@ Guest Configuration 使用 **GuestConfiguration** 资源模块创建 DSC 配置�
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration"></a>创建自定义 Guest Configuration 配置
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>创建自定义 Guest Configuration 配置和资源
 
 为 Guest Configuration 创建自定义策略的第一步是创建 DSC 配置。 有关 DSC 的概念和术语概述，请参阅 [PowerShell DSC 概述](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)。
+
+如果你的配置只需要 Guest Configuration 代理安装中内置的资源，则只需创作一个配置 MOF 文件。 如果需要运行其他脚本，则需要创作自定义的资源模块。
+
+### <a name="requirements-for-guest-configuration-custom-resources"></a>Guest Configuration 自定义资源的要求
+
+当 Guest Configuration 审核某个计算机时，它首先会运行 `Test-TargetResource` 来确定该计算机是否处于正常状态。 该函数返回的布尔值确定来宾分配的 Azure 资源管理器状态是合规还是不合规。 如果配置中任一资源的布尔值为 `$false`，则提供程序将运行 `Get-TargetResource`。 如果布尔值为 `$true`，则不调用 `Get-TargetResource`。
+
+函数 `Get-TargetResource` 对 Guest Configuration 提出了特殊的要求，而 Windows Desired State Configuration 并不需要满足这些要求。
+
+- 返回的哈希表必须包含名为 **Reasons** 的属性。
+- Reasons 属性必须是数组。
+- 该数组中的每个项应是包含名为 **Code** 和 **Phrase** 的键的哈希表。
+
+当计算机不合规时，服务使用 Reasons 属性来标准化信息的呈现方式。 可将 Reasons 中的每个项视为资源不合规的一个“原因”。 该属性之所以是数组，是因为资源可能出于多种原因而不合规。
+
+服务需要 **Code** 和 **Phrase** 属性。 创作自定义资源时，请将要作为资源不合规原因显示的文本（通常是 stdout）设置为 **Phrase** 的值。 **Code** 具有特定的格式要求，因此报告可以清楚地显示有关用于执行审核的资源的信息。 此解决方案使得 Guest Configuration 可扩展。 只要可以捕获输出并将其作为 **Phrase** 属性的字符串值返回，就可以运行任一命令来审核计算机。
+
+- **Code**（字符串）：资源的名称，重复该名称，后接一个不包含空格的短名称（作为原因标识符）。 这三个值应以冒号分隔，且不包含空格。
+  - 例如 `registry:registry:keynotpresent`
+- **Phrase**（字符串）：用户可读的文本，用于解释设置不合规的原因。
+  - 例如 `The registry key $key is not present on the machine.`
+
+```powershell
+$reasons = @()
+$reasons += @{
+  Code = 'Name:Name:ReasonIdentifer'
+  Phrase = 'Explain why the setting is not compliant'
+}
+return @{
+    reasons = $reasons
+}
+```
+
+#### <a name="scaffolding-a-guest-configuration-project"></a>搭建 Guest Configuration 项目
+
+对于想要加速入门并学习示例代码的开发人员，我们以适用于 [Plaster](https://github.com/powershell/plaster) PowerShell 模块的模板形式，提供了一个名为“Guest Configuration 项目”的社区项目。  此工具可用于搭建项目（包括工作配置和示例资源）以及一组 [Pester](https://github.com/pester/pester) 测试用于验证项目。 该模板还包含适用于 Visual Studio Code 的任务运行程序，可自动生成和验证 Guest Configuration 包。 有关详细信息，请参阅 GitHub 项目 [Guest Configuration 项目](https://github.com/microsoft/guestconfigurationproject)。
 
 ### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux 上的自定义 Guest Configuration 配置
 
@@ -107,7 +143,7 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-有关详细信息，请参阅[编写、编译和应用配置](https://docs.microsoft.com/powershell/dsc/configurations/write-compile-apply-configuration)。
+有关详细信息，请参阅[编写、编译和应用配置](https://docs.microsoft.com/powershell/scripting/dsc/configurations/write-compile-apply-configuration)。
 
 ## <a name="create-guest-configuration-custom-policy-package"></a>创建 Guest Configuration 自定义策略包
 
@@ -140,15 +176,23 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 
 在 Azure Policy Guest Configuration 中，管理运行时使用的机密的最佳方式是将其存储在 Azure Key Vault 中。 此设计将在自定义 DSC 资源中实施。
 
-首先，在 Azure 中创建用户分配的托管标识。 计算机将使用该标识来访问 Key Vault 中存储的机密。 有关详细步骤，请参阅[使用 Azure PowerShell 创建、列出或删除用户分配的托管标识](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
+1. 首先，在 Azure 中创建用户分配的托管标识。
 
-接下来，创建 Key Vault 实例。 有关详细步骤，请参阅[设置和检索机密 - PowerShell](../../../key-vault/quick-create-powershell.md)。
-分配对该实例的权限，使用户分配的标识能够访问 Key Vault 中存储的机密。 有关详细步骤，请参阅[设置和检索机密 - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)。
+   计算机将使用该标识来访问 Key Vault 中存储的机密。 有关详细步骤，请参阅[使用 Azure PowerShell 创建、列出或删除用户分配的托管标识](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)。
 
-然后，将用户分配的标识分配到计算机。 有关详细步骤，请参阅[使用 PowerShell 在 Azure VM 上配置 Azure 资源的托管标识](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)。
-使用 Azure 资源管理器通过 Azure Policy 大规模分配此标识。 有关详细步骤，请参阅[使用模板在 Azure VM 上配置 Azure 资源的托管标识](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)。
+1. 创建 Key Vault 实例。
 
-最后，在自定义资源中，使用前面生成的客户端 ID 通过计算机提供的令牌访问 Key Vault。 可将 Key Vault 实例的 `client_id` 和 URL 作为[属性](https://docs.microsoft.com/powershell/dsc/resources/authoringresourcemof#creating-the-mof-schema)传递给资源，这样，就不需要为多个环境更新资源，也不需要因为更改了值而更新资源。
+   有关详细步骤，请参阅[设置和检索机密 - PowerShell](../../../key-vault/quick-create-powershell.md)。
+   分配对该实例的权限，使用户分配的标识能够访问 Key Vault 中存储的机密。 有关详细步骤，请参阅[设置和检索机密 - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)。
+
+1. 将用户分配的标识分配到计算机。
+
+   有关详细步骤，请参阅[使用 PowerShell 在 Azure VM 上配置 Azure 资源的托管标识](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)。
+   使用 Azure 资源管理器通过 Azure Policy 大规模分配此标识。 有关详细步骤，请参阅[使用模板在 Azure VM 上配置 Azure 资源的托管标识](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)。
+
+1. 最后，在自定义资源中，使用前面生成的客户端 ID 通过计算机提供的令牌访问 Key Vault。
+
+   可将 Key Vault 实例的 `client_id` 和 URL 作为[属性](https://docs.microsoft.com/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)传递给资源，这样，就不需要为多个环境更新资源，也不需要因为更改了值而更新资源。
 
 可在自定义资源中使用以下代码示例，以使用用户分配的标识从 Key Vault 检索机密。 从请求返回到 Key Vault 的值为纯文本格式。 最佳做法是将其存储在某个 credential 对象中。
 
@@ -157,7 +201,7 @@ New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}'
 $client_id = 'e3a78c9b-4dd2-46e1-8bfa-88c0574697ce'
 $keyvault_url = 'https://keyvaultname.vault.azure.cn/secrets/mysecret'
 
-$access_token = ((Invoke-WebRequest -Uri "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=$client_id&resource=https%3A%2F%2Fvault.azure.net" -Method GET -Headers @{Metadata='true'}).Content | ConvertFrom-Json).access_token
+$access_token = ((Invoke-WebRequest -Uri "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=$client_id&resource=https%3A%2F%2Fvault.azure.cn" -Method GET -Headers @{Metadata='true'}).Content | ConvertFrom-Json).access_token
 
 $value = ((Invoke-WebRequest -Uri $($keyvault_url+'?api-version=2016-10-01') -Method GET -Headers @{Authorization="Bearer $access_token"}).content | convertfrom-json).value |  ConvertTo-SecureString -asplaintext -force
 
@@ -184,7 +228,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-有关如何使用参数进行测试的详细信息，请参阅下一部分[使用自定义 Guest Configuration 策略中的参数](/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies)。
+有关如何使用参数进行测试的详细信息，请参阅下一部分[使用自定义 Guest Configuration 策略中的参数](#using-parameters-in-custom-guest-configuration-policies)。
 
 ## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>创建 Azure Policy 定义和计划部署文件
 
@@ -227,8 +271,7 @@ cmdlet 输出中会返回一个对象，其中包含策略文件的计划显示�
 
 Guest Configuration 支持在运行时重写配置的属性。 此功能意味着，不一定要将包中 MOF 文件中的值视为静态值。 重写值是通过 Azure Policy 提供的，不会影响配置的创作或编译方式。
 
-cmdlet `New-GuestConfigurationPolicy` 和 `Test-GuestConfigurationPolicyPackage` 包含名为 **Parameters** 的参数。
-此参数采用哈希表定义（其中包含有关每个参数的所有详细信息），并自动创建全部所需的文件节来创建每个 Azure Policy 定义。
+cmdlet `New-GuestConfigurationPolicy` 和 `Test-GuestConfigurationPolicyPackage` 包含名为 **Parameters** 的参数。 此参数采用哈希表定义（其中包含有关每个参数的所有详细信息），并自动创建全部所需的文件节来创建每个 Azure Policy 定义。
 
 以下示例将创建一个 Azure 策略用于审核某个服务，在分配策略时，用户可从服务列表中进行选择。
 
@@ -257,7 +300,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-对于 Linux 策略，请在配置中包含属性 `AttributesYmlContent` 并相应地覆盖值。 Guest Configuration 代理会自动创建供 InSpec 用来存储属性的 YaML 文件。 请参阅以下示例。
+对于 Linux 策略，请在配置中包含属性 **AttributesYmlContent** 并相应地覆盖值。 Guest Configuration 代理会自动创建供 InSpec 用来存储属性的 YaML 文件。 请参阅以下示例。
 
 ```powershell
 Configuration FirewalldEnabled {
@@ -319,18 +362,14 @@ New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.c
 
 使用自定义内容包发布自定义 Azure 策略后，若要发布新版本，必须更新两个字段。
 
-- **版本**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定大于当前发布版本的版本号。  该属性会更新新策略文件中的 Guest Configuration 分配版本，使扩展能够识别到包已更新。
-- **contentHash**：此属性由 `New-GuestConfigurationPolicy` cmdlet 自动更新。  它是 `New-GuestConfigurationPackage` 创建的包的哈希值。  对于发布的 `.zip` 文件，该属性必须正确。  如果仅更新 `contentUri` 属性（例如，当某人在门户中手动更改策略定义时），则扩展不会接受内容包。
+- **版本**：运行 `New-GuestConfigurationPolicy` cmdlet 时，必须指定大于当前发布版本的版本号。 该属性会更新新策略文件中的 Guest Configuration 分配版本，使扩展能够识别到包已更新。
+- **contentHash**：此属性由 `New-GuestConfigurationPolicy` cmdlet 自动更新。 它是 `New-GuestConfigurationPackage` 创建的包的哈希值。 对于发布的 `.zip` 文件，该属性必须正确。 如果仅更新 **contentUri** 属性（例如，当某人在门户中手动更改策略定义时），则扩展不会接受内容包。
 
-发布已更新的包的最简单方法是重复本文所述的过程，并提供更新的版本号。
-该过程可保证正确更新所有属性。
+发布已更新的包的最简单方法是重复本文所述的过程，并提供更新的版本号。 该过程可保证正确更新所有属性。
 
 ## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>将 Windows 组策略内容转换为 Azure Policy Guest Configuration
 
-审核 Windows 计算机时，Guest Configuration 是 PowerShell Desired State Configuration 语法的实现。
-DSC 社区已发布相应的工具用于将导出的组策略模板转换为 DSC 格式。
-结合上述 Guest Configuration cmdlet 使用此工具，可以转换 Windows 组策略内容和包，并将其发布以供 Azure Policy 审核。
-有关使用该工具的详细信息，请参阅文章[快速入门：将组策略转换为 DSC](https://docs.microsoft.com/powershell/dsc/quickstarts/gpo-quickstart)。
+审核 Windows 计算机时，Guest Configuration 是 PowerShell Desired State Configuration 语法的实现。 DSC 社区已发布相应的工具用于将导出的组策略模板转换为 DSC 格式。 结合上述 Guest Configuration cmdlet 使用此工具，可以转换 Windows 组策略内容和包，并将其发布以供 Azure Policy 审核。 有关使用该工具的详细信息，请参阅文章[快速入门：将组策略转换为 DSC](https://docs.microsoft.com/powershell/scripting/dsc/quickstarts/gpo-quickstart)。
 转换内容后，创建包并将其发布为 Azure 策略的步骤与处理任何 DSC 内容的相应步骤相同。
 
 ## <a name="optional-signing-guest-configuration-packages"></a>可选：为 Guest Configuration 包签名
@@ -366,15 +405,13 @@ $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 
 GitHub 上的[生成新的 GPG 密钥](https://help.github.com/en/articles/generating-a-new-gpg-key)一文中全面介绍了如何创建可在 Linux 计算机上使用的 GPG 密钥。
 
-发布内容后，将名为 `GuestConfigPolicyCertificateValidation`、值为 `enabled` 的标记追加到需要代码签名的所有虚拟机。 可以使用 Azure Policy 大规模传送此标记。 请参阅[应用标记及其默认值](../samples/apply-tag-default-value.md)示例。
-追加此标记后，使用 `New-GuestConfigurationPolicy` cmdlet 生成的策略定义可通过 Guest Configuration 扩展来满足要求。
+发布内容后，将名为 `GuestConfigPolicyCertificateValidation`、值为 `enabled` 的标记追加到需要代码签名的所有虚拟机。 可以使用 Azure Policy 大规模传送此标记。 请参阅[应用标记及其默认值](../samples/apply-tag-default-value.md)示例。 追加此标记后，使用 `New-GuestConfigurationPolicy` cmdlet 生成的策略定义可通过 Guest Configuration 扩展来满足要求。
 
 ## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>[预览] 排查 Guest Configuration 策略分配问题
 
-我们已提供一个预览版工具用于帮助排查 Azure Policy Guest Configuration 分配问题。
-该工具目前为预览版，已发布到 PowerShell 库，其名称为 [Guest Configuration 故障排除工具](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)。
+我们已提供一个预览版工具用于帮助排查 Azure Policy Guest Configuration 分配问题。 该工具目前为预览版，已发布到 PowerShell 库，其名称为 [Guest Configuration 故障排除工具](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)。
 
-有关此工具中的 cmdlet 的详细信息，请在 PowerShell 中使用 Get-Help 命令显示内置的指导。  在该工具的频繁更新过程中，此命令是获取最新信息的最佳方式。
+有关此工具中的 cmdlet 的详细信息，请在 PowerShell 中使用 Get-Help 命令显示内置的指导。 在该工具的频繁更新过程中，此命令是获取最新信息的最佳方式。
 
 ## <a name="next-steps"></a>后续步骤
 
