@@ -6,15 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-origin.date: 11/05/2019
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: ebc108a5acd9b9f6ca4080740d778361d0ff7f63
-ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
+ms.openlocfilehash: 02936503b57cefe4d132778a19aea681fc9c268d
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326683"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884869"
 ---
 # <a name="what-is-azure-application-gateway"></a>什么是 Azure 应用程序网关？
 
@@ -27,6 +26,10 @@ Azure 应用程序网关是一种 Web 流量负载均衡器，可用于管理 We
 ![imageURLroute](./media/application-gateway-url-route-overview/figure1-720.png)
 
 这种类型的路由称为应用程序层（OSI 层 7）负载均衡。 Azure 应用程序网关可以执行基于 URL 的路由等操作。
+
+>[!NOTE]
+> Azure 为方案提供了一套完全托管的负载均衡解决方案。 如需高性能、低延迟的 4 层负载均衡，请参阅[什么是 Azure 负载均衡器？](../load-balancer/load-balancer-overview.md) 如果正在查找全局 DNS 负载均衡，请查看[什么是流量管理器？](../traffic-manager/traffic-manager-overview.md) 端到端场景可从结合这些解决方案中受益。
+>
 
 以下功能是 Azure 应用程序网关附带的：
 
@@ -51,8 +54,6 @@ Standard_v2 或 WAF_v2 SKU 上的应用程序网关 VIP 支持独占形式的静
 Web 应用程序防火墙 (WAF) 服务为 Web 应用程序提供集中保护，使其免受常见攻击和漏洞的侵害。 WAF 基于 [OWASP（开放 Web 应用程序安全项目）核心规则集](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1（仅限 WAF_v2）、3.0 和 2.2.9 中的规则。 
 
 Web 应用程序已逐渐成为利用常见已知漏洞的恶意攻击的目标。 这些攻击中最常见的攻击包括 SQL 注入攻击、跨站点脚本攻击等。 防止应用程序代码中的此类攻击颇具挑战性，可能需要在应用程序拓扑的多个层进行严格的维护、修补和监视。 集中式 Web 应用程序防火墙有助于大幅简化安全管理，为抵卸威胁或入侵的应用程序管理员提供更好的保障。 相较保护每个单独的 Web 应用程序，WAF 解决方案还可通过在中央位置修补已知漏洞，更快地响应安全威胁。 可将现有应用程序网关轻松转换为支持 Web 应用程序防火墙的应用程序网关。
-
-有关详细信息，请参阅[什么是 Azure Web 应用程序防火墙？](../web-application-firewall/overview.md)。
 
 ## <a name="ingress-controller-for-aks"></a>AKS 的入口控制器
 应用程序网关入口控制器 (AGIC) 允许你使用应用程序网关作为 [Azure Kubernetes 服务 (AKS)](https://www.azure.cn/home/features/kubernetes-service/) 群集的入口。 
@@ -155,4 +156,3 @@ HTTP 标头可让客户端和服务器连同请求或响应一起传递附加的
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure PowerShell](quick-create-powershell.md)
 - [快速入门：使用 Azure 应用程序网关定向 Web 流量 - Azure CLI](quick-create-cli.md)
 
-<!-- Update_Description: wording update -->

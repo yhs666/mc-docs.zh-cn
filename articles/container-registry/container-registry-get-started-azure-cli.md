@@ -1,21 +1,17 @@
 ---
-title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - Azure CLI
+title: 快速入门 - 创建注册表 - Azure CLI
 description: 快速了解如何使用 Azure CLI 创建专用 Docker 容器注册表。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
+ms.date: 12/09/2019
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 900ff5290ad60ec8e726dab44bff9b1d5d892334
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 89965154092e7f13538bd3e7ea5f2a11c0c8fa17
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134437"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885023"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>快速入门：使用 Azure CLI 创建专用容器注册表
 
@@ -126,12 +122,10 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>后续步骤
 
-本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，如何将容器映像推送到注册表，以及如何拉取并运行注册表中的映像。
- 
-<!-- Not Available on  Continue to the Azure Container Registry tutorials for a deeper look at ACR.-->
+本快速入门介绍了如何使用 Azure CLI 创建 Azure 容器注册表，如何将容器映像推送到注册表，以及如何拉取并运行注册表中的映像。 请继续阅读 Azure 容器注册表教程，以更深入地了解 ACR。
 
-<!-- Not Available on > [!div class="nextstepaction"]-->
-<!-- Not Available on > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]-->
+> [!div class="nextstepaction"]
+> [Azure 容器注册表教程][container-registry-tutorial-quick-task]
 
 <!-- LINKS - external -->
 
@@ -151,9 +145,7 @@ az group delete --name myResourceGroup
 [az-group-create]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-create
 [az-group-delete]: https://docs.azure.cn/cli/group?view=azure-cli-latest#az-group-delete
 [azure-cli]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
-
-<!--Not Available on [container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md-->
-
+[container-registry-tutorial-quick-task]: container-registry-tutorial-quick-task.md
 [container-registry-skus]: container-registry-skus.md
 
-<!-- Update_Description: wording update, updat meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

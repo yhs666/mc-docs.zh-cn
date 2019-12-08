@@ -5,16 +5,15 @@ description: 本文概述了应用程序网关上的 Web 应用程序防火墙 (
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-origin.date: 11/14/2019
-ms.date: 11/25/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.topic: overview
-ms.openlocfilehash: 4ef01d670c84823424e0f8eebcf9de48d9b4ec37
-ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
+ms.openlocfilehash: 0519353d0566baec36c0662c2091bc6bcc499916
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74461653"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884872"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure 应用程序网关上的 Azure Web 应用程序防火墙
 
@@ -90,7 +89,12 @@ Azure 应用程序网关提供的 Azure Web 应用程序防火墙 (WAF) 可以�
 
 应用程序网关也支持自定义规则。 使用自定义规则，可以创建自己的规则，这些规则对通过 WAF 传递的每个请求进行评估。 这些规则的优先级高于托管规则集中的其他规则。 如果满足一组条件，则执行操作以进行允许或阻止。 
 
-有关详细信息，请参阅[应用程序网关的自定义规则](custom-waf-rules-overview.md)。
+自定义规则的 geomatch 运算符现以公共预览版提供。 有关详细信息，请参阅 [geomatch 自定义规则](custom-waf-rules-overview.md#geomatch-custom-rules-preview)。
+
+> [!NOTE]
+> 自定义规则的 geomatch 运算符当前为公共预览版，并提供预览版服务级别协议。 某些功能可能不受支持或者受限。 有关详细信息，请参阅 [Azure 预览版补充使用条款](https://www.azure.cn/support/legal/)。
+
+有关自定义规则的详细信息，请参阅[应用程序网关的自定义规则](custom-waf-rules-overview.md)。
 
 ### <a name="bot-mitigation-preview"></a>机器人缓解（预览版）
 

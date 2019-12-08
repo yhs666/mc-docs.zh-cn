@@ -1,19 +1,17 @@
 ---
-title: 使用 Azure 备份服务备份 Azure 文件存储文件共享
+title: 教程 - 备份 Azure 文件存储文件共享
 description: 在本教程中，了解如何使用 Azure 门户配置恢复服务保管库并备份 Azure 文件共享。
 author: lingliw
-manager: digimobile
-ms.service: backup
+ms.date: 10/18/2019
 ms.topic: tutorial
 origin.date: 06/10/2019
-ms.date: 10/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 14121cfdffcdc3f139dbd1dfd5740b87baabce33
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 5dd8d3e4bf37c3a3d54f4531c1021b4829744af2
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528225"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838584"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>在 Azure 门户中备份 Azure 文件共享
 
@@ -24,7 +22,6 @@ ms.locfileid: "74528225"
 >
 > * 将恢复服务保管库配置为备份 Azure 文件
 > * 运行按需备份作业，以创建还原点
-
 
 ## <a name="prerequisites"></a>先决条件
 在备份 Azure 文件共享之前，请确保其类型为[支持的存储帐户类型](tutorial-backup-azure-files.md#limitations-for-azure-file-share-backup-during-preview)。 验证这个之后，即可对文件共享进行保护。

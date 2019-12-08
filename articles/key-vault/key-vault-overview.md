@@ -11,12 +11,12 @@ ms.custom: mvc
 origin.date: 01/07/2019
 ms.date: 10/30/2019
 ms.author: v-tawe
-ms.openlocfilehash: 047d76cd99ed93491db8addad10d0e55ceef39c5
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 4fb4b54c9b895ec28b1a0075cd1c3db58bfb1f6c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426100"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838555"
 ---
 # <a name="what-is-azure-key-vault"></a>什么是 Azure 密钥保管库？
 
@@ -26,6 +26,7 @@ Azure Key Vault 有助于解决以下问题：
 - **密钥管理** - Azure Key Vault 也可用作密钥管理解决方案。 可以通过 Azure Key Vault 轻松创建和控制用于加密数据的加密密钥。 
 - **证书管理** - Azure Key Vault 也是一项服务，可以用来轻松地预配、管理和部署公用和专用安全套接字层/传输层安全性 (SSL/TLS) 证书，这些证书可以与 Azure 以及你的内部连接资源配合使用。 
 
+<!-- - **Store secrets backed by Hardware Security Modules** - The secrets and keys can be protected either by software or FIPS 140-2 Level 2 validates HSMs -->
 
 ## <a name="why-use-azure-key-vault"></a>为何使用 Azure Key Vault？
 
@@ -60,6 +61,8 @@ Azure Key Vault 有助于解决以下问题：
 
 存储有价值的数据时，必须执行多项步骤。 安全信息必须受到保护，必须遵循某个生命周期，必须高度可用。 Azure Key Vault 可通过以下操作简化满足这些要求的过程：
 
+<!-- - Removing the need for in-house knowledge of Hardware Security Modules -->
+
 - 收到通知后很快就可以进行纵向扩展，满足组织的使用高峰需求。
 - 在某个区域内复制 Key Vault 的内容，并将其复制到次要区域。 数据复制可确保高可用性，不需管理员操作即可触发故障转移。
 - 通过门户、Azure CLI 和 PowerShell 提供标准的 Azure 管理选项。
@@ -69,7 +72,13 @@ Azure Key Vault 有助于解决以下问题：
 
 ### <a name="integrate-with-other-azure-services"></a>与其他 Azure 服务集成
 
-Key Vault 是 Azure 中的安全存储，一直用于简化多种方案，例如 [Azure 磁盘加密](../security/azure-security-disk-encryption.md)、SQL Server 和 Azure SQL 中的 [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 功能。 Key Vault 本身可以与存储帐户、事件中心和 Log Analytics 集成。
+<!-- -  [Azure Disk Encryption](../security/fundamentals/encryption-overview.md) -->
+
+作为 Azure 中的安全存储，Key Vault 已用于简化如下方案：
+-  SQL 服务器和 Azure SQL 数据库的[始终加密]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)功能
+- [Azure 应用服务]( https://docs.azure.cn/app-service/configure-ssl-certificate)。
+
+Key Vault 本身可以与存储帐户、事件中心和 Log Analytics 集成。
 
 ## <a name="next-steps"></a>后续步骤
 

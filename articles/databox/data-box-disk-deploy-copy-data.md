@@ -7,18 +7,22 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 09/03/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 16e2c83fc46af2b87d210eb1afefd970059cf713
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 9a34bb45ceb78697ed8f2e2a5eb0e4e92d6c5d1b
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530622"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884016"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>教程：将数据复制到 Azure Data Box Disk 并进行验证
+
+::: zone-end
 
 ::: zone target="chromeless"
 

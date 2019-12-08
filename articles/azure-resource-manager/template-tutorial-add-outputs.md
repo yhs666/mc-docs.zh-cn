@@ -3,15 +3,15 @@ title: 教程 - 将输出添加到模板
 description: 将输出添加到 Azure 资源管理器模板以简化语法。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: e6194a7645e37b620f3c8a74a95457d2bf985dca
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 0a4ffa7afdb35e389c4625a666e6e5c54d817f11
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389575"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884907"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>教程：将输出添加到资源管理器模板
 
@@ -23,9 +23,9 @@ ms.locfileid: "74389575"
 
 必须有包含资源管理器工具扩展的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 有关详细信息，请参阅[模板工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>检查模板
+## <a name="review-template"></a>审阅模板
 
-在上一教程的末尾，模板有以下 JSON：
+在上一篇教程的结束时，模板包含以下 JSON：
 
 ```json
 {
@@ -145,7 +145,7 @@ ms.locfileid: "74389575"
 
 最后，它从存储帐户返回 **primaryEndpoints** 属性
 
-## <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-template"></a>部署模板
 
 现在可以部署模板并查看返回的值了。
 
@@ -235,5 +235,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [使用导出的模板](template-tutorial-export-template.md)
 
-<!-- Update_Description: new article about template tutorial add outputs -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

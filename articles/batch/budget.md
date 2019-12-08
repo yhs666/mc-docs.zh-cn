@@ -9,14 +9,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 origin.date: 08/26/2019
-ms.date: 07/19/2019
+ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: dea4448a1a8d694155be854deb02f40530d73e7e
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: f06a0dab822e7e13a5dcc753f4c7db3e9ad0d848
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527971"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838621"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Azure Batch 的成本分析和预算
 

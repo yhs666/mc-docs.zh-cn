@@ -11,40 +11,14 @@
   items:
     - name: 构建预生成域应用
       href: luis-get-started-create-app.md
-    - name: 使用 LUIS 门户
-      items:
-        - name: 1. 创建应用
-          href: get-started-portal-build-app.md
-          displayName: 'intent, entity, create app, test, example utterance'
-        - name: 2. 部署应用
-          href: get-started-portal-deploy-app.md
-          displayName: 'assign key, assign resource, add key, add resource, test, deploy, endpoint, query, publish'
     - name: 使用 .NET SDK
       items:
         - name: 查询预测终结点
           href: sdk-csharp-quickstart-query-prediction-endpoint.md
-    - name: 使用 REST API
-      items:
-        - name: 更改模型
-          items:
-            - name: 'C#'
-              href: luis-get-started-cs-add-utterance.md
-            - name: Go
-              href: luis-get-started-go-add-utterance.md
-            - name: Java
-              href: luis-get-started-java-add-utterance.md
-            - name: Node.js
-              href: luis-get-started-node-add-utterance.md
-            - name: Python
-              href: luis-get-started-python-add-utterance.md
 - name: 教程
   items:
     - name: 构建应用
       items:
-        - name: 确定用户意图
-          href: luis-quickstart-intents-only.md
-        - name: 使用预生成的模型标识常见用户数据
-          href: luis-tutorial-prebuilt-intents-entities.md
         - name: 从用户话语获取情绪
           href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: 通过正则表达式获取具有严格格式的数据
@@ -81,10 +55,8 @@
       href: luis-how-plan-your-app.md
     - name: 创作应用
       items:
-        - name: 创作周期
+        - name: 创作循环
           href: luis-concept-app-iteration.md
-        - name: 版本控制
-          href: luis-concept-version.md
           displayName: import
     - name: 设计模型
       items:
@@ -95,18 +67,14 @@
           href: luis-concept-entity-types.md
         - name: 陈述
           href: luis-concept-utterance.md
-        - name: 角色
-          href: luis-concept-roles.md
         - name: 预生成的模型
           href: luis-concept-prebuilt-model.md
     - name: 提高应用性能
       items:
         - name: 预测分数
           href: luis-concept-prediction-score.md
-        - name: 查看终结点表述
+        - name: 查看终结点话语
           href: luis-concept-review-endpoint-utterances.md
-        - name: 短语列表
-          href: luis-concept-feature.md
         - name: 模式
           href: luis-concept-patterns.md
     - name: 数据管理
@@ -134,28 +102,8 @@
       items:
         - name: 创作和终结点密钥
           href: luis-concept-keys.md
-- name: 操作指南
-  items:
-    - name: 创建新应用
-      href: luis-how-to-start-new-app.md
-      displayName: 'import, export, container'
     - name: 构建模型
       items:
-        - name: 添加意向
-          href: luis-how-to-add-intents.md
-        - name: 将实体添加到话语
-          href: luis-how-to-add-example-utterances.md
-        - name: 在没有话语的情况下添加实体
-          href: luis-how-to-add-entities.md
-          displayName: 'roles, import'
-        - name: 使用预构建的模型
-          items:
-            - name: 使用域
-              href: luis-prebuilt-domains.md
-            - name: 使用意向
-              href: luis-prebuilt-intent.md
-            - name: 使用实体
-              href: luis-prebuilt-entities.md
         - name: 使用 REST API
           items:
             - name: 使用 Node.js 以编程方式构建应用
@@ -170,23 +118,13 @@
         - name: 添加短语列表
           displayName: 'synonym, interchange'
           href: luis-how-to-add-features.md
-        - name: 查看终结点话语
-          displayName: active learning
-          href: luis-how-to-review-endpoint-utterances.md
-        - name: 添加模式
-          displayName: 'syntax, template, roles'
-          href: luis-how-to-model-intent-pattern.md
     - name: 定型
       href: luis-how-to-train.md
     - name: 测试
       items:
-        - name: 交互式测试
-          href: luis-interactive-test.md
         - name: 批处理测试
           href: luis-how-to-batch-test.md
           displayName: 'import, export'
-    - name: 发布
-      href: luis-how-to-publish-app.md
     - name: 管理应用
       items:
         - name: 将订阅密钥与 LUIS 应用配合使用

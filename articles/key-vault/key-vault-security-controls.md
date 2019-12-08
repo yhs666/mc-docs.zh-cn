@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 04/16/2019
 ms.date: 10/30/2019
 ms.author: v-tawe
-ms.openlocfilehash: c659314d896986df385fc178cea69e3f95259a81
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 5ef91ed407f5c159e976961502d32bf3571373d8
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426132"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838976"
 ---
 # <a name="security-controls-for-azure-key-vault"></a>Azure 密钥保管库的安全控制
 
@@ -51,7 +51,6 @@ ms.locfileid: "73426132"
 | 安全控制 | Yes/No | 注释 |
 |---|---|--|
 | 服务器端静态加密：Microsoft 管理的密钥 | 是 | 加密所有对象。 |
-| 服务器端静态加密：客户管理的密钥 (BYOK) | 是 | 客户控制其密钥保管库中的所有密钥。 |
 | 列级加密（Azure 数据服务）| 不适用 |  |
 | 传输中加密（例如 ExpressRoute 加密、VNet 中加密，以及 VNet-VNet 加密）| 是 | 所有通信都通过加密的 API 调用进行 |
 | 加密的 API 调用| 是 | 使用 HTTPS。 |

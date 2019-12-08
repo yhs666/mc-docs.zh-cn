@@ -4,9 +4,9 @@ description: 本主题介绍如何使用 Azure 通知中心发送预定通知。
 services: notification-hubs
 documentationcenter: .net
 keywords: 推送通知,push notification,计划推送通知
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 6b718c75-75dd-4c99-aee3-db1288235c1a
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1534b0ab5e164e83db7f610c63c5014eda07a203
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: f96185d0c889b3f42660f2c12d454ad2485fee66
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272476"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884971"
 ---
 # <a name="how-to-send-scheduled-notifications"></a>如何：发送预定通知
 

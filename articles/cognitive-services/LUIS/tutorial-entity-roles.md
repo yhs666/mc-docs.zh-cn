@@ -9,21 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 07/24/2019
-ms.date: 09/07/2019
+origin.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: 62ddcd94990e940449781e2e20c091f5fb238708
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 7bf13e5fb67c8390415ee783ee768ed732d41722
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329669"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884724"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>教程：从陈述中提取上下文相关的数据
 
 在本教程中，基于上下文查找相关的数据片段。 例如，从一个城市转移到另一个城市的原位置和目的地。 可能同时需要这两个数据片段，并且它们彼此相关。  
 
 角色可与任何预生成的或自定义的实体类型配合使用，并可在示例言语和模式中使用。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -121,32 +123,32 @@ ms.locfileid: "71329669"
       "query": "Please move Carl Chamerlin from Tampa to Portland",
       "topScoringIntent": {
         "intent": "MoveEmployeeToCity",
-        "score": 0.979823351
+        "score": 0.9706451
       },
       "intents": [
         {
           "intent": "MoveEmployeeToCity",
-          "score": 0.979823351
+          "score": 0.9706451
         },
         {
           "intent": "None",
-          "score": 0.0156363435
+          "score": 0.0307451729
         }
       ],
       "entities": [
         {
-          "entity": "geographyV2",
-          "role": "Destination",
-          "startIndex": 41,
-          "endIndex": 48,
-          "score": 0.6044041
-        },
-        {
-          "entity": "geographyV2",
-          "role": "Origin",
+          "entity": "tampa",
+          "type": "builtin.geographyV2.city",
           "startIndex": 32,
           "endIndex": 36,
-          "score": 0.739491045
+          "role": "Origin"
+        },
+        {
+          "entity": "portland",
+          "type": "builtin.geographyV2.city",
+          "startIndex": 41,
+          "endIndex": 48,
+          "role": "Destination"
         }
       ]
     }
@@ -161,12 +163,8 @@ ms.locfileid: "71329669"
 ## <a name="related-information"></a>相关信息
 
 * [实体的概念](luis-concept-entity-types.md)
-* [角色的概念](luis-concept-roles.md)
 * [预生成实体列表](luis-reference-prebuilt-entities.md)
 * [如何训练](luis-how-to-train.md)
-* [如何发布](luis-how-to-publish-app.md)
-* [如何在 LUIS 门户中测试](luis-interactive-test.md)
-* [角色](luis-concept-roles.md)
 
 ## <a name="next-steps"></a>后续步骤
 

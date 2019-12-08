@@ -1,20 +1,18 @@
 ---
-title: 使用 DPM 为 SQL 工作负荷配置 Azure 备份
+title: 将 SQL Server 备份到 Azure 作为 DPM 工作负荷
 description: 使用 Azure 备份服务备份 SQL Server 数据库简介
-ms.reviewer: kasinh
 author: lingliw
 manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 10/18/2018
 ms.date: 01/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08bcd83a0bb5634b76dd3685b07db9d0b388f9c3
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 4a26d3ce07cb76962deee6c0cf519a4a4884eba3
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730563"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838939"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>将 SQL Server 备份到 Azure 作为 DPM 工作负荷
 本文将引导你使用 Azure 备份完成 SQL Server 数据库的备份配置步骤。

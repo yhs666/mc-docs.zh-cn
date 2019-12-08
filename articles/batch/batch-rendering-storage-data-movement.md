@@ -1,5 +1,5 @@
 ---
-title: 用于渲染的 Azure Batch 存储和数据移动选项
+title: 用于渲染的存储和数据移动选项 - Azure Batch
 description: 用于渲染工作负荷的存储和数据移动选项
 services: batch
 author: mscurrell
@@ -7,12 +7,12 @@ ms.author: v-lingwu
 origin.date: 08/02/2019
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 54f254b3e5aa0ccc12f15b7b521fbf2f926d7ca2
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 5b61ea2aa4ab96a78db4417559618590f5f03005
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528315"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838992"
 ---
 # <a name="storage-and-data-movement-options-for-rendering-asset-and-output-files"></a>用于渲染资产和输出文件的存储与数据移动选项
 
@@ -71,7 +71,7 @@ Azure Batch 内置支持在存储帐户与 Batch 池 VM 之间复制文件。  �
 
 Blobfuse 是适用于 Azure Blob 存储的虚拟文件系统驱动程序，用于通过 Linux 文件系统访问存储帐户中以 Blob 形式存储的文件。
 
-池节点可以在启动时装载文件系统，或者，可以在执行作业准备任务（仅当在节点上运行作业中的第一个任务时才运行的任务）过程中进行装载。  可将 Blobfuse 配置为同时利用 ramdisk 和 VM 本地 SSD 来缓存文件，如果节点上的多个任务访问某些相同的文件，则此配置可以大幅提高性能。
+池节点启动时可以装载文件系统，或者，可以在执行作业准备任务（仅当在节点上运行作业中的第一个任务时才运行的任务）过程中进行装载。  可将 Blobfuse 配置为同时利用 ramdisk 和 VM 本地 SSD 来缓存文件，如果节点上的多个任务访问某些相同的文件，则此配置可以大幅提高性能。
 
 我们[提供了示例模板](https://github.com/Azure/BatchExplorer-data/tree/master/ncj/vray/render-linux-with-blobfuse-mount)用于通过 blobfuse 文件系统运行独立的 V-ray 渲染器，可将这些模板用作其他应用程序的模板的基础。
 

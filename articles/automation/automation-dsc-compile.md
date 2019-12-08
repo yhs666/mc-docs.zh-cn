@@ -7,15 +7,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 09/10/2018
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 707c231bb344cdc5ae4a3022122610213d0528d8
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: da75c7da38f7f90a74be85d12c88e01efae58d47
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116236"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884036"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>在 Automation State Configuration 中编译 DSC 配置
 
@@ -262,7 +262,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="compiling-a-configuration-in-windows-powershell"></a>在 Windows PowerShell 中编译配置
 
-在 Windows PowerShell 中编译 DSC 配置的过程包含在以下 PowerShell DSC 文档中：[编写、编译和应用配置](https://docs.microsoft.com/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration)。
+在 Windows PowerShell 中编译 DSC 配置的过程包含在以下 PowerShell DSC 文档中：[编写、编译和应用配置](https://docs.microsoft.com/powershell/scripting/dsc/configurations/write-compile-apply-configuration#compile-the-configuration)。
 这可以从开发人员工作站或在生成服务（如 [Azure DevOps](https://dev.azure.com)）中执行。
 
 然后，可以将通过编译配置生成的一个或多个 MOF 文件直接导入到 Azure State Configuration 服务中。

@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 09/04/2019
 ms.date: 10/30/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1d00d391022ba99f6cfb8effd17d1e81dff27f77
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: f4e61d9a808c180855fa23af399b042597de6a24
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426124"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838974"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>使用托管标识提供 Key Vault 身份验证
 
@@ -32,7 +32,7 @@ ms.locfileid: "73426124"
    - [使用 Azure PowerShell 创建 Key Vault](quick-create-powershell.md)
    - [使用 Azure 门户创建 Key Vault](quick-create-portal.md)
 - 一个现有的应用服务应用程序，需向其授予密钥保管库访问权限。 可以按[应用服务文档](../app-service/overview.md)中的步骤快速创建一个。
-- [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 或者，可以使用 [Azure 门户](http://portal.azure.cn)。
+- [Azure CLI](/cli/install-azure-cli?view=azure-cli-latest) 或 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)。 或者，可以使用 [Azure 门户](https://portal.azure.cn)。
 
 
 ## <a name="adding-a-system-assigned-identity"></a>添加系统分配的标识 

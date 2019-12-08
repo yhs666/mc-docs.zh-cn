@@ -1,18 +1,17 @@
 ---
-title: 在创建 Azure VM 时通过 Azure 备份启用备份
+title: 在创建 Azure VM 时启用备份
 description: 介绍了如何在创建 Azure VM 时通过 Azure 备份启用备份。
-author: rayne-wiselman
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
-ms.date: 06/13/2019
+author: lingliw
+origin.date: 06/13/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4133cc103f496af2ea73c842eff216a0c3fc31ee
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 38e166aacb9493014dc3ce187804ef20ec0d751c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528379"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838899"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>在创建 Azure VM 时启用备份
 
@@ -52,11 +51,8 @@ ms.locfileid: "74528379"
 
       ![默认备份策略](./media/backup-during-vm-creation/daily-policy.png)
 
-
 > [!NOTE]
-> Azure 备份服务会创建一个单独的资源组（而非 VM 资源组）来存储快照，采用的命名格式为 **AzureBackupRG_geography_number**（例如：AzureBackupRG_northeurope_1）。 此资源组中的数据将按 Azure 虚拟机备份策略的“保留即时恢复快照”  部分中指定的天数保留。  对此资源组应用锁定可能会导致备份失败。<br>
-此资源组还应排除在任何名称/标记限制之外，因为限制策略会阻止在其中再次创建资源点集合，从而导致备份失败。
-
+> Azure 备份服务会创建一个单独的资源组（而非 VM 资源组）来存储快照，采用的命名格式为 **AzureBackupRG_geography_number**（例如：AzureBackupRG_northeurope_1）。 此资源组中的数据将按 Azure 虚拟机备份策略的“保留即时恢复快照”  部分中指定的天数保留。  对此资源组应用锁定可能会导致备份失败。 <br> 此资源组还应排除在任何名称/标记限制之外，因为限制策略会阻止在其中再次创建资源点集合，从而导致备份失败。
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>在创建 VM 后启动备份
 

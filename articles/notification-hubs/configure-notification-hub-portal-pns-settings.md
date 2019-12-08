@@ -2,21 +2,23 @@
 title: 在 Azure 通知中心设置推送通知 | Azure
 description: 了解如何在 Azure 门户中使用平台通知系统 (PNS) 设置来设置 Azure 通知中心。
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 origin.date: 02/14/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 7cab017842956f574ec6d7c6b7d89760be05c5e8
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: 113f44ead13d2c06c5b7612d5564c6192dc2d3e9
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272380"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884995"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>使用 Azure 门户在通知中心设置推送通知
 
@@ -32,7 +34,7 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 
 1. 在 Azure 门户的“通知中心”页上，从左侧菜单中选择“Apple (APNS)”。  
 
-2. 对于“身份验证模式”，请选择“证书”或“令牌”。   
+1. 对于“身份验证模式”，请选择“证书”或“令牌”。   
 
    a. 如果选择“证书”： 
    * 选择“文件”图标，然后选择要上传的“.p12”文件。 
@@ -46,9 +48,12 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
    * 输入“密钥 ID”、“绑定 ID”、“团队 ID”和“令牌”的值     。
    * 选择“沙盒”  模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。 
 
-     ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
 有关详细信息，请参阅[通过 Azure 通知中心向 iOS 推送通知](notification-hubs-ios-apple-push-notification-apns-get-started.md)。
+
+<!-- ## Google Firebase Cloud Messaging -->
+
 
 ## <a name="windows-push-notification-service"></a>Windows 推送通知服务
 
@@ -56,7 +61,7 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 
 1. 在 Azure 门户的“通知中心”页上，从左侧菜单中选择“Windows (WNS)”。  
 2. 输入“包 SID”和“安全密钥”的值。  
-3. 选择**保存**。
+3. 选择“保存”  。
 
    ![显示“包 SID”和“安全密钥”框的屏幕截图](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
@@ -90,7 +95,7 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 1. 在 Azure 门户的“通知中心”页上，从左侧菜单中选择“Baidu (Android China)”。   
 2. 在百度云推送项目中，输入从百度控制台获取的“API 密钥”。  
 3. 在百度云推送项目中，输入从百度控制台获取的“机密密钥”。  
-4. 选择**保存**。 
+4. 选择“保存”  。 
 
     ![通知中心的屏幕截图，其中显示了百度 (Android China) 的推送通知配置](./media/notification-hubs-baidu-get-started/AzureNotificationServicesBaidu.png)
 
@@ -103,8 +108,9 @@ Azure 通知中心提供一个易于使用且可横向扩展的推送引擎。�
 
 若要详细了解如何将通知推送到各种平台，请参阅以下教程：
 
-- [使用通知中心和 APNS 将通知推送到 iOS 设备](notification-hubs-ios-apple-push-notification-apns-get-started.md)
+<!-- - [Push notifications to Android devices by using Notification Hubs and Google FCM](notification-hubs-android-push-notification-google-fcm-get-started.md) -->
 
+- [使用通知中心和 APNS 将通知推送到 iOS 设备](notification-hubs-ios-apple-push-notification-apns-get-started.md)
 - [将通知推送到 Windows 设备上运行的 UWP 应用](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)
 - [使用 MPNS 将通知推送到 Windows Phone 8 应用](notification-hubs-windows-mobile-push-notifications-mpns.md)
 - [使用通知中心和百度云推送来推送通知](notification-hubs-baidu-china-android-notifications-get-started.md)。

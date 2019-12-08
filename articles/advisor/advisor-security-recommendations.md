@@ -3,7 +3,7 @@ title: 使用 Azure 顾问提高资源的安全性 | Azure
 description: 使用 Azure 顾问提高 Azure 部署的安全性。
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: lingliw
 manager: ''
 ms.assetid: ''
 ms.service: advisor
@@ -13,12 +13,12 @@ ms.workload: NA
 origin.date: 01/29/2019
 ms.date: 01/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9dad310bf64401b3c0b29b9a828a261f7de6a5cc
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 47f7ac09c97aafce7d00382bc0fae2777d4a2534
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329785"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838801"
 ---
 # <a name="make-resources-more-secure-with-azure-advisor"></a>使用 Azure 顾问提高资源的安全性
 

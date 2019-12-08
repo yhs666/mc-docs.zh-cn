@@ -1,25 +1,27 @@
 ---
-title: 使用 Azure CLI 运行第一个查询
-description: 本文将指导你完成为 Azure CLI 启用 Resource Graph 扩展并运行第一个查询的步骤。
+title: 快速入门：第一个 Azure CLI 查询
+description: 本快速入门介绍为 Azure CLI 启用 Resource Graph 扩展并运行第一个查询的步骤。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 10/18/2019
-ms.date: 11/04/2019
+origin.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4aa86abf114a77987260496db28a6e7efa8b18c9
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: a9a3bf74c95799960a33fd5272f1d07fdfde4230
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970338"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884661"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>快速入门：使用 Azure CLI 运行你的第一个 Resource Graph 查询
 
 使用 Azure Resource Graph 的第一步是确保为 [Azure CLI](/cli/) 安装了该扩展。 本快速入门将指导你完成将该扩展添加到 Azure CLI 安装的过程。 
 
 在此过程结束时，你已将该扩展添加到所选的 Azure CLI 安装中，并将运行你的第一个 Resource Graph 查询。
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 

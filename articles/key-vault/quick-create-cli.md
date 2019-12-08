@@ -11,12 +11,12 @@ ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 origin.date: 09/03/2019
 ms.date: 10/30/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5e4f347202caebf6f2139887570b2f993b3f3afc
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 9fbba35452805730aed70e75643beaecbc2eb7d5
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425866"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838947"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>快速入门：使用 Azure CLI 在 Azure Key Vault 中设置和检索机密
 
@@ -33,14 +33,14 @@ az cloud set -n AzureChinaCloud
 az login
 ```
 
-若要详细了解通过 CLI 使用的登录选项，请参阅[使用 Azure CLI 2.0 登录](/cli/authenticate-azure-cli?view=azure-cli-latest)
+若要详细了解通过 CLI 使用的登录选项，请参阅[使用 Azure CLI 登录](/cli/authenticate-azure-cli?view=azure-cli-latest)
 
 ## <a name="create-a-resource-group"></a>创建资源组
 
 资源组是在其中部署和管理 Azure 资源的逻辑容器。 以下示例在“chinanorth”  位置创建名为“ContosoResourceGroup”  的资源组。
 
 ```azurecli
-az group create --name 'ContosoResourceGroup' --location chinanorth
+az group create --name "ContosoResourceGroup" --location chinanorth
 ```
 
 ## <a name="create-a-key-vault"></a>创建密钥保管库

@@ -1,25 +1,17 @@
 ---
-title: 排查资源管理器部署问题 | Azure
-description: 了解如何监视和排查资源管理器部署问题。
-services: azure-resource-manager
-documentationcenter: ''
+title: 对部署进行故障排除
+description: 了解如何监视和排查 Azure 资源管理器模板部署问题。 显示活动日志和部署历史记录。
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 origin.date: 01/15/2019
-ms.date: 02/18/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: bd5d716f02e92bc928823ec87452a4cd6f029766
-ms.sourcegitcommit: cdcb4c34aaae9b9d981dec534007121b860f0774
+ms.openlocfilehash: 755ff4e28172c95a5545d5bb5e34cb2189de83cd
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56306313"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884841"
 ---
 <!--Verify Succesfully-->
 # <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>教程：排查资源管理器模板部署问题
@@ -28,7 +20,7 @@ ms.locfileid: "56306313"
 
 有两种类型的错误与模板部署相关：
 
-- **验证错误**源于部署之前可确定的方案。 原因包括模板中的语法错误，或尝试部署超出订阅配额的资源。 
+- **验证错误**源于部署之前可确定的方案。 原因包括模板中的语法错误，或尝试部署超出订阅配额的资源。
 - **部署错误**源于部署过程中发生的条件。 原因包括尝试访问并行部署的资源。
 
 这两种类型的错误都会返回错误代码，可使用该代码来排查部署问题。 两种类型的错误都会显示在活动日志中。 但是，验证错误不会显示在部署历史记录中，因为部署从未启动。
@@ -49,19 +41,19 @@ ms.locfileid: "56306313"
 
 若要完成本文，需要做好以下准备：
 
-- 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](./resource-manager-tools-vs-code.md)。
 
 ## <a name="create-a-problematic-template"></a>创建有问题的模板
 
 打开 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)中名为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)的模板，设置两个模板问题。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
-2. 在“文件名”中粘贴以下 URL：
+1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
+2. 在“文件名”中粘贴以下 URL： 
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. 选择“打开”以打开该文件。
+3. 选择“打开”以打开该文件。 
 4. 将 **apiVersion** 行更改为以下行：
 
     ```json
@@ -70,7 +62,7 @@ ms.locfileid: "56306313"
     - **apiVersion1** 是无效的元素名称。 它是验证错误。
     - API 版本应该是“2018-07-01”。  它是部署错误。
 
-5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
+5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。  
 
 ## <a name="troubleshoot-the-validation-error"></a>排查验证错误
 
@@ -104,10 +96,10 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 可通过以下过程从 Azure 门户找出部署错误：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 打开资源组，方法是：选择“资源组”，然后选择资源组名称。 此时会看到“部署”下显示“1 个失败”。
+2. 打开资源组，方法是：选择“资源组”，然后选择资源组名称。  此时会看到“部署”下显示“1 个失败”   。
 
     ![资源管理器教程故障排除](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
-3. 选择“错误详细信息”。
+3. 选择“错误详细信息”。 
 
     ![资源管理器教程故障排除](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
@@ -118,7 +110,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 也可在活动日志中查找错误：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 选择“Monitor” > “活动日志”。
+2. 选择“Monitor” > “活动日志”。  
 3. 使用筛选器查找日志。
 
     ![资源管理器教程故障排除](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-activity-log.png)
@@ -131,14 +123,13 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 在“按名称筛选”字段中输入资源组名称。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 在“按名称筛选”字段中输入资源组名称。 
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 
 本教程介绍了如何排查资源管理器模板部署错误。  有关详细信息，请参阅[排查使用 Azure 资源管理器时的常见 Azure 部署错误](./resource-manager-common-deployment-errors.md)。
 
-<!--Update_Description: new articles on resource manager tutorial troubleshoot -->
-<!--ms.date: 02/18/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

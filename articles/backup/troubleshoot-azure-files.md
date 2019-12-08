@@ -2,18 +2,15 @@
 title: 排查 Azure 文件共享备份问题
 description: 本文提供在保护 Azure 文件共享时所发生的问题的故障排除信息。
 author: lingliw
-manager: digimobile
-ms.service: backup
-ms.topic: tutorial
 origin.date: 08/20/2019
 ms.date: 10/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 06cb3a4a537c6b95d5d17b47271c70128be1ec02
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9f08352666d8456747b66903b29211eaedfb55f6
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528222"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838793"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>排查 Azure 文件共享备份问题
 可参考下表中所列信息，排查使用 Azure 文件共享备份时遇到的问题和错误。
@@ -34,7 +31,7 @@ Azure 文件共享备份处于预览状态。 常规用途 v1 和常规用途 v2
 
 | 错误消息 | 解决办法或解决方法提示 |
 | ------------------ | ----------------------------- |
-| 找不到存储帐户，因此无法配置 Azure 文件共享的备份 | <ul><li>等到发现完成。 <li>检查是否已使用另一恢复服务保管库对存储帐户中的任何文件共享进行保护。 **注意**：一个存储帐户中的所有文件共享只能在一个恢复服务保管库中进行保护。 <li>请确保文件共享不是存在于不受支持的存储帐户中。|
+| 找不到存储帐户，因此无法配置 Azure 文件共享的备份 | <ul><li>等到发现完成。 <li>检查是否已使用另一恢复服务保管库对存储帐户中的任何文件共享进行保护。 **注意**：一个存储帐户中的所有文件共享只能在一个恢复服务保管库中进行保护。 <li>请确保文件共享不是存在于不受支持的存储帐户中。<li> 确保在存储帐户中选中“允许受信任的 Microsoft 服务访问此存储帐户”  复选框。[了解更多。](../storage/common/storage-network-security.md)|
 | 门户中的错误指出无法发现存储帐户。 | 如果订阅为合作伙伴（已启用 CSP），请忽略此错误。 如果订阅未启用 CSP，且无法发现存储帐户，请联系支持部门。|
 | 所选存储帐户验证或注册失败。| 重试该操作。如果问题仍然存在，请联系支持部门。|
 | 无法在所选存储帐户中列出或查找文件共享。 | <ul><li> 确保存储帐户存在于资源组中（且自上次在保管库中进行验证/注册后尚未删除或移动）。<li>确保尚未删除要保护的文件共享。 <li>确保存储帐户是支持进行文件共享备份的存储帐户。<li>检查是否已在同一恢复服务保管库中对文件共享进行保护。|

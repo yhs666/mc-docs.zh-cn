@@ -12,12 +12,12 @@ ms.topic: article
 tags: connectors
 origin.date: 07/05/2019
 ms.date: 11/11/2019
-ms.openlocfilehash: 538ccb96acdd35d28dbb0c3b51bb07feb57f836f
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 828be4a9fb2db3a057d92deff57f3a094d3d5049
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74388986"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797600"
 ---
 # <a name="send-outgoing-calls-to-http-or-https-endpoints-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用将传出呼叫发送到 HTTP 或 HTTPS 终结点
 
@@ -33,7 +33,7 @@ ms.locfileid: "74388986"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * 要调用的目标终结点的 URL
 

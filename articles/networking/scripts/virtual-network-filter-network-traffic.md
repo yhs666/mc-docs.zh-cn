@@ -3,25 +3,21 @@ title: Azure CLI 脚本示例 - 筛选 VM 网络流量 | Microsoft Docs
 description: Azure CLI 脚本示例 - 筛选入站和出站 VM 网络流量。
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 07/07/2017
-ms.dat: 10/17/2017
+ms.dat: 12/09/2017
 ms.author: v-tawe
-ms.openlocfilehash: 3e750fd50e776452f535d3ec9aa61b074d5ee2ce
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 5fe2cc04d27b475ed26513a21d87b4840e8664c2
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583564"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884064"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>筛选入站和出站 VM 网络流量
 

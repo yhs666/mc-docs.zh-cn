@@ -6,16 +6,15 @@ manager: digimobile
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 origin.date: 05/21/2019
 ms.date: 05/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c4f4743391e82f3463bd03cf0a9f2a605d411efe
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: f87fdb9625202b0df26a08566677cc3d87be00d8
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528276"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838905"
 ---
 # <a name="monitoring-data-locations-in-azure-monitor"></a>Azure Monitor 中的监视数据位置
 

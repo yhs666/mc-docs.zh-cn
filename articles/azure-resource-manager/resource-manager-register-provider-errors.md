@@ -4,12 +4,12 @@ description: 说明在使用 Azure 资源管理器部署资源时如何解决 Az
 ms.topic: troubleshooting
 origin.date: 02/15/2019
 ms.date: 11/25/2019
-ms.openlocfilehash: 8b0f543786d34db49657df5755da5495d384b38d
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: e4668169ea378101a1c8c2b2647b35de8f92eb24
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389573"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884884"
 ---
 # <a name="resolve-errors-for-resource-provider-registration"></a>解决资源提供程序注册错误
 
@@ -104,22 +104,22 @@ az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites']
 
 1. 在门户中，选择“所有服务”。 
 
-   ![选择所有服务](./media/resource-manager-register-provider-errors/select-all-services.png)
+    ![选择所有服务](./media/resource-manager-register-provider-errors/select-all-services.png)
 
 1. 选择 **订阅**。
 
-   ![选择订阅](./media/resource-manager-register-provider-errors/select-subscriptions.png)
+    ![选择订阅](./media/resource-manager-register-provider-errors/select-subscriptions.png)
 
 1. 从订阅列表中，选择要用于注册资源提供程序的订阅。
 
-   ![选择订阅以注册资源提供程序](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+    ![选择订阅以注册资源提供程序](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
 
 1. 对于订阅，选择“资源提供程序”  。
 
-   ![选择资源提供程序](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+    ![选择资源提供程序](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
 1. 查看资源提供程序列表，根据需要选择“注册”链接，注册尝试部署的类型的资源提供程序  。
 
-   ![列出资源提供程序](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+    ![列出资源提供程序](./media/resource-manager-register-provider-errors/list-resource-providers.png)
 
 <!--Update_Description: update meta properties, wording update, update cmdlet-->

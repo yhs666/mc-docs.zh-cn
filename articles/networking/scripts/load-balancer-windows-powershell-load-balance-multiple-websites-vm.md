@@ -3,25 +3,22 @@ title: Azure PowerShell 脚本示例 - 使用 Azure PowerShell 对多个网站�
 description: Azure PowerShell 脚本示例 - 对指向同一虚拟机的多个网站进行负载均衡
 services: load-balancer
 documentationcenter: load-balancer
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 05/16/2017
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: a905ae6f9a691df22cb091f61b3867cf8e485f6f
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: e481a74d514175dcc2d2cfde8c4d4571ce955f36
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584093"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884071"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 

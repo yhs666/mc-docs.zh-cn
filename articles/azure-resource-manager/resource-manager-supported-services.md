@@ -3,13 +3,13 @@ title: 资源提供程序和资源类型
 description: 介绍支持 Resource Manager 的资源提供程序及其架构和可用 API 版本，以及可托管资源的区域。
 ms.topic: conceptual
 origin.date: 08/29/2019
-ms.date: 11/25/2019
-ms.openlocfilehash: 7184bcfdb868b50f944a08665b2f52138b1e7c17
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/09/2019
+ms.openlocfilehash: 08b78cfbfdf4d9050ede0fa91c61b8b7b794754e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389572"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884850"
 ---
 # <a name="azure-resource-providers-and-types"></a>Azure 资源提供程序和类型
 
@@ -35,9 +35,10 @@ ms.locfileid: "74389572"
 查看所有资源提供程序和订阅的注册状态：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 选择“所有服务”  。
+2. 在 Azure 门户菜单中，选择“所有服务”  。
 
-    ![选择订阅](./media/resource-manager-supported-services/select-subscriptions.png)
+    ![选择订阅](./media/resource-manager-supported-services/select-all-services.png)
+
 3. 在“所有服务”  框中，输入“订阅”  ，然后选择“订阅”  。
 4. 从订阅列表中选择订阅进行查看。
 5. 选择“资源提供程序”并查看可用的资源提供程序列表。 
@@ -53,11 +54,11 @@ ms.locfileid: "74389572"
 查看特定资源提供程序的信息：
 
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
-2. 选择“所有服务”  。
-
-    ![选择“所有服务”](./media/resource-manager-supported-services/more-services.png)
-
+2. 在 Azure 门户菜单中，选择“所有服务”  。
 3. 在“所有服务”  框中，输入“资源浏览器”  ，然后选择“资源浏览器”  。
+
+    ![选择“所有服务”](./media/resource-manager-supported-services/select-resource-explorer.png)
+
 4. 通过选择向右箭头来展开“提供程序”  。
 
     ![选择提供程序](./media/resource-manager-supported-services/select-providers.png)

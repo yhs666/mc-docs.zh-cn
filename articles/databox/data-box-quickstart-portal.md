@@ -7,17 +7,21 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
 origin.date: 09/03/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: cb1d65163bc23fcb735c2d0c70fbad756360bfbb
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 7dc3c17623ae47e21ca49f2b4e3608f084aa544f
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530598"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884038"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Data Box
+
+::: zone-end
 
 ::: zone target="chromeless"
 

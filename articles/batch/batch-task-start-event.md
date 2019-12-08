@@ -2,8 +2,8 @@
 title: Azure Batch 任务开始事件 | Microsoft Docs
 description: Batch 任务开始事件参考。
 services: batch
-author: dlepow
-manager: jeconnoc
+author: lingliw
+manager: digimobile
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
@@ -11,13 +11,13 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 05/15/2018
-ms.author: v-junlch
-ms.openlocfilehash: a63b32a3b78ce9cc0209aafd22798600657be22c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.author: v-lingwu
+ms.openlocfilehash: 10ab9f92f22c9a50b4be07c424e208649c8ae3ab
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330348"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838651"
 ---
 # <a name="task-start-event"></a>任务开始事件
 

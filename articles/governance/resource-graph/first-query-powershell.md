@@ -1,26 +1,28 @@
 ---
-title: 使用 Azure PowerShell 运行第一个查询
-description: 本文将指导你完成为 Azure PowerShell 启用 Resource Graph 模块并运行首个查询的步骤。
+title: 快速入门：第一个 PowerShell 查询
+description: 本快速入门介绍为 Azure PowerShell 启用 Resource Graph 模块并运行第一个查询的步骤。
 author: DCtheGeek
 origin.author: dacoulte
-origin.date: 10/18/2019
-ms.date: 11/04/2019
+origin.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 726bf362f2dfdabfd01c2c80eed30f295d754211
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 12532f7a4420b47eba78d8377c7bb03abf07e172
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970253"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884856"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 运行首个 Resource Graph 查询
 
 使用 Azure Resource Graph 的第一步是查看是否已为 Azure PowerShell 安装了该模块。 本快速入门将指导你完成将该模块添加到 Azure PowerShell 安装的过程。
 
 在此过程结束时，应该已将模块添加到所选的 Azure PowerShell 安装中，并运行首个 Resource Graph 查询。
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -34,7 +36,7 @@ Azure Resource Graph 模块需要以下软件：
 
 - Azure PowerShell 1.0.0 或更高版本。 若尚未安装，请遵循[这些说明](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps)。
 
-- PowerShellGet 2.0.1 或更高版本。 若尚未安装或更新，请遵循[这些说明](https://docs.microsoft.com/en-us/powershell/gallery/installing-psget)。
+- PowerShellGet 2.0.1 或更高版本。 若尚未安装或更新，请遵循[这些说明](https://docs.microsoft.com/en-us/powershell/scripting/gallery/installing-psget)。
 
 ### <a name="install-the-module"></a>安装模块
 

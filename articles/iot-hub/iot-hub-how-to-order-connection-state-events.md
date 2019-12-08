@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 04/11/2019
 ms.date: 08/05/2019
 ms.author: v-yiso
-ms.openlocfilehash: 50ff09213d3844d782bc9bfbdbd6fa4c9605ceef
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 4cea3d1bc35d6f47877cf599c428b602fecc299f
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389173"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797591"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>使用 Azure Cosmos DB 将来自 Azure IoT 中心的设备连接事件排序
 
@@ -23,7 +23,7 @@ ms.locfileid: "74389173"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 有效的 Azure 帐户。 如果没有，可以[创建试用帐户](www.azure.cn/pricing/1rmb-trial)。
+* 有效的 Azure 帐户。 如果没有，可以[创建试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * 有效的 Azure Cosmos DB SQL API 帐户。 如果尚未创建此帐户，请参阅[创建数据库帐户](../cosmos-db/create-sql-api-java.md#create-a-database-account)中的演练。
 

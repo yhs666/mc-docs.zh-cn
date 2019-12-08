@@ -12,13 +12,13 @@ ms.devlang: ''
 ms.topic: article
 origin.date: 03/18/2019
 ms.date: 05/27/2019
-ms.author: v-biyu
-ms.openlocfilehash: d20746688f7d06bb541c7f659bc3ccae677b44fa
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.author: v-tawe
+ms.openlocfilehash: f6a2c5fad435e2b83164374c2319f9d5c7a9a254
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657982"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884914"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>批量导出和导入 Azure 通知中心注册
 在某些情况下，我们需要在通知中心创建或修改大量的注册。 其中的某些情况是先进行标记更新，再进行批量计算，或者迁移现有的推送实施方案以使用通知中心。

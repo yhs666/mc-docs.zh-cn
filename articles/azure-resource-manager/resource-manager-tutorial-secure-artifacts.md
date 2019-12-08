@@ -1,25 +1,17 @@
 ---
-title: 保护 Azure 资源管理器模板部署中的项目 | Azure
+title: 保护模板中的项目
 description: 了解如何保护 Azure 资源管理器模板中使用的项目。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-origin.date: 02/25/2019
-ms.date: 07/22/2019
+origin.date: 10/08/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: c2334dfaa73d3ac76ac15b05ba128aadc730e4f1
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: ecb899500afdc521a553b17d7a8f436a7b9164b2
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70857013"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884845"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>教程：保护 Azure 资源管理器模板部署中的项目
 
@@ -42,7 +34,7 @@ ms.locfileid: "70857013"
 
 若要完成本文，需要做好以下准备：
 
-* 包含资源管理器工具扩展的 [Visual Studio Code](https://code.visualstudio.com/)。 请参阅[安装扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](./resource-manager-tools-vs-code.md)。
 * 查看[教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)。 本教程中使用的模板是在该教程中开发的。 本文提供了已完成模板的下载链接。
 * 若要增强安全性，请使用为 SQL Server 管理员帐户生成的密码。 以下是密码生成示例：
 
@@ -65,7 +57,7 @@ ms.locfileid: "70857013"
 
 ### <a name="download-the-bacpac-file"></a>下载 BACPAC 文件
 
-下载 [BACPAC 文件](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac)，并以相同的名称 **SQLDatabaseExtension.bacpac** 将其保存到本地计算机。
+下载 [BACPAC 文件](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac)，并以相同的名称 **SQLDatabaseExtension.bacpac** 将其保存到本地计算机。
 
 ### <a name="create-a-storage-account"></a>创建存储帐户
 
@@ -73,38 +65,19 @@ ms.locfileid: "70857013"
 
     <a href="https://portal.azure.cn/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-storage-account-create%2fazuredeploy.json" target="_blank"><img src="./media/resource-manager-tutorial-secure-artifacts/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-    <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
-    
-2. 选择“编辑模板”。 
+2. 输入以下属性：
 
-3. 输入以下属性：
-    
-    - “部署解决方案模板”面板。 
-    
-        |Name|Value|
-        |----|----|
-        |**订阅**| 选择 Azure 订阅。|
-        |**资源组**| 选择“新建”并指定名称。  资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。|
-        |**资源组位置**|选择区域。 例如，**中国北部**。 |
-        
-    - 选择“编辑参数”，显示“参数”面板。  
-    
-        |Name|Value|
-        |----|----|
-        |**存储帐户类型**|使用默认值 **Standard_LRS**。|
-        |**Location**| 使用默认值“[resourceGroup().location]”。  这意味着，要使用存储帐户的资源组位置。|
-        
-        <!--MOONCAKE : Not Available on * **I agree to the terms and conditions started above**: (selected)-->
-        
-    - 选择“确定”  。
-
-4. 选择“查看法律条款”，然后选择“创建”。  
-5. 选择“创建”  。
-    <!--MOONCAKE CUSTOMIZE: Correct on Edit parameters-->
-6. 选择门户右上角的通知图标（钟形图标）查看部署状态。
+    * **订阅**：选择 Azure 订阅。
+    * **资源组**：选择“新建”并指定名称。  资源组是 Azure 资源的容器，用于实现管理目的。 在本教程中，可为存储帐户和 Azure SQL 数据库使用同一个资源组。 请记下此资源组名称，因为稍后在本教程中创建 Azure SQL 数据库时需要用到。
+    * **位置**：选择区域。 例如，**中国北部**。
+    * **存储帐户类型**：使用默认值“Standard_LRS”。 
+    * **位置**：使用默认值“[resourceGroup().location]”。  这意味着，要使用存储帐户的资源组位置。
+    * **我同意上述条款和条件**：（选中）
+3. 选择“购买”。 
+4. 选择门户右上角的通知图标（钟形图标）查看部署状态。
 
     ![资源管理器教程门户通知窗格](./media/resource-manager-tutorial-secure-artifacts/resource-manager-tutorial-portal-notifications-pane.png)
-7. 成功部署存储帐户后，在通知窗格中选择“转到资源组”打开该资源组。 
+5. 成功部署存储帐户后，在通知窗格中选择“转到资源组”打开该资源组。 
 
 ### <a name="create-a-blob-container"></a>创建 Blob 容器
 
@@ -120,7 +93,7 @@ ms.locfileid: "70857013"
 3. 选择顶部的“+ 容器”创建新容器。 
 4. 输入以下值：
 
-    * **名称**：输入 **sqlbacpac**。 
+    * **名称**：输入 **sqlbacpac**。
     * **公共访问级别**：使用默认值“专用(不允许匿名访问)”。 
     
 5. 选择“确定”  。
@@ -135,7 +108,8 @@ ms.locfileid: "70857013"
     * **身份验证类型**：选择“SAS”。   “SAS”是默认值。 
 3. 选择“上传”。   成功上传文件后，容器中应会列出其文件名。
 
-### <a name="a-namegenerate-a-sas-token-generate-a-sas-token"></a><a name="generate-a-sas-token" />生成 SAS 令牌
+<a name="generate-a-sas-token"></a>
+### <a name="generate-a-sas-token"></a>生成 SAS 令牌
 
 1. 右键单击容器中的“SQLDatabaseExtension.bacpac”，并选择“生成 SAS”。  
 2. 输入以下值：
@@ -148,21 +122,21 @@ ms.locfileid: "70857013"
 3. 选择“生成 Blob SAS 令牌和 URL”。 
 4. 复制“Blob SAS URL”。  URL 的中间是文件名 **SQLDatabaseExtension.bacpac**。  文件名将 URL 划分为三个部分：
 
-   - **项目位置**： https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/sqlbacpac/ 。 请确保位置以“/”结尾。
-   - **BACPAC 文件名**：SQLDatabaseExtension.bacpac。
-   - **项目位置 SAS 令牌**：请确保该令牌的前面带有“?”。
+    - **项目位置**： https://xxxxxxxxxxxxxx.blob.core.chinacloudapi.cn/sqlbacpac/ 。 请确保位置以“/”结尾。
+    - **BACPAC 文件名**：SQLDatabaseExtension.bacpac。
+    - **项目位置 SAS 令牌**：请确保该令牌的前面带有“?”。
 
-     [部署模板](#deploy-the-template)时需要使用这三个值。
+    [部署模板](#deploy-the-template)时需要使用这三个值。
 
 ## <a name="open-an-existing-template"></a>打开现有模板
 
-在此会话中，修改在[教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)中创建的模板，以通过 SAS 令牌调用 BACPAC 文件。  在 SQL 扩展教程中开发的模板已在 [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json) 位置共享。
+在此会话中，修改在[教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)中创建的模板，以通过 SAS 令牌调用 BACPAC 文件。  SQL 扩展教程中开发的模板将在 [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json) 中共享。
 
 1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
 2. 在“文件名”中粘贴以下 URL： 
 
     ```url
-    https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
 3. 选择“打开”以打开该文件。 
 
@@ -174,11 +148,11 @@ ms.locfileid: "70857013"
     * `Microsoft.SQL/servers/databases`。
     * `Microsoft.SQL/server/databases/extensions`。
 
-    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers)-->
-    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)-->
-    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)-->
-    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/servers/databases)-->
-    <!--Not Available on [模板参考](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases)-->
+    <!--Not Available on [模板参考](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions)-->
     
     在自定义模板之前，不妨对其进行一些基本的了解。
 4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。  
@@ -266,4 +240,4 @@ New-AzResourceGroupDeployment `
 <!--Not Available on ## Next steps-->
 <!--Not Available on [Continuous integration with Azure Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)-->
 
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

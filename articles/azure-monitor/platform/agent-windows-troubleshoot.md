@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-origin.date: 06/12/2019
-ms.date: 08/22/2019
+origin.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 385cd34990e228c13a250e73974a39decf68e959
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 39882637637a6855d8843b17f7a183ec77afbfef
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527907"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839004"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>如何排查 Log Analytics Windows 代理的问题 
 

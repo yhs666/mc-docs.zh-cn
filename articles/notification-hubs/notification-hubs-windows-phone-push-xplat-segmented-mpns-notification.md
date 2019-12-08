@@ -3,9 +3,9 @@ title: 使用 Azure 通知中心向特定 Windows Phone 推送通知 | Azure
 description: 本教程介绍如何使用 Azure 通知中心将通知推送到注册到应用程序后端的特定（并非所有）Windows Phone 8 或 Windows Phone 8.1 设备。
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 42726bf5-cc82-438d-9eaa-238da3322d80
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,14 +14,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 04/14/2018
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5570590d17ebbfe6f2476283642364aa218157e1
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 51abf4369fe9cc47bf82432386c3b41168348de3
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272464"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884964"
 ---
 # <a name="tutorial-push-notifications-to-specific-windows-phone-devices-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定 Windows Phone 设备推送通知
 
@@ -294,31 +296,32 @@ ms.locfileid: "72272464"
 ## <a name="test-the-app"></a>测试应用程序
 
 1. 在 Visual Studio 中，按 F5 编译并启动应用程序。
-   
+
     ![包含类别的移动应用][1]
-   
+
     应用 UI 提供了一组开关，可以使用它们选择要订阅的类别。
 2. 启用一个或多个类别开关，然后单击“订阅”  。
-   
+
     应用程序将所选类别转换为标签并针对所选标签从通知中心请求注册新设备。 返回注册的类别并显示在对话框中。
-   
+
     ![订阅的消息][2]
 3. 在接收类别已完成订阅的确认后，运行控制台应用以发送每个类别的通知。 确认你只会收到订阅的类别的通知。
-   
+
     ![通知消息][3]
 
 ## <a name="next-steps"></a>后续步骤
+
 本教程介绍了如何向其标记与注册相关联的特定设备推送通知。 若要了解如何向可能会使用多个设备的特定用户推送通知，请转到以下教程： 
 
 > [!div class="nextstepaction"]
 >[向特定用户推送通知](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md)
 
 <!-- Anchors. -->
-[Add category selection to the app]: #adding-categories
+<!-- [Add category selection to the app]: #adding-categories
 [Register for notifications]: #register
 [Send notifications from your back-end]: #send
 [Run the app and generate notifications]: #test-app
-[Next Steps]: #next-steps
+[Next Steps]: #next-steps -->
 
 <!-- Images. -->
 [1]: ./media/notification-hubs-windows-phone-send-breaking-news/notification-hub-breakingnews.png
@@ -327,9 +330,10 @@ ms.locfileid: "72272464"
 
 <!-- URLs.-->
 [通知中心入门]: notification-hubs-windows-mobile-push-notifications-mpns.md
-[Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
+
+<!-- [Use Notification Hubs to broadcast localized breaking news]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md
 [Notify users with Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Mobile Service]: /develop/mobile/android
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-
+[Notification Hubs How-To for Windows Phone]: /develop/mobile/windows -->
 <!-- Update_Description: wording update -->

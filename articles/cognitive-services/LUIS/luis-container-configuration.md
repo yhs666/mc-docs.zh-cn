@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/18/2019
-ms.date: 09/23/2019
+origin.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4e6c3a19cd33d8199401de661055ccdc613763aa
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 7a535235f6b6ba994706b5d923df947142fc7273
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389352"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838572"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>配置语言理解 Docker 容器 
 
@@ -111,8 +111,6 @@ LUIS 容器不使用输入或输出装载来存储训练或服务数据。
 * 除非非常熟悉 docker 容器，否则不要更改参数顺序。
 * 如果使用的是不同的操作系统，请使用正确的控制台/终端、用于装载的文件夹语法和系统的行继续符。 这些示例假定 Windows 控制台使用行继续符 `^`。 由于容器是 Linux 操作系统，因此目标装载使用 Linux 样式的文件夹语法。
 
-请记住在 URL 中包括 `luis/v2.0` 路由，如下表所示。
-
 将 {_argument_name_} 替换为为你自己的值：
 
 | 占位符 | Value | 格式或示例 |
@@ -122,7 +120,7 @@ LUIS 容器不使用输入或输出装载来存储训练或服务数据。
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](luis-container-howto.md#billing)。
+> 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。 有关详细信息，请参阅[计费](luis-container-howto.md#billing)。
 > ApiKey 值是 LUIS 门户中“密钥和终结点”页面中的“密钥”  ，也可以在 Azure `Cognitive Services`资源密钥页上找到。 
 
 ### <a name="basic-example"></a>基本示例

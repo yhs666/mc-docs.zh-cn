@@ -3,14 +3,14 @@ author: spelluru
 ms.service: service-bus
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: 46c386dfebd45184cca4970295849fe855ace08b
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.date: 12/09/2019
+ms.author: v-tawe
+ms.openlocfilehash: 67e0784af17ccce4471ca04d489c0f67a1c2d539
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272629"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884810"
 ---
 通常，推送通知是在后端服务（例如，Mobile Apps，或者使用兼容库的 ASP.NET）中发送的。 如果后端没有可用库，也可使用 REST API 直接发送通知消息。
 

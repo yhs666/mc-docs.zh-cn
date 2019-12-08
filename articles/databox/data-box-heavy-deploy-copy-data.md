@@ -7,17 +7,21 @@ ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 origin.date: 08/29/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: a43e442d48d3f006a08fcd947790578c3f31f58d
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 2c06de62c6e470900f552d0ccf66c6760f703a98
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530609"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884057"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-heavy-via-smb"></a>教程：通过 SMB 将数据复制到 Azure Data Box Heavy
+
+::: zone-end
 
 ::: zone target = "chromeless"
 

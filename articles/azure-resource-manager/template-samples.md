@@ -1,21 +1,15 @@
 ---
-title: Azure 资源管理器模板示例
-description: 适用于资源管理器中功能的 Azure 资源管理器模板示例
-services: azure-resource-manager
-author: rockboyfor
-ms.service: azure-resource-manager
-ms.devlang: na
+title: 模板示例
+description: Azure 资源管理器模板示例，用于部署管理功能，例如角色和锁。
 ms.topic: sample
-ms.tgt_pltfrm: na
 origin.date: 11/16/2018
-ms.date: 12/17/2018
-ms.author: v-yeche
-ms.openlocfilehash: bfb688b12fed23fbad385556c3244452ab0bedfd
-ms.sourcegitcommit: 1db6f261786b4f0364f1bfd51fd2db859d0fc224
+ms.date: 12/09/2019
+ms.openlocfilehash: 7706c79e2b10a7d6da335fc36dead079e0c0a9bc
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53286793"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884903"
 ---
 # <a name="azure-resource-manager-templates-for-management-features"></a>适用于管理功能的 Azure 资源管理器模板
 
@@ -38,5 +32,4 @@ ms.locfileid: "53286793"
 | [锁定资源组](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)| 创建一个资源组，并将 **DoNotDelete** 锁定应用到资源组。 将参与者角色分配给用户。 |
 | | |
 
-<!-- Update_Description: new articles on Azure Resource Manager template samples -->
-<!--ms.date: 12/17/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

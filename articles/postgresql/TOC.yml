@@ -67,14 +67,16 @@
               href: concepts-limits.md
         - name: 数据访问和安全性
           items:
-            - name: 防火墙规则
-              href: concepts-firewall-rules.md
+            - name: 安全概述
+              href: concepts-security.md
             - name: 配置 SSL
               href: concepts-ssl-connection-security.md
-            - name: 虚拟网络
-              href: concepts-data-access-and-security-vnet.md
             - name: 连接体系结构
               href: concepts-connectivity-architecture.md
+            - name: 防火墙规则
+              href: concepts-firewall-rules.md
+            - name: 虚拟网络
+              href: concepts-data-access-and-security-vnet.md
         - name: 业务连续性
           items:
             - name: 业务连续性简介
@@ -120,8 +122,14 @@
   items:
     - name: 单个服务器
       items:
-        - name: 创建用户
-          href: howto-create-users.md
+        - name: 管理服务器
+          items:
+            - name: Azure 门户
+              href: howto-create-manage-server-portal.md
+        - name: 身份验证
+          items:
+            - name: 创建用户
+              href: howto-create-users.md
         - name: 优化
           items:
             - name: 批量插入

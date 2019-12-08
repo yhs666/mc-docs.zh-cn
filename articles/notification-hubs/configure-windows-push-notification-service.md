@@ -2,21 +2,23 @@
 title: 在 Azure 通知中心配置 Windows 推送通知服务 | Azure
 description: 了解如何为 Azure 通知中心配置 Windows 推送通知服务设置。
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: f8d939aed3dae6461d9ed967c924fc7478eb7f01
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.date: 12/09/2019
+ms.author: v-tawe
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: cb85c92d0cdac7ec0a79a17b409a37dd79b62d65
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272337"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884993"
 ---
 # <a name="configure-windows-push-notification-service-wns-settings-for-a-notification-hub-in-the-azure-portal"></a>在 Azure 门户中为通知中心配置 Windows 推送通知服务 (WNS) 设置
 本文介绍如何使用 Azure 门户为 Azure 通知中心配置 Windows 通知服务 (WNS) 设置。  
@@ -30,7 +32,7 @@ ms.locfileid: "72272337"
 
 1. 在 Azure 门户的“通知中心”页上，在左侧菜单中选择“Windows (WNS)”。  
 2. 输入“包 SID”和“安全密钥”的值。  
-3. 选择**保存**。
+3. 选择“保存”  。
 
    ![显示“包 SID”和“安全密钥”框的屏幕截图](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 

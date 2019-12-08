@@ -4,18 +4,20 @@ description: Batch 任务完成事件参考。
 services: batch
 author: lingliw
 manager: digimobile
+ms.assetid: ''
 ms.service: batch
 ms.topic: article
+ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 05/14/2018
-ms.author: v-junlch
-ms.openlocfilehash: 441af9c100fb544cf09e39c9f22e43aa3a0d6342
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.author: v-lingwu
+ms.openlocfilehash: cc8e54ef94aa64fe375e1d2b4282f5df3167b502
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330357"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838989"
 ---
 # <a name="task-complete-event"></a>任务完成事件
 

@@ -1,25 +1,23 @@
 ---
-title: Azure 快速入门 - 使用 PowerShell 备份 VM
-description: 了解如何使用 Azure PowerShell 备份虚拟机
-author: lingliw
-manager: digimobile
-ms.service: backup
+title: 快速入门 - 使用 PowerShell 备份 VM
+description: 在本快速入门中，你将了解如何使用 Azure PowerShell 模块备份 Azure 虚拟机。
 ms.devlang: azurecli
 ms.topic: quickstart
+author: lingliw
 origin.date: 04/16/2019
 ms.date: 09/16/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 6e51bef9d18c944b7e8a2acdb4a2252f0b68a645
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 074362348e3f14ae6c0e31f3adafa8adb222ef05
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528112"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838874"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>使用 PowerShell 在 Azure 中备份虚拟机
 
-[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 模块用于从命令行或脚本创建和管理 Azure 资源。 
+[Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) 模块用于从命令行或脚本创建和管理 Azure 资源。
 
 [Azure 备份](backup-overview.md)可备份本地计算机和应用以及 Azure VM。 本文说明如何使用 AZ 模块备份 Azure VM。 或者，可以使用 [Azure CLI](quick-backup-vm-cli.md) 或在 [Azure 门户](quick-backup-vm-portal.md)中备份 VM。
 

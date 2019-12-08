@@ -3,9 +3,9 @@ title: 注册管理
 description: 本主题说明如何向通知中心注册设备以接收推送通知。
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: fd0ee230-132c-4143-b4f9-65cef7f463a1
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 04/08/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.date: 10/09/2019
-ms.openlocfilehash: 53b2a0dacc375e7a6542c608ba9bc91cc5208b25
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 04/08/2019
+ms.openlocfilehash: 96f590591246e75dad4a4cf31593cc881e7a08d9
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272481"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884978"
 ---
 # <a name="registration-management"></a>注册管理
 

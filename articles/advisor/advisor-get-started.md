@@ -2,20 +2,20 @@
 title: Azure 顾问入门 | Azure
 description: Azure 顾问入门。
 services: advisor
-author: kasparks
+author: lingliw
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/01/2019
-ms.date: 02/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 2872502f002463da1c7071e87eb834559c8a43e6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 12/4/2019
+ms.author: b-lingwu
+ms.openlocfilehash: 8827ab3effc15d5a6ce2909021d4bed7791907a7
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736764"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838972"
 ---
 # <a name="get-started-with-azure-advisor"></a>Azure 顾问入门
 
@@ -53,7 +53,7 @@ ms.locfileid: "70736764"
 
 5. 单击“推荐操作”以实现该建议  。
 
-## <a name="filter-advisor-recommendations"></a>筛选顾问建议
+## <a name="filter-recommendations"></a>筛选器建议
 
 可以通过筛选建议，深度获取最重要的信息。  可按订阅、资源类型或建议状态进行筛选。  
 

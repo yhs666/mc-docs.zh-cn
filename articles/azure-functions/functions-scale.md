@@ -1,22 +1,17 @@
 ---
-title: Azure Functions 的缩放和托管 | Microsoft Docs
+title: Azure Functions 的缩放和托管
 description: 了解如何在 Azure Functions 消耗计划之间进行选择。
-author: ggailey777
-manager: gwallace
-keywords: Azure Functions, Functions, 消耗计划, 事件处理, webhook, 动态计算, 无服务体系结构
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 03/27/2019
-ms.date: 10/28/2019
-ms.author: v-junlch
+ms.date: 12/04/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6b45a2dee495b16ac54643daf5cad3d7a82ba3a
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.author: v-junlch
+ms.openlocfilehash: 07ba666d21e448b27008ffd3c64884622e0781cb
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034442"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885040"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 的缩放和托管
 
@@ -159,4 +154,4 @@ Azure Functions 的缩放单位为函数应用。 横向扩展函数应用时，
 
 [!INCLUDE [functions-limits](../../includes/functions-limits.md)]
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

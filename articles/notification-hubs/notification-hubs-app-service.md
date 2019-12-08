@@ -1,9 +1,9 @@
 ---
 title: 与应用服务 Mobile Apps 集成
 description: 了解如何将 Azure 通知中心与 Azure 应用服务移动应用配合使用。
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: ''
 ms.assetid: 83132dff-a01d-4b31-a426-b57496852b81
@@ -14,19 +14,18 @@ ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 origin.date: 01/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: a15d211d53f2e6d2c3b3ab2c69daf1a5b1c0ab2a
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: a6ddc54bbc18b7070cd54e9c3c4694a1f750a1e8
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272884"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884951"
 ---
 # <a name="integration-with-app-service-mobile-apps"></a>与应用服务 Mobile Apps 集成
-
-> [!NOTE]
-> Microsoft 致力于为 Azure 应用服务移动应用提供完全支持，包括为最新的 OS 版本、Bug 修复、文档改进以及社区 PR 评审提供支持。 请注意，产品团队目前并未准备开发 Azure 移动应用的任何新功能。 对于社区在 Azure 移动应用的所有领域所做的贡献，我们深表感激。
 
 为了帮助在 Azure 服务之间提供无缝且统一的体验， [应用服务移动应用](../app-service-mobile/app-service-mobile-value-prop.md) 原生支持使用通知中心来推送通知。 [应用服务 Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 提供面向企业开发人员和系统集成商的高度可缩放、全局可用的移动应用程序平台，该平台向移动开发人员提供一组丰富的功能。
 

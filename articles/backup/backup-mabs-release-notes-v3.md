@@ -1,20 +1,17 @@
 ---
 title: Microsoft Azure 备份服务器 v3 发行说明
 description: 本文介绍 Microsoft Azure 备份服务器 (MABS) v3 的已知问题和解决方法。
-services: backup
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 11/22/2018
 ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 888208814b12f418116733dccab65d117e505298
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 173a00dc99d00af65a7967614254eeed49952093
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528323"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838893"
 ---
 # <a name="release-notes-for-microsoft-azure-backup-server"></a>Microsoft Azure 备份服务器发行说明
 本文提供了 Microsoft Azure 备份服务器 (MABS) V3 的已知的问题和解决方法。
@@ -75,4 +72,6 @@ ms.locfileid: "74528323"
 
 9. 启动 MSDPM 服务。
 
+## <a name="next-steps"></a>后续步骤
 
+[MABS V3 中的新增功能](backup-mabs-whats-new-mabs.md)

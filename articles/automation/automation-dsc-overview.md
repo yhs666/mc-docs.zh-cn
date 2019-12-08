@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 11/06/2018
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: d9925765bf9af7706c806d32d01a2c6b21f6fee4
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 530ad4a331da779adf223522d32549ca2fb8f69b
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116231"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884046"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation State Configuration 概述
 
@@ -67,7 +67,7 @@ DSC Linux 扩展支持[支持的 Linux 发行版](https://github.com/Azure/azure
 
 ### <a name="dsc-requirements"></a>DSC 要求
 
-对于在 Azure 中运行的所有 Windows 节点，[WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 将在载入时安装。  对于运行 Windows Server 2012 和 Windows 7 的节点，[将会启用 WinRM](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)。
+对于在 Azure 中运行的所有 Windows 节点，[WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) 将在载入时安装。  对于运行 Windows Server 2012 和 Windows 7 的节点，[将会启用 WinRM](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency)。
 
 对于在 Azure 中运行的所有 Linux 节点，[PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 将在载入时安装。
 
@@ -80,7 +80,7 @@ DSC Linux 扩展支持[支持的 Linux 发行版](https://github.com/Azure/azure
 * 代理服务： https://\<workspaceId\>.agentsvc.azure-automation.net
 
 这为托管节点提供网络连接，以与 Azure 自动化通信。
-如果要使用在节点之间通信的 DSC 资源（例如 [WaitFor* 资源](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource)），则还需要允许节点间通信。
+如果要使用在节点之间通信的 DSC 资源（例如 [WaitFor* 资源](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource)），则还需要允许节点间通信。
 请参阅每个 DSC 资源的文档，以了解这些网络要求。
 
 #### <a name="proxy-support"></a>代理支持

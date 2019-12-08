@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/04/2019
-ms.date: 09/20/2019
+origin.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f69ff7cad658566a65d4242186e6047677ef1a43
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: c0b02eaa4b6eaff25ac323131c2cf4a7b62b8139
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329958"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884960"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>教程：成批测试数据集
 
@@ -32,6 +32,8 @@ ms.locfileid: "71329958"
 * 允许的实体类型：仅简单和复合的机器学习实体。 批处理测试仅适用于机器学习意向和实体。
 
 使用本教程以外的应用时，请不要使用已经添加到意向的示例话语  。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -65,30 +67,29 @@ ms.locfileid: "71329958"
 1. 在文本编辑器中创建 `HumanResources-jobs-batch.json` 或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json)它。 
 
 2. 在 JSON 格式的批处理文件中，使用想要在测试中预测的意向添加话语  。 
-
 ```
     [
         {
-        "text": "Are there any janitorial jobs currently open?",
-        "intent": "GetJobInformation",
-        "entities": []
+          "text": "Are there any janitorial jobs currently open?",
+          "intent": "GetJobInformation",
+          "entities": []
         },
         {
-        "text": "I would like a fullstack typescript programming with azure job",
-        "intent": "GetJobInformation",
-        "entities": []
+          "text": "I would like a fullstack typescript programming with azure job",
+          "intent": "GetJobInformation",
+          "entities": []
         },
         {
-        "text": "Is there a database position open in Los Colinas?",
-        "intent": "GetJobInformation",
-        "entities": []
+          "text": "Is there a database position open in Los Colinas?",
+          "intent": "GetJobInformation",
+          "entities": []
         },
         {
-        "text": "Please find database jobs open today in Seattle",
-        "intent": "GetJobInformation",
-        "entities": []
+          "text": "Please find database jobs open today in Seattle",
+          "intent": "GetJobInformation",
+          "entities": []
         }
-    ]
+      ]
 ```
 
 ## <a name="run-the-batch"></a>运行批处理
@@ -201,93 +202,92 @@ ApplyForJob 的示例几乎是 GetJobInformation 的三倍   。 示例话语的
 
 1. 在文本编辑器（如 [VSCode](https://code.visualstudio.com/)）中创建 `HumanResources-entities-batch.json`，或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json)它。
 
-
 2. 在 JSON 格式的批处理文件中，添加一个对象数组，其中包含具有想要在测试中预测的意向的话语以及话语中任何实体的位置  。 由于实体是基于令牌的，因此请确保启动和停止字符上的每个实体。 不要以空格开始或结束话语。 这会导致批处理文件导入过程中出现错误。  
 
 ```
     [
-    {
+      {
         "text": "I'm a registered nurse. Here is my resume.",
         "intent": "ApplyForJob",
         "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
+          "entity": "Job",
+          "startPos": 6,
+          "endPos": 21
         }]
-    },
-    {
+      },
+      {
         "text": "I'm a database analyst. Here is my resume.",
         "intent": "ApplyForJob",
         "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
+          "entity": "Job",
+          "startPos": 6,
+          "endPos": 21
         }]
-    },
-    {
+      },
+      {
         "text": "I'm a SQL Server programmer. Here is my resume.",
         "intent": "ApplyForJob",
         "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 26
+          "entity": "Job",
+          "startPos": 6,
+          "endPos": 26
         }]
-    },
-    {
+      },
+      {
         "text": "I'm a registered nurse. Are there any open jobs.",
         "intent": "GetJobInformation",
         "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
+          "entity": "Job",
+          "startPos": 6,
+          "endPos": 21
         }]
-    },
-    {
+      },
+      {
         "text": "I'm a database analyst. Are there any open jobs.",
         "intent": "GetJobInformation",
         "entities": [{
-        "entity": "Job",
-        "startPos": 6,
-        "endPos": 21
+          "entity": "Job",
+          "startPos": 6,
+          "endPos": 21
         }]
-    },
-    {
+      },
+      {
         "text": "Are there any open jobs for a SQL Server programmer?",
         "intent": "GetJobInformation",
         "entities": [{
-        "entity": "Job",
-        "startPos": 30,
-        "endPos": 50
+          "entity": "Job",
+          "startPos": 30,
+          "endPos": 50
         }]
-    },
-    {
+      },
+      {
         "text": "Is there any open positions for a costume designer?",
         "intent": "GetJobInformation",
         "entities": [{
-        "entity": "Job",
-        "startPos": 34,
-        "endPos": 49
+          "entity": "Job",
+          "startPos": 34,
+          "endPos": 49
         }]
-    },
-    {
+      },
+      {
         "text": "Are there any open jobs for a SQL programmer?",
         "intent": "GetJobInformation",
         "entities": [{
-        "entity": "Job",
-        "startPos": 30,
-        "endPos": 42
+          "entity": "Job",
+          "startPos": 30,
+          "endPos": 42
         }]
-    }
-    ,
-    {
+      }
+      ,
+      {
         "text": "Are there any open jobs with SQL?",
         "intent": "GetJobInformation",
         "entities": [{
-        "entity": "Job",
-        "startPos": 29,
-        "endPos": 31
+          "entity": "Job",
+          "startPos": 29,
+          "endPos": 31
         }]
-    }
+      }
     ]
 ```
 

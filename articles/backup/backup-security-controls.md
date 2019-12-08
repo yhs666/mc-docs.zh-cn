@@ -1,20 +1,17 @@
 ---
-title: Azure 备份的安全控制
+title: 安全控件
 description: 了解 Azure 备份服务中使用的安全控制。 这些控制可帮助服务预防、检测和响应安全漏洞。
-ms.reviewer: mbaldwin
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
-origin.date: 09/04/2019
-ms.date: 09/20/2019
-ms.author: dacurwin
-ms.openlocfilehash: 0bc696c87c2292a7e2d635f4ca9518c039a8a117
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+author: lingliw
+origin.date: 09/23/2019
+ms.date: 12/04/2019
+ms.author: v-lingwu
+ms.openlocfilehash: c279562e8996c3594b1015456632f722ba5d2d36
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528320"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838884"
 ---
 # <a name="security-controls-for-azure-backup"></a>Azure 备份的安全控制
 

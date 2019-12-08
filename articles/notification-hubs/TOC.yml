@@ -21,9 +21,11 @@
           href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: iOS
       items:
+        - name: 适用于 iOS 13 的通知中心更新
+          href: push-notification-updates-ios-13.md
         - name: 向 iOS 应用推送通知
           items:
-            - name: Objective-c
+            - name: Objective-C
               href: notification-hubs-ios-apple-push-notification-apns-get-started.md
             - name: Swift
               href: notification-hubs-ios-push-notifications-swift-apps-get-started.md
@@ -116,6 +118,8 @@
       href: notification-hubs-push-notification-http2-token-authentification.md
     - name: 排查通知丢弃问题
       href: notification-hubs-push-notification-fixer.md
+    - name: 使用百度云推送来推送通知
+      href: notification-hubs-baidu-china-android-notifications-get-started.md
 - name: 参考
   items:
     - name: .NET
@@ -135,10 +139,10 @@
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/notification-hubs/'
     - name: MSDN 论坛
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=notificationhubs'
+      href: 'https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs'
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-notificationhub'
     - name: 上市区域
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2'
+      href: 'https://www.azure.cn/home/features/products-by-region'
     - name: 支持选项
       href: 'https://support.azure.cn/support/contact'

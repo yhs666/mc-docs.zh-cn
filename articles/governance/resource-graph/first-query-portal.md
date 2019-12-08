@@ -1,25 +1,27 @@
 ---
-title: 使用 Azure Resource Graph Explorer 运行第一个查询
-description: 本文逐步引导你在 Azure 门户中使用 Azure Resource Graph Explorer 运行第一个查询。
+title: 快速入门：第一个门户查询
+description: 本快速入门介绍在 Azure 门户中使用 Azure Resource Graph 资源管理器运行第一个查询的步骤。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 10/18/2019
-ms.date: 11/04/2019
+origin.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 20e059d13049801d1a875b421f9efa28bb0cd45d
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: f1ee6e3e0d31e49c0abf9bbf8a9503923ddb03c9
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970251"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885001"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>快速入门：使用 Azure Resource Graph Explorer 运行第一个 Resource Graph 查询
 
 可以直接在 Azure 门户中通过 Azure Resource Graph Explorer 使用 Azure Resource Graph 的强大功能。 Resource Graph Explorer 提供有关可查询的 Azure 资源管理器资源类型和属性的可浏览信息。 Resource Graph Explorer 还提供一个整洁的界面用于处理多个查询、评估结果，甚至是将某些查询的结果转换为可固定到 Azure 仪表板的图表。
 
 在本快速入门结束时，你已使用 Azure 门户和 Resource Graph Explorer 运行第一个 Resource Graph 查询，并已将结果固定到仪表板。
+
+## <a name="prerequisites"></a>先决条件
 
 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-tiral/)。
 
@@ -29,7 +31,7 @@ ms.locfileid: "72970251"
 
 1. 在左侧窗格中，选择“所有服务”  。 搜索并选择 **Resource Graph Explorer**。
 
-1. 在窗口中的“查询 1”部分输入查询 `project name, type | limit 5`，然后选择“运行查询”。  
+1. 在窗口中的“查询 1”部分输入查询 `Resources | project name, type | limit 5`，然后选择“运行查询”。  
 
    > [!NOTE]
    > 由于此查询示例未提供排序修饰符（例如 `order by`），因此多次运行此查询可能会为每个请求生成一组不同的资源。
@@ -119,8 +121,7 @@ ms.locfileid: "72970251"
 
 ## <a name="next-steps"></a>后续步骤
 
-- 获取有关[查询语言](./concepts/query-language.md)的详细信息
-- 了解如何[浏览资源](./concepts/explore-resources.md)
-- 在 [Azure CLI](first-query-azurecli.md) 中运行首个查询
-- 查看[初学者查询](./samples/starter.md)的示例
-- 查看[高级查询](./samples/advanced.md)的示例
+本快速入门已介绍如何使用 Azure Resource Graph 资源管理器运行第一个查询，并提供了 Resource Graph 支持的仪表板示例。 若要详细了解 Resource Graph 语言，请继续阅读查询语言详细信息页。
+
+> [!div class="nextstepaction"]
+> [获取有关查询语言的详细信息](./concepts/query-language.md)

@@ -15,12 +15,12 @@ origin.date: 02/24/2019
 ms.date: 10/30/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 53d03b9ae6a1292588de7241ccd75cd02074cfd5
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 861b7f6b69a09b08ee5f223d47ca9f291012eb35
+ms.sourcegitcommit: c74ea6bb80aec1a6c200f19832393adf806921fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068945"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717507"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限
 
@@ -209,6 +209,6 @@ ms.locfileid: "73068945"
 * [教程：使用 RBAC 和 Azure 门户授予用户对 Azure 资源的访问权限](quickstart-assign-role-user-portal.md)
 * [教程：使用 RBAC 和 Azure PowerShell 授予用户对 Azure 资源的访问权限](tutorial-role-assignments-user-powershell.md)
 * [对 Azure 资源的 RBAC 进行故障排除](troubleshooting.md)
-* [使用 Azure 管理组来组织资源](../governance/management-groups/index.md)
+* [使用 Azure 管理组来组织资源](/governance/management-groups/overview)
 
 <!-- Update_Description: wording update -->

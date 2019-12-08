@@ -6,19 +6,18 @@ author: lingliw
 manager: digimobile
 ms.assetid: ''
 ms.service: batch
-ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 04/20/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 7bded991d22b9450e1cd724634ab4cdc7f91d4c7
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 14e1d3fcddc109d74fe72673d7cb97d878c2dc48
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528336"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839000"
 ---
 # <a name="pool-create-event"></a>池创建事件
 

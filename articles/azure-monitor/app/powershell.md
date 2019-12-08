@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 10/17/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: be5dd530388b53d48d38fce689a207bcc3105059
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: f06a87795584e525e4c6cc250538341cedb23903
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528346"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839045"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 资源
 
@@ -597,7 +597,6 @@ Azure 应严格按顺序设置资源。 若要确保某一设置在下一设置�
 ## <a name="next-steps"></a>后续步骤
 其他自动化文章：
 
-* [创建 Application Insights 资源](powershell-script-create-resource.md) - 不使用模板的快速方法。
 * [设置警报](powershell-alerts.md)
 * [创建 Web 测试](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [将 Azure 诊断发送到 Application Insights](powershell-azure-diagnostics.md)

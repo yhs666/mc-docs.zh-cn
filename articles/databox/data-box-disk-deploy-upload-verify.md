@@ -8,16 +8,18 @@ ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high
 origin.date: 09/04/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 833429ed84ca08704e77d7dd6c3fbe7530ccf544
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 6f01505a96bfaf1c2f08e12f4b9a7a7afdff858e
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530660"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884009"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-verify-data-upload-from-azure-data-box-disk"></a>教程：验证从 Azure Data Box Disk 上传的数据
 
 这是本系列的最后一个教程：部署 Azure Data Box Disk。 本教程的内容：
@@ -69,6 +71,8 @@ ms.locfileid: "74530660"
       ![托管磁盘资源组](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
   - 如果复制了 VHDX 或动态/差异 VHD，则 VHDX/VHD 会作为块 blob 上传到临时存储帐户。 转到临时存储帐户 >“Blob”，然后选择适当的容器 - StandardSSD、StandardHDD 或 PremiumSSD。  VHDX/VHD 会在临时存储帐户中显示为块 Blob。
+  
+::: zone-end
 
 ::: zone target="chromeless"
 

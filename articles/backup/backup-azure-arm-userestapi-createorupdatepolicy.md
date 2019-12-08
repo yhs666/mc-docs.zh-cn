@@ -1,22 +1,19 @@
 ---
-title: Azure 备份：使用 REST API 创建备份策略
+title: 使用 REST API 创建备份策略
 description: 本文介绍如何使用 REST API 创建和管理备份策略（计划和保留期）。
-ms.reviewer: pullabhk
 author: lingliw
 manager: digimobile
-keywords: REST API, Azure VM 备份, Azure VM 还原;
-ms.service: backup
 ms.topic: conceptual
 origin.date: 08/21/2018
 ms.date: 11/20/2019
 ms.author: v-lingwu
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 121696847ff131dc0707d0194c2f3f51062fa374
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: a19bf284bb19cc96e6c65bd03aab45ea8f2b3dec
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528075"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838957"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>使用 REST API 创建 Azure 恢复服务备份策略
 
@@ -53,10 +50,10 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 |Name  |必须  |类型  |说明  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 属性        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 属性        |
 |标记     |         | Object        |  资源标记       |
 
-有关请求正文中的完整定义列表，请参阅[备份策略 REST API 文档](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)。
+有关请求正文中的完整定义列表，请参阅[备份策略 REST API 文档](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)。
 
 ### <a name="example-request-body"></a>示例请求正文
 
@@ -161,7 +158,7 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 |Name  |类型  |说明  |
 |---------|---------|---------|
-|200 正常     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  OK       |
+|200 正常     |    [Protection PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  OK       |
 |202 已接受     |         |     已接受    |
 
 ### <a name="example-responses"></a>示例响应

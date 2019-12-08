@@ -1,0 +1,13 @@
+- name: Azure
+  tocHref: /
+  topicHref: /index
+  items:
+    - name: 容器注册表
+      tocHref: /security-center/
+      topicHref: /container-registry/index
+    - name: 容器注册表
+      tocHref: /aks/
+      topicHref: /container-registry/index
+    - name: 容器注册表
+      tocHref: /event-grid/
+      topicHref: /container-registry/index

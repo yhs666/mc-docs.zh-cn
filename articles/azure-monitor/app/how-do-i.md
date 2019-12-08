@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 04/04/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5fe56e2b61c2f972508ea2001092ab73d808537e
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 749b55fff05a356c88720a06331c287a03174e38
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527898"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838630"
 ---
 # <a name="how-do-i--in-application-insights"></a>如何在 Application Insights 中执行...？
 ## <a name="get-an-email-when-"></a>... 时收到电子邮件
@@ -74,7 +74,7 @@ ms.locfileid: "74527898"
 [使用 PowerShell 创建新警报](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>使用 PowerShell 管理 Application Insights
-* [创建新资源](../../azure-monitor/app/powershell-script-create-resource.md)
+
 * [创建新警报](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>不同版本中的单独遥测

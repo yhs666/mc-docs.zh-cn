@@ -2,21 +2,23 @@
 title: 使用 Azure 门户创建 Azure 通知中心 | Azure
 description: 本教程介绍如何使用 Azure 门户创建 Azure 通知中心。
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
 origin.date: 02/14/2019
-ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: fd18a20da17442edfe4d8453e0a79b480ce10105
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.date: 12/09/2019
+ms.author: v-tawe
+ms.reviewer: jowargo
+ms.lastreviewed: 02/14/2019
+ms.openlocfilehash: e649811b53d4925f504df784a1073e084807302b
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272343"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885010"
 ---
 # <a name="create-an-azure-notification-hub-in-the-azure-portal"></a>在 Azure 门户中创建 Azure 通知中心 
 Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于从任何后端（云或本地）向任何平台（iOS、Android、Windows、Kindle、百度等）发送通知。 有关此服务的详细信息，请参阅[什么是 Azure 通知中心？](notification-hubs-push-notification-overview.md)。

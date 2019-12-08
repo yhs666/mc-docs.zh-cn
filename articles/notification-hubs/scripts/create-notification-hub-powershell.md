@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/14/2018
 ms.date: 03/11/2019
-ms.author: v-biyu
-ms.openlocfilehash: 46608172c57a8d96137480f3fb35bb6b41e0bdc4
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.author: v-tawe
+ms.openlocfilehash: 5af4c855739605854f138088b714509479f86cfb
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272593"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884994"
 ---
 # <a name="use-powershell-to-create-an-azure-notification-hub"></a>使用 PowerShell 创建 Azure 通知中心
 

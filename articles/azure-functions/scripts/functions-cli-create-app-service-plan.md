@@ -1,24 +1,17 @@
 ---
-title: Azure CLI 脚本示例 - 在应用服务计划中创建 Function App | Microsoft Docs
+title: 在应用服务计划中创建 Function App - Azure CLI
 description: Azure CLI 脚本示例 - 在应用服务计划中创建 Function App
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
-origin.date: 07/03/2018
-ms.date: 10/18/2018
-ms.author: v-junlch
+ms.date: 12/05/2019
 ms.custom: mvc
-ms.openlocfilehash: ef4222dec224b6bd9ef91b03edad20913a18c470
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.author: v-junlch
+ms.openlocfilehash: 737f366e7b0c68c18b0fa098b1bfb970f5da6cbc
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52662101"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885042"
 ---
 # <a name="create-a-function-app-in-an-app-service-plan"></a>在应用服务计划中创建 Function App
 
@@ -80,5 +73,4 @@ az functionapp create `
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
-
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update metedata properties -->

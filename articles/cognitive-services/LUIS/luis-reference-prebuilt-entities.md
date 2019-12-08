@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/27/2019
-ms.date: 10/31/2019
+origin.date: 10/03/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fa62ce586700b88107e441110b051a1e1675ea58
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: d9f7508a3c26c3ab2b44d2f579f87de6a2fbacce
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416379"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884932"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 模型中每个区域性的实体
 

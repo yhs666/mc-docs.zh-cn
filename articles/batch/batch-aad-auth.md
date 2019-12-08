@@ -12,15 +12,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/18/2018
-ms.date: 08/15/2019
+origin.date: 08/15/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e3a107eedd8bc5b33e05023a1f070a35c7be505e
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 1dc833bec68d3f3d9449349689995944e1eaeb23
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330091"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839048"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>使用 Active Directory 对 Batch 服务解决方案进行身份验证
 

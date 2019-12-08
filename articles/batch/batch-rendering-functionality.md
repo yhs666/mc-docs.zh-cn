@@ -1,19 +1,19 @@
 ---
-title: Batch 渲染功能
+title: 渲染功能 - Azure Batch
 description: Azure Batch 中的特定渲染功能
 services: batch
 ms.service: batch
-author: mscurrell
-ms.author: v-junlch
+author: lingliw
+ms.author: v-lingwu
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 85cac746f494aa7b66bbd809a5378983863c043c
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 1824911eb56f98db4d8e19371ec6aacf2cebe4a5
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528194"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838994"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Azure Batch 的渲染功能
 

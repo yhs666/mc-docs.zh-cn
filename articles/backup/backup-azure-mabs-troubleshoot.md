@@ -1,20 +1,18 @@
 ---
 title: 对 Azure 备份服务器进行故障排除
 description: 排查 Azure 备份服务器的安装和注册以及应用程序工作负荷的备份和还原问题。
-services: backup
+ms.reviewer: srinathv
 author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 07/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1153f0abe7ecf1118c865696a9d1e774a679696d
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9578ac072b8b02265ecb71fe9caa3d028513a46f
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528254"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838588"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>对 Azure 备份服务器进行故障排除
 

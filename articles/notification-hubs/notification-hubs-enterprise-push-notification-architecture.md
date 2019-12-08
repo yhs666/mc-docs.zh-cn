@@ -3,9 +3,9 @@ title: 通知中心 - 企业推送架构
 description: 有关在企业环境中使用 Azure 通知中心的指南
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 903023e9-9347-442a-924b-663af85e05c6
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/08/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: f964b4d899d93434f9e23cacba9b7daa85f1c783
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 0842e2410deaf589e9b3a4eac3e5294f7ecec6b8
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272498"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884789"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>企业推送架构指南
 

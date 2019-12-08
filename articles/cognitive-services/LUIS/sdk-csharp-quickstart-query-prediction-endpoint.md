@@ -1,7 +1,7 @@
 ---
 title: 快速入门：C# SDK 查询预测终结点 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 使用 C# SDK 向 LUIS 发送用户话语并接收预测。
+description: 本文介绍如何使用 C# SDK 将用户言语发送到 Azure 认知服务 LUIS 应用程序并接收预测。
 author: lingliw
 manager: digimobile
 ms.service: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 09/27/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 948bac94c0f30c6664f3aadde1f192099e03bf28
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 3368cf7beacb3e995406554d33bda475e2769d79
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416339"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884694"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>快速入门：使用 C# .NET SDK 查询 V2 预测终结点
 
@@ -184,8 +184,6 @@ HomeAutomation.Room:'bedroom' begins at position 12 and ends at position 18
 
 详细了解 [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) 和 [.NET 参考文档](https://docs.microsoft.com/dotnet/api/overview/cognitiveservices/client/languageunderstanding?view=azure-dotnet)。 
 
-> [!div class="nextstepaction"] 
-> [教程：生成 LUIS 应用，以确定用户意向](luis-quickstart-intents-only.md) 
 
 
 

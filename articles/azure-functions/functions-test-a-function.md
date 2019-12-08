@@ -1,22 +1,16 @@
 ---
 title: 测试 Azure Functions
 description: 为 Visual Studio 中的 C# 函数和 VS Code 中的 JavaScript 函数创建自动测试
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure Functions，函数，事件处理，webhook，动态计算，无服务体系结构，测试
-ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 03/25/2019
-ms.date: 11/11/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 30d6484f9366b26c728786770dff56a9c18f2695
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: dca2ee38f48003c3907243a47da970e64dcadd07
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934160"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885036"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>在 Azure Functions 中测试代码的策略
 
@@ -221,7 +215,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -230,7 +224,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -383,4 +377,4 @@ npm test
 - [Azure Functions 错误处理](./functions-bindings-error-pages.md)
 - [Azure 函数事件网格触发器本地调试](./functions-debug-event-grid-trigger-local.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

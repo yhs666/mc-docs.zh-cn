@@ -7,21 +7,25 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: article
 origin.date: 09/04/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: c5bb8ad2d0f761b64138788599d122d6f88d5e5a
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: e708fcbe569c0051122b538767cd6f18e07f5378
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530607"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74883987"
 ---
+::: zone target="docs"
+
 # <a name="azure-data-box-disk-system-requirements"></a>Azure Data Box Disk 系统要求
 
 本文介绍了 Azure Data Box 磁盘解决方案以及连接到 Data Box 磁盘的客户端的重要系统要求。 建议在部署 Data Box 磁盘之前仔细查看信息，然后在部署和后续操作期间根据需要重新参考。
 
 系统要求包括连接到磁盘的客户端支持的平台、支持的存储帐户和存储类型。
+
+::: zone-end
 
 ::: zone target="chromeless"
 

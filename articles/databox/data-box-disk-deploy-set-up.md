@@ -7,17 +7,19 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 origin.date: 09/04/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 61b096c675bbce06cf2337b1aaa966e7e3df5b10
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 718500048bb9b370af71c10a9aaad290b2e5f377
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530620"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884011"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>教程：打开包装、连接和解锁 Azure Data Box 磁盘
 
 本教程介绍如何打开包装、连接和解锁 Azure Data Box 磁盘。
@@ -29,6 +31,8 @@ ms.locfileid: "74530620"
 > * 连接到磁盘并获取支持密钥
 > * 在 Windows 客户端上解锁磁盘
 > * 在 Linux 客户端上解锁磁盘
+
+::: zone-end
 
 ::: zone target="chromeless"
 

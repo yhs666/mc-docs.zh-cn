@@ -7,17 +7,21 @@ ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 origin.date: 09/03/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: 2ae6473858a53634f31f238befcd76faf5b8d937
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 88a3bc1e213a051e8716c6545ec64fe637fcb179
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530611"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884076"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box-heavy"></a>教程：为 Azure Data Box Heavy 布线并与它建立连接
+
+::: zone-end
 
 ::: zone target = "chromeless"
 

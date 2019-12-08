@@ -13,12 +13,12 @@ ms.topic: article
 origin.date: 06/07/2019
 ms.date: 10/21/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3c18d80977af551ee381bd85438a8540d0cb04fa
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 31b4cb0f3437f7cf234186e0b6f6cd96c2018486
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389401"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797608"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight 提供了哪些 Apache Hadoop 组件和版本？
 
@@ -115,7 +115,7 @@ Enterprise Security 包支持使用 Azure Data Lake Storage 作为主存储和�
 
 ### <a name="pricing-and-service-level-agreement"></a>定价和服务级别协议
 
-有关 Enterprise Security 包的定价和 SLA 的信息，请参阅 [HDInsight 定价](www.azure.cn/pricing/hdinsight/)。
+有关 Enterprise Security 包的定价和 SLA 的信息，请参阅 [HDInsight 定价](https://www.azure.cn/pricing/hdinsight/)。
 
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 群集版本的服务级别协议

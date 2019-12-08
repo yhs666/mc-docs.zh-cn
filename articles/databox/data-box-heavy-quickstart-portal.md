@@ -7,15 +7,18 @@ ms.service: databox
 ms.subservice: heavy
 ms.topic: quickstart
 origin.date: 09/03/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 51d61e480cbdd37aa9e6573ec157650a8fcc0f35
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.localizationpriority: high
+ms.openlocfilehash: 73455ed9ee5df24b314a56a531bf90725a4572bd
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655445"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884044"
 ---
+::: zone target = "docs"
+
 # <a name="quickstart-deploy-azure-data-box-heavy-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Data Box Heavy
 
 本快速入门介绍如何使用 Azure 门户部署 Azure Data Box Heavy。 步骤包括如何对 Data Box Heavy 进行布线、配置和数据复制操作，以便将数据上传到 Azure。 快速入门在 Azure 门户以及设备的本地 Web UI 中完成。
@@ -71,6 +74,8 @@ ms.locfileid: "74655445"
 4. 输入订单详细信息和发货信息。 如果该服务在你所在的区域中可用，请提供通知电子邮件地址、查看摘要，然后创建订单。
 
 创建订单后，Microsoft 会准备需发货的设备。
+
+::: zone-end
 
 ::: zone target = "chromeless"
 

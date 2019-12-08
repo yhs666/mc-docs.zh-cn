@@ -13,14 +13,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 origin.date: 05/24/2018
 ms.date: 06/28/2018
-ms.author: v-junlch
+ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: d4a34c93aadb157e8afc288521fb9ab6a9771b21
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f86877453c8e4f4cf2d5c8ae2539fd53bd492596
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330052"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838807"
 ---
 # <a name="use-an-azure-file-share-with-a-batch-pool"></a>将 Batch 池与 Azure 文件共享配合使用
 

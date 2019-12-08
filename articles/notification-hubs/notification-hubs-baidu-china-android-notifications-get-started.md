@@ -3,22 +3,24 @@ title: 通过百度开始使用 Azure 通知中心 | Azure
 description: 在本教程中，将了解如何通过百度使用 Azure 通知中心将通知推送到 Android 设备。
 services: notification-hubs
 documentationcenter: android
-author: jwargo
-manager: patniko
+author: sethmanheim
+manager: femila
 ms.service: notification-hubs
 ms.devlang: java
 ms.topic: conceptual
 ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 origin.date: 04/14/2018
-ms.date: 07/15/2019
-ms.author: v-biyu
-ms.openlocfilehash: fb83bf6ab21642d14f64c834b5c843fd9449c4f5
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.date: 12/09/2019
+ms.author: v-tawe
+ms.reviewer: jowargo
+ms.lastreviewed: 06/19/2019
+ms.openlocfilehash: 0ca91a6c25eaf66a4d965240325cd455abf73078
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272499"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884821"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>通过百度开始使用通知中心
 
@@ -29,14 +31,16 @@ ms.locfileid: "72272499"
 
 百度云推送是一种中国云服务，可用于将推送通知发送到移动设备。
 
+<!-- keep below section -->
+
 由于 Google Play 和 FCM (Firebase Cloud Messaging) 在中国不可用，必须使用其他的应用商店和推送服务。 百度就是其中的一个，也是通知中心目前所使用的。
 
 ## <a name="prerequisites"></a>先决条件
 
 本教程需要：
 
-- Android SDK（我们假设你使用 Android Studio），可从 <a href="http://go.microsoft.com/fwlink/?LinkId=389797">Android 站点</a>下载
-- [百度推送 Android SDK]
+* Android SDK（我们假设你使用 Android Studio），可从 [Android 站点](https://go.microsoft.com/fwlink/?LinkId=389797)下载
+* [百度推送 Android SDK]
 
 > [!NOTE]
 > 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
@@ -504,13 +508,13 @@ ms.locfileid: "72272499"
     ![](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-package-manager.png)
 
 3. 打开 `Program.cs` 文件并添加以下 using 语句：
-   
+
     ```csharp
     using Microsoft.Azure.NotificationHubs;
     ```
 
 4. 在 `Program` 类中添加以下方法，并使用自己的值替换 `DefaultFullSharedAccessSignatureSASConnectionString` 和 `NotificationHubName`。
-   
+
     ```csharp
     private static async void SendNotificationAsync()
     {

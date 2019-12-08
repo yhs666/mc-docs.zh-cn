@@ -3,15 +3,15 @@ title: 教程 - 从 Azure 门户导出模板
 description: 了解如何使用导出的模板完成模板开发。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 2c004b0e6f8516290a1450a45d9e55888de62fcd
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 0aecc663843c3d837c640727d0ae55441f3e57bc
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389430"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884893"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>教程：从 Azure 门户使用导出的模板
 
@@ -23,7 +23,7 @@ ms.locfileid: "74389430"
 
 必须已安装带有资源管理器工具扩展的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 有关详细信息，请参阅[模板工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>检查模板
+## <a name="review-template"></a>审阅模板
 
 在上一篇教程的结束时，模板包含以下 JSON：
 
@@ -45,7 +45,6 @@ ms.locfileid: "74389430"
                 "Standard_GRS",
                 "Standard_RAGRS",
                 "Premium_LRS",
-                "Premium_ZRS",
                 "Standard_GZRS",
                 "Standard_RAGZRS"
             ]
@@ -103,7 +102,7 @@ ms.locfileid: "74389430"
 1. 选择“查看并创建”。 
 1. 选择“创建”  。 创建资源需要花费片刻时间。
 
-## <a name="export-the-template"></a>导出模板
+## <a name="export-template"></a>导出模板
 
 1. 选择“转到资源”。 
 
@@ -122,7 +121,7 @@ ms.locfileid: "74389430"
 > [!IMPORTANT]
 > 通常，导出的模板比创建模板时所需的信息更详细。 例如，导出的模板中的 SKU 对象包含五个属性。 此模板是可行的，但你只需使用 **name** 属性。 可以从导出的模板着手，然后根据要求对其进行修改。
 
-## <a name="revise-the-existing-template"></a>修订现有模板
+## <a name="revise-existing-template"></a>修订现有模板
 
 导出的模板提供所需的大部分 JSON，但你需要根据模板自定义这些 JSON。 请特别注意你的模板与导出的模板之间的参数和变量差异。 很明显，导出过程并不知道你已在模板中定义的参数和变量。
 
@@ -208,7 +207,7 @@ ms.locfileid: "74389430"
 }
 ```
 
-## <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-template"></a>部署模板
 
 使用 Azure CLI 或 Azure PowerShell 来部署模板。
 
@@ -264,5 +263,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [使用 Azure 快速入门模板](template-tutorial-quickstart-template.md)
 
-<!-- Update_Description: new article about template tutorial export template -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update -->

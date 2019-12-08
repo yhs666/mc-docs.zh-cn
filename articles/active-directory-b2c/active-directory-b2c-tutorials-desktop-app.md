@@ -5,18 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: v-junlch
-origin.date: 10/12/2019
-ms.date: 11/22/2019
+ms.date: 12/04/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b4c65602fa6d613cf34bc986449d32a386fe99fc
-ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
+ms.openlocfilehash: 6c1c1c6da77871563ab47526419a524602cf9d93
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74461592"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884504"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>教程：使用 Azure Active Directory B2C 在本机桌面客户端中对用户进行身份验证
 
@@ -44,7 +43,7 @@ ms.locfileid: "74461592"
 
 ## <a name="configure-the-sample"></a>配置示例
 
-在本教程中，你将配置一个可从 GitHub 下载的示例。 示例 WPF 桌面应用程序演示了如何在 Azure AD B2C 中注册、登录和调用受保护的 Web API。 从 GitHub [下载 zip 文件](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)、[浏览存储库](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)或克隆示例。
+在本教程中，你将配置一个可从 GitHub 下载的示例。 示例 WPF 桌面应用程序演示了如何在 Azure AD B2C 中注册、登录和调用受保护的 Web API。 从 GitHub [下载 zip 文件](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip)、[浏览存储库](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop)或克隆示例。
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
@@ -107,4 +106,4 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.g
 > [!div class="nextstepaction"]
 > [教程：从桌面应用授予对 Node.js Web API 的访问权限](active-directory-b2c-tutorials-desktop-app-webapi.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

@@ -1,23 +1,21 @@
 ---
 title: 在 Azure Stack 上备份 SQL Server 工作负荷
 description: 本文介绍如何配置 Microsoft Azure 备份服务器 (MABS) 以在 Azure Stack 上保护 SQL Server 数据库。
-ms.reviewer: adigan
-author: pvrk
-manager: Shivamg
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/08/2018
 ms.date: 08/08/2018
-ms.author: v-junlch
-ms.openlocfilehash: ad804e916adb1fe019bc11c18c9159b6d14b29c1
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.author: v-lingwu
+ms.openlocfilehash: 0098e9cdbc6592cd3935be489da4371e30414b09
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528321"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838892"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>在 Azure Stack 上备份 SQL Server
-使用本文配置 Azure 备份服务器 (MABS) 以在 Azure Stack 上保护 SQL Server 数据库。
+
+使用本文配置 Microsoft Azure 备份服务器 (MABS) 以在 Azure Stack 上保护 SQL Server 数据库。
 
 向 Azure 备份以及从 Azure 恢复 SQL Server 数据库的管理工作涉及三个步骤：
 

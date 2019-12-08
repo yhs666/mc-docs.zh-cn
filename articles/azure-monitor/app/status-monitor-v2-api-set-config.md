@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 08/22/2019
 ms.date: 04/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a6722f50a9e63356df251c6625ae07548a64eda1
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 82ba8fe871cbb4fb84a58718860947a61fe3e765
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730501"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838593"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>Application Insights 代理 API：Set-ApplicationInsightsMonitoringConfig
 
@@ -129,11 +129,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\applica
 - [添加 Web 客户端遥测](../../azure-monitor/app/javascript.md)，以查看网页代码中的异常并启用跟踪调用。
 - [将 Application Insights SDK 添加到代码](../../azure-monitor/app/asp-net.md)，以便插入跟踪和日志调用
  
- 使用状态监视器 v2 执行更多操作：
- - 使用我们的指南可[排查状态监视器 v2 问题](status-monitor-v2-troubleshoot.md)。
+ 使用 Application Insights 代理执行更多操作：
+ - 使用我们的指南对 Application Insights 代理进行[故障排除](status-monitor-v2-troubleshoot.md)。
  - [获取配置](status-monitor-v2-api-get-config.md)以确认是否正确记录了你的设置。
  - [获取状态](status-monitor-v2-api-get-status.md)以检查监视。
-
-
-
-

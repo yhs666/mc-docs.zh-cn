@@ -12,16 +12,18 @@ ms.topic: conceptual
 origin.date: 09/05/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a25d075314173a3ee91a985e7e9452d51f054754
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 206faf322e24b0a5d0997ab794f865806e13149e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416337"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884882"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以编程方式生成 LUIS 应用
 
 LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API。 如果有预先存在的数据，这样可以节省时间，而且以编程方式创建 LUIS 应用比手动输入信息快。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -748,12 +750,6 @@ upload done
 该脚本完成后，可以登录 [LUIS](luis-reference-regions.md)，查看“我的应用”下创建的 LUIS 应用  。 应该能够看到在 TurnOn、TurnOff 和 None 意向下添加的陈述    。
 
 ![TurnOn 意向](./media/luis-tutorial-node-import-utterances-csv/imported-utterances-661.png)
-
-
-## <a name="next-steps"></a>后续步骤
-
-> [!div class="nextstepaction"]
-> [测试和训练 LUIS 网站中的应用](luis-interactive-test.md)
 
 ## <a name="additional-resources"></a>其他资源
 

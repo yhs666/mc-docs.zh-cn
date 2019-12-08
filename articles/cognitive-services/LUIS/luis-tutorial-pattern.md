@@ -9,19 +9,21 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/25/2019
-ms.date: 07/16/2019
+origin.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1841fefb86169ffe6ca2bc239754064c9fd44e76
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f4a91d7362d20a3a1693c141185cbba6367c0502
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329950"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884959"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>教程：添加常见的模式模板话语格式
 
 在本教程中，使用模式来改进意向和实体预测，同时提供更少的示例话语。 该模式通过模板话语示例提供，该示例包括用于标识实体和可忽略文本的语法。 模式是表达式匹配和机器学习的组合。  模板话语示例和意向话语使 LUIS 能够更好地理解哪些话语符合意向。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -70,7 +72,7 @@ ms.locfileid: "71329950"
     |Jill Jones 直接向谁报告？|
     |Jill Jones 主管是谁？|
 
-    [![LUIS 向意向中添加新话语屏幕截图](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "LUIS 向意向中添加新话语屏幕截图")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
+    [![将新的言语添加到意向的 LUIS 屏幕截图](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png "将新的言语添加到意向的 LUIS 屏幕截图")](media/luis-tutorial-pattern/hr-orgchart-manager-intent.png#lightbox)
 
     如果 keyPhrase 实体在意向的话语中而不是员工实体中标记，请不要担心。 两者都已在“测试”窗格和终结点中正确预测。 
 

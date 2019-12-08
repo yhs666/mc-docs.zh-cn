@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 01/07/2019
-ms.date: 10/30/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: e42481de062725d3abffd5e551ee171b5a2b55f2
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 4bef7035957fa6ec871f5e8e82694a2b117a2f05
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426096"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838977"
 ---
 # <a name="secure-access-to-a-key-vault"></a>保护对密钥保管库的访问
 
@@ -38,7 +38,7 @@ Azure 密钥保管库是一种云服务，用于保护加密密钥和机密（�
 - **用户加应用程序访问**：应用程序代表已登录的用户访问密钥保管库。 此类访问的示例包括 Azure PowerShell 和 Azure 门户。 用户访问权限通过两种方式授予。 用户可以从任何应用程序访问密钥保管库，或者用户必须使用特定的应用程序（称为_复合标识_）。
 - **仅限应用程序的访问**：应用程序作为守护程序服务或后台作业运行。 向应用程序标识授予访问密钥保管库的权限。
 
-对于这两种类型的访问，应用程序都使用 Azure AD 进行身份验证。 应用程序根据应用程序类型使用任何[支持的身份验证方法](../active-directory/develop/authentication-scenarios.md)。 应用程序通过获取平面中资源的令牌来授予访问权限。 资源是管理平面或数据平面中基于 Azure 环境的终结点。 应用程序使用令牌并向密钥保管库发送 REST API 请求。 若要了解详细信息，请查看[整个身份验证流](../active-directory/develop/v1-protocols-oauth-code.md)。
+对于这两种类型的访问，应用程序都使用 Azure AD 进行身份验证。 应用程序根据应用程序类型使用任何[支持的身份验证方法](../active-directory/develop/authentication-scenarios.md)。 应用程序通过获取平面中资源的令牌来授予访问权限。 资源是管理平面或数据平面中基于 Azure 环境的终结点。 应用程序使用令牌并向密钥保管库发送 REST API 请求。 若要了解详细信息，请查看[整个身份验证流](../active-directory/develop/v2-oauth2-auth-code-flow.md)。
 
 对这两种平面使用单一身份验证机制模型具有多个优点：
 
@@ -209,7 +209,7 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 
     此 2015 年 Microsoft Ignite 大会视频讨论了 Azure 中的访问管理和报告功能。 它还介绍了使用 Azure AD 保护对 Azure 订阅的访问权限的最佳做法。
 
-* [使用 OAuth 2.0 和 Azure AD 来授权访问 Web 应用程序](../active-directory/develop/v1-protocols-oauth-code.md)
+* [使用 OAuth 2.0 和 Azure AD 来授权访问 Web 应用程序](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 
 * [Key Vault 管理 REST API](https://msdn.microsoft.com/library/azure/mt620024.aspx)
 
@@ -228,6 +228,8 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 配置[密钥保管库防火墙和虚拟网络](key-vault-network-security.md)。
 
 有关面向管理员的入门教程，请参阅[什么是 Azure 密钥保管库？](key-vault-overview.md)。
+
+有关 Key Vault 使用情况日志记录的详细信息，请参阅 [Azure Key Vault 日志记录](key-vault-logging.md)。
 
 有关将密钥和机密与 Azure Key Vault 配合使用的详细信息，请参阅[关于密钥和机密](https://msdn.microsoft.com/library/azure/dn903623.aspx)。
 

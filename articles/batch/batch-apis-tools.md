@@ -6,14 +6,15 @@ author: lingliw
 manager: digimobile
 ms.service: batch
 ms.topic: conceptual
-ms.date: 12/07/2018
+origin.date: 12/07/2018
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36a780ac73d3753afaae293a7ba6b379261a197c
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: f21141048fcd6d50691f5d3a42384d2b756780d1
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528390"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839038"
 ---
 # <a name="overview-of-batch-apis-and-tools"></a>批处理 API 和工具概述
 

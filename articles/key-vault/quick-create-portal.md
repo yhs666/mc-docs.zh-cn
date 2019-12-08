@@ -9,14 +9,14 @@ ms.service: key-vault
 ms.topic: quickstart
 ms.custom: mvc
 origin.date: 09/03/2019
-ms.date: 10/30/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1d01c8e13f28fc28cb4ad045970e6d1dbe14eada
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 5134ec0da21c56a9a90b8f2a176de0afdee7b28b
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425867"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838943"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>快速入门：使用 Azure 门户在 Azure Key Vault 中设置和检索机密
 
@@ -30,18 +30,15 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 ## <a name="create-a-vault"></a>创建保管库
 
-1. 选择 Azure 门户左上角的“创建资源”选项 
-
-    ![Key Vault 创建完成后的输出](./media/quick-create-portal/search-services.png)
+1. 在 Azure 门户菜单或“主页”中，选择“创建资源”   。
 2. 在“搜索”框中输入“Key Vault”  。
 3. 从结果列表中选择“Key Vault”  。
 4. 在“Key Vault”部分，选择“创建”  。
 5. 在“创建密钥保管库”部分，提供以下信息： 
-    - **名称**：必须提供唯一的名称。 对于本快速入门，请使用 **Contoso-vault2**。 
+    - **名称**：必须提供唯一的名称。 对于本快速入门，我们使用 **Contoso-vault2**。 
     - **订阅**：选择订阅。
     - 在“资源组”  下选择“新建”  ，然后输入资源组名称。
     - 在“位置”下拉菜单中选择一个位置。 
-    - 勾选“固定到仪表板”复选框。 
     - 让其他选项保留默认值。
 6. 提供上述信息后，选择“创建”  。
 
@@ -86,7 +83,7 @@ Azure Key Vault 是一项云服务，它为机密提供了安全的存储。 可
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你创建了 Key Vault 并在其中存储了一个机密。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章。
+在本快速入门中，创建了 Key Vault 并在其中存储了一个机密。 若要详细了解 Key Vault 以及如何将其与应用程序集成，请继续阅读以下文章。
 
 - 阅读 [Azure Key Vault 概述](key-vault-overview.md)
 - 参阅 [Azure Key Vault 开发人员指南](key-vault-developers-guide.md)

@@ -9,12 +9,13 @@ ms.topic: tutorial
 origin.date: 07/03/2019
 ms.date: 12/02/2019
 ms.author: v-jay
-ms.openlocfilehash: 4b64c4c52d502c4c91e4f7150ead6783f3d0318a
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.localizationpriority: high
+ms.openlocfilehash: 01345411315764a8d451367cd9cbc2675fa395de
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655402"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884059"
 ---
 # <a name="tutorial-order-azure-data-box-heavy"></a>教程：订购 Azure Data Box Heavy
 

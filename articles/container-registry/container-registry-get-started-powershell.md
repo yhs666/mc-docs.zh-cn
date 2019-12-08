@@ -1,21 +1,17 @@
 ---
-title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - PowerShell
-description: 快速了解如何使用 PowerShell 在 Azure 中创建专用 Docker 容器注册表。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 快速入门 - 创建注册表 - Powershell
+description: 快速了解如何使用 PowerShell 在 Azure 容器注册表中创建专用 Docker 注册表
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
+ms.date: 12/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 7eec83d7c29369a183dd8c20599bb5e2b622ad0d
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 88febc0db74b5a0154d956787b85152a40f339d8
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134435"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885026"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建专用容器注册表
 
@@ -87,10 +83,8 @@ $creds.Password | docker login $registry.LoginServer -u $creds.Username --passwo
 Remove-AzResourceGroup -Name myResourceGroup
 ```
 
-## <a name="next-steps"></a>后续步骤
-
-本快速入门介绍了如何使用 Azure PowerShell 创建 Azure 容器注册表、推送容器映像，以及提取和运行注册表中的映像。
-
+<!--Not Available on ## Next steps-->
+<!--Not Available on In this quickstart, you created an Azure Container Registry with Azure PowerShell, pushed a container image, and pulled and ran the image from the registry.-->
 <!--Not Available on  Continue to the Azure Container Registry tutorials for a deeper look at ACR.-->
 <!--Not Available on  > [!div class="nextstepaction"]-->
 <!--Not Available on  > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]-->

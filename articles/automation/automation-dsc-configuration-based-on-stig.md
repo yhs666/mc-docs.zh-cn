@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2019
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: d1c86949fa2e64bcd18d1b7ce7ae3a74b4cf9ad4
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: e41e6e936e1c8c9bada01537929a618e36abd0aa
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116337"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74883999"
 ---
 # <a name="configuration-based-on-stig"></a>基于 STIG 的配置
 
@@ -44,6 +44,6 @@ PowerSTIG 通过提供[复合资源](https://github.com/microsoft/powerstig#powe
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview/overview)
-- [DSC 资源](https://docs.microsoft.com/powershell/dsc/resources/resources)
-- [配置本地配置管理器](https://docs.microsoft.com/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)
+- [DSC 资源](https://docs.microsoft.com/powershell/scripting/dsc/resources/resources)
+- [配置本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig)

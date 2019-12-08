@@ -10,12 +10,12 @@ ms.custom: mvc
 origin.date: 03/14/2019
 ms.date: 11/11/2019
 ms.author: robinsh
-ms.openlocfilehash: c61576b8f250cc070b675a1d0075891ddcb1684e
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 8d0f5858a592e83697c47af361120051aee575c3
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74388974"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797587"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>快速入门：通过 IoT 中心设备流（预览版）使用 C# 与设备应用程序进行通信
 
@@ -27,7 +27,7 @@ Azure IoT 中心目前支持设备流作为[预览版功能](https://azure.micro
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](www.azure.cn/pricing/1rmb-trial)。
+如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="prerequisites"></a>先决条件
 

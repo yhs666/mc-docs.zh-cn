@@ -1,22 +1,19 @@
 ---
-title: Azure 备份：使用 REST API 创建恢复服务保管库
+title: 使用 REST API 创建恢复服务保管库
 description: 本文介绍如何使用 REST API 管理 Azure VM 备份的备份和还原操作。
-ms.reviewer: pullabhk
 author: lingliw
 manager: digimobile
-keywords: REST API, Azure VM 备份, Azure VM 还原;
-ms.service: backup
 ms.topic: conceptual
 origin.date: 08/21/2018
 ms.date: 09/21/2019
 ms.author: v-lingwu
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 5403aa4e83c843bdad00acaeb524f7552e7b00c6
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 953068860357877febcda13e09abc49bd83d94c3
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528261"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838956"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 创建 Azure 恢复服务保管库
 
@@ -25,7 +22,7 @@ ms.locfileid: "74528261"
 若要创建或更新 Azure 恢复服务保管库，请使用以下 *PUT* 操作。
 
 ```http
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
+PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
 ```
 
 ## <a name="create-a-request"></a>创建请求

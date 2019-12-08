@@ -1,23 +1,20 @@
 ---
-title: Azure 快速入门 - 使用 Azure 门户备份 VM
+title: 快速入门 - 使用 Azure 门户备份 VM
 description: 在本快速入门中，了解如何创建恢复服务保管库，如何在 Azure VM 上启用保护，以及如何使用 Azure 门户备份 VM。
-ms.reviewer: saurse
 author: lingliw
-manager: digimobile
-tags: azure-resource-manager, virtual-machine-backup
-ms.service: backup
+ms.reviewer: saurse
 ms.devlang: azurecli
 ms.topic: quickstart
 origin.date: 07/17/2018
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 8f9487db6dfca0d067a956bb53490e5d9b4f35fa
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: a878e90e160e10118ee585a5cc455d38195086b7
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528115"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838875"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>在 Azure 中备份虚拟机
 
@@ -27,17 +24,18 @@ ms.locfileid: "74528115"
 
 ## <a name="sign-in-to-azure"></a>登录 Azure
 
-在 https://portal.azure.cn 登录 Azure 门户。
+登录到 [Azure 门户](https://portal.azure.cn)。
 
 ## <a name="select-a-vm-to-back-up"></a>选择要备份的 VM
-在恢复服务保管库中创建一个简单的已计划每日备份。 
 
-1. 在左侧菜单中选择“虚拟机”。  
+在恢复服务保管库中创建一个简单的已计划每日备份。
+
+1. 在左侧菜单中选择“虚拟机”。 
 2. 从列表中选择要备份的 VM。 如果使用了 VM 快速入门教程中的示例命令，VM 在 *myResourceGroup* 资源组中名为 *myVM*。
 3. 在“操作”  部分，选择“备份”  。 此时会打开“启用备份”窗口。 
 
-
 ## <a name="enable-backup-on-a-vm"></a>在 VM 上启用备份
+
 恢复服务保管库是一个逻辑容器，用于存储每个受保护资源（例如 Azure VM）的备份数据。 运行受保护资源的备份作业时，该作业会在恢复服务保管库中创建一个恢复点。 然后，可以使用其中一个恢复点将数据还原到给定的时间点。
 
 1. 选择“新建”并提供新保管库的名称，例如 *myRecoveryServicesVault*。 

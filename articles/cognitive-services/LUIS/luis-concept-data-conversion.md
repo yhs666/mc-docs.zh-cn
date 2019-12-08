@@ -12,24 +12,17 @@ ms.topic: conceptual
 origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4a27f4b7b2789fbfc9398db9cae8c98e09f70399
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: c5e3f529dab40a801b4efaeeba24b498d51f353e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389434"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884497"
 ---
 # <a name="convert-data-format-of-utterances"></a>转换话语的数据格式
 LUIS 在预测之前提供用户话语的以下转换
 
 * 语音转文本（使用[认知服务语音](../Speech-Service/overview.md)服务）。 
-
-<!-- ## Speech to text -->
-
-<!-- Speech to text is provided as an integration with LUIS.  -->
-
-<!-- ### Intent conversion concepts -->
-<!-- Conversion of speech to text in LUIS allows you to send spoken utterances to an endpoint and receive a LUIS prediction response. The process is an integration of the [Speech](https://docs.microsoft.com/azure/cognitive-services/Speech) service with LUIS. Learn more about Speech to Intent with a [tutorial](../speech-service/how-to-recognize-intents-from-speech-csharp.md). -->
 
 ### <a name="key-requirements"></a>关键要求
 无需为此集成创建必应语音 API 密钥  。 可在此集成中使用 Azure 门户中创建的语言理解密钥  。 请勿使用 LUIS 初学者密钥。

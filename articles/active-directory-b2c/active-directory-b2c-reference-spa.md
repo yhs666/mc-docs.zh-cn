@@ -7,16 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 07/19/2019
-ms.date: 10/23/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: c7fa432b0e46437e16a8220993d1fb5ac08eb598
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 0acf85153f5e6c8393a2d4970816d21422713129
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847000"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884505"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>使用 Azure Active Directory B2C 中的 OAuth 2.0 隐式流的单页登录
 
@@ -250,7 +249,7 @@ GET https://{tenant}.b2clogin.cn/{tenant}.partner.onmschina.cn/{policy}/oauth2/v
 GitHub 上的此示例旨在帮助你在以 [hello.js][github-hello-js] 构建的简单 Web 应用程序中开始使用 Azure AD B2C，以及使用弹出式身份验证。
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
 [github-hello-js]: https://github.com/MrSwitch/hello.js
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

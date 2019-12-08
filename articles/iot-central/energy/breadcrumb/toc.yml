@@ -1,0 +1,15 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /index
+  items:
+    - name: 物联网
+      tocHref: /iot-fundamentals/
+      topicHref: /iot-fundamentals/index
+      items:
+        - name: IoT Central
+          tocHref: /iot-central/
+          topicHref: /iot-central/
+          items:
+            - name: 能源行业用 IoT Central（预览功能）
+              tocHref: /iot-central/
+              topicHref: /iot-central/energy/index/

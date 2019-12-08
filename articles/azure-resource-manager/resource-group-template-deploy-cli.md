@@ -3,13 +3,13 @@ title: 使用 Azure CLI 和模板部署资源
 description: 使用 Azure 资源管理器和 Azure CLI 将资源部署到 Azure。 资源在 Resource Manager 模板中定义。
 ms.topic: conceptual
 origin.date: 10/09/2019
-ms.date: 11/25/2019
-ms.openlocfilehash: cc67de18c8aaf70dd072423ebbfe08134281005a
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/09/2019
+ms.openlocfilehash: cd2cfad9a418d92c8e60881fecd718868fa107eb
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389340"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884939"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>使用 Resource Manager 模板和 Azure CLI 部署资源
 
@@ -225,4 +225,4 @@ az group deployment validate \
 - 有关部署需要 SAS 令牌的模板的信息，请参阅[使用 SAS 令牌部署专用模板](resource-manager-cli-sas-token.md)。
 
 <!-- Not Available on [Azure Deployment Manager](deployment-manager-overview.md)-->
-<!--Update_Description: update meta properties, wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

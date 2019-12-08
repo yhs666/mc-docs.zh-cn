@@ -1,22 +1,19 @@
 ---
-title: Azure 备份：使用 REST API 还原 Azure VM
+title: 使用 REST API 还原 Azure VM
 description: 本文介绍如何使用 REST API 管理 Azure 虚拟机备份的还原操作。
-ms.reviewer: pullabhk
 author: lingliw
 manager: digimobile
-keywords: REST API, Azure VM 备份, Azure VM 还原;
-ms.service: backup
 ms.topic: conceptual
 origin.date: 09/12/2018
 ms.date: 11/20/2019
 ms.author: v-lingwu
 ms.assetid: b8487516-7ac5-4435-9680-674d9ecf5642
-ms.openlocfilehash: 74fd7c269ae1d4990d137f57527a5a32211a64a7
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: d1772787be3bc06852550522cd967394f8737e15
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528259"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838954"
 ---
 # <a name="restore-azure-virtual-machines-using-rest-api"></a>使用 REST API 还原 Azure 虚拟机
 
@@ -29,7 +26,7 @@ ms.locfileid: "74528259"
 可以使用[列出恢复点 REST API](https://docs.microsoft.com/rest/api/backup/recoverypoints/list) 列出备份项的可用恢复点。 这是一个使用所有相关值执行的 *GET* 操作。
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
+GET https://management.chinacloudapi.cn/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
 ```
 
 `{containerName}` 和 `{protectedItemName}` 是按[此处](backup-azure-arm-userestapi-backupazurevms.md#example-responses-1)所述构造的。 `{fabricName}` 是“Azure”。

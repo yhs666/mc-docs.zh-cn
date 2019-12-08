@@ -1,23 +1,19 @@
 ---
 title: 教程 - 将 SQL Server 数据库备份到 Azure
-description: 本教程介绍如何将 SQL Server 备份到 Azure，
-author: lingliw
-manager: carmonm
-ms.service: backup
+description: 在本教程中，了解如何将 Azure VM 上运行的 SQL Server 数据库备份到 Azure 备份恢复服务保管库。
 ms.topic: tutorial
+author: lingliw
 origin.date: 06/18/2019
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 144c22fbed811df066af10b886f049534dc59902
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: f62aff95e2b2cfb2cf4b820e11b380d1ba7fb458
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528224"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839052"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>在 Azure VM 中备份 SQL Server 数据库
-
-
 
 本教程介绍如何将 Azure VM 上运行的 SQL Server 数据库备份到 Azure 备份恢复服务保管库。 在本文中，学习如何：
 
@@ -57,9 +53,9 @@ ms.locfileid: "74528224"
 
 当你为 SQL Server 数据库配置备份时，Azure 备份会执行许多操作：
 
-- 添加 **AzureBackupWindowsWorkload** 扩展。
-- 为了发现虚拟机上的数据库，Azure 备份会创建帐户 NT SERVICE\AzureWLBackupPluginSvc  。 此帐户用于备份和还原，需要拥有 SQL sysadmin 权限。
-- Azure 备份利用 **NT AUTHORITY\SYSTEM** 帐户进行数据库发现/查询，因此此帐户需是 SQL 上的公共登录名。
+* 添加 **AzureBackupWindowsWorkload** 扩展。
+* 为了发现虚拟机上的数据库，Azure 备份会创建帐户 NT SERVICE\AzureWLBackupPluginSvc  。 此帐户用于备份和还原，需要拥有 SQL sysadmin 权限。
+* Azure 备份利用 **NT AUTHORITY\SYSTEM** 帐户进行数据库发现/查询，因此此帐户需是 SQL 上的公共登录名。
 
 如果 SQL Server VM 不是从 Azure 市场创建的，你可能会收到错误 **UserErrorSQLNoSysadminMembership**。 如果发生此错误，请[遵照这些说明](backup-azure-sql-database.md#set-vm-permissions)予以解决。
 
@@ -67,10 +63,10 @@ ms.locfileid: "74528224"
 
 避免在数据库名称中使用以下字符：
 
-  * 尾随/前导空格
-  * 尾随“!”
-  * 右方括号“]”
-  * 数据库名称以“F:\”开头
+* 尾随/前导空格
+* 尾随“!”
+* 右方括号“]”
+* 数据库名称以“F:\”开头
 
 对于 Azure 表不支持的字符，可以使用别名，但我们建议避免使用别名。 [了解详细信息](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)。
 
@@ -95,9 +91,9 @@ ms.locfileid: "74528224"
 
 5. 在“备份目标” > “发现 VM 中的数据库”中，选择“开始发现”以搜索订阅中不受保护的 VM。    搜索过程需要花费一段时间，具体取决于订阅中不受保护的虚拟机数量。
 
-   - 发现后，未受保护的 VM 应会按名称和资源组列在列表中。
-   - 如果某个 VM 未按预期列出，请检查它是否已保管库中备份。
-   - 可能有多个 VM 同名，但它们属于不同的资源组。
+   * 发现后，未受保护的 VM 应会按名称和资源组列在列表中。
+   * 如果某个 VM 未按预期列出，请检查它是否已保管库中备份。
+   * 可能有多个 VM 同名，但它们属于不同的资源组。
 
      ![在搜索 VM 中的数据库期间，备份将会挂起。](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
@@ -136,7 +132,6 @@ ms.locfileid: "74528224"
 
    为了优化备份负载，Azure 备份会将一个备份作业中的最大数据库数目设置为 50。
 
-    
      * 或者，可以通过在“自动保护”列中的相应下拉列表内选择“打开”选项，针对整个实例或 Always On 可用性组启用自动保护   。 自动保护功能不仅可以一次性针对所有现有数据库启用保护，而且还会自动保护将来要添加到该实例或可用性组的所有新数据库。  
 
 4. 单击“确定”以打开“备份策略”边栏选项卡   。

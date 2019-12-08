@@ -3,19 +3,19 @@ title: Azure Resource Graph 概述
 description: 了解如何使用 Azure Resource Graph 服务对资源进行大规模的复杂查询。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 05/06/2019
-ms.date: 09/16/2019
+origin.date: 10/21/2019
+ms.date: 12/16/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 910ade39818636a607d6fa76575bd665772f2ae2
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: f90091c3b636cb6503129eb271544e1eb230f03d
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389078"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884855"
 ---
-# <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 服务概述
+# <a name="what-is-azure-resource-graph"></a>什么是 Azure Resource Graph？
 
 Azure Resource Graph 是 Azure 中的一项服务，旨在通过提供高效和高性能的资源浏览来扩展 Azure 资源管理器，它能够跨给定的订阅组进行大规模查询，使你能够有效地管理环境。 这些查询提供以下功能：
 
@@ -35,7 +35,7 @@ Azure Resource Graph 是 Azure 中的一项服务，旨在通过提供高效和�
 
 Azure 资源管理器目前支持对基本的资源字段进行查询，具体说来，这些字段包括“资源名称”、“ID”、“类型”、“资源组”、“订阅”和“位置”。 资源管理器还提供设施，用于调用各个资源提供程序以获取详细的属性，每次仅限一个资源。
 
-使用 Azure Resource Graph，可以访问资源提供程序返回的这些属性，无需对资源提供程序进行单独调用。 如需支持的资源类型的列表，请在[完整模式部署的资源](../../azure-resource-manager/complete-mode-deletion.md)表中查找“是”  。 若要查看支持的资源类型，另一种方法是通过 [Azure Resource Graph 资源管理器架构浏览器](./first-query-portal.md#schema-browser)。
+使用 Azure Resource Graph，可以访问资源提供程序返回的这些属性，无需对资源提供程序进行单独调用。 如需支持的资源类型的列表，请在[完整模式部署的资源](../../azure-resource-manager/complete-mode-deletion.md)表中查找“是”  。 可在相关 [Resource Graph 表](./concepts/query-language.md#resource-graph-tables)中找到其他资源类型。 若要查看支持的资源类型，另一种方法是通过 [Azure Resource Graph 资源管理器架构浏览器](./first-query-portal.md#schema-browser)。
 
 使用 Azure Resource Graph，可以：
 
@@ -46,6 +46,9 @@ Azure 资源管理器目前支持对基本的资源字段进行查询，具体�
 
 更新 Azure 资源时，资源管理器会将所做的更改通知给 Resource Graph。
 Resource Graph 然后就会更新其数据库。 Resource Graph 也会定期进行完全扫描  。 此扫描可确保在缺少通知时，或者当资源是在资源管理器外部进行更新时，Resource Graph 数据能够保持最新。
+
+> [!NOTE]
+> Resource Graph 使用每个资源提供程序的最新非预览版 API 的 `GET` 来收集属性和值。 因此，预期的属性可能不可用。 在某些情况下，会覆盖所使用的 API 版本，以便在结果中提供更多当前或广泛使用的属性。 有关环境中的完整列表，请参阅[显示每种资源类型的 API 版本](./samples/advanced.md#apiversion)示例。
 
 ## <a name="the-query-language"></a>查询语言
 
@@ -90,7 +93,6 @@ Resource Graph 支持 Azure CLI、Azure PowerShell、用于 .NET 的 Azure SDK �
 
 ## <a name="next-steps"></a>后续步骤
 
+- 使用 [Azure 门户](first-query-portal.md)运行第一个查询。
 - 使用 [Azure CLI](first-query-azurecli.md) 运行第一个查询。
 - 使用 [Azure PowerShell](first-query-powershell.md) 运行第一个查询。
-- 从[初学者查询](./samples/starter.md)开始。
-- 增强对[高级查询](./samples/advanced.md)的理解。

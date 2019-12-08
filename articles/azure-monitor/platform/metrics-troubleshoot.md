@@ -5,16 +5,16 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 05/20/2019
+origin.date: 04/23/2019
 ms.date: 06/20/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: fee03044b947c61cf4cac70013aba1bb2194e57f
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 1142ff3045e6d5c1148eb117a8959006faf9fa23
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730597"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838918"
 ---
 # <a name="troubleshooting-metrics-charts"></a>排查指标图表问题
 

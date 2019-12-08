@@ -9,19 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/03/2019
-ms.date: 09/23/2019
+origin.date: 11/11/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8f96fbbcae9af718e941be8d34fc96716b0658da
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 9305e31a531a0ce9adf88d315a143e4f43fc5e28
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730601"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884580"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>教程：从话语中获取文本完全匹配的数据
 
 本教程介绍如何获取与项的预定义列表匹配的实体数据。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -48,7 +50,7 @@ ms.locfileid: "73730601"
 
 * 数据值是已知的集。
 * 此集不超出此实体类型的最大 LUIS [边界](luis-boundaries.md)。
-* 话语中的文本是同义项或规范名称的完全匹配。 LUIS 不会使用除文本完全匹配项之外的列表。 仅仅有列表实体无法解析词干、复数形式和其他变体。 若要管理变体，请考虑使用带有可选文本语法的[模式](luis-concept-patterns.md#syntax-to-mark-optional-text-in-a-template-utterance)。 
+* 话语中的文本是同义项或规范名称的完全匹配。 LUIS 不会使用除文本完全匹配项之外的列表。 仅仅有列表实体无法解析词干、复数形式和其他变体。 若要管理变体，请考虑使用带有可选文本语法的[模式](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)。 
 
 ## <a name="create-a-new-app"></a>创建新应用
 
@@ -172,8 +174,6 @@ ms.locfileid: "73730601"
 
 * [列表实体](luis-concept-entity-types.md#list-entity)概念信息
 * [如何训练](luis-how-to-train.md)
-* [如何发布](luis-how-to-publish-app.md)
-* [如何在 LUIS 门户中测试](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>后续步骤

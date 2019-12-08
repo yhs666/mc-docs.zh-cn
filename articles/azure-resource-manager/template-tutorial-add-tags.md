@@ -3,15 +3,15 @@ title: 教程 - 将标记添加到模板中的资源
 description: 将标记添加到在 Azure 资源管理器模板中部署的资源。 可以通过标记对资源进行逻辑组织。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 9cbd85922517f5952106eb4cc19c7fbf0301deb2
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 084cca4364a17654b32827fe42d18de40b1deb83
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389431"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884900"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>教程：在资源管理器模板中添加标记
 
@@ -23,7 +23,7 @@ ms.locfileid: "74389431"
 
 必须有包含资源管理器工具扩展的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 有关详细信息，请参阅[模板工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>审阅模板
+## <a name="review-template"></a>审阅模板
 
 以前的模板部署了存储帐户、应用服务计划和 Web 应用。
 
@@ -263,7 +263,7 @@ ms.locfileid: "74389431"
 }
 ```
 
-## <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-template"></a>部署模板
 
 可以部署模板并查看结果了。
 
@@ -293,7 +293,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>验证部署
+## <a name="verify-deployment"></a>验证部署
 
 可以通过在 Azure 门户中浏览资源组来验证部署。
 
@@ -322,5 +322,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [使用参数文件](template-tutorial-use-parameter-file.md)
 
-<!-- Update_Description: new article about template tutorial add tags -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

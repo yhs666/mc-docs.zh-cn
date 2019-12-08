@@ -1,23 +1,15 @@
 ---
 title: Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 description: '了解如何开发使用 C # 的 Azure 功能。'
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
-origin.date: 09/12/2018
-ms.date: 10/28/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: a837f95f9d51941d918760d12dd2172741506a14
-ms.sourcegitcommit: 7d2ea8a08ee329913015bc5d2f375fc2620578ba
+ms.openlocfilehash: ef8ba1987ef1d0dfe944c60eb574773b08f4f857
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73034404"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884768"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# developer reference（Azure Functions C# 开发人员参考）
 
@@ -373,7 +365,7 @@ public static class IBinderExample
 }
 ```
 
-`BlobAttribute` 定义[存储 Blob](functions-bindings-storage-blob.md) 输入或输出绑定，[TextWriter](https://docs.microsoft.com/dotnet/api/system.io.textwriter) 是支持的输出绑定类型。
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) 定义[存储 blob](functions-bindings-storage-blob.md) 输入或输出绑定，[TextWriter](https://docs.microsoft.com/dotnet/api/system.io.textwriter) 是支持的输出绑定类型。
 
 ### <a name="multiple-attribute-example"></a>多属性示例
 
@@ -415,4 +407,4 @@ public static class IBinderExampleMultipleAttributes
 > [详细了解有关 Azure Functions 的最佳做法](functions-best-practices.md)
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

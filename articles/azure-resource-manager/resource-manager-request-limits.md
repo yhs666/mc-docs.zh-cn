@@ -5,20 +5,21 @@ ms.topic: conceptual
 origin.date: 10/26/2019
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52ac0fca8bd96694d6bb11433453bebe69814e39
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: ddc8413b70ac1b7d976f06bcada6167305f96005
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389580"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884883"
 ---
 # <a name="throttling-resource-manager-requests"></a>限制 Resource Manager 请求数
 
 本文介绍 Azure 资源管理器如何限制请求。 其中介绍了如何在达到限制之前跟踪剩余的请求数，以及在达到限制时如何采取应对措施。
 
-限制在两个级别发生。 Azure 资源管理器限制对订阅和租户的请求。 如果请求低于订阅和租户的限制，资源管理器会将该请求路由到资源提供程序。 资源提供程序应用针对该订阅和租户的操作专门指定的限制。 下图显示了在请求从用户转到 Azure 资源管理器和资源提供程序时如何应用限制。
+限制在两个级别发生。 Azure 资源管理器限制对订阅和租户的请求。 如果请求低于订阅和租户的限制，资源管理器会将该请求路由到资源提供程序。 资源提供程序应用针对该订阅和租户的操作专门指定的限制。
 
-![请求限制](./media/resource-manager-request-limits/request-throttling.svg)
+<!--Not Available on  The following image shows how throttling is applied as a request goes from the user to Azure Resource Manager and the resource provider.-->
+<!--Not Available on ![Request throttling](./media/resource-manager-request-limits/request-throttling.svg)-->
 
 ## <a name="subscription-and-tenant-limits"></a>订阅和租户限制
 

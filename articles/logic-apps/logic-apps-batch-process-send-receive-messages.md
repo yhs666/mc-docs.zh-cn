@@ -10,12 +10,12 @@ ms.reviewer: estfan, jonfan, LADocs
 ms.topic: article
 origin.date: 01/16/2019
 ms.date: 08/26/2019
-ms.openlocfilehash: f13ca90dd1c16ecf97f3a1a1e4736810ea9538f6
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: ee81dc5150e323a12b8fdf29a667dc92b19f9e48
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389518"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797575"
 ---
 # <a name="send-receive-and-batch-process-messages-in-azure-logic-apps"></a>在 Azure 逻辑应用中发送、接收和批处理消息
 
@@ -35,7 +35,7 @@ ms.locfileid: "74389518"
 
 若要按照此示例进行操作，需要以下这些项：
 
-* Azure 订阅。 如果没有订阅，可以[从 Azure 试用帐户着手](www.azure.cn/pricing/1rmb-trial)。 
+* Azure 订阅。 如果没有订阅，可以[从 Azure 试用帐户着手](https://www.azure.cn/pricing/1rmb-trial)。 
 
 
 * 具有任何 [Azure 逻辑应用支持的电子邮件提供商](../connectors/apis-list.md)的电子邮件帐户

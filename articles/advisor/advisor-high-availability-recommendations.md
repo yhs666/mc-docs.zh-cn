@@ -9,12 +9,12 @@ ms.service: advisor
 ms.topic: article
 origin.date: 01/29/2019
 ms.date: 04/12/2019
-ms.openlocfilehash: d7ce93d0c3af3f51535f199780c2b715b23735f8
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: f31e98b5ad1f1d06b7cadabaf8e35fd110ae5e01
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527941"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838971"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>使用 Azure 顾问提高应用程序的可用性
 
@@ -42,7 +42,6 @@ Azure 顾问可帮助确保并提高业务关键应用程序的连续性。 可�
 ## <a name="protect-your-virtual-machine-data-from-accidental-deletion"></a>防止意外删除虚拟机数据
 
 设置虚拟机备份可确保业务关键型数据的可用性，并防止意外删除或损坏。 顾问标识其中未启用备份的虚拟机，并建议启用备份。 
-
 
 ## <a name="ensure-you-have-access-to-azure-cloud-experts-when-you-need-it"></a>确保在需要时有权访问 Azure 云专家
 

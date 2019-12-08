@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/08/2019
 ms.author: v-yiso
 ms.date: 09/16/2019
-ms.openlocfilehash: a0e67dabfdf90aa90314fb66915ce538c3054a2d
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: bfe90ea5fd1789d4d9d8d096dc620a28059cca65
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389041"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797569"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>用于 Go 的 HDInsight SDK（预览版）
 
@@ -25,7 +25,7 @@ ms.locfileid: "74389041"
 
 ## <a name="prerequisites"></a>先决条件
 
-* 一个 Azure 帐户。 如果没有帐户，可[获取试用帐户](www.azure.cn/pricing/1rmb-trial)。
+* 一个 Azure 帐户。 如果没有帐户，可[获取试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 * [Go](https://golang.org/dl/)。
 
 ## <a name="sdk-installation"></a>SDK 安装

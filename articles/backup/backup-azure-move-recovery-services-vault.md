@@ -2,19 +2,17 @@
 title: 如何移动 Azure 备份恢复服务保管库
 description: 有关如何跨 Azure 订阅和资源组移动恢复服务保管库的说明。
 ms.reviewer: sogup
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 04/08/2019
-ms.date: 04/08/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f7e9ea7ea0dba6aa04a95dd8ddb1473cbf2252f4
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 534a4fad20ccb107cea371504080c0b1b0c68db2
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730365"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839060"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 订阅和资源组移动恢复服务保管库
 

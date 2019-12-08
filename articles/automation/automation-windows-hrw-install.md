@@ -6,16 +6,16 @@ ms.service: automation
 ms.subservice: process-automation
 author: WenJason
 ms.author: v-jay
-origin.date: 05/21/2019
-ms.date: 08/26/2019
+origin.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: f27f8056ab5b6386ade5107abe1be65d367ed50d
-ms.sourcegitcommit: 599d651afb83026938d1cfe828e9679a9a0fb69f
+ms.openlocfilehash: eb1e86c1905457b0a730ad1a8d1bf5763f194648
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69993760"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884056"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>部署 Windows 混合 Runbook 辅助角色
 
@@ -139,9 +139,9 @@ Add-HybridRunbookWorker –GroupName <String> -EndPoint <Url> -Token <String>
 
 Runbook 可以使用在 Azure 自动化环境中安装的模块中定义的任何活动和 cmdlet。 这些模块不会自动部署到本地计算机，因此必须手动安装。 例外情况是 Azure 模块，该模块是默认安装的，并可用于访问所有 Azure 服务的 cmdlet 以及 Azure 自动化的活动。
 
-由于混合 Runbook 辅助角色功能的主要用途是管理本地资源，很可能需要安装支持这些资源的模块。 有关安装 Windows PowerShell 模块的信息，请参阅[安装模块](https://docs.microsoft.com/powershell/developer/windows-powershell)。 
+由于混合 Runbook 辅助角色功能的主要用途是管理本地资源，很可能需要安装支持这些资源的模块。 有关安装 Windows PowerShell 模块的信息，请参阅[安装模块](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)。 
 
-安装的模块必须位于 PSModulePath 环境变量所引用的位置，以便混合辅助角色自动将其导入  。 有关详细信息，请参阅 [Modifying the PSModulePath Installation Path](https://docs.microsoft.com/powershell/developer/windows-powershell)（修改 PSModulePath 安装路径）。
+安装的模块必须位于 PSModulePath 环境变量所引用的位置，以便混合辅助角色自动将其导入  。 有关详细信息，请参阅 [Modifying the PSModulePath Installation Path](https://docs.microsoft.com/powershell/scripting/developer/windows-powershell)（修改 PSModulePath 安装路径）。
 
 ## <a name="next-steps"></a>后续步骤
 

@@ -9,12 +9,12 @@ ms.topic: article
 origin.date: 11/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: de2768b1069ff5f4f41046cce5b67928f66d79ac
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0dbac83fec9c96b3d76985d90ac5167512bff981
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730605"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838604"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>可视化 Azure Monitor 中的数据
 本文概述了将 Azure Monitor 中存储的日志和指标数据可视化时可使用的方法。

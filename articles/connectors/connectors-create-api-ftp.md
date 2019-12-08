@@ -11,12 +11,12 @@ ms.topic: article
 origin.date: 06/19/2019
 ms.date: 10/08/2019
 tags: connectors
-ms.openlocfilehash: 75caf752b56a0b115882296e2809c5928b86f236
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: e3369a1bc7f8f0e6897350893bf8f6f90dd87510
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389233"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797580"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>使用 Azure 逻辑应用创建、监视和管理 FTP 文件
 
@@ -55,7 +55,7 @@ FTP 触发器的工作原理是轮询 FTP 文件系统并查找自上次轮询�
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有 Azure 订阅，请[注册一个 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * FTP 主机服务器地址和帐户凭据
 

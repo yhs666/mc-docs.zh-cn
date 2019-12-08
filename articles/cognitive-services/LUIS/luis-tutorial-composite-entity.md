@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 07/29/2019
-ms.date: 09/23/2019
+origin.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1306af92094f483957da6542c1ea3fe7e76731a4
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: f87ee57e1048ad5a02f2321f96139d93e6232464
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329956"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884961"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>教程：对相关的数据进行分组和提取
 在本教程中，添加复合实体来将提取的各种类型的数据捆绑到单个内含实体中。 通过捆绑数据，客户端应用程序可以轻松提取各种数据类型的相关数据。
@@ -29,6 +29,8 @@ ms.locfileid: "71329956"
 * 彼此相关。 
 * 使用各种实体类型。
 * 需要由客户端应用作为一个信息单元进行分组和处理。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -192,11 +194,8 @@ LUIS 为常见数据提取提供多个预生成的实体。
 
 ## <a name="related-information"></a>相关信息
 
-* [列表实体教程](luis-quickstart-intents-only.md)
 * [复合实体](luis-concept-entity-types.md)概念信息
 * [如何训练](luis-how-to-train.md)
-* [如何发布](luis-how-to-publish-app.md)
-* [如何在 LUIS 门户中测试](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>后续步骤

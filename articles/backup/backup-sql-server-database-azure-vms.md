@@ -1,20 +1,18 @@
 ---
-title: 备份 Azure VM 中的 SQL Server 数据库 | Microsoft Docs
+title: 备份 Azure VM 中的 SQL Server 数据库
 description: 本文介绍如何使用 Azure 备份在 Azure 虚拟机上备份 SQL Server 数据库。
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
+author: lingliw
 ms.topic: conceptual
 origin.date: 09/11/2019
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ab8ca94ab73f615f63c61134809c9cbfab7beb7b
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 01e4930c39c4059ef2b2f75e11082891ca9ea353
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528240"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838886"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>备份 Azure VM 中的 SQL Server 数据库
 

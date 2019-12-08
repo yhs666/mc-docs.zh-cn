@@ -2,17 +2,18 @@
 title: 虚拟机、云服务和 Web 应用自动缩放概述
 description: 世纪互联 Azure 中的自动缩放。 适用于虚拟机、虚拟机规模集、云服务和 Web 应用。
 ms.service: azure-monitor
+ms.subservice: autoscale
 ms.topic: conceptual
 author: lingliw
 origin.date: 09/24/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eae7a0e747b24824b49b219fc46d209a544a6de9
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 78e96c32febaa6777523204d83e5033f96e00a0f
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970725"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838978"
 ---
 # <a name="overview-of-autoscale-in-21vianet-azure-virtual-machines-cloud-services-and-web-apps"></a>世纪互联 Azure 虚拟机、云服务和 Web 应用自动缩放概述
 本文介绍了世纪互联 Azure 自动缩放的定义、其优点，以及如何开始使用它。  

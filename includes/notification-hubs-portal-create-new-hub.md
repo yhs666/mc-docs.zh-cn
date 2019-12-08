@@ -6,15 +6,15 @@ author: jwargo
 ms.service: notification-hubs
 ms.topic: include
 origin.date: 01/17/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: be5655c5ad2b28ea01c65f540f4bbd238af10545
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 819c29c3465d5296d4cc9c82550ffb9b76215f4c
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272342"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884560"
 ---
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 

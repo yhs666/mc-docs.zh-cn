@@ -3,14 +3,14 @@ author: spelluru
 ms.service: service-bus
 ms.topic: include
 origin.date: 11/09/2018
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 9999177c7f3fbb4f9a6a31c853ac9fcd53456d95
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: 5e67c8e50d01bda51e5246e9eee48b81181c0b16
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272463"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884947"
 ---
 > [!div class="op_single_selector"]
 > * [Android](../articles/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started.md)

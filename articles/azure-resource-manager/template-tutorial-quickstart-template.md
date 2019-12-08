@@ -3,15 +3,15 @@ title: 教程 - 使用快速入门模板
 description: 了解如何使用 Azure 快速入门模板来完成模板开发。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 97b88acf4cbb77d11f301d24388ef2115bb95ab1
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: d9181f58715f51016f34de75dd28e45f63169f9e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389429"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884892"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>教程：使用 Azure 快速入门模板
 
@@ -23,9 +23,9 @@ ms.locfileid: "74389429"
 
 必须有包含资源管理器工具扩展的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 有关详细信息，请参阅[模板工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>检查模板
+## <a name="review-template"></a>审阅模板
 
-在上一教程的末尾，模板有以下 JSON：
+在上一篇教程的结束时，模板包含以下 JSON：
 
 ```json
 {
@@ -107,7 +107,7 @@ ms.locfileid: "74389429"
 
 此模板适用于部署存储帐户和应用服务计划，但你可能需要向其添加网站。 可以使用预生成的模板来快速发现部署资源所需的 JSON。
 
-## <a name="find-a-template"></a>查找模板
+## <a name="find-template"></a>查找模板
 
 1. 打开 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)
 1. 在“搜索”中，输入“部署 linux web 应用”。  
@@ -118,7 +118,7 @@ ms.locfileid: "74389429"
 
     ![资源管理器模板快速入门网站](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>修订现有模板
+## <a name="revise-existing-template"></a>修订现有模板
 
 将快速入门模板与现有模板合并：
 
@@ -231,7 +231,7 @@ ms.locfileid: "74389429"
 }
 ```
 
-WebApp 名称必须在 Azure 中独一无二。 为了防止出现重复名称，我们已将 **webAppPortalName** 变量从 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 更新为 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 。
+Web 应用名称必须在 Azure 中独一无二。 为了防止出现重复名称，我们已将 **webAppPortalName** 变量从 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 更新为 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 。
 
 在 `Microsoft.Web/serverfarms` 定义末尾添加一个逗号，以便将资源定义与 `Microsoft.Web/sites` 定义分开。
 
@@ -241,7 +241,7 @@ WebApp 名称必须在 Azure 中独一无二。 为了防止出现重复名称�
 
 **serverFarmId** 属性使用 [resourceId](resource-group-template-functions-resource.md#resourceid) 函数。 此函数获取资源的唯一标识符。 在此示例中，它获取应用服务计划的唯一标识符。 Web 应用与一个特定的应用服务计划相关联。
 
-## <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-template"></a>部署模板
 
 使用 Azure CLI 或 Azure PowerShell 来部署模板。
 
@@ -289,5 +289,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [添加标记](template-tutorial-add-tags.md)
 
-<!-- Update_Description: new article about template tutorial quickstart template -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

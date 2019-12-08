@@ -1,21 +1,16 @@
 ---
-title: 教程 - 自动化容器映像生成 - Azure 容器注册表任务
+title: 教程 - 在代码提交时构建映像
 description: 本教程介绍如何配置一个 Azure 容器注册表任务，以便在向 Git 存储库提交源代码时在云中自动触发容器映像生成。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: tutorial
-origin.date: 05/04/2019
-ms.date: 09/23/2019
 ms.author: v-yeche
+ms.date: 12/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 04dedbc7e23127a5181e68d070850bdeac7b0ec4
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: aabdfdc55d9b23c81f707c517b20a38ae8bf35c7
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306718"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884865"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时，在云中自动化容器映像生成
 

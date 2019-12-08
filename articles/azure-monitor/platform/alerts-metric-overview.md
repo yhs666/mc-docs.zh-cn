@@ -3,17 +3,17 @@ title: 了解指标警报在 Azure Monitor 中的工作原理。
 description: 获取指标警报功能的概述，以及它们在 Azure Monitor 中的工作原理。
 author: lingliw
 ms.author: v-lingwu
-origin.date: 9/18/2018
-ms.date: 6/4/2019
+origin.date: 11/18/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 404ced8c84afb79daa86e0a23e1bf095c9b2bc63
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 24ac940e86e142bc4fe78ddea4d87929ca86c700
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970952"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838601"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>了解指标警报在 Azure Monitor 中的工作原理
 
@@ -134,41 +134,6 @@ Azure Monitor 中的指标警报还支持使用一个规则来监视多个维度
 
 可在[此文](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)中找到受支持资源类型的完整列表。
 
-如果你现在使用经典指标警报并且想要了解指标警报是否支持所使用的所有资源类型，则下表显示了经典指标警报支持的资源类型，以及这些资源类型现在是否受到指标警报支持。
-
-|经典指标警报支持的资源类型 | 受指标警报支持 |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | 是 |
-| Microsoft.Batch/batchAccounts| 是|
-|Microsoft.Cache/redis| 是 |
-|Microsoft.ClassicCompute/virtualMachines | 否 |
-|Microsoft.ClassicCompute/domainNames/slots/roles | 否|
-|Microsoft.CognitiveServices/accounts | 否 |
-|Microsoft.Compute/virtualMachines | 是|
-|Microsoft.Compute/virtualMachineScaleSets| 是|
-|Microsoft.ClassicStorage/storageAccounts| 否 |
-|Microsoft.DataFactory/datafactories | 是|
-|Microsoft.DBforMySQL/servers| 是|
-|Microsoft.DBforPostgreSQL/servers| 是|
-|Microsoft.Devices/IotHubs | 否|
-|Microsoft.DocumentDB/databaseAccounts| 是|
-|Microsoft.EventHub/namespaces | 是|
-|Microsoft.Logic/workflows | 是|
-|Microsoft.Network/loadBalancers |是|
-|Microsoft.Network/publicIPAddresses| 是|
-|Microsoft.Network/applicationGateways| 是|
-|Microsoft.Network/expressRouteCircuits| 是|
-|Microsoft.Network/trafficManagerProfiles | 是|
-|Microsoft.Search/searchServices | 是|
-|Microsoft.ServiceBus/namespaces| 是 |
-|Microsoft.Storage/storageAccounts | 是|
-|Microsoft.StreamAnalytics/streamingjobs| 是|
-|Microsoft.TimeSeriesInsights/environments | 是|
-|Microsoft. Web/serverfarms | 是 |
-|Microsoft. Web/sites（不包括函数） | 是|
-|Microsoft. Web/hostingEnvironments/multiRolePools | 否|
-|Microsoft. Web/hostingEnvironments/workerPools| 否 |
-|Microsoft.SQL/Servers | 否 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -176,9 +141,3 @@ Azure Monitor 中的指标警报还支持使用一个规则来监视多个维度
 - [了解如何使用 Azure 资源管理器模板部署指标警报](../../azure-monitor/platform/alerts-metric-create-templates.md)
 - [详细了解操作组](action-groups.md)
 - [详细了解动态阈值条件类型](alerts-dynamic-thresholds.md)
-
-
-
-
-
-

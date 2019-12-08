@@ -8,13 +8,12 @@ ms.topic: conceptual
 origin.date: 03/14/2019
 ms.date: 04/14/2019
 ms.author: anantr
-ms.subservice: alerts
-ms.openlocfilehash: ed9b8869fbab3939c32c39126028ebb376575f86
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 57f5472b8ecbaa87e8a8b3261c72d9ea1815d1c5
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970959"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839003"
 ---
 # <a name="common-alert-schema-definitions"></a>常见警报架构定义
 

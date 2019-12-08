@@ -9,15 +9,15 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 07/24/2019
-ms.date: 07/16/2019
+origin.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3294f7090c46fd97f317abb29c6b88d2a852a3f7
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 13c44cf03d9d37073eb2bc2c6872c694d2bc5e2e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329948"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884958"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>教程：使用角色提取与上下文相关的模式
 

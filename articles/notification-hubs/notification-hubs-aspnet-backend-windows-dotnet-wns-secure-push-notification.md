@@ -2,9 +2,9 @@
 title: Azure 通知中心安全推送
 description: 了解如何在 Azure 中发送安全推送通知。 代码示例是使用 .NET API 通过 C# 编写的。
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/08/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: a5ba4aa39c20ac25929edac5038ea24ac40a205c
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: feb26d3299b671df98d9f82090ac8883856a55e3
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272496"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885038"
 ---
 # <a name="securely-push-notifications-from-azure-notification-hubs"></a>从 Azure 通知中心安全地推送通知
 

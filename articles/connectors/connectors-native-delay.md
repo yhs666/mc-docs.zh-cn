@@ -16,12 +16,12 @@ ms.workload: na
 origin.date: 05/25/2019
 ms.author: v-yiso
 ms.date: 06/24/2018
-ms.openlocfilehash: a889250528500273306c5d006f1aab87ccd17ca1
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 77bbaf2d4a6f378493e8323482fc0d971eacbb4f
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74388993"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797601"
 ---
 # <a name="delay-running-the-next-action-in-azure-logic-apps"></a>在 Azure 逻辑应用中延迟运行下一操作
 
@@ -39,7 +39,7 @@ ms.locfileid: "74388993"
 
 ## <a name="prerequisites"></a>先决条件
 
-* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](www.azure.cn/pricing/1rmb-trial)。
+* Azure 订阅。 如果没有订阅，可以[注册 Azure 试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 * 有关[逻辑应用](../logic-apps/logic-apps-overview.md)的基本知识。 在使用操作之前，必须先使用触发器启动逻辑应用。 在添加延迟操作之前，可以使用任何所需的触发器并添加其他操作。 本主题使用 Office 365 Outlook 触发器。 如果不熟悉逻辑应用，请了解[如何创建第一个逻辑应用](../logic-apps/quickstart-create-first-logic-app-workflow.md)。
 

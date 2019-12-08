@@ -1,21 +1,17 @@
 ---
-title: 快速入门 - 在 Azure 中创建专用 Docker 注册表 - Azure 门户
-description: 快速了解如何使用 Azure 门户创建专用 Docker 容器注册表。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 快速入门 - 在门户中创建注册表
+description: 快速了解如何使用 Azure 门户在 Azure 容器注册表中创建专用 Docker 注册表。
 ms.topic: quickstart
 origin.date: 01/22/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
+ms.date: 12/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8c831f58acfd3f8856d887385878932452e74721
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 924e08b92a4e240145ac33d449113fde9771bf22
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134443"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884867"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>快速入门：使用 Azure 门户创建专用容器注册表
 
@@ -87,10 +83,8 @@ az acr login --name <acrName>
 
 ![在 Azure 门户中删除资源组][qs-portal-08]
 
-## <a name="next-steps"></a>后续步骤
-
-本快速入门介绍了如何使用 Azure 门户创建 Azure 容器注册表、推送容器映像，以及提取和运行注册表中的映像。
-
+<!--Not Available on ## Next steps-->
+<!--Not Available on In this quickstart, you created an Azure Container Registry with the Azure portal, pushed a container image, and pulled and ran the image from the registry.-->
 <!--Not Available on  Continue to the Azure Container Registry tutorials for a deeper look at ACR-->
 <!-- Not Availble on > [Azure Container Registry tutorials][container-registry-tutorial-quick-task]-->
 

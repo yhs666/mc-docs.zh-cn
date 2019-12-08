@@ -1,19 +1,17 @@
 ---
 title: Azure 备份支持矩阵
 description: 汇总 Azure 备份服务的支持设置和限制。
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 02/17/2019
 ms.date: 11/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c421e85cd94bde73214999456136a2f70e3d7323
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: b5f867d465ca7ee760eb3252fdb33913f3237c3c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730524"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838879"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure 备份的支持矩阵
 

@@ -1,20 +1,18 @@
 ---
-title: 使用 PowerShell 备份多个 Azure VM
+title: 教程：使用 PowerShell 进行多个 Azure VM 备份
 description: 本教程详细介绍了如何使用 Azure PowerShell 将多个 Azure VM 备份到恢复服务保管库。
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: tutorial
+author: lingliw
 origin.date: 03/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 8e965904dcd54832800f8a5499e475c5f7b9a585
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9567f752de5d92f75c18ad11024ca0ff6c0e7516
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528221"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838938"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>使用 PowerShell 备份 Azure VM
 
@@ -25,6 +23,7 @@ ms.locfileid: "74528221"
 本教程介绍如何执行下列操作：
 
 > [!div class="checklist"]
+>
 > * 创建恢复服务保管库并设置保管库上下文。
 > * 定义备份策略
 > * 应用备份策略以保护多个虚拟机

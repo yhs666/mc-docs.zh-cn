@@ -11,15 +11,17 @@ ms.topic: conceptual
 origin.date: 09/05/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b9f4974f7da6de3447179fe99e3b7987109b1b42
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 0a5e1d42589351755036b141cc197420976854c7
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329944"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884957"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>使用列表实体提升实体检测 
 本文展示了如何使用[列表实体](luis-concept-entity-types.md)提升实体检测。 无需标记列表实体，因为它们与术语完全匹配。  
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 在本文中，学习如何：
 
@@ -72,8 +74,6 @@ HomeAutomation.Device 实体非常适用于数量较少的设备或几乎没有�
 |hotter（升温）|
 |cold（冷）|
 |colder（降温）|
-
-如果 LUIS 需要经常确定新可选名称，最好使用[短语列表](luis-concept-feature.md#how-to-use-phrase-lists)。
 
 ## <a name="create-a-list-entity"></a>创建列表实体
 创建 Node.js 文件，并将下面的代码复制到其中。 更改 authoringKey、appId、versionId 和 region 值。

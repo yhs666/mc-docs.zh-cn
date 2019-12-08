@@ -11,18 +11,18 @@ origin.date: 05/08/2019
 ms.date: 10/08/2019
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3b0b62fe8224fff6caffe559cbb182a47ce77f86
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 9af28e323cb4d3f34576e6baafb9ef2c6956cc46
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389254"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797594"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>适用于 Azure 逻辑应用的连接器
 
 使用连接器可以从 Azure 逻辑应用快速访问其他应用、服务、系统、协议和平台上的事件、数据和操作。 使用逻辑应用中的连接器，可以扩展云中和本地应用的功能，以便对创建的数据和现有的数据执行任务。
 
-虽然逻辑应用提供[数百个连接器](https://docs.microsoft.com/connectors)，但本文只介绍一些流行且较常用的连接器，数千个应用和数百万次执行已成功使用这些连接器来处理数据和信息。 若要查找连接器的完整列表以及每个连接器的参考信息（例如触发器、操作和限制），请查看[连接器概述](https://docs.microsoft.com/connectors)下的连接器参考页。 另外，请详细了解[触发器和操作](#triggers-actions)、[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)以及[逻辑应用定价详细信息](www.azure.cn/pricing/details/logic-apps/)。 
+虽然逻辑应用提供[数百个连接器](https://docs.microsoft.com/connectors)，但本文只介绍一些流行且较常用的连接器，数千个应用和数百万次执行已成功使用这些连接器来处理数据和信息。 若要查找连接器的完整列表以及每个连接器的参考信息（例如触发器、操作和限制），请查看[连接器概述](https://docs.microsoft.com/connectors)下的连接器参考页。 另外，请详细了解[触发器和操作](#triggers-actions)、[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)以及[逻辑应用定价详细信息](https://www.azure.cn/pricing/details/logic-apps/)。 
 
 > [!NOTE]
 > 若要与没有连接器的服务或 API 集成，可以通过 HTTP 等协议直接调用该服务，或创建[自定义连接器](#custom)。
@@ -55,7 +55,7 @@ ms.locfileid: "74389254"
   |||
 
 
-  有关连接器的完整列表以及每个连接器的参考信息（例如按 OpenAPI（以前称为 Swagger）说明定义的操作和任何触发器以及任何限制），可以在[连接器概述](/connectors/)下找到完整列表。 有关定价信息，请参阅[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)和[逻辑应用定价详细信息](www.azure.cn/pricing/details/logic-apps/)。 
+  有关连接器的完整列表以及每个连接器的参考信息（例如按 OpenAPI（以前称为 Swagger）说明定义的操作和任何触发器以及任何限制），可以在[连接器概述](/connectors/)下找到完整列表。 有关定价信息，请参阅[逻辑应用定价模型](../logic-apps/logic-apps-pricing.md)和[逻辑应用定价详细信息](https://www.azure.cn/pricing/details/logic-apps/)。 
 
 <a name="built-ins"></a>
 

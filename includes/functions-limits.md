@@ -1,23 +1,22 @@
 ---
 author: ggailey777
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
-origin.date: 05/09/2019
-ms.date: 11/19/2019
+ms.date: 12/05/2019
 ms.author: v-junlch
-ms.openlocfilehash: 59b8d386d9d4b230127882c317f9523e646cf68e
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: f6ff640b01e18c6be28e41db149386b8263f3ee1
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179224"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885039"
 ---
-| 资源 | [消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan) | 高级计划 | [应用服务计划](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
+| Resource | [消耗计划](../articles/azure-functions/functions-scale.md#consumption-plan) | 高级计划 | [应用服务计划](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| 横向扩展 | 事件驱动 | 事件驱动 | [手动/自动缩放](../articles/app-service/manage-scale-up.md) | 
-| 最大实例数 | 200 | 20 | 10-20 |
+| 向外扩展 | 事件驱动 | 事件驱动 | [手动/自动缩放](../articles/app-service/manage-scale-up.md) | 
+| 最大实例数 | 200 | 100 | 10-20 |
 |默认[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |5 | 30 |30<sup>2</sup> |
-|最大[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |10 | unbounded | 不受限制<sup>3</sup> |
+|最大[超时持续时间](../articles/azure-functions/functions-scale.md#timeout)（分钟） |10 个 | 60 | 不受限制<sup>3</sup> |
 | 最大出站连接数（每个实例） | 600 个处于活动状态（总共 1200 个） | unbounded | unbounded |
 | 最大请求大小 (MB)<sup>4</sup> | 100 | 100 | 100 |
 | 最大查询字符串长度<sup>4</sup> | 4096 | 4096 | 4096 |

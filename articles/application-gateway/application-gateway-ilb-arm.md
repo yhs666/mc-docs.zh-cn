@@ -5,15 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 11/13/2019
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 5ae2b472248af4c466308a60e6e208d1e652790c
-ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
+ms.openlocfilehash: 5b114c3a8513748db2f4a0521c2fced7f3f95e94
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327157"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884857"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>创建具有内部负载均衡器 (ILB) 的应用程序网关
 
@@ -259,9 +258,7 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 
 ## <a name="next-steps"></a>后续步骤
 
-若要配置 SSL 卸载，请参阅[配置应用程序网关以进行 SSL 卸载](application-gateway-ssl.md)。
-
-若要将应用程序网关配置为与 ILB 配合使用，请参阅[创建具有内部负载均衡器 (ILB) 的应用程序网关](application-gateway-ilb.md)。
+如果要配置 SSL 卸载，请参阅 [Configure an application gateway for SSL offload](application-gateway-ssl.md)（配置应用程序网关以进行 SSL 卸载）。
 
 如需大体上更详细地了解负载均衡选项，请参阅：
 
@@ -269,4 +266,4 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 * [Azure 流量管理器](https://www.azure.cn/home/features/traffic-manager/)
 
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

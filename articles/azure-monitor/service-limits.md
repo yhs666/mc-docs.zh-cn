@@ -7,14 +7,14 @@ origin.date: 08/22/2019
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 11/10/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c3d61be45ae286ca7dbb03db4bc756f70cca4ef4
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: a5df6bbf663f94de779811c71498bc769568d197
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730608"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838622"
 ---
 # <a name="azure-monitor-service-limits"></a>Azure Monitor 服务限制
 

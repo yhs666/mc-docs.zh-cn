@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/04/2019
-ms.date: 09/23/2019
+origin.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cd1d55948934d88fa08371eb4a6155d34710e849
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: a420854524e6131d5a49c72cea5afd52f2f47f36
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330413"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884586"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS 的语言和区域支持
 
@@ -58,110 +58,3 @@ LUIS 理解以下语言：
 |语言|  每个空格或特殊字符 | 字符级|复合词|[返回的切分后的实体](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |中文||✔||✔|
-
-### <a name="migrating-between-tokenizer-versions"></a>在 tokenizer 版本之间迁移
-<!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
-
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
-
-```JSON
-{
-    "luis_schema_version": "3.2.0",
-    "versionId": "0.1",
-    "name": "german_app_1.0.0",
-    "desc": "",
-    "culture": "de-de",
-    "tokenizerVersion": "1.0.0",
-    "intents": [
-        {
-            "name": "i1"
-        },
-        {
-            "name": "None"
-        }
-    ],
-    "entities": [
-        {
-            "name": "Fahrzeug",
-            "roles": []
-        }
-    ],
-    "composites": [],
-    "closedLists": [],
-    "patternAnyEntities": [],
-    "regex_entities": [],
-    "prebuiltEntities": [],
-    "model_features": [],
-    "regex_features": [],
-    "patterns": [],
-    "utterances": [
-        {
-            "text": "ich fahre einen krankenwagen",
-            "intent": "i1",
-            "entities": [
-                {
-                    "entity": "Fahrzeug",
-                    "startPos": 23,
-                    "endPos": 27
-                }
-            ]
-        }
-    ],
-    "settings": []
-}
-```
-
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
-
-```JSON
-{
-    "luis_schema_version": "3.2.0",
-    "versionId": "0.1",
-    "name": "german_app_1.0.1",
-    "desc": "",
-    "culture": "de-de",
-    "tokenizerVersion": "1.0.1",
-    "intents": [
-        {
-            "name": "i1"
-        },
-        {
-            "name": "None"
-        }
-    ],
-    "entities": [
-        {
-            "name": "Fahrzeug",
-            "roles": []
-        }
-    ],
-    "composites": [],
-    "closedLists": [],
-    "patternAnyEntities": [],
-    "regex_entities": [],
-    "prebuiltEntities": [],
-    "model_features": [],
-    "regex_features": [],
-    "patterns": [],
-    "utterances": [
-        {
-            "text": "ich fahre einen krankenwagen",
-            "intent": "i1",
-            "entities": [
-                {
-                    "entity": "Fahrzeug",
-                    "startPos": 16,
-                    "endPos": 27
-                }
-            ]
-        }
-    ],
-    "settings": []
-}
-```
--->
-
-在应用级别进行词汇切分。 不支持版本级别的词汇切分。 
-
-[将文件导入为新应用](luis-how-to-start-new-app.md#import-an-app-from-file)，而不是版本。 此操作意味着新应用具有不同的应用 ID，但使用文件中指定的 tokenizer 版本。 

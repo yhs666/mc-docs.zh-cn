@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/03/2019
-ms.date: 09/23/2019
+origin.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 993321d714aadcf836a9043dc9e5da854a88c9bc
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 8a0bf82cb86bbf4382fa479adfbaf827c1340f9e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730600"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884545"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>教程：从话语中获取格式正确的数据
 在此教程中，创建使用“正则表达式”实体从话语中提取带有一致格式的数据的应用  。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -177,8 +179,6 @@ HRF 代表 `human resources form`。
 
 * [正则表达式](luis-concept-entity-types.md#regular-expression-entity)实体概念
 * [如何训练](luis-how-to-train.md)
-* [如何发布](luis-how-to-publish-app.md)
-* [如何在 LUIS 门户中测试](luis-interactive-test.md)
 
 ## <a name="next-steps"></a>后续步骤
 本教程创建了新意向，添加了示例话语，然后创建了正则表达式实体以便从话语中提取格式良好的数据。 在训练并发布应用后，向终结点发出的查询识别了意向，并返回了提取的数据。

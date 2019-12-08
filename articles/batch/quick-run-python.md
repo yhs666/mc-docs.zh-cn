@@ -10,13 +10,15 @@ ms.topic: quickstart
 origin.date: 11/27/2018
 ms.date: 09/03/2019
 ms.author: v-lingwu
-ms.custom: mvc
-ms.openlocfilehash: 0692db9b6302035cc038314539e06625329e09fc
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.custom:
+- seo-python-october2019
+- mvc
+ms.openlocfilehash: 86ae7f51d104919b8f191972a36dddd62767a55e
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730408"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838806"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>快速入门：使用 Python API 运行你的第一个 Batch 作业
 

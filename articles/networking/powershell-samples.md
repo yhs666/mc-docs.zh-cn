@@ -3,8 +3,8 @@ title: Azure PowerShell 示例 | Azure
 description: Azure PowerShell 示例
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: mtillman
 editor: tysonn
 tags: ''
 ms.assetid: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 05/24/2017
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 44386b4ccc5a4549726d5f8c634b60ad1066493f
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 8297a98c94fba17cbe18e87aca3164c22d73ec7a
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584094"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884073"
 ---
 # <a name="azure-powershell-samples-for-networking"></a>适用于网络的 Azure PowerShell 示例
 

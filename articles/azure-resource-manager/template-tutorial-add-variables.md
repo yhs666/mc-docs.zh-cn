@@ -3,15 +3,15 @@ title: 教程 - 将变量添加到模板
 description: 将变量添加到 Azure 资源管理器模板以简化语法。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: d5a5cb11958ee9eaa100c5a236f6fbb3f895b31c
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 5549a212b4b25426a3d8b07f4ade35d7ea91d364
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389428"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884896"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>教程：将变量添加到资源管理器模板
 
@@ -23,9 +23,9 @@ ms.locfileid: "74389428"
 
 必须有包含资源管理器工具扩展的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 有关详细信息，请参阅[模板工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>检查模板
+## <a name="review-template"></a>审阅模板
 
-在上一教程的末尾，模板有以下 JSON：
+在上一篇教程的结束时，模板包含以下 JSON：
 
 ```json
 {
@@ -45,7 +45,6 @@ ms.locfileid: "74389428"
                 "Standard_GRS",
                 "Standard_RAGRS",
                 "Premium_LRS",
-                "Premium_ZRS",
                 "Standard_GZRS",
                 "Standard_RAGZRS"
             ]
@@ -141,9 +140,9 @@ ms.locfileid: "74389428"
 
 最后请注意，存储帐户名称现在设置为变量而非参数。
 
-## <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-template"></a>部署模板
 
-让我们部署此模板。 部署此模板比部署上述模板容易，因为你只提供存储名称的前缀。
+让我们部署该模板。 部署此模板比部署上述模板容易，因为你只提供存储名称的前缀。
 
 如果尚未创建资源组，请参阅[创建资源组](template-tutorial-create-first-template.md#create-resource-group)。 此示例假设已根据[第一篇教程](template-tutorial-create-first-template.md#deploy-template)中所述，将 **templateFile** 变量设置为模板文件的路径。
 
@@ -170,7 +169,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>验证部署
+## <a name="verify-deployment"></a>验证部署
 
 可以通过在 Azure 门户中浏览资源组来验证部署。
 
@@ -197,5 +196,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [添加输出](template-tutorial-add-outputs.md)
 
-<!-- Update_Description: new article about template tutorial add variables -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update -->

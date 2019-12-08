@@ -1,21 +1,18 @@
 ---
-title: Azure 备份：创建恢复服务保管库
+title: 创建恢复服务保管库
 description: 本文介绍如何创建用于存储备份和恢复点的恢复服务保管库。
-services: backup
+ms.reviewer: sogup
 author: lingliw
-manager: digimobile
-keywords: 恢复服务保管库; Azure VM 备份; Azure VM 还原;
-ms.service: backup
 ms.topic: conceptual
 origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b1d000fcc469b54cdb72d3112d072037ce64bbbf
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 0e88d430e63a3b5770829cce9c31e2c5d2ef363a
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528266"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838901"
 ---
 # <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
@@ -77,7 +74,7 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
    - 详细了解[异地冗余](../storage/common/storage-redundancy-grs.md)和[本地冗余](../storage/common/storage-redundancy-lrs.md)。
 
 > [!NOTE]
-> 在保管库中配置备份之前，必须更改恢复服务保管库的**存储复制类型**（本地冗余/异地冗余）。 配置备份后，将禁用修改选项，并且无法更改**存储复制类型**。 
+> 在保管库中配置备份之前，必须更改恢复服务保管库的**存储复制类型**（本地冗余/异地冗余）。 配置备份后，将禁用修改选项，并且无法更改**存储复制类型**。
 
 ## <a name="next-steps"></a>后续步骤
 

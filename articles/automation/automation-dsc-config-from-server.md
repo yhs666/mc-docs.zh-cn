@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2019
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 05376a0b294ffc46be345aca2a1973b1c99b42da
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 59e18fe0b7792882b066fcd0ca26fa8fd46624c2
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116338"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884000"
 ---
 # <a name="create-configurations-from-existing-servers"></a>从现有服务器创建配置
 
@@ -39,13 +39,13 @@ ms.locfileid: "74116338"
 
 使用此解决方案的结果是生成与 SharePointDSC 配置脚本配合使用的[配置数据](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data)。
 
-生成数据文件后，可以在 [DSC 配置脚本](https://docs.microsoft.com/powershell/dsc/overview/overview)中使用这些文件生成 MOF 文件，并[将 MOF 文件上传到 Azure 自动化](/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
+生成数据文件后，可以在 [DSC 配置脚本](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)中使用这些文件生成 MOF 文件，并[将 MOF 文件上传到 Azure 自动化](/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
 然后从[本地](/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure)或[在 Azure 中](/automation/automation-dsc-onboarding#azure-virtual-machines)注册服务器以拉取配置。
 
 若要试用 ReverseDSC，请访问 [PowerShell 库](https://www.powershellgallery.com/packages/ReverseDSC/)并下载解决方案，或单击“项目站点”以查看[文档](https://github.com/Microsoft/sharepointDSC.reverse)。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview/overview)
-- [DSC 资源](https://docs.microsoft.com/powershell/dsc/resources/resources)
-- [配置本地配置管理器](https://docs.microsoft.com/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)
+- [DSC 资源](https://docs.microsoft.com/powershell/scripting/dsc/resources/resources)
+- [配置本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig)

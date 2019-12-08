@@ -3,15 +3,15 @@ title: 教程 - 创建和部署模板
 description: 创建第一个 Azure 资源管理器模板。 本教程将介绍模板文件语法，以及如何部署存储帐户。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 859b6f349a150307d51917be7d5f1d06e911f0db
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 6d55eccf93931f9364f3daf806fe075bd3e0aefd
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389432"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884898"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>教程：创建和部署第一个 Azure 资源管理器模板
 
@@ -133,7 +133,7 @@ New-AzResourceGroupDeployment `
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \
@@ -194,5 +194,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [添加资源](template-tutorial-add-resource.md)
 
-<!-- Update_Description: new article about template tutorial create first template -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update -->

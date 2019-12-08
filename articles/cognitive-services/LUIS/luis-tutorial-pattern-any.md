@@ -9,19 +9,21 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 07/24/2019
-ms.date: 06/12/2019
+origin.date: 11/11/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 77c664d0318b55447ebf6c32257196bbdd188222
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 7af260790b5ff3eed30bba1fc9afd1e4fc51c497
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329945"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884940"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>教程：使用 Pattern.any 实体提取自由格式数据
 
 在本教程中，对于格式良好且数据结尾可能容易与话语的剩余单词混淆的话语，我们使用 pattern.any 实体从这些话语中提取数据。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -137,7 +139,7 @@ Pattern.any 实体提取不同长度的实体。 它仅适用于模式，因为�
 
 ## <a name="using-an-explicit-list"></a>使用显式列表
 
-如果发现模式在包含 Pattern.any 时错误提取实体，请使用[显式列表](luis-concept-patterns.md#explicit-lists)来更正此问题。
+如果发现模式在包含 Pattern.any 时错误提取实体，请使用[显式列表](reference-pattern-syntax.md#explicit-lists)来更正此问题。
 
 
 ## <a name="clean-up-resources"></a>清理资源

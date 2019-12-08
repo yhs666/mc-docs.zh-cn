@@ -5,16 +5,16 @@ services: notification-hubs
 author: spelluru
 ms.service: notification-hubs
 ms.topic: include
-origin.date: 04/02/2018
-ms.date: 09/26/2018
-ms.author: v-junlch
+origin.date: 11/07/2019
+ms.date: 12/09/2018
+ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 7f0e0d9fe4513dd8de2d8b6e502091022f5c7979
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.openlocfilehash: ed4e5265922a685bd0ebdf48e4fbb04aeb9d3124
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272621"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884949"
 ---
 发送模板通知时，只需提供一组属性。 在此方案中，这组属性包含当前新闻的本地化版本。
 
@@ -34,9 +34,11 @@ ms.locfileid: "72272621"
 private static async void SendTemplateNotificationAsync()
 {
     // Define the notification hub.
-    NotificationHubClient hub = 
-        NotificationHubClient.CreateClientFromConnectionString(
+    NotificationHubClient hub = NotificationHubClient.CreateClientFromConnectionString(
             "<connection string with full access>", "<hub name>");
+
+    // Apple requires the apns-push-type header for all requests
+    var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
 
     // Sending the notification as a template notification. All template registrations that contain 
     // "messageParam" or "News_<local selected>" and the proper tags will receive the notifications. 

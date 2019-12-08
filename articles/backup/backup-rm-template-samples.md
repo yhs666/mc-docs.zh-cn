@@ -1,19 +1,17 @@
 ---
-title: 用于 Azure 备份的 Azure 资源管理器模板
+title: Azure Resource Manager 模板
 description: 用于恢复服务保管库和 Azure 备份功能的 Azure 资源管理器模板
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: sample
+author: lingliw
 ms.date: 01/31/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: b75e9147b255616cc2b6a9ada382543672ea4d12
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 5a937decd55946dc4d875b447355835fd83c9726
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330222"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838885"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>用于 Azure 备份的 Azure 资源管理器模板
 

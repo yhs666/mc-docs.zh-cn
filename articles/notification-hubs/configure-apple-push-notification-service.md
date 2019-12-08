@@ -2,21 +2,23 @@
 title: 在 Azure 通知中心配置 Apple Push Notification 服务 | Azure
 description: 了解如何为 Azure 通知中心配置 Apple Push Notification 服务 (APNS) 设置。
 services: notification-hubs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 04/29/2019
-ms.author: v-biyu
-ms.openlocfilehash: 27376f3882ff3ede1eb5d18e02e9a04e46baa61d
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.date: 12/09/2019
+ms.author: v-tawe
+ms.reviewer: jowargo
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: d2268fd64a9c9e3468d31f6a49bde351576f22fa
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272385"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885008"
 ---
 # <a name="configure-apple-push-notification-service-apns-settings-for-a-notification-hub-in-the-azure-portal"></a>在 Azure 门户中为通知中心配置 Apple Push Notification 服务 (APNS) 设置
 本文介绍如何使用 Azure 门户为 Azure 通知中心配置 Apple Push Notification 服务 (APNS) 设置。 
@@ -37,14 +39,14 @@ ms.locfileid: "72272385"
    * 输入密码。
    * 选择“沙盒”  模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。 
 
-     ![Azure 门户中 APNS 证书配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-cert.png)
+     ![Azure 门户中 APNS 证书配置的屏幕截图](./media/configure-apple-push-notification-service/notification-hubs-apple-config-cert.png)
 
    b. 如果选择“令牌”： 
 
    * 输入“密钥 ID”、“绑定 ID”、“团队 ID”和“令牌”的值     。
    * 选择“沙盒”  模式。 或者，若要将推送通知发送给从应用商店中购买了你的应用的用户，请选择“生产”模式。 
 
-     ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Azure 门户中 APNS 令牌配置的屏幕截图](./media/configure-apple-push-notification-service/notification-hubs-apple-config-token.png)
 
 ## <a name="next-steps"></a>后续步骤
 如需通过教程的 分步说明来了解如何将通知推送到 iOS 设备，请参阅以下文章：[使用通知中心和 APNS 将通知推送到 iOS 设备](notification-hubs-ios-apple-push-notification-apns-get-started.md)

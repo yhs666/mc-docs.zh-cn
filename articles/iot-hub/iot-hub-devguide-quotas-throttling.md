@@ -11,12 +11,12 @@ ms.workload: na
 origin.date: 08/08/2019
 ms.author: v-yiso
 ms.date: 12/02/2019
-ms.openlocfilehash: 500bd9a07db4b78a7f5d97442db2ef6e4fa0383d
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 97f6acd6f0bd9e4bbe13827e79ac96d7e19dc92f
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74388965"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797604"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>参考 - IoT 中心配额和限制
 
@@ -70,7 +70,7 @@ ms.locfileid: "74388965"
 
 *  就 S2 层级的作业设备操作（更新孪生、调用直接方法）来说，  50/秒/单位仅适用于使用作业来调用方法的情况。 如果直接调用直接方法，则适用原始的 24 MB/秒/单位（针对 S2）限制。
 
-*  **配额**是每天可以在中心发送的聚合消息数。  可以在 [IoT 中心定价页](www.azure.cn/pricing/details/iot-hub/)上的“消息总数/天”列下找到中心的配额限制。 
+*  **配额**是每天可以在中心发送的聚合消息数。  可以在 [IoT 中心定价页](https://www.azure.cn/pricing/details/iot-hub/)上的“消息总数/天”列下找到中心的配额限制。 
 
 *  云到设备和设备到云限制决定了发送消息的最大速率（在不考虑 4 KB 区块情况下的消息数）。  每条消息最大可以为 256 KB（[最大消息大小](iot-hub-devguide-quotas-throttling.md#other-limits)）。
 

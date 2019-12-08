@@ -6,15 +6,15 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-origin.date: 11/19/2016
+origin.date: 09/18/2018
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 066470f73f65ba2846d974f398f54cecfa1988d2
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d80cf60dcad34bdbac67c368643846be1e140a18
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730416"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838705"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Application Insights 中基于日志的指标和预先聚合的指标
 

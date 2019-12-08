@@ -7,17 +7,21 @@ ms.service: databox
 ms.subservice: heavy
 ms.topic: tutorial
 origin.date: 09/03/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: a418f9a24359c2beb7ce0bfeb1671c2c4c1f0b01
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 8c8757dc19850dc80752411900a73f086b00c8e3
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530612"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884055"
 ---
+::: zone target = "docs"
+
 # <a name="tutorial-return-azure-data-box-heavy-and-verify-data-upload-to-azure"></a>教程：退回 Azure Data Box Heavy 并验证上传到 Azure 的数据
+
+::: zone-end
 
 ::: zone target = "chromeless"
 

@@ -15,12 +15,12 @@ ms.topic: hero-article
 origin.date: 08/17/2017
 ms.date: 06/11/2018
 ms.author: v-yiso
-ms.openlocfilehash: a5fd8dc3b6f2aa50cda6ad74f792a4ae19dc8a92
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 4db577eeb04d096933fda25f474b55ec94898e38
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74388979"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797576"
 ---
 # <a name="build-and-deploy-a-nodejs-application-to-an-azure-cloud-service"></a>生成 Node.js 应用程序并将其部署到 Azure 云服务
 
@@ -99,7 +99,7 @@ http.createServer(function (req, res) {
 ## <a name="deploy-the-application-to-azure"></a>将应用程序部署到 Azure
 
 > [!NOTE]
-> 若要完成本教程，需要一个 Azure 帐户。 可以[注册试用帐户](www.azure.cn/pricing/1rmb-trial)。
+> 若要完成本教程，需要一个 Azure 帐户。 可以[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ### <a name="download-the-azure-publishing-settings"></a>下载 Azure 发布设置
 
@@ -198,7 +198,7 @@ Publish-AzureServiceProject -ServiceName $ServiceName  -Location "China East" -L
 <!-- URL List -->
 [使用轻型 Web 应用]: ../app-service/app-service-web-get-started-nodejs.md
 [Azure PowerShell]:../powershell-install-configure.md
-[用于 .NET 2.7 的 Azure SDK]: http://www.microsoft.com/en-us/download/details.aspx?id=48178
+[用于 .NET 2.7 的 Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=48178
 [连接 PowerShell]:../powershell-install-configure.md#how-to-connect-to-your-subscription
 [nodejs.org]: http://nodejs.org/
 [创建 Azure 托管服务概述]: /cloud-services/

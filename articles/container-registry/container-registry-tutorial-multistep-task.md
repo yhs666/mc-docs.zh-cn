@@ -1,21 +1,17 @@
 ---
-title: 教程 - 多步骤容器任务 - Azure 容器注册表任务
+title: 教程 - 多步骤 ACR 任务
 description: 本教程介绍如何配置一个 Azure 容器注册表任务，以便在向 Git 存储库提交源代码时，在云中自动触发多步骤工作流来生成、运行和推送容器映像。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: tutorial
 origin.date: 05/09/2019
-ms.date: 09/23/2019
 ms.author: v-yeche
+ms.date: 12/09/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8640ccfc5ff103665eeba576574884d051f6192e
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: ffa87de709e567bfdf6be83e91dff4c49f16ba12
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306717"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885014"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>教程：提交源代码时在云中运行多步骤容器工作流
 

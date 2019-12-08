@@ -3,15 +3,15 @@ title: 教程 - 将参数添加到模板
 description: 将参数添加到 Azure 资源管理器模板，使其可重复使用。
 author: rockboyfor
 origin.date: 10/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: e16e698a31ac503ed4020f5a5d922cbd9f1beacd
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 2fe2c735fcb12e98bd1e968d0f901fc1358b0389
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389571"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884899"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>教程：将参数添加到资源管理器模板
 
@@ -23,7 +23,7 @@ ms.locfileid: "74389571"
 
 必须已安装带有资源管理器工具扩展的 Visual Studio Code，以及 Azure PowerShell 或 Azure CLI。 有关详细信息，请参阅[模板工具](template-tutorial-create-first-template.md#get-tools)。
 
-## <a name="review-your-template"></a>检查模板
+## <a name="review-template"></a>审阅模板
 
 在上一篇教程的结束时，模板包含以下 JSON：
 
@@ -51,7 +51,7 @@ ms.locfileid: "74389571"
 
 可能已注意到此模板有一个问题。 存储帐户名称已经过硬编码。 每次只能使用此模板部署同一个存储帐户。 若要使用不同的名称部署存储帐户，必须创建新的模板，这显然不是实现自动化部署的实用方法。
 
-## <a name="make-your-template-reusable"></a>使模板可重复使用
+## <a name="make-template-reusable"></a>使模板可重复使用
 
 为了使模板可重复使用，让我们添加一个可用于传入存储帐户名称的参数。 以下示例中突出显示的 JSON 演示了模板中发生的更改。 **storageName** 参数已标识为字符串。 最大长度设置为 24 个字符，以防止名称过长。
 
@@ -86,7 +86,7 @@ ms.locfileid: "74389571"
 }
 ```
 
-## <a name="deploy-the-template"></a>部署模板
+## <a name="deploy-template"></a>部署模板
 
 让我们部署该模板。 以下示例使用 Azure CLI 或 PowerShell 来部署模板。 请注意，需要为部署命令中的某个值提供存储帐户名称。 对于存储帐户名称，请提供前一篇教程中所用的相同名称。
 
@@ -171,7 +171,7 @@ az group deployment create \
 
 **storageSKU** 参数有默认值。 如果在部署过程中未指定值，将使用此默认值。 它还有允许值列表。 这些值与创建存储帐户所需的值相匹配。 你不希望模板用户传入没有作用的 SKU。
 
-## <a name="redeploy-the-template"></a>重新部署模板
+## <a name="redeploy-template"></a>重新部署模板
 
 现在可以重新部署。 由于默认 SKU 设置为 **Standard_LRS**，因此不需要提供该参数的值。
 
@@ -267,5 +267,4 @@ az group deployment create \
 > [!div class="nextstepaction"]
 > [添加模板函数](template-tutorial-add-functions.md)
 
-<!-- Update_Description: new article about template tutorial add parameters -->
-<!--NEW.date: 11/25/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

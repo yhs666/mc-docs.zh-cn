@@ -1,6 +1,6 @@
 ---
 title: 什么是 Azure 标准负载均衡器？
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: 通过此学习路径，开始了解 Azure 标准负载均衡器功能的概述。
 services: load-balancer
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 03/28/2019
-ms.date: 12/02/2019
+origin.date: 11/21/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: ecb7ef1425b2af95383598aac366542c6f6c63b1
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 16bf52ec7fe8d7b1ed6621abcde70ac2ec5b9531
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530641"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884075"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 标准负载均衡器概述
 
@@ -41,7 +41,7 @@ ms.locfileid: "74530641"
 负载均衡器资源是一些对象，可在其中表述 Azure 应如何设定其多租户基础结构，以实现想要创建的场景。  负载均衡器资源与实际基础结构之间不存在直接的关系，创建负载均衡器不会创建实例，可始终使用容量，且无需考虑启动或缩放延迟。 
 
 >[!NOTE]
-> Azure 为方案提供了一套完全托管的负载均衡解决方案。  若要寻求 TLS 终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[应用程序网关](../application-gateway/application-gateway-introduction.md)。  若要寻求全局 DNS 负载均衡，请查看[流量管理器](../traffic-manager/traffic-manager-overview.md)。  端到端方案可从结合所需的解决方案中受益。
+> Azure 为方案提供了一套完全托管的负载均衡解决方案。 如果正在查找寻求传输层安全性 (TLS) 协议终止（“SSL 卸载”）或每个 HTTP/HTTPS 请求的应用层处理，请查看[什么是 Azure 应用程序网关？](../application-gateway/overview.md) 如果正在查找全局 DNS 负载均衡，请查看[什么是流量管理器？](../traffic-manager/traffic-manager-overview.md) 端到端场景可从结合这些解决方案中受益。
 
 ## <a name="why-use-standard-load-balancer"></a>为何使用标准负载均衡器？
 
@@ -72,6 +72,20 @@ ms.locfileid: "74530641"
 此外，当整个后端池[探测关闭](load-balancer-custom-probe-overview.md#probedown)时，标准负载均衡器允许所有已建立的 TCP 连接继续运行。 （基本负载均衡器会终止所有实例的所有 TCP 连接）。
 
 有关详细信息，请查看[负载均衡器运行状况探测](load-balancer-custom-probe-overview.md)。
+### <a name="diagnostics"></a> 诊断
+
+标准负载均衡器通过 Azure Monitor 提供多维度指标。  可以就给定维度对这些指标进行筛选、分组和细分。  可便于深入了解服务的当前及历史性能和运行状况。  以下是支持的诊断的简要概述：
+
+| 指标 | 说明 |
+| --- | --- |
+| VIP 可用性 | 标准负载均衡器持续运用从区域内部到负载均衡器前端，直到支持 VM 的 SDN 堆栈的数据路径。 只要保留正常实例，这种度量就会遵循应用程序负载均衡的流量所用的相同路径。 此外，还会验证客户使用的数据路径。 度量对于应用程序不可见，且不会干扰其他操作。|
+| DIP 可用性 | 标准负载均衡器使用分布式运行状况探测服务，根据配置设置监视应用程序终结点的运行状况。 此指标提供负载均衡器池中每个实例终结点的聚合视图或按终结点筛选的视图。  可以查看负载均衡器如何根据运行状况探测配置的指示了解应用程序的运行状况。
+| SYN 数据包 | 标准负载均衡器不会终止 TCP 连接，也不会与 TCP 或 UDP 数据包流交互。 流及其握手始终位于源和 VM 实例之间。 若要更好地排查 TCP 协议方案的问题，可以使用 SYN 数据包计数器了解进行了多少次 TCP 连接尝试。 该指标将报告接收到的 TCP SYN 数据包数目。|
+| SNAT 连接 | 标准负载均衡器报告公共 IP 地址前端上伪装的出站流数。 SNAT 端口是可耗竭性资源。 此指标可以指出应用程序依赖于 SNAT 获取出站发起流的程度有多高。  将报告成功和失败的出站 SNAT 流的计数器，可使用这些计数器排查和了解出站流的运行状况。|
+| 字节计数器 | 标准负载均衡器按前端报告处理的数据。|
+| 数据包计数器 | 标准负载均衡器按前端报告处理的数据包。|
+
+请查看[有关标准负载均衡器诊断的详细讨论](load-balancer-standard-diagnostics.md)。
 
 ### <a name="haports"></a>HA 端口
 
@@ -205,6 +219,7 @@ SKU 不可变。 按照本部分中的步骤从一个资源 SKU 移动到另一�
 ## <a name="next-steps"></a>后续步骤
 
 - 了解[运行状况探测](load-balancer-custom-probe-overview.md)。
+- 了解有关[标准负载均衡器诊断](load-balancer-standard-diagnostics.md)的信息。
 - 在 [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) 中了解用于诊断的[支持的多维度指标](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)。
 - 了解如何[对出站连接使用负载均衡器](load-balancer-outbound-connections.md)。
 - 了解[出站规则](load-balancer-outbound-rules-overview.md)。

@@ -9,19 +9,21 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/04/2019
-ms.date: 09/23/2019
+origin.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d3ddc693c6719abe238ae771f639ac16784b4db2
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: fb25ab29ec01382289c544a83bf1a498c5448792
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730604"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884587"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>教程：通过 Node.js 使用启用了语言理解的 Web 应用机器人 
 
 使用 Node.js 生成集成了语言理解的聊天机器人 (LUIS)。 该机器人是使用 Azure [Web 应用机器人](https://docs.microsoft.com/azure/bot-service/)资源和 [Bot Framework 版本](https://github.com/Microsoft/botbuilder-dotnet) V4 构建的。
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -50,7 +52,7 @@ ms.locfileid: "73730604"
     |机器人名称|资源名称|`luis-nodejs-bot-` + `<your-name>`，例如 `luis-nodejs-bot-johnsmith`|
     |订阅|要在其中创建机器人的订阅。|你的主要订阅。
     |资源组|Azure 资源的逻辑组|创建一个新组用于存储此机器人使用的所有资源，并将该组命名为 `luis-nodejs-bot-resource-group`。|
-    |Location|Azure 区域 - 不一定要与 LUIS 创作或发布区域相同。|`chinaeast`|
+    |位置|Azure 区域 - 不一定要与 LUIS 创作或发布区域相同。|`chinaeast`|
     |定价层|用于服务请求限制和计费。|`F0` 是免费层。
     |应用程序名称|将机器人部署到云（例如，humanresourcesbot.azurewebsites.net）时，该名称用作子域。|`luis-nodejs-bot-` + `<your-name>`，例如 `luis-nodejs-bot-johnsmith`|
     |机器人模板|机器人框架设置 - 参阅下表|
@@ -214,10 +216,3 @@ ms.locfileid: "73730604"
 
 
 [!INCLUDE [Bot Information](../../../includes/cognitive-services-qnamaker-luis-bot-info.md)]
-
-## <a name="next-steps"></a>后续步骤
-
-查看更多使用聊天机器人的[示例](https://github.com/microsoft/botframework-solutions)。 
-
-> [!div class="nextstepaction"]
-> [构建包含自定义使用者域的语言理解应用](luis-quickstart-intents-only.md)

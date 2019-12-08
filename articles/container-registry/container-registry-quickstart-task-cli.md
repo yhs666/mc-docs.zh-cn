@@ -1,21 +1,15 @@
 ---
-title: 快速入门 - 在 Azure 容器注册表中生成和运行容器映像
+title: 快速入门 - 生成和运行容器映像
 description: 使用 Azure 容器注册表快速运行任务，以便在云中按需生成和运行容器映像。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: quickstart
-origin.date: 04/02/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.custom: ''
-ms.openlocfilehash: 022d99ad07d8b00ceccd8004371083525597a13d
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 6de1791c4a83bf14ba81ac259848dd4335af67cd
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134529"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885020"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>快速入门：使用 Azure 容器注册表任务生成和运行容器映像
@@ -221,5 +215,5 @@ az group delete --name myResourceGroup
 [container-registry-skus]: container-registry-skus.md
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
-<!-- Update_Description: new article about container registry quickstart task cli-->
-<!--ms.date: 09/02/2019-->
+
+<!-- Update_Description: update meta properties, wording update, update link -->

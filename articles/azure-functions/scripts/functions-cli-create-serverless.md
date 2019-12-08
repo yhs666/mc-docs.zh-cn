@@ -1,30 +1,21 @@
 ---
-title: Azure CLI 脚本示例 - 创建可无服务器执行的 Function App | Microsoft Docs
-description: Azure CLI 脚本示例 - 创建可无服务器执行的 Function App
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
+title: 使用 Azure CLI 创建无服务器函数应用
+description: 使用 Azure CLI 在 Azure 中创建可无服务器执行的函数应用
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
-origin.date: 07/03/2018
-ms.date: 04/26/2019
+ms.date: 12/05/2019
 ms.author: v-junlch
 ms.custom: mvc
-ms.openlocfilehash: 8f71094b01e47684299adede440ebb17115be302
-ms.sourcegitcommit: 05aa4e4870839a3145c1a3835b88cf5279ea9b32
+ms.openlocfilehash: c352c4c0447ee8ba8621a7528e54713942ea637b
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/26/2019
-ms.locfileid: "64529977"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884913"
 ---
-# <a name="create-a-function-app-for-serverless-code-execution"></a>创建适合无服务器代码执行的函数应用
+# <a name="create-a-function-app-for-serverless-code-execution"></a>创建适合无服务器代码执行的函数应用 
 
 此 Azure Functions 示例脚本将创建一个函数应用，作为函数的容器。 将使用[消耗计划](../functions-scale.md#consumption-plan)创建最适合事件驱动无服务器工作负荷的函数应用。
-
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -77,3 +68,4 @@ az functionapp create `
 
 可以在 [Azure Functions 文档](../functions-cli-samples.md)中找到其他 Azure Functions CLI 脚本示例。
 
+<!-- Update_Description: wording update -->

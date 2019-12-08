@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 10/01/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 33386b52300f145743717fc10be013e7bc247ef2
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0d67ffd9c6a20c48314d1e354450e3bd8ed54563
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730544"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838592"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>使用 HTTP 数据收集器 API（公共预览版）将日志数据发送到 Azure Monitor
 本文介绍如何使用 HTTP 数据收集器 API 从 REST API 客户端将日志数据发送到 Azure Monitor。  其中说明了对于脚本或应用程序收集的数据，如何设置其格式、将其包含在请求中，并由 Azure Monitor 授权该请求。  将针对 PowerShell、C# 和 Python 提供示例。
@@ -131,7 +131,7 @@ Signature=Base64(HMAC-SHA256(UTF8(StringToSign)))
 ## <a name="record-type-and-properties"></a>记录类型和属性
 在通过 Azure Monitor HTTP 数据收集器 API 提交数据时定义自定义的记录类型。 目前，无法将数据写入已由其他数据类型和解决方案创建的现有记录类型。 Azure Monitor 读取传入的数据，并创建与输入值的数据类型匹配的属性。
 
-发送到数据收集器 API 的每个请求必须包括 **Log-Type** 标头以及记录类型的名称。 后缀 **_CL** 会自动附加到所输入的名称作为自定义日志，以将其与其他日志类型区分开来。 例如，如果输入名称 **MyNewRecordType**，则 Azure Monitor 将创建类型为 **MyNewRecordType_CL** 的记录。 这会有助于确保用户创建的类型名称与当前或未来的 Azure 解决方案中提供的名称之间不存在任何冲突。
+发送到数据收集器 API 的每个请求必须包括 **Log-Type** 标头以及记录类型的名称。 后缀 **_CL** 会自动附加到所输入的名称作为自定义日志，以将其与其他日志类型区分开来。 例如，如果输入名称 **MyNewRecordType**，则 Azure Monitor 将创建类型为 **MyNewRecordType_CL** 的记录。 这会有助于确保用户创建的类型名称与当前或未来的 Microsoft 解决方案中提供的名称之间不存在任何冲突。
 
 为了识别属性的数据类型，Azure Monitor 将为属性名称添加后缀。 如果某个属性包含 null 值，该属性将不包括在该记录中。 下表列出了属性数据类型及相应的后缀：
 

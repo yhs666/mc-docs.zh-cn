@@ -9,21 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/04/2019
-ms.date: 09/23/2019
+origin.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 73e29f7a3c16a8fb3f3cec9bcb074a36d185db3c
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d5dfea1ebbf120d301314de1c078dbc07b256dc9
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730599"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884549"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>教程：通过简单实体和短语列表提取名称
 
 在本教程中，请使用**简单**实体从话语中提取雇佣工作名称的机器学习数据。 若要提高提取的准确性，请添加一个短语列表，其中包含特定于简单实体的术语。
 
 简单实体检测在单词或短语中包含的单个数据概念。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -236,8 +238,6 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 
     如果需要将更多词汇添加到短语列表中，请选择“建议”  ，查看新的“相关值”  ，然后添加任何相关值。 
 
-    确保选中“这些值可互换”  ，因为这些值应全都被视为作业的同义词。 了解有关可互换和不可互换[短语列表概念](luis-concept-feature.md#how-to-use-phrase-lists)的更多信息。
-
 1. 选择“完成”，以激活短语列表。 
 
     [![“新建短语列表”弹出对话框的屏幕截图，在短语列表值框中已填充了词汇](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "“新建短语列表”弹出对话框的屏幕截图，在短语列表值框中已填充了词汇")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
@@ -287,12 +287,8 @@ LUIS 应用通过高置信度来查找正确的意向，然后提取工作名称
 
 ## <a name="related-information"></a>相关信息
 
-* [无实体教程的意向](luis-quickstart-intents-only.md)
 * [简单实体](luis-concept-entity-types.md)概念信息
-* [短语列表](luis-concept-feature.md)概念信息
 * [如何训练](luis-how-to-train.md)
-* [如何发布](luis-how-to-publish-app.md)
-* [如何在 LUIS 门户中测试](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>后续步骤

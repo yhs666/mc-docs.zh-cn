@@ -6,14 +6,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-origin.date: 03/27/2018
-ms.date: 04/12/2019
-ms.openlocfilehash: 2d8bd664c9c7b59c4e898dff832c29880a529690
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+origin.date: 10/15/2019
+ms.date: 12/04/2019
+ms.openlocfilehash: c276fef6dcba84a1e4f5cb24caeb35d43cc7793d
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528281"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838963"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>对用于容器的 Azure Monitor 进行故障排除
 

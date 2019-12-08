@@ -1,30 +1,28 @@
 ---
-title: 创建和部署 Visual Studio Azure 资源组项目
+title: 创建和部署 Visual Studio 资源组项目
 description: 使用 Visual Studio 创建 Azure 资源组项目，并将资源部署到 Azure。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: quickstart
-origin.date: 06/20/2019
-ms.date: 07/22/2019
-ms.author: v-yeche
-ms.openlocfilehash: 7314f6a30e2b3367b298d3d2a73a17daae4c0e37
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+origin.date: 10/16/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 8a51cdff15d5ab0eec2503ef32398e5e3f2dd25a
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337532"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884890"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>通过 Visual Studio 创建和部署 Azure 资源组
 
-使用 Visual Studio 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以部署 web 主机、web 站点和 web 站点代码。 Visual Studio 许多不同的入门模板用于部署常见方案。 本文中将部署一个 Web 应用。  
+使用 Visual Studio 可以创建一个项目，用于将基础结构和代码部署到 Azure。 例如，可以部署 Web 主机、网站和网站代码。 Visual Studio 许多不同的入门模板用于部署常见方案。 本文中将部署一个 Web 应用。
 
-本文介绍如何使用[装有 Azure 开发和 ASP.NET 工作负荷的 Visual Studio 2019 或更高版本](https://docs.microsoft.com/zh-cn/visualstudio/install/install-visual-studio?view=vs-2019)。 如果使用 Visual Studio 2017，体验将大体相同。
+本文介绍如何使用[装有 Azure 开发和 ASP.NET 工作负荷的 Visual Studio 2019 或更高版本](https://docs.microsoft.com/visualstudio/install/install-visual-studio?view=vs-2019)。 如果使用 Visual Studio 2017，体验将大体相同。
 
 ## <a name="create-azure-resource-group-project"></a>创建 Azure 资源组项目
 
 在本部分，我们将使用“Web 应用”模板创建 Azure 资源组项目  。
 
-1. 在 Visual Studio 中，依次选择“文件”、“新建”、“项目”。    选择“Azure 资源组”项目模板和“下一步”   。
+1. 在 Visual Studio 中，选择“文件”  >“新建”  >“项目”  。
+1. 选择“Azure 资源组”项目模板和“下一步”   。
 
     ![创建项目](./media/vs-azure-tools-resource-groups-deployment-projects-create-deploy/create-project.png)
 
@@ -86,7 +84,6 @@ ms.locfileid: "68337532"
      "defaultValue": "Standard_LRS",
      "allowedValues": [
        "Standard_LRS",
-       "Standard_ZRS",
        "Standard_GRS",
        "Standard_RAGRS"
      ]
@@ -389,9 +386,9 @@ Connect-AzAccount -Environment AzureChinaCloud
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你学习了如何使用 Visual Studio 创建和部署模板。 下一教程介绍如何从模板参考中查找信息，以便创建加密的 Azure 存储帐户。
+在本快速入门中，你学习了如何使用 Visual Studio 创建和部署模板。 若要详细了解模板开发，请参阅新的初学者教程系列：
 
 > [!div class="nextstepaction"]
-> [创建加密的存储帐户](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [初学者教程](./template-tutorial-create-first-template.md)
 
-<!--Update_Description: update meta properties, wording update， update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

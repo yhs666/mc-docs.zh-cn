@@ -9,13 +9,13 @@ ms.author: v-jay
 manager: digimobile
 ms.topic: conceptual
 origin.date: 08/08/2018
-ms.date: 11/18/2019
-ms.openlocfilehash: 2c666c37e322e41efb42e9503c215b2a42650204
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.date: 12/09/2019
+ms.openlocfilehash: 4ed937f150c8dd66aee513c16e4e65e987f526b1
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116188"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884047"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>将服务器配置到所需状态并管理偏移
 
@@ -137,14 +137,14 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 
 ## <a name="working-with-partial-configurations"></a>使用部分配置
 
-Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs)。
+Azure 自动化状态配置支持使用[部分配置](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs)。
 在此方案中，DSC 配置为独立管理多个配置，并且每个配置都从 Azure 自动化中检索。
 但是，每个自动化帐户只能为一个节点分配一个配置。
 这意味着，如果对节点使用两种配置，则需要两个自动化帐户。
 
-有关如何从请求服务注册部分配置的详细信息，请参阅[部分配置](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode)的文档。
+有关如何从请求服务注册部分配置的详细信息，请参阅[部分配置](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode)的文档。
 
-有关团队如何协作以代码形式使用配置来协作管理服务器的更多信息，请参见[了解 DSC 在 CI/CD 管道中的角色](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced)。
+有关团队如何协作以代码形式使用配置来协作管理服务器的更多信息，请参见[了解 DSC 在 CI/CD 管道中的角色](https://docs.microsoft.com/powershell/scripting/dsc/overview/authoringadvanced)。
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>检查托管节点的符合性状态
 

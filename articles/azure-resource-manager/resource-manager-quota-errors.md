@@ -4,12 +4,12 @@ description: 说明在使用 Azure 资源管理器部署资源时如何解决资
 ms.topic: troubleshooting
 origin.date: 03/09/2018
 ms.date: 11/25/2019
-ms.openlocfilehash: 820ebace99818733e8d8c0efb2b39020bc0da71c
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: f84626d82657c2f2ddc417e59b0a18af37053b2a
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389574"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884886"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>解决资源配额错误
 
@@ -96,24 +96,24 @@ Virtual Machines                             0 10000 Count
 
 1. 选择 **订阅**。
 
-   ![订阅](./media/resource-manager-quota-errors/subscriptions.png)
+    ![订阅](./media/resource-manager-quota-errors/subscriptions.png)
 
 2. 选择需要增加配额的订阅。
 
-   ![选择订阅](./media/resource-manager-quota-errors/select-subscription.png)
+    ![选择订阅](./media/resource-manager-quota-errors/select-subscription.png)
 
 3. 选择“使用情况 + 配额” 
 
-   ![选择使用情况和配额](./media/resource-manager-quota-errors/select-usage-quotas.png)
+    ![选择使用情况和配额](./media/resource-manager-quota-errors/select-usage-quotas.png)
 
 4. 在右上角选择“请求增加”  。
 
-   ![请求增加](./media/resource-manager-quota-errors/request-increase.png)
+    ![请求增加](./media/resource-manager-quota-errors/request-increase.png)
 
-   <!--MOONCAKE CUSTOMIZE-->
+    <!--MOONCAKE CUSTOMIZE-->
    
 5. 在完成“常规信息”和“问题”部分后，请填写你需要增加的配额类型的表单。  
 
-   ![填写表单](./media/resource-manager-quota-errors/forms.png)
+    ![填写表单](./media/resource-manager-quota-errors/forms.png)
    
 <!-- Update_Description: update meta properties, wording update, update link -->

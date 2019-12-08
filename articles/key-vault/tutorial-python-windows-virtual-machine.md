@@ -7,15 +7,15 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 06/10/2019
-ms.author: v-biyu
+ms.date: 12/09/2019
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 6f80c2d3cb70cf66e7bc15c4a0f4c2da430ca2bd
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 6b16a39202f3798b5016883ff1e284f2750059b1
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425849"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838851"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>教程：将 Azure Key Vault 与通过 Python 编写的 Windows 虚拟机配合使用
 
@@ -33,7 +33,7 @@ Azure Key Vault 可以帮助保护机密，例如访问应用程序、服务和 
 > * 启用托管标识。
 > * 为 VM 标识分配权限。
 
-在开始之前，请阅读 [Key Vault 的基本概念](key-vault-whatis.md#basic-concepts)。 
+在开始之前，请阅读 [Key Vault 的基本概念](basic-concepts.md)。 
 
 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -47,7 +47,7 @@ Azure Key Vault 可以帮助保护机密，例如访问应用程序、服务和 
 
 Azure Key Vault 可以安全地存储凭据，因此不需要在代码中显示凭据。 但是，需要对 Azure Key Vault 进行身份验证才能检索密钥。 若要对 Key Vault 进行身份验证，需要提供凭据。 因此，在启动过程中，这是一个难以兼顾的典型问题。 托管服务标识 (MSI) 提供简化该过程的启动标识，可以解决此问题。 
 
-为 Azure 服务（例如 Azure 虚拟机、Azure 应用服务或 Azure Functions）启用 MSI 时，Azure 会创建一个[服务主体](key-vault-whatis.md#basic-concepts)。 MSI 针对 Azure Active Directory (Azure AD) 中的服务实例提供启动标识，并将服务主体凭据注入该实例。 
+为 Azure 服务（例如 Azure 虚拟机、Azure 应用服务或 Azure Functions）启用 MSI 时，Azure 会创建一个[服务主体](basic-concepts.md)。 MSI 针对 Azure Active Directory (Azure AD) 中的服务实例提供启动标识，并将服务主体凭据注入该实例。 
 
 ![MSI](media/MSI.png)
 
@@ -105,11 +105,9 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 ## <a name="create-a-virtual-machine"></a>创建虚拟机
 可以使用以下方法之一创建虚拟机：
 
-[Azure CLI](https://docs.azure.cn/virtual-machines/windows/quick-create-cli) 
-
-[Powershell](https://docs.azure.cn/virtual-machines/windows/quick-create-powershell)
-
-[Portal](https://docs.azure.cn/virtual-machines/windows/quick-create-portal)
+* [Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [Azure 门户](../virtual-machines/windows/quick-create-portal.md)
 
 ## <a name="assign-an-identity-to-the-vm"></a>为 VM 分配标识
 在此步骤中，请通过在 Azure CLI 中运行以下命令，为虚拟机创建系统分配的标识：
@@ -136,7 +134,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="log-on-to-the-virtual-machine"></a>登录到虚拟机
 
-可以按此[教程](https://docs.azure.cn/virtual-machines/windows/connect-logon)的说明操作
+若要登录到虚拟机，请遵照[连接并登录到运行 Windows 的 Azure 虚拟机](../virtual-machines/windows/connect-logon.md)中的说明操作。
 
 ## <a name="create-and-run-a-sample-python-app"></a>创建并运行示例 Python 应用
 

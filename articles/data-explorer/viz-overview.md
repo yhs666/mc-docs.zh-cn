@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 08/05/2019
-ms.openlocfilehash: c2ce63f470d245fecf1492049e391eab96bc5e8d
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: fa137e8b0dfd2e64908d420d18d08f9cf32f0e8c
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020847"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884054"
 ---
 # <a name="data-visualization-with-azure-data-explorer"></a>使用 Azure 数据资源管理器进行数据可视化 
 
@@ -40,9 +40,9 @@ Azure 数据资源管理器提供使用各种方法连接到 [Power BI](https://
 
 Azure 数据资源管理器提供使用内置本机 Excel 连接器连接到 [Microsoft Excel](https://products.office.com/excel) 的功能，也可以将查询从 Azure 数据资源管理器导入 Excel。
 
-## <a name="grafana"></a>Grafana
+<!-- ## Grafana -->
 
-[Grafana](https://grafana.com) 提供一个 Azure 数据资源管理器插件，用于直观显示 Azure 数据资源管理器中的数据。 请[将 Azure 数据资源管理器设置为 Grafana 的数据源，然后将数据可视化](/data-explorer/grafana)。 
+<!-- [Grafana](https://grafana.com) provides an Azure Data Explorer plugin that enables you to visualize data from Azure Data Explorer. You [set up Azure Data Explorer as a data source for Grafana, and then visualize the data](/data-explorer/grafana).  -->
 
 ## <a name="odbc-connector"></a>ODBC 连接器
 

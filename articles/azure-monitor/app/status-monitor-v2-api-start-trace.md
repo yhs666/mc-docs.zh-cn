@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 04/23/2019
 ms.date: 06/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1fafd161776e0469a56bf8be19a9ed7d68f9d75a
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 21fefdb9cc39bbb5a11912a7d39819d4364dc722
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730498"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838594"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights 代理 API：Start-ApplicationInsightsMonitoringTrace
 

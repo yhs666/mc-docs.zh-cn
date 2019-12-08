@@ -9,14 +9,15 @@ ms.service: batch
 ms.devlang: .NET
 ms.topic: article
 ms.workload: na
-ms.date: 04/05/2018
+origin.date: 04/05/2018
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f596dc4abeb5b0883b3b94d7eee64b304f0a6626
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 5c06b97dcf13fad6306a2a5e71b436e42763dd84
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330066"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838815"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>使用 Application Insights 监视和调试 Azure Batch .NET 应用程序
 

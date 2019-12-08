@@ -13,14 +13,14 @@ ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
 origin.date: 08/10/2018
-ms.date: 06/17/2018
+ms.date: 12/16/2018
 ms.author: apimpm
-ms.openlocfilehash: bc0858a98c023cd931fb2b787532da4b434a5a00
-ms.sourcegitcommit: 1ebfbb6f29eda7ca7f03af92eee0242ea0b30953
+ms.openlocfilehash: 302d49f163275a21a05ddcce3c108eaffff8934d
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66732555"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884723"
 ---
 # <a name="create-and-publish-a-product"></a>创建和发布产品  
 
@@ -69,7 +69,7 @@ ms.locfileid: "66732555"
 
 通过“订阅”选项卡查看/添加产品的订阅者。 
 
-通过“访问控制”  选项卡为开发人员或来宾设置产品可见性。
+通过“访问控制”选项卡为开发人员或来宾设置产品的可见性  。
 
 ## <a name="add-apis"> </a>将 API 添加到产品
 

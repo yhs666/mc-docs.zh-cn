@@ -10,12 +10,12 @@ origin.date: 12/11/2018
 ms.date: 10/26/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 05964a255511666317912c6b757a51ece2e5f836
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 1d1b8e52cfb73aefa8f0c808aaf01fb2a65c4e4a
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041078"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838723"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>教程：使用 Azure Batch 渲染场景 
 
@@ -172,7 +172,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2019-11-15
+    --expiry 2020-11-15
 ```
 
 记下该命令返回的令牌，如下所示。 在稍后的步骤中会使用此令牌。

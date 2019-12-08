@@ -112,8 +112,6 @@
               href: excel-connector.md
             - name: 空查询
               href: excel-blank-query.md
-        - name: Grafana
-          href: grafana.md
         - name: ODBC 连接器
           href: connect-odbc.md
         - name: Tableau

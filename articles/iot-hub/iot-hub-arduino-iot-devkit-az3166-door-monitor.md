@@ -10,12 +10,12 @@ ms.tgt_pltfrm: arduino
 origin.date: 03/19/2018
 ms.date: 09/10/2018
 ms.author: liydu
-ms.openlocfilehash: 85e1a837bc4269e9253c763aa51620871b25c643
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 0b3d206d01e9c69b2c2f3879d0eb8248e8a2d82e
+ms.sourcegitcommit: fc8a6e0f8eff2ef7b645ae8dc2ac02fdf498086f
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389217"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74797629"
 ---
 # <a name="door-monitor"></a>门监视器          
 
@@ -111,7 +111,7 @@ API 密钥仅显示一次。 请确保将其安全地复制和存储，因为下
 
 * **IoT 中心名称**：IoT 中心的名称。 选择一个不同于你的其他服务的唯一名称。
 
-  * **IoT 中心 SKU**：F1（一个订阅仅限一个）是免费的。 可在[定价页](www.azure.cn/pricing/details/iot-hub/)上查看定价详细信息。
+  * **IoT 中心 SKU**：F1（一个订阅仅限一个）是免费的。 可在[定价页](https://www.azure.cn/pricing/details/iot-hub/)上查看定价详细信息。
 
   * **发件人电子邮件**：此字段的值应与设置 SendGrid 服务时使用的电子邮件地址相同。
 

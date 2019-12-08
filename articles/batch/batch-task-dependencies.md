@@ -13,14 +13,14 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 origin.date: 05/22/2017
 ms.date: 08/08/2018
-ms.author: v-junlch
+ms.author: v-lingwu
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dc4742c2903630d3722c3332d347397118511ab
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 333b287893079d4a7f05fad5b35b30bce6defd92
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330384"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838986"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>创建任务依赖关系，以运行依赖于其他任务的任务
 

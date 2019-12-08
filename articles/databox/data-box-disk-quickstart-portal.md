@@ -7,18 +7,22 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: quickstart
 origin.date: 09/03/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: aa38ed47a020ca340677163b67a900411cb63684
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: cf8ecc62a355afbc4bfc139385f64b98f520c999
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530615"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74883985"
 ---
+::: zone target="docs"
+
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal"></a>快速入门：使用 Azure 门户部署 Azure Data Box Disk
+
+::: zone-end
 
 ::: zone target="chromeless"
 

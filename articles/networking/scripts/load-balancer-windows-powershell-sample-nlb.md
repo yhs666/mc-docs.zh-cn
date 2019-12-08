@@ -1,27 +1,24 @@
 ---
-title: Azure PowerShell 脚本示例 - 对传入 VM 的流量进行负载均衡以实现高可用性 | Azure
+title: 对传入 VM 的流量进行负载均衡以实现高可用性 - Azure PowerShell
 description: Azure PowerShell 脚本示例：对传入 VM 的流量进行负载均衡以实现高可用性
 services: load-balancer
 documentationcenter: load-balancer
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 05/16/2017
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: e728671a5d2447036345a70b3cc682c6fae52ec0
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 49263838021e438d27efb5b452269a45f041400e
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584101"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884070"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>对传入 VM 的流量进行负载均衡以实现高可用性
 

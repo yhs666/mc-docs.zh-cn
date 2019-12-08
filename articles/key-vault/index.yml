@@ -11,13 +11,13 @@ metadata:
   ms.author: v-tawe
   manager: rkarlin
   origin.date: 09/19/2019
-  ms.date: 10/25/2019
-  ms.openlocfilehash: 566d455233cf25b1b1dd661ecedd3e01ee2ef067
-  ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+  ms.date: 12/09/2019
+  ms.openlocfilehash: 0c4ab0f0fe51aee82341d372f82e6662c26343ac
+  ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/01/2019
-  ms.locfileid: "73426046"
+  ms.lasthandoff: 12/05/2019
+  ms.locfileid: "74838981"
 landingContent:
 - title: 关于 Azure Key Vault
   linkLists:
@@ -53,6 +53,14 @@ landingContent:
     links:
     - text: 从 Web 应用程序使用 Key Vault
       url: tutorial-net-create-vault-azure-web-app.md
+    - text: 将 Key Vault 与 Azure Linux 虚拟机配合使用
+      url: tutorial-net-linux-virtual-machine.md
+    - text: 将 Key Vault 与 Azure Windows 虚拟机配合使用
+      url: tutorial-net-windows-virtual-machine.md
+    - text: 通过 Python 使用 Key Vault - Linux
+      url: tutorial-python-linux-virtual-machine.md
+    - text: 通过 Python 使用 Key Vault - Windows
+      url: tutorial-python-windows-virtual-machine.md
 - title: Key Vault 和存储密钥
   linkLists:
   - linkListType: how-to-guide

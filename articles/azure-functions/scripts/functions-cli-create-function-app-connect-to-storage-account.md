@@ -1,30 +1,20 @@
 ---
-title: 创建用于连接到 Azure 存储的 Azure Function | Microsoft Docs
+title: 使用连接的存储创建函数应用 - Azure CLI
 description: Azure CLI 脚本示例 - 创建用于连接到 Azure 存储的 Azure Function
-services: functions
-documentationcenter: functions
-author: ggailey777
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
-ms.devlang: azurecli
 ms.topic: sample
-origin.date: 04/20/2017
-ms.date: 04/26/2019
-ms.author: v-junlch
+ms.date: 12/05/2019
 ms.custom: mvc
-ms.openlocfilehash: 016e3e68bc16db76e7144961292c0030438d151a
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+ms.author: v-junlch
+ms.openlocfilehash: 20eca13b75134f9c45d913da5bedfc7a1ee1e69b
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236518"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884921"
 ---
-# <a name="create-a-function-app-that-connects-to-an-azure-storage-account"></a>创建一个可连接到 Azure 存储帐户的函数应用
+# <a name="create-a-function-app-with-a-named-storage-account-connection"></a>创建具有命名存储帐户连接的函数应用 
 
 此 Azure Functions 示例脚本先创建一个函数应用，然后将该函数连接到 Azure 存储帐户。 创建的应用设置（包含连接）可以与[存储触发器或绑定](../functions-bindings-storage-blob.md)配合使用。 
-
-[!INCLUDE [upgrade runtime](../../../includes/functions-cli-version-note.md)]
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
@@ -72,11 +62,6 @@ az functionapp config appsettings set `
   --settings StorageConStr=$connstr
 ```
 
-
-## <a name="clean-up-deployment"></a>清理部署
-
-运行脚本示例后，请运行以下命令删除资源组和所有相关资源：
-
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 
 ## <a name="script-explanation"></a>脚本说明
@@ -87,7 +72,9 @@ az functionapp config appsettings set `
 |---|---|
 | [az group create](/cli/group#az-group-create) | 使用相关位置创建资源组。 |
 | [az storage account create](/cli/storage/account#az-storage-account-create) | 创建存储帐户。 |
-| [az functionapp create](https://docs.microsoft.com/cli/azure/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../functions-scale.md#consumption-plan)中创建函数应用。 |
+| [az functionapp create](/cli/functionapp#az-functionapp-create) | 在无服务器[消耗计划](../functions-scale.md#consumption-plan)中创建函数应用。 |
+| [az storage account show-connection-string](/cli/storage/account#az-storage-account-show-connection-string) | 获取帐户的连接字符串。 |
+| [az functionapp config appsettings set](/cli/functionapp/config/appsettings#az-functionapp-config-appsettings-set) | 将连接字符串设置为函数应用中的应用设置。 |
 
 ## <a name="next-steps"></a>后续步骤
 

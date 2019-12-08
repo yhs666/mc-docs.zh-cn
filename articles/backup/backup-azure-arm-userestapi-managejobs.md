@@ -1,22 +1,19 @@
 ---
-title: Azure 备份：使用 REST API 管理备份作业
+title: 使用 REST API 管理备份作业
 description: 本文介绍如何使用 REST API 跟踪和管理 Azure 备份的备份和还原作业。
-ms.reviewer: pullabhk
 author: lingliw
 manager: digimobile
-keywords: REST API, Azure VM 备份, Azure VM 还原;
-ms.service: backup
 ms.topic: conceptual
 origin.date: 08/03/2018
 ms.date: 11/20/2019
 ms.author: v-lingwu
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: be4ea03db5500a5baf4c8d75a4229c739d8d0058
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: e1dbfecbad66ea856652a8b954731a3107eef57c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528260"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838955"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>使用 REST API 跟踪备份和还原作业
 
@@ -45,7 +42,7 @@ Azure VM 备份作业由“jobId”字段予以标识，并且可以如[此处](
 ## <a name="tracking-the-job"></a>跟踪作业
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
+GET https://management.chinacloudapi.cn/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
 `{jobName}` 是上面提到的“jobId”。 响应始终为 200 OK，并且始终包含指示作业的当前状态的“status”字段。 当状态为“Completed”或“CompletedWithWarnings”之后，“extendedInfo”部分将显示关于作业的更多详细信息。

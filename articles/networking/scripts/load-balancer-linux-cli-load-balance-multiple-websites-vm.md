@@ -3,25 +3,22 @@ title: Azure CLI 脚本示例 - 使用 Azure CLI 对多个网站进行负载均�
 description: Azure CLI 脚本示例 - 对指向同一虚拟机的多个网站进行负载均衡
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 07/07/2017
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: a23d13915efa7ae4059368b4d9031c5b0a4a8a40
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: b5e8345563a225723e5c21b56d61575d2621d2c2
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583818"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884072"
 ---
 # <a name="load-balance-multiple-websites"></a>对多个网站进行负载均衡
 

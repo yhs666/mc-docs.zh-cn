@@ -1,5 +1,5 @@
 ---
-title: 快速入门：创建 Azure SQL 数据仓库 - Azure PowerShell | Microsoft Docs
+title: 快速入门：创建仓库 - Azure Powershell
 description: 使用 Azure PowerShell 快速创建 SQL 数据库逻辑服务器、服务器级防火墙规则和数据仓库。
 services: sql-data-warehouse
 author: WenJason
@@ -8,15 +8,16 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: development
 origin.date: 04/11/2019
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d6b92855dcf35ab08af890daa21941ebab8cdfb2
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2bbcb6a291efbb6bd967aa509519c4d2cff4ca58
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131880"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807644"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建和查询 Azure SQL 数据仓库
 
@@ -120,7 +121,7 @@ New-AzSqlDatabase `
 
 所需的参数有：
 
-* **RequestedServiceObjectiveName**：请求的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-and-concurrency-limits.md)。
+* **RequestedServiceObjectiveName**：请求的[数据仓库单位](what-is-a-data-warehouse-unit-dwu-cdwu.md)的数量。 增加此数量会增加计算成本。 有关支持值的列表，请参阅[内存和并发限制](memory-concurrency-limits.md)。
 * **DatabaseName**：要创建的 SQL 数据仓库的名称。
 * **ServerName**：用于创建过程的服务器的名称。
 * **ResourceGroupName**：要使用的资源组。 若要查找订阅中可用的资源，请使用 Get-AzureResource。

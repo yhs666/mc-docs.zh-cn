@@ -1,0 +1,132 @@
+### YamlMime:Hub
+title: IoT Central 解决方案文档
+summary: 浏览 Azure IoT Central 服务和解决方案文档。
+brand: azure
+metadata:
+  title: Azure IoT Central 文档中心
+  description: 浏览 Azure IoT Central 服务和解决方案文档。
+  ms.service: iot-central
+  ms.topic: hub-page
+  author: philmea
+  ms.author: v-yiso
+  origin.date: 10/25/2019
+  ms.openlocfilehash: 8e74151c517928a3dacc194b45f087770c34ba32
+  ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 12/06/2019
+  ms.locfileid: "74883096"
+highlightedContent:
+  items:
+  - title: 什么是 IoT Central？
+    itemType: overview
+    url: ./preview/overview-iot-central.md
+  - title: 什么是应用程序模板？
+    itemType: concept
+    url: ./core/concepts-app-templates.md
+  - title: Azure IoT Central 体系结构
+    itemType: architecture
+    url: ./preview/concepts-architecture.md
+  - title: 创建新应用程序
+    itemType: quickstart
+    url: ./preview/quick-deploy-iot-central.md
+  - title: 定义设备类型并添加设备
+    itemType: tutorial
+    url: ./preview/howto-set-up-template.md
+  - title: 监视设备
+    itemType: tutorial
+    url: ./preview/tutorial-create-telemetry-rules.md
+conceptualContent:
+  items:
+  - title: 建立连接（预览功能）
+    links:
+    - url: ./preview/howto-set-up-template.md
+      itemType: how-to-guide
+      text: 设置设备模板
+    - url: ./preview/tutorial-connect-pnp-device.md
+      itemType: tutorial
+      text: 连接 IoT 即插即用设备
+    footerLink:
+      url: ./preview/index.yml
+      text: 查看更多
+  - title: 保持连接（预览功能）
+    links:
+    - url: ./preview/tutorial-use-device-groups.md
+      itemType: how-to-guide
+      text: 使用设备组
+    - url: ./preview/howto-manage-devices.md
+      itemType: how-to-guide
+      text: 管理设备
+    - url: ./core/howto-run-a-job.md
+      itemType: concept
+      text: 如何运行作业
+    - url: ./preview/howto-create-analytics.md
+      itemType: how-to-guide
+      text: 分析设备数据
+    footerLink:
+      url: ./preview/index.yml
+      text: 查看更多
+  - title: 转换（预览功能）
+    links:
+    - url: ./preview/tutorial-create-telemetry-rules.md
+      itemType: how-to-guide
+      text: 创建遥测规则
+    - url: ./preview/howto-export-data.md
+      itemType: how-to-guide
+      text: 配置连续数据导出
+    footerLink:
+      url: ./preview/index.yml
+      text: 查看更多
+productDirectory:
+  title: 使用行业应用程序模板开始生成
+  summary: 是否立即开始生成？ 查看我们为解决方案生成器生成的与行业相关的应用程序模板。
+  items:
+  - title: 为零售业生成
+    imageSrc: ./retail/media/index/iot-central-retail.svg
+    links:
+    - text: 使用 Azure IoT Central 生成零售解决方案
+      url: ./retail/overview-iot-central-retail-pnp.md
+    - text: 创建存储内分析应用程序
+      url: ./retail/tutorial-in-store-analytics-create-app-pnp.md
+    - text: 创建智能库存管理应用程序
+      url: ./retail/tutorial-iot-central-smart-inventory-management-pnp.md
+    - text: 创建互联物流应用程序
+      url: ./retail/tutorial-iot-central-connected-logistics-pnp.md
+    - text: 创建数字分发中心应用程序
+      url: ./retail/tutorial-iot-central-digital-distribution-center-pnp.md
+  - title: 为医疗保健业生成
+    imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
+    links:
+    - url: ./healthcare/overview-iot-central-healthcare.md
+      text: 使用 IoT Central 生成医疗保健解决方案
+    - url: ./healthcare/tutorial-continuous-patient-monitoring.md
+      text: 创建持续患者监视解决方案
+  - title: 为能源行业生成
+    imageSrc: ./energy/media/index/iot-central-energy.svg
+    links:
+    - url: ./energy/overview-iot-central-energy.md
+      text: 使用 IoT Central 生成能源用解决方案
+    - url: ./energy/tutorial-smart-meter-app.md
+      text: 创建智能计量监视应用
+    - url: ./energy/tutorial-solar-panel-app.md
+      text: 创建太阳能板监视应用
+  - title: 为政府生成
+    imageSrc: ./government/media/index/iot-central-government.svg
+    links:
+    - url: ./government/overview-iot-central-government.md
+      text: 使用 IoT Central 生成政府解决方案
+    - url: ./government/tutorial-water-quality-monitoring.md
+      text: 创建水质监测应用
+    - url: ./government/tutorial-water-consumption-monitoring.md
+      text: 创建水消耗量监测应用
+    - url: ./government/tutorial-connected-waste-management.md
+      text: 创建连接的废弃物管理应用
+additionalContent:
+  sections:
+  - items:
+    - title: IoT Central API
+      summary: 了解 IoT Central API。
+      url: https://docs.microsoft.com/rest/api/iotcentral/
+    - title: Microsoft Learn 上的 IoT Central
+      summary: 了解免费沙盒环境中的 IoT Central。
+      url: https://docs.microsoft.com/learn/browse/?products=azure-iot-central

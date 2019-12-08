@@ -3,16 +3,16 @@ title: 利用模板参考
 description: 利用 Azure 资源管理器模板参考创建用于部署加密存储帐户的模板。
 author: rockboyfor
 origin.date: 03/04/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 85b3fcf0ae0e2dcfe7a059eea2e149de47f5adcd
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 8a508edb62be456a0bcb417cf5990946d23f04cc
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389563"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884849"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>教程：利用 Azure 资源管理器模板参考
 
@@ -39,7 +39,7 @@ ms.locfileid: "74389563"
 
 若要完成本文，需要做好以下准备：
 
-* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](./resource-manager-tools-vs-code.md)。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
@@ -118,4 +118,4 @@ ms.locfileid: "74389563"
 > [!div class="nextstepaction"]
 > [创建多个实例](./resource-manager-tutorial-create-multiple-instances.md)
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

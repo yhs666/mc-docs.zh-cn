@@ -6,16 +6,16 @@ author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
-origin.date: 09/05/2018
-ms.date: 06/17/2019
-ms.author: v-biyu
+origin.date: 12/21/2018
+ms.date: 12/09/2019
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: a1424db88f1664e5a349cde4c2939c7cefa09d35
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: a647ee02c52fcd7d3fba9f4717a26b7ecfe0ca34
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425853"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838867"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>教程：使用 Linux VM 和 .NET 应用在 Azure Key Vault 中存储机密
 
@@ -27,19 +27,17 @@ Azure Key Vault 用于保护机密，例如访问应用程序、服务和 IT 资
 > * 创建密钥保管库
 > * 在 Key Vault 中存储机密
 > * 创建一个 Azure Linux 虚拟机
-> * 为虚拟机启用托管标识。
+> * 为虚拟机启用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)
 > * 授予所需的权限，让控制台应用程序从 Key Vault 读取数据
 > * 从 Key Vault 检索机密
 
-在我们进一步讨论之前，请阅读有关[密钥保管库基本概念](key-vault-whatis.md#basic-concepts)的内容。
+在我们进一步讨论之前，请阅读有关[密钥保管库基本概念](basic-concepts.md)的内容。
 
 ## <a name="prerequisites"></a>先决条件
 
 * [Git](https://git-scm.com/downloads)。
   * Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 * [Azure CLI 2.0 或更高版本](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest)。
-
-本教程使用托管服务标识
 
 ## <a name="understand-managed-service-identity"></a>了解托管服务标识
 
@@ -228,8 +226,8 @@ dotnet run
 
 需要通过一个两步过程更改类文件，使应用能够访问密钥保管库中的机密。
 
-1. 从 VM 上的本地 MSI 终结点获取一个令牌，该终结点会转而从 Azure Active Directory 获取令牌
-2. 将令牌传递到 Key Vault，获取机密 
+1. 从 VM 上的本地 MSI 终结点提取一个令牌，该终结点会转而从 Azure Active Directory 提取令牌。
+1. 将令牌传递到 Key Vault，提取机密。
 
    编辑类文件，使之包含以下代码：
 

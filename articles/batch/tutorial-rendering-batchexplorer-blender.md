@@ -8,12 +8,12 @@ origin.date: 08/02/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.topic: tutorial
-ms.openlocfilehash: c4da2b8a914b73d8579660b7d8431f56e66d48a2
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: d34d93e868d446434102f0a3226a7e67206abe17
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330050"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838987"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>教程：使用 Batch Explorer 渲染 Blender 场景
 
@@ -42,17 +42,17 @@ ms.locfileid: "71330050"
 
 为演示场景文件创建存储帐户容器：
 
-- 启动 Batch Explorer
-- 从左侧的主菜单中，选择“数据”菜单项。
-- 确保在下拉菜单中选中“文件组”。
-- 选择“+”按钮，创建新的名为“blender-classroom”的“空文件组”
-  - 文件组就是带“fgrp-”前缀的 Azure 存储 Blob 容器；它是一种约定，用于筛选掉存储帐户中的其他容器
+* 启动 Batch Explorer
+* 从左侧的主菜单中，选择“数据”菜单项。
+* 确保在下拉菜单中选中“文件组”。
+* 选择“+”按钮，创建新的名为“blender-classroom”的“空文件组”
+  * 文件组就是带“fgrp-”前缀的 Azure 存储 Blob 容器；它是一种约定，用于筛选掉存储帐户中的其他容器
 
 ![场景文件的文件组](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_scene_filegroup.png)
 
 上传场景文件：
 
-- 在 Batch Explorer 中选择新容器，然后将“classroom”文件夹的内容拖放到该容器中。
+* 在 Batch Explorer 中选择新容器，然后将“classroom”文件夹的内容拖放到该容器中。
 
 ![上传的场景文件](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_scene_filegroup_uploaded.png)
 

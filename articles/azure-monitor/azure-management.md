@@ -6,16 +6,15 @@ manager: digimobile
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 origin.date: 09/07/2018
-ms.date: 08/22/2019
+ms.date: 11/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 707115fb2535f50bb5a00664f1baae51b164e8a1
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 6ee440df7710c641f3015971cb64bf8b8f2007e0
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730508"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838912"
 ---
 # <a name="azure-management---monitoring"></a>Azure 管理 - 监视
 

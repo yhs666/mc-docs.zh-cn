@@ -1,20 +1,17 @@
 ---
-title: 排查 System Center Data Protection Manager 问题 - Azure 备份
+title: 排查 System Center Data Protection Manager 问题
 description: 在本文中，了解使用 System Center Data Protection Manager 时可能遇到的问题的解决方案。
-ms.reviewer: kasinh
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 01/30/2019
 ms.date: 07/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ece441977a08996c08c9d87a6a7810d44d9a4cd9
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 766cb5097c1293543ed5632906a74c293b3136c3
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528245"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838616"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>排查 System Center Data Protection Manager 问题
 

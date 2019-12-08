@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 01/28/2018
 ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ae10c0bd3c1ddb437953680874618e00a9fc3db6
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: e9d1199747710de112a604f114b2491fcfe990c0
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730353"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838603"
 ---
 # <a name="overview-of-alerts-in-21vianet-azure"></a>世纪互联 Azure 中的警报概述 
 

@@ -2,9 +2,9 @@
 title: 使用 Azure 通知中心向特定用户发送通知 | Azure
 description: 了解如何使用通用 Windows 平台 (UWP) 应用程序向特定用户发送通知。
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 012529f2-fdbc-43c4-8634-2698164b5880
 ms.service: notification-hubs
@@ -16,12 +16,14 @@ ms.custom: mvc
 origin.date: 03/22/2019
 ms.date: 10/08/2019
 ms.author: v-tawe
-ms.openlocfilehash: 9c9d48b8b83630af05b1503c37f4fc671bba88c2
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: 3775125f87c866a5a013acb2998234ffe1e3af66
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272624"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884876"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户发送通知
 

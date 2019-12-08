@@ -3,17 +3,17 @@ title: 渲染功能 - Azure Batch
 description: 如何使用 Azure Batch 的渲染功能
 services: batch
 ms.service: batch
-author: mscurrell
-ms.author: v-junlch
+author: lingliw
+ms.author: v-lingwu
 origin.date: 08/02/2018
 ms.date: 09/07/2018
 ms.topic: conceptual
-ms.openlocfilehash: 146c54749e751e0f7c3909b43cf2ae20bbfb4790
-ms.sourcegitcommit: 13642a99cc524a416b40635f48676bbf5cdcdf3d
+ms.openlocfilehash: 63a2a2f25c52f24414577aef686eceb0fdf821ce
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70104048"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838991"
 ---
 # <a name="using-azure-batch-rendering"></a>使用 Azure Batch 渲染
 

@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板的最佳做法
+title: 模板最佳实践
 description: 介绍创作 Azure 资源管理器模板的建议方法。 提供相关建议，避免在使用模板时出现常见问题。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/12/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 5d90648694c6c9df23db12ff32cd44a5d45972b8
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: bfbc795ba2b0dad6006f9dedd4bd5f30ab87feca
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156084"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884798"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure 资源管理器模板最佳做法
 
@@ -186,14 +183,14 @@ ms.locfileid: "71156084"
 
     ```json
     "resources": [
-     {
+      {
          "name": "[variables('storageAccountName')]",
          "type": "Microsoft.Storage/storageAccounts",
          "apiVersion": "2019-06-01",
          "location": "[resourceGroup().location]",
          "comments": "This storage account is used to store the VM disks.",
          ...
-     }
+      }
     ]
     ```
 

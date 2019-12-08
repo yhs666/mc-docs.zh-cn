@@ -12,13 +12,13 @@ metadata:
   author: rockboyfor
   ms.author: v-yeche
   origin.date: 09/25/2019
-  ms.date: 11/25/2019
-  ms.openlocfilehash: 59b2d5178b35f8329e9bd655291bbc574de970cc
-  ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+  ms.date: 12/09/2019
+  ms.openlocfilehash: 1d1cba163846c44ee3f3a01ae13654e41a8ade67
+  ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/22/2019
-  ms.locfileid: "74389413"
+  ms.lasthandoff: 12/06/2019
+  ms.locfileid: "74885035"
 landingContent:
 - title: Azure 资源管理器
   linkLists:

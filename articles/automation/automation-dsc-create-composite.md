@@ -8,15 +8,15 @@ ms.subservice: dsc
 author: WenJason
 ms.author: v-jay
 origin.date: 08/08/2019
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: 70c6447bfede2f65e8069a4e726f3a68fd639169
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 5f3233922b858d6b229c0e1f2261d1b81c05882b
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116336"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884001"
 ---
 # <a name="convert-configurations-to-composite-resources"></a>将配置转换为复合资源
 
@@ -50,7 +50,7 @@ CompositeResource 会自动完成从配置创建新模块的过程。
 
 生成模块以后，每次进行更改并将其发布到你自己的 [PowerShellGet 存储库](https://kevinmarquette.github.io/2018-03-03-Powershell-Using-a-NuGet-server-for-a-PSRepository/?utm_source=blog&utm_medium=blog&utm_content=psscriptrepo)时，就可以将版本递增并添加发行说明。
 
-创建包含一个或多个配置的复合资源模块以后，即可在 Azure 中的[可组合创作体验](/automation/compose-configurationwithcompositeresources)中使用它们，或者将它们添加到 [DSC 配置脚本](https://docs.microsoft.com/powershell/dsc/configurations/configurations)，以便生成 MOF 文件并[将 MOF 文件上传到 Azure 自动化](/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
+创建包含一个或多个配置的复合资源模块以后，即可在 Azure 中的[可组合创作体验](/automation/compose-configurationwithcompositeresources)中使用它们，或者将它们添加到 [DSC 配置脚本](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations)，以便生成 MOF 文件并[将 MOF 文件上传到 Azure 自动化](/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)。
 然后从[本地](/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azure)或[在 Azure 中](/automation/automation-dsc-onboarding#azure-virtual-machines)注册服务器以拉取配置。
 对项目的最新更新也发布了 [runbook](https://www.powershellgallery.com/packages?q=DscGallerySamples)，供 Azure 自动化自动完成从 PowerShell 库导入配置的过程。
 
@@ -58,6 +58,6 @@ CompositeResource 会自动完成从配置创建新模块的过程。
 
 ## <a name="next-steps"></a>后续步骤
 
-- [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/dsc/overview/overview)
-- [DSC 资源](https://docs.microsoft.com/powershell/dsc/resources/resources)
-- [配置本地配置管理器](https://docs.microsoft.com/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell Desired State Configuration 概述](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview)
+- [DSC 资源](https://docs.microsoft.com/powershell/scripting/dsc/resources/resources)
+- [配置本地配置管理器](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaconfig)

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/25/2019
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 7030c0fdc0ed1bb8e5aa13ecd36ef5cf7c9c5941
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: e816fc702ba0801eb07f3a6a7a8aad5194403b5f
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125630"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807636"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>连接到媒体服务 v3 API - Node.js
 
@@ -131,5 +131,5 @@ node index.js
 
 ## <a name="next-steps"></a>后续步骤
 
-浏览媒体服务 [Node.js 参考](https://aka.ms/ams-v3-nodejs-ref)文档并查看[示例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)，了解如何将媒体服务 API 与 Node.js 配合使用。
+浏览媒体服务 [Node.js 参考](https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management)文档并查看[示例](https://github.com/Azure-Samples/media-services-v3-node-tutorials)，了解如何将媒体服务 API 与 Node.js 配合使用。
 

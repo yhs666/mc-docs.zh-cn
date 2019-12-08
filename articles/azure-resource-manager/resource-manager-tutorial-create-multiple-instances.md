@@ -1,25 +1,17 @@
 ---
-title: 使用 Azure 资源管理器创建多个资源实例 | Azure
+title: 创建多个资源实例
 description: 了解如何创建 Azure 资源管理器模板用于创建多个 Azure 资源实例。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 0e5ecfbf518daa636d6a137dcd7d3763eb008304
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 4059e6d4c23b6aa93fdea81f4b5fc3d40078c860
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529171"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884846"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>教程：使用资源管理器模板创建多个资源实例
 
@@ -40,35 +32,35 @@ ms.locfileid: "59529171"
 
 若要完成本文，需要做好以下准备：
 
-* 包含[资源管理器工具扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)的 [Visual Studio Code](https://code.visualstudio.com/)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](./resource-manager-tools-vs-code.md)。
 
 ## <a name="open-a-quickstart-template"></a>打开快速入门模板
 
 [Azure 快速入门模板](https://github.com/Azure/azure-quickstart-templates/)是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本快速入门中使用的模板称为[创建标准存储帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/)。 该模板定义 Azure 存储帐户资源。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
-2. 在“文件名”中粘贴以下 URL：
+1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
+2. 在“文件名”中粘贴以下 URL： 
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
     ```
-3. 选择“打开”以打开该文件。
+3. 选择“打开”以打开该文件。 
 4. 在模板中定义了一个“Microsoft.Storage/storageAccounts”资源。
     
-   <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+   <!-- Not Available on [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)-->
 
-5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。
+5. 选择“文件”>“另存为”，将该文件作为 **azuredeploy.json** 保存到本地计算机。  
 
 ## <a name="edit-the-template"></a>编辑模板
 
-现有模板创建一个存储帐户。 请通过自定义模板来创建三个存储帐户。  
+现有模板创建一个存储帐户。 请通过自定义模板来创建三个存储帐户。
 
 在 Visual Studio Code 中进行以下四项更改：
 
 ![Azure 资源管理器创建多个实例](./media/resource-manager-tutorial-create-multiple-instances/resource-manager-template-create-multiple-instances.png)
 
 1. 将 `copy` 元素添加到存储帐户资源定义。 在 copy 元素中，为此循环指定迭代次数和变量。 计数值必须是不超过 800 的正整数。
-2. `copyIndex()` 函数返回循环中的当前迭代。 使用索引作为名称前缀。 `copyIndex()` 从零开始。 若要偏移索引值，可以在 copyIndex() 函数中传递一个值。 例如 *copyIndex(1)*。
+2. `copyIndex()` 函数返回循环中的当前迭代。 使用索引作为名称前缀。 `copyIndex()` 从零开始。 若要偏移索引值，可以在 copyIndex() 函数中传递一个值。 例如 *copyIndex(1)* 。
 3. 删除 **variables** 元素，因为不再需要使用它。
 4. 删除 **outputs** 元素。 不再需要它。
 
@@ -85,7 +77,6 @@ ms.locfileid: "59529171"
       "allowedValues": [
         "Standard_LRS",
         "Standard_GRS",
-        "Standard_ZRS",
         "Premium_LRS"
       ],
       "metadata": {
@@ -152,10 +143,10 @@ Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 在“按名称筛选”字段中输入资源组名称。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 在“按名称筛选”字段中输入资源组名称。 
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -164,4 +155,4 @@ Get-AzStorageAccount -ResourceGroupName $resourceGroupName
 > [!div class="nextstepaction"]
 > [创建依赖资源](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
 
-<!-- Update_Description: wording update, update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -15,12 +15,12 @@ origin.date: 09/11/2019
 ms.date: 09/24/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: c2c5f63d98531cd23dcb741dfaf527e0e44b77e7
-ms.sourcegitcommit: 73a8bff422741faeb19093467e0a2a608cb896e1
+ms.openlocfilehash: 862b64d2db73d3f0386a4f0c4c5a57cd3edca50d
+ms.sourcegitcommit: c74ea6bb80aec1a6c200f19832393adf806921fd
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673559"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74717504"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>什么是 Azure 资源的基于角色的访问控制 (RBAC)？
 
@@ -81,7 +81,7 @@ Azure 具有数据操作，通过这些操作可以授予对对象内数据的�
 
 范围是访问权限适用于的资源集。  分配角色时，可以通过定义范围来进一步限制允许的操作。 如果你想要将某人分配为[网站参与者](built-in-roles.md#website-contributor)，但只针对一个资源组执行此分配，则使用范围就很有帮助。
 
-在 Azure 中，可在多个级别指定范围：[管理组](../governance/management-groups/index.md)、订阅、资源组或资源。 范围采用父子关系结构。
+在 Azure 中，可在多个级别指定范围：[管理组](/governance/management-groups/overview)、订阅、资源组或资源。 范围采用父子关系结构。
 
 ![角色分配的范围](./media/overview/rbac-scope.png)
 

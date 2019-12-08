@@ -7,17 +7,21 @@ ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
 origin.date: 05/14/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.localizationpriority: high
-ms.openlocfilehash: 0b465b5db03e7512b3a216c75e858953463b5a01
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 7ebfbc2c91ab643bd0aeacd7e9578e5b84348612
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530623"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884010"
 ---
+::: zone target="docs"
+
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>教程：通过 SMB 将数据复制到 Azure Data Box
+
+::: zone-end
 
 ::: zone target="chromeless"
 
