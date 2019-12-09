@@ -9,15 +9,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-origin.date: 04/20/2019
+origin.date: 04/20/2017
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e5a2a6c30f64b176f3fc79393e920a75a0f3d806
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: cba4b1fb300f2fd2d6d2a30cd1e69fca153bf45d
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330364"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838997"
 ---
 # <a name="pool-resize-complete-event"></a>池调整大小完成事件
 

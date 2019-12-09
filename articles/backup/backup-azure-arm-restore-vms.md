@@ -1,21 +1,19 @@
 ---
-title: Azure 备份：使用 Azure 门户还原 VM
+title: 使用 Azure 门户还原 VM
 description: 使用 Azure 门户从恢复点还原 Azure 虚拟机
 ms.reviewer: geg
 author: lingliw
 manager: digimobile
-keywords: 还原备份; 如何还原; 恢复点;
-ms.service: backup
 ms.topic: conceptual
 origin.date: 09/17/2019
-ms.date: 09/23/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1dacf99cf42417b359e9e2879fc79da5fb7d8fd4
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d6ba31016584cbd3dbf34f77f29dfbaaad8f058a
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730409"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838600"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>如何在 Azure 门户中还原 Azure VM 数据
 
@@ -89,7 +87,6 @@ Azure 备份提供多种方法用于还原 VM。
     ![还原配置向导](./media/backup-azure-arm-restore-vms/recovery-configuration-wizard1.png)
 
 6. 在“还原配置”中，选择“确定”。   在“还原”中，选择“还原”以触发还原操作。  
-
 
 ## <a name="restore-disks"></a>还原磁盘
 
@@ -185,7 +182,7 @@ Azure 备份提供多种方法用于还原 VM。
     - 如果发现 Azure 代理无响应，请按此[链接](/virtual-machines/troubleshooting/install-vm-agent-offline)的要求手动安装 VM 代理。
     - 在 VM 上启用串行控制台访问，以便通过命令行访问 VM
     
-  ```
+  ```cmd
     bcdedit /store <drive letter>:\boot\bcd /enum
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
     bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 5
