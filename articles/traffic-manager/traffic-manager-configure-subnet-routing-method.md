@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 origin.date: 09/17/2018
 ms.date: 07/22/2019
 ms.author: v-yeche
-ms.openlocfilehash: 34bed3c1170252dbb7374b2f59dd73263c9c2df6
-ms.sourcegitcommit: 843028f54c4d75eba720ac8874562ab2250d5f4d
+ms.openlocfilehash: d60ed20c80462895415fb7640fdd5b964d06914a
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70856965"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884870"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>使用流量管理器，基于用户子网，将流量定向到特定终结点
 
@@ -63,7 +63,7 @@ ms.locfileid: "70856965"
     |用户名| 输入所选用户名。|
     |密码| 输入所选密码。 密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md?toc=%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)。|
     |资源组| 选择“新建”  ，然后键入 *myResourceGroupTM1*。|
-    |Location| 选择“中国东部”。 |
+    |位置| 选择“中国东部”。 |
     |||
 
 4. 在“选择大小”下选择 VM 大小  。
@@ -83,7 +83,7 @@ ms.locfileid: "70856965"
     |设置|Value|
     |---|---|
     |资源组 | 选择“新建”  ，然后键入 *myResourceGroupTM2*|
-    |Location|中国北部|
+    |位置|中国北部|
     |VM 名称 | myIISVMChinaNorth|
     |虚拟网络 | 选择“虚拟网络”，在“创建虚拟网络”中，为“名称”输入 *myVNet2*，为“子网”输入 *mySubnet*。   |
     |||
@@ -264,6 +264,6 @@ ms.locfileid: "70856965"
 
 - 了解[加权流量路由方法](traffic-manager-configure-weighted-routing-method.md)。
 - 了解[优先级路由方法](traffic-manager-configure-priority-routing-method.md)。
+- 了解[地理路由方法](traffic-manager-configure-geographic-routing-method.md)。
 
-<!-- Not Available on [geographic routing method](traffic-manager-configure-geographic-routing-method.md)-->
 <!-- Update_Description: wording update, update link -->
