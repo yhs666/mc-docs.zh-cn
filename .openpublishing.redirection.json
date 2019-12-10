@@ -18954,6 +18954,16 @@
         "source_path": "articles/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification.md",
         "redirect_url": "//notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started",
         "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/php-download-sdk.md",
+      "redirect_url": "https://github.com/Azure/azure-sdk-for-php",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/billing-understand-your-bill.md",
+      "redirect_url": "https://docs.microsoft.com/zh-cn/azure/billing/billing-understand-your-bill",
+      "redirect_document_id": false
     }
 
   ]
