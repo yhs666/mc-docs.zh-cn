@@ -98,7 +98,7 @@ ms.locfileid: "74556042"
 
 ### <a name="export-certificate-to-pfx"></a>将证书导出为 PFX
 
-导出合并的 SSL 证书（其中包含生成证书请求时所用的私钥）。
+用生成证书请求时所用的私钥导出合并的 SSL 证书。
 
 如果使用 OpenSSL 生成证书请求，则已创建私钥文件。 若要将证书导出为 PFX，请运行以下命令。 将占位符 _&lt;private-key-file>_ 和 _&lt;merged-certificate-file>_ 分别替换为私钥和合并证书文件的路径。
 
@@ -114,9 +114,9 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 现在可以将证书上传到应用服务了。
 
-在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用服务” > “\<app-name>”   。
+在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用程序服务” > “\<app-name>”   。
 
-在应用的左侧导航窗格中，选择“TLS/SSL 设置” > “私钥证书 (.pfx)” > “上传证书”    。
+在应用的左侧导航窗格中，选择“TLS/SSL 设置” > “私钥证书(.pfx)” > “上载证书”    。
 
 ![将私有证书上传到应用服务中](./media/configure-ssl-certificate/upload-private-cert.png)
 
@@ -134,9 +134,9 @@ openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-c
 
 支持使用 .cer 格式的公用证书  。 
 
-在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用服务” > “\<app-name>”   。
+在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用程序服务” > “\<app-name>”   。
 
-在应用的左侧导航窗格中，单击“TLS/SSL 设置” > “公用证书 (.cer)” > “上传公钥证书”    。
+在应用的左侧导航窗格中，单击“TLS/SSL 设置” > “公用证书(.cer)” > “上传公钥证书”    。
 
 在“名称”  中，键入证书的名称。 在“CER 证书文件”中  ，选择你的 CER 文件。
 
