@@ -18964,8 +18964,27 @@
       "source_path": "articles/billing-understand-your-bill.md",
       "redirect_url": "https://docs.microsoft.com/zh-cn/azure/billing/billing-understand-your-bill",
       "redirect_document_id": false
-    }
-
+    },
+    {
+      "source_path": "articles/search/search-create-index-rest-api.md",
+      "redirect_url": "/azure/search/search-get-started-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-create-index-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-import-data-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/search/search-query-dotnet.md",
+      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_document_id": false
+    },
   ]
 }
 
