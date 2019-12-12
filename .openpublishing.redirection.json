@@ -16887,12 +16887,12 @@
     },
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-up.md",
-      "redirect_url": "/azure/data-explorer/manage-cluster-vertical-scaling",
+      "redirect_url": "/data-explorer/manage-cluster-vertical-scaling",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/data-explorer/manage-cluster-scale-out.md",
-      "redirect_url": "/azure/data-explorer/manage-cluster-horizontal-scaling",
+      "redirect_url": "/data-explorer/manage-cluster-horizontal-scaling",
       "redirect_document_id": false
     },
     {
@@ -18967,24 +18967,59 @@
     },
     {
       "source_path": "articles/search/search-create-index-rest-api.md",
-      "redirect_url": "/azure/search/search-get-started-powershell",
+      "redirect_url": "/search/search-get-started-powershell",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-create-index-dotnet.md",
-      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_url": "/search/search-get-started-dotnet",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-import-data-dotnet.md",
-      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_url": "/search/search-get-started-dotnet",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/search/search-query-dotnet.md",
-      "redirect_url": "/azure/search/search-get-started-dotnet",
+      "redirect_url": "/search/search-get-started-dotnet",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/app-service-mobile-migrating-from-mobile-services.md",
+      "redirect_url": "/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service-mobile-net-upgrading-from-mobile-services.md",
+      "redirect_url": "/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service-mobile-node-backend-upgrading-from-mobile-services.md",
+      "redirect_url": "/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service-mobile-value-prop-migration-from-mobile-services.md",
+      "redirect_url": "/app-service-mobile",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-tutorial-custom-ssl.md",
+      "redirect_url": "/app-service/configure-ssl-bindings",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/app-service-web-ssl-cert-load.md",
+      "redirect_url": "/app-service/configure-ssl-certificate-in-code",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/app-service/web-sites-scale.md",
+      "redirect_url": "/app-service/manage-scale-up",
+      "redirect_document_id": false
+    }
   ]
 }
 
