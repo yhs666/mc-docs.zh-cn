@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 08/26/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 8053ad1410c95a18b714acc3024a6cb33e326ff0
-ms.sourcegitcommit: 3aff96c317600eec69c4bf3b8853e9d4e44210b7
+ms.openlocfilehash: b0d715099ab8324debeaa704c629cc26ee74e851
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69671008"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807637"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>使用 REST 将文件上传到媒体服务帐户  
 > [!div class="op_single_selector"]
@@ -45,7 +45,8 @@ ms.locfileid: "69671008"
 
 - 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 - [使用 Azure 门户创建 Azure 媒体服务帐户](media-services-portal-create-account.md)。
-- 查看文章[通过 AAD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)。
+- 查看[通过 ADD 身份验证访问 Azure 媒体服务 API 概述](media-services-use-aad-auth-to-access-ams-api.md)一文。
+- 另外，有关详细信息，请参阅[通过 Azure AD 身份验证使用 REST 访问媒体服务 API](/media-services/previous/media-services-rest-connect-with-aad) 一文。
 - 根据[为媒体服务 REST API 调用配置 Postman](media-rest-apis-with-postman.md) 中所述配置 **Postman**。
 
 ## <a name="considerations"></a>注意事项
@@ -177,7 +178,7 @@ SAS URL 采用以下格式：
 
 - [使用 Azure 存储 REST API](/storage/common/storage-rest-api-auth?toc=%2fstorage%2fblobs%2ftoc.json)
 - [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [将 Blob 上传到 Blob 存储](/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [将 Blob 上传到 Blob 存储](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>使用 Postman 上传文件
 

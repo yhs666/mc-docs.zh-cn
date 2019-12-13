@@ -1,19 +1,18 @@
 ---
 title: 使用 Azure 备份服务器备份 VMware VM
-description: 使用 Azure 备份服务器备份 VMware vCenter/ESXi 服务器上运行的 VMware VM。
+description: 本文介绍如何使用 Azure 备份服务器备份 VMware vCenter/ESXi 服务器上运行的 VMware VM。
 author: lingliw
 manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 12/11/2018
 ms.date: 12/21/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 9ce02d901b7a9cd3da36eb35d8ad4ea706b56a11
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 1a1293f97c91be61fd66d0859337da3edfbc305b
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416398"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838990"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>使用 Azure 备份服务器备份 VMware VM
 
@@ -354,25 +353,26 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 - 按如下所示设置注册表项：
 
-```text
- Windows Registry Editor Version 5.00
+       ```text
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
-```
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+       ```
 
 ## <a name="next-steps"></a>后续步骤
 

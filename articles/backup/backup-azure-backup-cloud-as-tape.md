@@ -1,19 +1,18 @@
 ---
-title: 使用 Azure 备份来取代磁带基础结构
+title: 如何替换磁带基础结构
 description: 了解 Azure 备份如何提供类似于磁带的语义，让你在 Azure 中备份和还原数据
 author: lingliw
 manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 04/30/2017
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2e9030f0760b3caee002138006faf8b42f720653
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: cb0e5824653484b735869d5bff0b7b86a587416e
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329799"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838949"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>将长期存储从磁带移动到 Azure 云
 Azure 备份和 System Center Data Protection Manager 客户可以：

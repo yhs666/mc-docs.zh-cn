@@ -9,20 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/09/2019
-ms.date: 09/23/2019
+origin.date: 11/19/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 429fe3dbef379ff871f97338edf767885ceb2c72
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: fe799922e2f207613394e8a74360b06498ea4556
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329914"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884616"
 ---
 # <a name="add-contributors-to-your-app"></a>向应用添加参与者
 
 应用所有者可以向应用添加参与者。 这些协作者可以修改模型，训练并发布应用。 
 
+[!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
 ## <a name="add-contributor-to-azure-authoring-resource"></a>向 Azure 创作资源添加参与者
 
@@ -41,7 +42,7 @@ ms.locfileid: "71329914"
 
     找到用户的电子邮件以后，请选择该帐户，然后选择“保存”  。 
 
-    如果无法进行此角色分配，请查看“Azure 角色分配”和“Azure 访问控制故障排除”[](../../role-based-access-control/role-assignments-portal.md)[](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)。
+    如果无法进行此角色分配，请查看“[Azure 角色分配](../../role-based-access-control/role-assignments-portal.md)”和“[Azure 访问控制故障排除](../../role-based-access-control/troubleshooting.md#problems-with-rbac-role-assignments)”。
 
 ## <a name="add-collaborator-to-luis-app"></a>向 LUIS 应用添加协作者
 
@@ -54,8 +55,6 @@ ms.locfileid: "71329914"
 1. 从右上角的菜单中选择“管理”  ，然后在左侧菜单中选择“协作者”。 
 
 1. 从工具栏中选择“添加协作者”  。
-
-    [![添加协作者](./media/luis-how-to-collaborate/add-collaborator.png "添加协作者")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. 输入协作者用来登录到 LUIS 门户的电子邮件地址。
 
@@ -78,7 +77,7 @@ ms.locfileid: "71329914"
 * 允许应用查看和更新你的数据，即使你当前未使用应用。 此权限是刷新用户的访问令牌时所必需的。
 
 
-## <a name="azure-active-directory-tenant-user"></a>Azure Active Directory 租户用户
+### <a name="azure-active-directory-tenant-user"></a>Azure Active Directory 租户用户
 
 LUIS 使用标准的 Azure Active Directory (Azure AD) 许可流程。 
 
@@ -91,16 +90,13 @@ LUIS 使用标准的 Azure Active Directory (Azure AD) 许可流程。
 
 如果租户管理员只希望某些用户使用 LUIS，则有几种可能的解决方案：
 * 给予“管理员同意”（同意 Azure AD 的所有用户），但随后在“企业应用程序属性”下将“需要进行用户分配”设置为“是”，最后仅将所需用户分配/添加到应用程序。 使用此方法，管理员仍然向应用提供“管理员同意”，但是，可以控制可以访问应用的用户。
-* 第二种解决方案是使用 [Azure AD 图形 API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) 向每个特定用户提供同意。 
+* 另一种解决方法是使用 [Microsoft Graph 中的 Azure AD 标识和访问管理 API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) 向每个特定用户提供许可。 
 
 详细了解 Azure Active Directory 用户和同意： 
 * [将应用限制为](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)供一组用户使用
 
-### <a name="user-accounts-with-multiple-emails-for-collaborators"></a>具有多个协作者电子邮件的用户帐户
+## <a name="next-steps"></a>后续步骤
 
-如果将协作者添加到 LUIS 应用，则要指定协作者将 LUIS 用作协作者所需的确切电子邮件地址。 虽然 Azure Active Directory (Azure AD) 允许单名用户交替使用多个电子邮件帐户，但 LUIS 要求用户使用协作者列表中指定的电子邮件地址登录。
-
-
-
-
-
+* 了解[如何使用版本](luis-how-to-manage-versions.md)来控制应用生命周期。
+* 了解概念，包括[创作资源](luis-concept-keys.md#authoring-key)和该资源上的[参与者](luis-concept-keys.md#contributions-from-other-authors)。
+* 了解[如何创建](luis-how-to-azure-subscription.md)创作和运行时资源

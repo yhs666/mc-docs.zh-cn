@@ -1,25 +1,26 @@
 ---
-title: Azure SQL 数据仓库速查表 | Microsoft Docs
-description: 查找链接和最佳做法，以便快速生成 Azure SQL 数据仓库解决方案。
+title: Azure Synapse Analytics（以前称为 SQL DW）的速查表
+description: 查找链接和最佳做法，以便快速生成 Azure Synapse Analytics（以前称为 SQL DW）解决方案。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-origin.date: 08/23/2019
-ms.date: 10/21/2019
+origin.date: 11/04/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 4ebce5293e8e4fa36dcf387240726885dc40f426
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 4919f54b2e4908924efff2bb0545b1548c8f6847
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914512"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807646"
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL 数据仓库速查表
-此速查表提供有关生成 Azure SQL 数据仓库解决方案的有用提示和最佳做法。 在开始之前，请阅读 [Azure SQL 数据仓库的工作负荷模式和对立模式](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)中的每个详细步骤，其中解释了 SQL 数据仓库的定义。
+# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics（以前称为 SQL DW）的速查表
+
+此速查表提供有关生成 Azure Synapse 解决方案的有用提示和最佳做法。 
 
 下图显示了设计数据仓库的过程：
 
@@ -36,7 +37,7 @@ ms.locfileid: "72914512"
 
 ## <a name="data-migration"></a>数据迁移
 
-首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入 SQL 数据仓库的临时表中。 使用以下配置：
+首先，将数据加载到 Azure Blob 存储中。 接下来，使用 PolyBase 将数据载入临时表中。 使用以下配置：
 <!-- Not Available on [Azure Data Lake Store](/data-factory/connector-azure-data-lake-store) -->
 
 | 设计 | 建议 |
@@ -100,28 +101,28 @@ ms.locfileid: "72914512"
 
 若要增量加载数据，请先确保分配更大的资源类来加载数据。  当加载到具有聚集列存储索引的表中时，这一点尤其重要。  有关更多详细信息，请参阅[资源类](/sql-data-warehouse/resource-classes-for-workload-management)。  
 
-建议使用 PolyBase 和 ADF V2 在 SQL 数据仓库中自动执行 ELT 管道。
+建议使用 PolyBase 和 ADF V2 在数据仓库中自动执行 ELT 管道。
 
 对于历史数据中的大量更新，请考虑使用 [CTAS](/sql-data-warehouse/sql-data-warehouse-develop-ctas) 将要保留的数据写入表中，而不是使用 INSERT、UPDATE 和 DELETE。
 
 ## <a name="maintain-statistics"></a>维护统计信息
- 在自动统计信息功能推出正式版之前，SQL 数据仓库要求手动维护统计信息。 对数据做*重大*更改时务必更新统计信息。 这有助于优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。 
+ 在自动统计信息功能推出正式版之前，要求手动维护统计信息。 对数据做*重大*更改时务必更新统计信息。 这有助于优化查询计划。 如果发现维护所有统计信息所需时间太长，请更谨慎地选择包含统计信息的列。 
 
 还可以定义更新频率。 例如，可能想要更新每天都要添加新值的日期列。 对涉及联接的列、WHERE 子句中使用的列、在 GROUP BY 中找到的列进行信息统计，可以获得最大效益。
 
 详细了解[统计信息]。
 
 ## <a name="resource-class"></a>资源类
-SQL 数据仓库使用资源组作为将内存分配给查询的一种方式。 如果需要更多内存来提高查询或加载速度，应分配更大的资源类。 但另一方面，使用更大的资源类会影响并发。 在将所有用户移动到大型资源类之前，你希望把这点纳入考虑范围。
+资源组用作将内存分配给查询的一种方式。 如果需要更多内存来提高查询或加载速度，应分配更大的资源类。 但另一方面，使用更大的资源类会影响并发。 在将所有用户移动到大型资源类之前，你希望把这点纳入考虑范围。
 
 如果发现查询所需时间过长，请确保用户未在大型资源类中运行。 大型资源类会占用许多并发槽。 它们可能导致其他查询排队等待。
 
-最后，通过使用第 2 代的 SQL 数据仓库，每个资源类可比第 1 代获得多 2.5 倍的内存。
+最后，通过使用第 2 代的 [SQL 池](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)，每个资源类可比第 1 代获得多 2.5 倍的内存。
 
 详细了解如何使用[资源类和并发]。
 
 ## <a name="lower-your-cost"></a>降低成本
-SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-warehouse-manage-compute-overview.md)。 你可在不使用数据仓库时进行暂停，这会停止计算资源的计费。 可以缩放资源以满足性能需求。 若要暂停，请使用 [Azure 门户](pause-and-resume-compute-portal.md)或 [PowerShell](pause-and-resume-compute-powershell.md)。 若要缩放，请使用 [Azure 门户](quickstart-scale-compute-portal.md)、[Powershell](quickstart-scale-compute-powershell.md)、[T-SQL](quickstart-scale-compute-tsql.md) 或 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)。
+Azure Synapse 的一个重要功能是可以[管理计算资源](sql-data-warehouse-manage-compute-overview.md)。 你可在不使用 SQL 池时进行暂停，这会停止计算资源的计费。 可以缩放资源以满足性能需求。 若要暂停，请使用 [Azure 门户](pause-and-resume-compute-portal.md)或 [PowerShell](pause-and-resume-compute-powershell.md)。 若要缩放，请使用 [Azure 门户](quickstart-scale-compute-portal.md)、[Powershell](quickstart-scale-compute-powershell.md)、[T-SQL](quickstart-scale-compute-tsql.md) 或 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)。
 
 <!-- Not Available on Auto-scale with Azure Functions: -->
 
@@ -132,7 +133,7 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 
 建议考虑在中心辐射型体系结构中使用 SQL 数据库和 Azure Analysis Services。 该解决方案可以在不同的用户组之间提供工作负荷隔离，同时还能使用 SQL 数据库和 Azure Analysis Services 的高级安全功能。 这也是一种向用户提供无限并发的方式。
 
-详细了解[利用 SQL 数据仓库的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
+详细了解[利用 Azure Synapse 的典型体系结构](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)。
 
 
 <!--Image references-->
@@ -155,6 +156,7 @@ SQL 数据仓库的一个重要功能是可以[管理计算资源](sql-data-ware
 [typical architectures that take advantage of SQL Data Warehouse]: https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/
 [is and is not]:https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns/
 [数据迁移]: https://blogs.msdn.microsoft.com/sqlcat/20../../migrating-data-to-azure-sql-data-warehouse-in-practice/
+
 <!-- Not Available on [Azure Data Lake Store]: /data-factory/connector-azure-data-lake-store -->
 [sys.dm_pdw_nodes_db_partition_stats]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql [sys.dm_pdw_request_steps]: https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql
 

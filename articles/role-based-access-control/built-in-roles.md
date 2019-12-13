@@ -11,17 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-origin.date: 10/28/2019
-ms.date: 11/11/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 0892eb1f77f96b6ae0423e4e588b413c186fbb25
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: f38eeab8329138ac60a62e3106a192300edcf055
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934192"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884657"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 资源的内置角色
 
@@ -34,123 +33,124 @@ ms.locfileid: "73934192"
 下表提供了每个内置角色的简短说明。 单击角色名称，查看每个角色的 `Actions`、`NotActions`、`DataActions` 和 `NotDataActions` 列表。 有关这些操作的含义以及它们如何应用于管理和数据平面的信息，请参阅[了解 Azure 资源的角色定义](role-definitions.md)。
 
 
-| 内置角色 | 说明 |
-| --- | --- |
-| [所有者](#owner) | 允许管理所有功能，包括对资源的访问权限。 |
-| [参与者](#contributor) | 允许管理所有功能（授予对资源的访问权限除外）。 |
-| [读者](#reader) | 允许查看所有内容，但不能进行任何更改。 |
-| [AcrDelete](#acrdelete) | acr delete |
-| [AcrImageSigner](#acrimagesigner) | ACR 映像签名程序 |
-| [AcrPull](#acrpull) | acr 拉取 |
-| [AcrPush](#acrpush) | acr 推送 |
-| [AcrQuarantineReader](#acrquarantinereader) | ACR 隔离数据读取器 |
-| [AcrQuarantineWriter](#acrquarantinewriter) | ACR 隔离数据编写器 |
-| [API 管理服务参与者](#api-management-service-contributor) | 可以管理服务和 API |
-| [API 管理服务操作员角色](#api-management-service-operator-role) | 可以管理服务，但不可管理 API |
-| [API 管理服务读者角色](#api-management-service-reader-role) | 对服务和 API 的只读访问权限 |
-| [自动化作业操作员](#automation-job-operator) | 使用自动化 Runbook 创建和管理作业。 |
-| [自动化运算符](#automation-operator) | 自动化操作员能够启动、停止、暂停和恢复作业 |
-| [自动化 Runbook 操作员](#automation-runbook-operator) | 读取 Runbook 属性 - 以能够创建 runbook 的作业。 |
-| [Avere 参与者](#avere-contributor) | 可以创建和管理 Avere vFXT 群集。 |
-| [Avere 操作员](#avere-operator) | 由 Avere vFXT 群集用来管理群集 |
-| [Azure 事件中心数据所有者](#azure-event-hubs-data-owner) | 允许完全访问 Azure 事件中心资源。 |
-| [Azure 事件中心数据接收者](#azure-event-hubs-data-receiver) | 允许接收对 Azure 事件中心资源的访问权限。 |
-| [Azure 事件中心数据发送者](#azure-event-hubs-data-sender) | 允许以发送方式访问 Azure 事件中心资源。 |
-| [Azure Kubernetes 服务群集管理员角色](#azure-kubernetes-service-cluster-admin-role) | 列出群集管理员凭据操作。 |
-| [Azure Kubernetes 服务群集用户角色](#azure-kubernetes-service-cluster-user-role) | 列出群集用户凭据操作。 |
-| [Azure Maps 数据读取器（预览）](#azure-maps-data-reader-preview) | 授予从 Azure Maps 帐户中读取相关数据的权限。 |
-| [Azure 服务总线数据所有者](#azure-service-bus-data-owner) | 允许完全访问 Azure 服务总线资源。 |
-| [Azure 服务总线数据接收者](#azure-service-bus-data-receiver) | 允许对 Azure 服务总线资源进行接收访问。 |
-| [Azure 服务总线数据发送者](#azure-service-bus-data-sender) | 允许对 Azure 服务总线资源进行发送访问。 |
-| [Azure Stack 注册所有者](#azure-stack-registration-owner) | 允许管理 Azure Stack 注册。 |
-| [备份参与者](#backup-contributor) | 允许管理备份服务，但不允许创建保管库以及授予其他人访问权限 |
-| [备份操作员](#backup-operator) | 允许管理备份服务，但删除备份、创建保管库以及授予其他人访问权限除外 |
-| [备份读者](#backup-reader) | 可以查看备份服务，但是不能进行更改 |
-| [计费读者](#billing-reader) | 允许对帐单数据进行读取访问 |
-| [CDN 终结点参与者](#cdn-endpoint-contributor) | 可以管理 CDN 终结点，但不能向其他用户授予访问权限。 |
-| [CDN 终结点读者](#cdn-endpoint-reader) | 可以查看 CDN 终结点，但不能进行更改。 |
-| [CDN 配置文件参与者](#cdn-profile-contributor) | 可以管理 CDN 配置文件及其终结点，但不能向其他用户授予访问权限。 |
-| [CDN 配置文件读者](#cdn-profile-reader) | 可以查看 CDN 配置文件及其终结点，但不能进行更改。 |
-| [经典网络参与者](#classic-network-contributor) | 允许管理经典网络，但不允许访问这些网络。 |
-| [经典存储帐户参与者](#classic-storage-account-contributor) | 允许管理经典存储帐户，但不允许对其进行访问。 |
-| [经典存储帐户密钥操作员服务角色](#classic-storage-account-key-operator-service-role) | 允许经典存储帐户密钥操作员在经典存储帐户上列出和再生成密钥 |
-| [经典虚拟机参与者](#classic-virtual-machine-contributor) | 允许管理经典虚拟机，但不允许访问这些虚拟机及其连接到的虚拟网络或存储帐户。 |
-| [认知服务参与者](#cognitive-services-contributor) | 允许创建、读取、更新、删除和管理认知服务的密钥。 |
-| [认知服务数据读者（预览）](#cognitive-services-data-reader-preview) | 可以读取认知服务数据。 |
-| [认知服务用户](#cognitive-services-user) | 允许读取和列出认知服务的密钥。 |
-| [Cosmos DB 帐户读者角色](#cosmos-db-account-reader-role) | 可以读取 Azure Cosmos DB 帐户数据。 请参阅 [Cosmos DB 帐户参与者](#documentdb-account-contributor)，了解如何管理 Azure Cosmos DB 帐户。 |
-| [Cosmos DB 操作员](#cosmos-db-operator) | 可以管理 Azure Cosmos DB 帐户，但不能访问其中的数据。 阻止访问帐户密钥和连接字符串。 |
-| [CosmosBackupOperator](#cosmosbackupoperator) | 可以为帐户提交 Cosmos DB 数据库或容器的还原请求 |
-| [成本管理参与者](#cost-management-contributor) | 可以查看成本和管理成本配置（例如预算、导出） |
-| [成本管理读者](#cost-management-reader) | 可以查看成本数据和配置（例如预算、导出） |
-| [Data Box 参与者](#data-box-contributor) | 可让你管理 Data Box 服务下的所有内容，但不能向其他人授予访问权限。 |
-| [Data Box 读者](#data-box-reader) | 可让你管理 Data Box 服务，但不能创建订单或编辑订单详细信息，以及向其他人授予访问权限。 |
-| [数据工厂参与者](#data-factory-contributor) | 创建和管理数据工厂，以及其中的子资源。 |
-| [DevTest 实验室用户](#devtest-labs-user) | 允许连接、启动、重启和关闭 Azure 开发测试实验室中的虚拟机。 |
-| [DNS 区域参与者](#dns-zone-contributor) | 允许管理 Azure DNS 中的 DNS 区域和记录集，但不允许控制对其访问的人员。 |
-| [DocumentDB 帐户参与者](#documentdb-account-contributor) | 可管理 Azure Cosmos DB 帐户。 Azure Cosmos DB 以前称为 DocumentDB。 |
-| [EventGrid EventSubscription 参与者](#eventgrid-eventsubscription-contributor) | 可以管理 EventGrid 事件订阅操作。 |
-| [EventGrid EventSubscription 读者](#eventgrid-eventsubscription-reader) | 可以读取 EventGrid 事件订阅。 |
-| [HDInsight 群集操作员](#hdinsight-cluster-operator) | 允许你读取和修改 HDInsight 群集配置。 |
-| [HDInsight 域服务参与者](#hdinsight-domain-services-contributor) | 可以读取、创建、修改和删除 HDInsight 企业安全性套餐所需的域服务相关操作 |
-| [Intelligent Systems 帐户参与者](#intelligent-systems-account-contributor) | 允许管理智能系统帐户，但不允许访问这些帐户。 |
-| [密钥保管库参与者](#key-vault-contributor) | 允许管理密钥保管库，但不允许对其进行访问。 |
-| [实验室创建者](#lab-creator) | 允许在 Azure 实验室帐户下创建、管理、删除托管实验室。 |
-| [Log Analytics 参与者](#log-analytics-contributor) | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志收集、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。 |
-| [Log Analytics 读者](#log-analytics-reader) | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 |
-| [逻辑应用参与者](#logic-app-contributor) | 允许管理逻辑应用，但不允许更改其访问权限。 |
-| [逻辑应用操作员](#logic-app-operator) | 允许读取、启用和禁用逻辑应用，但不允许编辑或更新它们。 |
-| [托管应用程序操作员角色](#managed-application-operator-role) | 可让你在托管应用程序资源上读取和执行操作 |
-| [托管应用程序读者](#managed-applications-reader) | 允许读取托管应用中的资源并请求 JIT 访问。 |
-| [托管的标识参与者](#managed-identity-contributor) | 创建、读取、更新和删除用户分配的标识 |
-| [托管的标识操作员](#managed-identity-operator) | 读取和分配用户分配的标识 |
-| [托管服务注册分配删除角色](#managed-services-registration-assignment-delete-role) | 托管服务注册分配删除角色允许管理租户用户删除分配给其租户的注册分配。 |
-| [管理组参与者](#management-group-contributor) | 管理组参与者角色 |
-| [管理组读取者](#management-group-reader) | 管理组读取者角色 |
-| [监视参与者](#monitoring-contributor) | 可以读取所有监视数据和编辑监视设置。 另请参阅 [Azure Monitor 的角色、权限和安全入门](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
-| [监视指标发布者](#monitoring-metrics-publisher) | 允许针对 Azure 资源发布指标 |
-| [监视读取者](#monitoring-reader) | 可以读取所有监视数据（指标、日志等）。 另请参阅 [Azure Monitor 的角色、权限和安全入门](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 |
-| [网络参与者](#network-contributor) | 允许管理网络，但不允许访问这些网络。 |
-| [New elic APM 帐户参与者](#new-relic-apm-account-contributor) | 允许管理 New Relic 应用程序性能管理帐户和应用程序，但不允许访问它们。 |
-| [读取器和数据访问](#reader-and-data-access) | 允许查看所有内容，但不允许删除或创建存储帐户或包含的资源。 它还允许使用存储帐户密钥对存储帐户中包含的所有数据进行读/写访问。 |
-| [Redis 缓存参与者](#redis-cache-contributor) | 允许管理 Redis 缓存，但不允许访问这些缓存。 |
-| [资源策略参与者（预览）](#resource-policy-contributor-preview) | （预览）通过 EA 回填的 用户，具有创建/修改资源策略、创建支持票证和读取资源/层次结构的权限。 |
-| [计划程序作业集合参与者](#scheduler-job-collections-contributor) | 允许管理计划程序作业集合，但不允许访问这些集合。 |
-| [搜索服务参与者](#search-service-contributor) | 允许管理搜索服务，但不允许访问这些服务。 |
-| [安全管理员](#security-admin) | 仅在安全中心内：可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议、关闭警报和建议 |
-| [安全管理器（旧版）](#security-manager-legacy) | 这是旧角色。 请改用安全管理员角色 |
-| [安全读取者](#security-reader) | 仅在安全中心内：可以查看建议和警报、查看安全策略、查看安全状态，但不能进行更改 |
-| [Site Recovery 参与者](#site-recovery-contributor) | 允许管理除保管库创建和角色分配外的 Site Recovery 服务 |
-| [Site Recovery 操作员](#site-recovery-operator) | 允许进行故障转移和故障回复，但不允许执行其他 Site Recovery 管理操作 |
-| [Site Recovery 读取者](#site-recovery-reader) | 允许查看 Site Recovery 状态，但不允许执行其他管理操作 |
-| [空间定位点帐户参与者](#spatial-anchors-account-contributor) | 允许管理帐户中的空间定位点，但不能删除它们 |
-| [空间定位点帐户所有者](#spatial-anchors-account-owner) | 允许管理帐户中的空间定位点，包括删除它们 |
-| [空间定位点帐户读取者](#spatial-anchors-account-reader) | 允许在帐户中查找和读取空间定位点的属性 |
-| [SQL DB 参与者](#sql-db-contributor) | 允许管理 SQL 数据库，但不允许访问这些数据库。 此外，不允许管理其安全相关的策略或其父 SQL 服务器。 |
-| [SQL 托管实例参与者](#sql-managed-instance-contributor) | 允许你管理 SQL 托管实例和所需的网络配置，但无法向其他人授予访问权限。 |
-| [SQL 安全管理器](#sql-security-manager) | 允许管理 SQL 服务器和数据库的安全相关策略，但不允许访问它们。 |
-| [SQL Server 参与者](#sql-server-contributor) | 允许管理 SQL 服务器和数据库，但不允许访问它们及其安全相关的策略。 |
-| [存储帐户参与者](#storage-account-contributor) | 允许管理存储帐户。 提供对帐户密钥的访问权限，而帐户密钥可以用来通过共享密钥授权对数据进行访问。 |
-| [存储帐户密钥操作员服务角色](#storage-account-key-operator-service-role) | 允许列出和重新生成存储帐户访问密钥。 |
-| [存储 Blob 数据参与者](#storage-blob-data-contributor) | 读取、写入和删除 Azure 存储容器与 Blob。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储 Blob 数据所有者](#storage-blob-data-owner) | 提供对 Azure 存储 blob 容器和数据的完全访问权限，包括分配 POSIX 访问控制。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储 Blob 数据读者](#storage-blob-data-reader) | 读取和列出 Azure 存储容器与 Blob。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储 Blob 代理](#storage-blob-delegator) | 获取用户委托密钥，该密钥随后可用来为通过 Azure AD 凭据签名的容器或 Blob 创建共享访问签名。 有关详细信息，请参阅[创建用户委托 SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)。 |
-| [存储文件数据 SMB 共享参与者](#storage-file-data-smb-share-contributor) | 允许通过 SMB 在 Azure 存储文件共享中进行读取、写入和删除访问 |
-| [存储文件数据 SMB 共享的权限提升参与者](#storage-file-data-smb-share-elevated-contributor) | 允许通过 SMB 在 Azure 存储文件共享中进行读取、写入、删除和修改 NTFS 权限的访问 |
-| [存储文件数据 SMB 共享读取者](#storage-file-data-smb-share-reader) | 允许通过 SMB 对 Azure 文件共享进行读取访问 |
-| [存储队列数据参与者](#storage-queue-data-contributor) | 读取、写入和删除 Azure 存储队列与队列消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储队列数据消息处理者](#storage-queue-data-message-processor) | 在 Azure 存储队列中扫视、检索和删除消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储队列数据消息发送者](#storage-queue-data-message-sender) | 向 Azure 存储队列添加消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [存储队列数据读取者](#storage-queue-data-reader) | 读取和列出 Azure 存储队列与队列消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 |
-| [支持请求参与者](#support-request-contributor) | 允许创建和管理支持请求 |
-| [流量管理器参与者](#traffic-manager-contributor) | 允许管理流量管理器配置文件，但不允许控制谁可以访问它们。 |
-| [用户访问管理员](#user-access-administrator) | 允许管理用户对 Azure 资源的访问权限。 |
-| [虚拟机管理员登录](#virtual-machine-administrator-login) | 在门户中查看虚拟机并以管理员身份登录 |
-| [虚拟机参与者](#virtual-machine-contributor) | 允许管理虚拟机，但不允许访问这些虚拟机及其连接到的虚拟网络或存储帐户。 |
-| [虚拟机用户登录](#virtual-machine-user-login) | 在门户中查看虚拟机并以普通用户身份登录。 |
-| [Web 计划参与者](#web-plan-contributor) | 允许管理网站的 Web 计划，但不允许访问这些计划。 |
-| [网站参与者](#website-contributor) | 允许管理网站（而非 Web 计划），但不允许访问这些网站。 |
+> [!div class="mx-tableFixed"]
+> | 内置角色 | 说明 | ID |
+> | --- | --- | --- |
+> | [所有者](#owner) | 允许管理所有功能，包括对资源的访问权限。 | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | [参与者](#contributor) | 允许管理所有功能（授予对资源的访问权限除外）。 | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | [读者](#reader) | 允许查看所有内容，但不能进行任何更改。 | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
+> | [AcrDelete](#acrdelete) | acr delete | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
+> | [AcrImageSigner](#acrimagesigner) | ACR 映像签名程序 | 6cef56e8-d556-48e5-a04f-b8e64114680f |
+> | [AcrPull](#acrpull) | acr 拉取 | 7f951dda-4ed3-4680-a7ca-43fe172d538d |
+> | [AcrPush](#acrpush) | acr 推送 | 8311e382-0749-4cb8-b61a-304f252e45ec |
+> | [AcrQuarantineReader](#acrquarantinereader) | ACR 隔离数据读取器 | cdda3590-29a3-44f6-95f2-9f980659eb04 |
+> | [AcrQuarantineWriter](#acrquarantinewriter) | ACR 隔离数据编写器 | c8d4ff99-41c3-41a8-9f60-21dfdad59608 |
+> | [API 管理服务参与者](#api-management-service-contributor) | 可以管理服务和 API | 312a565d-c81f-4fd8-895a-4e21e48d571c |
+> | [API 管理服务操作员角色](#api-management-service-operator-role) | 可以管理服务，但不可管理 API | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
+> | [API 管理服务读者角色](#api-management-service-reader-role) | 对服务和 API 的只读访问权限 | 71522526-b88f-4d52-b57f-d31fc3546d0d |
+> | [自动化作业操作员](#automation-job-operator) | 使用自动化 Runbook 创建和管理作业。 | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
+> | [自动化运算符](#automation-operator) | 自动化操作员能够启动、停止、暂停和恢复作业 | d3881f73-407a-4167-8283-e981cbba0404 |
+> | [自动化 Runbook 操作员](#automation-runbook-operator) | 读取 Runbook 属性 - 以能够创建 runbook 的作业。 | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
+> | [Avere 参与者](#avere-contributor) | 可以创建和管理 Avere vFXT 群集。 | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
+> | [Avere 操作员](#avere-operator) | 由 Avere vFXT 群集用来管理群集 | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | [Azure 事件中心数据所有者](#azure-event-hubs-data-owner) | 允许完全访问 Azure 事件中心资源。 | f526a384-b230-433a-b45c-95f59c4a2dec |
+> | [Azure 事件中心数据接收者](#azure-event-hubs-data-receiver) | 允许接收对 Azure 事件中心资源的访问权限。 | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
+> | [Azure 事件中心数据发送者](#azure-event-hubs-data-sender) | 允许以发送方式访问 Azure 事件中心资源。 | 2b629674-e913-4c01-ae53-ef4638d8f975 |
+> | [Azure Kubernetes 服务群集管理员角色](#azure-kubernetes-service-cluster-admin-role) | 列出群集管理员凭据操作。 | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
+> | [Azure Kubernetes 服务群集用户角色](#azure-kubernetes-service-cluster-user-role) | 列出群集用户凭据操作。 | 4abbcc35-e782-43d8-92c5-2d3f1bd2253f |
+> | [Azure Maps 数据读取器（预览）](#azure-maps-data-reader-preview) | 授予从 Azure Maps 帐户中读取相关数据的权限。 | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
+> | [Azure 服务总线数据所有者](#azure-service-bus-data-owner) | 允许完全访问 Azure 服务总线资源。 | 090c5cfd-751d-490a-894a-3ce6f1109419 |
+> | [Azure 服务总线数据接收者](#azure-service-bus-data-receiver) | 允许对 Azure 服务总线资源进行接收访问。 | 4f6d3b9b-027b-4f4c-9142-0e5a2a2247e0 |
+> | [Azure 服务总线数据发送者](#azure-service-bus-data-sender) | 允许对 Azure 服务总线资源进行发送访问。 | 69a216fc-b8fb-44d8-bc22-1f3c2cd27a39 |
+> | [Azure Stack 注册所有者](#azure-stack-registration-owner) | 允许管理 Azure Stack 注册。 | 6f12a6df-dd06-4f3e-bcb1-ce8be600526a |
+> | [备份参与者](#backup-contributor) | 允许管理备份服务，但不允许创建保管库以及授予其他人访问权限 | 5e467623-bb1f-42f4-a55d-6e525e11384b |
+> | [备份操作员](#backup-operator) | 允许管理备份服务，但删除备份、创建保管库以及授予其他人访问权限除外 | 00c29273-979b-4161-815c-10b084fb9324 |
+> | [备份读者](#backup-reader) | 可以查看备份服务，但是不能进行更改 | a795c7a0-d4a2-40c1-ae25-d81f01202912 |
+> | [计费读者](#billing-reader) | 允许对帐单数据进行读取访问 | fa23ad8b-c56e-40d8-ac0c-ce449e1d2c64 |
+> | [CDN 终结点参与者](#cdn-endpoint-contributor) | 可以管理 CDN 终结点，但不能向其他用户授予访问权限。 | 426e0c7f-0c7e-4658-b36f-ff54d6c29b45 |
+> | [CDN 终结点读者](#cdn-endpoint-reader) | 可以查看 CDN 终结点，但不能进行更改。 | 871e35f6-b5c1-49cc-a043-bde969a0f2cd |
+> | [CDN 配置文件参与者](#cdn-profile-contributor) | 可以管理 CDN 配置文件及其终结点，但不能向其他用户授予访问权限。 | ec156ff8-a8d1-4d15-830c-5b80698ca432 |
+> | [CDN 配置文件读者](#cdn-profile-reader) | 可以查看 CDN 配置文件及其终结点，但不能进行更改。 | 8f96442b-4075-438f-813d-ad51ab4019af |
+> | [经典网络参与者](#classic-network-contributor) | 允许管理经典网络，但不允许访问这些网络。 | b34d265f-36f7-4a0d-a4d4-e158ca92e90f |
+> | [经典存储帐户参与者](#classic-storage-account-contributor) | 允许管理经典存储帐户，但不允许对其进行访问。 | 86e8f5dc-a6e9-4c67-9d15-de283e8eac25 |
+> | [经典存储帐户密钥操作员服务角色](#classic-storage-account-key-operator-service-role) | 允许经典存储帐户密钥操作员在经典存储帐户上列出和再生成密钥 | 985d6b00-f706-48f5-a6fe-d0ca12fb668d |
+> | [经典虚拟机参与者](#classic-virtual-machine-contributor) | 允许管理经典虚拟机，但不允许访问这些虚拟机及其连接到的虚拟网络或存储帐户。 | d73bb868-a0df-4d4d-bd69-98a00b01fccb |
+> | [认知服务参与者](#cognitive-services-contributor) | 允许创建、读取、更新、删除和管理认知服务的密钥。 | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | [认知服务数据读者（预览）](#cognitive-services-data-reader-preview) | 可以读取认知服务数据。 | b59867f0-fa02-499b-be73-45a86b5b3e1c |
+> | [认知服务用户](#cognitive-services-user) | 允许读取和列出认知服务的密钥。 | a97b65f3-24c7-4388-baec-2e87135dc908 |
+> | [Cosmos DB 帐户读者角色](#cosmos-db-account-reader-role) | 可以读取 Azure Cosmos DB 帐户数据。 请参阅 [Cosmos DB 帐户参与者](#documentdb-account-contributor)，了解如何管理 Azure Cosmos DB 帐户。 | fbdf93bf-df7d-467e-a4d2-9458aa1360c8 |
+> | [Cosmos DB 操作员](#cosmos-db-operator) | 可以管理 Azure Cosmos DB 帐户，但不能访问其中的数据。 阻止访问帐户密钥和连接字符串。 | 230815da-be43-4aae-9cb4-875f7bd000aa |
+> | [CosmosBackupOperator](#cosmosbackupoperator) | 可以为帐户提交 Cosmos DB 数据库或容器的还原请求 | db7b14f2-5adf-42da-9f96-f2ee17bab5cb |
+> | [成本管理参与者](#cost-management-contributor) | 可以查看成本和管理成本配置（例如预算、导出） | 434105ed-43f6-45c7-a02f-909b2ba83430 |
+> | [成本管理读者](#cost-management-reader) | 可以查看成本数据和配置（例如预算、导出） | 72fafb9e-0641-4937-9268-a91bfd8191a3 |
+> | [Data Box 参与者](#data-box-contributor) | 可让你管理 Data Box 服务下的所有内容，但不能向其他人授予访问权限。 | add466c9-e687-43fc-8d98-dfcf8d720be5 |
+> | [Data Box 读者](#data-box-reader) | 可让你管理 Data Box 服务，但不能创建订单或编辑订单详细信息，以及向其他人授予访问权限。 | 028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027 |
+> | [数据工厂参与者](#data-factory-contributor) | 创建和管理数据工厂，以及其中的子资源。 | 673868aa-7521-48a0-acc6-0f60742d39f5 |
+> | [DevTest 实验室用户](#devtest-labs-user) | 允许连接、启动、重启和关闭 Azure 开发测试实验室中的虚拟机。 | 76283e04-6283-4c54-8f91-bcf1374a3c64 |
+> | [DNS 区域参与者](#dns-zone-contributor) | 允许管理 Azure DNS 中的 DNS 区域和记录集，但不允许控制对其访问的人员。 | befefa01-2a29-4197-83a8-272ff33ce314 |
+> | [DocumentDB 帐户参与者](#documentdb-account-contributor) | 可管理 Azure Cosmos DB 帐户。 Azure Cosmos DB 以前称为 DocumentDB。 | 5bd9cd88-fe45-4216-938b-f97437e15450 |
+> | [EventGrid EventSubscription 参与者](#eventgrid-eventsubscription-contributor) | 可以管理 EventGrid 事件订阅操作。 | 428e0ff0-5e57-4d9c-a221-2c70d0e0a443 |
+> | [EventGrid EventSubscription 读者](#eventgrid-eventsubscription-reader) | 可以读取 EventGrid 事件订阅。 | 2414bbcf-6497-4faf-8c65-045460748405 |
+> | [HDInsight 群集操作员](#hdinsight-cluster-operator) | 允许你读取和修改 HDInsight 群集配置。 | 61ed4efc-fab3-44fd-b111-e24485cc132a |
+> | [HDInsight 域服务参与者](#hdinsight-domain-services-contributor) | 可以读取、创建、修改和删除 HDInsight 企业安全性套餐所需的域服务相关操作 | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
+> | [Intelligent Systems 帐户参与者](#intelligent-systems-account-contributor) | 允许管理智能系统帐户，但不允许访问这些帐户。 | 03a6d094-3444-4b3d-88af-7477090a9e5e |
+> | [密钥保管库参与者](#key-vault-contributor) | 允许管理密钥保管库，但不允许对其进行访问。 | f25e0fa2-a7c8-4377-a976-54943a77a395 |
+> | [实验室创建者](#lab-creator) | 允许在 Azure 实验室帐户下创建、管理、删除托管实验室。 | b97fb8bc-a8b2-4522-a38b-dd33c7e65ead |
+> | [Log Analytics 参与者](#log-analytics-contributor) | Log Analytics 参与者可以读取所有监视数据并编辑监视设置。 编辑监视设置包括向 VM 添加 VM 扩展、读取存储帐户密钥以便能够从 Azure 存储配置日志收集、创建和配置自动化帐户、添加解决方案以及配置所有 Azure 资源上的 Azure 诊断。 | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
+> | [Log Analytics 读者](#log-analytics-reader) | Log Analytics 读者可以查看和搜索所有监视数据并查看监视设置，其中包括查看所有 Azure 资源上的 Azure 诊断的配置。 | 73c42c96-874c-492b-b04d-ab87d138a893 |
+> | [逻辑应用参与者](#logic-app-contributor) | 允许管理逻辑应用，但不允许更改其访问权限。 | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
+> | [逻辑应用操作员](#logic-app-operator) | 允许读取、启用和禁用逻辑应用，但不允许编辑或更新它们。 | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [托管应用程序操作员角色](#managed-application-operator-role) | 可让你在托管应用程序资源上读取和执行操作 | c7393b34-138c-406f-901b-d8cf2b17e6ae |
+> | [托管应用程序读者](#managed-applications-reader) | 允许读取托管应用中的资源并请求 JIT 访问。 | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
+> | [托管的标识参与者](#managed-identity-contributor) | 创建、读取、更新和删除用户分配的标识 | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
+> | [托管的标识操作员](#managed-identity-operator) | 读取和分配用户分配的标识 | f1a07417-d97a-45cb-824c-7a7467783830 |
+> | [托管服务注册分配删除角色](#managed-services-registration-assignment-delete-role) | 托管服务注册分配删除角色允许管理租户用户删除分配给其租户的注册分配。 | 91c1777a-f3dc-4fae-b103-61d183457e46 |
+> | [管理组参与者](#management-group-contributor) | 管理组参与者角色 | 5d58bcaf-24a5-4b20-bdb6-eed9f69fbe4c |
+> | [管理组读取者](#management-group-reader) | 管理组读取者角色 | ac63b705-f282-497d-ac71-919bf39d939d |
+> | [监视参与者](#monitoring-contributor) | 可以读取所有监视数据和编辑监视设置。 另请参阅 [Azure Monitor 的角色、权限和安全入门](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [监视指标发布者](#monitoring-metrics-publisher) | 允许针对 Azure 资源发布指标 | 3913510d-42f4-4e42-8a64-420c390055eb |
+> | [监视读取者](#monitoring-reader) | 可以读取所有监视数据（指标、日志等）。 另请参阅 [Azure Monitor 的角色、权限和安全入门](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles)。 | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [网络参与者](#network-contributor) | 允许管理网络，但不允许访问这些网络。 | 4d97b98b-1d4f-4787-a291-c67834d212e7 |
+> | [New elic APM 帐户参与者](#new-relic-apm-account-contributor) | 允许管理 New Relic 应用程序性能管理帐户和应用程序，但不允许访问它们。 | 5d28c62d-5b37-4476-8438-e587778df237 |
+> | [读取器和数据访问](#reader-and-data-access) | 允许查看所有内容，但不允许删除或创建存储帐户或包含的资源。 它还允许使用存储帐户密钥对存储帐户中包含的所有数据进行读/写访问。 | c12c1c16-33a1-487b-954d-41c89c60f349 |
+> | [Redis 缓存参与者](#redis-cache-contributor) | 允许管理 Redis 缓存，但不允许访问这些缓存。 | e0f68234-74aa-48ed-b826-c38b57376e17 |
+> | [资源策略参与者（预览）](#resource-policy-contributor-preview) | （预览）通过 EA 回填的 用户，具有创建/修改资源策略、创建支持票证和读取资源/层次结构的权限。 | 36243c78-bf99-498c-9df9-86d9f8d28608 |
+> | [计划程序作业集合参与者](#scheduler-job-collections-contributor) | 允许管理计划程序作业集合，但不允许访问这些集合。 | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
+> | [搜索服务参与者](#search-service-contributor) | 允许管理搜索服务，但不允许访问这些服务。 | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
+> | [安全管理员](#security-admin) | 仅在安全中心内：可以查看安全策略、查看安全状态、编辑安全策略、查看警报和建议、关闭警报和建议 | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [安全管理器（旧版）](#security-manager-legacy) | 这是旧角色。 请改用安全管理员角色 | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [安全读取者](#security-reader) | 仅在安全中心内：可以查看建议和警报、查看安全策略、查看安全状态，但不能进行更改 | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [Site Recovery 参与者](#site-recovery-contributor) | 允许管理除保管库创建和角色分配外的 Site Recovery 服务 | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
+> | [Site Recovery 操作员](#site-recovery-operator) | 允许进行故障转移和故障回复，但不允许执行其他 Site Recovery 管理操作 | 494ae006-db33-4328-bf46-533a6560a3ca |
+> | [Site Recovery 读取者](#site-recovery-reader) | 允许查看 Site Recovery 状态，但不允许执行其他管理操作 | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
+> | [空间定位点帐户参与者](#spatial-anchors-account-contributor) | 允许管理帐户中的空间定位点，但不能删除它们 | 8bbe83f1-e2a6-4df7-8cb4-4e04d4e5c827 |
+> | [空间定位点帐户所有者](#spatial-anchors-account-owner) | 允许管理帐户中的空间定位点，包括删除它们 | 70bbe301-9835-447d-afdd-19eb3167307c |
+> | [空间定位点帐户读取者](#spatial-anchors-account-reader) | 允许在帐户中查找和读取空间定位点的属性 | 5d51204f-eb77-4b1c-b86a-2ec626c49413 |
+> | [SQL DB 参与者](#sql-db-contributor) | 允许管理 SQL 数据库，但不允许访问这些数据库。 此外，不允许管理其安全相关的策略或其父 SQL 服务器。 | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
+> | [SQL 托管实例参与者](#sql-managed-instance-contributor) | 允许管理 SQL 托管实例和所需的网络配置，但不能向其他人授予访问权限。 | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
+> | [SQL 安全管理器](#sql-security-manager) | 允许管理 SQL 服务器和数据库的安全相关策略，但不允许访问它们。 | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
+> | [SQL Server 参与者](#sql-server-contributor) | 允许管理 SQL 服务器和数据库，但不允许访问它们及其安全相关的策略。 | 6d8ee4ec-f05a-4a1d-8b00-a9b17e38b437 |
+> | [存储帐户参与者](#storage-account-contributor) | 允许管理存储帐户。 提供对帐户密钥的访问权限，而帐户密钥可以用来通过共享密钥授权对数据进行访问。 | 17d1049b-9a84-46fb-8f53-869881c3d3ab |
+> | [存储帐户密钥操作员服务角色](#storage-account-key-operator-service-role) | 允许列出和重新生成存储帐户访问密钥。 | 81a9662b-bebf-436f-a333-f67b29880f12 |
+> | [存储 Blob 数据参与者](#storage-blob-data-contributor) | 读取、写入和删除 Azure 存储容器与 Blob。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | ba92f5b4-2d11-453d-a403-e96b0029c9fe |
+> | [存储 Blob 数据所有者](#storage-blob-data-owner) | 提供对 Azure 存储 blob 容器和数据的完全访问权限，包括分配 POSIX 访问控制。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | b7e6dc6d-f1e8-4753-8033-0f276bb0955b |
+> | [存储 Blob 数据读者](#storage-blob-data-reader) | 读取和列出 Azure 存储容器与 Blob。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | 2a2b9908-6ea1-4ae2-8e65-a410df84e7d1 |
+> | [存储 Blob 代理](#storage-blob-delegator) | 获取用户委托密钥，该密钥随后可用来为通过 Azure AD 凭据签名的容器或 Blob 创建共享访问签名。 有关详细信息，请参阅[创建用户委托 SAS](https://docs.microsoft.com/rest/api/storageservices/create-user-delegation-sas)。 | db58b8e5-c6ad-4a2a-8342-4190687cbf4a |
+> | [存储文件数据 SMB 共享参与者](#storage-file-data-smb-share-contributor) | 允许通过 SMB 在 Azure 存储文件共享中进行读取、写入和删除访问 | 0c867c2a-1d8c-454a-a3db-ab2ea1bdc8bb |
+> | [存储文件数据 SMB 共享的权限提升参与者](#storage-file-data-smb-share-elevated-contributor) | 允许通过 SMB 在 Azure 存储文件共享中进行读取、写入、删除和修改 NTFS 权限的访问 | a7264617-510b-434b-a828-9731dc254ea7 |
+> | [存储文件数据 SMB 共享读取者](#storage-file-data-smb-share-reader) | 允许通过 SMB 对 Azure 文件共享进行读取访问 | aba4ae5f-2193-4029-9191-0cb91df5e314 |
+> | [存储队列数据参与者](#storage-queue-data-contributor) | 读取、写入和删除 Azure 存储队列与队列消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | 974c5e8b-45b9-4653-ba55-5f855dd0fb88 |
+> | [存储队列数据消息处理者](#storage-queue-data-message-processor) | 在 Azure 存储队列中扫视、检索和删除消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | 8a0f0c08-91a1-4084-bc3d-661d67233fed |
+> | [存储队列数据消息发送者](#storage-queue-data-message-sender) | 向 Azure 存储队列添加消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
+> | [存储队列数据读取者](#storage-queue-data-reader) | 读取和列出 Azure 存储队列与队列消息。 若要了解需要对给定的数据执行哪些操作，请参阅[用于调用 Blob 和队列数据操作的权限](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations)。 | 19e7f393-937e-4f77-808e-94535e297925 |
+> | [支持请求参与者](#support-request-contributor) | 允许创建和管理支持请求 | cfd33db0-3dd1-45e3-aa9d-cdbdf3b6f24e |
+> | [流量管理器参与者](#traffic-manager-contributor) | 允许管理流量管理器配置文件，但不允许控制谁可以访问它们。 | a4b10055-b0c7-44c2-b00f-c7b5b3550cf7 |
+> | [用户访问管理员](#user-access-administrator) | 允许管理用户对 Azure 资源的访问权限。 | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
+> | [虚拟机管理员登录](#virtual-machine-administrator-login) | 在门户中查看虚拟机并以管理员身份登录 | 1c0163c0-47e6-4577-8991-ea5c82e286e4 |
+> | [虚拟机参与者](#virtual-machine-contributor) | 允许管理虚拟机，但不允许访问这些虚拟机及其连接到的虚拟网络或存储帐户。 | 9980e02c-c2be-4d73-94e8-173b1dc7cf3c |
+> | [虚拟机用户登录](#virtual-machine-user-login) | 在门户中查看虚拟机并以普通用户身份登录。 | fb879df8-f326-4884-b1cf-06f3ad86be52 |
+> | [Web 计划参与者](#web-plan-contributor) | 允许管理网站的 Web 计划，但不允许访问这些计划。 | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
+> | [网站参与者](#website-contributor) | 允许管理网站（而非 Web 计划），但不允许访问这些网站。 | de139f84-1756-47ae-9be6-808fbbe84772 |
 
 
 ## <a name="owner"></a>所有者
@@ -2328,7 +2328,7 @@ ms.locfileid: "73934192"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **说明** | 允许你管理 SQL 托管实例和所需的网络配置，但无法向其他人授予访问权限。 |
+> | **说明** | 允许管理 SQL 托管实例和所需的网络配置，但不能向其他人授予访问权限。 |
 > | Id  | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | **操作** |  |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 获取指定范围内所有资源的可用性状态 |
@@ -2877,7 +2877,7 @@ ms.locfileid: "73934192"
 
 ## <a name="next-steps"></a>后续步骤
 
+- [将资源提供程序与服务匹配](../azure-resource-manager/azure-services-resource-providers.md)
 - [Azure 资源的自定义角色](custom-roles.md)
-- [使用 RBAC 和 Azure 门户管理对 Azure 资源的访问权限](role-assignments-portal.md)
 
 <!-- Update_Description: wording update -->

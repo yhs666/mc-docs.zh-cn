@@ -1,18 +1,15 @@
 ---
-title: 使用 Azure Pipelines 和资源管理器模板实现 CI/CD
+title: 使用 Azure Pipelines 和模板实现 CI/CD
 description: 介绍如何在 Visual Studio 中使用 Azure 资源组部署项目在 Azure Pipelines 中设置持续集成，以部署资源管理器模板。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 06/12/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 553ab270b01e09fcfdbaf5527e59b8cceffd66de
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 10/17/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 727db3cb7dcb359f1f83f09d5d57f389d2192c13
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156469"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884887"
 ---
 <!--Pending verify later-->
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>将资源管理器模板与 Azure Pipelines 集成
@@ -141,7 +138,7 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
 
 ## <a name="copy-and-deploy-tasks"></a>复制并部署任务
 
-本部分介绍如何配置持续部署：使用两个任务来暂存生成工件并部署模板。 
+本部分介绍如何配置持续部署：使用两个任务来暂存生成工件并部署模板。
 
 以下 YAML 显示了 [Azure 文件复制任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-file-copy?view=azure-devops)：
 
@@ -178,33 +175,43 @@ storage: '<your-storage-account-name>'
 ContainerName: '<container-name>'
 ```
 
-以下 YAML 显示了 [Azure 资源组部署任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment?view=azure-devops)：
+以下 YAML 显示了 [Azure 资源管理器模板部署任务](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)：
 
 ```yaml
 - task: AzureResourceGroupDeployment@2
   displayName: 'Deploy template'
   inputs:
-    azureSubscription: 'demo-deploy-sp'
+    deploymentScope: 'Resource Group'
+    ConnectedServiceName: 'demo-deploy-sp'
+    subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+    action: 'Create Or Update Resource Group'
     resourceGroupName: 'demogroup'
-    location: 'chinaeast'
+    location: 'China North'
     templateLocation: 'URL of the file'
     csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
     csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
     overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    deploymentMode: 'Incremental'
 ```
 
-需要根据环境修改此任务的多个部分。 对于 `azureSubscription`，请提供创建的服务连接的名称。
+需要根据环境修改此任务的多个部分。
 
-```yaml
-azureSubscription: '<your-connection-name>'
-```
+- `deploymentScope`：从以下选项中选择部署范围：`Subscription`、`Resource Group` 和 `Resource Group`。 在本演练中使用**资源组**。 若要详细了解范围，请参阅[部署范围](./resource-group-template-deploy-rest.md#deployment-scope)。
 
-对于 `resourceGroupName` 和 `location`，请提供要部署到的资源组的名称和位置。 如果该资源组不存在，任务将创建该资源组。
+- `ConnectedServiceName`：提供创建的服务连接的名称。
 
-```yaml
-resourceGroupName: '<resource-group-name>'
-location: '<location>'
-```
+    ```yaml
+    ConnectedServiceName: '<your-connection-name>'
+    ```
+
+- `subscriptionName`：提供目标订阅 ID。 此属性仅适用于资源组部署范围和订阅部署范围。
+
+- `resourceGroupName` 和 `location`：提供要部署到的资源组的名称和位置。 如果该资源组不存在，任务将创建该资源组。
+
+    ```yaml
+    resourceGroupName: '<resource-group-name>'
+    location: '<location>'
+    ```
 
 部署任务链接到名为 `WebSite.json` 的模板以及名为 WebSite.parameters.json 的参数文件。 请使用模板和参数文件的名称。
 
@@ -228,16 +235,20 @@ location: '<location>'
        outputStorageUri: 'artifactsLocation'
        outputStorageContainerSasToken: 'artifactsLocationSasToken'
        sasTokenTimeOutInMinutes: '240'
-   - task: AzureResourceGroupDeployment@2
-     displayName: 'Deploy template'
-     inputs:
-       azureSubscription: 'demo-deploy-sp'
-       resourceGroupName: demogroup
-       location: 'chinaeast'
-       templateLocation: 'URL of the file'
-       csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
-       csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
-       overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+    - task: AzureResourceGroupDeployment@2
+      displayName: 'Deploy template'
+      inputs:
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: 'demo-deploy-sp'
+        subscriptionName: '01234567-89AB-CDEF-0123-4567890ABCDEF'
+        action: 'Create Or Update Resource Group'
+        resourceGroupName: 'demogroup'
+        location: 'China North'
+        templateLocation: 'URL of the file'
+        csmFileLink: '$(artifactsLocation)WebSite.json$(artifactsLocationSasToken)'
+        csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
+        overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
+        deploymentMode: 'Incremental'
    ```
 
 1. 选择“保存”  。
@@ -254,5 +265,4 @@ location: '<location>'
 
 有关将 Azure Pipelines 与资源管理器模板配合使用的分步过程，请参阅[教程：使用 Azure Pipelines 持续集成 Azure 资源管理器模板](resource-manager-tutorial-use-azure-pipelines.md)。
 
-<!-- Update_Description: new article about vs resource manager devops pipeline -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

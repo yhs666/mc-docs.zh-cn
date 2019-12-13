@@ -1,6 +1,7 @@
 ---
-title: 媒体服务实体的筛选、排序和分页 - Azure | Microsoft Docs
-description: 本文讨论 Azure 媒体服务实体的筛选、排序和分页。
+title: 媒体服务实体的筛选、排序和分页
+titleSuffix: Azure Media Services
+description: 了解 Azure 媒体服务实体的筛选、排序和分页。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -10,15 +11,15 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 10/11/2019
-ms.date: 11/04/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: fef1115bf220308363bcd840ca8aaa30a7daf890
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+ms.openlocfilehash: b94911b72abe57021cc40bceb3d3250cc9c6c60e
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416265"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807616"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>媒体服务实体的筛选、排序和分页
 
@@ -42,7 +43,7 @@ ms.locfileid: "73416265"
 
 - `gt`：测试某个字段是否*大于*某个常量值。
 - `lt`：测试某个字段是否*小于*某个常量值。
-- `ge`：测试某个字段是否*大于或等于*某个常量。 value
+- `ge`：测试某个字段是否大于或等于  某个常数值。
 - `le`：测试某个字段是否*小于或等于*某个常量值。
 
 ## <a name="filter"></a>筛选器
@@ -60,11 +61,11 @@ GET https://management.chinacloudapi.cn/subscriptions/00000000-0000-0000-0000-00
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>排序依据
 
-使用 `$orderby` 按指定的参数对返回的对象排序。 例如：    
+使用 `$orderby` 按指定的参数对返回的对象排序。 例如：  
 
 ```
 GET https://management.chinacloudapi.cn/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -78,7 +79,7 @@ GET https://management.chinacloudapi.cn/subscriptions/00000000-0000-0000-0000-00
 
 在媒体服务 v3 中，无法配置页面大小。 页面大小因实体类型而异。 请阅读以下各个部分，了解详细信息。
 
-如果在逐页浏览集合时创建或删除实体，则会在返回的结果中反映此更改（如果这些更改位于集合中尚未下载的部分）。 
+如果在对集合进行分页时创建或删除了实体，则返回的结果中会反映这些更改（如果这些更改位于集合中尚未下载的部分中）。
 
 > [!TIP]
 > 应始终使用 `nextLink` 来枚举集合，而不依赖特定的页面大小。
@@ -95,7 +96,7 @@ x-ms-client-request-id: dd57fe5d-f3be-4724-8553-4ceb1dbe5aab
 Content-Type: application/json; charset=utf-8
 ```
 
-将获得如下所示的响应：
+将返回类似于以下内容的响应：
 
 ```
 HTTP/1.1 200 OK

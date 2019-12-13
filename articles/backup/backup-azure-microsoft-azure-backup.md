@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure 备份服务器将工作负荷备份到 Azure
+title: 使用 Azure 备份服务器备份工作负荷
 description: 本文介绍如何准备环境，以使用 Microsoft Azure 备份服务器 (MABS) 来保护和备份工作负荷。
-ms.reviewer: kasinh
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 11/13/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 954616ced8f17e9e6c1ab8953617e8b4c6fb2aec
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: d8c9457a15125fd46530b802b02c04227e291b9c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528252"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839062"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>安装和升级 Azure 备份服务器 
 <a name="install-and-upgrade-azure-backup-server"></a>
@@ -66,11 +63,12 @@ Azure 备份服务器从 Data Protection Manager (DPM) 继承了大量工作负�
 
 > [!NOTE]
 > Azure 备份服务器设计为在专用的单一用途服务器上运行。 不能在以下计算机上安装 Azure 备份服务器：
-> - 作为域控制器运行的计算机
-> - 安装了应用程序服务器角色的计算机
-> - 作为 System Center Operations Manager 管理服务器的计算机
-> - 运行 Exchange Server 的计算机
-> - 作为群集节点的计算机
+>
+> * 作为域控制器运行的计算机
+> * 安装了应用程序服务器角色的计算机
+> * 作为 System Center Operations Manager 管理服务器的计算机
+> * 运行 Exchange Server 的计算机
+> * 作为群集节点的计算机
 
 请始终将 Azure 备份服务器加入域。 如果计划将服务器移到其他域，请先安装 Azure 备份服务器，然后将服务器加入到新域。 部署之后，*不支持*将现有 Azure 备份服务器计算机移到新域中。
 
@@ -332,8 +330,6 @@ Azure 备份服务器需要连接到 Azure 备份服务才能成功运行。 若
    > [!NOTE]
    >
    > 升级 SQL 实例期间请不要退出，否则会卸载 SQL 报告实例，导致重新升级 MABS 的尝试失败。
-
-
 
    > [!IMPORTANT]
    >

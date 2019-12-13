@@ -1,24 +1,22 @@
 ---
-title: 将 Azure 中的数据还原到 Windows Server - Azure 备份
+title: 将 Azure 中的数据还原到 Windows Server
 description: 本文介绍如何将 Azure 中存储的数据还原到安装了 Microsoft Azure 恢复服务 (MARS) 代理的 Windows Server 或 Windows 计算机。
 ms.reviewer: saurse
 author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 09/07/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d34bb82a9e9a2814d223c7b8e3cbe45bb184500a
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 17684d846cbaacc132cec44dfd5382778db80be1
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528247"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839028"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>使用 Azure 资源管理器部署模型将文件还原到 Windows
 
-本文介绍如何从备份保管库还原数据。 若要还原数据，请在 Azure 恢复服务 (MARS) 代理中使用“恢复数据”向导。 方法：
+本文介绍如何从备份保管库还原数据。 若要还原数据，请在 Microsoft Azure 恢复服务 (MARS) 代理中使用“恢复数据”向导。 方法：
 
 * 将数据还原到备份时所在的同一台计算机。
 * 将数据还原到备用计算机。
@@ -37,7 +35,7 @@ ms.locfileid: "74528247"
 
 如果意外删除了某个文件并想要在同一台计算机（备份位置）中还原文件，以下步骤可帮助你恢复数据。
 
-1. 打开 **Azure 备份** 管理单元。 如果不知道该管理单元的安装位置，请在计算机或服务器中搜索“Azure 备份”  。
+1. 打开“Microsoft Azure 备份”管理单元  。 如果不知道管理单元的安装位置，请在计算机或服务器中搜索“Microsoft Azure 备份”  。
 
     该桌面应用应会显示在搜索结果中。
 

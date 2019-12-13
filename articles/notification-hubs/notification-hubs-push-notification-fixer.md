@@ -3,9 +3,9 @@ title: 诊断 Azure 通知中心内删除通知的问题
 description: 了解如何诊断 Azure 通知中心的已删除通知的常见问题。
 services: notification-hubs
 documentationcenter: Mobile
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: b5c89a2a-63b8-46d2-bbed-924f5a4cce61
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
 origin.date: 04/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: c77c8e6d7f9d8179dab668647d3b53fbe3539c74
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 04/04/2019
+ms.openlocfilehash: 5bbb939e4283499c2e453d2378ecf47ac6028214
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272612"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884985"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>诊断 Azure 通知中心内删除通知的问题
 
@@ -32,7 +34,7 @@ ms.locfileid: "72272612"
 
 在典型的发送通知流中，消息从*应用程序后端*发送到通知中心。 通知中心处理所有注册。 它会考虑配置的标记和标记表达式，以确定目标。 目标是指需要接收推送通知的注册。 这些注册可能跨越所有受支持的平台：Android、百度（中国的 Android 设备）、Fire OS (Amazon) iOS、Windows 和 Windows Phone。
 
-确定目标之后，通知中心将通知推送到设备平台的*推送通知服务*。 示例包括适用于 Apple 的 Apple Push Notification 服务 (APNs)。 通知中心推送跨多批注册拆分的通知。 通知中心基于你在 Azure 门户的“配置通知中心”  下设置的凭据，向各自的推送通知服务验证身份。 然后，推送通知服务将通知转发到各自的*客户端设备*。
+确定目标之后，通知中心将通知推送到设备平台的*推送通知服务*。 示例包括适用于 iOS 和 macOS 的 Apple Push Notification 服务 (APNs)。 通知中心推送跨多批注册拆分的通知。 通知中心基于你在 Azure 门户的“配置通知中心”  下设置的凭据，向各自的推送通知服务验证身份。 然后，推送通知服务将通知转发到各自的*客户端设备*。
 
 通知传递的最后一步在平台推送通知服务与设备之间进行。 通知传送可能会在推送通知过程的四个阶段（客户端、应用程序后端、通知中心和平台推送通知服务）中的任何一个阶段失败。 有关通知中心体系结构的详细信息，请参阅[通知中心概述]。
 
@@ -65,6 +67,7 @@ ms.locfileid: "72272612"
 
 如果无意中将不同类型的证书上传到相同的中心，应删除该中心并重新上传到新的中心。 如果出于某种原因无法删除该中心，最起码必须从该中心删除所有现有注册。
 
+<!-- ### FCM configuration ### -->
 
 ## <a name="application-issues"></a>应用程序问题 ##
 

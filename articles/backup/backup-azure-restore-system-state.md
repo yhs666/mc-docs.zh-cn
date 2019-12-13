@@ -1,31 +1,28 @@
 ---
-title: Azure 备份：将系统状态还原为 Windows Server
+title: 将系统状态还原为 Windows Server
 description: 逐步介绍如何从 Azure 备份中还原 Windows Server 系统状态。
 ms.reviewer: saurse
 author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 08/18/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a3252e4a9b67ba0fa05eb8c99e18b9fd88ead921
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 64dbaddca655f1cf4461faf232093341cae1c085
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730345"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838933"
 ---
 # <a name="restore-system-state-to-windows-server"></a>将系统状态还原为 Windows Server
 
-本文介绍如何从 Azure 恢复服务保管库还原 Windows Server 系统状态备份。 若要还原系统状态，必须具有系统状态备份（使用[备份系统状态](backup-azure-system-state.md#back-up-windows-server-system-state)中的说明创建），并确保已安装[最新版本的 Azure 恢复服务 (MARS) 代理](https://aka.ms/azurebackup_agent)。 需通过两个步骤才能从 Azure 恢复服务保管库恢复 Windows Server 系统状态数据：
+本文介绍如何从 Azure 恢复服务保管库还原 Windows Server 系统状态备份。 若要还原系统状态，必须具有系统状态备份（使用[备份系统状态](backup-azure-system-state.md#back-up-windows-server-system-state)中的说明创建），并确保已安装[最新版本的 Microsoft Azure 恢复服务 (MARS) 代理](https://aka.ms/azurebackup_agent)。 需通过两个步骤才能从 Azure 恢复服务保管库恢复 Windows Server 系统状态数据：
 
 1. 从 Azure 备份将系统状态还原为文件。 从 Azure 备份将系统状态还原为文件时，可以:
    * 将系统状态还原到进行备份的同一服务器，或者
    * 将系统状态文件还原到备用服务器。
 
 2. 将已还原的系统状态文件应用到 Windows Server。
-
 
 ## <a name="recover-system-state-files-to-the-same-server"></a>将系统状态文件恢复到同一服务器
 以下步骤介绍如何将 Windows Server 配置回退到以前的状态。 将服务器配置回退到已知的稳定状态至关重要。 以下步骤从恢复服务保管库还原服务器的系统状态。
@@ -38,7 +35,7 @@ ms.locfileid: "73730345"
 
     ![恢复数据](./media/backup-azure-restore-windows-server/recover.png)
 
-3. 要将数据还原到同一台服务器或计算机，请在“开始”窗格中选择“此服务器(`<server name>`)”，然后单击“下一步”。   
+3. 若要将数据还原到同一台服务器或计算机，请在“开始”窗格中选择“此服务器(`<server name>`)”，然后单击“下一步”。   
 
     ![选择“此服务器”选项将数据还原到同一台计算机](./media/backup-azure-restore-system-state/samemachine.png)
 
@@ -74,9 +71,9 @@ ms.locfileid: "73730345"
 
 这些步骤中使用的术语包括：
 
-- *源计算机* � 从中创建备份且当前不可用的原始计算机。
-- *目标计算机* � 要将数据恢复到的计算机。
-- *示例保管库* � *源计算机*和*目标计算机*将注册到的恢复服务保管库。 <br/>
+* *源计算机* � 从中创建备份且当前不可用的原始计算机。
+* *目标计算机* � 要将数据恢复到的计算机。
+* *示例保管库* � *源计算机*和*目标计算机*将注册到的恢复服务保管库。 <br/>
 
 > [!NOTE]
 > 从一台计算机创建的备份无法还原到运行更低版本操作系统的计算机。 例如，从 Windows Server 2016 计算机创建的备份不能还原到 Windows Server 2012 R2。 但是，可进行反向操作。 可使用 Windows Server 2012 R2 中的备份还原 Windows Server 2016。
@@ -114,12 +111,9 @@ ms.locfileid: "73730345"
 
 12. 将 WindowsImageBackup 目录复制到服务器的非关键卷（如 D:\)）  。 通常，Windows OS 卷是关键卷。
 
-13. 若要完成恢复过程，请使用下面的[对 Windows 服务器应用已恢复的系统状态文件](#apply-restored-system-state-on-a-windows-server)部分。
+13. 若要完成恢复过程，请使用下面的 [对 Windows 服务器应用已恢复的系统状态文件](#apply-restored-system-state-on-a-windows-server)部分。
 
-
-
-
-## 对 Windows Server 应用已还原的系统状态 <a name="apply-restored-system-state-on-a-windows-server"></a>
+## <a name="apply-restored-system-state-on-a-windows-server"></a>对 Windows Server 应用已恢复的系统状态
 
 使用 Azure 恢复服务代理将系统状态还原为文件后，使用 Windows Server 备份实用工具将已恢复的系统状态应用到 Windows Server。 已在服务器上提供 Windows Server 备份实用工具。 以下步骤介绍如何应用已恢复的系统状态。
 
@@ -169,7 +163,6 @@ ms.locfileid: "73730345"
 1. 在目录服务还原模式 (DSRM) 下重启域控制器。
 2. 按照[此处](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx)的步骤使用 Windows Server 备份 cmdlet 恢复 AD DS。
 
-
 ## <a name="troubleshoot-failed-system-state-restore"></a>解决系统状态还原失败的问题
 
 如果未成功完成上一过程（即应用系统状态），请使用 Windows 恢复环境 (Win RE) 恢复 Windows 服务器。 以下步骤介绍如何使用 Win RE 进行恢复。 仅当 Windows Server 在系统状态还原后无法正常启动时才使用此选项。 以下过程将清除非系统数据，务必谨慎使用。
@@ -208,11 +201,11 @@ ms.locfileid: "73730345"
     ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
+
      ![获取系统状态备份版本](./media/backup-azure-restore-system-state/winre-6.png)
 
-
-
 ## <a name="next-steps"></a>后续步骤
+
 * 恢复文件和文件夹后，可以[管理备份](backup-azure-manage-windows-server.md)。
 
 

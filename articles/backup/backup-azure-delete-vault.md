@@ -1,19 +1,18 @@
 ---
-title: 删除 Microsoft Azure 备份恢复服务保管库
+title: 删除 Microsoft Azure 恢复服务保管库
 description: 本文介绍如何删除依赖项，然后删除 Microsoft Azure 备份恢复服务 (MARS) 保管库。
 author: lingliw
 manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 09/20/2019
 ms.date: 11/06/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d7ac10709846f7b98889f1d10a7a9de41f8976d6
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 1a25c5e3114d061e871240ac143c0dcd0d335c81
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528256"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838982"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>删除 Azure 备份恢复服务保管库
 
@@ -64,7 +63,7 @@ ms.locfileid: "74528256"
 
         ![“停止备份”窗格。](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - 如果显示了“删除备份数据”窗格，请输入备份项的名称（此字段区分大小写），然后从下拉菜单中选择原因。  输入备注（如果有）。 然后选择“删除”。  
+    - 如果显示了“删除备份数据”窗格，请输入备份项的名称（此字段区分大小写），然后从下拉菜单中选择原因。  输入备注（如果有）。 然后选择“删除”。 
 
          ![“删除备份数据”窗格。](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 

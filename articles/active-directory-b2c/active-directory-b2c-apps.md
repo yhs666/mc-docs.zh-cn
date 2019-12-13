@@ -7,16 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 07/24/2019
-ms.date: 10/23/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
-ms.openlocfilehash: 782b99ad00037d8a8c528066efb08339269a8a6b
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: fca22a6d4f95aad441959ccba7fbb4f0411bbacc
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72846896"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884503"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>可在 Azure Active Directory B2C 中使用的应用程序类型
 
@@ -125,7 +124,7 @@ Web API 可从许多类型的客户端（包括 Web 应用程序、桌面和移�
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 链（代理流）
 
-许多体系结构包含需要调用另一个下游 Web API 的 Web API，这两者都受 Azure AD B2C 的保护。 此方案常见于具有 Web API 后端的本机客户端，并调用 Azure AD B2C 图形 API 等 Microsoft Online 服务。
+许多体系结构包含需要调用另一个下游 Web API 的 Web API，这两者都受 Azure AD B2C 的保护。 这种情况在具有 Web API 后端并调用 Microsoft 联机服务（例如 Microsoft Graph API 或 Azure AD 图形 API）的本机客户端中很常见。
 
 可以使用 OAuth 2.0 JWT 持有者凭据授权（也称为“代理流”）来支持这种链接的 Web API 方案。  但是，Azure AD B2C 中目前尚未实现代理流。
 

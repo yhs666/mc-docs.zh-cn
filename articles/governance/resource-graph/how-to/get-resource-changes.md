@@ -1,20 +1,20 @@
 ---
 title: 获取资源更改
-description: 了解如何查找资源更改时间以及获取已更改属性的列表。
+description: 了解如何查找资源更改时间、获取已更改属性的列表以及评估差异。
 services: resource-graph
 author: DCtheGeek
 ms.author: v-yiso
 origin.date: 10/09/2019
-ms.date: 11/04/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 7ddda66c4a7c5979f5511c108f1c93b5a177e038
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: af88c88cd8cf98b1bb74f15a3e10beb53e7ff4d7
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970303"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884999"
 ---
 # <a name="get-resource-changes"></a>获取资源更改
 
@@ -31,9 +31,11 @@ ms.locfileid: "72970303"
 - 使配置管理数据库（简称为 CMDB）保持最新。 无需按计划的频率刷新所有资源及其完整的属性集，只获取更改的内容。
 - 了解当某个资源更改了合规状态时可能已更改的其他属性。 评估这些附加属性可以洞察可能需要通过 Azure Policy 定义进行管理的其他属性。
 
-本文介绍如何通过 Resource Graph 的 SDK 收集此信息。 若要在 Azure 门户中查看此信息，请参阅 Azure 活动日志[更改历史记录](../../../azure-monitor/platform/activity-log-view.md#azure-portal)。
+本文介绍如何通过 Resource Graph 的 SDK 收集此信息。 若要在 Azure 门户中查看此信息，请参阅 Azure Policy 的[更改历史记录](../../policy/how-to/determine-non-compliance.md#change-history-preview)或 Azure 活动日志[更改历史记录](../../../azure-monitor/platform/activity-log-view.md#azure-portal)。
 
 
+> [!NOTE]
+> Resource Graph 中的更改详细信息适用于资源管理器属性。 若要跟踪虚拟机内部的更改，请参阅 Azure Policy 的 [VM 的来宾配置](../../policy/concepts/guest-configuration.md)。
 
 > [!IMPORTANT]
 > Azure Resource Graph 中的更改历史记录目前以公共预览版提供。
@@ -172,7 +174,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 ```json
 {
     "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/MyResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-10T00:00:00.000Z\"}"
+    "changeId": "{\"beforeId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"beforeTime\":'2019-05-09T00:00:00.000Z\",\"afterId\":\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\"afterTime\":'2019-05-10T00:00:00.000Z\"}"
 }
 ```
 
@@ -292,4 +294,4 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 - 在[初学者查询](../samples/starter.md)中了解使用的语言。
 - 在[高级查询](../samples/advanced.md)中了解高级用法。
-- 了解如何[浏览资源](../concepts/explore-resources.md)。
+- 详细了解如何[浏览资源](../concepts/explore-resources.md)。
