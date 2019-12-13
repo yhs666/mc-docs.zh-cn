@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-origin.date: 09/06/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: ccd68ab3ebec2f1c49a82b4f855856c495510ed2
-ms.sourcegitcommit: 849418188e5c18491ed1a3925829064935d2015c
+origin.date: 11/17/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 34f5ca2a32f2639ce814307d886e5114269afaaa
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307873"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838688"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL（单一服务器）中的只读副本
 
@@ -143,7 +143,9 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 PostgreSQL 要求只读副本上的 `max_connections` 参数值大于或等于主服务器上的值，否则副本不会启动。 在 Azure Database for PostgreSQL 中，`max_connections` 参数值基于 SKU。 有关详细信息，请参阅 [Azure Database for PostgreSQL 中的限制](concepts-limits.md)。 
 
-在不遵守限制的情况下尝试更新服务器值会导致出错。
+在不遵守限制的情况下尝试更新上述服务器值会导致出错。
+
+创建副本时或之后，防火墙规则、虚拟网络规则和参数设置不会从主服务器继承到副本服务器。
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
 [PostgreSQL 要求](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS)只读副本上的 `max_prepared_transactions` 参数值大于或等于主服务器上的值，否则副本不会启动。 如果要更改主服务器上的 `max_prepared_transactions`，请先在副本上进行相应更改。

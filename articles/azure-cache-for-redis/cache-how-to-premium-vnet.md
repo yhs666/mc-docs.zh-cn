@@ -4,15 +4,14 @@ description: 了解如何为高级层 Azure Redis 缓存实例创建和管理虚
 author: yegu-ms
 ms.service: cache
 ms.topic: conceptual
-origin.date: 05/15/2017
-ms.date: 11/22/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: e13ed951d1685108a9100747de0ca8e19fd88168
-ms.sourcegitcommit: e74e8aabc1cbd8a43e462f88d07b041e9c4f31eb
+ms.openlocfilehash: 20aa5cfca341243a154eebccd612b516d106d166
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74461639"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885003"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>如何为高级 Azure Redis 缓存配置虚拟网络支持
 Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（包括群集、暂留和虚拟网络支持等高级层功能）的选择上很灵活。 VNet 是云中的专用网络。 为 Azure Redis 缓存实例配置了 VNet 后，该实例不可公开寻址，而只能从 VNet 中的虚拟机和应用程序进行访问。 本文说明如何为高级 Azure Redis 缓存实例配置虚拟网络支持。
@@ -97,11 +96,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 
 #### <a name="outbound-port-requirements"></a>出站端口要求
 
-出站端口有九个要求。
-
-- 与 Internet 的所有出站连接都可以通过客户端的本地审核设备建立。
-- 其中三个端口将流量路由到为 Azure 存储和 Azure DNS 提供服务的 Azure 终结点。
-- 剩余端口范围，这些端口用于内部 Redis 子网通信。 内部 Redis 子网通信不需要子网 NSG 规则。
+出站端口有九个要求。 这些范围内的出站请求要么出站到缓存运行所需的其他服务，要么在 Redis 子网内部进行节点间通信。 对于异地复制，主缓存和辅助缓存的子网之间的通信存在其他出站需求。
 
 | 端口 | 方向 | 传输协议 | 目的 | 本地 IP | 远程 IP |
 | --- | --- | --- | --- | --- | --- |
@@ -175,7 +170,7 @@ Azure Redis 缓存有不同的缓存套餐，因此在缓存大小和功能（�
 
 尝试连接到 VNET 中的 Azure Redis 缓存时，会看到类似于以下内容的证书验证错误：
 
-`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; …"}`
+`{"No connection is available to service this operation: SET mykey; The remote certificate is invalid according to the validation procedure.; �"}`
 
 这可能是因为你在通过 IP 地址来连接主机。 建议使用主机名。 换而言之，请使用以下方法：     
 

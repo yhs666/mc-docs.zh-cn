@@ -10,20 +10,59 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/20/2019
-ms.date: 10/30/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: e804b6197f0a651da8ec170889edd8b2f8c4687c
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 1298b859dcc85c86dc25d6ea22240209adbf3c13
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068934"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884918"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>使用 RBAC 和 Azure 资源管理器模板管理对 Azure 资源的访问权限
 
 可以通过[基于角色的访问控制 (RBAC)](overview.md) 管理对 Azure 资源的访问权限。 除了使用 Azure PowerShell 或 Azure CLI 之外，还可以使用 [Azure 资源管理器模板](../azure-resource-manager/resource-group-authoring-templates.md)管理对 Azure 资源的访问权限。 如果需要一致且重复地部署资源，模板会很有用。 本文介绍如何使用 RBAC 和模板管理访问权限。
+
+## <a name="get-object-ids"></a>获取对象 ID
+
+若要分配角色，需要指定要为其分配角色的用户、组或应用程序的 ID。 ID 的格式为：`11111111-1111-1111-1111-111111111111`。 可以使用 Azure 门户、Azure PowerShell 或 Azure CLI 获取 ID。
+
+### <a name="user"></a>User
+
+若要获取用户的 ID，可以使用 [Get-AzADUser](https://docs.microsoft.com/powershell/module/az.resources/get-azaduser) 或 [az ad user show](/cli/ad/user#az-ad-user-show) 命令。
+
+```azurepowershell
+$objectid = (Get-AzADUser -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
+```
+
+### <a name="group"></a>组
+
+若要获取组的 ID，可以使用 [Get-AzADGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azadgroup) 或 [az ad group show](/cli/ad/group#az-ad-group-show) 命令。
+
+```azurepowershell
+$objectid = (Get-AzADGroup -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+```
+
+### <a name="application"></a>应用程序
+
+若要获取服务主体的 ID（应用程序使用的标识），可以使用 [Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal) 或 [az ad sp list](/cli/ad/sp#az-ad-sp-list) 命令。 对于服务主体，请使用对象 ID，而**不**是使用应用程序 ID。
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+```
 
 ## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>创建资源组范围的角色分配（不使用参数）
 
@@ -34,7 +73,7 @@ ms.locfileid: "73068934"
 若要使用模板，必须执行以下操作：
 
 - 创建新的 JSON 文件并复制模板
-- 将 `<your-principal-id>` 替换为要为其分配角色的用户、组或应用程序的唯一标识符。 标识符的格式为：`11111111-1111-1111-1111-111111111111`
+- 将 `<your-principal-id>` 替换为要为其分配角色的用户、组或应用程序的 ID
 
 ```json
 {
@@ -77,9 +116,8 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 若要使用模板，必须指定以下输入：
 
-- 要为其分配角色的用户、组或应用程序的唯一标识符
-- 要分配的角色
-- 用于角色分配的唯一标识符；你也可以使用默认的标识符
+- 要为其分配角色的用户、组或应用程序的 ID
+- 将用于角色分配的唯一 ID，也可以使用默认 ID
 
 ```json
 {
@@ -130,38 +168,28 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 }
 ```
 
-若要获取要向其分配角色的用户的唯一标识符，可以使用 [Get-AzADUser](https://docs.microsoft.com/powershell/module/az.resources/get-azaduser) 或 [az ad user show](/cli/ad/user#az-ad-user-show) 命令。
-
-```azurepowershell
-$userid = (Get-AzADUser -DisplayName "{name}").id
-```
-
-```azurecli
-userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
-```
+> [!NOTE]
+> 如果不为模板的每个部署提供相同的 `roleNameGuid` 值作为参数，则此模板不幂等。 如果未提供 `roleNameGuid`，则默认情况下，每次部署都会创建新的 GUID，后续部署会失败并出现 `Conflict: RoleAssignmentExists` 错误。
 
 角色分配范围是根据部署级别确定的。 下面是 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 和 [az group deployment create](/cli/group/deployment#az-group-deployment-create) 命令示例，演示如何在资源组范围启动部署。
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
 下面是 [New-AzDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azdeployment) 和 [az deployment create](/cli/deployment#az-deployment-create) 命令示例，演示如何在订阅范围启动部署并指定位置。
 
 ```azurepowershell
-New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
+New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
 ```
 
 ```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
+az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
-
-> [!NOTE]
-> 如果不为模板的每个部署提供相同的 `roleNameGuid` 值作为参数，则此模板不幂等。 如果未提供 `roleNameGuid`，则默认情况下，每次部署都会创建新的 GUID，后续部署会失败并出现 `Conflict: RoleAssignmentExists` 错误。
 
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>创建资源范围的角色分配
 
@@ -182,8 +210,7 @@ az deployment create --location centralus --template-file rbac-test.json --param
 
 若要使用模板，必须指定以下输入：
 
-- 要为其分配角色的用户、组或应用程序的唯一标识符
-- 要分配的角色
+- 要为其分配角色的用户、组或应用程序的 ID
 
 ```json
 {
@@ -249,11 +276,11 @@ az deployment create --location centralus --template-file rbac-test.json --param
 若要部署上一模板，请使用资源组命令。 下面是 [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) 和 [az group deployment create](/cli/group/deployment#az-group-deployment-create) 命令示例，演示如何在资源范围启动部署。
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Contributor
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Contributor
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
 下面显示了部署该模板后，为存储帐户的用户分配“参与者”角色的示例。
@@ -335,3 +362,4 @@ az group deployment create --resource-group ExampleGroup2 --template-file rbac-t
 - [在订阅级别创建资源组和资源](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure 快速启动模板](https://azure.microsoft.com/resources/templates/?term=rbac)
 
+<!-- Update_Description: wording update -->

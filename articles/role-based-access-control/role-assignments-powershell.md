@@ -11,16 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/22/2019
-ms.date: 11/11/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: 653686de532209e32679e3de7c6119f809aa3c30
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 8a94f5e130976f34649ade935867d36c7d6a06a8
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934236"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884878"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>使用 RBAC 和 Azure PowerShell 管理对 Azure 资源的访问权限
 
@@ -271,33 +270,40 @@ PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGr
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
-## <a name="grant-access"></a>授予访问权限
+## <a name="get-object-ids"></a>获取对象 ID
 
-在 RBAC 中，若要授予访问权限，请创建角色分配。
+若要列出、添加或删除角色分配，可能需要指定对象的唯一 ID。 ID 的格式为：`11111111-1111-1111-1111-111111111111`。 可以使用 Azure 门户或 Azure PowerShell 获取 ID。
 
-### <a name="search-for-object-ids"></a>搜索对象 ID
+### <a name="user"></a>User
 
-若要分配角色，需要标识对象（用户、组或应用程序）和范围。
-
-若要获取订阅 ID，可以在 Azure 门户中的“订阅”  边栏选项卡上找到它，也可以使用 [Get-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Get-AzSubscription)。
-
-若要获取 Azure AD 用户的对象 ID，请使用 [Get-AzADUser](https://docs.microsoft.com/powershell/module/az.resources/get-azaduser)。
+若要获取 Azure AD 用户的对象 ID，可以使用 [Get-AzADUser](https://docs.microsoft.com/powershell/module/az.resources/get-azaduser)。
 
 ```azurepowershell
 Get-AzADUser -StartsWith <string_in_quotes>
+(Get-AzADUser -DisplayName <name_in_quotes>).id
 ```
 
-若要获取 Azure AD 组的对象 ID，请使用 [Get-AzADGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azadgroup)。
+### <a name="group"></a>组
+
+若要获取 Azure AD 组的对象 ID，可以使用 [Get-AzADGroup](https://docs.microsoft.com/powershell/module/az.resources/get-azadgroup)。
 
 ```azurepowershell
 Get-AzADGroup -SearchString <group_name_in_quotes>
+(Get-AzADGroup -DisplayName <group_name_in_quotes>).id
 ```
 
-若要获取 Azure AD 服务主体或应用程序的对象 ID，请使用 [Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)。
+### <a name="application"></a>应用程序
+
+若要获取 Azure AD 服务主体的对象ID（应用程序使用的标识），可以使用 [Get-AzADServicePrincipal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal)。 对于服务主体，请使用对象 ID，而**不**是使用应用程序 ID。
 
 ```azurepowershell
 Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
+(Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
+
+## <a name="grant-access"></a>授予访问权限
+
+在 RBAC 中，若要授予访问权限，请创建角色分配。
 
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>在资源组范围内为用户创建角色分配
 
@@ -342,7 +348,7 @@ CanDelegate        : False
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-以下示例将[“虚拟机参与者”角色](built-in-roles.md#virtual-machine-contributor)分配给 *pharma-sales* 资源组范围内的 *alain@example.com* 用户。 若要获取唯一的角色 ID，可以使用 [Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition)，也可以参阅 [Azure 资源的内置角色](built-in-roles.md)。
+以下示例将[虚拟机参与者](built-in-roles.md#virtual-machine-contributor)角色分配给 *pharma-sales* 资源组范围内的 alain\@example.com  用户。 若要获取唯一的角色 ID，可以使用 [Get-AzRoleDefinition](https://docs.microsoft.com/powershell/module/az.resources/get-azroledefinition)，也可以参阅 [Azure 资源的内置角色](built-in-roles.md)。
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -360,7 +366,7 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>在资源范围内为组创建角色分配
 
-若要向资源范围内的组授予访问权限，请使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)。
+若要向资源范围内的组授予访问权限，请使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)。 有关如何获取组的对象 ID 的信息，请参阅[获取对象 ID](#get-object-ids)。
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -391,10 +397,10 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>在订阅范围内为应用程序创建角色分配
 
-若要向订阅范围内的应用程序授予访问权限，请使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)。
+若要向订阅范围内的应用程序授予访问权限，请使用 [New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)。 有关如何获取应用程序的对象 ID 的信息，请参阅[获取对象 ID](#get-object-ids)。
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <application_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
 ```Example

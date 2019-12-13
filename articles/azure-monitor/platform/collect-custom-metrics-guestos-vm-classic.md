@@ -1,5 +1,5 @@
 ---
-title: 将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
+title: 将经典 Windows VM 指标发送到 Azure Monitor 指标数据库
 description: 将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
 author: lingliw
 services: azure-monitor
@@ -9,14 +9,14 @@ origin.date: 09/09/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: bb165714a5b6d61aa7b17276df4421c32411abba
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e57517b248564ee8dd0b72d75380779be0406115
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330339"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838910"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 数据存储
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>将来宾 OS 指标发送到适用于 Windows 虚拟机（经典）的 Azure Monitor 指标数据库
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

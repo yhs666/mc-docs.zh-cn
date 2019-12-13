@@ -1,7 +1,7 @@
 ---
 title: 导出和删除数据 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 删除客户数据以确保隐私和合规性。
+description: 你对于查看、导出和删除其数据具有完全控制权。 删除客户数据以确保隐私和合规性。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 04/02/2019
 ms.date: 07/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7fb6c8a5909d93b0baac9c4314a83671d9d44c4b
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 52f2967d76adde8c95556605c92cadc428a56623
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330445"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884795"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>在认知服务中的语言理解 (LUIS) 中导出和删除客户数据
 
@@ -40,7 +40,7 @@ LUIS 用户具有完全控制权限，可通过 LUIS Web 门户或 LUIS 创作�
 
 | | **用户帐户** | **应用程序** | **示例话语** | **最终用户查询** |
 | --- | --- | --- | --- | --- |
-| **Portal** | [链接](luis-concept-data-storage.md#delete-an-account) | [链接](luis-how-to-start-new-app.md#delete-app) | [链接](luis-concept-data-storage.md#utterances-in-an-intent) | [主动学习话语](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[记录的话语](luis-concept-data-storage.md#disable-logging-utterances) |
+| **Portal** | [链接](luis-concept-data-storage.md#delete-an-account) | 链接| [链接](luis-concept-data-storage.md#utterances-in-an-intent) | 主动学习话语<br>[记录的话语](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API** | [链接](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [链接](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [链接](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [链接](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
@@ -53,7 +53,7 @@ LUIS 用户具有完全控制权限可在门户上查看数据，但是，若要
 
 ## <a name="location-of-active-learning"></a>主动学习的位置
 
-为了启用[主动学习](luis-how-to-review-endpoint-utterances.md#enable-active-learning)，在已发布的 LUIS 终结点收到的用户记录的话语将存储在以下 Azure 地理区域中：
+为了启用主动学习，在已发布的 LUIS 终结点收到的用户记录的话语将存储在以下 Azure 地理区域中：
 
 * [中国](#china)
 
@@ -66,7 +66,7 @@ LUIS 用户具有完全控制权限可在门户上查看数据，但是，若要
 
 * 中国
 
-部署到这些 Azure 地理区域时，终结点从应用的最终用户收到的话语将存储在 Azure 的中国地理区域中，以便进行主动学习。 可以禁用主动学习，请参阅[禁用主动学习](luis-how-to-review-endpoint-utterances.md#disable-active-learning)。 若要管理存储的话语，请参阅[删除话语](luis-how-to-review-endpoint-utterances.md#delete-utterance)。 
+部署到这些 Azure 地理区域时，终结点从应用的最终用户收到的话语将存储在 Azure 的中国地理区域中，以便进行主动学习。
 
 ## <a name="next-steps"></a>后续步骤
 

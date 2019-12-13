@@ -1,27 +1,27 @@
 ---
-title: 使用 Azure 备份与 PowerShell 来备份和还原 Azure 文件
-description: 使用 Azure 备份与 PowerShell 来备份和还原 Azure 文件。
+title: 使用 PowerShell 备份和还原 Azure 文件
+description: 本文介绍如何使用 Azure 备份服务和 PowerShell 备份和还原 Azure 文件存储。
 author: lingliw
 manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 08/20/2019
 ms.date: 11/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8e8dabd10bc0422cc6820868ed2a4df0fefd5acf
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 6cd057058f382a38302c4d0d121a62a92d9f9b01
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730569"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838958"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 备份和还原 Azure 文件
 
 本文介绍如何在 Azure PowerShell 中使用 [Azure 备份](backup-overview.md)恢复服务保管库来备份和恢复“Azure 文件”文件共享。
 
-本教程介绍了如何完成以下操作：
+本文介绍以下操作：
 
 > [!div class="checklist"]
+>
 > * 设置 PowerShell 并注册 Azure 恢复服务提供程序。
 > * 创建恢复服务保管库。
 > * 配置 Azure 文件共享的备份。
@@ -62,7 +62,7 @@ ms.locfileid: "73730569"
 
     ![恢复服务 cmdlet 列表](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. 使用 **Connect-AzAccount** 登录到 Azure 帐户。
+4. 使用 **Connect-AzAccount -EnvironmentName AzureChinaCloud** 登录到 Azure 帐户。
 5. 在出现的网页上，系统会提示你输入帐户凭据。
 
     * 或者，可以结合 **-Credential** 在 **Connect-AzAccount** cmdlet 中将帐户凭据包含为参数。

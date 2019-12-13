@@ -4,9 +4,9 @@ description: 在本教程中，将了解如何使用 Azure 通知中心将通知
 services: notification-hubs
 documentationcenter: windows
 keywords: 推送通知,push notification,windows phone 推送
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: d872d8dc-4658-4d65-9e71-fa8e34fae96e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,14 +15,16 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 01/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: d9fec7d759f5419cb17cf58a7c61bee92f4b8df8
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 320bd50ef8f5a1af7cdbf7547f5c7d2b46d78163
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272474"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884969"
 ---
 # <a name="tutorial-push-notifications-to-windows-phone-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Windows Phone 应用推送通知
 
@@ -44,8 +46,8 @@ ms.locfileid: "72272474"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
+* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* [包含移动开发组件的 Visual Studio 2015 Express](https://www.visualstudio.com/vs/older-downloads/)
 
 完成本教程是学习有关 Windows Phone 8 应用的所有其他通知中心教程的先决条件。
 
@@ -70,19 +72,19 @@ ms.locfileid: "72272474"
 
 在此部分，请创建一个可以自行注册到通知中心的 Windows Phone 应用程序。
 
-1. 在 Visual Studio 中创建一个新的 Windows Phone 8 应用程序。 
-   
+1. 在 Visual Studio 中创建一个新的 Windows Phone 8 应用程序。
+
     ![Visual Studio - 新建项目 - Windows Phone 应用][13]
-   
+
     在 Visual Studio 2013 Update 2 或更高版本中，必须改为创建 Windows Phone Silverlight 应用程序。
-   
+
     ![Visual Studio - 新建项目 - 空白应用 - Windows Phone Silverlight][11]
 2. 在 Visual Studio 中，右键单击该解决方案，然后单击“管理 NuGet 包”  。
 3. 搜索 `WindowsAzure.Messaging.Managed`，单击“安装”，然后接受使用条款  。
-   
+
     ![Visual Studio - NuGet 包管理器][20]
 4. 打开文件 App.xaml.cs 并添加以下 `using` 语句：
-   
+
         using Microsoft.Phone.Notification;
         using Microsoft.WindowsAzure.Messaging;
 5. 在 `App.xaml.cs` 中的 `Application_Launching` 方法顶部添加以下代码：
@@ -117,7 +119,7 @@ ms.locfileid: "72272474"
 
     插入中心名称以及在前一部分记下的名为 `DefaultListenSharedAccessSignature` 的连接字符串。
     此代码从 MPNS 检索应用的通道 URI，并将该通道 URI 注册到用户的通知中心。 它还保证每次启动应用程序时都在通知中心注册通道 URI。
-   
+
    > [!NOTE]
    > 本教程将一个 toast 通知发送到设备。 发送磁贴通知时，必须在通道上调用 `BindToShellTile` 方法。 若要同时支持 toast 通知和磁贴通知，请同时调用 `BindToShellTile` 和 `BindToShellToast`。
 
@@ -130,7 +132,7 @@ ms.locfileid: "72272474"
    > [!NOTE]
    > 若要接收 toast 推送通知，则应用程序不得在前台运行。
 
-## <a name="test-send-a-notification"></a>测试性发送通知 
+## <a name="test-send-a-notification"></a>测试性发送通知
 
 1. 在 Azure 门户中切换到“概览”选项卡。
 2. 选择“测试性发送”。 
@@ -138,28 +140,30 @@ ms.locfileid: "72272474"
     ![“测试性发送”按钮](./media/notification-hubs-windows-phone-get-started/test-send-button.png)
 3. 在“测试性发送”窗口中执行以下步骤： 
 
-    1. 对于“平台”，请选择“Windows Phone”  。  
-    2. 对于“通知类型”，请选择“Toast”。   
+    1. 对于“平台”，请选择“Windows Phone”  。 
+    2. 对于“通知类型”，请选择“Toast”。  
     3. 选择“发送” 
-    4. 请在窗口底部的列表中查看**结果**。 
+    4. 请在窗口底部的列表中查看**结果**。
 
-        ![“测试性发送”窗口](./media/notification-hubs-windows-phone-get-started/test-send-window.png)    
-4. 在 Windows Phone 模拟器或 Windows Phone 中，确认看到通知消息。 
+        ![“测试性发送”窗口](./media/notification-hubs-windows-phone-get-started/test-send-window.png)
+4. 在 Windows Phone 模拟器或 Windows Phone 中，确认看到通知消息。
 
     ![Windows Phone 中的通知](./media/notification-hubs-windows-phone-get-started/notification-on-windows-phone.png)
 
 ## <a name="next-steps"></a>后续步骤
+
 在这个简单的示例中，已将推送通知广播到所有 Windows Phone 8 设备。 若要了解如何向特定的设备推送通知，请转到以下教程：
 
 > [!div class="nextstepaction"]
 >[向特定设备推送通知](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md)
 
 <!-- Images. -->
-[6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
+<!-- [6]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 [7]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal.png
 [8]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-from-portal2.png
 [9]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal.png
-[10]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png
+[10]: ./media/notification-hubs-windows-phone-get-started/notification-hub-select-from-portal2.png -->
+
 [11]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-silverlight-app.png
 [12]: ./media/notification-hubs-windows-phone-get-started/notification-hub-connection-strings.png
 [13]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-wp-app.png
@@ -169,10 +173,11 @@ ms.locfileid: "72272474"
 [213]: ./media/notification-hubs-windows-phone-get-started/notification-hub-create-console-app.png
 
 <!-- URLs. -->
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
-[MPNS authenticated mode]: https://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
+<!-- [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md
 [toast catalog]: https://msdn.microsoft.com/library/windowsphone/develop/jj662938(v=vs.105).aspx
-[tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx
+[tile catalog]: https://msdn.microsoft.com/library/windowsphone/develop/hh202948(v=vs.105).aspx -->
+
+[MPNS authenticated mode]: https://msdn.microsoft.com/library/windowsphone/develop/ff941099(v=vs.105).aspx
 [通知中心 - Windows Phone Silverlight 教程]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/PushToSLPhoneApp

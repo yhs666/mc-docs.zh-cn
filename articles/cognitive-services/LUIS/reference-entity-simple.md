@@ -1,7 +1,7 @@
 ---
 title: 简单实体类型 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 简单实体是描述单个概念的泛型实体，通过机器学习的上下文习得。 由于简单实体通常是名称，例如公司名称、产品名称或其他类别的名称，因此，在使用简单实体时，请添加一个短语列表，以提升所用名称的信号。
+description: 简单实体描述来自机器学习上下文的单个概念。 使用简单实体时添加短语列表以改进结果。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -11,16 +11,16 @@ ms.topic: reference
 origin.date: 09/29/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f452c1441d8994b1ffe4101ce95c847feac83ed8
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: ef82854a3c669349613d427c32d2efe42e1eed99
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416335"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884704"
 ---
 # <a name="simple-entity"></a>简单实体 
 
-简单实体是描述单个概念的泛型实体，通过机器学习的上下文习得。 由于简单实体采用概括性的名称，例如公司名称、产品名称或其他类别的名称，因此，在使用简单实体时，请添加一个[短语列表](luis-concept-feature.md)，以提升所用名称的信号。 
+简单实体是描述单个概念的泛型实体，通过机器学习的上下文习得。 由于简单实体通常是名称，例如公司名称、产品名称或其他类别的名称，因此，在使用简单实体时，请添加一个短语列表，以提升所用名称的信号。 
 
 **在以下情况下，非常适合使用此实体：**
 
@@ -95,4 +95,4 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## <a name="next-steps"></a>后续步骤
 
-在本[教程](luis-quickstart-primary-and-secondary-data.md)中，请使用**简单实体**从话语中提取雇佣工作名称的机器学习数据。 若要提高提取的准确性，请添加一个[短语列表](luis-concept-feature.md)，其中包含特定于简单实体的术语。
+在本[教程](luis-quickstart-primary-and-secondary-data.md)中，请使用**简单实体**从话语中提取雇佣工作名称的机器学习数据。 若要提高提取的准确性，请添加一个短语列表，其中包含特定于简单实体的术语。

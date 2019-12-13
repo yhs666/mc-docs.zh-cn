@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板中的输出
+title: 模板中的输出
 description: 介绍如何在 Azure 资源管理器模板中定义输出值。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/05/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 72ed00c1fa1a7fcfe1eed5cacf0b8fd79754a2c4
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: 9cdd5800679310e1bca18c8bf3ed2eceeb2832c0
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156443"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884909"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure 资源管理器模板中的输出
 
@@ -65,7 +62,7 @@ ms.locfileid: "71156443"
 }
 ```
 
-不能在[嵌套模板](resource-group-linked-templates.md#link-or-nest-a-template)的 outputs 节中使用 `reference` 函数。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。
+不能在[嵌套模板](resource-group-linked-templates.md#nested-template)的 outputs 节中使用 `reference` 函数。 若要返回嵌套模板中部署的资源的值，请将嵌套模板转换为链接模板。
 
 ## <a name="get-output-values"></a>获取输出值
 
@@ -107,5 +104,4 @@ az group deployment show \
 * 若要了解输出的可用属性，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关创建输出的建议，请参阅[最佳做法 - 输出](template-best-practices.md#outputs)。
 
-<!-- Update_Description: new article about template outputs -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,19 +1,15 @@
 ---
 title: Azure Functions 2.x 的 host.json 参考
 description: 使用 v2 运行时的 Azure Functions host.json 文件的参考文档。
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
-origin.date: 09/08/2018
-ms.date: 11/18/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 1daf148eebf445aad81ec35b76bbca3e9e58e582
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 280f47f6bc92f72b812306637ca01781612746b9
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178954"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885011"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x 的 host.json 参考  
 
@@ -110,7 +106,8 @@ ms.locfileid: "74178954"
 ## <a name="functiontimeout"></a>functionTimeout
 
 指示所有函数的超时持续时间。 它采用 timespan 字符串格式。 在无服务器消耗计划中，有效范围为 1 秒至 10 分钟，默认值为 5 分钟。  
-在专用（应用服务）计划中，没有总体限制，默认值为 30 分钟。 值 `-1` 表示无限执行。
+
+在专用（应用服务）计划中，没有总体限制，默认值为 30 分钟。 值 `-1` 指示无限执行，但建议保留固定上限。
 
 ```json
 {

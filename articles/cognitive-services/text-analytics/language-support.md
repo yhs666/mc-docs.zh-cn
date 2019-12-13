@@ -3,20 +3,20 @@ title: 语言支持 - 文本分析 API
 titleSuffix: Azure Cognitive Services
 description: 文本分析 API 支持的自然语言列表。 本文介绍了以下每项操作支持哪些语言：情绪分析、关键短语提取、语言检测和实体识别。
 services: cognitive-services
-author: aahill
+author: lingliw
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 06/18/2019
-ms.date: 07/12/2019
-ms.author: v-junlch
-ms.openlocfilehash: 193fae4af574c0d65bab4f193ec573d4c1c1f1e6
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+origin.date: 11/04/2019
+ms.date: 12/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: d14e6bca6d03036f52e93c6d86b87247344af86d
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844769"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884858"
 ---
 # <a name="language-and-region-support-for-the-text-analytics-api"></a>文本分析 API 的语言和区域支持
 
@@ -32,7 +32,7 @@ ms.locfileid: "67844769"
 
 ## <a name="sentiment-analysis-key-phrase-extraction-and-named-entity-recognition"></a>情绪分析、关键短语提取和命名的实体识别
 
-对于情绪分析、关键短语提取和实体识别，所支持语言的列表更具选择性，因为分析器已优化为适应更多语言的语言规则。 对全套[实体类型](how-tos/text-analytics-how-to-entity-linking.md#supported-types-for-named-entity-recognition)的支持目前仅限于以下语言： 
+对于情绪分析、关键短语提取和实体识别，所支持语言的列表更具选择性，因为分析器已优化为适应更多语言的语言规则。 在命名实体识别 v2 中，对全套[实体类型](how-tos/text-analytics-how-to-entity-linking.md)的支持目前仅限于以下语言： 
 * 英语
 * 简体中文
 * 法语
@@ -60,7 +60,7 @@ ms.locfileid: "67844769"
 | 匈牙利语   | `hu`          |           |             |  ✔ \*          |     | 
 | 意大利语     | `it`          | ✔ \*     | ✔           |  ✔ \*           |     |
 | 日语    | `ja`          |          | ✔           |  ✔ \*          |     |
-| 韩语      | `ko`          |          | ✔           |  ✔ \*          |     |
+| 朝鲜语      | `ko`          |          | ✔           |  ✔ \*          |     |
 | 挪威语(博克马尔语) | `no`  | ✔ \*     |  ✔          | ✔ \*            |     |
 | 波兰语      | `pl`          | ✔ \*     |  ✔          |  ✔ \*           |     |
 | 葡萄牙语(葡萄牙) | `pt-PT`| ✔        |  ✔          | ✔ \*      |`pt` 也接受|

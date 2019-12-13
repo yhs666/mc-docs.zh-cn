@@ -1,7 +1,7 @@
 ---
 title: 仪表板 - 语言理解 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 使用分析仪表板（一个可视化报告工具）修复意向。
+description: 使用已训练应用的仪表板修复意向和实体。 仪表板显示整体性的应用信息，并突出显示应予以修复的意向。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/09/2019
-ms.date: 09/23/2019
+origin.date: 11/08/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5e7d3fe0145dce797b2763f3fd6ad1e0e3a5573a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 0e7b236a1ead3b452f72053ec36e6a0f70cbb1aa
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330438"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884599"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>如何使用仪表板来改善应用
 
@@ -82,10 +82,6 @@ ms.locfileid: "71330438"
 * 对于不同意向中的言语具有较高程度的了解。
 * 知道在哪种情况下，一个意向中的言语可能会与另一个意向发生混淆。
 * 能够决定是否应该将两个经常相互混淆的意向折叠为单个意向。 如果是这种情况，则必须使用实体提取不同的数据。
-
-### <a name="patterns-and-phrase-lists"></a>模式和短语列表
-
-分析页不会指示何时要使用[模式](luis-concept-patterns.md)还是[短语列表](luis-concept-feature.md)。 如果你确实添加了模式和短语列表，这可能有助于解决错误的或不明确的预测，但无助于解决数据不平衡问题。 
 
 ### <a name="review-data-imbalance"></a>检查数据不平衡问题
 

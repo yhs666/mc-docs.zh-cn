@@ -1,21 +1,18 @@
 ---
-title: Azure Resource Manager 模板
-description: 介绍如何使用 Azure 资源管理器模板部署资源。
-author: rockboyfor
-ms.service: azure-resource-manager
+title: 模板概述
+description: 介绍使用 Azure 资源管理器模板部署资源的好处。
 ms.topic: conceptual
-origin.date: 09/13/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: fb9ac508f6803855dde7f22dd47ab9a879bf9bab
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 09/25/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: aafcf0005b6107acce572f013848d3ee6986f1e1
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156472"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884911"
 ---
 <!--Verify successfully-->
-# <a name="azure-resource-manager-templates"></a>Azure Resource Manager 模板
+# <a name="azure-resource-manager-templates-overview"></a>Azure 资源管理器模板概述
 
 在迁移到云的过程中，许多团队都采用了敏捷开发方法。 这些团队的工作快速迭代。 他们需要反复将其解决方案部署到云，并需要知道其基础结构处于一种可靠的状态。 随着基础结构成为迭代过程的一部分，运营与开发之间的划分已经消失。 团队需要通过统一的过程来管理基础结构和应用程序代码。
 
@@ -51,7 +48,7 @@ ms.locfileid: "71156472"
 
 * **可导出的代码**：可以通过导出资源组的当前状态或查看特定部署所用的模板，来获取现有资源组的模板。 查看[导出的模板](export-template-portal.md)是了解模板语法的有用方法。
 
-* **创作工具**：可以使用 [Visual Studio Code](resource-manager-tools-vs-code.md) 和模板工具扩展来创作模板。 你将获得 Intellisense、语法突出显示、内联帮助以及其他许多语言功能。
+* **创作工具**：可以使用 [Visual Studio Code](resource-manager-tools-vs-code.md) 和模板工具扩展来创作模板。 你将获得 Intellisense、语法突出显示、内联帮助以及其他许多语言功能。 除了 Visual Studio code 以外，还可以使用 [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)。
 
 ## <a name="template-file"></a>模板文件
 
@@ -125,11 +122,8 @@ REQUEST BODY
 
 ## <a name="next-steps"></a>后续步骤
 
+* 如果需要通过分步教程来了解创建模板的过程，请参阅[教程：创建和部署第一个 Azure 资源管理器模板](template-tutorial-create-first-template.md)。
 * 有关模板文件中的属性的详细信息，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
-* 若要显式设置依赖关系，以便在部署一个资源之后再部署另一个资源，请参阅[在 Azure 资源管理器模板中定义依赖关系](resource-group-define-dependencies.md)。
-* 可将资源添加到模板，并视需要部署该资源。 有关详细信息，请参阅[资源管理器模板中的条件部署](conditional-resource-deployment.md)。
-* 可以指定变量、属性或资源的多个实例，而无需在模板中多次重复使用 JSON 块。 有关详细信息，请参阅 [Azure 资源管理器模板中的资源、属性或变量迭代](resource-group-create-multiple.md)。
 * 若要了解如何导出模板，请参阅[快速入门：使用 Azure 门户创建和部署 Azure 资源管理器模板](./resource-manager-quickstart-create-templates-use-the-portal.md)。
 
-<!-- Update_Description: new article about template deployment overview -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

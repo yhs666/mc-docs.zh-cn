@@ -1,5 +1,5 @@
 ---
-title: 对 Azure 资源的 RBAC 问题进行故障排除 | Microsoft Docs
+title: 对 Azure 资源的 RBAC 问题进行故障排除？| Microsoft Docs
 description: 对 Azure 资源基于角色的访问控制 (RBAC) 问题进行故障排除。
 services: azure-portal
 documentationcenter: na
@@ -11,17 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 11/11/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7e210e82288c4656d9abdb51bf336086dfafbdd9
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 8d1cd82dfa80cccbb567926d2cd5a2f61f16a8e8
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73934235"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884873"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>对 Azure 资源的 RBAC 问题进行故障排除
 
@@ -57,7 +56,11 @@ ms.locfileid: "73934235"
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>具有未知安全主体的角色分配
 
-使用 Azure PowerShell 列出角色分配时，可能会看到分配的 `DisplayName` 为空且 `ObjectType` 设置为“未知”。 例如，[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment) 返回的角色分配如下所示：
+如果将角色分配给安全主体（用户、组、服务主体或托管标识），然后在未删除角色分配的情况下删除该安全主体，则该角色分配的安全主体类型将列为“未知”  。 以下屏幕截图显示了 Azure 门户中的示例。 安全主体名称列为“标识已删除”  和“标识不再存在”  。 
+
+![Web 应用程序资源组](./media/troubleshooting/unknown-security-principal.png)
+
+如果使用 Azure PowerShell 列出此角色分配，你将看到空的 `DisplayName` 和设置为“Unknown”的 `ObjectType`。 例如，[Get-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/get-azroleassignment) 返回的角色分配如下所示：
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/11111111-1111-1111-1111-111111111111/providers/Microsoft.Authorization/roleAssignments/22222222-2222-2222-2222-222222222222
@@ -71,7 +74,7 @@ ObjectType         : Unknown
 CanDelegate        : False
 ```
 
-类似地，使用 Azure CLI 列出角色分配时，可能会看到分配的 `principalName` 为空。 例如，[az role assignment list](/cli/role/assignment#az-role-assignment-list) 返回的角色分配如下所示：
+同样，如果使用 Azure CLI 列出此角色分配，你将看到空的 `principalName`。 例如，[az role assignment list](/cli/role/assignment#az-role-assignment-list) 返回的角色分配如下所示：
 
 ```azurecli
 {
@@ -87,9 +90,7 @@ CanDelegate        : False
 }
 ```
 
-如果将角色分配给安全主体（用户、组、服务主体或托管标识），然后又删除该安全主体，则会进行此类角色分配。 这些角色分配不显示在 Azure 门户中，留下它们没有问题。 不过，你可以根据需要删除这些角色分配。
-
-若要删除这些角色分配，请使用 [Remove-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/remove-azroleassignment) 或 [az role assignment delete](/cli/role/assignment#az-role-assignment-delete) 命令。
+保留这些角色分配不是问题，但你可以使用与其他角色分配相似的步骤将其删除。 有关如何删除角色分配的信息，请参阅 [Azure 门户](role-assignments-portal.md#remove-role-assignments)、[Azure PowerShell](role-assignments-powershell.md#remove-access) 或 [Azure CLI](role-assignments-cli.md#remove-access)
 
 在 PowerShell 中，如果尝试通过对象 ID 和角色定义名称来删除角色分配，而多个角色分配与参数相匹配，则会出现错误消息：“提供的信息未映射到角色分配”。 下面显示了错误消息示例：
 

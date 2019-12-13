@@ -1,20 +1,20 @@
 ---
-title: 将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务
-description: 将来宾 OS 指标发送到 Azure Monitor 指标存储云服务
+title: 将经典云服务指标发送到 Azure Monitor 指标数据库
+description: 介绍将 Azure 经典云服务的来宾 OS 性能指标发送到 Azure Monitor 指标存储的过程。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 origin.date: 09/09/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 84f22249b1a55f68349431a80e6c7e59b676a061
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: b09c2e38a77aec035cd268a44ce8406805d85f06
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330338"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838595"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>将来宾 OS 指标发送到 Azure Monitor 指标存储经典云服务 
 

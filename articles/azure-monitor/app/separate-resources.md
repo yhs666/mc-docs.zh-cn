@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 05/15/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2dad1ca2286e5acfe0f990056dbaefe31c148f46
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 90df6d47e085d51ee10980a0f0e969ca22afd730
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730377"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838597"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>分隔开发、测试和生产阶段的遥测
 
@@ -83,8 +83,6 @@ ms.locfileid: "73730377"
 * **添加到仪表板**将资源的快速访问磁贴放在 Azure 主页上。 
 
 创建资源需要几秒钟。 完成后，会看到警报。
-
-（可编写 [PowerShell 脚本](../../azure-monitor/app/powershell-script-create-resource.md)，自动创建资源。）
 
 ### <a name="getting-the-instrumentation-key"></a>获取检测密钥
 检测密钥标识所创建的资源。 

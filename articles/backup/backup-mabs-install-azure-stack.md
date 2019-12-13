@@ -1,21 +1,17 @@
 ---
-title: 在 Azure Stack 上安装 Azure 备份服务器 | Microsoft Docs
+title: 在 Azure Stack 上安装 Azure 备份服务器
 description: 本文介绍如何使用 Azure 备份服务器保护或备份 Azure Stack 中的工作负荷。
-author: lingliw
-manager: digimobile
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+author: lingliw
 origin.date: 01/31/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4fe03be30b7876ecfd9b4ecdcadda37ec7287d33
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 3da9510b73f7cc5dd26f7f73b61ff031cfeeb48c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528339"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839043"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>在 Azure Stack 上安装 Azure 备份服务器
 
@@ -59,9 +55,11 @@ Azure Stack 工作负荷中使用的所有虚拟机都必须属于同一 Azure �
 - 存储从云中还原的数据（本地临时区域）
 
 ### <a name="configuring-azure-backup-temporary-disk-storage"></a>配置 Azure 备份临时磁盘存储
+
 每个 Azure Stack 虚拟机都附带临时磁盘存储，该磁盘存储可作为卷 `D:\` 供用户使用。 可将 Azure 备份所需的本地临时区域配置为位于 `D:\` 中，并且可将缓存位置置于 `C:\` 上。 这样，就不需要从附加到 Azure 备份服务器虚拟机的数据磁盘划分出任何存储。
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>将备份数据存储在本地磁盘和 Azure 中
+
 Azure备份服务器将备份数据存储在附加到虚拟机的 Azure 磁盘上，以便进行操作恢复。 将磁盘和存储空间附加到虚拟机后，Azure 备份服务器将为你管理存储。 备份数据存储量取决于附加到每个 [Azure Stack 虚拟机](/azure-stack/user/azure-stack-storage-overview)的磁盘的数量和大小。 Azure Stack VM 的每个大小都有可以附加到虚拟机的最大磁盘数。 例如，A2 是四个磁盘。 A3 是八个磁盘。 A4 是 16 个磁盘。 同样，磁盘的大小和数量决定了整个备份存储池。
 
 > [!IMPORTANT]
@@ -164,7 +162,7 @@ Azure 备份服务器虚拟机必须加入域。 拥有管理员特权的域用�
 
     ![下载中心 1](./media/backup-mabs-install-azure-stack/download-center-selected-files.png)
 
-    所有安装文件的下载大小超过 3-GB。 通过 10-Mbps 的下载链路下载所有安装文件可能需要长达 60 分钟时间。 文件将下载到指定的下载位置。
+    所有安装文件的下载大小超过 3 GB。 通过 10-Mbps 的下载链路下载所有安装文件可能需要长达 60 分钟时间。 文件将下载到指定的下载位置。
 
 ## <a name="extract-azure-backup-server-install-files"></a>提取 Azure 备份服务器安装文件
 

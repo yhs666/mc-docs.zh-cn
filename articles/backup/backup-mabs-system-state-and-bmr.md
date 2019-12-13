@@ -1,20 +1,17 @@
 ---
-title: 保护系统状态和裸机还原 - Azure 备份服务器
+title: 系统状态和裸机恢复保护
 description: 使用 Azure 备份服务器备份系统状态，并提供裸机恢复 (BMR) 保护。
-author: lingliw
-manager: digimobile
-keywords: ''
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/15/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: ba85163bba3d563310f27e3a644950c222578ccb
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: a6454643219738e6cb18cff0f86f061b4081cb38
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730387"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838891"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>使用 Azure 备份服务器备份系统状态，并将计算机还原成裸机
 

@@ -1,19 +1,18 @@
 ---
-title: 常见问题解答 - 在 Azure VM 上备份 SQL Server 数据库 - Azure 备份
+title: 常见问题解答 - 备份 Azure VM 上的 SQL Server 数据库
 description: 查找有关使用 Azure 备份在 Azure VM 上备份 SQL Server 数据库的常见问题的解答。
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
+author: lingliw
 ms.topic: conceptual
-ms.date: 04/23/2019
-ms.author: dacurwin
-ms.openlocfilehash: 0599544dc411fe54e0b70f6f41588df5fcc7c2df
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+origin.date: 04/23/2019
+ms.date: 12/04/2019
+ms.author: v-lingwu
+ms.openlocfilehash: c872b389218f12c5909915aebf210c50aeeaad45
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528378"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838878"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>有关备份 Azure VM 上运行的 SQL Server 数据库的常见问题解答
 

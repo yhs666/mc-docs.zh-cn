@@ -1,24 +1,18 @@
 ---
-title: 跨云重复使用模板 - Azure 资源管理器
+title: 跨云重用模板
 description: 开发可针对不同的云环境一致地工作的 Azure 资源管理器模板。 创建适用于 Azure Stack 的新模板或更新现有模板。
-services: azure-resource-manager
-documentationcenter: na
 author: rockboyfor
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 origin.date: 12/09/2018
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 09fde3f15ec808e2a4ae75b5fd65e7381a477c18
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: d8702be804f01c53efed3c5794441808101f1ed1
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203671"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884955"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>开发用于实现云一致性的 Azure 资源管理器模板
 
@@ -502,10 +496,10 @@ Azure 提供丰富的精选 VM 映像。 这些映像已创建并准备好，可
 要检索位置中的可用 VM 映像列表，请运行以下 Azure CLI 命令：
 
 ```azurecli
-az vm image list
+az vm image list --all
 ```
 
-<!--MOONCAKE: UNVALID ON -all-->
+<!--MOONCAKE: CORRECT ON --all-->
 
 可以使用 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) 检索同一列表并使用 `-Location` 参数指定想要的位置。 例如：
 
@@ -695,4 +689,4 @@ Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerS
     
 * [Azure 资源管理器模板的最佳做法](resource-group-authoring-templates.md)
 
-<!--Update_Description: wording update, update link  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

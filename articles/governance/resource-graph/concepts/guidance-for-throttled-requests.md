@@ -1,19 +1,19 @@
 ---
 title: 针对受限制请求的指南
-description: 了解如何创建更好的查询，以避免对 Azure Resource Graph 发出的请求受到限制。
+description: 了解如何进行批处理、错开、分页和并行查询，以避免 Azure Resource Graph 限制请求。
 author: DCtheGeek
 ms.author: v-yiso
-origin.date: 10/18/2019
-ms.date: 11/04/2019
+origin.date: 11/21/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 4955784c9ce094ad8d003fb0d9b15a02979aec30
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 44c19b19950dd2d1016505cef51933441813e126
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914467"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884670"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>有关 Azure Resource Graph 中受限请求的指南
 
@@ -220,11 +220,11 @@ async Task ExecuteQueries(IEnumerable<string> queries)
   使用 Azure CLI 或 Azure PowerShell 时，对 Azure Resource Graph 的查询将自动分页，以最多提取 5000 个条目。 查询结果将返回所有分页调用中的条目的组合列表。 在这种情况下，根据查询结果中的条目数，单个分页查询可能会消耗多个查询配额。 例如，在以下示例中，运行一次查询最多可能会消耗五个查询配额：
 
   ```azurecli
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>仍然受到限制？
@@ -242,4 +242,4 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 
 - 在[初学者查询](../samples/starter.md)中了解使用的语言。
 - 在[高级查询](../samples/advanced.md)中了解高级用法。
-- 了解如何[浏览资源](explore-resources.md)。
+- 详细了解如何[浏览资源](explore-resources.md)。

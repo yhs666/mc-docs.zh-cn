@@ -4,8 +4,8 @@ description: 了解如何向使用 Azure 通知中心的 Swift iOS 应用推送�
 services: notification-hubs
 documentationcenter: ios
 author: mikeparker104
-manager: patniko
-editor: spelluru
+manager: femila
+editor: jwargo
 ms.assetid: 4e3772cf-20db-4b9f-bb74-886adfaaa65d
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 05/21/2019
-ms.date: 10/08/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: eb0c7a1c3f4e464d3c60ea3f1f3b1d05822d05b3
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 05/21/2019
+ms.openlocfilehash: 71b4b126987ccfc0baaeab96f3235e7dbbac6bb5
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272633"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884954"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>教程：向使用通知中心 REST API 的 Swift iOS 应用推送通知
 
@@ -312,11 +314,11 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. 更新目标的“生成设置”以引用桥接标头： 
 
-   1. 打开“生成设置”选项卡并向下滚动到“Swift 编译器”部分。 ****   ****  
+   1. 打开“生成设置”  选项卡，并向下滚动到“Swift 编译器”  部分。
 
-   1. 确保“安装 Objective-C 兼容性标头”选项设置为“是”。 ****   ****
+   1. 确保“安装 Objective-C 兼容性标头”选项设置为“是”。  
 
-   1. 在“Objective-C 桥接标头”选项中输入文件路径 `'<ProjectName>/BridgingHeader.h'`。    这是桥接标头的文件路径。
+   1. 在“Objective-C 桥接标头”选项中输入文件路径 `'<ProjectName>/BridgingHeader.h'`。  这是桥接标头的文件路径。
 
    如果找不到这些选项，请确保已选择“所有”视图（而不是“基本”或“自定义”）。   
 
@@ -645,7 +647,7 @@ class NotificationRegistrationService {
 
 ### <a name="send-a-test-notification-mail-carrier"></a>发送测试通知（邮件运营商）
 
-也可以在 **Postman** 中通过相应的 [REST API](https://docs.microsoft.com/rest/api/notificationhubs/) 发送通知，这可能是更方便的测试方法。 
+可以使用 **Postman** 通过 [REST API](https://docs.microsoft.com/rest/api/notificationhubs/) 发送通知，这可能是更方便的测试方式。
 
 1. 在“Postman”中打开一个新的选项卡。 
 

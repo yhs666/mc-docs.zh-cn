@@ -7,17 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-origin.date: 02/19/2019
-ms.date: 10/23/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f7742424cd36908c1d6c9742ecce839482a41110
-ms.sourcegitcommit: 817faf4e8d15ca212a2f802593d92c4952516ef4
+ms.openlocfilehash: 81c606186fe03a973636f3a91e2bf66b1ab195b6
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72847055"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884502"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 中的 OAuth 2.0 授权代码流
 
@@ -116,6 +115,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 |{tenant}| 必须 | Azure AD B2C 租户的名称|
 |{policy}| 必须| 用于获取授权代码的用户流。 无法在此请求中使用不同的用户流。 |
 | client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。|
+| client_secret | 是，在 Web 应用中 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 客户端密码在此流中用于 Web 应用场景，在其中客户端可以安全地存储客户端密码。 对于本机应用（公共客户端）场景，客户端密码不能安全地存储，因此不能在此调用中使用。 如果使用客户端密码，请定期更改。 |
 | grant_type |必须 |授权的类型。 对于授权代码流，授权类型必须为 `authorization_code`。 |
 | scope |建议 |范围的空格分隔列表。 一个范围值，该值向 Azure AD 指示正在请求的两个权限。 使用客户端 ID 作为范围表示，应用需要可对自己的服务或 Web API（由同一客户端 ID 表示）使用的访问令牌。  `offline_access` 范围表示应用需要刷新令牌才能获取对资源的长生存期访问权限。  还可使用 `openid` 范围从 Azure AD B2C 请求 ID 令牌。 |
 | code |必须 |在流的第一个阶段获取的授权代码。 |
@@ -181,7 +181,7 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 |{tenant}| 必须 | Azure AD B2C 租户的名称|
 |{policy} |必须 |用于获取原始刷新令牌的用户流。 无法在此请求中使用不同的用户流。 |
 | client_id |必须 |在 [Azure 门户](https://portal.azure.cn)中分配给应用的应用程序 ID。 |
-| client_secret |必须 |在 [Azure 门户](https://portal.azure.cn)中关联到 client_id 的 client_secret。 |
+| client_secret | 是，在 Web 应用中 | 在 [Azure 门户](https://portal.azure.cn/)中生成的应用程序机密。 客户端密码在此流中用于 Web 应用场景，在其中客户端可以安全地存储客户端密码。 对于本机应用（公共客户端）场景，客户端密码不能安全地存储，因此不能在此调用中使用。 如果使用客户端密码，请定期更改。 |
 | grant_type |必须 |授权的类型。 对于授权代码流的此阶段，授权类型必须为 `refresh_token`。 |
 | scope |建议 |范围的空格分隔列表。 一个范围值，该值向 Azure AD 指示正在请求的两个权限。 使用客户端 ID 作为范围表示，应用需要可对自己的服务或 Web API（由同一客户端 ID 表示）使用的访问令牌。  `offline_access` 范围表示应用需要刷新令牌才能获取对资源的长生存期访问权限。  还可使用 `openid` 范围从 Azure AD B2C 请求 ID 令牌。 |
 | redirect_uri |可选 |在其中收到授权代码的应用程序的重定向 URI。 |
@@ -229,4 +229,4 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 2. [创建应用程序](active-directory-b2c-app-registration.md)，获取应用程序 ID 和重定向 URI。 在应用中包含本机客户端。
 3. [创建用户流](active-directory-b2c-reference-policies.md)以获取用户流名称。
 
-<!-- Update_Description: code update -->
+<!-- Update_Description: wording update -->

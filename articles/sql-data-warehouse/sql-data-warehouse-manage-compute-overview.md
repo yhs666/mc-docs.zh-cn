@@ -1,22 +1,23 @@
 ---
-title: 管理 Azure SQL 数据仓库中的计算资源 | Microsoft Docs
+title: 管理计算资源
 description: 了解 Azure SQL 数据仓库中的性能横向扩展功能。 调整 DWU 可以实现横向扩展，暂停数据仓库可以降低成本。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
-origin.date: 04/17/2018
-ms.date: 10/15/2018
+ms.subservice: manage
+origin.date: 11/12/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: ef793aa2056d76272d8017aa7a18072d7ed9eea6
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c213f8e3bbd3f66f523a3c73fc851024d9af73e0
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52651721"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807626"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>管理 Azure SQL 数据仓库中的计算资源
 了解如何管理 Azure SQL 数据仓库中的计算资源。 可以通过暂停数据仓库来降低成本，或者根据性能需求缩放数据仓库。 
@@ -34,19 +35,23 @@ SQL 数据仓库的体系结构对存储和计算功能进行了分隔，允许�
 下表显示了当数据仓库单位数发生变化时，每个计算节点的分布区数目如何变化。  DWU6000 提供 60 个计算节点，实现的查询性能比 DWU100 高得多。 
 
 | 数据仓库单位数  | 计算节点数 \# | 每个节点的分布区 \# |
-| ---- | ------------------ | ---------------------------- |
-| 100  | 1                  | 60                           |
-| 200  | 2                  | 30                           |
-| 300  | 3                  | 20 个                           |
-| 400  | 4                  | 15                           |
-| 500  | 5                  | 12                           |
-| 600  | 6                  | 10 个                           |
-| 1000 | 10 个                 | 6                            |
-| 1200 | 12                 | 5                            |
-| 1500 | 15                 | 4                            |
-| 2000 | 20 个                 | 3                            |
-| 3000 | 30                 | 2                            |
-| 6000 | 60                 | 1                            |
+| -------- | ---------------- | -------------------------- |
+| DW100c   | 1                | 60                         |
+| DW200c   | 1                | 60                         |
+| DW300c   | 1                | 60                         |
+| DW400c   | 1                | 60                         |
+| DW500c   | 1                | 60                         |
+| DW1000c  | 2                | 30                         |
+| DW1500c  | 3                | 20 个                         |
+| DW2000c  | 4                | 15                         |
+| DW2500c  | 5                | 12                         |
+| DW3000c  | 6                | 10 个                         |
+| DW5000c  | 10 个               | 6                          |
+| DW6000c  | 12               | 5                          |
+| DW7500c  | 15               | 4                          |
+| DW10000c | 20 个               | 3                          |
+| DW15000c | 30               | 2                          |
+| DW30000c | 60               | 1                          |
 
 
 ## <a name="finding-the-right-size-of-data-warehouse-units"></a>找到数据仓库单位的适当大小

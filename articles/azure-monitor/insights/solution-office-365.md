@@ -6,15 +6,15 @@ manager: digimobile
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-origin.date: 07/02/2019
+origin.date: 08/13/2019
 ms.date: 07/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 93eec5279b075a3f4addffdc6f5c703683f6a6e7
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6eafebd4a3a3eb3c83205a8b2c8e510a1968f6cb
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528391"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839016"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure 中的 Office 365 管理解决方案（预览版）
 
@@ -104,7 +104,7 @@ ms.locfileid: "74528391"
     ![密钥](media/solution-office-365/secret.png)
  
 1. 键入新密钥的说明和持续时间   。
-1. 单击“添加”，然后复制生成的值   。
+1. 单击“添加”  ，然后保存作为客户端密码生成的**值**，以及之前收集的其余信息。
 
     ![密钥](media/solution-office-365/keys.png)
 
@@ -176,8 +176,6 @@ ms.locfileid: "74528391"
 > 可能会重定向到不存在的页面。 将其视为成功。
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>订阅 Log Analytics 工作区
-
-最后一步是让应用程序订阅 Log Analytics 工作区。 也是使用 PowerShell 脚本执行此操作。
 
 最后一步是让应用程序订阅 Log Analytics 工作区。 也是使用 PowerShell 脚本执行此操作。
 
@@ -439,15 +437,17 @@ At line:12 char:18
     # Create Authentication Context tied to Azure AD Tenant
     $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
     # Acquire token
-    $global:authResultARM = $authContext.AcquireToken($resourceAppIdURIARM, $clientId, $redirectUri, "Auto")
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $platformParameters = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.PlatformParameters" -ArgumentList "Auto"
+    $global:authResultARM = $authContext.AcquireTokenAsync($resourceAppIdURIARM, $clientId, $redirectUri, $platformParameters)
+    $global:authResultARM.Wait()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $authHeader
     }
-
+    
     Function Office-UnSubscribe-Call{
-
+    
     #----------------------------------------------------------------------------------------------------------------------------------------------
-    $authHeader = $global:authResultARM.CreateAuthorizationHeader()
+    $authHeader = $global:authResultARM.Result.CreateAuthorizationHeader()
     $ResourceName = "https://manage.office.com"
     $SubscriptionId   = $Subscription[0].Subscription.Id
     $OfficeAPIUrl = $ARMResource + 'subscriptions/' + $SubscriptionId + '/resourceGroups/' + $ResourceGroupName + '/providers/Microsoft.OperationalInsights/workspaces/' + $WorkspaceName + '/datasources/office365datasources_'  + $SubscriptionId + $OfficeTennantId + '?api-version=2015-11-01-preview'
@@ -485,6 +485,8 @@ At line:12 char:18
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
+系统将提示你输入凭据。 提供 Log Analytics 工作区的凭据。
+
 ## <a name="data-collection"></a>数据收集
 ### <a name="supported-agents"></a>支持的代理
 Office 365 解决方案不会从任何 [Log Analytics 代理](../platform/agent-data-sources.md)中检索数据。  而直接从 Office 365 检索数据。
@@ -520,6 +522,7 @@ Office 365 解决方案不会从任何 [Log Analytics 代理](../platform/agent-
 对于 Office 365 解决方案在 Azure Monitor 中的 Log Analytics 工作区中创建的所有记录，其类型都是 **OfficeActivity**。   OfficeWorkload 属性确定记录所指的 Office 365 服务 - Exchange、AzureActiveDirectory、SharePoint 或 OneDrive  。  RecordType 属性指定操作的类型  。  每种操作类型的属性都不同，详情请见下表。
 
 ### <a name="common-properties"></a>通用属性
+
 以下属性对于所有 Office 365 记录通用。
 
 | 属性 | 说明 |
@@ -537,6 +540,7 @@ Office 365 解决方案不会从任何 [Log Analytics 代理](../platform/agent-
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory Base
+
 以下属性对于所有 Azure Active Directory 记录通用。
 
 | 属性 | 说明 |
@@ -548,6 +552,7 @@ Office 365 解决方案不会从任何 [Log Analytics 代理](../platform/agent-
 
 
 ### <a name="azure-active-directory-account-logon"></a>Azure Active Directory 帐户登录
+
 Active Directory 用户尝试登录时，将创建这些记录。
 
 | 属性 | 说明 |
@@ -561,6 +566,7 @@ Active Directory 用户尝试登录时，将创建这些记录。
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 更改 Azure Active Directory 对象或向其添加内容时，将创建这些记录。
 
 | 属性 | 说明 |
@@ -593,13 +599,14 @@ Active Directory 用户尝试登录时，将创建这些记录。
 
 
 ### <a name="exchange-admin"></a>Exchange 管理员
+
 更改 Exchange 配置时，将创建这些记录。
 
 | 属性 | 说明 |
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
-| ExternalAccess |  指定 cmdlet 是由组织中的用户运行、由 Azure 数据中心人员或数据中心服务帐户运行，还是由委派的管理员运行。 值 False 标识 cmdlet 由组织中的某人运行。 值 True 表示 cmdlet 由数据中心人员、数据中心服务帐户或委派的管理员运行。 |
+| ExternalAccess |  指定 cmdlet 是由组织中的用户运行、由 Microsoft 数据中心人员或数据中心服务帐户运行，还是由委派的管理员运行。 值 False 标识 cmdlet 由组织中的某人运行。 值 True 表示 cmdlet 由数据中心人员、数据中心服务帐户或委派的管理员运行。 |
 | ModifiedObjectResolvedName |  这是由 cmdlet 修改的对象的用户友好名称。 仅在 cmdlet 修改对象时才记录此信息。 |
 | OrganizationName | 租户的名称。 |
 | OriginatingServer | 从中执行 cmdlet 的服务器的名称。 |
@@ -644,6 +651,7 @@ Active Directory 用户尝试登录时，将创建这些记录。
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Exchange 邮箱审核组
+
 更改 Exchange 组或向其添加内容时，将创建这些记录。
 
 | 属性 | 说明 |
@@ -662,6 +670,7 @@ Active Directory 用户尝试登录时，将创建这些记录。
 
 
 ### <a name="sharepoint-base"></a>SharePoint Base
+
 这些属性对于所有 SharePoint 记录通用。
 
 | 属性 | 说明 |
@@ -678,6 +687,7 @@ Active Directory 用户尝试登录时，将创建这些记录。
 
 
 ### <a name="sharepoint-schema"></a>SharePoint 架构
+
 对 SharePoint 进行配置更改时，将创建这些记录。
 
 | 属性 | 说明 |
@@ -690,6 +700,7 @@ Active Directory 用户尝试登录时，将创建这些记录。
 
 
 ### <a name="sharepoint-file-operations"></a>SharePoint 文件操作
+
 响应 SharePoint 中的文件操作时，将创建这些记录。
 
 | 属性 | 说明 |
@@ -720,7 +731,10 @@ Active Directory 用户尝试登录时，将创建这些记录。
 |使用特定关键字搜索|Type=OfficeActivity OfficeWorkload=azureactivedirectory "MyTest"|
 |监视 Exchange 上的外部操作|OfficeActivity &#124; where OfficeWorkload =~ "exchange" and ExternalAccess == true|
 
+
+
 ## <a name="next-steps"></a>后续步骤
+
 * 使用 [Azure Monitor 中的日志查询](../log-query/log-query-overview.md)查看详细的更新数据。
 * [创建警报](../platform/alerts-overview.md)，主动接收重要的 Office 365 活动通知。  
 

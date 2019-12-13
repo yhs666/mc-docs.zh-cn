@@ -1,22 +1,23 @@
 ---
-title: 使用 Azure SQL 数据仓库中的事务 | Microsoft Docs
+title: 使用事务
 description: 有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 origin.date: 03/22/2019
-ms.date: 04/01/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 718962dc6528d8981c577e6710a27a80d3b74125
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9768e0c653295577612cce2e63532ccc295bd375
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58627495"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807611"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>使用 SQL 数据仓库中的事务
 有关在开发解决方案时实现 Azure SQL 数据仓库中的事务的技巧。
@@ -151,8 +152,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber
@@ -176,7 +177,7 @@ SELECT @xact_state AS TransactionState;
 
 所做的一切改变是事务的 ROLLBACK 必须发生于在 CATCH 块中读取错误信息之前。
 
-## <a name="errorline-function"></a>Error_Line() 函数
+## <a name="error_line-function"></a>Error_Line() 函数
 另外值得注意的是，SQL 数据仓库不实现或支持 ERROR_LINE() 函数。 如果代码中包含此函数，需要将它删除才能符合 SQL 数据仓库的要求。 请在代码中使用查询标签，而不是实现等效的功能。 有关详细信息，请参阅 [LABEL](sql-data-warehouse-develop-label.md) 一文。
 
 ## <a name="using-throw-and-raiserror"></a>使用 THROW 和 RAISERROR

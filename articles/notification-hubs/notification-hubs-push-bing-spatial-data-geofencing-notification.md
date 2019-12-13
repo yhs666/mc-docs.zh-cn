@@ -1,12 +1,12 @@
 ---
-title: 使用 Azure 通知中心和必应空间数据发送地域隔离的推送通知 | Microsoft Docs
+title: 使用 Azure 通知中心和必应空间数据发送推送通知 | Azure
 description: 本教程介绍如何使用 Azure 通知中心和必应空间数据来传送基于位置的推送通知。
 services: notification-hubs
 documentationcenter: windows
-keywords: 推送通知,push notification
-author: jwargo
-manager: patniko
-editor: spelluru
+keywords: 推送通知,推送通知
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,16 +15,18 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 01/04/2019
-ms.date: 10/09/2018
+ms.date: 12/09/2018
 ms.author: v-tawe
-ms.openlocfilehash: e060e95ee8f15f9785d7ec596b92670015afeeb9
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 16c11e20acccfbaa7bf401d659c26727ddeb1dbe
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272616"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884990"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教程：使用 Azure 通知中心和必应空间数据推送基于位置的通知
+# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>教程：使用 Azure 通知中心和必应空间数据发送基于位置的推送通知
 
 本教程介绍如何使用 Azure 通知中心和必应空间数据来传送基于位置的推送通知。
 
@@ -38,10 +40,10 @@ ms.locfileid: "72272616"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**。 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-- [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 或更高版本 ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409))。 
-- 最新版本的 [Azure SDK](/downloads/)。 
-- [必应地图开发人员中心帐户](https://www.bingmapsportal.com/)（你可以免费创建一个帐户并将此帐户与 Microsoft 帐户相关联）。 
+* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) 或更高版本 ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409))。
+* 最新版本的 [Azure SDK](https://azure.microsoft.com/downloads/)。
+* [必应地图开发人员中心帐户](https://www.bingmapsportal.com/)（你可以免费创建一个帐户并将此帐户与 Microsoft 帐户相关联）。
 
 ## <a name="set-up-the-data-source"></a>设置数据源
 

@@ -1,12 +1,10 @@
 ---
-title: Azure CLI 脚本示例 - 对传入 VM 的流量进行负载均衡以实现高可用性 | Microsoft Docs
-description: Azure CLI 脚本示例 - 对传入 VM 的流量进行负载均衡以实现高可用性
+title: 到 HA 的 VM 的负载均衡流量 - Azure CLI - Azure 负载均衡器
+description: 通过此示例，开始对传入 VM 的流量进行负载均衡以实现高可用性。
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
+author: asudbring
+manager: KumudD
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -14,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 origin.date: 07/07/2017
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 89d24af74ace05fc731565c74541df85aa457e4f
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: f50e80473e1edb5d43e3d61d04c5683defedf019
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584097"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884068"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>对传入 VM 的流量进行负载均衡以实现高可用性
 

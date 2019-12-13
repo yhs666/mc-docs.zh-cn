@@ -1,29 +1,26 @@
 ---
-title: Azure PowerShell 脚本示例 - 为实现应用程序的高可用性路由流量 | Azure
+title: 为实现应用程序的高可用性路由流量 - Azure PowerShell - 流量管理器
 description: Azure PowerShell 脚本示例 - 为实现应用程序的高可用性路由流量
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: georgewallace
-tags: azure-infrastructure
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 origin.date: 05/16/2017
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5ac7a404d3a69752929437caf15bea4a88fc6c21
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: d29e9307ace4c478914d61f75e65b02ed717ae2c
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584091"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884066"
 ---
-# <a name="route-traffic-for-high-availability-of-applications"></a>为实现应用程序的高可用性路由流量
+# <a name="route-traffic-for-high-availability-of-applications---azure-powershell"></a>为实现应用程序的高可用性路由流量 - Azure PowerShell
 
 此脚本将创建一个资源组、两个应用服务计划、两个 Web 应用、一个流量管理器配置文件和两个流量管理器终结点。 流量管理器将流量引导到一个区域（作为主要区域）中的应用程序；主要区域中的应用程序不可用时，引导到次要区域。 执行脚本前，必须将 MyWebApp、MyWebAppL1 和 MyWebAppL2 值更改为 Azure 内的唯一值。 运行脚本后，可以使用 URL mywebapp.trafficmanager.net 访问主要区域中的应用。
 

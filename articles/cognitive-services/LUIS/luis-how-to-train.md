@@ -9,22 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/09/2019
-ms.date: 09/23/2019
+origin.date: 11/15/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cb4b688af8e7d64fc252d2f5b634627109aa4b74
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 2fc9b551bc21726e9c0448b64793820460b5f985
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329903"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884604"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>训练 LUIS 应用的有效版本 
 
 训练是向语言理解 (LUIS) 应用进行教学以提高其自然语言理解能力的过程。 对模型进行更新（例如添加、编辑、标记或删除实体、意向或陈述）后，请对 LUIS 应用进行训练。 
-
-<!--
-When you train a LUIS app by example, LUIS generalizes from the examples you have labeled, and it learns to recognize the relevant intents and entities. This teaches LUIS to improve classification accuracy in the future. -->
 
 对应用进行训练和[测试](luis-concept-test.md)是一个迭代过程。 训练 LUIS 应用后，采用示例陈述来对应用进行测试，查看是否能准确地识别意向和实体。 如果未能准确识别，请对 LUIS 应用进行更新和训练，然后再次测试。 
 
@@ -36,14 +33,9 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 1. 在“我的应用”页面上选择应用名称以访问应用  。 
 
-2. 在应用中，在顶部的面板中选择“训练”。  
+1. 在应用中，在顶部的面板中选择“训练”。  
 
-3. 训练完成后，浏览器顶部会显示一个绿色的通知栏。
-
-<!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
-
->[!NOTE]
->如果应用中有一个或多个意向未包含陈述示例，则无法训练应用。 请为所有意向添加陈述。 有关详细信息，请参阅[添加陈述示例](luis-how-to-add-example-utterances.md)。
+1. 训练完成后，浏览器顶部会显示一条通知。
 
 ## <a name="training-date-and-time"></a>训练日期和时间
 
@@ -51,7 +43,11 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 ## <a name="train-with-all-data"></a>使用所有数据进行训练
 
-训练使用一小部分负采样。 如果要使用所有数据而不是少量负采样，请使用[版本设置 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 并将 `UseAllTrainingData` 设置为 true 以关闭该功能。 
+训练使用一小部分负采样。 如果要使用所有数据而不是一小部分负采样，请使用 [API](#version-settings-api-use-of-usealltrainingdata)。
+
+### <a name="version-settings-api-use-of-usealltrainingdata"></a>使用 UseAllTrainingData 的版本设置 API
+
+使用[版本设置 API](https://{region}.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 并将 `UseAllTrainingData` 设置为 true 可关闭此功能。 
 
 ## <a name="unnecessary-training"></a>不必要的训练
 
@@ -65,9 +61,4 @@ When you train a LUIS app by example, LUIS generalizes from the examples you hav
 
 ## <a name="next-steps"></a>后续步骤
 
-* [使用 LUIS 标记建议的陈述](luis-how-to-review-endpoint-utterances.md) 
-* [使用相关功能来改进 LUIS 应用的性能](luis-how-to-add-features.md) 
-
-
-
-
+* [批处理测试](luis-how-to-batch-test.md)

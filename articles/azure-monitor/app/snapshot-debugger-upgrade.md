@@ -10,16 +10,16 @@ origin.date: 03/28/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.reviewer: mbullwin
-ms.openlocfilehash: 02fa309a6eca02a1cd25acc3795c3a93adc7db9f
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: c448dd7f3a3f8977655ba936814859ba85dbd941
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528355"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838596"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>升级 Snapshot Debugger
 
-为了尽可能确保数据安全，Azure 正在停用 TLS 1.0 和 TLS 1.1，这两个版本容易受到攻击。 如果使用旧版的站点扩展，则需要先升级，然后才能继续使用。 本文档概述了将 Snapshot Debugger 升级到最新版本所需执行的步骤。 可以使用两种主要的升级路径，具体取决于你是使用站点扩展启用了 Snapshot Debugger，还是使用了已添加到应用程序的 SDK/Nuget。 下面讨论这两种升级路径。 
+为了尽可能确保数据安全，Microsoft 正在停用 TLS 1.0 和 TLS 1.1，这两个版本已证明容易受到确定的攻击者的攻击。 如果使用旧版的站点扩展，则需要先升级，然后才能继续使用。 本文档概述了将 Snapshot Debugger 升级到最新版本所需执行的步骤。 可以使用两种主要的升级路径，具体取决于你是使用站点扩展启用了 Snapshot Debugger，还是使用了已添加到应用程序的 SDK/Nuget。 下面讨论这两种升级路径。 
 
 ## <a name="upgrading-the-site-extension"></a>升级站点扩展
 

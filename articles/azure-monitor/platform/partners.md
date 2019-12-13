@@ -5,16 +5,15 @@ author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-origin.date: 05/20/2019
-ms.date: 03/14/2019
+origin.date: 03/14/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.subservice: ''
-ms.openlocfilehash: 5ac9fa375e9986e57bc8222dfc27479fed96c47b
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: cb28495711ec384013de01dea34c1c6c72cb8b3d
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528428"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839029"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure 监视器合作伙伴集成
 
@@ -63,9 +62,9 @@ Circonus 是一个微服务监视和分析平台，专为本地或 SaaS 部署�
 ![CloudHealth 徽标](./media/partners/cloudhealth.png)
 
 
-借助专为省时省钱而构建的平台整合云并实现云的自动化。 CloudHealth 提供适用于云管理的可视性、直观的优化和可靠的管理做法。 企业和 MSP 可以通过 Cloudhealth 平台最大化云投资回报。 围绕成本、使用情况、性能和安全性进行自信的决策。
+借助专为省时省钱而构建的平台整合云并实现云的自动化。 CloudHealth 提供适用于云管理的可视性、直观的优化和可靠的管理做法。 企业和 MSP 可以通过 CloudHealth 平台最大化云投资回报。 围绕成本、使用情况、性能和安全性进行自信的决策。
 
-[了解详细信息。][cloudhealth-doc]
+[了解详细信息][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 

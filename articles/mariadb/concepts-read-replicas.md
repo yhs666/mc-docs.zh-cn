@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mariadb
 ms.topic: conceptual
-origin.date: 09/06/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: e1e6fe68011447ea35e5c2b8ee90ea30bb6cf30f
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+origin.date: 11/17/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: ceccfd4cb328a2915af566bd9391e96ab0059055
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191580"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839044"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB 中的只读副本
 
@@ -40,6 +40,7 @@ ms.locfileid: "73191580"
 > 跨区域复制处于预览状态。
 
 可以在任何 [Azure Database for MariaDB 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=mysql)中设置主服务器。  主服务器可以在其配对区域中有一个副本。
+
 ### <a name="paired-regions"></a>配对区域
 如果你使用跨区域副本进行灾难恢复规划，建议你在配对区域而不是其他某个区域中创建副本。 配对区域可避免同时更新，并优先考虑物理隔离和数据驻留。  
 
@@ -57,7 +58,7 @@ ms.locfileid: "73191580"
 
 ## <a name="connect-to-a-replica"></a>连接到副本
 
-创建副本时，该副本不会继承主服务器的防火墙规则或 VNet 服务终结点。 必须单独为副本设置这些规则。
+创建时，副本会继承主服务器的防火墙规则或 VNet 服务终结点。 之后，这些规则将独立于主服务器。
 
 副本从主服务器继承其管理员帐户。 主服务器上的所有用户帐户将复制到只读副本。 只能使用主服务器上可用的用户帐户连接到只读副本。
 
@@ -109,6 +110,8 @@ Azure Database for MariaDB 在 Azure Monitor 中提供“复制滞后时间(秒)
 
 > [!IMPORTANT]
 > 将主服务器的配置更新为新值之前，请将副本配置更新为与这些新值相等或更大的值。 此操作可确保副本与主服务器发生的任何更改保持同步。
+
+创建副本服务器时，防火墙规则、虚拟网络规则和参数设置会从主服务器继承到副本服务器。 之后，副本服务器的规则将独立。
 
 ### <a name="stopped-replicas"></a>停止的副本
 

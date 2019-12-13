@@ -4,16 +4,17 @@ description: 创建池和节点时要检查的错误以及如何避免错误
 services: batch
 author: lingliw
 manager: digimobile
+ms.service: batch
 ms.author: markscu
 origin.date: 08/23/2019
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 43acf1db8c1962b38e81181e8042b0eda6ef050e
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9f32500ad1c164f9e43a76d8da599b916e53e452
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528334"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838998"
 ---
 # <a name="check-for-pool-and-node-errors"></a>检查池和节点错误
 

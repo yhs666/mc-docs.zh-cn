@@ -1,24 +1,19 @@
 ---
 title: 使用 Azure Application Insights 进行 Java Web 应用分析 | Azure Docs
 description: '使用 Application Insights 监视 Java Web 应用的应用程序性能。 '
-services: application-insights
-documentationcenter: java
-author: lingliw
-manager: digimobile
-ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/24/2019
 ms.date: 11/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ddceab9fe2809178ac8d9041a6c6ae024ad2fe54
-ms.sourcegitcommit: 5168a1c67a105c866cc467050e2efc7d6cce7d27
+ms.openlocfilehash: b1e7a22a4aa456e057d12d3c276337045deb7a98
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73463399"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838940"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java Web 项目中的 Application Insights 入门
 
@@ -31,7 +26,7 @@ Application Insights 支持 Linux、Unix 或 Windows 上运行的 Java 应用。
 
 需要：
 
-* JRE 版本 1.7 或 1.8
+* Java 7 或更高版本
 * 订阅[世纪互联 Azure](https://www.azure.cn/)。
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1.获取 Application Insights 检测密钥
@@ -118,10 +113,7 @@ Application Insights 支持 Linux、Unix 或 Windows 上运行的 Java 应用。
       <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
       <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
    </TelemetryInitializers>
-   <!--Add the following Channel value to modify the Endpoint address-->
-   <Channel type="com.microsoft.applicationinsights.channel.concrete.inprocess.InProcessTelemetryChannel">
-   <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
-   </Channel>
+
 </ApplicationInsights>
 ```
 

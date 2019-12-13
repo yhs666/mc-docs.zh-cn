@@ -1,22 +1,21 @@
 ---
-title: 使用 Azure 基于角色的访问控制管理备份
+title: 使用基于角色的访问控制管理备份
 description: 使用基于角色的访问控制来管理对恢复服务保管库中的备份管理操作的访问。
 ms.reviewer: utraghuv
 author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 06/24/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b1eb512bda3842661d500084d3ff41ef25f49473
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: a615fbdd84df71af9ed2e97d726187a9719551f1
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528319"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838887"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>使用基于角色的访问控制管理 Azure 备份恢复点
+
 Azure 基于角色的访问控制 (RBAC) 可用于对 Azure 进行细致的访问管理。 使用 RBAC，可以在团队中对职责进行分配，仅向用户授予执行作业所需的访问权限。
 
 > [!IMPORTANT]

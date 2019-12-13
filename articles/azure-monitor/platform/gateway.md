@@ -9,30 +9,30 @@ ms.topic: conceptual
 origin.date: 10/30/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d70afddd993471578299224ffe5dca4f40c63177
-ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
+ms.openlocfilehash: 99e21a650ed77e5b338e1607178e1bda55129d50
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906415"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838922"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>在 Azure Monitor 中使用 Log Analytics 网关连接无法访问 Internet 的计算机
 
 
 本文介绍当直接连接的计算机或者受 Operations Manager 监视的计算机无法访问 Internet 时，如何使用 Log Analytics 网关来配置与 Azure 自动化和 Azure Monitor 的通信。 
 
-Log Analytics 网关是使用 HTTP CONNECT 命令支持 HTTP 隧道的 HTTP 转发代理。 此网关代表无法直接连接到 Internet 的计算机向 Azure 自动化和 Azure Monitor 中的 Log Analytics 工作区发送数据。 它不缓存来自代理的数据，代理会在这种情况下处理缓存数据，直到通信恢复为止。
+Log Analytics 网关是使用 HTTP CONNECT 命令支持 HTTP 隧道的 HTTP 转发代理。 此网关代表无法直接连接到 Internet 的计算机向 Azure 自动化和 Azure Monitor 中的 Log Analytics 工作区发送数据。 
 
 Log Analytics 网关支持：
 
-* 向其后面的以及配置了 Azure 自动化混合 Runbook 辅助角色的最多四个（相同）Log Analytics 工作区代理发送报告。  
+* 向其后面的每个代理上配置的相同 Log Analytics 工作区报告，这些工作区使用 Azure 自动化混合 Runbook 辅助角色进行配置。  
 * Microsoft Monitoring Agent 在其上直接连接到 Azure Monitor 中的 Log Analytics 工作区的 Windows 计算机。
 * 适用于 Linux 的 Log Analytics 代理在其上直接连接到 Azure Monitor 中的 Log Analytics 工作区的 Linux 计算机。  
 * 与 Log Analytics 集成的 System Center Operations Manager 2012 SP1 UR7、Operations Manager 2012 R2 UR3 或 Operations Manager 2016 或更高版本中的管理组。  
 
 某些 IT 安全策略不允许网络计算机连接到 Internet。 例如，这些未连接的计算机可能是销售点 (POS) 设备或支持 IT 服务的服务器。 若要将这些设备连接到 Azure 自动化或 Log Analytics 工作区以便对其进行管理和监视，可将其配置为直接与 Log Analytics 网关通信。 Log Analytics 网关可以接收配置信息并代表这些设备转发数据。 如果这些计算机上配置了可直接连接到 Log Analytics 工作区的 Log Analytics 代理，则它们将改为与 Log Analytics 网关通信。  
 
-Log Analytics 网关直接将数据从代理传输到服务。 它不会分析传输中的任何数据。
+Log Analytics 网关直接将数据从代理传输到服务。 它不会分析传输中的任何数据，并且当网关与服务失去连接时，网关不会缓存数据。 当网关无法与服务通信时，代理将继续运行，并将收集到的数据排队放到被监视计算机的磁盘上。 恢复连接后，代理将收集到的缓存数据发送到 Azure Monitor。
 
 如果已将 Operations Manager 管理组与 Log Analytics 集成，可将管理服务器配置为连接到 Log Analytics 网关，以根据启用的解决方案接收配置信息并发送收集的数据。  Operations Manager 代理向管理服务器发送一些数据。 例如，代理可能会发送 Operations Manager 警报、配置评估数据、实例空间数据和容量数据。 其他大批量的数据（例如 Internet Information Services (IIS) 日志、性能数据和安全事件）将直接发送到 Log Analytics 网关。 
 
@@ -69,21 +69,6 @@ Log Analytics 网关直接将数据从代理传输到服务。 它不会分析�
 Log Analytics 网关支持以下语言：
 
 - 中文(简体)
-- 中文(繁体)
-- 捷克语
-- 荷兰语
-- 英语
-- 法语
-- 德语
-- 匈牙利语
-- 意大利语
-- 日语
-- 韩语
-- 波兰语
-- 葡萄牙语(巴西)
-- 葡萄牙语(葡萄牙)
-- 俄语
-- 西班牙语(国际)
 
 ### <a name="supported-encryption-protocols"></a>支持的加密协议
 
@@ -148,8 +133,8 @@ Log Analytics 网关仅支持传输层安全性 (TLS) 1.0、1.1 和 1.2。  它�
    ![本地服务的屏幕截图，其中显示 OMS 网关正在运行](./media/gateway/gateway-service.png)
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>使用命令行安装 Log Analytics 网关
-网关的下载文件是一个 Windows Installer 包，它支持通过命令行或其他自动化方法以无提示方式完成安装。 如果你不熟悉 Windows Installer 的标准命令行选项，请参阅[命令行选项](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)。   
-
+网关的下载文件是一个 Windows Installer 包，它支持通过命令行或其他自动化方法以无提示方式完成安装。 如果你不熟悉 Windows Installer 的标准命令行选项，请参阅[命令行选项](https://docs.microsoft.com/windows/desktop/Msi/command-line-options)。
+ 
 下表突出显示了安装程序支持的参数。
 
 |parameters| 注释|
@@ -228,6 +213,7 @@ Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROX
 有关自动化混合 Runbook 辅助角色的信息，请参阅“部署混合 Runbook 辅助角色”。
 
 ### <a name="configure-operations-manager-where-all-agents-use-the-same-proxy-server"></a>配置 Operations Manager，其中的所有代理使用相同的代理服务器
+
 即使设置为空，Operations Manager 代理配置也会自动应用到向 Operations Manager 报告的所有代理。  
 
 若要使用 OMS 网关来支持 Operations Manager，必须满足以下条件：

@@ -1,12 +1,12 @@
 ---
-title: 使用 Azure 通知中心向 Xamarin.iOS 应用推送通知 | Microsoft Docs
+title: 使用 Azure 通知中心向 Xamarin iOS 发送推送通知 | Microsoft Docs
 description: 本教程介绍如何使用 Azure 通知中心将推送通知发送到 Xamarin.iOS 应用程序。
 services: notification-hubs
 keywords: ios 推送通知, 推送消息, 推送通知, 推送消息
 documentationcenter: xamarin
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 4d4dfd42-c5a5-4360-9d70-7812f96924d2
 ms.service: notification-hubs
 ms.workload: mobile
@@ -15,16 +15,18 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
 origin.date: 05/23/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: ce9e5920f1d9aebb923c3b0deb976a77d95d14d2
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 05/23/2019
+ms.openlocfilehash: 4be733fbb5045c00960b1176e9b6080b2dfc8fef
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272610"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884553"
 ---
-# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用推送通知
+# <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 Xamarin.iOS 应用发送推送通知
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -45,11 +47,11 @@ ms.locfileid: "72272610"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/?WT.mc_id=A261C142F)。
-- 最新版本的 [Xcode][Install Xcode]
-- iOS 10（或更高版本）兼容设备
-- [Apple 开发人员计划](https://developer.apple.com/programs/) 成员身份。
-- [Visual Studio for Mac]
+* **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+* 最新版本的 [Xcode][Install Xcode]
+* iOS 10（或更高版本）兼容设备
+* [Apple 开发人员计划](https://developer.apple.com/programs/) 成员身份。
+* [Visual Studio for Mac]
   
   > [!NOTE]
   > 由于 iOS 推送通知配置要求，你必须在物理 iOS 设备（iPhone 或 iPad）而不是在模拟器上部署和测试示例应用程序。

@@ -1,22 +1,22 @@
 ---
 title: 快速入门：适用于 Python 的语言理解 (LUIS) 创作客户端库
 titleSuffix: Azure Cognitive Services
-description: 适用于 Python 的语言理解 (LUIS) 客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。  使用语言理解 (LUIS) 可在用户的自然语言对话文本中应用自定义的机器学习智能，以预测整体含义并提炼出相关的详细信息。
+description: 适用于 Python 的 LUIS 客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。
 services: cognitive-services
 author: lingliw
 manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-origin.date: 08/07/2019
-ms.date: 09/02/2019
+origin.date: 11/22/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e9cf62ce492207c8a508748935b9ba4cd71de5c1
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 8734f06c60755bd32f02605580cdd1938c4b8eff
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416329"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884690"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入门：适用于 Python 的语言理解 (LUIS) 创作客户端库
 
@@ -40,7 +40,46 @@ ms.locfileid: "73416329"
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>获取语言理解 (LUIS) 初学者密钥
 
-获取[创作密钥](luis-how-to-azure-subscription.md)，并为该密钥[创建环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)（名为 `LUIS_AUTHORING_KEY`），以及为密钥所对应的区域创建环境变量 `LUIS_REGION`。
+通过创建 LUIS 创作资源，获取[初学者密钥](luis-how-to-azure-subscription.md#starter-key)。 保留密钥和密钥区域，以便用于下一步。
+
+### <a name="create-an-environment-variable"></a>创建环境变量
+
+使用密钥和密钥区域，创建两个用于身份验证的环境变量：
+
+* `LUIS_AUTHORING_KEY` - 用于验证请求的资源密钥。
+* `LUIS_REGION` - 与密钥关联的区域。 例如，`westus`。
+
+使用操作系统的说明。
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
+setx LUIS_REGION <replace-with-your-luis-region>
+```
+
+添加环境变量后，请重启控制台窗口。
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+添加环境变量后，请从控制台窗口运行 `source ~/.bashrc`，使更改生效。
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+编辑 `.bash_profile`，然后添加环境变量：
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key> 
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+添加环境变量后，请从控制台窗口运行 `source .bash_profile`，使更改生效。
+***
 
 ### <a name="install-the-python-library-for-luis"></a>安装适用于 LUIS 的 Python 库
 
@@ -214,7 +253,7 @@ def add_utterances(app_id, app_version):
     
 ## <a name="train-the-app"></a>训练应用
 
-创建模型后，需要为此模型版本训练 LUIS 应用。 训练后的模型可在[容器](luis-container-howto.md)中使用，或者将其[发布](luis-how-to-publish-app.md)到过渡槽或生产槽。 
+创建模型后，需要为此模型版本训练 LUIS 应用。 已训练模型可在[容器](luis-container-howto.md)中用于过渡槽或生产槽。 
 
 [train.train_version](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) 方法需要应用 ID 和版本 ID。 
 
@@ -260,9 +299,6 @@ python quickstart-file.py
 * [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli#clean-up-resources) 
 
 ## <a name="next-steps"></a>后续步骤
-
-> [!div class="nextstepaction"]
->[生成 LUIS 应用，以确定用户意向](luis-quickstart-intents-only.md)
 
 * [什么是语言理解 (LUIS) API？](what-is-luis.md)
 * [新增功能](whats-new.md)

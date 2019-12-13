@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板语法和表达式
+title: 模板语法和表达式
 description: 介绍 Azure 资源管理器模板的声明性 JSON 语法。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/03/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: dce1825e5b6155bc15bf15440e300669abbf4b04
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: 8c7ccfaf672e6fafc955cbb81b4d015a36d27a76
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156441"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884910"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的语法和表达式
 
@@ -74,5 +71,4 @@ ms.locfileid: "71156441"
 * 有关模板函数的完整列表，请参阅 [Azure Resource Manager 模板函数](resource-group-template-functions.md)。
 * 有关模板文件的详细信息，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 
-<!-- Update_Description: new article about template expression -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

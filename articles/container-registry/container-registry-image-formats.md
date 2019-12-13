@@ -1,20 +1,16 @@
 ---
-title: Azure 容器注册表内容格式
-description: 了解 Azure 容器注册表中支持的内容格式。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 支持的内容格式
+description: 了解 Azure 容器注册表支持的内容格式，其中包括与 Docker 兼容的容器映像、Helm 图表、OCI 映像和 OCI 项目。
 ms.topic: article
 origin.date: 08/30/2019
-ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 06e90138f1d24ad9014517054b433a6db3c0e123
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 12/09/2019
+ms.openlocfilehash: c642d1d04dd326e8d487e3cadf53fcce11a1d26c
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306752"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885024"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure 容器注册表中支持的内容格式
 
@@ -30,7 +26,7 @@ ms.locfileid: "71306752"
 
 ## <a name="oci-images"></a>OCI 映像
 
-Azure 容器注册表支持符合[开放容器计划 (OCI) 映像格式规范](https://github.com/opencontainers/image-spec/blob/master/spec.md)的映像。 打包格式包括[奇点映像格式 (SIF)](https://www.sylabs.io/2018/03/sif-containing-your-containers/)。
+Azure 容器注册表支持符合[开放容器计划 (OCI) 映像格式规范](https://github.com/opencontainers/image-spec/blob/master/spec.md)的映像。 打包格式包括[奇点映像格式 (SIF)](https://github.com/sylabs/sif)。
 
 ## <a name="oci-artifacts"></a>OCI 项目
 

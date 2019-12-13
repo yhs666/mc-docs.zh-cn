@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 oirgin.date: 08/21/2019
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 6b31c1674220ffa15a0fb9f19c0bfeb24e2f70b4
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: a5a5bd4abd0971029149d68a1cdce486cab50545
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174549"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807651"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>从 Azure 媒体编码器迁移到 Media Encoder Standard
 
-本文介绍了从 2019 年 11 月 30 日停用的旧 Azure 媒体编码器 (AME) 媒体处理器迁移到 Media Encoder Standard 媒体处理器的步骤。  
+本文介绍了从 2020 年 3 月 1 日停用的旧 Azure 媒体编码器 (AME) 媒体处理器迁移到 Media Encoder Standard 媒体处理器的步骤。  
 
 使用 AME 对文件进行编码时，客户通常使用了命名预设字符串，如 `H264 Adaptive Bitrate MP4 Set 1080p`。 为了进行迁移，需要更新代码以使用 **Media Encoder Standard** 媒体处理器而不是 AME，以及一个等效的[系统预设](media-services-mes-presets-overview.md)（如 `H264 Multiple Bitrate 1080p`）。 
 
@@ -59,13 +59,13 @@ IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standar
 // In this case " H264 Multiple Bitrate 1080p" preset is used. 
 ITask task = job.Tasks.AddNew("My encoding task", 
     processor, 
-    " H264 Multiple Bitrate 1080p", 
+    "H264 Multiple Bitrate 1080p", 
     TaskOptions.None); 
 ```
 
 ### <a name="advanced-scenarios"></a>高级方案 
 
-如果已使用 AME 的架构为 AME 创建了自己的编码预设，则会有一个[用于 Media Encoder Standard 的等效架构](media-services-mes-schema.md)。  
+如果已使用 AME 的架构为 AME 创建了自己的编码预设，则会有一个[用于 Media Encoder Standard 的等效架构](media-services-mes-schema.md)。 如果你对如何将旧设置映射到新编码器有疑问，请通过 mailto:amshelp@microsoft.com 与我们联系  
 ## <a name="known-differences"></a>已知差异 
 
 与旧的 AME 编码器相比，Media Encoder Standard 更强大、更可靠、性能更好且输出质量更好。 此外： 

@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure 备份服务器为 SQL Server 工作负荷配置 Azure 备份
+title: 使用 Azure 备份服务器备份 SQL Server
 description: 本文介绍使用 Microsoft Azure 备份服务器 (MABS) 备份 SQL Server 数据库的配置步骤。
-ms.reviewer: kasinh
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 03/24/2017
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 57a70b578c997a4aec5af97d5c30631a9d9e1d08
-ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
+ms.openlocfilehash: babe3a04a32af0c411211eb482893ed1994ec749
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74154831"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839056"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>使用 Azure 备份服务器将 SQL Server 备份到 Azure
 
@@ -57,13 +54,13 @@ ms.locfileid: "74154831"
    >
    >
 
-8. 点击“下一步” 
+8. 单击“下一步” 
 
     MABS 会显示可用的总存储空间以及能够使用的磁盘空间。
 
     ![磁盘分配](./media/backup-azure-backup-sql/pg-storage.png)
 
-    默认情况下，MABS 将针对每个数据源（SQL Server 数据库）创建一个用于初始备份副本的卷。 使用此方法时，逻辑磁盘管理器 (LDM) 会限制 MABS 最多只能保护 300 个数据源（SQL Server 数据库）。 若要解决此限制，请选择“**在 DPM 存储池中共置数据**”选项。 如果使用此选项，MABS 会对多个数据源使用单个卷，这可以让 MABS 保护多达 2000 个 SQL 数据库。
+    默认情况下，MABS 针对每个数据源（SQL Server 数据库）创建一个用于初始备份副本的卷。 使用此方法时，逻辑磁盘管理器 (LDM) 会限制 MABS 最多只能保护 300 个数据源（SQL Server 数据库）。 若要解决此限制，请选择“**在 DPM 存储池中共置数据**”选项。 如果使用此选项，MABS 会对多个数据源使用单个卷，这可以让 MABS 保护多达 2000 个 SQL 数据库。
 
     如果选择了“自动增大卷”  选项，MABS 可以随着生产数据的增长考虑增大备份卷。 如果未选择“自动增大卷”  选项，则 MABS 会限制保护组中用于备份数据源的备份存储的大小。
 9. 管理员可以选择手动传输此初始备份（脱离网络），以免网络出现带宽拥塞现象。 管理员还可以配置初始传输发生的时间。 单击“下一步”  。
@@ -104,12 +101,12 @@ ms.locfileid: "74154831"
     * 在星期六中午 12:00 进行的备份 会保留 104 周
     * 在最后一个星期六中午 12:00 进行的备份 会保留 60 个月
     * 在 3 月的最后一个星期六中午 12:00 进行的备份 会保留 10 年
-14. 单击“**下一步**”，选择相应的选项将初始备份副本传输到 Azure。 可以选择“**自动通过网络**”或“**脱机备份**”。
+14. 单击“下一步”  ，选择相应的选项将初始备份副本传输到 Azure。 可以选择“**自动通过网络**”或“**脱机备份**”。
 
     * “**自动通过网络**”会根据为备份选择的计划将备份数据传输到 Azure。
     * “**脱机备份**”的工作原理详见 [Azure 备份中的脱机备份工作流](backup-azure-backup-import-export.md)。
 
-    选择将初始备份副本发送到 Azure 的相关传输机制，然后单击“**下一步**”。
+    选择将初始备份副本发送到 Azure 的相关传输机制，并单击“**下一步**”。
 15. 在“**摘要**”屏幕中查看策略详细信息以后，单击“**创建组**”按钮即可完成工作流的操作。 可以单击“**关闭**”按钮，然后即可在“监视”工作区中监视作业进度。
 
     ![保护组创建进度](./media/backup-azure-backup-sql/pg-summary.png)
@@ -153,7 +150,7 @@ ms.locfileid: "74154831"
 
     ![启动恢复过程](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    完成恢复操作后，还原的数据库在应用程序级别将是一致的。
+    完成恢复操作后，还原的数据库在应用程序级别是一致的。
 
 ### <a name="next-steps"></a>后续步骤
 

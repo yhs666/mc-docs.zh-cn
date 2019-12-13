@@ -1,20 +1,16 @@
 ---
-title: Azure 容器注册表 Webhook 架构参考
-description: Azure 容器注册表的 Webhook 请求 JSON 有效负载参考。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 注册表 Webhook 架构参考
+description: Azure 容器注册表中 Webhook 请求的 JSON 有效负载参考，这些有效负载是在为项目推送或删除事件启用 Webhook 时生成的
 ms.topic: article
 origin.date: 03/05/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8b69c05440d6039b1404f20024ba06cb1d6f89d3
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 2faca075871fd3b14d31736cfd37e2425c15ce49
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134367"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884860"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Azure 容器注册表 Webhook 参考
 
@@ -50,7 +46,8 @@ ms.locfileid: "70134367"
 |[目标](#target)|复杂类型|触发 Webhook 事件的事件目标。|
 |[请求](#request)|复杂类型|生成 Webhook 事件的请求。|
 
-### <a name="target"></a>target
+<a name="target"></a>
+### <a name="target"></a>目标
 
 |元素|类型|说明|
 |------------------|----------|-----------|
@@ -61,6 +58,7 @@ ms.locfileid: "70134367"
 |`repository`|String|存储库名称。|
 |`tag`|String|映像标记名称。|
 
+<a name="request"></a>
 ### <a name="request"></a>request
 
 |元素|类型|说明|

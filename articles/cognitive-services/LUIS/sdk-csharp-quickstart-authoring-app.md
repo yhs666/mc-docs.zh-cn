@@ -1,7 +1,7 @@
 ---
 title: 快速入门：适用于 .NET 的语言理解 (LUIS) 创作客户端库
 titleSuffix: Azure Cognitive Services
-description: 适用于 .NET 的语言理解 (LUIS) 客户端库入门。 请按照以下步骤安装程序包并试用基本任务的示例代码。  使用语言理解 (LUIS) 可在用户的自然语言对话文本中应用自定义的机器学习智能，以预测整体含义并提炼出相关的详细信息。
+description: 从适用于 .NET 的 LUIS 客户端库开始操作。 请按照以下步骤安装程序包并试用基本任务的示例代码。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8d4df7a5e64900e7cbcf7aac49cae5193adc9c15
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 06b3fd9d568df73246d8ceab3fb1908ee96343fa
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329664"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884701"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>快速入门：适用于 .NET 的语言理解 (LUIS) 创作客户端库
 
@@ -40,7 +40,46 @@ ms.locfileid: "71329664"
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>获取语言理解 (LUIS) 初学者密钥
 
-获取[初学者密钥](luis-how-to-azure-subscription.md#starter-key)，并为该密钥[创建 环境变量](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)（名为 `COGNITIVESERVICE_AUTHORING_KEY`）。
+通过创建 LUIS 创作资源，获取[初学者密钥](luis-how-to-azure-subscription.md#starter-key)。 保留密钥和密钥区域，以便用于下一步。
+
+### <a name="create-an-environment-variable"></a>创建环境变量
+
+使用密钥和密钥区域，创建两个用于身份验证的环境变量：
+
+* `COGNITIVESERVICE_AUTHORING_KEY` - 用于验证请求的资源密钥。
+* `COGNITIVESERVICE_REGION` - 与密钥关联的区域。 例如，`westus`。
+
+使用操作系统的说明。
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
+setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
+```
+
+添加环境变量后，请重启控制台窗口。
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+添加环境变量后，请从控制台窗口运行 `source ~/.bashrc`，使更改生效。
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+编辑 `.bash_profile`，然后添加环境变量：
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+添加环境变量后，请从控制台窗口运行 `source .bash_profile`，使更改生效。
+***
 
 ### <a name="create-a-new-c-application"></a>新建 C# 应用程序
 
@@ -48,7 +87,7 @@ ms.locfileid: "71329664"
 
 1. 在控制台窗口（例如 CMD、PowerShell 或 Bash）中，使用 dotnet `new` 命令创建名为 `language-understanding-quickstart` 的新控制台应用。 此命令将创建包含单个源文件的简单“Hello World”C# 项目：`Program.cs`。 
 
-    ```console
+    ```dotnetcli
     dotnet new console -n language-understanding-quickstart
     ```
 
@@ -56,7 +95,7 @@ ms.locfileid: "71329664"
 
 1. 可使用以下代码生成应用程序：
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
@@ -75,7 +114,7 @@ ms.locfileid: "71329664"
 
 在应用程序目录中，使用以下命令安装适用于 .NET 的语言理解 (LUIS) 创作客户端库：
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
@@ -310,7 +349,7 @@ static EntityLabelObject CreateLabel(string utterance, string key, string value)
 
 ## <a name="train-the-app"></a>训练应用
 
-创建模型后，需要为此模型版本训练 LUIS 应用。 训练后的模型可在[容器](luis-container-howto.md)中使用，或者将其[发布](luis-how-to-publish-app.md)到过渡槽或生产槽。 
+创建模型后，需要为此模型版本训练 LUIS 应用。 已训练模型可在[容器](luis-container-howto.md)中用于过渡槽或生产槽。 
 
 [Train.TrainVersionAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions?view=azure-dotnet) 方法需要应用 ID 和版本 ID。 
 
@@ -344,9 +383,9 @@ async static Task Publish_App(LUISAuthoringClient client, ApplicationInfo app)
 
 ## <a name="run-the-application"></a>运行应用程序
 
-从应用程序目录，使用 dotnet `run` 命令运行应用程序。
+从应用程序目录使用 `dotnet run` 命令运行应用程序。
 
-```dotnet
+```dotnetcli
 dotnet run
 ```
 

@@ -1,19 +1,17 @@
 ---
 title: 将 SQL Server 数据库备份到 Azure
-description: 本教程介绍如何将 SQL Server 备份到 Azure， 此外还介绍 SQL Server 的恢复。
+description: 本文介绍如何将 SQL Server 备份到 Azure。 此外还介绍 SQL Server 的恢复。
+ms.topic: conceptual
 author: lingliw
-manager: digimobile
-ms.service: backup
-ms.topic: tutorial
 origin.date: 06/18/2019
 ms.date: 11/14/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d1a86be1f93438c67600f8ae673fa236ad1560ed
-ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
+ms.openlocfilehash: 297e7881f78443af7652a9ef628d68efbf3b462f
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74154829"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838931"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>关于 Azure VM 中的 SQL Server 备份
 
@@ -56,7 +54,7 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 * SQL Server 备份可配置在 Azure 门户或 PowerShell 中  。 我们不支持 CLI。
 * 此解决方案在 Azure 资源管理器 VM 和经典 VM 这两种[部署](/azure-resource-manager/resource-manager-deployment-model)上均受支持。
 * 运行 SQL Server 的 VM 需要建立 Internet 连接才能访问 Azure 公共 IP 地址。
-* 不支持 SQL Server **故障转移群集实例 (FCI)** 和 SQL Server Always on 故障转移群集实例。
+* 不支持 SQL Server **故障转移群集实例 (FCI)** 。
 * 不支持对镜像数据库和数据库快照执行备份和还原操作。
 * 使用多个备份解决方案来备份独立的 SQL Server 实例或 SQL Always On 可用性组可能导致备份失败，请避免执行此操作。
 * 如果通过相同或不同的解决方案单独备份可用性组的两个节点，可能也会导致备份失败。
@@ -64,7 +62,7 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 * 无法保护包含大量文件的数据库。 支持的最大文件数约为 1000  。  
 * 在一个保管库中最多可以备份约 2000 个 SQL Server 数据库  。 如果有大量数据库，可创建多个保管库。
 * 一次最多可配置 50 个数据库的备份；此限制有助于优化备份负载  。
-* 我们支持最高 2 TB 大小的数据库；对于超过此大小的数据库，可能会出现性能问题  。
+* 我们支持最大 2 TB 大小的数据库；对于超过此大小的数据库，可能会出现性能问题  。
 * 若要了解每个服务器可以保护多少个数据库，我们需要考虑带宽、VM 大小、备份频率、数据库大小等因素。[下载](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)资源规划器，它根据 VM 资源和备份策略提供每个服务器可以具有的大致数据库数。
 * 对于可用性组，将基于几个因素从不同节点获取备份。 下面概述了可用性组的备份行为。
 
@@ -94,8 +92,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 --- | ---
 完整 | 主要
 差异 | 主要
-日志 |  辅助
-仅复制完整 |  辅助
+日志 |  次要
+仅复制完整 |  次要
 
 * **备份首选项：次要节点**
 
@@ -103,8 +101,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 --- | ---
 完整 | 主要
 差异 | 主要
-日志 |  辅助
-仅复制完整 |  辅助
+日志 |  次要
+仅复制完整 |  次要
 
 * **无备份首选项**
 
@@ -112,8 +110,8 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 --- | ---
 完整 | 主要
 差异 | 主要
-日志 |  辅助
-仅复制完整 |  辅助
+日志 |  次要
+仅复制完整 |  次要
 
 ## <a name="set-vm-permissions"></a>设置 VM 权限
 
@@ -138,11 +136,11 @@ SQL Server 数据库属于关键工作负荷，要求较低的恢复点目标 (R
 
       ![在“登录名 - 新建”对话框中选择“搜索”](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. 在虚拟机注册和 SQL 发现阶段已创建 Windows 虚拟服务帐户 NT SSERVICE\AzureWLBackupPluginSvc  。 输入“输入要选择的对象名称”中显示的帐户名。  选择“检查名称”以解析名称。  单击“确定”。 
+  4. 在虚拟机注册和 SQL 发现阶段已创建 Windows 虚拟服务帐户 NT SSERVICE\AzureWLBackupPluginSvc  。 输入“输入要选择的对象名称”中显示的帐户名。  选择“检查名称”以解析名称。  单击 **“确定”** 。
 
       ![选择“检查名称”以解析未知的服务名称](./media/backup-azure-sql-database/check-name.png)
 
-  5. 在“服务器角色”中，确保“sysadmin”角色已选中。   单击“确定”。  现在，所需的权限应会存在。
+  5. 在“服务器角色”中，确保“sysadmin”角色已选中。   单击 **“确定”** 。 现在，所需的权限应会存在。
 
       ![确保 sysadmin 服务器角色已选中](./media/backup-azure-sql-database/sysadmin-server-role.png)
 

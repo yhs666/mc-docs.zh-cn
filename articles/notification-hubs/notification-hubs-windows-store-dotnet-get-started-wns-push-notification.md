@@ -3,24 +3,27 @@ title: 使用 Azure 通知中心向通用 Windows 平台应用发送通知 | Azu
 description: 了解如何使用 Azure 通知中心将通知推送到 Windows 通用平台应用程序。
 services: notification-hubs
 documentationcenter: windows
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: cf307cf3-8c58-4628-9c63-8751e6a0ef43
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 12/22/2017
-ms.date: 07/15/2019
-ms.author: v-biyu
-ms.openlocfilehash: ed0e0f44634fbf16b90273c65c7433ad3df83ebd
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.custom: mvc
+origin.date: 03/22/2019
+ms.date: 12/09/2019
+ms.author: v-tawe
+ms.reviewer: jowargo
+ms.lastreviewed: 03/22/2019
+ms.openlocfilehash: ec55cd5be0258f93be77173232f5161edc207951
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272598"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884965"
 ---
 # <a name="tutorial-send-notifications-to-universal-windows-platform-apps-by-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向通用 Windows 平台应用发送通知
 
@@ -41,7 +44,7 @@ ms.locfileid: "72272598"
 
 ## <a name="prerequisites"></a>先决条件
 
-- **Azure 订阅**。 如果没有 Azure 订阅，可在开始前创建一个 [Azure 1 元人民币试用订阅](https://www.azure.cn/pricing/1rmb-trial/)。
+- **Azure 订阅**。 如果没有 Azure 订阅，请在开始前[创建一个试用 Azure 帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 - [Microsoft Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs) 或更高版本。
 - [已安装 UWP 应用开发工具](https://msdn.microsoft.com/windows/uwp/get-started/get-set-up)
 - 有效的 Windows 应用商店帐户
@@ -182,14 +185,15 @@ ms.locfileid: "72272598"
 notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md)
 
 <!-- Images. -->
-[13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
+<!-- [13]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-create-console-app.png
 [14]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-toast.png
-[19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png
+[19]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-reg.png -->
+
 [20]: ./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-windows-universal-app-install-package.png
 
 <!-- URLs. -->
-[Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+<!-- [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [toast catalog]: https://msdn.microsoft.com/library/windows/apps/hh761494.aspx
 [tile catalog]: https://msdn.microsoft.com/library/windows/apps/hh761491.aspx
-[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx
+[badge overview]: https://msdn.microsoft.com/library/windows/apps/hh779719.aspx -->

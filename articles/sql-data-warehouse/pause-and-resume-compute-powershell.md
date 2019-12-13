@@ -1,5 +1,5 @@
 ---
-title: 快速入门：在 Azure SQL 数据仓库中暂停和恢复计算 - PowerShell | Microsoft Docs
+title: '快速入门：暂停和继续计算 - PowerShell '
 description: 使用 PowerShell 暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时恢复计算。
 services: sql-data-warehouse
 author: WenJason
@@ -8,21 +8,22 @@ ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
 origin.date: 03/20/2019
-ms.date: 10/21/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d221679022203a0e90d31714218cd54cff76f3c8
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8f99a3c908e64af81475e8870853cc1cde90c20c
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914444"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807617"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>快速入门：使用 Azure PowerShell 暂停和恢复 Azure SQL 数据仓库中的计算
 
-使用 PowerShell 暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
+使用 Azure PowerShell 暂停 Azure SQL 数据仓库中的计算来节约成本。 在准备好使用数据仓库时[还原计算](sql-data-warehouse-manage-compute-overview.md)。
 
-如果没有 Azure 订阅，请在开始之前创建一个[免费](https://www.azure.cn/pricing/1rmb-trial/)帐户。
+如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用](https://www.azure.cn/pricing/1rmb-trial/)帐户。
 
 ## <a name="before-you-begin"></a>准备阶段
 
@@ -63,25 +64,25 @@ Set-AzContext -SubscriptionName "MySubscription"
     ![服务器名称和资源组](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
 4. 记下将用作数据库名称的数据仓库名称。 同时记下服务器名称和资源组。
-6. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 newserver-20181129.database.chinacloudapi.cn。 删除后缀并使用“newserver-20181129”作为 PowerShell cmdlet 中的服务器名称  。
+6. 如果服务器是 foo.database.chinacloudapi.cn，请在 PowerShell cmdlet 中仅使用第一部分作为服务器名称。 在上图中，完整的服务器名称为 mynewserver-20181129.database.chinacloudapi.cn。 删除后缀并使用“mynewserver-20181129”作为 PowerShell cmdlet 中的服务器名称  。
 
 ## <a name="pause-compute"></a>暂停计算
 
 为了节省成本，可以按需暂停和恢复计算资源。 例如，如果晚上和周末不使用数据库，那么可以在这些时间暂停数据库的使用，然后在白天时恢复使用。 数据库暂停时，不对计算资源进行收费。 但是，仍将收取存储费用。
 
-若要暂停数据库，请使用 [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase) cmdlet。 以下示例暂停名为“newserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据仓库   。 该服务器位于名为 myResourceGroup 的 Azure 资源组中  。
+若要暂停数据库，请使用 [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase) cmdlet。 以下示例暂停名为“mynewserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据仓库   。 该服务器位于名为 myResourceGroup 的 Azure 资源组中  。
 
 
 ```Powershell
 Suspend-AzSqlDatabase -ResourceGroupName "myResourceGroup" `
--ServerName "newserver-20181129" -DatabaseName "mySampleDataWarehouse"
+-ServerName "mynewserver-20181129" -DatabaseName "mySampleDataWarehouse"
 ```
 
 一种变异，下一个示例将数据库检索到 $database 对象中。 然后，它通过管道将该对象传递给 [Suspend-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)。 结果存储在对象 resultDatabase 中。 最后一个命令显示结果。
 
 ```Powershell
 $database = Get-AzSqlDatabase -ResourceGroupName "myResourceGroup" `
--ServerName "newserver-20181129" -DatabaseName "mySampleDataWarehouse"
+-ServerName "mynewserver-20181129" -DatabaseName "mySampleDataWarehouse"
 $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
@@ -89,11 +90,11 @@ $resultDatabase
 
 ## <a name="resume-compute"></a>恢复计算
 
-若要启动数据库，请使用 [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase) cmdlet。 以下示例启动名为“newserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
+若要启动数据库，请使用 [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase) cmdlet。 以下示例启动名为“mynewserver-20181129”的服务器上托管的名为“mySampleDataWarehouse”的数据库。 该服务器位于名为 myResourceGroup 的 Azure 资源组中。
 
 ```Powershell
 Resume-AzSqlDatabase -ResourceGroupName "myResourceGroup" `
--ServerName "newserver-20181129" -DatabaseName "mySampleDataWarehouse"
+-ServerName "mynewserver-20181129" -DatabaseName "mySampleDataWarehouse"
 ```
 
 一种变异，下一个示例将数据库检索到 $database 对象中。 然后，它通过管道将对象传递给 [Resume-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/resume-azsqldatabase)，并将结果存储在 $resultDatabase 中。 最后一个命令显示结果。

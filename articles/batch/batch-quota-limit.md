@@ -11,15 +11,16 @@ ms.service: batch
 ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/13/2019
+origin.date: 08/13/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 81f30ff1f175d8c2b82a52c2ce5118b8ed82a2f1
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: a5a755cab0ac022e3a2f79938318d15f2d6dc5cb
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330366"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838999"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Batch 服务配额和限制
 
@@ -52,7 +53,7 @@ ms.locfileid: "71330366"
 | **[启用了节点间通信的池](batch-mpi.md)中的计算节点**  ||
 | Batch 服务池分配模式 | 100 |
 | Batch 订阅池分配模式 | 80 |
-| **[使用自定义 VM 映像创建的池](batch-custom-images.md)中的计算节点**<sup>1</sup> ||
+| **[使用托管映像资源创建的池](batch-custom-images.md)中的计算节点**<sup>1</sup> ||
 | 专用节点 | 2000 |
 | 低优先级节点 | 1000 |
 
@@ -149,7 +150,7 @@ ms.locfileid: "71330366"
 
 [portal]: https://portal.azure.cn
 [portal_classic_increase]: https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/
-[support_sev]: http://aka.ms/supportseverity
+[support_sev]: https://aka.ms/supportseverity
 
 [account_quotas]: ./media/batch-quota-limit/accountquota_portal.png
 [quota_increase]: ./media/batch-quota-limit/quota-increase.png

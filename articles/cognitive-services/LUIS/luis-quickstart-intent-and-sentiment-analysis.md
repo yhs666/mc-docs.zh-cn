@@ -9,19 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-origin.date: 09/03/2019
-ms.date: 09/25/2019
+origin.date: 10/14/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 11dc45c669a5f24f6b06f2da1bd7ba96ef27744c
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e9a4a3b24f6b771213c58c9e08c14d548e153fe4
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330096"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884540"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>教程：获取话语的情绪
 
 在本教程中，我们将创建一个应用，用于演示如何从话语中确定积极、消极和中性的情绪。 情绪是从整个话语确定的。
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **本教程介绍如何执行下列操作：**
 
@@ -46,7 +48,7 @@ ms.locfileid: "71330096"
 
 情绪分析是一种适用于所有话语的发布设置。 不需要在陈述中查找指示情绪的单词并对其进行标记。 
 
-因为它是发布设置，所以不会在意向或实体页上看到它。 可以在[交互式测试](luis-interactive-test.md#view-sentiment-results)窗格中或在终结点 URL 处进行测试时看到它。 
+因为它是发布设置，所以不会在意向或实体页上看到它。 可以在“交互式测试”窗格中或在终结点 URL 处进行测试时看到它。 
 
 
 ## <a name="create-a-new-app"></a>创建新应用
@@ -170,8 +172,6 @@ ms.locfileid: "71330096"
 
 * 情绪分析由认知服务[文本分析](../Text-Analytics/index.yml)提供。 此功能仅限于文本分析[支持的语言](luis-language-support.md##languages-supported)。
 * [如何训练](luis-how-to-train.md)
-* [如何发布](luis-how-to-publish-app.md)
-* [如何在 LUIS 门户中测试](luis-interactive-test.md)
 
 
 ## <a name="next-steps"></a>后续步骤

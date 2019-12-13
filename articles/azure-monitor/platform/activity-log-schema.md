@@ -1,6 +1,6 @@
 ---
 title: Azure 活动日志事件架构
-description: 了解发送到活动日志中的数据的事件架构
+description: 介绍 Azure 活动日志中每个类别的事件架构。
 author: lingliw
 services: azure-monitor
 ms.service: azure-monitor
@@ -9,12 +9,12 @@ origin.date: 1/16/2019
 ms.date: 04/12/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: b51ae6e3c914c0e733ca31e43318902fb29f9267
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6ddd0c8684d8d0e54a58ee63539b3b709f95e217
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527902"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839013"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 活动日志事件架构
 通过 Azure 活动日志，可以深入了解 Azure 中发生的任何订阅级别事件  。 本文介绍了每种数据类别的事件架构。 数据架构各有不同，具体取决于是在门户、PowerShell、CLI，或直接通过 REST API 读取数据，还是[使用日志配置文件将数据流式传输到存储或事件中心](activity-log-export.md)。 以下示例显示的是通过门户、PowerShell、CLI 和 REST API 获得的架构。 本文末尾提供了这些属性到 [Azure 诊断日志架构](diagnostic-logs-schema.md)的映射。

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/22/2019
 ms.date: 07/22/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fbe604af62b72f7c6d66b3339d5e3063b40cc01b
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 5ec707cd0a7265bceb20ff36c146f8d9b1b0b88b
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730316"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838968"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Azure Monitor 中的容器监视解决方案
 
@@ -32,7 +32,7 @@ ms.locfileid: "73730316"
 - Service Fabric
 - Red Hat OpenShift
 
-若要监视部署到 Kubernetes 环境的工作负荷的性能，而该环境托管在 Azure Kubernetes 服务 (AKS) 上，请参阅[监视 Azure Kubernetes 服务](../../azure-monitor/insights/container-insights-overview.md)。 容器监视解决方案所提供的支持不包括监视该平台。  
+若要监视部署到 Kubernetes 环境的工作负荷的性能，而该环境托管在 Azure Kubernetes 服务 (AKS) 上，请参阅[监视 Azure Kubernetes 服务](../../azure-monitor/insights/container-insights-overview.md)。 容器监视解决方案不支持监视该平台。  
 
 下图显示了 Azure Monitor 中各种容器主机和代理之间的关系。
 
@@ -111,7 +111,6 @@ ms.locfileid: "73730316"
 > [!IMPORTANT]
 > 在容器主机上安装[适用于 Linux 的 Log Analytics 代理](../../azure-monitor/learn/quick-collect-linux-computer.md)**之前**，主机上必须运行 Docker。 如果在安装 Docker 之前已经安装了代理，则需要重新安装适用于 Linux 的 Log Analytics 代理。 有关 Docker 的详细信息，请参阅 [Docker 网站](https://www.docker.com)。
 
-
 ### <a name="install-and-configure-linux-container-hosts"></a>安装和配置 Linux 容器主机
 
 安装 Docker 之后，请使用以下容器主机设置来配置代理以供 Docker 使用。 首先，需要 Log Analytics 工作区 ID 和密钥，可在 Azure 门户中找到它们。 在工作区中，单击“快速启动” > “计算机”，查看工作区 ID和主键     。  将它们复制并粘贴到喜爱的编辑器中。
@@ -180,6 +179,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
     ```
 
 #### <a name="configure-a-log-analytics-agent-for-red-hat-openshift"></a>配置适用于 Red Hat OpenShift 的 Log Analytics 代理
+
 可通过三种方法将 Log Analytics 代理添加到 Red Hat OpenShift，以开始收集容器监视数据。
 
 * 在每个 OpenShift 节点上直接[安装适用于 Linux 的 Log Analytics 代理](../../azure-monitor/learn/quick-collect-linux-computer.md)  
@@ -611,19 +611,19 @@ Log Analytics 将打开，显示有关容器状态的信息。
 
 
 ### <a name="to-query-logs-for-container-data"></a>在日志中查询容器数据的步骤
+
 * 选择一个最近失败的映像，并找到它的错误日志。 首先，通过使用 **ContainerInventory** 搜索查找运行该映像的容器名称。 例如，搜索 `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![搜索 Ubuntu 容器](./media/containers/search-ubuntu.png)
 
   展开结果中的任一行，查看该容器的详细信息。
-
 
 ## <a name="example-log-queries"></a>示例日志查询
 从一或两个示例开始生成查询，并修改它们以适应环境，这通常很有用。 可以首先尝试使用“示例查询”区域，它可以帮助你构建更高级的查询  。
 
 ![容器查询](./media/containers/containers-queries.png)
 
-
 ## <a name="saving-log-queries"></a>保存日志查询
+
 保存查询是 Azure Monitor 中的一项标准功能。 通过保存这些查询，你日后可以方便地使用你觉得有用的查询。
 
 创建一个对你有用的查询后，单击“日志搜索”页面底部的“收藏夹”  将其保存。 稍后可以从“**我的仪表板**”页轻松访问它。

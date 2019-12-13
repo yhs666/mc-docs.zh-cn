@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: v-lingwu
 origin.date: 07/02/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: cac880db8b90b700e354dc061c53fbd6dda4019e
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6db5274bb3783af4bde97af8edf9a4eadf1a82cf
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528419"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838980"
 ---
 # <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>System Center Operations Manager 与用于 VM 的 Azure Monitor 的映射功能的集成
 
@@ -27,14 +27,17 @@ ms.locfileid: "74528419"
 * 对与 Log Analytics 工作区关联的 Azure 订阅具有访问权限的服务主体。 有关详细信息，请参阅[创建服务主体](#create-a-service-principal)。
 
 ## <a name="install-the-service-map-management-pack"></a>安装服务映射管理包
-导入 Microsoft.SystemCenter.ServiceMap 管理捆绑包 (Microsoft.SystemCenter.ServiceMap.mpb) 可以启用 Operations Manager 与服务映射之间的集成。 可以从[下载中心](https://www.microsoft.com/download/details.aspx?id=55763)下载管理捆绑包。 该捆绑包包含以下管理包：
-* Azure Service Map Application Views
-* Azure System Center Service Map Internal
-* Azure System Center Service Map Overrides
-* Azure System Center Service Map
 
-## <a name="configure-the-service-map-integration"></a>配置服务映射集成
-安装服务映射管理包后，“管理”窗格中“Operations Management Suite”的下面会显示新节点“服务映射”。   
+导入 Microsoft.SystemCenter.ServiceMap 管理捆绑包 (Microsoft.SystemCenter.ServiceMap.mpb) 可以启用 Operations Manager 与映射功能之间的集成。 可以从 [Microsoft 下载中心](https://www.microsoft.com/download/details.aspx?id=55763)下载管理捆绑包。 该捆绑包包含以下管理包：
+
+* Microsoft Service Map Application Views
+* Microsoft System Center Service Map Internal
+* Microsoft System Center Service Map Overrides
+* Microsoft System Center Service Map
+
+## <a name="configure-integration"></a>配置集成
+
+安装服务映射管理包后，将在 Operations Manager Operations 控制台的“管理”  窗格中的“Operations Management Suite”  下显示新节点“服务映射”  。
 
 >[!NOTE]
 >Operations Management Suite 是一组服务，其中包括 Log Analytics，后者现在是 [Azure Monitor](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/overview.md) 的一部分。

@@ -1,20 +1,17 @@
 ---
-title: Azure 备份的数据模型
+title: Power BI 数据模型
 description: 本文介绍 Azure 备份报表的 Power BI 数据模型详细信息。
-ms.reviewer: adigan
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/26/2017
-ms.date: 08/08/2018
+ms.date: 08/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 114a4a0abdfe084a590d379fb2133c807a84a1b1
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: bad55179888e10433e5217018ca91414e78fbd7d
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528246"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839055"
 ---
 # <a name="data-model-for-azure-backup-reports"></a>Azure 备份报表的数据模型
 本文介绍用于创建 Azure 备份报表的 Power BI 数据模型。 使用此数据模型，可基于相关字段筛选现有报表，更重要是，还可使用模型中表格和字段创建自己的报表。 

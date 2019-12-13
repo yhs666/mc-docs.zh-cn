@@ -6,14 +6,14 @@ ms.subservice: ''
 ms.topic: conceptual
 author: lingliw
 ms.author: v-lingwu
-origin.date: 11/11/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: 70ab38b7be78b7efbb9396aa9672d3356b1e7191
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+origin.date: 11/18/2019
+ms.date: 12/04/2019
+ms.openlocfilehash: 0d6a75dbf259af366b3a4fdd0ac5545ddb6504c9
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528285"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838967"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>如何为容器启用 Azure Monitor  
 
@@ -41,12 +41,13 @@ ms.locfileid: "74528285"
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-* 默认情况下不收集 Prometheus 指标。 在[配置代理](container-insights-agent-config.md)收集 Prometheus 指标之前，请务必查看 Prometheus [文档](https://prometheus.io/)以了解可以定义的内容。
+* 默认情况下不收集 Prometheus 指标。 将代理配置为收集这些指标之前，请务必阅读 Prometheus [文档](https://prometheus.io/)，以了解可以收集的信息和支持的方法。
+
 ## <a name="supported-configurations"></a>支持的配置
 
 用于容器的 Azure Monitor 正式支持以下内容。
 
-- 环境：本地 Kubernetes、Azure 和 Azure Stack 上的 AKS 引擎。 有关详细信息，请参阅 [Azure Stack 上的 AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
+- 环境：Azure Red Hat OpenShift、本地 Kubernetes，以及 Azure 和 Azure Stack 上的 AKS 引擎。 有关详细信息，请参阅 [Azure Stack 上的 AKS 引擎](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)。
 - Kubernetes 和支持策略的版本与 [AKS 支持](../../aks/supported-kubernetes-versions.md)的版本相同。 
 
 ## <a name="network-firewall-requirements"></a>网络防火墙要求
@@ -89,8 +90,4 @@ ms.locfileid: "74528285"
 
 ## <a name="next-steps"></a>后续步骤
 
-* 启用监视来捕获 AKS 群集节点和 Pod 的运行状况指标后，可在 Azure 门户中找到这些运行状况指标。 要了解如何将 Azure Monitor 用于容器，请参阅[查看 Azure Kubernetes 服务运行状况](container-insights-analyze.md)。
-
-
-
-
+- 启用监视后，可以开始分析 Azure Kubernetes 服务 (AKS)、Azure Stack 或其他环境中托管的 Kubernetes 群集的性能。 若要了解如何使用用于容器的 Azure Monitor，请参阅[查看 Kubernetes 群集性能](container-insights-analyze.md)。

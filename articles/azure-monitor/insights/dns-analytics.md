@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 03/20/2018
 ms.date: 09/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4a986d631069760a4fcc0229c8190386271ec470
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 64a350d0c8aed57f6bc5284dd53e9efe0b39a536
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730317"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838966"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>使用 DNS Analytics 预览解决方案收集有关 DNS 基础结构的见解
 
@@ -135,7 +135,7 @@ DNS 磁贴包括在其中收集数据的 DNS 服务器的数量。 它还包括�
 
 **名称注册请求**。 上面的磁贴显示成功和失败的 DNS 动态更新请求的趋势线。 下面的磁贴列出前 10 个向 DNS 服务器发送 DNS 更新请求失败的客户端（按失败的次数排列）。
 
-![“名称注册请求”边栏选项卡 ](./media/dns-analytics/name-reg-req-blade.png)
+![“名称注册请求”边栏选项卡](./media/dns-analytics/name-reg-req-blade.png)
 
 **示例 DDI Analytics 查询**。 包含直接提取原始分析数据的最常见搜索查询的列表。
 
@@ -172,6 +172,12 @@ DNS 磁贴包括在其中收集数据的 DNS 服务器的数量。 它还包括�
 1. 在“搜索查询”框中，  键入 `DnsInventory`，查看由该解决方案托管的 DNS 服务器中所有与 DNS 清单相关数据。 结果中列出 DNS 服务器的日志数据、DNS 区域和资源记录。
 
     ![DnsInventory 日志搜索](./media/dns-analytics/log-search-dnsinventory.png)
+    
+## <a name="troubleshooting"></a>故障排除
+
+常见故障排除步骤：
+
+1. 缺少 DNS 查找数据 - 要解决此问题，请尝试在门户中重置配置或仅加载一次配置页。 若要重置，只需将设置更改为其他值，然后将其更改回原始值并保存配置。
 
 ## <a name="feedback"></a>反馈
 

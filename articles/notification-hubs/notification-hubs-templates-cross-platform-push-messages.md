@@ -3,9 +3,9 @@ title: 模板
 description: 本主题介绍 Azure 通知中心的模板。
 services: notification-hubs
 documentationcenter: .net
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: a41897bb-5b4b-48b2-bfd5-2e3c65edc37e
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4a7896827dc553c0c819a2d2337db328c4aa7af8
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 437e66f30710d38644b7f31b173106b76befeda5
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272473"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884970"
 ---
 # <a name="templates"></a>模板
 
@@ -53,7 +55,7 @@ ms.locfileid: "72272473"
 </toast>
 ```
 
-可以为 MPNS (Windows Phone) 平台创建类似的有效负载。
+可以为 MPNS (Windows Phone) 和 Baidu (Android) 平台创建类似的有效负载。
 
 此要求会强制应用后端针对每个平台生成不同的负载，并有效地使后端负责应用的表示层部分。 某些考虑因素包括本地化和图形布局（尤其针对 Windows 应用商店应用，其中包含不同磁贴类型的通知）。
 

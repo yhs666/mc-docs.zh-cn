@@ -1,19 +1,17 @@
 ---
-title: 对 Azure 容器注册表中的映像进行标记和版本控制
-description: 有关对 Docker 容器映像进行标记和版本控制的最佳做法
-services: container-registry
+title: 映像标记最佳做法
+description: 将映像推送到 Azure 容器注册表并从 其中拉取映像时对 Docker 容器映像进行标记和版本控制的最佳做法
 author: rockboyfor
-ms.service: container-registry
 ms.topic: article
 origin.date: 07/10/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: be614c5bc4e9b21d18d8f796d6c23be093214be8
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 3bdf5ca84d83ed503f803150ed4b42ccfa407589
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134536"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885019"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>有关对容器映像进行标记和版本控制的建议
 
@@ -64,5 +62,4 @@ ms.locfileid: "70134536"
 
 <!-- LINKS - Internal -->
 
-<!--Update_Description: new articles on container registry image tag version -->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: update meta properties, wording update -->

@@ -1,19 +1,17 @@
 ---
-title: 使用 Azure 备份通过 VM 设置备份 Azure VM
-description: 了解如何使用 Azure 备份服务备份 Azure VM
-author: lingliw
-manager: digimobile
-ms.service: backup
+title: 通过 VM 设置备份 Azure VM
+description: 本文介绍如何使用 Azure 备份服务备份单个 Azure VM 或多个 Azure VM。
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/13/2019
 ms.date: 11/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ef5dffc041e5934f269027d6f798b91e97245e58
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 47ce41e15355f1fbcf9fb05d49cacba29a7f0445
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528271"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838926"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>通过 VM 设置备份 Azure VM
 

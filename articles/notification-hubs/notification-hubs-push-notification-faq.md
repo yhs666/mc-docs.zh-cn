@@ -3,9 +3,9 @@ title: Azure 通知中心：常见问题解答 (FAQ) | Azure
 description: 关于设计/实现有关通知中心的解决方案的常见问题
 services: notification-hubs
 documentationcenter: mobile
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 keywords: 推送通知, 推送通知, iOS 推送通知, android 推送通知, ios 推送, android 推送
 ms.assetid: 7b385713-ef3b-4f01-8b1f-ffe3690bbd40
 ms.service: notification-hubs
@@ -13,15 +13,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-origin.date: 03/11/2019
-ms.date: 10/09/2019
+origin.date: 11/13/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 9459e5aca99731b625104b80fc1c14dadfa5274b
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: cee9647f5456cc95c30b24a7a870613545f172db
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272613"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884986"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>使用 Azure 通知中心推送通知：常见问题
 
@@ -29,9 +31,7 @@ ms.locfileid: "72272613"
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>通知中心的资源结构是怎样的？
 
-Azure 通知中心有两个资源级别：中心和命名空间。 中心是单个推送资源，可以保存一个应用的跨平台推送信息。 命名空间是一个区域中所有中心的集合。
-
-建议的映射将一个命名空间与一个应用相匹配。 在命名空间内，可以创建适用于生产应用的生产中心、适用于测试应用的测试中心，等等。
+Azure 通知中心有两个资源级别：中心和命名空间。 中心是单个推送资源，可以保存一个应用的跨平台推送信息。 命名空间是一个区域中所有中心的集合。 建议的映射将一个命名空间与一个应用相匹配。 在命名空间内，可以创建适用于生产应用的生产中心、适用于测试应用的测试中心，等等。
 
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>通知中心的价格模型有哪些？
 
@@ -53,7 +53,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 对于基本和标准通知中心层，正确配置的应用程序可在 99.9% 的时间发送推送通知或执行注册管理操作。 若要详细了解 SLA，请访问[通知中心 SLA](https://www.azure.cn/support/sla/notification-hubs/) 页。
 
 > [!NOTE]
-> 由于推送通知取决于第三方平台通知系统（例如 Apple APNS），所以这些消息的发送不具有 SLA 保证。 在通知中心将批处理发送到平台通知系统（有 SLA 保证）后，平台通知系统将负责执行推送（无 SLA 保证）。
+> 由于推送通知取决于第三方平台通知系统（例如 Apple Push Notification 服务 (APNs)），因此这些消息的传递没有 SLA 保证。 在通知中心将批处理发送到平台通知系统（有 SLA 保证）后，平台通知系统将负责执行推送（无 SLA 保证）。
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>如何将中心升级或降级到不同层的命名空间？
 
@@ -74,13 +74,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>是否支持短信、电子邮件或 Web 通知？
 
-通知中心主要用于将通知发送到移动应用。 它不提供电子邮件或短信功能。 但是，提供这些功能的第三方平台可与通知中心集成，使用[移动应用]发送原生推送通知。
-
-通知中心也不提供现成的浏览器内推送通知传递服务。 客户可以在支持的服务器端平台上使用 SignalR 实现此功能。 
-
-### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>移动应用与 Azure 通知中心之间的关系如何？它们各自适用于什么场合？
-
-如果有现成的移动应用后端并且只想添加发送推送通知的功能，则可以使用 Azure 通知中心。 如果想要从头开始安装移动应用后端，请考虑使用 Azure 应用服务的移动应用功能。 移动应用会自动预配通知中心，方便从移动应用后端发送推送通知。 移动应用的定价包括通知中心的基本费用。 只需在超出附送的推送套餐时支付费用。 有关费用的详细信息，请转到[应用服务定价]页。
+通知中心将通知发送到运行移动应用的设备。 它不提供电子邮件或短信功能。 通知中心也不提供现成的浏览器内推送通知传递服务。 客户可以在支持的服务器端平台上使用 SignalR 实现此功能。 
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>如果通过通知中心发送推送通知，可以支持多少个设备？
 
@@ -93,7 +87,7 @@ Azure 通知中心有两个资源级别：中心和命名空间。 中心是单�
 Azure 通知中心根据系统中通过的通知数量自动向上扩展，具体取决于所选的层。
 
 > [!NOTE]
-> 整体使用成本可能会根据目前提供的推送通知数量而增加。 请务必留意[通知中心定价]页上概述的层限制。
+> 根据发送的推送通知的数量，总体使用成本可能会增加。 请务必留意[通知中心定价]页上概述的层限制。
 
 我们的客户每天使用通知中心发送数百万条推送通知。 只要使用 Azure 通知中心，就不需要执行任何特别的操作来调整推送通知可及范围。
 
@@ -134,7 +128,7 @@ PNS 对于传递通知不提供任何 SLA 保证。 但是，大多数推送通�
 
 #### <a name="geo-distribution"></a>地理分布
 
-在推送通知方案中，地理分布并非总是关键所在。 用于向设备传递推送通知的各个 PNS（例如 APNS）不会均匀分布。
+在推送通知方案中，地理分布并非总是关键所在。 用于向设备传递推送通知的各个 PNS（例如 APNS）不是均匀分布的。
 
 如果有一个在全球范围内使用的应用程序，可以在全球不同的 Azure 区域使用通知中心服务在命名空间中创建中心。
 
@@ -156,7 +150,7 @@ Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dot
 从发送方到 Azure 通知中心、再到 PNS 的所有连接都使用 HTTPS。
 
 > [!NOTE]
-> Azure 通知中心不会以任何方式记录消息的有效负载。
+> Azure 通知中心不会记录消息的有效负载。
 
 若要发送敏感有效负载，我们建议使用安全推送模式。 发送方将带有消息标识符的 ping 通知传递到设备，其中不包含敏感有效负载。 当设备上的应用收到该有效负载后，可直接调用安全 API 来提取消息详细信息。 有关如何实现此模式的指导，请转到[通知中心安全推送教程]页。
 
@@ -164,7 +158,7 @@ Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dot
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>为灾难恢复提供哪种支持？
 
-我们提供元数据灾难恢复范围（通知中心名称、连接字符串和其他重要信息）。 触发灾难恢复方案后，注册数据是通知中心基础结构中丢失的*唯一片段*。 需要实施某种解决方案，将此数据重新填充到恢复后的新中心。
+我们提供元数据灾难恢复范围（通知中心名称、连接字符串和其他重要信息）。 触发灾难恢复方案后，注册数据是通知中心基础结构中丢失的*唯一片段*。 必须实施某种解决方案，将此数据重新填充到恢复后的新中心：
 
 1. 在另一个数据中心创建辅助通知中心。 我们建议一开始就创建一个辅助通知中心，以便在发生影响管理功能的灾难恢复事件时保护自己。 也可以在发生灾难恢复事件时创建一个辅助通知中心。
 
@@ -181,6 +175,10 @@ Azure 通知中心使用基于[共享访问签名](../storage/common/storage-dot
 如果没有后端，当应用在目标设备上启动时，它们会在辅助通知中心执行新注册。 辅助通知中心最终将拥有所有已注册的活动设备。
 
 在一段时间内，包含未打开的应用的设备将收不到通知。
+
+### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>我的所有数据是否都以加密形式存储？
+
+Azure 通知中心会加密所有静态的客户数据（注册标记除外）。 出于此原因，不应使用标记存储个人数据或机密数据。
 
 ### <a name="is-there-audit-log-capability"></a>是否有审核日志功能？
 
@@ -202,9 +200,8 @@ Azure 通知中心允许在 [Azure 门户]中查看遥测数据。 可以在[通
 - [获取资源的指标和活动日志](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
 - [Azure 监视 REST API 演练](../azure-monitor/platform/rest-api-walkthrough.md)
 
-
 > [!NOTE]
-> 成功的通知仅意味着推送通知已传递到外部 PNS（例如 Apple 的 APNS）。 PNS 负责将通知传递到目标设备。 PNS 通常不会向第三方公开传递指标。  
+> 成功的通知仅意味着推送通知已传递到外部 PNS（例如，iOS 和 macOS 的 APNS）。 PNS 负责将通知传递到目标设备。 PNS 通常不会向第三方公开传递指标。  
 
 [Azure 门户]: https://portal.azure.cn
 [通知中心定价]: https://www.azure.cn/pricing/details/notification-hubs/
@@ -217,9 +214,8 @@ Azure 通知中心允许在 [Azure 门户]中查看遥测数据。 可以在[通
 [通知中心安全模型]: https://msdn.microsoft.com/library/azure/dn495373.aspx
 [通知中心安全推送教程]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [通知中心故障排除]: ./notification-hubs-push-notification-fixer.md
-[Notification Hubs Metrics sample]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/FetchNHTelemetryInExcel
-[注册信息导出/导入]: https://msdn.microsoft.com/library/dn790624.aspx
+[通知中心指标]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[注册信息导出/导入]: https://docs.azure.cn/notification-hubs/export-modify-registrations-bulk
 [Azure 门户]: https://portal.azure.cn
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[移动应用]: https://www.azure.cn/home/features/app-service/mobile-apps/
-[应用服务定价]: https://www.azure.cn/pricing/details/app-service/
+[App Service Pricing]: https://www.azure.cn/pricing/details/app-service/

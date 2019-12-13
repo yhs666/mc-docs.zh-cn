@@ -1,27 +1,24 @@
 ---
-title: 通过 PowerShell 备份和还原 Azure VM 中的 SQL 数据库 - Azure 备份
+title: 通过 PowerShell 备份和还原 Azure VM 中的 SQL 数据库
 description: 使用 Azure 备份与 PowerShell 备份和还原 Azure VM 中的 SQL 数据库。
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Azure 备份; SQL;
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
+origin.date: 12/04/2019
 ms.date: 03/15/2019
-ms.author: dacurwin
+ms.author: v-lingwu
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 82cd0e736d6a592c9c56a921a4ffbd2c72c0454e
-ms.sourcegitcommit: 4227e468f9e35671fe6a938922d58706a884c95b
+ms.openlocfilehash: 94a1d73471e2a02860814cb2c40258d2181baf5d
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74154832"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839025"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>使用 PowerShell 备份和还原 Azure VM 中的 SQL 数据库
 
 本文介绍如何在 Azure PowerShell 中使用 [Azure 备份](backup-overview.md)恢复服务保管库来备份和恢复 Azure VM 中的 SQL 数据库。
 
-本教程介绍了如何完成以下操作：
+本文介绍以下操作：
 
 > [!div class="checklist"]
 >

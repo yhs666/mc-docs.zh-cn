@@ -1,20 +1,17 @@
 ---
-title: 使用 Azure 备份还原已加密 VM 的密钥保管库密钥和机密
+title: 还原已加密 VM 的密钥保管库密钥和机密
 description: 了解如何使用 PowerShell 在 Azure 备份中还原密钥保管库密钥和机密
-ms.reviewer: geg
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 08/28/2017
 ms.date: 08/28/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6f6573a941f7712e4f2338bcfb9fa8cf0d682f75
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: f2ccdc7bf69b6348bb7886e13e8d4fa4d3139f7d
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730362"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838929"
 ---
 # <a name="restore-key-vault-key-and-secret-for-encrypted-vms-using-azure-backup"></a>使用 Azure 备份还原已加密 VM 的密钥保管库密钥和机密
 

@@ -1,20 +1,16 @@
 ---
-title: Azure 容器注册表 - 角色和权限
+title: RBAC 角色和权限
 description: 使用 Azure 基于角色的访问控制 (RBAC) 以及标识和访问管理 (IAM)，提供对 Azure 容器注册表中资源的细粒度访问权限。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
 origin.date: 03/20/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 39d70043e61c3a67f58c5f2348eb15d4c367315c
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 77caac9ba62b409a75803feb31a9d094e4277837
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134457"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885018"
 ---
 <!--Verify successfully-->
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure 容器注册表角色和权限
@@ -25,7 +21,7 @@ Azure 容器注册表服务支持一组 Azure 角色，这些角色提供访问 
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 所有者 | X | X | X | X | X | X |  |  
 | 参与者 | X | X | X |  X | X | X |  |  
-| 读取器 | X |  |  |  |  |  |  |
+| 读取器 | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -83,4 +79,4 @@ Azure 资源管理器访问权限是 Azure 门户和使用 [Azure CLI](https://d
 
 * 了解适用于 Azure 容器注册表的[身份验证选项](container-registry-authentication.md)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties -->

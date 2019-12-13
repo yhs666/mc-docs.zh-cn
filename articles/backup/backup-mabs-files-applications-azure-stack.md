@@ -1,20 +1,17 @@
 ---
-title: 备份 Azure Stack VM 中的文件 - Azure 备份
+title: 在 Azure Stack VM 中备份文件
 description: 使用 Azure 备份将 Azure Stack 文件与应用程序备份和恢复到 Azure Stack 环境。
-services: backup
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 06/05/2018
 ms.date: 08/23/2018
-ms.author: v-junlch
-ms.openlocfilehash: e8fd54abefc931796df34641ccfd08181dccefd6
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.author: v-lingwu
+ms.openlocfilehash: 80fcb63ef98a961868e6e3011c641766f98f82bf
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528329"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838896"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>在 Azure Stack 上备份文件和应用程序
 

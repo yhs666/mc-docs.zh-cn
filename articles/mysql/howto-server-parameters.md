@@ -5,14 +5,14 @@ author: WenJason
 ms.author: v-jay
 ms.service: mysql
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 12/31/2018
-ms.openlocfilehash: 0b850c42d4f02f020e3e74a4d2cdd4c6e1956144
-ms.sourcegitcommit: 5fc46672ae90b6598130069f10efeeb634e9a5af
+origin.date: 11/19/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 924063470bf587139b8aef695b2c754f5bc8a7fe
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/19/2019
-ms.locfileid: "67236596"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839015"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>如何使用 Azure 门户在适用于 MySQL 的 Azure 数据库中配置服务器参数
 
@@ -39,30 +39,23 @@ ms.locfileid: "67236596"
 
 ## <a name="non-configurable-server-parameters"></a>不可配置的服务器参数
 
-InnoDB 缓冲池和最大连接数不可配置，因[定价层](concepts-service-tiers.md)而定。
+InnoDB 缓冲池大小不可配置，并且与[定价层](concepts-service-tiers.md)关联。
 
-|**定价层**| **计算代**|**vCore(s)**|InnoDB 缓冲池 (MB) | 最大连接数 |
-|---|---|---|---|--|
-|基本| 第 4 代| 1| 960| 50|
-|基本| 第 4 代| 2| 2560| 100|
-|基本| 第 5 代| 1| 960| 50|
-|基本| 第 5 代| 2| 2560| 100|
-|常规用途| 第 4 代| 2| 3584| 300|
-|常规用途| 第 4 代| 4| 7680| 625|
-|常规用途| 第 4 代| 8| 15360| 1250|
-|常规用途| 第 4 代| 16| 31232| 2500|
-|常规用途| 第 4 代| 32| 62976| 5000|
-|常规用途| 第 5 代| 2| 3584| 300|
-|常规用途| 第 5 代| 4| 7680| 625|
-|常规用途| 第 5 代| 8| 15360| 1250|
-|常规用途| 第 5 代| 16| 31232| 2500|
-|常规用途| 第 5 代| 32| 62976| 5000|
-|常规用途| 第 5 代| 64| 125952| 10000|
-|内存优化| 第 5 代| 2| 7168| 600|
-|内存优化| 第 5 代| 4| 15360| 1250|
-|内存优化| 第 5 代| 8| 30720| 2500|
-|内存优化| 第 5 代| 16| 62464| 5000|
-|内存优化| 第 5 代| 32| 125952| 10000|
+|**定价层**|**vCore(s)**|**InnoDB 缓冲池 (MB)**|
+|:---|---:|---:|
+|基本| 1| 832|
+|基本| 2| 2560|
+|常规用途| 2| 3584|
+|常规用途| 4| 7680|
+|常规用途| 8| 15360|
+|常规用途| 16| 31232|
+|常规用途| 32| 62976|
+|常规用途| 64| 125952|
+|内存优化| 2| 7168|
+|内存优化| 4| 15360|
+|内存优化| 8| 30720|
+|内存优化| 16| 62464|
+|内存优化| 32| 125952|
 
 以下附加服务器参数不可在系统中配置：
 
@@ -74,6 +67,41 @@ InnoDB 缓冲池和最大连接数不可配置，因[定价层](concepts-service
 |innodb_log_file_size|512MB|
 
 在版本 [5.7](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html) 和 [5.6](https://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html) 中，上表中未列出的其他服务器参数将设置为其 MySQL 现成默认值。
+
+## <a name="working-with-the-time-zone-parameter"></a>使用时区参数
+
+### <a name="populating-the-time-zone-tables"></a>填充时区表
+
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具调用 `az_load_timezone` 存储过程，填充服务器上的时区表。
+
+> [!NOTE]
+> 如果正在运行 MySQL Workbench 中的 `az_load_timezone` 命令，可能需要先使用 `SET SQL_SAFE_UPDATES=0;` 关闭安全更新模式。
+
+```sql
+CALL mysql.az_load_timezone();
+```
+
+要查看可用的时区值，请运行以下命令：
+
+```sql
+SELECT name FROM mysql.time_zone_name;
+```
+
+### <a name="setting-the-global-level-time-zone"></a>设置全局级时区
+
+可以从 Azure 门户中的“服务器参数”  页设置全局级时区。 下面将全局时区值设置为“美国/太平洋”。
+
+![设置时区参数](./media/howto-server-parameters/timezone.png)
+
+### <a name="setting-the-session-level-time-zone"></a>设置会话级时区
+
+可以通过从 MySQL 命令行或 MySQL Workbench 等工具运行 `SET time_zone` 命令来设置会话级时区。 以下示例将时区设置为“美国/太平洋”  时区。
+
+```sql
+SET time_zone = 'US/Pacific';
+```
+
+若要了解[日期和时间函数](https://dev.mysql.com/doc/refman/5.7/en/date-and-time-functions.html#function_convert-tz)，请参阅 MySQL 文档。
 
 ## <a name="next-steps"></a>后续步骤
 

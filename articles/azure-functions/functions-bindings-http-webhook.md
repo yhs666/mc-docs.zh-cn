@@ -1,22 +1,16 @@
 ---
 title: Azure Functions HTTP 触发器和绑定
 description: 了解如何在 Azure Functions 中使用 HTTP 触发器和绑定。
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure Functions, Functions, 事件处理, webhook, 动态计算, 无服务体系结构, HTTP, API, REST
-ms.service: azure-functions
 ms.topic: reference
-origin.date: 11/21/2017
-ms.date: 11/18/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: 8e38c32610fc97fff7b16a571e891265c02a7a9d
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 51084f8ec0dcea747547ed0f25112eed97917628
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178968"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884937"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 触发器和绑定
 
@@ -825,7 +819,7 @@ HTTP 请求长度限制为 100 MB（104,857,600 字节），并且 URL 长度限
 |---------|---------|---------| 
 | customHeaders|无|使你可以在 HTTP 响应中设置自定义标头。 前面的示例将 `X-Content-Type-Options` 标头添加到响应中，以避免内容类型探查。 |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|启用时，将为此设置将导致请求处理管道，以定期检查系统性能计数器类似连接/线程/进程/内存/CPU 等，并通过内置的高阈值 (80%)，如果有任何这些计数器请求拒绝与 429“太忙”响应，直至恢复到正常水平的计数器。<br/><sup>\*</sup>消耗计划中的默认值为 `true`。 专用计划中的默认值为 `false`。|
-|hsts|未启用|`isEnabled` 设置为 `true` 时，将强制执行 [.NET Core 的 HTTP 严格传输安全性 (HSTS) 行为](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts)，如 [`HstsOptions` 类](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)中所定义。 上面的示例还将 [`maxAge`](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 属性设置为 10 天。 |
+|hsts|未启用|`isEnabled` 设置为 `true` 时，将强制执行 [.NET Core 的 HTTP 严格传输安全性 (HSTS) 行为](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts)，如 [`HstsOptions` 类](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)中所定义。 上面的示例还将 [`maxAge`](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 属性设置为 10 天。 `hsts` 支持的属性包括： <table><tr><th>属性</th><th>说明</th></tr><tr><td>excludedHosts</td><td>未添加 HSTS 标头的主机名的字符串数组。</td></tr><tr><td>includeSubDomains</td><td>布尔值，指示是否启用了 Strict-Transport-Security 标头的 includeSubDomain 参数。</td></tr><tr><td>maxAge</td><td>定义 Strict-Transport-Security 标头的 max-age 参数的字符串。</td></tr><tr><td>preload</td><td>布尔值，指示是否启用了 Strict-Transport-Security 标头的 preload 参数。</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|并行执行的 http 函数数目上限。 这样，可以控制并发性，从而帮助管理资源利用率。 例如，某个 http 函数可能使用了大量系统资源（内存/CPU/插槽），从而在并发性过高时导致问题。 或者，某个函数向第三方服务发出出站请求，则可能需要限制这些调用的速率。 在这种情况下，应用限制可能有帮助。 <br/><sup>*</sup>消耗计划的默认值为 100。 专用计划的默认值是无限制的 (`-1`)。|
 |maxOutstandingRequests|200<sup>\*</sup>|在任意给定时间搁置的未完成请求数上限。 此限制包括已排队但尚未开始执行的请求，以及正在执行的所有请求。 超出此限制的任何传入请求将被拒绝，并返回 429“太忙”响应。 允许调用方使用基于时间的重试策略，还可帮助控制最大请求延迟。 此设置仅控制脚本宿主执行路径中发生的排队。 其他队列（例如 ASP.NET 请求队列）仍有效，不受此设置的影响。 <br/><sup>\*</sup>\消耗计划的默认值为 200。 专用计划的默认值是无限制的 (`-1`)。|
 |routePrefix|api|应用到所有路由的路由前缀。 使用空字符串可删除默认前缀。 |

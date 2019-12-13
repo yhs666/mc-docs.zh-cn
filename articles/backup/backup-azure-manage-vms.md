@@ -1,25 +1,22 @@
 ---
-title: 使用 Azure 备份服务管理和监视 Azure VM 备份
+title: 管理和监视 Azure VM 备份
 description: 了解如何使用 Azure 备份服务管理和监视 Azure VM 备份。
 ms.reviewer: sogup
 author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 09/18/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 03761a2d8c914d99e8508cdd67057d892b824309
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: ccf7527a3f31776b9a173e8a26878414b17530b6
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730348"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839063"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>使用 Azure 备份服务管理 Azure VM 备份
 
 本文介绍了如何使用 [Azure 备份服务](backup-overview.md)管理 Azure 虚拟机 (VM)。 本文还概述了可以在保管库仪表板上找到的备份信息。
-
 
 在 Azure 门户中，可以使用恢复服务保管库仪表板访问保管库信息，包括：
 

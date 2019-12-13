@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/08/2018
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: f08fc038d03929de29f207e2693e79a5eea80666
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 7122c7a50792d3f41311baad5e33d033a4586feb
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72584031"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884015"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>使用 Azure DNS 和流量管理器进行灾难恢复
 
@@ -61,8 +61,8 @@ DNS 是转移网络流量的最高效机制之一，因为 DNS 通常是全局�
 请务必了解本文为介绍解决方案而广泛使用的一些 DNS 概念：
 - **DNS A 记录** - A 记录是将域指向 IPv4 地址的指针。 
 - **CNAME 或 Canonical 名称** - 此记录类型用于指向其他 DNS 记录。 CNAME 响应不返回 IP 地址，而是返回指向包含 IP 地址的记录的指针。 
-- **加权路由** - 可以选择关联权重和服务终结点，然后根据分配的权重来分配流量。 这种路由方法是流量管理器提供的四种流量路由机制之一。 有关详细信息，请参阅[加权路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
-- **优先级路由** - 优先级路由以终结点的运行状况检查为依据。 默认情况下，Azure 流量管理器将所有流量都发送到优先级最高的终结点。在发生故障或灾难后，流量管理器将流量路由到辅助终结点。 有关详细信息，请参阅[优先级路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority)。
+- **加权路由** - 可以关联权重和服务终结点，然后根据分配的权重来分布流量。 这种路由方法是流量管理器提供的四种流量路由机制之一。 有关详细信息，请参阅[加权路由方法](../traffic-manager/traffic-manager-routing-methods.md#weighted)。
+- **优先级路由** - 优先级路由以终结点的运行状况检查为依据。 默认情况下，Azure 流量管理器将所有流量都发送到优先级最高的终结点。在发生故障或灾难后，流量管理器将流量路由到辅助终结点。 有关详细信息，请参阅[优先级路由方法](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)。
 
 ## <a name="manual-failover-using-azure-dns"></a>使用 Azure DNS 执行手动故障转移
 用于灾难恢复的 Azure DNS 手动故障转移解决方案使用标准的 DNS 机制通过故障转移复原到备份站点。 Azure DNS 手动故障转移解决方案与冷备用或指示灯方法一起使用时效果最佳。 

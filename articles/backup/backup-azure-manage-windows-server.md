@@ -1,20 +1,17 @@
 ---
 title: 管理 Azure 恢复服务保管库和服务器
 description: 本文介绍如何使用恢复服务保管库的“概述”仪表板来监视和管理恢复服务保管库。
-services: backup
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 07/08/2019
 ms.date: 09/08/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7ee8813b2a55a7cd715a593eb7257b741d6cf872
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9d9571cbb6b245df472a2459cc63bfeaaad752c3
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528255"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839064"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>监视和管理恢复服务保管库
 
@@ -157,7 +154,7 @@ ms.locfileid: "74528255"
 
 ## <a name="manage-backup-items"></a>管理备份项
 
-恢复服务保管库保存许多类型的备份数据。 [详细了解](backup-overview.md#what-can-i-back-up)可以备份的内容。 若要管理各种服务器、计算机、数据库和工作负荷，请单击“备份项”磁贴查看保管库的内容。 
+恢复服务保管库保存许多类型的备份数据。 [详细了解](backup-overview.md)可以备份的内容。 若要管理各种服务器、计算机、数据库和工作负荷，请单击“备份项”磁贴查看保管库的内容。 
 
 ![备份项磁贴](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -260,7 +257,6 @@ ms.locfileid: "74528255"
 
 * 与保管库关联的 Cloud LRS 存储使用情况
 * 与保管库关联的 Cloud GRS 存储使用情况
-
 
 ## <a name="troubleshooting-monitoring-issues"></a>排查监视问题
 

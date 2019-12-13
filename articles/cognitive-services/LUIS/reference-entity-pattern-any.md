@@ -11,18 +11,18 @@ ms.topic: reference
 origin.date: 09/29/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1f1b5f31374949e569095516e1ce0d5b5de27f06
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: ad2df11ddbf68f7f28910dbc4c0549c51d844a36
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416330"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884706"
 ---
 # <a name="patternany-entity"></a>Pattern.any 实体 
 
 Patterns.any 是一种长度可变的占位符，仅在模式的模板话语中使用，用于标记实体的起始和结束位置。  
 
-需要在[模式](luis-how-to-model-intent-pattern.md)模板示例而不是意向用户示例中标记 Pattern.any 实体。
+需要在“模式”模板示例而不是意向用户示例中标记 Pattern.any 实体。
 
 **在以下情况下，非常适合使用此实体：**
 

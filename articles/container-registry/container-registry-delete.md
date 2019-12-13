@@ -1,20 +1,16 @@
 ---
-title: 删除 Azure 容器注册表中的映像资源
+title: 删除映像资源
 description: 详细介绍如何通过使用 Azure CLI 命令删除容器映像数据有效管理注册表大小。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
 origin.date: 07/31/2019
-ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 515ee780fdbb018599ef634d58be7f567c1c013f
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 12/09/2019
+ms.openlocfilehash: 3bf55c6ee24468e18391541822b9d5638f24591e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303279"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885027"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>使用 Azure CLI 删除 Azure 容器注册表中的容器映像
 
@@ -282,4 +278,4 @@ if ($enableDelete) {
 [az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
 [az-acr-repository-untag]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-untag
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

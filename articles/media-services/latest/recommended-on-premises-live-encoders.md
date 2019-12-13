@@ -6,16 +6,16 @@ keywords: 编码;编码器;媒体
 author: WenJason
 manager: digimobile
 ms.author: v-jay
-origin.date: 10/10/2019
-ms.date: 11/04/2019
+origin.date: 11/18/2019
+ms.date: 12/09/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: e825b438a864e34d425e0252005dd32332227dad
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+ms.openlocfilehash: 4319d15e9e3fce7066a964dea08f1f8a2228c365
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416287"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807619"
 ---
 # <a name="recommended-live-streaming-encoders"></a>建议的实时传送视频流编码器
 
@@ -50,6 +50,9 @@ ms.locfileid: "73416287"
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) Hero 7 和 Hero 8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>输出分片 MP4 的实时编码器
 
@@ -61,9 +64,11 @@ ms.locfileid: "73416287"
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 和 Hero 4K (UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  如果要以多种语言（例如，一个英语音频轨道和一个西班牙语音频轨道）流式传输直播活动，则可以将 Media Excel 实时编码器配置为将实时源发送到直通直播活动，以实现此目的。
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>配置本地实时编码器设置
 

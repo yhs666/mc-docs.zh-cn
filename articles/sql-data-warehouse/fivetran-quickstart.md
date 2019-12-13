@@ -1,22 +1,23 @@
 ---
-title: Azure SQL 数据仓库 Fivetran 快速入门 | Microsoft Docs
+title: Fivetran 快速入门
 description: 快速开始使用 Fivetran 和 Azure SQL 数据仓库。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: integration
 origin.date: 10/12/2018
-ms.date: 01/14/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.reviewer: craigg
-ms.openlocfilehash: fe46874a83f8120e27949270d499baa5cc5c253c
-ms.sourcegitcommit: 5eff40f2a66e71da3f8966289ab0161b059d0263
+ms.reviewer: igorstan
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 37e046d98c55aed395a74143350b1a8142dc651b
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54192914"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807546"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>快速开始使用 Fivetran 和 SQL 数据仓库
 
@@ -71,7 +72,7 @@ ms.locfileid: "54192914"
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    有关详细信息，请阅读[内存和并发限制](memory-and-concurrency-limits.md)和[资源类](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)。
+    有关详细信息，请阅读[内存和并发限制](memory-concurrency-limits.md)和[资源类](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)。
 
 
 ## <a name="sign-in-to-fivetran"></a>登录到 Fivetran
@@ -81,5 +82,5 @@ ms.locfileid: "54192914"
 * 主机（服务器名称）。
 * 端口。
 * 数据库。
-* 用户（用户名应该为 **fivetran@_server_name_**，其中 *server_name* 是 Azure 主机 URI ***server_name*.database.chinacloudapi.cn** 的一部分）。
+* 用户（用户名应该为 **fivetran\@_server_name_** ，其中 server_name  是 Azure 主机 URI ***server_name*.database.chinacloudapi.cn** 的一部分）。
 * Password。

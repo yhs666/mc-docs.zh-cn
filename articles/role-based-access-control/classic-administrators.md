@@ -11,16 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/01/2019
-ms.date: 10/30/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: b618426813e1530cbd022170ed3a6f7607828362
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: bcf7e5957229b35eaacceec187145a40417d2aa0
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068936"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884885"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 经典订阅管理员
 
@@ -33,7 +32,7 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 > [!TIP]
 > 如果用户需要使用 [Azure 服务管理 PowerShell 模块](https://docs.microsoft.com/powershell/module/servicemanagement/azure)管理 Azure 经典部署，则你只需添加共同管理员。 如果用户只使用 Azure 门户管理经典资源，则无需为该用户添加经典管理员。
 
-1. 以服务管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
+1. 以服务管理员或共同管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 
@@ -53,7 +52,7 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
     ![添加协同管理员的屏幕截图](./media/classic-administrators/add-coadmin.png)
 
-### <a name="adding-a-guest-user-as-a-co-administrator"></a>将来宾用户添加为共同管理员
+## <a name="add-a-guest-user-as-a-co-administrator"></a>将来宾用户添加为共同管理员
 
 与具有“共同管理员”角色的成员用户相比，已分配“共同管理员”角色的来宾用户可能会看到一些差异。 假设出现了下面这种情景：
 
@@ -68,9 +67,11 @@ Microsoft 建议使用基于角色的访问控制 (RBAC) 管理对 Azure 资源�
 
 请注意，[Azure 资源的内置角色](../role-based-access-control/built-in-roles.md)与 [Azure AD 管理员角色](../active-directory/users-groups-roles/directory-assign-admin-roles.md)不同。 内置角色不授予对 Azure AD 的任何访问权限。 有关详细信息，请参阅[了解不同角色](../role-based-access-control/rbac-and-directory-admin-roles.md)。
 
+有关比较成员用户和来宾用户的信息，请参阅 [Azure Active Directory 中的默认用户权限是什么？](../active-directory/fundamentals/users-default-permissions.md)。
+
 ## <a name="remove-a-co-administrator"></a>删除共同管理员
 
-1. 以服务管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
+1. 以服务管理员或共同管理员的身份登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 打开[订阅](https://portal.azure.cn/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)并选择一个订阅。
 

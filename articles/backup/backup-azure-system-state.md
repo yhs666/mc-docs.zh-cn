@@ -2,23 +2,21 @@
 title: 将 Windows 系统状态备份到 Azure
 description: 了解如何将 Windows Server 的系统状态和/或 Windows 计算机备份到 Azure。
 ms.reviewer: saurse
-author: lingliw
-manager: digimobile
-keywords: 如何备份; 备份文件和文件夹
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 05/23/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a53b9e94cb0477db29b57edf963392d4b1936813
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: d143876934fb18e305109d4a1d9b6b07143f6614
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528277"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838942"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>备份资源管理器部署中的 Windows 系统状态
-本文介绍了如何将 Windows Server 系统状态备份到 Azure。 本教程旨在引导完成基本操作。
+
+本文介绍了如何将 Windows Server 系统状态备份到 Azure。 它旨在引导完成基本操作。
 
 如果想要深入了解 Azure 备份，请阅读此 [概述](backup-overview.md)。
 
@@ -31,7 +29,7 @@ ms.locfileid: "74528277"
 1. 若尚未登录 [Azure 门户](https://portal.azure.cn/) ，请使用 Azure 订阅登录。
 2. 在“中心”菜单中单击“所有服务”，然后在资源列表中键入“恢复服务”并单击“恢复服务保管库”    。
 
-    ![创建恢复服务保管库步骤 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
+    ![创建恢复服务保管库步骤 1](./media/backup-azure-system-state/open-rs-vault-list.png)
 
     如果在订阅中有恢复服务保管库，则会列出这些保管库。
 3. 在“恢复服务保管库”菜单中，单击“添加”   。
@@ -65,6 +63,7 @@ ms.locfileid: "74528277"
     一旦在恢复服务保管库列表中看到保管库，即可设置存储冗余。
 
 ### <a name="set-storage-redundancy-for-the-vault"></a>为保管库设置存储冗余
+
 在创建恢复服务保管库时，请确保存储冗余配置为所希望的方式。
 
 1. 从“恢复服务保管库”边栏选项卡中，单击新保管库  。
@@ -88,6 +87,7 @@ ms.locfileid: "74528277"
 创建保管库之后，即可对其进行配置，以便备份 Windows 系统状态。
 
 ## <a name="configure-the-vault"></a>配置保管库
+
 1. 在“恢复服务保管库”边栏选项卡（对应于刚创建的保管库）的“开始”部分单击“备份”，并在“开始使用备份”边栏选项卡上选择“备份目标”。   
 
     ![打开备份目标边栏选项卡](./media/backup-try-azure-backup-in-10-mins/open-backup-settings.png)
@@ -128,7 +128,7 @@ ms.locfileid: "74528277"
 
     ![下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/download-vault-credentials.png)
 
-    保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存”  。 如果意外地单击了“打开”  ，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。   
+    保管库凭据下载到“下载”文件夹。 下载完保管库凭据以后，会显示一个弹出窗口，询问用户是要打开还是要保存凭据。 单击“保存”  。 如果意外地单击了“打开”  ，可以让尝试打开保管库凭据的对话框关闭。 不能打开保管库凭据。 继续下一步。 保管库凭据位于“下载”文件夹中。
 
     ![已下载保管库凭据](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
    > [!NOTE]
@@ -165,6 +165,7 @@ ms.locfileid: "74528277"
 现已安装代理，且已向保管库注册计算机。 接下来可以配置和计划备份。
 
 ## <a name="back-up-windows-server-system-state"></a>备份 Windows Server 系统状态
+
 初始备份包括两个任务：
 
 * 计划备份
@@ -223,9 +224,11 @@ ms.locfileid: "74528277"
   ![IR 完成](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## <a name="questions"></a>有疑问？
+
 如果有疑问，或者希望包含某种功能，请 [给我们反馈](https://aka.ms/azurebackup_feedback)。
 
 ## <a name="next-steps"></a>后续步骤
+
 * 详细了解如何 [备份 Windows 计算机](backup-configure-vault.md)。
 * 至此，你已备份 Windows Server 系统状态，接下来可以[管理保管库和服务器](backup-azure-manage-windows-server.md)了。
 * 如果需要还原备份，请参阅[将文件还原到 Windows 计算机](backup-azure-restore-windows-server.md)一文。

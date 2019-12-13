@@ -1,21 +1,18 @@
 ---
-title: Azure 备份：监视 Azure 备份保护的工作负荷
-description: 使用 Azure 门户监视 Azure 备份工作负荷
-ms.reviewer: pullabhk
-author: lingliw
-manager: digimobile
-keywords: Azure 备份; 警报
-ms.service: backup
+title: 监视 Azure 备份保护的工作负荷
+description: 本文介绍使用 Azure 门户对 Azure 备份工作负荷执行的监视和通知功能。
 ms.topic: conceptual
+author: lingliw
+origin.date: 12/04/2019
 ms.date: 03/05/2019
 ms.author: v-lingwu
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f96adf8b138d3b276be38d37ca9e650b2819ee9b
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6a18a84b80ccb0cb934878d732a855a48fc65f54
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528249"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839058"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>监视 Azure 备份工作负荷
 
@@ -63,7 +60,7 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 
 之所以设计上述异常，是因为我们知道，这些操作的结果（主要是用户触发的操作）会立即显示在门户/PS/CLI 客户端中。 因此，用户会立即了解相关情况，无需向他们发送通知。
 
-### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>此处会显示以下 Azure 备份解决方案中的警报：
+### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>此处会显示以下 Azure 备份解决方案中的警报
 
 - Azure VM 备份
 - Azure 文件备份
@@ -89,6 +86,9 @@ Azure 备份针对 Azure 备份保护的工作负荷提供内置的监视和警�
 一旦引发警报，用户就会收到通知。 Azure 备份通过电子邮件提供内置通知机制。 可以指定在生成警报时接收通知的个人电子邮件地址或通讯组列表。 还可以选择是要接收每个警报的通知，还是将这些警报分组成按小时摘要，然后接收通知。
 
 ![恢复服务保管库内置电子邮件通知](media/backup-azure-monitoring-laworkspace/rs-vault-inbuiltnotification.png)
+
+> [!NOTE]
+> SQL 备份的警报将被合并，并且仅在首次出现时发送电子邮件。 但如果警报被用户停用，则下一次出现将触发另一封电子邮件。
 
 配置通知后，你将收到一封欢迎电子邮件或简介电子邮件。 由此可以确认，在引发警报时，Azure 备份可向这些地址发送电子邮件。<br>
 

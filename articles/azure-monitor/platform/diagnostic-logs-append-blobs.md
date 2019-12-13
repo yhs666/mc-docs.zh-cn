@@ -1,6 +1,6 @@
 ---
 title: 为 Azure Monitor 诊断日志的格式更改做准备
-description: 将于 2018 年 11 月 1 日移动 Azure 诊断日志以使用追加 blob。
+description: 介绍其影响以及如何更新工具以处理新的 Azure 诊断日志，这些诊断日志已于 2018 年 11 月 1 日更改为使用追加 blob。
 author: lingliw
 services: monitoring
 ms.service: azure-monitor
@@ -9,12 +9,12 @@ origin.date: 07/06/2018
 ms.date: 01/21/2019
 ms.author: v-lingwu
 ms.subservice: logs
-ms.openlocfilehash: 3a6a9aa9129f75f06549910fe6493e145cc79fb2
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 3336d8e1c0dbd5beb1050b50fd866e9111f0ef15
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970943"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839034"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>为存档到存储帐户的 Azure Monitor 诊断日志的格式更改做准备
 

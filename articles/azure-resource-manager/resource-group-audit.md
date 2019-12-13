@@ -3,13 +3,13 @@ title: 查看 Azure 活动日志以监视资源
 description: 使用活动日志查看用户操作和错误。 显示 Azure 门户、PowerShell、Azure CLI 和 REST。
 ms.topic: conceptual
 origin.date: 05/13/2019
-ms.date: 11/25/2019
-ms.openlocfilehash: a5fae2889b485cf6a82f8f0afe44038de885969f
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/09/2019
+ms.openlocfilehash: 211b0fff4317ef16e83f8d3c0a88b68c6f687871
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389348"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884879"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>查看活动日志以监视对资源的操作
 
@@ -29,9 +29,11 @@ ms.locfileid: "74389348"
 
 ## <a name="azure-portal"></a>Azure 门户
 
-1. 若要通过门户查看活动日志，请选择“监视”  。
+若要通过门户查看活动日志，请执行以下步骤：
 
-    ![选择“监视”](./media/resource-group-audit/select-monitor.png)
+1. 在 Azure 门户菜单上，选择“监视”或在任何页面中搜索并选择“监视”   。
+
+    ![选择“监视”](./media/resource-group-audit/select-monitor-from-menu.png)
 
 1. 选择“活动日志”  。
 
@@ -65,9 +67,9 @@ ms.locfileid: "74389348"
 
     ![为筛选器命名](./media/resource-group-audit/name-filters.png)
 
-1. 该筛选器将显示在仪表板中。
+1. 该筛选器将显示在仪表板中。 在 Azure 门户菜单上，选择“仪表板”  。
 
-    ![在仪表板上显示筛选器](./media/resource-group-audit/show-dashboard.png)
+    ![在仪表板上显示筛选器](./media/resource-group-audit/activity-log-on-dashboard.png)
 
 <!--MOONCAKE: Not Available on **Change history (Preview)**-->
 
@@ -179,7 +181,9 @@ az monitor activity-log list -g ExampleGroup --offset 1d --query "[?operationNam
 
 * Azure 活动日志可以与 Power BI 一起使用，以便更深入地了解在订阅中执行的操作。 请参阅 [View and analyze Azure Activity Logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/)（在 Power BI 和其他组件中查看和分析 Azure 活动日志）。
 * 若要了解如何设置安全策略，请参阅 [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)。
-* 若要查看有关从基础结构层一直到应用程序部署的应用程序更改的详细信息，请参阅[在 Azure Monitor 中使用应用程序更改分析](../azure-monitor/app/change-analysis.md)。
+    
+    <!--Not Available on * To view more details about the changes to your applications from the infrastructure layer all the way to application deployment, see [Use Application Change Analysis in Azure Monitor](../azure-monitor/app/change-analysis.md)-->
+    
 * 若要了解用于查看部署操作的命令，请参阅[查看部署操作](resource-manager-deployment-operations.md)。
 * 若要了解如何防止对所有用户的资源执行删除操作，请参阅[使用 Azure Resource Manager 锁定资源](resource-group-lock-resources.md)。
 * 若要查看可用于每个 Azure 资源管理器提供程序的操作的列表，请参阅 [Azure 资源管理器资源提供程序操作](../role-based-access-control/resource-provider-operations.md)

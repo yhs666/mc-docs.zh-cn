@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据仓库备份和还原 - 快照，异地冗余 | Microsoft Docs
+title: 备份和还原 - 快照、异地冗余
 description: 了解 Azure SQL 数据仓库中备份和还原的工作方式。 使用数据仓库备份可以将数据仓库还原到主要区域的某个还原点。 使用异地冗余备份可还原到不同的地理区域。
 services: sql-data-warehouse
 author: WenJason
@@ -7,16 +7,16 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 04/30/2019
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 67bcc3e9f198b8934f26e1e170bac0017b93bb50
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.custom: seo-lt-2019"
+ms.openlocfilehash: a5044e1116458b6104021e7ea889ec5e0212dd9e
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131794"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807647"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Azure SQL 数据仓库中的备份和还原
 
@@ -26,13 +26,13 @@ ms.locfileid: "70131794"
 
 数据仓库快照会创建一个还原点，利用该还原点可将数据仓库恢复或复制到以前的状态。   由于 SQL 数据仓库属于分布式系统，因此数据仓库快照包含许多位于 Azure 存储中的文件。 快照捕获数据仓库中存储的数据的增量更改。
 
-数据仓库还原是基于现有数据仓库或已删除数据仓库的还原点创建的新数据仓库。  还原数据仓库是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库还原可以在意外损坏或删除数据后重新创建数据。 此外，数据仓库是出于测试或开发目的创建数据仓库副本的强大机制。  SQL 数据仓库还原速度因数据库大小以及源和目标数据仓库的位置而异。 就同一区域的平均还原速度来说，通常需要大约 20 分钟才能完成还原。 
+数据仓库还原是基于现有数据仓库或已删除数据仓库的还原点创建的新数据仓库。  还原数据仓库是任何业务连续性和灾难恢复策略的基本组成部分，因为数据库还原可以在意外损坏或删除数据后重新创建数据。 此外，数据仓库是出于测试或开发目的创建数据仓库副本的强大机制。  SQL 数据仓库还原速度因数据库大小以及源和目标数据仓库的位置而异。 
 
 ## <a name="automatic-restore-points"></a>自动还原点
 
-快照是创建还原点的服务的内置功能。 无需启用此功能。 目前用户无法删除自动还原点，因为服务使用这些还原点来维持恢复 SLA。
+快照是创建还原点的服务的内置功能。 无需启用此功能。 但是，数据仓库应该处于活动状态，以便创建还原点。 如果数据仓库经常暂停，则可能不会创建自动还原点，因此请确保在暂停数据仓库之前创建用户定义的还原点。 用户目前无法删除自动还原点，因为服务使用这些还原点来维护 SLA 以进行恢复。
 
-SQL 数据仓库为数据仓库创建全天快照，并创建可用 7 天的还原点。 无法更改此保留期。 SQL 数据仓库支持八小时恢复点目标 (RPO)。 可以根据过去七天捕获的任意一个快照，还原主要区域中的数据仓库。
+SQL 数据仓库全天捕获数据仓库的快照，创建可以使用七天的还原点。 无法更改此保留期。 SQL 数据仓库支持八小时恢复点目标 (RPO)。 可以根据过去七天捕获的任意一个快照，还原主要区域中的数据仓库。
 
 若要查看上一个快照的启动时间，可对联机 SQL 数据仓库运行以下查询。
 
@@ -59,7 +59,7 @@ order by run_id desc
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>删除数据仓库时的快照保留期
 
-删除数据仓库时，SQL 数据仓库将创建一个最终快照并保存七天。 可以将数据仓库还原至删除时所创建的最终还原点。
+删除数据仓库时，SQL 数据仓库将创建一个最终快照并保存七天。 可以将数据仓库还原至删除时所创建的最终还原点。 如果在“暂停”状态下删除数据仓库，则不会创建快照。 在这种情况下，请确保在删除数据仓库之前创建用户定义的还原点。
 
 > [!IMPORTANT]
 > 如果删除某个逻辑 SQL Server 实例，则属于该实例的所有数据库也会删除，且无法恢复。 无法还原已删除的服务器。
@@ -84,7 +84,7 @@ Azure 帐单上将列出存储的明细项目，以及灾难恢复存储的明�
 
 每个快照创建一个代表快照开始时间的还原点。 如果要还原数据仓库，请选择一个还原点，并发出还原命令。  
 
-可以保留还原的数据仓库和当前的数据仓库，也可以删除其中一个。 如果希望使用已还原数据仓库替换当前数据仓库，可使用 [ALTER DATABASE（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)的“修改名称”选项对其进行重命名。 
+可以保留还原的数据仓库和当前的数据仓库，也可以删除其中一个。 如果希望使用已还原数据仓库替换当前数据仓库，可使用 [ALTER DATABASE（Azure SQL 数据仓库）](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)的“修改名称”选项对其进行重命名。
 
 若要还原数据仓库，请参阅[使用 Azure 门户还原数据仓库](sql-data-warehouse-restore-database-portal.md)、[使用 PowerShell 还原数据仓库](sql-data-warehouse-restore-database-powershell.md)或[使用 REST API 还原数据仓库](sql-data-warehouse-restore-database-rest-api.md)。
 

@@ -2,14 +2,14 @@
 title: 模板函数
 description: 介绍在 Azure Resource Manager 模板中检索值、处理字符串和数字以及检索部署信息时所用的函数。
 ms.topic: conceptual
-origin.date: 10/24/2019
-ms.date: 11/25/2019
-ms.openlocfilehash: 8fd9196ca3f53e69097fe5540d863f02ab1825cd
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+origin.date: 11/19/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 3fbff1eee2fe8d1b85b4451340712acccbef3343
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389390"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885000"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 模板函数
 
@@ -79,6 +79,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 Resource Manager 提供以下函数，用于从与部署相关的模板和值部分获取值：
 
 * [部署](resource-group-template-functions-deployment.md#deployment)
+* [环境](resource-group-template-functions-deployment.md#environment)
 * [参数](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 

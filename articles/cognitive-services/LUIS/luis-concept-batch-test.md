@@ -9,19 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 09/23/2019
+origin.date: 10/25/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ed49d4e12e610ce9c73f8e473a9fc48a9ee21d3a
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 750fea9c8c5eb11e497673c4d92a27f6ff2f124c
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329936"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884500"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>对 LUIS 门户中的 1000 个话语执行批处理测试
 
-批处理测试验证你的[活动](luis-concept-version.md#active-version)定型模型，以判断其预测准确性。 批处理测试可帮助你查看当前训练的模型中每个意向和实体的准确性，并以图表显示结果。 查看批处理测试结果，以采取适当操作来提升准确性，例如，如果应用经常无法标识正确意向，则向意向添加更多示例表达。
+批处理测试会验证活动训练版本，以判断其预测准确性。 批处理测试可帮助你查看活动版本中每个意向和实体的准确性，并使用图表显示结果。 查看批处理测试结果以采取适当的措施来提高准确性，例如，如果应用经常无法识别正确的意向或在话语中标记实体，则向意向添加更多示例话语。
 
 ## <a name="group-data-for-batch-test"></a>批处理测试的组数据
 
@@ -131,7 +131,7 @@ LUIS 跟踪每个数据集的最后一次测试的状态。 这包括大小（�
 
 ## <a name="fixing-batch-errors"></a>修复批处理错误
 
-如果在批处理测试中出现错误，可以向意向添加更多表达，和/或在实体中标记更多表达，以帮助 LUIS 在意向间进行区分。 如果你已添加了表达，且对其进行了标记，但在批处理测试中仍收到预测错误，请考虑添加[短语列表](luis-concept-feature.md)功能，其中包含特定于域的词汇，以帮助 LUIS 更快地理解。 
+如果在批处理测试中出现错误，可以向意向添加更多表达，和/或在实体中标记更多表达，以帮助 LUIS 在意向间进行区分。
 
 ## <a name="next-steps"></a>后续步骤
 

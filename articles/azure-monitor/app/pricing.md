@@ -6,15 +6,15 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: lingliw
 ms.reviewer: mbullwin
-origin.date: 10/28/2019
-ms.date: 11/04/2019
+origin.date: 11/27/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 88a95a68f3244b575f48f31a7a4f8ef7dd259d19
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 5a6df885d3d66f791077ff29ffe013f11082304f
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528412"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838724"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>管理 Application Insights 的使用情况和成本
 
@@ -70,7 +70,7 @@ Application Insights 费用将添加到 Azure 帐单。 可以在 Azure 门户�
 ### <a name="using-data-volume-metrics"></a>使用数据量指标
 <a id="understanding-ingested-data-volume"></a>
 
-若要了解有关数据量的详细信息，请为 Application Insights 资源选择“指标”  ，添加一个新图表。 对于图表指标，请在**基于日志的指标**下，选择“数据点容量”  。 单击“应用拆分”  ，并按**Telemetryitem 类型**选择组。
+若要了解有关数据量的详细信息，请为 Application Insights 资源选择“指标”  ，添加一个新图表。 对于图表指标，请在**基于日志的指标**下，选择“数据点容量”  。 单击“应用拆分”  ，然后按“`Telemetryitem` 类型”  选择组。
 
 ![使用“指标”查看数据量](./media/pricing/10-billing.png)
 

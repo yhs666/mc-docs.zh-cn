@@ -1,19 +1,17 @@
 ---
-title: Microsoft Azure 恢复服务代理的支持矩阵
+title: MARS 代理的支持矩阵
 description: 本文汇总了备份运行 Microsoft Azure 恢复服务 (MARS) 代理的计算机时的 Azure 备份支持。
 author: lingliw
-manager: digimobile
-ms.service: backup
 origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.author: v-lingwu
-ms.openlocfilehash: 8cec24232a77394dab2e1db439e31b2d8038dbd4
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: c56c9d3be3d33ec6afb3c6220b01e5437feff8fe
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528352"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838880"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>使用 Microsoft Azure 恢复服务 (MARS) 代理进行备份的支持矩阵
 
@@ -22,9 +20,13 @@ ms.locfileid: "74528352"
 ## <a name="the-mars-agent"></a>MARS 代理
 
 Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份到 Azure 中的恢复服务保管库。 MARS 代理可以：
+
 - 在本地 Windows 计算机上运行，使这些计算机能够直接备份到 Azure 中的备份恢复服务保管库。
 - 在 Windows VM 上运行，使这些 VM 能够直接备份到保管库。
 - 在 Microsoft Azure 备份服务器 (MABS) 或 System Center Data Protection Manager (DPM) 服务器上运行。 在此方案中，计算机和工作负荷将备份到 MABS 或 DPM 服务器。 然后，MARS 代理将此服务器备份到 Azure 中的保管库。
+
+> [!NOTE]
+>Azure 备份不支持自动调整夏令时 (DST) 时钟。 修改策略以确保考虑到夏令时，以防止实际时间和计划备份时间之间出现差异。
 
 备份选项取决于该代理的安装位置。 有关详细信息，请参阅[使用 MARS 代理的 Azure 备份体系结构](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)。 有关 MABS 和 DPM 备份体系结构的信息，请参阅[备份到 DPM 或 MABS](backup-architecture.md#architecture-back-up-to-dpmmabs)。 另请参阅备份体系结构的[要求](backup-support-matrix-mabs-dpm.md)。
 
@@ -52,7 +54,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的数据备份�
 
 ## <a name="networking-and-access-support"></a>网络和访问支持
 
-### <a name="url-access"></a>URL 访问
+### <a name="url-and-ip-access"></a>URL 和 IP 访问
 
 MARS 代理需要以下 URL 的访问权限：
 
@@ -82,8 +84,8 @@ Windows 8（Enterprise、Pro） | 是 | 否 | 检查软件/模块要求的相应
 Windows 7（Ultimate、Enterprise、Pro、Home Premium/Basic、Starter） | 是 | 否 | 检查软件/模块要求的相应服务器版本
 Windows Server 2016（Standard、Datacenter、Essentials） | 是 | 是 | - .NET 4.5 <br> - Windows PowerShell <br> - 最新兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0
 Windows Server 2012 R2（Standard、Datacenter、Foundation、Essentials） | 是 | 是 | - .NET 4.5 <br> - Windows PowerShell <br> - 最新兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0
-Windows Server 2012（Standard、Datacenter、Foundation） | 是 | 是 |- .NET 4.5 <br> - Windows PowerShell <br> - 最新兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0 <br> - 部署映像服务和管理 (DISM.exe)
-Windows Server 2008 R2（Standard、Enterprise、Datacenter、Foundation） | 是 | 是 | - .NET 3.5、.Net 4.5 <br> - Windows PowerShell <br> - 兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0 <br> - 部署映像服务和管理 (DISM.exe)
+Windows Server 2012（Standard、Datacenter、Foundation） | 是 | 是 |- .NET 4.5 <br> -Windows PowerShell <br> - 最新兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0 <br> - 部署映像服务和管理 (DISM.exe)
+Windows Server 2008 R2（Standard、Enterprise、Datacenter、Foundation） | 是 | 是 | - .NET 3.5、.Net 4.5 <br> -Windows PowerShell <br> - 兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0 <br> - 部署映像服务和管理 (DISM.exe)
 Windows Server 2008 SP2（Standard、Datacenter、Foundation） | 是 | 否 | - .NET 3.5、.Net 4.5 <br> - Windows PowerShell <br> - 兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0 <br> - 部署映像服务和管理 (DISM.exe) <br> - Virtual Server 2005 base + KB KB948515
 Windows Storage Server 2016/2012 R2/2012（Standard、Workgroup） | 是 | 否 | - .NET 4.5 <br> - Windows PowerShell <br> - 最新兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0
 Windows Server 2019（Standard、Datacenter、Essentials） | 是 | 是 | - .NET 4.5 <br> - Windows PowerShell <br> - 最新兼容的 Microsoft VC++ 可再发行包 <br> - Microsoft 管理控制台 (MMC) 3.0
@@ -96,12 +98,11 @@ Azure 备份会限制可备份的文件或文件夹数据源大小。 在单个�
 
 **操作系统** | **大小限制**
 --- | ---
-Windows Server 2012 或更高版本 |  54,400 GB
-Windows Server 2008 R2 SP1 |    1,700 GB
-Windows Server 2008 SP2 | 1,700 GB
-Windows 8 或更高版本  | 54,400 GB
-Windows 7   | 1,700 GB
-
+Windows Server 2012 或更高版本 |54,400 GB
+Windows Server 2008 R2 SP1 |1,700 GB
+Windows Server 2008 SP2| 1,700 GB
+Windows 8 或更高版本| 54,400 GB
+Windows 7| 1,700 GB
 
 ## <a name="supported-file-types-for-backup"></a>支持备份的文件类型
 
@@ -125,7 +126,7 @@ OneDrive（同步的文件是稀疏流）| 不支持。
 只读卷| 不支持 | 卷必须可写才能正常使用卷影复制服务 (VSS)。
 脱机卷| 不支持 |卷必须联机才能正常使用 VSS。
 网络共享| 不支持 |卷必须位于服务器本地。
-BitLocker 保护的卷| 不支持 |必须先解锁卷才能开始备份。
+BitLocker 锁定卷| 不支持 |必须先解锁卷才能开始备份。
 文件系统标识| 不支持 |仅支持 NTFS。
 可移动媒体| 不支持 |所有备份项源必须处于固定状态。 
 已删除重复数据的驱动器 | 支持 | Azure 备份将删除了重复项的数据转换为正常数据。 它可以优化、加密、存储数据并将其发送到保管库。

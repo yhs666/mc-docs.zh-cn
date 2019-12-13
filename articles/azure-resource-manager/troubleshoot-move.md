@@ -1,18 +1,15 @@
 ---
-title: 排查将 Azure 资源移到新订阅或资源组时出现的错误
+title: 排查迁移错误
 description: 使用 Azure Resource Manager 将资源移到新的资源组或订阅。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 08/27/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 3669541e119682347333ecf212848696a44e1985
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: c322bdc28f55a91b44e4736b2c7ce50cd1afb05e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156217"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884952"
 ---
 <!--Verified successfully-->
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>排查将 Azure 资源移到新的资源组或订阅时遇到的问题
@@ -61,4 +58,4 @@ ms.locfileid: "71156217"
 
 有关用于移动资源的命令，请参阅[将资源移到新资源组或订阅](resource-group-move-resources.md)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

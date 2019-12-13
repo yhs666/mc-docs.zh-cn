@@ -1,5 +1,5 @@
 ---
-title: 配置 Azure 诊断以将数据发送到 Application Insights
+title: 将 Azure 诊断数据发送到 Application Insights
 description: 更新 Azure 诊断公共配置，以将数据发送到 Application Insights。
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 03/19/2016
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: eafee67df6ac76aadc0030c713117530ad6ad720
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: ea56b3cd1e87ed9774c356961d282feaf330c1bf
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970643"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838925"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>将云服务、虚拟机或 Service Fabric 诊断数据发送到 Application Insights
 云服务、虚拟机、虚拟机规模集和 Service Fabric 都使用 Azure 诊断扩展来收集数据。  Azure 诊断将数据发送到 Azure 存储表。  但是，也可以 Azure 诊断扩展 1.5 或更高版本，通过管道将所有或一部分数据发送到其他位置。

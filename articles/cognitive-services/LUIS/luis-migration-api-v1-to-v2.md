@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/04/2019
 ms.date: 04/02/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7401d57d1e9192cc9c68aa453b2f0ea1a55b0574
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: eb22104c589392f6490176cc587e319699c2c9c1
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330412"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884582"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>LUIS 应用的 API v1 到 v2 迁移指南
 第 1 版[终结点](https://aka.ms/v1-endpoint-api-docs)和[创作](https://aka.ms/v1-authoring-api-docs) API 已弃用。 使用此指南学习如何迁移至第 2 版[终结点](https://aka.ms/luis-endpoint-apis)和[创作](https://aka.ms/luis-authoring-apis) API。 
@@ -135,7 +135,7 @@ v2 终结点成功响应：
 
 
 ## <a name="sample-renamed-to-suggest"></a>“示例”已重命名为“建议”
-LUIS 会从现有[终结点话语](luis-how-to-review-endpoint-utterances.md)中推荐能增强模型的话语。 在前一版本中，此功能名为“样本”  。 在新版本中，其名称从“样本”改为“建议”  。 在 LUIS 网站上名为[查看终结点话语](luis-how-to-review-endpoint-utterances.md)  。
+LUIS 会从现有终结点话语中建议可能增强模型的话语。 在前一版本中，此功能名为“样本”  。 在新版本中，其名称从“样本”改为“建议”  。 在 LUIS 网站中此项名为“审查终结点话语”  。
 
 | 版本 | 路由 |
 |--|--|
@@ -157,7 +157,7 @@ LUIS 会从现有[终结点话语](luis-how-to-review-endpoint-utterances.md)中
 导出的 1.x 应用的 JSON 有某些区域需要在导入到 [LUIS][LUIS] 2.0 之前进行更改。 
 
 ### <a name="prebuilt-entities"></a>预生成的实体 
-已更改[预生成的实体](luis-prebuilt-entities.md)。 请确保使用 V2 预生成实体。 这包括使用 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 而不是 datetime。 
+预生成实体已更改。 请确保使用 V2 预生成实体。 这包括使用 [datetimeV2](luis-reference-prebuilt-datetimev2.md) 而不是 datetime。 
 
 ### <a name="actions"></a>操作
 操作属性不再有效。 应该为空 

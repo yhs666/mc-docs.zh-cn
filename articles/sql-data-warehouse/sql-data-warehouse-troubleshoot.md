@@ -1,5 +1,5 @@
 ---
-title: 排查 Azure SQL 数据仓库问题 | Microsoft Docs
+title: 故障排除
 description: 排查 Azure SQL 数据仓库问题。
 services: sql-data-warehouse
 author: WenJason
@@ -7,16 +7,17 @@ manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-origin.date: 7/29/2019
-ms.date: 09/02/2019
+origin.date: 11/25/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 86a6a44c7574e131d15cd21972bab1810dc2036d
-ms.sourcegitcommit: 3f0c63a02fa72fd5610d34b48a92e280c2cbd24a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 493729b50993115d1d5f586854b3023cce2787e9
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70131860"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807605"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>排查 Azure SQL 数据仓库问题
 本文列出了常见的故障排除问题。
@@ -41,6 +42,7 @@ ms.locfileid: "70131860"
 | 问题                                                        | 解决方法                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 查询性能故障排除                            | 如果要尝试对特定查询进行故障排除，请从 [Learning how to monitor your queries][Learning how to monitor your queries]（学习如何监视查询）开始。 |
+| TempDB 空间问题 | [监视 TempDB](sql-data-warehouse-manage-monitor.md#monitor-tempdb) 空间使用情况。  TempDB 空间耗尽的常见原因有：<br>- 分配给查询的资源不足，导致数据溢出到 TempDB。  请参阅[工作负荷管理](resource-classes-for-workload-management.md) <br>- 统计信息缺失或过期，导致数据移动过多。  有关如何创建统计信息的详细信息，请参阅[维护表统计信息][Statistics]<br>- TempDB 空间是按服务级别分配的。  [将 SQL 数据仓库][Scaling your SQL Data Warehouse]扩展到更高的 DWU 设置会分配更多的 TempDB 空间。|
 | 查询性能和计划不佳通常是由于缺少统计信息 | 性能不佳的最常见原因是缺少数据表的统计信息。  有关如何创建统计信息以及统计信息为何对性能至关重要的详细信息，请参阅[维护表统计信息][Statistics]。 |
 | 低并发性/查询排队                             | 若要了解如何利用并发性平衡内存分配，了解[工作负荷管理][Workload management]很重要。 |
 | 如何实施最佳做法                              | 开始了解如何提高查询性能的最好地方是 [SQL 数据仓库最佳实践][SQL Data Warehouse best practices]一文。 |
@@ -69,8 +71,6 @@ ms.locfileid: "70131860"
 ## <a name="next-steps"></a>后续步骤
 如需查找问题的解决方案的更多帮助，下面是可以尝试的一些其他资源。
 
-* [博客]
-* [功能请求]
 * [MSDN 论坛]
 
 <!--Image references-->
@@ -116,4 +116,4 @@ ms.locfileid: "70131860"
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
-[博客]: https://www.azure.cn/blog/tags/SQL%20数据库
+[MSDN 论坛]: https://social.msdn.microsoft.com/Forums/zh-CN/home

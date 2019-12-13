@@ -8,16 +8,16 @@ manager: digimobile
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/09/2019
-ms.date: 09/23/2019
+origin.date: 11/07/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 0346e273650a8b8dd109c9e51cd139e3be4b7543
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 30ca7eaf405e307bd7d6dda3e30da45afe0e853b
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389548"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884506"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 模型和密钥的边界
 LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)，它可控制 LUIS 中的意向、实体和功能。 第二个是基于密钥类型的[配额限制](#key-limits)。 边界的第三个区域是用于控制 LUIS 网站的[键盘组合](#keyboard-controls)。 第四个是 LUIS 创作网站和 LUIS [终结点](luis-glossary.md#endpoint) API 之间的[世界区域映射](luis-reference-regions.md)。 
@@ -36,22 +36,38 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 | 外部实体 | 无限制 |
 | [意向][intents]|每个应用程序 500 个意向：499 个自定义意向，以及必需的“无”  意向。<br>[基于调度](https://aka.ms/dispatch-tool)的应用程序具有相应的 500 个调度源。|
 | [列表实体](./luis-concept-entity-types.md) | 父级：50 个，子级：20,000 项。 规范名称是 *默认最大字符长度。同义词值没有长度限制。 |
-| [机器学习实体 + 角色](./luis-concept-entity-types.md)：<br> 复合、<br>简单、<br>实体角色|限制为 100 个父实体或 330 个实体，以用户先达到的限制为准。 就此边界来说，一个角色计为一个实体。 例如，一个复合实体包含一个简单实体，并且有 2 个角色：1 个复合实体 + 1 个简单实体 + 2 个角色 = 4 个实体（最多 330 个实体）。|
+| [机器学习实体 + 角色](./luis-concept-entity-types.md)：<br> 复合、<br>简单、<br>实体角色|限制为 100 个父实体或 330 个实体，以用户先达到的限制为准。 就此边界来说，一个角色计为一个实体。 例如，一个复合实体包含一个简单实体，并且有 2 个角色：1 个复合实体 + 1 个简单实体 + 2 个角色 = 4 个实体（最多 330 个实体）。<br>子组件最多可以嵌套 5 层。|
+|作为特征的模型| 可用作特定模型的描述符（特征）的模型的最大数量为 10 个模型。 可用作特定模型的描述符（特征）的短语列表的最大数量为 10 个短语列表。|
 | [预览 - 动态列表实体](https://aka.ms/luis-api-v3-doc#dynamic-lists-passed-in-at-prediction-time)|2 个列表，其中的每个查询预测终结点请求约 1k 个实体|
 | [模式](luis-concept-patterns.md)|每个应用程序 500 个模式。<br>模式的最大长度为 400 个字符。<br>每个模式 3 个 Pattern.any 实体<br>模式中最多 2 个嵌套可选文本|
 | [Pattern.any](./luis-concept-entity-types.md)|每个应用程序 100 个，每个模式 3 个 pattern.any 实体 |
-| [短语列表][phrase-list]|10 个短语列表，每个列表 5,000 项|
-| [预生成实体](./luis-prebuilt-entities.md) | 无限制|
+| [短语列表][phrase-list]|500 个短语列表。 不可互换的短语列表最多有 5,000 个短语。 可互换的短语列表最多有 50,000 个短语。 每个应用程序的最大短语总数为 500,000 个短语。|
+| 预生成的实体 | 无限制|
 | [正则表达式实体](./luis-concept-entity-types.md)|20 个实体<br>每个正则表达式实体模式 最多 500 个字符|
-| [角色](luis-concept-roles.md)|每个应用程序 300 个角色。 每个实体 10 个角色|
+| 角色 |每个应用程序 300 个角色。 每个实体 10 个角色|
 | [单条话语][utterances] | 500 个字符|
 | [多条话语][utterances] | 每个应用程序 15,000 条 - 对每个意向的话语数量没有限制|
-| [版本](luis-concept-version.md)| 每个应用程序 100 个版本 |
+| 版本 | 每个应用程序 100 个版本 |
 | [版本名称][luis-how-to-manage-versions] | 10 个字符，仅限字母数字和句点 (.) |
 
 *默认最大字符长度为 50 个字符。 
 
 <a name="intent-and-entity-naming"></a>
+
+## <a name="name-uniqueness"></a>名称唯一性
+
+使用以下命名唯一性规则。
+
+以下项在 LUIS 应用中必须唯一：
+
+* 版本名称
+* 意向
+* 实体
+* 角色
+
+以下项在应用范围内必须唯一：
+
+* 短语列表 
 
 ## <a name="object-naming"></a>对象命名
 
@@ -59,7 +75,7 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 
 |Object|排除字符|
 |--|--|
-|意向、实体和角色名称|`:`<br>`$`|
+|意向、实体和角色名称|`:`<br>`$` <br> `&`|
 |版本名称|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>密钥使用情况
@@ -80,9 +96,10 @@ LUIS 具有多个边界区域。 第一个是[模型边界](#model-boundaries)�
 |F0 - 免费层 |1 百万/月，5/秒|1 万/月，5/秒|查询 LUIS 终结点|
 |S0 - 基本层|-|50/秒|查询 LUIS 终结点|
 |S0 - 标准层|-|50/秒|查询 LUIS 终结点|
-|[情绪分析集成](luis-how-to-publish-app.md#enable-sentiment-analysis)|-|-|提供了添加情感信息（包括关键短语数据提取）的功能，而无需其他 Azure 资源。 |
+|情绪分析集成|-|-|提供了添加情感信息（包括关键短语数据提取）的功能，而无需其他 Azure 资源。 |
+|语音集成|-|每单位成本 1 千个终结点请求|将口语话语转为文本话语并返回 LUIS 结果|
 
-<!-- |[Speech integration](../speech-service/how-to-recognize-intents-from-speech-csharp.md)|-|1 thousand endpoint requests per unit cost|Convert spoken utterance to text utterance and return LUIS results| -->
+[详细了解定价。][pricing]
 
 ## <a name="keyboard-controls"></a>键盘控件
 

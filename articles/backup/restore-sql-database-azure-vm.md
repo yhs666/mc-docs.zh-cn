@@ -1,19 +1,17 @@
 ---
-title: 使用 Azure 备份在 Azure VM 上还原 SQL Server 数据库
+title: 还原 Azure VM 上的 SQL Server 数据库
 description: 本文介绍如何还原 Azure VM 上运行的、使用 Azure 备份服务备份的 SQL Server 数据库。
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
-origin.date: 04/16/2019
+author: lingliw
+origin.date: 05/22/2019
 ms.date: 09/16/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 79b9c0c821822b9ee8ee26c2f4bd2de455627c8b
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: 7f5294937fcb890a4ad449aa0e48542b51140dc9
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116384"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838873"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>还原 Azure VM 上的 SQL Server 数据库
 
@@ -77,9 +75,9 @@ Azure 备份可以还原 Azure VM 上运行的 SQL Server 数据库，如下所�
    - **备用位置**：将数据库还原到备用位置，同时保留原始源数据库。
    - **覆盖 DB**：将数据还原到原始源所在的同一 SQL Server 实例。 此选项将覆盖原始数据库。
 
-           > [!IMPORTANT]
-           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-           >
+    > [!IMPORTANT]
+    > 如果选定的数据库属于 Always On 可用性组，则 SQL Server 不允许覆盖数据库。 仅“备用位置”可用。 
+    >
    - **作为文件还原**：不是作为数据库还原，而是以后使用 SQL Server Management Studio 在包含备份文件的计算机上，还原可作为数据库恢复的备份文件。
      ![“还原配置”菜单](./media/backup-azure-sql-database/restore-configuration.png)
 

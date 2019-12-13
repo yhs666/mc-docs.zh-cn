@@ -1,9 +1,9 @@
 ---
 title: 什么是 Azure 通知中心？
 description: 了解如何使用 Azure 通知中心添加推送通知功能。
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 services: notification-hubs
 documentationcenter: ''
 ms.assetid: fcfb0ce8-0e19-4fa8-b777-6b9f9cdda178
@@ -14,14 +14,16 @@ ms.devlang: multiple
 ms.topic: overview
 ms.custom: mvc
 origin.date: 04/30/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 320eb42b7794d2bc6e00134e6dab24295b6f0f29
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 04/30/2019
+ms.openlocfilehash: 027d294a1b348989597a5eb2ee7efc0379d9eb24
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272024"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884979"
 ---
 # <a name="what-is-azure-notification-hubs"></a>什么是 Azure 通知中心？
 
@@ -48,7 +50,7 @@ Azure 通知中心提供易于使用且横向扩展的推送引擎，可用于�
 
 ## <a name="how-push-notifications-work"></a>推送通知的工作原理是什么？
 
-推送通知通过称为*平台通知系统* (PNS) 的特定于平台的基础结构进行传送。 它们只是单纯的推送功能，使用提供的句柄向设备传送消息，而没有通用接口。 若要跨应用的 Android、iOS 和 Windows 版本将通知发送给所有客户，开发人员必须使用 Apple Push Notification 服务 (APNS) 和 Windows 通知服务 (WNS)。
+推送通知通过称为*平台通知系统* (PNS) 的特定于平台的基础结构进行传送。 它们只是单纯的推送功能，使用提供的句柄向设备传送消息，而没有通用接口。 若要跨应用的 Android、iOS 和 Windows 版本向所有客户发送通知，开发人员必须分别使用 Apple Push Notification 服务 (APNS) 和 Windows 通知服务 (WNS)。
 
 从较高层面讲，推送的工作原理如下：
 
@@ -107,9 +109,11 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
 - **安全性**
   - 共享访问机密 (SAS) 或联合身份验证。
 
-<!-- ## Next steps -->
+## <a name="next-steps"></a>后续步骤
 
-<!-- Get started with creating and using a notification hub by following the [Tutorial: Push notifications to mobile applications](notification-hubs-android-push-notification-google-fcm-get-started.md). -->
+<!-- google fcm not available, use Baidu instead -->
+
+按照[教程：向移动应用程序推送通知](notification-hubs-baidu-china-android-notifications-get-started.md)，开始创建和使用通知中心。
 
 [0]: ./media/notification-hubs-overview/registration-diagram.png
 [1]: ./media/notification-hubs-overview/notification-hub-diagram.png
@@ -121,8 +125,8 @@ PNSes 非常强大。 但应用开发人员仍然需要完成大量工作才能�
 [Windows Phone]:./notification-hubs-windows-mobile-push-notifications-mpns.md
 [Kindle]:./notification-hubs-kindle-amazon-adm-push-notification.md
 [Xamarin.iOS]:./xamarin-notification-hubs-ios-push-notification-apns-get-started.md
-[Microsoft.WindowsAzure.Messaging.NotificationHub]: http://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
-[Microsoft.ServiceBus.Notifications]: http://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
+[Microsoft.WindowsAzure.Messaging.NotificationHub]: https://msdn.microsoft.com/library/microsoft.windowsazure.messaging.notificationhub.aspx
+[Microsoft.ServiceBus.Notifications]: https://msdn.microsoft.com/library/microsoft.servicebus.notifications.aspx
 [App Service Mobile Apps]: ../app-service-mobile/app-service-mobile-value-prop.md
 [templates]: notification-hubs-templates-cross-platform-push-messages.md
 [Azure portal]: https://portal.azure.cn

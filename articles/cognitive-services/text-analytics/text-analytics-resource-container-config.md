@@ -1,23 +1,23 @@
 ---
-title: 配置容器
-titlesuffix: Text Analytics - Azure Cognitive Services
+title: 配置容器 - 文本分析
+titleSuffix: Azure Cognitive Services
 description: 文本分析为每个容器提供一个通用配置框架，以便可以轻松配置和管理容器的存储、日志记录、遥测和安全性设置。
 services: cognitive-services
-author: diberry
+author: lingliw
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-origin.date: 04/16/2019
-ms.date: 05/15/2019
-ms.author: v-junlch
-ms.openlocfilehash: 8589672c639909b02804c7482cf280f8f70c3a22
-ms.sourcegitcommit: 71172ca8af82d93d3da548222fbc82ed596d6256
+origin.date: 11/07/2019
+ms.date: 12/05/2019
+ms.author: v-lingwu
+ms.openlocfilehash: abf52e9caef6757d3dcb07e81d9acf1aa09c2505
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65668899"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884941"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>配置文本分析 docker 容器
 
@@ -32,21 +32,23 @@ ms.locfileid: "65668899"
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 配置设置
 
-`ApiKey` 设置指定用于跟踪容器账单信息的 Azure 资源键。 必须为 ApiKey 指定值，且此值必须是为 [`Billing`](#billing-configuration-setting) 配置设置指定的“认知服务”资源的有效密钥。
+`ApiKey` 设置指定用于跟踪容器账单信息的 Azure 资源键。 必须为 ApiKey 指定值，并且该值必须是为 [`Billing`](#billing-configuration-setting) 配置设置指定的_文本分析_资源的有效密钥。
 
 可以在以下位置找到此设置：
 
-* Azure 门户：**认知服务**“资源管理”部分的“密钥”下
+* Azure 门户：**文本分析**资源管理，在“密钥”下 
+
+## <a name="applicationinsights-setting"></a>ApplicationInsights 设置
+
+[!INCLUDE [Container shared configuration ApplicationInsights settings](../../../includes/cognitive-services-containers-configuration-shared-settings-application-insights.md)]
 
 ## <a name="billing-configuration-setting"></a>Billing 配置设置
 
-`Billing` 设置指定 Azure 上用于计量容器帐单信息的“认知服务”资源的终结点 URI。 必须为这个配置设置指定值，且此值必须是 Azure 上“认知服务”资源的有效终结点 URI。 容器约每 10 到 15 分钟报告一次使用情况。
+`Billing` 设置指定 Azure 上用于计量容器的账单信息的_文本分析_资源的终结点 URI。 必须为此配置设置指定值，并且该值必须是 Azure 上的_文本分析_资源的有效终结点 URI。 容器约每 10 到 15 分钟报告一次使用情况。
 
 可以在以下位置找到此设置：
 
-* Azure 门户：**认知服务**概述，标记为 `Endpoint`
-
-需将 `text/analytics/v2.0` 路由添加到终结点 URI，如以下 BILLING_ENDPOINT_URI 示例所示。
+* Azure 门户：**文本分析**概述，标记为 `Endpoint`
 
 |必须| Name | 数据类型 | 说明 |
 |--|------|-----------|-------------|
@@ -88,18 +90,16 @@ ms.locfileid: "65668899"
 * **行继续符**：以下各节中的 docker 命令使用反斜杠 `\` 作为行继续符。 根据主机操作系统的要求替换或删除字符。 
 * **参数顺序**：除非非常熟悉 docker 容器，否则不要更改参数顺序。
 
-需将 `text/analytics/v2.0` 路由添加到终结点 URI，如以下 BILLING_ENDPOINT_URI 示例所示。
-
 将 {_argument_name_} 替换为为你自己的值：
 
 | 占位符 | Value | 格式或示例 |
 |-------------|-------|---|
-|{BILLING_KEY} | Azure `Cognitive Services`“密钥”页上提供的 `Cognitive Services` 资源的终结点密钥。 |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT_URI} | Azure `Cognitive Services`“概览”页面上提供了账单终结点值。|`https://chinaeast2.api.cognitive.azure.cn/text/analytics/v2.1`|
+| **{API_KEY}** | Azure `Text Analytics`“密钥”页上提供的 `Text Analytics` 资源的终结点密钥。 |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | Azure `Text Analytics`“概览”页面上提供了账单终结点值。| 有关显式示例，请参阅[收集所需参数](how-tos/text-analytics-how-to-install-containers.md)。 |
 
 > [!IMPORTANT]
 > 必须指定 `Eula`、`Billing` 和 `ApiKey` 选项运行容器；否则，该容器不会启动。  有关详细信息，请参阅[计费](how-tos/text-analytics-how-to-install-containers.md#billing)。
-> ApiKey 值是来自 Azure `Cognitive Services`“资源密钥”页的“密钥”。 
+> ApiKey 值是来自 Azure `Cognitive Services`“资源密钥”页的“密钥”  。 
 
 ## <a name="key-phrase-extraction-container-docker-examples"></a>关键短语提取容器 docker 示例
 
@@ -111,15 +111,7 @@ ms.locfileid: "65668899"
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example"></a>日志记录示例 
-
-  ```
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/keyphrase Eula=accept Billing={BILLING_ENDPOINT_URI} ApiKey={BILLING_KEY} Logging:Console:LogLevel:Default=Information
-  ```
-
-## <a name="language-detection-container-docker-examples"></a>语言检测容器 docker 示例
-
-以下 docker 示例适用于语言检测容器。 
+[!INCLUDE [language-detection-docker-examples](includes/language-detection-docker-examples.md)]
 
 ### <a name="basic-example"></a>基本示例
 

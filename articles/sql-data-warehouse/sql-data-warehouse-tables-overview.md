@@ -1,22 +1,23 @@
 ---
-title: 设计表 - Azure SQL 数据仓库 | Microsoft Docs
+title: 设计表
 description: 有关在 Azure SQL 数据仓库中设计表的简介。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 origin.date: 03/15/2019
-ms.date: 04/01/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: f57db8a532f674a0ac10d7f3529a2355623e316d
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b28cd6d0263f38e7ea7d982340d911b1e7626bf2
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626772"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807622"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>在 Azure SQL 数据仓库中设计表
 
@@ -110,6 +111,9 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 ## <a name="statistics"></a>统计信息
 查询优化器在创建用于执行查询的计划时，使用列级统计信息。 若要提高查询性能，必须有基于各个列（尤其是查询联接中使用的列）的统计信息。 [创建统计信息](/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistics)的过程是自动发生的。  但是，更新统计信息的过程不会自动发生。 添加或更改了大量的行之后更新统计信息。 例如，在执行加载后更新统计信息。 有关详细信息，请参阅[统计信息指南](sql-data-warehouse-tables-statistics.md)。
 
+## <a name="primary-key-and-unique-key"></a>主键和唯一键
+仅当同时使用 NONCLUSTERED 和 NOT ENFORCED 时才支持 PRIMARY KEY。  仅在使用 NOT ENFORCED 时才支持 UNIQUE 约束。  查看 [SQL 数据仓库表约束](sql-data-warehouse-table-constraints.md)。
+
 ## <a name="commands-for-creating-tables"></a>用于创建表的命令
 可以创建一个新的空表。 还可以创建一个表并在其中填充 select 语句的结果。 下面是用于创建表的 T-SQL 命令。
 
@@ -129,8 +133,7 @@ ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION
 ## <a name="unsupported-table-features"></a>不支持的表功能
 SQL 数据仓库支持其他数据库所提供的许多（但不是全部）表功能。  以下列表显示了 SQL 数据仓库不支持的一些表功能。
 
-- 主键、外键、唯一键、检查[表约束](https://docs.microsoft.com/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
-
+- 外键，请查看[表约束](https://docs.microsoft.com/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [计算列](https://docs.microsoft.com/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [索引视图](https://docs.microsoft.com/sql/relational-databases/views/create-indexed-views)
 - [序列](https://docs.microsoft.com/sql/t-sql/statements/create-sequence-transact-sql)

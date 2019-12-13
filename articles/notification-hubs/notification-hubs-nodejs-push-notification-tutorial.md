@@ -4,9 +4,9 @@ description: 了解如何使用通知中心从 Node.js 应用程序发送推送�
 keywords: 推送通知,push notification,node.js 推送,ios 推送
 services: notification-hubs
 documentationcenter: nodejs
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: ded4749c-6c39-4ff8-b2cf-1927b3e92f93
 ms.service: notification-hubs
 ms.workload: mobile
@@ -14,14 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: e0e833e6ceb522b8bc950d81846382418a8a875e
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 531ac96527c89d4066f716c632c633ffe14c6a02
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272615"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884988"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>使用 Azure 通知中心和 Node.js 发送推送通知
 
@@ -30,7 +32,7 @@ ms.locfileid: "72272615"
 ## <a name="overview"></a>概述
 
 > [!IMPORTANT]
-> 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，可以创建一个试用帐户，只需几分钟即可完成。 有关详细信息，请参阅 [Azure 1 元试用](https://www.azure.cn/pricing/1rmb-trial/)。
+> 要完成本教程，必须有一个有效的 Azure 帐户。 如果没有帐户，请通过 [Azure 1 元人民币的试用订阅](https://www.azure.cn/pricing/1rmb-trial/)只需几分钟创建一个试用帐户。
 
 本指南介绍如何借助 Azure 通知中心，直接从 [Node.js](https://nodejs.org) 应用程序发送推送通知。
 

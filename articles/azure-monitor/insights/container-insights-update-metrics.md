@@ -8,15 +8,20 @@ author: lingliw
 ms.author: v-lingwu
 origin.date: 11/11/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: 6ad21e4b446497c99b9a623890cc2a7842da8cad
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9e1d4bc7a43d25db14f6447c889aeda4eefdc368
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528279"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838965"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>如何更新用于容器的 Azure Monitor 以启用指标
+
 用于容器的 Azure Monitor 即将引入此项支持：从 Azure Kubernetes 服务 (AKS) 群集节点和 pod 收集指标，并将其写入 Azure Monitor 指标存储。 此项更改旨在更及时地呈现性能图表中的聚合计算结果（平均值、计数、最大值、最小值与总和），支持在 Azure 门户仪表板中固定性能图表，以及支持指标警报。
+
+>[!NOTE]
+>此功能目前不支持 Red Hat OpenShift 群集。
+>
 
 在使用此功能的同时会启用以下指标：
 

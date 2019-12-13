@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/09/2019
-ms.date: 09/23/2019
+origin.date: 11/19/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: da500c2591c37c5722b5ef2b55e25f6f0f51bc60
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: c872bc2cc29d36be3d79129e2c96ea55f425ca3d
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657993"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884626"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>使用创作和运行时资源密钥
 
@@ -41,7 +41,6 @@ ms.locfileid: "74657993"
 
     ![选择语言理解创作资源的类型](./media/luis-how-to-azure-subscription/sign-in-create-resource.png)
 
-1. 完成资源选择过程以后，请[创建新应用](luis-how-to-start-new-app.md#create-new-app-in-luis)。 
 
 ## <a name="trial-key"></a>试用密钥
 
@@ -53,10 +52,7 @@ ms.locfileid: "74657993"
 
 ## <a name="create-resources-in-the-azure-portal"></a>在 Azure 门户中创建资源
 
-1. 登录到 [Azure 门户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。 
-1. 选择“+ 创建资源”。 
-1. 在搜索框中输入 `Language understanding`。
-1. 选择“创建”开始创建过程。  
+1. 使用[此链接](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne)打开 Azure 门户以创建资源。
 1. 选择“两者”，以便创建创作密钥和预测终结点运行时密钥。  
 1. 输入创建资源所需的信息，然后选择“创建”以完成此过程。 
 
@@ -85,7 +81,7 @@ ms.locfileid: "74657993"
 
 1. 登录 Azure CLI：
 
-    ```azurecli
+    ```console
     az cloud set -n AzureChinaCloud
     az login
     ```
@@ -94,13 +90,13 @@ ms.locfileid: "74657993"
 
 1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS.Authoring`、名称为 `my-luis-authoring-resource` 的 **LUIS 创作资源**。  
 
-    ```azurecli
+    ```console
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
 1. 在名为 `my-resource-group` 的现有资源组中为 `westus` 区域创建一个类型为 `LUIS`、名称为 `my-luis-prediction-resource` 的 **LUIS 预测终结点资源**。  如果需要比免费层更高的吞吐量，请将 `F0` 更改为 `S0`。 详细了解[定价层和吞吐量](luis-boundaries.md#key-limits)。
 
-    ```azurecli
+    ```console
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
     ```
 
@@ -167,6 +163,10 @@ ms.locfileid: "74657993"
 1. 对于此资源，选择“预测或创作资源”选项卡，然后选择“取消分配资源”按钮。  
 
 取消分配资源时，不会将其从 Azure 中删除。 只会将其从 LUIS 取消链接。 
+
+## <a name="reset-authoring-key"></a>重置创作密钥
+
+**对于创作资源已迁移的应用**：如果创作密钥已泄露，请在该创作资源的“密钥”  页上重置 Azure 门户中的密钥。 
 
 **对于尚未迁移的应用**：可在 LUIS 门户的所有应用中重置此密钥。 如果通过创作 API 创作应用，则需将 Ocp-Apim-Subscription-Key 的值更改为新密钥。
 

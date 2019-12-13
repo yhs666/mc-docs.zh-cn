@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/27/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 89b90aa8a6e223cf6f33ab0b9f76c42b2bfc1bc9
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 511b05b9c7b58be9b6427fdc252cd6615abf1dfb
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416392"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884496"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>从包含意向和实体的话语文本中提取数据
 使用 LUIS 可以从用户的自然语言陈述中获取信息。 信息以一种程序、应用程序或聊天机器人能够使用其来采取操作的方式进行提取。 在以下部分中，通过 JSON 示例了解从意向和实体返回了什么数据。
@@ -548,7 +548,7 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 
 ### <a name="names-of-people"></a>人的姓名
 
-人的姓名可能会带有些许格式，具体取决于语言和区域性。 将预生成的 **[personName](luis-reference-prebuilt-person.md)** 实体或 **[简单实体](luis-concept-entity-types.md#simple-entity)** 与包含姓和名的[角色](luis-concept-roles.md)配合使用。 
+人的姓名可能会带有些许格式，具体取决于语言和区域性。 使用预生成的 **[personName](luis-reference-prebuilt-person.md)** 实体或具有名字和姓氏角色的 **[简单实体](luis-concept-entity-types.md#simple-entity)** 。 
 
 如果使用简单实体，请确保给出的示例在话语的不同部分、在不同长度的话语中以及在所有意向（包括“None”意向）的话语中使用姓氏和名字。
 
@@ -557,7 +557,7 @@ HTTPS 响应包含 LUIS 可基于当前发布的暂存或生产终结点的模�
 地名是固定且已知的，例如市、县、州、省和国家/地区。 使用预生成的实体 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 提取位置信息。
 
 ### <a name="new-and-emerging-names"></a>新出现的名称
-一些应用需要能够找到新出现的名称，例如产品或公司。 这些类型的名称是最难提取的数据类型。 首先从简单实体开始，添加一个短语列表。 定期[查看](luis-how-to-review-endpoint-utterances.md)终结点陈述以标记未能正确预测的任何名称。
+一些应用需要能够找到新出现的名称，例如产品或公司。 这些类型的名称是最难提取的数据类型。 首先从简单实体开始，添加一个短语列表。 定期审查终结点话语以标记未正确预测的任何名称。
 
 ## <a name="pattern-roles-data"></a>模式角色数据
 角色是实体间的上下文差别。
@@ -1268,9 +1268,3 @@ LUIS 终结点可以发现不同实体中的相同数据。
 ```
 
 详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
-
-* * *
-
-## <a name="next-steps"></a>后续步骤
-
-请参阅[添加实体](luis-how-to-add-entities.md)，详细了解如何将实体添加到 LUIS 应用。

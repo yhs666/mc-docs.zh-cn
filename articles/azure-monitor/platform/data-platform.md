@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 origin.date: 03/26/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1c8b4351f87a01eda4bbcd215284bd187f6584a0
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 872131494a6e7aa496d227645962e5b98cfb8630
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528278"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838904"
 ---
 # <a name="azure-monitor-data-platform"></a>Azure Monitor 数据平台
 

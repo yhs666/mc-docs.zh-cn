@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板中的变量
+title: 模板中的变量
 description: 介绍如何在 Azure 资源管理器模板中定义变量。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/05/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: d6a11c634edbea0e9cc85d49c4d43693015c70a6
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: 8bc1d9f4177f99df9f491d2b7d7659556d3fd79b
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156440"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884888"
 ---
 # <a name="variables-in-azure-resource-manager-template"></a>Azure 资源管理器模板中的变量
 
@@ -99,3 +96,5 @@ ms.locfileid: "71156440"
 
 * 若要了解变量的可用属性，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关创建变量的建议，请参阅[最佳做法 - 变量](template-best-practices.md#variables)。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

@@ -1,27 +1,26 @@
 ---
 title: 使用 Azure Log Analytics 代理收集日志数据 | Azure Docs
 description: 本主题可帮助你了解如何使用 Log Analytics 收集数据并监视托管在 Azure、本地或其他云环境中的计算机。
-ms.service: log-analytics
+ms.service: azure-monitor
 author: lingliw
 manager: digimobile
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: logs
 ms.topic: conceptual
-origin.date: 08/22/2019
-ms.date: 08/17/2019
+origin.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8ef1f573dd4f630518081aa72dfc31f5bf1d2a32
-ms.sourcegitcommit: 45db2d4d41ccfc3f7568fd131fe0350bb8b34a51
+ms.openlocfilehash: 9b1778731505b19d2aada9bbf77bd40cade59da8
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906413"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838920"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>使用 Log Analytics 代理收集日志数据
 
-Azure Log Analytics 代理，以前称为 Azure Monitoring Agent (MMA) 或 OMS Linux 代理，是为了对本地计算机、[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) 监视的计算机和任何云中的虚拟机进行全面管理而开发的。 Windows 和 Linux 代理附加到 Log Analytics 工作区，以从不同的源收集数据，并收集监视解决方案中定义的任何独特日志或指标。 
+Azure Log Analytics 代理，前称为 Microsoft Monitoring Agent (MMA) 或 OMS Linux 代理，是为了对本地计算机、[System Center Operations Manager](https://docs.microsoft.com/system-center/scom/) 监视的计算机和任何云中的虚拟机进行全面管理而开发的。 Windows 和 Linux 代理附加到 Azure Monitor，并将从不同源收集的日志数据，以及在监视解决方案中定义的任何特有日志或指标存储在 Log Analytics 工作区中。 
 
-本文提供该代理的详细概述、系统和网络要求以及不同的部署方法。   
+本文提供该代理的详细概述、系统和网络要求以及不同的部署方法。
 
 ## <a name="overview"></a>概述
 
@@ -113,7 +112,7 @@ Windows 代理官方支持以下版本的 Windows 操作系统：
 |*.azure-automation.cn |端口 443 |出站|是 |  
 
 
-如果计划使用 Azure 自动化混合 Runbook 辅助角色连接到自动化服务并在其中注册以在环境中使用 Runbook，则它必须可以访问“针对混合 Runbook 辅助角色配置网络”中所述的端口号和 URL。 
+如果计划使用 Azure 自动化混合 Runbook 辅助角色连接到自动化服务并在其中注册以在环境中使用 Runbook 或管理解决方案，则它必须可以访问“针对混合 Runbook 辅助角色配置网络”中所述的端口号和 URL。 
 
 Windows 和 Linux 代理支持使用 HTTPS 协议通过代理服务器或 Log Analytics 网关与 Azure Monitor 进行通信。  并同时支持匿名身份验证和基本身份验证（用户名/密码）。  对于直接连接到服务的 Windows 代理，代理配置在安装过程中指定，或[在部署后](agent-manage.md#update-proxy-settings)从控制面板或使用 PowerShell 指定。  
 
@@ -130,7 +129,7 @@ Windows 和 Linux 代理支持使用 HTTPS 协议通过代理服务器或 Log An
 |user | 用于代理身份验证的可选用户名 |
 |password | 用于代理身份验证的可选密码 |
 |proxyhost | 代理服务器/Log Analytics 网关的地址或 FQDN |
-|端口 | 代理服务器/Log Analytics 网关的可选端口号 |
+|port | 代理服务器/Log Analytics 网关的可选端口号 |
 
 例如： `https://user01:password@proxy01.contoso.com:30443`
 

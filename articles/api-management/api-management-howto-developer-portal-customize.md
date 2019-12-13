@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 11/04/2019
-ms.date: 12/09/2019
+origin.date: 11/22/2019
+ms.date: 12/16/2019
 ms.author: apimpm
-ms.openlocfilehash: a6c576f00ad1d949bfad5c97f0d207981754ddcd
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: c51daf18263ef0abf315bae5fabd9834be686374
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657703"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884737"
 ---
 # <a name="access-and-customize-developer-portal"></a>访问和自定义开发人员门户
 
@@ -36,10 +36,6 @@ ms.locfileid: "74657703"
 可以在 [Azure API 管理开发人员门户概述](api-management-howto-developer-portal.md)中找到有关开发人员门户的详细信息。
 
 ![API 管理开发人员门户 - 管理模式](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> 目前正在推出适用于 API 管理服务的开发人员门户。
-> 如果你的服务是新创建的或开发人员层服务，则你应该已有最新版本。 否则，你可能会遇到问题（例如，使用发布功能时）。 该功能推出预计将于 2019 年 11 月 22 日（星期五）前完成。 
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -111,13 +107,17 @@ ms.locfileid: "74657703"
 尽管无需调整任何样式，但可以考虑调整特定的元素。 例如，更改主色，使之与自己的品牌色相匹配。
 
 
-## <a name="publish-the-portal"></a>发布门户
+
+## <a name="publish"> </a>发布门户
 
 若要将门户提供给访问者使用并反映其最新更改，需要发布门户。
 
 1. 请务必单击“保存”图标保存更改。 
 1. 在菜单的“操作”部分单击“发布网站”。   此操作可能需要几分钟的时间。  
     ![发布门户](media/api-management-howto-developer-portal-customize/publish-portal.png)
+
+> [!NOTE]
+> API 管理服务配置更改后，需要重新发布门户，例如分配自定义域、更新标识提供者、设置委托、指定登录和产品条款等。
 
 ## <a name="visit-the-published-portal"></a>访问发布的门户
 

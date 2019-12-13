@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板中的参数
+title: 模板中的参数
 description: 介绍如何在 Azure 资源管理器模板中定义参数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/05/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: c46b69dd5cd8f90d6c903adb5bb2a7cf2e6b7be8
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: 6e66041397de5e99435e0c1b50465cc0417ecd3f
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156442"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884904"
 ---
 # <a name="parameters-in-azure-resource-manager-templates"></a>Azure 资源管理器模板中的参数
 
@@ -168,5 +165,4 @@ ms.locfileid: "71156442"
 * 若要了解如何以文件形式传入参数值，请参阅[创建资源管理器参数文件](resource-manager-parameter-files.md)。
 * 有关创建参数的建议，请参阅[最佳做法 - 参数](template-best-practices.md#parameters)。
 
-<!-- Update_Description: new article about template parameters -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties -->

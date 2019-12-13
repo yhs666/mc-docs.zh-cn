@@ -9,12 +9,12 @@ origin.date: 10/23/2019
 ms.date: 11/04/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: f000f57c534722df79a2d298d133ca8f28d7f6b3
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: cbcee95a18bcd01b2059c03dbaa486677f7682b6
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528293"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839007"
 ---
 # <a name="multi-step-web-tests"></a>多步骤 Web 测试
 

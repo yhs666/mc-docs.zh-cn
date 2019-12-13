@@ -1,26 +1,27 @@
 ---
-title: 计划 Azure 容器注册表任务
-description: 设置计时器以按定义的计划运行 Azure 容器注册表任务。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 教程 - 计划 ACR 任务
+description: 本教程介绍如何通过设置一个或多个计时器触发器按定义的计划运行 Azure 容器注册表任务
 ms.topic: article
 origin.date: 06/27/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: a0e968f66d6fc82b42e51c537ebb60b4b5a2deb7
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 9495517376c8bbcdbba1e1dcd984db6af6d71bee
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134549"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884863"
 ---
 <!--Verify Successfully-->
-
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>按定义的计划运行 ACR 任务
 
-本文介绍如何按计划运行 [ACR 任务](container-registry-tasks-overview.md)。 通过设置一个或多个计时器触发器来计划任务。 
+本教程介绍如何按计划运行 [ACR 任务](container-registry-tasks-overview.md)。 通过设置一个或多个计时器触发器来计划任务。  计时器触发器可以单独使用，也可以与其他任务触发器结合使用。
+
+本教程介绍如何计划任务及完成以下任务：
+
+> [!div class="checklist"]
+> * 创建具有计时器触发器的任务
+> * 管理计时器触发器
 
 任务计划适用于如下所述的方案：
 
@@ -30,6 +31,7 @@ ms.locfileid: "70134549"
 可以使用本地安装的 Azure CLI 来运行本文中的示例。 若要在本地使用 Azure CLI，需要安装 2.0.68 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI][azure-cli-install]。
 
 <!--Not Avaialble on Azure local Shell or-->
+
 ## <a name="about-scheduling-a-task"></a>关于计划任务
 
 * **使用 cron 表达式的触发器** - 任务的计时器触发器使用 cron 表达式。  该表达式是包含五个字段的字符串，这些字段指定要触发任务的分钟、小时、日期、月份和星期。 支持的最高频率为每分钟一次。
@@ -221,5 +223,4 @@ cron 表达式使用的时区为协调世界时 (UTC)。 时间为 24 小时制�
 [az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
 [azure-cli-install]: https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest
 
-<!--Update_Description: new articles on container registry tasks schedule -->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

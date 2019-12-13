@@ -1,21 +1,18 @@
 ---
-title: 对 Azure 备份失败进行故障排除：代理和扩展问题
+title: 排查代理和扩展问题
 description: 与代理、扩展和磁盘相关的 Azure 备份失败的症状、原因及解决方法。
 ms.reviewer: saurse
 author: lingliw
-manager: digimobile
-keywords: Azure 备份; VM 代理; 网络连接;
-ms.service: backup
 ms.topic: troubleshooting
 origin.date: 07/05/2019
 ms.date: 09/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 495d4ec5e23fc8b16f1267fb797ee34e66df2da7
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6f8b5f840d31ce50961dafbea52a2ecbbe45b85f
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528274"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838927"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>对 Azure 备份失败进行故障排除：代理或扩展的问题
 

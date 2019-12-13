@@ -6,15 +6,15 @@ author: WenJason
 ms.service: automation
 ms.topic: include
 origin.date: 12/13/2018
-ms.date: 04/29/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: e5a1ed2f65d8b72dd5651bdd05dee30b8c9d2087
-ms.sourcegitcommit: 9642fa6b5991ee593a326b0e5c4f4f4910f50742
+ms.openlocfilehash: 8d16c187ab3d147fb221483b89f31d723ac2f852
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64860129"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885187"
 ---
 #### <a name="process-automation"></a>流程自动化
 
@@ -32,6 +32,8 @@ ms.locfileid: "64860129"
 | 每个沙盒允许的最大网络套接字数量<sup>1</sup> |1,000 |仅适用于 Azure 沙盒。|
 | 每个 runbook 允许的最大运行时<sup>1</sup> |3 小时 |仅适用于 Azure 沙盒。|
 | 订阅中自动化帐户的最大数目 |无限制 ||
+| 每个自动化帐户的混合辅助角色组的最大数量|4,000||
+|单个混合 Runbook 辅助角色上可运行的最大并发作业数|50 ||
 | Runbook 作业参数大小上限   | 512 千比特||
 | Runbook 参数数量上限   | 50|如果达到 50 个参数的限制，则可将 JSON 或 XML 字符串传递给参数，并使用 Runbook 对其进行分析。|
 | Webhook 有效负载大小上限 |  512 千比特|

@@ -1,6 +1,6 @@
 ---
-title: 教程：将纽约出租车数据加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 教程使用 Azure 门户和 SQL Server Management Studio 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。
+title: 教程：加载纽约出租车数据
+description: 教程使用 Azure 门户和 SQL Server Management Studio 将纽约出租车数据从 Azure Blob 加载到 Azure SQL 数据仓库。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
@@ -8,19 +8,20 @@ ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
 origin.date: 04/26/2019
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: a3d3e2b8e26a693fbd53dd57c7ad9d6abdf5c33b
-ms.sourcegitcommit: 6a19227dcc0c6e0da5b82c4f69d0227bf38a514a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a074f10dc634852c621a69aaa9e700a20629bcf0
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328730"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807488"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>教程：将纽约出租车数据加载到 Azure SQL 数据仓库
 
-本教程使用 PolyBase 将纽约市出租车数据从公共 Azure Blob 加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
+本教程使用 PolyBase 将纽约出租车数据从 Azure Blob 加载到 Azure SQL 数据仓库。 本教程使用 [Azure 门户](https://portal.azure.cn)和 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) 执行以下操作： 
 
 > [!div class="checklist"]
 > * 在 Azure 门户中创建数据仓库
@@ -45,7 +46,7 @@ ms.locfileid: "74328730"
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>创建空白 SQL 数据仓库
 
-使用一组定义好的[计算资源](memory-and-concurrency-limits.md)创建 Azure SQL 数据仓库。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
+使用一组定义好的[计算资源](memory-concurrency-limits.md)创建 Azure SQL 数据仓库。 数据库在 [Azure 资源组](../azure-resource-manager/resource-group-overview.md)和 [Azure SQL 逻辑服务器](../sql-database/sql-database-features.md)中创建。 
 
 按照以下步骤创建空白 SQL 数据仓库。 
 
@@ -61,7 +62,7 @@ ms.locfileid: "74328730"
    | ------- | --------------- | ----------- | 
    | **数据库名称** | mySampleDataWarehouse | 如需有效的数据库名称，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 | 
    | **订阅** | 你的订阅  | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
-   | **资源组** | MyResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+   | **资源组** | MyResourceGroup | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。 |
    | **选择源** | 空白数据库 | 指定创建空白数据库。 请注意，数据仓库是一种数据库。|
 
     ![创建数据仓库](media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
@@ -70,7 +71,7 @@ ms.locfileid: "74328730"
 
     | 设置 | 建议的值 | 说明 | 
     | ------- | --------------- | ----------- |
-    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 | 
+    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。 | 
     | 服务器管理员登录名  | 任何有效的名称 | 如需有效的登录名，请参阅 [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。|
     | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须包含以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
     | **Location** | 任何有效的位置 | 有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。 |
@@ -104,7 +105,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 > SQL 数据仓库通过端口 1433 进行通信。 如果尝试从企业网络内部进行连接，则该网络的防火墙可能不允许经端口 1433 的出站流量。 如果是这样，则无法连接到 Azure SQL 数据库服务器，除非 IT 部门打开了端口 1433。
 >
 
-1. 部署完成后，在左侧菜单中单击“SQL 数据库”  ，然后在“SQL 数据库”  页上单击“mySampleDatabase”  。 此时会打开数据库的概览页，显示完全限定的服务器名称（例如 **mynewserver-20180430.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
+1. 部署完成后，在左侧菜单中单击“SQL 数据库”  ，然后在“SQL 数据库”  页上单击“mySampleDatabase”  。 此时会打开数据库的概述页，显示完全限定的服务器名称（例如 **mynewserver-20181129.database.chinacloudapi.cn**），并且会提供进行进一步配置所需的选项。 
 
 2. 在后续的快速入门中，请复制此完全限定的服务器名称，将其用于连接到服务器及其数据库。 然后单击服务器名称，打开服务器设置。
 
@@ -135,7 +136,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 1. 登录到 [Azure 门户](https://portal.azure.cn/)。
 2. 从左侧菜单中选择“SQL 数据仓库”  ，然后单击“SQL 数据仓库”  页上的数据库。 
-3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。   在此示例中，完全限定的名称为 mynewserver-20180430.database.chinacloudapi.cn。 
+3. 在数据库的“Azure 门户”页的“概要”窗格中，找到并复制“服务器名称”。   在此示例中，完全限定的名称为 mynewserver-20181129.database.chinacloudapi.cn。 
 
     ![连接信息](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -150,7 +151,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
     | 设置      | 建议的值 | 说明 | 
     | ------------ | --------------- | ----------- | 
     | 服务器类型 | 数据库引擎 | 此值是必需的 |
-    | 服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver-20180430.database.chinacloudapi.cn**。 |
+    | 服务器名称 | 完全限定的服务器名称 | 该名称应类似于：**mynewserver-20181129.database.chinacloudapi.cn**。 |
     | 身份验证 | SQL Server 身份验证 | SQL 身份验证是本教程中配置的唯一身份验证类型。 |
     | 登录 | 服务器管理员帐户 | 这是在创建服务器时指定的帐户。 |
     | 密码 | 服务器管理员帐户的密码 | 这是在创建服务器时指定的密码。 |
@@ -242,7 +243,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
         LOCATION = 'wasbs://2013@nytaxiblob.blob.core.windows.net/'
     );
     ```
-   <!-- Notice:  wasbs://2013@nytaxiblob.blob.core.windows.net/ is CORRECT source-->
+
 5. 运行以下 [CREATE EXTERNAL FILE FORMAT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql) T-SQL 语句，指定外部数据文件的格式设置特征和选项。 此语句指定外部数据存储为文本，且值由管道 ("|") 字符分隔。 使用 Gzip 压缩外部文件。 
 
     ```sql
@@ -623,7 +624,7 @@ SQL 数据仓库服务在服务器级别创建一个防火墙，阻止外部应�
 
 3. 要删除数据仓库，以便不再为计算或存储付费，请单击“删除”  。
 
-4. 若要删除创建的 SQL Server，请单击上图中的“mynewserver-20180430.database.chinacloudapi.cn”  ，然后单击“删除”  。  请审慎执行此操作，因为删除服务器会删除分配给该服务器的所有数据库。
+4. 若要删除已创建的 SQL Server，请单击上图中的“mynewserver-20181129.database.chinacloudapi.cn”  ，然后单击“删除”  。  请审慎执行此操作，因为删除服务器会删除分配给该服务器的所有数据库。
 
 5. 要删除资源组，请单击“myResourceGroup”  ，然后单击“删除资源组”  。
 

@@ -1,19 +1,17 @@
 ---
-title: 使用 Azure 备份与 PowerShell 来备份和恢复 Azure VM
+title: 使用 PowerShell 备份和恢复 Azure VM
 description: 介绍如何使用 Azure 备份与 PowerShell 来备份和恢复 Azure VM
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
+author: lingliw
 origin.date: 09/11/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5eb1e952599f2598e3844666cae97af88b0a1bad
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 11dddcef63f353a3bf32997f7d5948063223db78
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528273"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838928"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>使用 PowerShell 备份和恢复 Azure VM
 
@@ -22,6 +20,7 @@ ms.locfileid: "74528273"
 本文介绍如何执行以下操作：
 
 > [!div class="checklist"]
+>
 > * 创建恢复服务保管库并设置保管库上下文。
 > * 定义备份策略
 > * 应用备份策略以保护多个虚拟机
@@ -30,7 +29,7 @@ ms.locfileid: "74528273"
 ## <a name="before-you-start"></a>开始之前
 
 * [详细了解](backup-azure-recovery-services-vault-overview.md)恢复服务保管库。
-* [查看](backup-architecture.md#architecture-direct-backup-of-azure-vms) Azure VM 备份的体系结构、[了解](backup-azure-vms-introduction.md)备份过程，以及[查看](backup-support-matrix-iaas.md)支持、限制和先决条件。
+* [查看](backup-architecture.md) Azure VM 备份的体系结构、[了解](backup-azure-vms-introduction.md)备份过程，以及[查看](backup-support-matrix-iaas.md)支持、限制和先决条件。
 * 查看恢复服务的 PowerShell 对象层次结构。
 
 ## <a name="recovery-services-object-hierarchy"></a>恢复服务对象层次结构
@@ -77,12 +76,12 @@ ms.locfileid: "74528273"
     ```
 
 6. 可使用以下命令验证提供程序是否已成功注册：
+
     ```powershell
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
     在命令输出中，**RegistrationState** 应当会变为 **Registered**。 如果未按此更改，只需再次运行 **[Register-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/register-azresourceprovider)** cmdlet 即可。
-
 
 ## <a name="create-a-recovery-services-vault"></a>创建恢复服务保管库
 
@@ -98,6 +97,7 @@ ms.locfileid: "74528273"
     ```powershell
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "China North"
     ```
+
 3. 指定要使用的存储冗余类型；可以使用[本地冗余存储 (LRS)](../storage/common/storage-redundancy-lrs.md) 或[异地冗余存储 (GRS)](../storage/common/storage-redundancy-grs.md)。 以下示例显示，testvault 的 -BackupStorageRedundancy 选项设置为 GeoRedundant。
 
     ```powershell
@@ -120,7 +120,7 @@ Get-AzRecoveryServicesVault
 
 输出类似于以下示例，请注意，提供了关联的 ResourceGroupName 和 Location。
 
-```
+```output
 Name              : Contoso-vault
 ID                : /subscriptions/1234
 Type              : Microsoft.RecoveryServices/vaults
@@ -150,6 +150,7 @@ Get-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "Contoso-docs-r
 $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault"
 $targetVault.ID
 ```
+
 或
 
 ```powershell
@@ -192,10 +193,10 @@ DefaultPolicy        AzureVM            AzureVM              4/14/2016 5:00:00 P
 
 一个备份保护策略至少与一个保留策略相关联。 保留策略定义了在将恢复点删除之前将其保留多长时间。
 
-- 使用 [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) 查看默认保留策略。
-- 类似地，可以使用 [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) 获取默认计划策略。
-- [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet 创建用于保存备份策略信息的 PowerShell 对象。
-- 计划和保留策略对象将用作 New-AzRecoveryServicesBackupProtectionPolicy cmdlet 的输入。
+* 使用 [Get-AzRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupretentionpolicyobject) 查看默认保留策略。
+* 类似地，可以使用 [Get-AzRecoveryServicesBackupSchedulePolicyObject](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupschedulepolicyobject) 获取默认计划策略。
+* [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) cmdlet 创建用于保存备份策略信息的 PowerShell 对象。
+* 计划和保留策略对象将用作 New-AzRecoveryServicesBackupProtectionPolicy cmdlet 的输入。
 
 默认情况下，会在“计划策略对象”中定义开始时间。 请使用以下示例将开始时间更改为所需的开始时间。 所需的开始时间也应采用 UTC 格式。 以下示例假设在进行每日备份时，所需的开始时间为 UTC 时间凌晨 1:00。
 

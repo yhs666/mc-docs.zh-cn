@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 06/05/2019
 ms.date: 08/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: ee15450e58ab571998d248d3a45caa21b416eb73
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 4a6290787238970dda90c8dd6accbea07b8781d7
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730359"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839042"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>在 Azure Monitor 中执行跨资源日志查询  
 
@@ -129,6 +129,11 @@ applicationsScoping
 | summarize count() by applicationName, bin(timestamp, 1h) 
 | render timechart
 ```
+
+>[!NOTE]
+>此方法不能用于日志警报，因为警报规则资源（包括工作区和应用程序）的访问验证是在警报创建时执行的。 不支持在创建警报后将新资源添加到该函数。 如果更喜欢使用函数在日志警报中确定资源范围，则需要在门户中编辑警报规则或使用资源管理器模板来更新范围内的资源。 或者，可以在日志警报查询中包含资源列表。
+
+
 ![时间表](media/cross-workspace-query/chart.png)
 
 ## <a name="next-steps"></a>后续步骤

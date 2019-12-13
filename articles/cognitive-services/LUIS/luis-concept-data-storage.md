@@ -12,18 +12,15 @@ ms.topic: conceptual
 origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9f556dfa9751d47a3dbb9530a7c92e3ae3faba27
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 628d05734473df1734cb46551b631506bbe2d7b4
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329927"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884495"
 ---
 # <a name="data-storage-and-removal-in-language-understanding-luis-cognitive-services"></a>语言理解 (LUIS) 认知服务中的数据存储和删除
 LUIS 将加密的数据存储在与密钥指定的区域对应的 Azure 数据存储中。 此数据将存储 30 天。 
-
-## <a name="export-and-delete-app"></a>导出和删除应用
-用户对于[导出](luis-how-to-start-new-app.md#export-app)和[删除](luis-how-to-start-new-app.md#delete-app)应用拥有完全的控制权。 
 
 ## <a name="utterances"></a>陈述
 
@@ -42,12 +39,12 @@ LUIS 将加密的数据存储在与密钥指定的区域对应的 Azure 数据�
 
 ### <a name="delete-utterances-in-review-from-active-learning"></a>从主动学习中删除审核中的话语
 
-可以从 LUIS 在[“查看终结点陈述”页](luis-how-to-review-endpoint-utterances.md)中建议的用户陈述列表中删除陈述  。 从此列表中删除表述可以防止系统再将其作为建议提出来，但不会将其从日志中删除。
+可以从 LUIS 在“审查终结点话语”页  中建议的用户话语列表中删除话语。 从此列表中删除表述可以防止系统再将其作为建议提出来，但不会将其从日志中删除。
 
-如果不想主动学习话语，则可以[禁用主动学习](luis-how-to-review-endpoint-utterances.md#disable-active-learning)。 禁用主动学习也会禁止记录。
+如果不想主动学习话语，可以禁用主动学习。 禁用主动学习也会禁止记录。
 
 ### <a name="disable-logging-utterances"></a>禁止记录话语
-[禁用主动学习](luis-how-to-review-endpoint-utterances.md#disable-active-learning)会禁止记录。
+禁用主动学习会禁止记录。
 
 
 <a name="accounts"></a>
@@ -64,8 +61,3 @@ LUIS 将加密的数据存储在与密钥指定的区域对应的 Azure 数据�
 * 未进行修改。
 * 未分配有当前密钥。
 * 无任何用户登录应用。
-
-## <a name="next-steps"></a>后续步骤
-
-> [!div class="nextstepaction"]
-> [了解导出和删除应用](luis-how-to-start-new-app.md)

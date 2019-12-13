@@ -1,7 +1,7 @@
 ---
 title: 应用程序设置 - LUIS
 titleSuffix: Azure Cognitive Services
-description: 了解语言理解应用的应用程序设置。
+description: Azure 认知服务语言理解应用的应用程序设置存储在应用和门户中。
 services: cognitive-services
 author: lingliw
 manager: digimobile
@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/04/2019
-ms.date: 09/23/2019
+origin.date: 11/12/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e8517c78c1fff7ba4aeccbb227f5edd8dd217067
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: e24105cc36e73fa96490301cf76e3e6a1ec3ac94
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330149"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884527"
 ---
 # <a name="application-settings"></a>应用程序设置
 
@@ -56,9 +56,9 @@ ms.locfileid: "71330149"
 ] 
 ```
 
-以下话语显示了音调符号如何影响话语：
+以下话语显示了标点如何影响话语：
 
-|音调符号设置为 False 时|音调符号设置为 True 时|
+|当标点设置为 False 时|当标点设置为 True 时|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||

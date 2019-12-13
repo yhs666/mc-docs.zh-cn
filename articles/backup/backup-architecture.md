@@ -1,21 +1,20 @@
 ---
-title: Azure 备份体系结构
+title: 体系结构概述
 description: 概述 Azure 备份服务使用的体系结构、组件和流程。
 author: lingliw
 manager: digimobile
-ms.service: backup
 ms.topic: conceptual
 origin.date: 02/19/2019
-ms.date: 09/23/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2a4cd206906d3aa7a1a9764d04efc8ffcdad5076
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 817b742e19636cd7a8dc5df7bbbcbf76939c4071
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528264"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838960"
 ---
-# <a name="azure-backup-architecture-and-components"></a>Azure 备份体系结构和组件
+# Azure 备份体系结构和组件 <a name="architecture-built-in-azure-vm-backup"></a>
 
 可以使用 [Azure 备份服务](backup-overview.md)将数据备份到 Microsoft Azure 云平台。 本文汇总了 Azure 备份体系结构、组件和流程。
 

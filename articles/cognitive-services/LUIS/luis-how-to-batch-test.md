@@ -1,5 +1,5 @@
 ---
-title: 批处理测试 - LUIS
+title: 如何执行批处理测试 - LUIS
 titleSuffix: Azure Cognitive Services
 description: 使用语言理解 (LUIS) 批处理测试集来查找意向和实体不正确的话语。
 services: cognitive-services
@@ -9,19 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/09/2019
+origin.date: 10/25/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cd718de17639c16551e5301f58eb90dbcc728754
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 971eee85ff386398df6b4df5d9f72f752fb5d5d5
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330391"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884619"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>使用一组示例话语进行批处理测试
 
  批处理测试是对当前已训练的模型进行的全面测试，以衡量其 LUIS 性能。 用于批处理测试的数据集不应包括意向中的示例话语或从预测运行时终结点接收的话语。 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="batch-testing"></a>
 
@@ -103,7 +105,6 @@ ms.locfileid: "71330391"
 
 如果测试表明 LUIS 应用未正确识别意向和实体，则可以通过标记更多陈述或添加功能来提高 LUIS 应用的性能。 
 
-* [使用 LUIS 标记建议的陈述](luis-how-to-review-endpoint-utterances.md) 
 * [使用相关功能来改进 LUIS 应用的性能](luis-how-to-add-features.md) 
 * [通过本教程了解批处理测试](luis-tutorial-batch-testing.md)
 * [了解批处理测试概念](luis-concept-batch-test.md)。

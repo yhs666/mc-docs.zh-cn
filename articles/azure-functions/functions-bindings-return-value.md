@@ -1,21 +1,16 @@
 ---
 title: 使用 Azure 函数的返回值
 description: 了解如何管理 Azure 函数的返回值
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
-origin.date: 01/14/2019
-ms.date: 11/18/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: b2c0fdd61e2c7470ab505f5f97ceff9daa6a809d
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: d62b2ca10a6f9ac76ee53dec241c2c725fcbd9e4
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178967"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884936"
 ---
 # <a name="using-the-azure-function-return-value"></a>使用 Azure 函数返回值
 
@@ -24,6 +19,7 @@ ms.locfileid: "74178967"
 在支持返回值的语言中，可以将函数[输出绑定](./functions-triggers-bindings.md#binding-direction)绑定到返回值：
 
 * 在 C# 类库，请将输出绑定特性应用到方法返回值。
+* 在 Java 中，将输出绑定注释应用于函数方法。
 * 在其他语言中，请将 *function.json* 中的 `name` 属性设置为 `$return`。
 
 如果有多个输出绑定，请只使用其中一个绑定的返回值。
@@ -133,6 +129,26 @@ module.exports = function (context, input) {
     context.done(null, json);
 }
 ```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+以下 Java 代码使用输出绑定的返回值：
+
+```java
+@FunctionName("QueueTrigger")
+@StorageAccount("AzureWebJobsStorage")
+@BlobOutput(name = "output", path = "output-container/{id}")
+public static String run(
+  @QueueTrigger(name = "input", queueName = "inputqueue") WorkItem input,
+  final ExecutionContext context
+) {
+  String json = String.format("{ \"id\": \"%s\" }", input.id);
+  context.getLogger().info("Java processed queue message. Item=" + json);
+  return json;
+}
+```
+
+---
 
 ## <a name="next-steps"></a>后续步骤
 

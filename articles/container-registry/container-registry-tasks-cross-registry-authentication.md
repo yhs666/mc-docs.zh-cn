@@ -1,19 +1,16 @@
 ---
-title: Azure 容器注册表任务中的跨注册表身份验证
-description: 在 Azure 容器注册表任务 (ACR) 中启用 Azure 资源的托管标识，使该任务能够访问其他专用容器注册表。
-services: container-registry
-author: rockboyfor
-ms.service: container-registry
+title: 在 ACR 任务中进行跨注册表身份验证
+description: 配置 Azure 容器注册表任务（ACR 任务），以使用 Azure 资源的托管标识访问另一个专用 Azure 容器注册表
 ms.topic: article
 origin.date: 07/12/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: d4847bd52ab2b1c0db6edb4eca16bf1077e856c7
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 8ab662b594b5dc7ea36242c6bbef816504f733dc
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134525"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885017"
 ---
 <!--Verify successfully-->
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>ACR 任务中使用 Azure 托管标识的跨注册表身份验证 
@@ -238,5 +235,4 @@ cf10
 [az-acr-task-credential-add]: https://docs.azure.cn/cli/acr/task/credential?view=azure-cli-latest#az-acr-task-credential-add
 [az-group-create]: https://docs.azure.cn/cli/group??view=azure-cli-latest#az-group-create
 
-<!--Update_Description: new articles on container registry tasks cross registry auth-->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

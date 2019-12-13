@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 04/11/2019
-ms.date: 11/04/2019
+origin.date: 11/07/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: a829038ae5b974671573a452882ec89fc5802c9a
-ms.sourcegitcommit: f9a257e95444cb64c6d68a7a1cfe7e94c5cc5b19
+ms.openlocfilehash: e6e1961da4aaac4bf334863d2d18d53542d9eb8c
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416282"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807641"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>配置 Postman 以便进行媒体服务 REST API 调用
 
@@ -92,6 +92,11 @@ ms.locfileid: "73416282"
 4. 响应会返回此令牌并将“AccessToken”环境变量设置为令牌值。  
 
     ![获取 AAD 令牌](./media/develop-with-postman/postman-get-aad-auth-token.png)
+
+## <a name="troubleshooting"></a>故障排除 
+
+* 如果应用程序失败并显示“HTTP 504:网关超时”，请确保没有将位置变量显式设置为媒体服务帐户的预期位置以外的值。 
+* 如果收到“找不到帐户”错误，还请检查以确保将正文 JSON 消息中的 location 属性设置为媒体服务帐户所在的位置。 
 
 ## <a name="see-also"></a>另请参阅
 

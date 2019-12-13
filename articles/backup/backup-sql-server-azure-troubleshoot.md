@@ -1,20 +1,17 @@
 ---
-title: 排查使用 Azure 备份进行 SQL Server 数据库备份的问题 | Microsoft Docs
+title: 排查 SQL Server 数据库备份问题
 description: 有关使用 Azure 备份来备份在 Azure VM 上运行的 SQL Server 数据库的故障排除信息。
-ms.reviewer: anuragm
+ms.topic: troubleshooting
 author: lingliw
-manager: carmonm
-ms.service: backup
-ms.topic: article
 origin.date: 06/18/2019
 ms.date: 11/14/2019
-ms.author: dacurwin
-ms.openlocfilehash: e7af4ea9298a1c03899ba7c1fdff6d7eaed049bb
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.author: v-lingwu
+ms.openlocfilehash: d0971a80c0c4cdd90ac1a6ff2f75516915eee018
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528318"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838883"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>排查使用 Azure 备份进行 SQL Server 数据库备份的问题
 

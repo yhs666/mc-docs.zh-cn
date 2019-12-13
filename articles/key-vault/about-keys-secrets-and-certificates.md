@@ -8,14 +8,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.topic: conceptual
 origin.date: 09/04/2019
-ms.date: 10/25/2019
+ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: eb738087b3435e079c3bd0ee5f4ac3f406d13fab
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: c1b975717e7640801a92403f827418917c4ef67f
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425759"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838983"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>关于密钥、机密和证书
 
@@ -24,7 +24,7 @@ ms.locfileid: "73425759"
 - 加密密钥：支持多种密钥类型和算法。
 - 机密：提供机密（例如密码和数据库连接字符串）的安全存储。
 - 证书：支持基于密钥和机密并且添加了自动续订功能的证书。
-- Azure 存储：可以管理 Azure 存储帐户的密钥。 在内部，Key Vault 可以使用 Azure 存储帐户列出（同步）密钥，并定期重新生成（轮换）密钥。
+- Azure 存储：可以管理 Azure 存储帐户的密钥。 在内部，Key Vault 可以使用 Azure 存储帐户列出（同步）密钥，并定期重新生成（轮换）密钥。 
 
 有关 Key Vault 的更多常规信息，请参阅[什么是 Azure Key Vault？](/key-vault/key-vault-overview)
 
@@ -36,10 +36,10 @@ ms.locfileid: "73425759"
 
 JavaScript 对象表示法 (JSON) 与 JavaScript 对象的签名和加密 (JOSE) 规范是重要的背景信息。  
 
--   [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
--   [JSON Web 加密 (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
--   [JSON Web 算法 (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms)  
--   [JSON Web 签名 (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature)  
+-   [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)  
+-   [JSON Web 加密 (JWE)](https://tools.ietf.org/html/draft-ietf-jose-json-web-encryption-40)  
+-   [JSON Web 算法 (JWA)](https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40)  
+-   [JSON Web 签名 (JWS)](https://tools.ietf.org/html/draft-ietf-jose-json-web-signature-41)  
 
 ### <a name="data-types"></a>数据类型
 
@@ -81,7 +81,40 @@ Key Vault 中的对象通过 URL 唯一标识。 不管地理位置如何，系�
 
 ## <a name="key-vault-keys"></a>Key Vault 密钥
 
+### <a name="keys-and-key-types"></a>密钥和密钥类型
+
+Key Vault 中的加密密钥表示为 JSON Web 密钥 [JWK] 对象。 此外，还扩展了基本 JWK/JWA 规范，以启用对于 Key Vault 实现唯一的密钥类型。
 <!-- HSM not available -->
+Key Vault 仅支持 RSA 和椭圆曲线密钥。 
+
+-   **EC**：“软”椭圆曲线密钥。
+-   **RSA**：“软”RSA 密钥。
+
+Key Vault 支持大小为 2048、3072 和 4096 的 RSA 密钥。 Key Vault 支持类型为 P-256、P-384、P-521 和 P-256K (SECP256K1) 的椭圆曲线密钥。
+
+### <a name="cryptographic-protection"></a>加密保护
+
+Key Vault 使用的加密模块经过 FIPS（美国联邦信息处理标准）验证。 因此不必执行任何特殊操作便可在 FIPS 模式下运行。 “创建”或“导入”为受软件保护的密钥在加密模块内处理，且验证为 FIPS 140-2 级别 1   。 有关详细信息，请参阅[密钥和密钥类型](#keys-and-key-types)。
+
+###  <a name="ec-algorithms"></a>EC 算法
+ Key Vault 中的 EC 密钥支持以下算法标识符。 
+
+#### <a name="curve-types"></a>曲线类型
+
+-   P-256  - NIST 曲线 P-256，在 [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf) 中定义。
+-   P-256K  - SEC 曲线 SECP256K1，在 [SEC 2：建议使用的椭圆曲线域参数](https://www.secg.org/sec2-v2.pdf)中定义。
+-   P-384  - NIST 曲线 P-384，在 [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf) 中定义。
+-   P-521  - NIST 曲线 P-521，在 [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf) 中定义。
+
+#### <a name="signverify"></a>SIGN/VERIFY
+
+-   **ES256** - 使用曲线 P-256 创建的 SHA-256 摘要和密钥的 ECDSA。 [RFC7518](https://tools.ietf.org/html/rfc7518) 中描述了此算法。
+-   **ES256K** - 使用曲线 P-256K 创建的 SHA-256 摘要和密钥的 ECDSA。 此算法正在等待标准化。
+-   **ES384** - 使用曲线 P-384 创建的 SHA-384 摘要和密钥的 ECDSA。 [RFC7518](https://tools.ietf.org/html/rfc7518) 中描述了此算法。
+-   **ES512** - 使用曲线 P-521 创建的 SHA-512 摘要和密钥的 ECDSA。 [RFC7518](https://tools.ietf.org/html/rfc7518) 中描述了此算法。
+
+###  <a name="rsa-algorithms"></a>RSA 算法  
+ Key Vault 中的 RSA 密钥支持以下算法标识符。  
 
 #### <a name="wrapkeyunwrapkey-encryptdecrypt"></a>包装密钥/解包密钥、加密/解密
 
@@ -123,7 +156,7 @@ Key Vault 不支持“导出”操作。 在系统中设置密钥后，便无法
 
 用户可以使用 JWK 对象的 key_ops 属性按密钥限制 Key Vault 支持的任何加密操作。  
 
-有关 JWK 对象的详细信息，请参阅 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)。  
+有关 JWK 对象的详细信息，请参阅 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)。  
 
 ###  <a name="key-attributes"></a>密钥属性
 
@@ -146,7 +179,7 @@ Key Vault 不支持“导出”操作。 在系统中设置密钥后，便无法
 
 有关数据类型的详细信息，请参阅[数据类型](#data-types)。
 
-有关其他可能的属性的详细信息，请参阅 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key)。
+有关其他可能的属性的详细信息，请参阅 [JSON Web 密钥 (JWK)](https://tools.ietf.org/html/draft-ietf-jose-json-web-key-41)。
 
 ### <a name="key-tags"></a>密钥标记
 

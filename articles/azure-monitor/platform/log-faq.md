@@ -6,15 +6,15 @@ author: lingliw
 manager: digimobile
 ms.subservice: logs
 ms.topic: conceptual
-origin.date: 11/13/2018
+origin.date: 11/01/2019
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0710da1672930942a9b2f1c3dc88c205d5388022
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6c8e71cc2c868006b26e27054366b88a3347b8d0
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528226"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838921"
 ---
 # <a name="log-analytics-faq"></a>Log Analytics 常见问题解答
 
@@ -107,29 +107,6 @@ A. 可以，Azure 中的“日志”页和高级分析门户基于相同的代�
 
 答：否。 Log Analytics 是处理和存储大量数据的可缩放云服务。 
 
-### <a name="q-how-do-i-troubleshoot-if-log-analytics-is-no-longer-collecting-data"></a>问： 如何排除 Log Analytics 不再收集数据这一故障？
-
-答：对于在 2018 年 4 月 2 日之前在“免费”定价层上创建的订阅和工作区，如果在一天中发送的数据超过 500 MB，则在当天的剩余时间内会停止数据收集  。 达到每日限制是 Log Analytics 停止数据收集或者看起来缺少数据的常见原因。  
-
-Log Analytics 创建类型为“Heartbeat”的事件，并可用于确定数据收集是否停止  。 
-
-请在搜索中运行以下查询来检查是否已达到每日限制并缺少数据：`Heartbeat | summarize max(TimeGenerated)`
-
-若要检查特定计算机，可运行以下查询：`Heartbeat | where Computer=="contosovm" | summarize max(TimeGenerated)`
-
-当数据收集停止时，根据所选的时间范围，将看不到任何返回的记录。   
-
-下表描述了数据收集停止的原因以及用于恢复数据收集的建议操作：
-
-| 数据收集停止的原因                       | 恢复数据收集需执行的操作 |
-| -------------------------------------------------- | ----------------  |
-| 达到免费数据限制<sup>1</sup>       | 等到下一月收集自动重新启动，或者<br> 更改为付费定价层 |
-| Azure 订阅由于以下原因处于挂起状态： <br> 免费试用已结束 <br> Azure 许可已过期 <br> 已达到每月支出限制（例如，在 MSDN 或 Visual Studio 订阅上）                          | 转换为付费订阅 <br> 转换为付费订阅 <br> 删除限制，或者等到限制重置 |
-
-<sup>1</sup> 如果工作区位于*免费*定价层，则限制为每天向服务发送 500 MB 数据。 达到每日限制时，数据收集将停止到下一天。 不会为在数据收集停止期间发送的数据编制索引并且该数据不可搜索。 当数据收集恢复后，将仅对发送的新数据进行处理。 
-
-Log Analytics 使用 UTC 时间并且每天从 UTC 午夜时间开始。 如果工作区达到每日限制，则处理将在采用 UTC 时间的下一天的第一个小时恢复。
-
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>问： 当数据收集停止时如何可以收到通知？
 
 答：当数据收集停止时，可以使用[新建日志警报](../../azure-monitor/platform/alerts-metric.md)中所述的步骤收到通知。
@@ -149,13 +126,14 @@ Log Analytics 使用 UTC 时间并且每天从 UTC 午夜时间开始。 如果�
 指定现有的操作组或创建一个新[操作组](../../azure-monitor/platform/action-groups.md)，以便当日志警报匹配条件时，如果检测信号丢失超过 15 分钟，你将收到通知。
 
 ## <a name="configuration"></a>配置
+
 ### <a name="q-can-i-change-the-name-of-the-tableblob-container-used-to-read-from-azure-diagnostics-wad"></a>问： 是否可以更改用于从 Azure 诊断 (WAD) 读取数据的表/blob 容器的名称？
 
 A. 不可以，当前还不能从 Azure 存储中的任意表或容器进行读取。
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>问： Log Analytics 服务使用什么 IP 地址？ 如何确保我的防火墙仅允许与 Log Analytics 服务通信？
 
-A. Log Analytics 服务是在 Azure 的基础上构建的。 Log Analytics IP 地址在[世纪互联 Azure 数据中心 IP 范围](https://www.microsoft.com/en-us/download/confirmation.aspx?id=57062)内。
+A. Log Analytics 服务是在 Azure 的基础上构建的。 Log Analytics IP 地址在 [Microsoft Azure 数据中心 IP 范围](https://www.microsoft.com/download/details.aspx?id=41653)内。
 
 当进行服务部署时，Log Analytics 服务的实际 IP 地址会发生变化。 [网络要求](../../azure-monitor/platform/log-analytics-agent.md#network-firewall-requirements)中记录了允许穿过防火墙的 DNS 名称。
 
@@ -182,15 +160,15 @@ A. `Move-AzResource` Cmdlet 可以用来将 Log Analytics 工作区以及自动�
 
 ### <a name="q-how-can-i-confirm-that-an-agent-is-able-to-communicate-with-log-analytics"></a>问：如何确认代理能够与 Log Analytics 通信？
 
-答：若要确保代理可与 OMS 通信，请转到：“控制面板”>“安全和设置”>“Microsoft Monitoring Agent”  。
+答：若要确保代理能够与 Log Analytics 工作区通信，请转到：“控制面板”>“安全和设置”>“Microsoft Monitoring Agent”  。
 
 在“**Azure Log Analytics (OMS)** ”选项卡下，查找一个绿色复选标记。 绿色复选标记图标确认代理能够与 Azure 服务进行通信。
 
-黄色警告图标意味着代理与 Log Analytics 存在通信问题。 一个常见原因是 Azure 监视代理服务已停止。 请使用服务控制管理器重启该服务。
+黄色警告图标意味着代理与 Log Analytics 存在通信问题。 一个常见原因是 Microsoft 监视代理服务已停止。 请使用服务控制管理器重启该服务。
 
 ### <a name="q-how-do-i-stop-an-agent-from-communicating-with-log-analytics"></a>问：如何使某个代理停止与 Log Analytics 通信？
 
-答：在 System Center Operations Manager 中，从 OMS 托管的计算机列表中删除该计算机。 Operations Manager 会更新该代理的配置以便不再向 Log Analytics 进行报告。 对于直接连接到 Log Analytics 的代理，可以通过以下路径使其停止与 Log Analytics 通信：“控制面板”>“安全和设置”>“Microsoft Monitoring Agent”  。
+答：在 System Center Operations Manager 中，从 Log Analytics 托管的计算机列表中删除该计算机。 Operations Manager 会更新该代理的配置以便不再向 Log Analytics 进行报告。 对于直接连接到 Log Analytics 的代理，可以通过以下路径使其停止与 Log Analytics 通信：“控制面板”>“安全和设置”>“Microsoft Monitoring Agent”  。
 在“**Azure Log Analytics (OMS)** ”选项卡下，删除列出的所有工作区。
 
 ### <a name="q-why-am-i-getting-an-error-when-i-try-to-move-my-workspace-from-one-azure-subscription-to-another"></a>问：为什么我在尝试将工作区从一个 Azure 订阅移动到另一个订阅时收到错误？
@@ -218,9 +196,9 @@ A. 免费套餐设置的上限是每个工作区每天 500 MB。 标准和高级
 
 Log Analytics 代理设计为确保占用较小的数据空间。 数据量因启用的解决方案而异。 在“使用情况”页面中可以找到有关数据量的详细信息以及按解决方案列出的故障。
 
-有关详细信息，可以阅读[客户博客](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)，其中显示了他们在评估 OMS 代理的资源利用率后的结果。
+有关详细信息，可以阅读[客户博客](https://thoughtsonopsmgr.blogspot.com/2015/09/one-small-footprint-for-server-one.html)，其中显示了他们在评估 Log Analytics 代理的资源利用率（占用情况）后的结果。
 
-### <a name="q-how-much-network-bandwidth-is-used-by-the-azure-management-agent-mma-when-sending-data-to-log-analytics"></a>问： 将数据发送到 Log Analytics 时，Azure 管理代理 (MMA) 使用多少网络带宽？
+### <a name="q-how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-log-analytics"></a>问： 将数据发送到 Log Analytics 时，Microsoft 管理代理 (MMA) 使用多少网络带宽？
 
 A. 带宽是已发送数据量的一个函数。 数据通过网络发送时会被压缩。
 

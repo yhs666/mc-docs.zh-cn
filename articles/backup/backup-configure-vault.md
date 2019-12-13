@@ -1,19 +1,17 @@
 ---
-title: 使用 Azure 备份 MARS 代理备份 Windows 计算机
+title: 使用 MARS 代理备份 Windows 计算机
 description: 使用 Azure 备份 Microsoft 恢复服务 (MARS) 代理备份 Windows 计算机。
-services: backup
-author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: conceptual
-ms.date: 06/04/2019
+author: lingliw
+origin.date: 06/04/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: fcc964d0ce29b17d4bd1273afb712201ba191112
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 49b7bfc64ebf04890c3fe8907137fe6d90475783
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528267"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838907"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>使用 Azure 备份 MARS 代理备份 Windows 计算机
 
@@ -38,7 +36,7 @@ Azure 备份使用 MARS 代理将本地计算机和 Azure VM 中的文件、文�
 可备份的内容取决于该代理的安装位置。
 
 > [!NOTE]
-> 备份 Azure VM 的主要方法是在 VM 上使用 Azure 备份扩展。 这将备份整个 VM。 若要备份 VM 上的特定文件和文件夹，可以安装 MARS 代理并将其与该扩展一起使用。 [了解详细信息](backup-architecture.md#architecture-direct-backup-of-azure-vms)。
+> 备份 Azure VM 的主要方法是在 VM 上使用 Azure 备份扩展。 这将备份整个 VM。 若要备份 VM 上的特定文件和文件夹，可以安装 MARS 代理并将其与该扩展一起使用。 [了解详细信息](backup-architecture.md)。
 
 ![备份过程的步骤](./media/backup-configure-vault/initial-backup-process.png)
 
@@ -234,7 +232,7 @@ Azure 备份会自动处理保管库的存储。 需要指定如何复制该存�
 可以通过启用网络限制，来控制 MARS 代理使用网络带宽的方式。 如果你需要在工作时间备份数据，但想要控制用于备份和还原活动的带宽量，则限制会很有帮助。
 
 * Azure 备份网络限制在本地操作系统上使用[服务质量 (QoS)](https://docs.microsoft.com/windows-server/networking/technologies/qos/qos-policy-top)。
-* 针对备份的网络限制适用于 Windows Server 2008 R2 和更高版本，以及 Windows 7 和更高版本。 操作系统应该运行最新的服务包。
+* 针对备份的网络限制适用于 Windows Server 2012 和更高版本，以及 Windows 8 和更高版本。 操作系统应该运行最新的服务包。
 
 按如下所述启用网络限制：
 

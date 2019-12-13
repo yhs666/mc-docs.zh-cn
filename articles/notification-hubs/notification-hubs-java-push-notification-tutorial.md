@@ -3,9 +3,9 @@ title: 如何结合使用通知中心与 Java
 description: 了解如何从 Java 后端使用 Azure 通知中心。
 services: notification-hubs
 documentationcenter: ''
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 4c3f966d-0158-4a48-b949-9fa3666cb7e4
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,14 +13,16 @@ ms.tgt_pltfrm: java
 ms.devlang: java
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/09/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4c465cd2fb2b969d7db64e6a1b67cca6706b79c1
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: d633c49004404c54dead06a4804cd8182096b747
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272617"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884989"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>如何通过 Java 使用通知中心
 
@@ -121,7 +123,7 @@ SDK 目前支持以下内容：
     hub.createRegistration(reg);
     ```
 
-同样，可以针对 Windows Phone (MPNS) 和 Kindle Fire (ADM) 创建注册。
+同样，可以为 Windows Phone (MPNS)、Android (Baidu) 和 Kindle Fire (ADM) 创建注册。
 
 **创建模板注册：**
 

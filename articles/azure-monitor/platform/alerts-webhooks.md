@@ -1,5 +1,5 @@
 ---
-title: 使用 Webhook 让经典指标警报通知非 Azure 系统
+title: 在 Azure Monitor 中对经典指标警报调用 Webhook
 description: 了解如何将 Azure 指标警报重新路由到其他非 Azure 系统。
 author: snehithm
 services: azure-monitor
@@ -9,14 +9,14 @@ origin.date: 04/03/2017
 ms.date: 02/16/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 5e86360aa0474d9bd106c825ec9ff4facdaff7c2
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 8b1281a785f84c5af29a2fb0104d83a4b4096c2a
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737334"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838599"
 ---
-# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>使用 Webhook 让经典指标警报通知非 Azure 系统
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>在 Azure Monitor 中对经典指标警报调用 Webhook
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 
 
 本文介绍如何针对 Azure 指标警报设置 Webhook。 此外，还说明向 Webhook 发出的 HTTP POST 的有效负载的大致形式。 有关 Azure 活动日志警报（事件警报）的设置和架构的信息，[针对 Azure 活动日志警报调用 Webhook](alerts-log-webhook.md)。

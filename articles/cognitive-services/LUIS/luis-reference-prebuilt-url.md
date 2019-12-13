@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/27/2019
+origin.date: 10/04/2019
 ms.date: 10/27/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 33d8fbc94aa5d228bf0a8519ead32e102355c680
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 38089e51484953e135280ed469f33eb08e6cacb2
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416367"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884923"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 URL 预生成实体
 URL 实体提取带域名或 IP 地址的 URL。 此实体已定型，因此不需要将包含 URL 的示例陈述添加到应用程序。 仅在 `en-us` 区域性中支持 URL 实体。 
@@ -27,96 +27,67 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>预构建 URL 实体解析
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 预测终结点响应](#tab/V2)
+查询返回以下实体对象：
 
-以下示例演示了 builtin.url  实体解析。
+`https://www.luis.ai is a great cognitive services example of artificial intelligence`
 
-```json
-{
-  "query": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.781975448
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.781975448
-    }
-  ],
-  "entities": [
-    {
-      "entity": "https://luis.azure.cn",
-      "type": "builtin.url",
-      "startIndex": 0,
-      "endIndex": 17
-    }
-  ]
-}
-```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 预测终结点响应](#tab/V3)
+#### <a name="v3-responsetabv3"></a>[V3 响应](#tab/V3)
 
 以下 JSON 的 `verbose` 参数设置为 `false`：
 
 ```json
-{
-    "query": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://luis.azure.cn"
-            ]
-        }
-    }
+"entities": {
+    "url": [
+        "https://luis.azure.cn"
+    ]
 }
 ```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 详细响应](#tab/V3-verbose)
 
 以下 JSON 的 `verbose` 参数设置为 `true`：
 
 ```json
-{
-    "query": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://luis.azure.cn is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://luis.azure.cn"
-            ],
-            "$instance": {
-                "url": [
-                    {
-                        "type": "builtin.url",
-                        "text": "https://luis.azure.cn",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ],
+    "$instance": {
+        "url": [
+            {
+                "type": "builtin.url",
+                "text": "https://www.luis.ai",
+                "startIndex": 0,
+                "length": 17,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### <a name="v2-responsetabv2"></a>[V2 响应](#tab/V2)
 
+以下示例显示了 https://www.luis.ai 的解析是人工智能的一个良好认知服务示例
+
+```json
+"entities": [
+    {
+        "entity": "https://www.luis.ai",
+        "type": "builtin.url",
+        "startIndex": 0,
+        "endIndex": 17
+    }
+]
+```
 
 * * * 
 
 ## <a name="next-steps"></a>后续步骤
+
+详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
 
 了解[序号](luis-reference-prebuilt-ordinal.md)、[数字](luis-reference-prebuilt-number.md)和[温度](luis-reference-prebuilt-temperature.md)实体。
 

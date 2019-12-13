@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 04/04/2019
 ms.author: v-yiso
-ms.date: 09/16/2019
-ms.openlocfilehash: 64076a6688d3c35d44974b87a21d5233c2cd77ba
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.date: 12/16/2019
+ms.openlocfilehash: 99b3034be8d501b04b3b745a922a77790f1bcdba
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736712"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884717"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>如何委派用户注册和产品订阅
 
@@ -178,6 +178,8 @@ var digest = hmac.update(salt + '\n' + returnUrl).digest();
 var signature = digest.toString('base64');
 ```
 
+> [!IMPORTANT]
+> 需要[重新发布开发人员门户](api-management-howto-developer-portal-customize.md#publish)才能使委托更改生效。
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription

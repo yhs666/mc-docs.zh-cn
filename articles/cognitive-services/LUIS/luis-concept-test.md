@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 07/29/2019
-ms.date: 09/23/2019
+origin.date: 10/10/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 190814f7a5b97d3fb00b458c549dfe9646a7bd04
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 62c1ae019f0a056d692a7c14d9844bb03b793992
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330024"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884485"
 ---
 # <a name="testing-example-utterances-in-luis"></a>在 LUIS 中测试示例话语
 
 进行测试过程中，会向 LUIS 提供示例话语并获取 LUIS 识别出的意向和实体响应。 
 
-可以交互方式[测试](luis-interactive-test.md) LUIS，一次提供一条话语，或[一批](luis-concept-batch-test.md)话语。 通过测试，可比较当前[活动](luis-concept-version.md#active-version)模型与已发布的模型。 
+可以交互方式测试 LUIS，一次提供一条话语，或提供一批话语。 测试时，可以将当前活动模型的预测响应与已发布模型的预测响应进行比较。 
 
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
@@ -33,7 +33,7 @@ ms.locfileid: "71330024"
 请参阅[预测分数](luis-concept-prediction-score.md)概念，详细了解预测分数。
 
 ## <a name="interactive-testing"></a>交互式测试
-交互式测试在网站的“测试”面板上进行  。 可输入话语，了解意向和实体的识别和打分方式。 在测试窗格中，如果 LUIS 根据话语预测的意向和实体不符合预期，则将其作为新话语复制到“意向”页  。 然后标记该话语部分并训练 LUIS。 
+交互式测试在 LUIS 门户的“测试”  面板中完成。 可输入话语，了解意向和实体的识别和打分方式。 在测试面板中，如果 LUIS 根据话语预测的意向和实体不符合预期，则将其作为新话语复制到“意向”页  。 然后为实体标记该话语的各个部分，并训练 LUIS。 
 
 ## <a name="batch-testing"></a>批处理测试
 若要同时测试多条话语，请参阅[批处理测试](luis-concept-batch-test.md)。
@@ -47,22 +47,14 @@ ms.locfileid: "71330024"
 如果对终结点进行测试，并且不希望记录话语，请记得使用 `logging=false` 查询字符串配置。
 
 ## <a name="where-to-find-utterances"></a>在哪里可以找到话语
-LUIS 将记录的所有话语存储在查询日志中，可在 [LUIS](luis-reference-regions.md) 网站的“应用”列表页，以及 LUIS [创作 API](https://aka.ms/luis-authoring-apis) 上下载  。 
+LUIS 将记录的所有话语存储在查询日志中，可从 LUIS 门户上的**应用**列表页，以及 LUIS [创作 API](https://go.microsoft.com/fwlink/?linkid=2092087) 下载。 
 
-[LUIS](luis-reference-regions.md) 网站的[“查看终结点话语”](luis-how-to-review-endpoint-utterances.md)页列出了 LUIS 不确定的所有话语  。 
+[LUIS](luis-reference-regions.md) 网站的“审查终结点话语”  页列出了 LUIS 不确定的所有话语。 
 
-![查看终结点话语](./media/luis-concept-test/review-endpoint-utterances.png)
- 
 ## <a name="remember-to-train"></a>请记住进行训练
 请记住在更改模型后[训练](luis-how-to-train.md) LUIS。 在训练应用前在测试中看不到对 LUIS 应用的更改。 
 
 ## <a name="best-practices"></a>最佳实践
 了解[最佳实践](luis-concept-best-practices.md)。
-
-## <a name="next-steps"></a>后续步骤
-
-* 详细了解[测试](luis-interactive-test.md)话语。
-
-
 
 

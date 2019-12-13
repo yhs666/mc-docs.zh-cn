@@ -8,26 +8,27 @@ manager: digimobile
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-origin.date: 07/29/2019
+origin.date: 11/19/2019
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 53f3fa69d3118b6b2b3a4f2292919bcac9d4bbfb
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 86bcb57d12c539de849db835ce90aaac36b133de
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329648"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884610"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>使用版本进行编辑和测试，而不会影响暂存应用或生产应用
 
-版本允许你构建和发布不同的模型。 较好的做法是在对模型进行更改之前将当前的活动模型复制到一个不同的应用[版本](luis-concept-version.md)。 
+版本允许你构建和发布不同的模型。 较好的做法是在对模型进行更改之前将当前的活动模型复制到一个不同的应用版本。 
 
 若要处理版本，请在“我的应用”  页面上通过选择你的应用名称来将其打开，在顶栏中选择“管理”  ，然后在左侧导航栏中选择“版本”  。 
 
 版本列表显示哪些版本已发布，它们发布在何处，以及哪个版本当前处于活动状态。 
 
-[![“管理”部分的“版本”页](./media/luis-how-to-manage-versions/versions-import.png "“管理”部分的“版本”页")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![“管理”部分的“版本”页](./media/luis-how-to-manage-versions/versions-import.png "“管理”部分的“版本”页面")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>克隆版本
 
@@ -46,13 +47,16 @@ ms.locfileid: "71329648"
 
 从列表中选择一个版本，然后从工具栏中选择“激活”  。 
 
-[![在“管理”部分的“版本”页，执行版本操作](./media/luis-how-to-manage-versions/versions-other.png "在“管理”部分的“版本”页，执行版本操作")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
+> [!div class="mx-imgBorder"]
+> [![“管理”部分的“版本”页，执行版本操作](./media/luis-how-to-manage-versions/versions-other.png "“管理”部分的“版本”页，执行版本操作")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>导入版本
 
-1. 从工具栏中选择“导入版本”  。 
+可以导入应用程序的 `.json` 或 `.lu` 版本。
 
-2. 在“导入新版本”  弹出窗口中，输入新的由十个字符构成的版本名称。 仅当应用中已有 JSON 文件中的版本时，才需要设置版本 ID。
+1. 从工具栏中选择“导入”  ，然后选择格式。 
+
+2. 在“导入新版本”  弹出窗口中，输入新的由十个字符构成的版本名称。 仅当应用中已存在文件中的版本时，才需要设置版本 ID。
 
     ![在“管理”部分的“版本”页，导入新版本](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
@@ -60,7 +64,7 @@ ms.locfileid: "71329648"
 
 ### <a name="import-errors"></a>导入错误
 
-* Tokenizer 错误：如果在导入时收到 **tokenizer 错误**，则表示你尝试导入的版本使用的 [tokenizer](luis-language-support.md) 与应用当前使用的不同。 若要解决此问题，请参阅[在 tokenizer 版本之间迁移](luis-language-support.md#migrating-between-tokenizer-versions)。
+* Tokenizer 错误：如果在导入时收到 **tokenizer 错误**，则表示你尝试导入的版本使用的 [tokenizer](luis-language-support.md) 与应用当前使用的不同。 若要解决此问题，请参阅[在 tokenizer 版本之间迁移](luis-language-support.md)。
 
 <a name = "export-version"></a>
 

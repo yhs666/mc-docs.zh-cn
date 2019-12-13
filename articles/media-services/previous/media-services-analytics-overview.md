@@ -12,20 +12,30 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-origin.date: 03/14/2019
-ms.date: 09/23/2019
+origin.date: 11/13/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: b957a271467accc2ce1523c239bafdf0636066c9
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 9ee3646d190de18f7cba7cac961d72d8dec6d87b
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124412"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807548"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>媒体服务平台上的媒体分析 
 
+## <a name="retirement-plans"></a>停用计划
+
+> [!IMPORTANT]
+> 以下旧版媒体处理器将于 2020 年停用，请参阅下表中的详细信息。 
+
+|媒体处理器名称|停用日期|附加说明|
+|---|---|
+|[Azure Media Indexer](media-services-index-content.md)|2020 年 10 月 1 日|
+ 
 ## <a name="overview"></a>概述
+
 越来越多的组织将视频用作首选媒体来培训员工、与客户沟通以及规定业务职能。 云计算提供了一种方法来存储、流式传输和访问这些大型媒体文件。 但随着公司视频内容库的扩大，它需要在从内容中提取见解时具有同样有效的方式。 
 
 为了满足这一不断增长的需求，Azure 媒体服务提供了 Azure 媒体分析。 媒体分析是语音和视觉组件的集合，便于组织和企业从视频文件中汲取可以实施的见解。 媒体分析通过使用核心媒体服务平台组件构建而成，一开始就能进行大规模的媒体处理。

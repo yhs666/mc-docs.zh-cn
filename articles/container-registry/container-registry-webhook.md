@@ -1,26 +1,20 @@
 ---
-title: Azure 容器注册表 webhook
-description: 了解如何使用 webhook 在注册表存储库中发生特定操作时触发事件。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 用于响应注册表操作的 Webhook
+description: 了解如何使用 Webhook 在注册表存储库中发生推送或拉取操作时触发事件。
 ms.topic: article
 origin.date: 05/24/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7ca00e03b4fdad0ff0c61758868bfbb2c9a77262
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 151361e05a10dc906c098783caf0c2423af4bf30
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134366"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885012"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>使用 Azure 容器注册表 webhook
 
-Azure 容器注册表可存储和管理专用 Docker 容器映像，其方式类似于 Docker Hub 存储公共 Docker 映像。 可以使用 Webhook 在其中一个注册表存储库中发生特定操作时触发事件。 Webhook 可在注册表级别响应事件或者将其范围缩小到特定存储库标记。 使用[异地复制](container-registry-geo-replication.md)注册表，可以配置每个 Webhook 以响应特定区域副本中的事件。
-
-<!--Not Available on [Helm charts](container-registry-helm-repos.md)-->
+Azure 容器注册表可存储和管理专用 Docker 容器映像，其方式类似于 Docker Hub 存储公共 Docker 映像。 它还可以托管 [Helm 图表](container-registry-helm-repos.md)（预览版）的存储库，这是一种用于将应用程序部署到 Kubernetes 的打包格式。 可以使用 Webhook 在其中一个注册表存储库中发生特定操作时触发事件。 Webhook 可在注册表级别响应事件或者将其范围缩小到特定存储库标记。 使用[异地复制](container-registry-geo-replication.md)注册表，可以配置每个 Webhook 以响应特定区域副本中的事件。
 
 有关 Webhook 请求的详细信息，请参阅 [Azure 容器注册表 Webhook 架构参考](container-registry-webhook-reference.md)。
 
@@ -40,7 +34,7 @@ Azure 容器注册表可存储和管理专用 Docker 容器映像，其方式类
 | Value | 说明 |
 |---|---|
 | Webhook 名称 | 想要赋予 webhook 的名称。 它只能包含字母和数字，且长度必须为 5-50 个字符。 |
-| Location | 对于[异地复制](container-registry-geo-replication.md)注册表，请指定注册表副本的 Azure 区域。 
+| 位置 | 对于[异地复制](container-registry-geo-replication.md)注册表，请指定注册表副本的 Azure 区域。 
 | 服务 URI | Webhook 应向其发送 POST 通知的 URI。 |
 | 自定义标头 | 想要随 POST 请求一起传递的标头。 它们的格式应该为：“键: 值”。 |
 | 触发操作 | 触发 webhook 的操作。 操作包括映像推送、映像删除、Helm 图表推送、Helm 图表删除以及映像隔离。 你可以选择一个或多个操作来触发 Webhook。 |

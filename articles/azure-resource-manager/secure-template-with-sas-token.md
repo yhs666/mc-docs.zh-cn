@@ -1,19 +1,15 @@
 ---
-title: 使用 SAS 令牌安全地部署 Azure 资源管理器模板
+title: 使用 SAS 令牌安全部署模板
 description: 使用受 SAS 令牌保护的 Azure 资源管理器模板将资源部署到 Azure。 显示 Azure PowerShell 和 Azure CLI。
-services: azure-resource-manager
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 08/14/2019
-ms.date: 08/26/2019
-ms.author: v-yeche
-ms.openlocfilehash: 69f563f2f3f8283d39c3bd04d79f7f272a766cfd
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 12/09/2019
+ms.openlocfilehash: 63d926bd62fa5d9b11726b228fc40d90ae7de626
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303275"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884826"
 ---
 <!--Verify successfully-->
 <!--Merge with two files which contain PowerShell and CLI seperated-->

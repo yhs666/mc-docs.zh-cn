@@ -1,19 +1,16 @@
 ---
-title: 关于 Azure 容器注册表中的存储库和映像
+title: 关于存储库和映像
 description: Azure 容器注册表、存储库和容器映像的重要概念简介。
-services: container-registry
-author: rockboyfor
-ms.service: container-registry
 ms.topic: article
-origin.date: 07/01/2019
-ms.date: 08/26/2019
+origin.date: 09/10/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8fe6392e327aede80c2572c70de2515e02361994
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: ad6dfcbf80927977cb5d1600246c09c240245ee4
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134516"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885029"
 ---
 <!--Verify sucessfully, spliting articles-->
 # <a name="about-registries-repositories-and-images"></a>关于注册表、存储库和映像
@@ -97,7 +94,7 @@ product-returns/legacy-integrator:20180715
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-例如，列出“acr-helloworld”存储库的清单摘要：
+例如，列出“acr-helloworld”存储库的清单：
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -140,7 +137,7 @@ $ docker pull myregistry.azurecr.cn/acr-helloworld@sha256:0a2e01852872580b2c2fea
 ```
 
 > [!IMPORTANT]
-> 如果反复推送修改后的标记相同的映像，可能创建孤立的映像；此类映像不带标记，但仍占用注册表中的空间。 按标记列出或查看映像时，Azure CLI 或 Azure 门户中不显示无标记的映像。 但是，它们的层仍然存在，且占用注册表中的空间。 有关释放未标记映像所用空间的信息，请参阅[删除 Azure 容器注册表中的容器映像](container-registry-delete.md)。
+> 如果反复推送修改后的标记相同的映像，可能创建孤立的映像；此类映像不带标记，但仍占用注册表中的空间。 按标记列出或查看映像时，Azure CLI 或 Azure 门户中不显示无标记的映像。 但是，它们的层仍然存在，且占用注册表中的空间。 当清单是指向特定层的唯一清单或最后一个清单时，删除未标记的映像将释放注册表空间。 有关释放未标记映像所用空间的信息，请参阅[删除 Azure 容器注册表中的容器映像](container-registry-delete.md)。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -150,4 +147,4 @@ $ docker pull myregistry.azurecr.cn/acr-helloworld@sha256:0a2e01852872580b2c2fea
 
 [az-acr-repository-show-manifests]: https://docs.azure.cn/cli/acr/repository?view=azure-cli-latest#az-acr-repository-show-manifests
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

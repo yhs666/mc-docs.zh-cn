@@ -1,20 +1,16 @@
 ---
-title: Azure 门户中的“Azure 容器注册表”存储库
-description: 如何在 Azure 门户中查看“Azure 容器注册表”存储库。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
+title: 在门户中查看存储库
+description: 使用 Azure 门户查看 Azure 容器注册表存储库，这些存储库托管 Docker 容器映像和其他受支持的项目。
 ms.topic: article
 origin.date: 01/05/2018
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: cc72a6c5d28c228ca7578f497ed963c5e64d9b4a
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 58ce739d78fe07fb7b2491817522ef97fee13172
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134458"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885043"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>在 Azure 门户中查看容器注册表存储库
 
@@ -49,8 +45,11 @@ docker push myregistry.azurecr.cn/samples/nginx
 
 ![门户中的存储库](./media/container-registry-repositories/container-registry-repositories.png)
 
-<!-- Not Available on ## Next steps-->
-<!-- Not Available on [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)-->
+## <a name="next-steps"></a>后续步骤
+
+<!--Verified successfully-->
+
+现已基本了解如何在门户中查看和使用存储库，请尝试在 [Azure Kubernetes 服务 (AKS)](../aks/tutorial-kubernetes-prepare-app.md) 群集中使用 Azure 容器注册表。
 
 <!-- LINKS - External -->
 
@@ -58,5 +57,4 @@ docker push myregistry.azurecr.cn/samples/nginx
 [docker-push]: https://docs.docker.com/engine/reference/commandline/push/
 [portal]: https://portal.azure.cn
 
-<!-- Update_Description: wording update -->
-<!--ms.date: 07/02/2018-->
+<!-- Update_Description: update meta properties, wording update, update link -->

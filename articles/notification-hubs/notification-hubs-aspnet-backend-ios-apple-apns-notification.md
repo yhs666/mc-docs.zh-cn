@@ -1,10 +1,10 @@
 ---
-title: 使用 Azure 通知中心向特定用户推送通知 | Microsoft Docs
+title: 使用 Azure 通知中心向特定用户发送推送通知 | Azure
 description: 了解如何使用 Azure 通知中心向特定用户推送通知。
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethm
+manager: femila
+editor: jwargo
 services: notification-hubs
 ms.assetid: 1f7d1410-ef93-4c4b-813b-f075eed20082
 ms.service: notification-hubs
@@ -13,16 +13,18 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/08/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 49793ecb7758ba0aa330c7c6595ab82b25ced957
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: 7ead37d90127d3b3ddea3a4c8f407f2572263e97
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272502"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885034"
 ---
-# <a name="tutorial-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户推送通知
+# <a name="tutorial-send-push-notifications-to-specific-users-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向特定用户发送推送通知
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
@@ -57,12 +59,14 @@ ms.locfileid: "72272502"
 
     ![在 Xcode 接口生成器中编辑情节提要][1]
 
+<!--    * **GCM**: Label and switch to enable sending the notification to Google Cloud Messaging if it has been set up on the hub. See [Android Getting Started](notification-hubs-android-push-notification-google-gcm-get-started.md) tutorial. -->
+
    * **用户名**：包含占位符文本“*输入用户名*”的 UITextField，直接位于发送结果标签的下面并受左右边距的限制。
    * **密码**：包含占位符文本“*输入密码*”的 UITextField，直接位于用户名文本字段的下面并受左右边距的限制。 选中属性检查器中“返回密钥”下的“安全文本输入”选项   。
    * **登录**：直接位于密码文本字段下方的标签式 UIButton，并取消选中属性检查器中“控件内容”下的“已启用”选项  
    * **WNS**：标签和开关，用于已在中心设置 Windows 通知服务时，启用将通知发送到 Windows 通知服务。 请参阅 [Windows 入门](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md)教程。
    * **APNS**：标签和开关，用于启用将通知发送到 Apple 平台通知服务。
-   * **收件人用户名**：包含占位符文本“收件人用户名标记”的 UITextField，直接位于 GCM 标签下，受左右边距限制  。
+   * **收件人用户名：** 包含占位符文本的 UITextField
 
      某些组件已在[通知中心入门 (iOS)](notification-hubs-ios-apple-push-notification-apns-get-started.md) 教程中添加。
 
@@ -80,7 +84,6 @@ ms.locfileid: "72272502"
 
     // Used to enabled sending notifications across platforms
     @property (weak, nonatomic) IBOutlet UISwitch *WNSSwitch;
-    @property (weak, nonatomic) IBOutlet UISwitch *GCMSwitch;
     @property (weak, nonatomic) IBOutlet UISwitch *APNSSwitch;
 
     - (IBAction)LogInAction:(id)sender;
@@ -435,9 +438,6 @@ ms.locfileid: "72272502"
 
         if ([self.WNSSwitch isOn])
             [self SendNotificationASPNETBackend:@"wns" UsernameTag:self.RecipientField.text Message:json];
-
-        if ([self.GCMSwitch isOn])
-            [self SendNotificationASPNETBackend:@"gcm" UsernameTag:self.RecipientField.text Message:json];
 
         if ([self.APNSSwitch isOn])
             [self SendNotificationASPNETBackend:@"apns" UsernameTag:self.RecipientField.text Message:json];

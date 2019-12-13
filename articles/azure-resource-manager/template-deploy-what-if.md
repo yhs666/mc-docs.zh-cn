@@ -3,15 +3,15 @@ title: 模板部署 what-if（预览版）
 description: 在部署 Azure 资源管理器模板之前确定资源将会发生的更改。
 author: rockboyfor
 ms.topic: conceptual
-origin.date: 11/12/2019
-ms.date: 11/25/2019
+origin.date: 11/20/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 02513eb91eff129cb07915813c1e6cec4cad4654
-ms.sourcegitcommit: c5e012385df740bf4a326eaedabb987314c571a1
+ms.openlocfilehash: 65214025b2398ac695561af5e793833b52b63021
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74203680"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884912"
 ---
 <!--MOONCAKE: We submit the private preview request on https://aka.ms/armtemplatepreviews-->
 <!--Wait for reply-->
@@ -98,6 +98,8 @@ what-if 输出类似于：
 请注意，输出顶部的颜色用于指示更改类型。
 
 输出的底部显示 SKU 名称（存储帐户类型）将从 **Standard_LRS** 更改为 **Standard_GRS**。
+
+列出为已删除的某些属性实际上不会更改。 在上图中，这些属性是 accessTier、encryption.keySource 和该节中的其他属性。 当属性不在模板中时，它们可能被错误地报告为已删除，但在部署过程中会自动设置为默认值。 此结果在 what-if 响应中被视为“干扰信息”。 最终部署的资源将具有为属性设置的值。 当 what-if 操作成熟时，将从结果中筛选出这些属性。
 
 ### <a name="test-deletion"></a>测试删除
 

@@ -1,18 +1,15 @@
 ---
-title: Azure 资源管理器模板中的用户定义函数
+title: 模板中的用户定义函数
 description: 介绍如何在 Azure 资源管理器模板中定义和使用用户定义函数。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
 origin.date: 09/05/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 3413be9aba9b4abe4e12f890ec71a3b9e45c050f
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.date: 12/09/2019
+ms.openlocfilehash: 95aabccc742ea037c08087dc1eab39f01998e020
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156488"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884889"
 ---
 # <a name="user-defined-functions-in-azure-resource-manager-template"></a>Azure 资源管理器模板中的用户定义函数
 
@@ -81,3 +78,5 @@ ms.locfileid: "71156488"
 
 * 若要了解用户定义函数的可用属性，请参阅[了解 Azure 资源管理器模板的结构和语法](resource-group-authoring-templates.md)。
 * 有关可用模板函数的列表，请参阅 [Azure 资源管理器模板函数](resource-group-template-functions.md)。
+
+<!-- Update_Description: update meta properties -->

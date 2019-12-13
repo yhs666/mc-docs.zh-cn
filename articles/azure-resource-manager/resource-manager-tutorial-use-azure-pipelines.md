@@ -1,32 +1,23 @@
 ---
-title: 使用 Azure Pipelines 进行持续集成 | Azure
+title: 使用 Azure Pipelines 进行持续集成
 description: 了解如何持续构建、测试和部署 Azure 资源管理器模板。
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
-origin.date: 09/23/2019
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 42ad3397823802f1872a0e8ddfcf06c8eef5ed58
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 7e1ce636c5eefe436fb9ec6547ac87de3072d94c
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156479"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884838"
 ---
 <!--Pending for verify-->
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>教程：使用 Azure Pipelines 持续集成 Azure 资源管理器模板
 
 了解如何使用 Azure Pipelines 持续构建和部署 Azure 资源管理器模板项目。
 
-Azure DevOps 提供开发人员服务，以支持团队规划工作、协作开发代码以及构建和部署应用程序。 通过使用 Azure DevOps Services，开发人员能够在云中工作。 Azure DevOps 提供了一组集成的功能，可以通过 Web 浏览器或 IDE 客户端访问这些功能。 Azure Pipelines 是这些功能中的一项。 Azure Pipelines 是一项别具特色的持续集成 (CI) 和持续交付 (CD) 服务。 它适用于你喜欢的 Git 提供程序，并且可以部署到大多数主要云服务。 然后，可以自动执行代码的生成、测试并将其部署到 Azure 或 Amazon Web Services。
+Azure DevOps 提供开发人员服务，以支持团队规划工作、协作开发代码以及构建和部署应用程序。 通过使用 Azure DevOps Services，开发人员能够在云中工作。 Azure DevOps 提供了一组集成的功能，可以通过 Web 浏览器或 IDE 客户端访问这些功能。 Azure Pipelines 是这些功能中的一项。 Azure Pipelines 是一项别具特色的持续集成 (CI) 和持续交付 (CD) 服务。 它适用于你喜欢的 Git 提供程序，并且可以部署到大多数主要云服务。 然后，可以自动执行代码的生成、测试并将其部署到世纪互联 Azure 或 Amazon Web Services。
 
 <!--MOONCAKE: Not Available on  Google Cloud Platform-->
 
@@ -54,7 +45,7 @@ Azure DevOps 提供开发人员服务，以支持团队规划工作、协作开�
 * **GitHub 帐户**，用于为模板创建存储库。 如果没有 GitHub 帐户，可以[免费创建一个](https://github.com)。 有关使用 GitHub 存储库的详细信息，请参阅[构建 GitHub 存储库](https://docs.microsoft.com/azure/devops/pipelines/repos/github)。
 * **安装 Git**。 本教程说明使用 Git Bash 或 Git Shell   。 如需说明，请参阅[安装 Git]( https://www.atlassian.com/git/tutorials/install-git)。
 * **Azure DevOps 组织**。 如果没有组织，可以免费创建一个组织。 请参阅[创建组织或项目集合]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)。
-* **包含资源管理器工具扩展的 [Visual Studio Code](https://code.visualstudio.com/)** 。 请参阅[安装扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](./resource-manager-tools-vs-code.md)。
 
 ## <a name="prepare-a-github-repository"></a>准备 GitHub 存储库
 
@@ -187,9 +178,11 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'China North'
@@ -204,14 +197,16 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
     进行以下更改：
 
-    * **azureSubscription**：将值更新为上一过程中创建的服务连接。
+    * **deloymentScope**：从以下选项中选择部署范围：`Management Group`、`Subscription` 和 `Resource Group`。 在本教程中使用**资源组**。 若要详细了解范围，请参阅[部署范围](./resource-group-template-deploy-rest.md#deployment-scope)。
+    * **ConnectedServiceName**：指定前面创建的服务连接名称。
+    * **SubscriptionName**：指定目标订阅 ID。
     * **操作**：“创建或更新资源组”操作执行 2 项操作 - 1.  如果提供了新的资源组名称，则创建资源组；2. 部署指定的模板。
     * **resourceGroupName**：指定新的资源组名称。 例如，“AzureRmPipeline-rg”  。
     * **位置**：指定资源组的位置。
     * **templateLocation**：指定“链接的项目”时，任务直接从连接的存储库中查找模板文件  。
     * **csmFile** 为模板文件的路径。 无需指定模板参数文件，因为模板中定义的所有参数都具有默认值。
 
-    有关任务的详细信息，请参阅 [Azure 资源组部署任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)
+    有关任务的详细信息，请参阅 [Azure 资源组部署任务](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)和 [Azure 资源管理器模板部署任务](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)
 1. 选择“保存并运行”  。
 1. 再次选择“保存并运行”  。 YAML 文件的副本将保存到已连接的存储库中。 浏览到存储库即可查看该 YAML 文件。
 1. 验证管道是否成功执行。
@@ -223,7 +218,7 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 1. 登录到 [Azure 门户](https://portal.azure.cn)。
 1. 打开资源组。 名称是在管道 YAML 文件中指定的名称。  你将看到创建了一个存储帐户。  存储帐户名称以“存储”开头  。
 1. 选择存储帐户名称以将其打开。
-1. 选择“属性”  。 请注意，“SKU”是“Standard_LRS”   。
+1. 选择“属性”  。 注意“复制”是“本地冗余存储(LRS)”   。
 
     ![Azure 资源管理器 Azure DevOps Azure Pipelines 门户验证](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +245,7 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
     更新远程存储库的主分支后，将再次发送管道。
 
-若要验证所做的更改，可以检查存储帐户的 SKU。  请参阅[验证部署](#verify-the-deployment)。
+若要验证所做的更改，可以检查存储帐户的“复制”属性。  请参阅[验证部署](#verify-the-deployment)。
 
 ## <a name="clean-up-resources"></a>清理资源
 
@@ -263,11 +258,7 @@ azuredeploy.json 已添加到本地存储库。 下一步，将模板上传到�
 
 你可能还需要删除 GitHub 存储库和 Azure DevOps 项目。
 
-## <a name="next-steps"></a>后续步骤
-
-在本教程中，你将创建 Azure DevOps 管道以部署 Azure 资源管理器模板。 若要了解如何跨多个区域部署 Azure 资源，以及如何使用安全部署做法，请参阅
-
-> [!div class="nextstepaction"]
-> [使用 Azure 部署管理器](./resource-manager-tutorial-deploy-vm-extensions.md)
+<!--Not Avaiable on ## Next steps-->
+<!--Not Avaiable on > [Use safe deployment practices](./deployment-manager-tutorial.md)-->
 
 <!--Pending for Verify-->

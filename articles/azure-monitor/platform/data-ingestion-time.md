@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 07/18/2019
 ms.date: 08/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 0679d111ac5065b165d82f6458edd97c303de9cc
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 983d1a6eb38049878c2e8e7d0ad38f063eab6997
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730543"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838908"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Azure Monitor 中的日志数据引入时间
 Azure Monitor 是一种大规模数据服务，每月为成千上万的客户发送数 TB 的数据，并且此数据仍在不断增长。 关于日志数据在收集后需要多长时间才可供使用，大家通常存有疑问。 本文将对影响此延迟的不同因素进行说明。
@@ -85,7 +85,7 @@ Azure Monitor 的首要任务是确保不会丢失任何客户数据，因此系
 | 存储在工作区中并可用于查询的记录 | [ingestion_time()](/azure/kusto/query/ingestiontimefunction) | |
 
 ### <a name="ingestion-latency-delays"></a>引入延迟延迟
-可以通过比较 [ingestion_time()](https://docs.microsoft.com/azure/kusto/query/ingestiontimefunction) 函数的结果和 TimeGenerated 字段来测量特定记录的延迟  。 此数据可用于各种聚合，以查找引入延迟的行为方式。 检查引入时间的某些百分位数，以获取大量数据的见解。 
+可以通过比较 [ingestion_time()](https://docs.microsoft.com/azure/kusto/query/ingestiontimefunction) 函数的结果和 TimeGenerated 属性来测量特定记录的延迟  。 此数据可用于各种聚合，以查找引入延迟的行为方式。 检查引入时间的某些百分位数，以获取大量数据的见解。 
 
 例如，以下查询将显示在前 8 小时内哪些计算机的引入时间最长： 
 

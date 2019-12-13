@@ -1,20 +1,15 @@
 ---
-title: 使用 Azure 容器注册表多步骤任务自动执行映像生成、测试和修补
+title: 用于生成、测试和修补映像的多步骤任务
 description: 介绍多步骤任务，这是 Azure 容器注册表中 ACR 任务的一项功能，可以提供用于在云中生成、测试和修补容器映像的基于任务的工作流。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
-origin.date: 03/28/2019
-ms.date: 08/26/2019
 ms.author: v-yeche
-ms.openlocfilehash: b9a02fdbd5f07d93330221a7f7e6a8be1831e78e
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 586902fef1b2cd1867bad711a19be495879127f4
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134522"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885016"
 ---
 <!--Verify sucessfully-->
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>在 ACR 任务中运行多步骤生成、测试和修补任务
@@ -85,7 +80,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-有关多个方案的完整多步骤任务 YAML 文件和 Dockerfile，请参阅[任务示例][task-examples]。
+有关多个方案的多步骤任务 YAML 文件和 Dockerfile，请参阅[任务示例](container-registry-tasks-samples.md)。
 
 ## <a name="run-a-sample-task"></a>运行示例任务
 
@@ -145,6 +140,7 @@ The following dependencies were found:
     digest: sha256:0add3ace90ecb4adbf7777e9aacf18357296e799f81cabc9fde470971e499788
   git: {}
 
+
 Run ID: yd14 was successful after 19s
 ```
 
@@ -155,7 +151,7 @@ Run ID: yd14 was successful after 19s
 可在以下资源中找到多步骤任务的参考信息和示例：
 
 * [任务参考](container-registry-tasks-reference-yaml.md) - 任务步骤的类型、属性和用法。
-* [任务示例][task-examples] - 从简单到复杂的多种方案的示例 `task.yaml` 文件。
+* [任务示例](container-registry-tasks-samples.md) - 从简单到复杂的多种方案的示例 `task.yaml` 和 Docker 文件。
 * [命令存储库](https://github.com/AzureCR/cmd) - 作为 ACR 任务命令的容器集合。
 
 <!-- IMAGES -->
@@ -172,5 +168,4 @@ Run ID: yd14 was successful after 19s
 [az-acr-run]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-run
 [az-acr-task]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest
 
-<!-- Update_Description: new article about container registry tasks multi step-->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

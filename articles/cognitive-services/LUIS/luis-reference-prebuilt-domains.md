@@ -12,17 +12,17 @@ ms.topic: conceptual
 origin.date: 09/27/2019
 ms.date: 10/31/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 52e350631b1a5fa0335400af305b9fa807f9cd84
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 17f64ec224257d37ca594b40f1839835318d5043
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416381"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884444"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>LUIS 应用的预构建的域参考
 此参考提供有关预生成域的信息，这些信息是 LUIS 提供的意向和实体的预生成集合。
 
-相比之下，[自定义域](luis-how-to-start-new-app.md)从无意向和模型开始。 可将任何预构建的域意向和实体添加到自定义模型中。
+与此相反，自定义域一开始没有意向和模型。 可将任何预构建的域意向和实体添加到自定义模型中。
 
 ## <a name="custom-domains-per-language"></a>每种语言的自定义域数
 

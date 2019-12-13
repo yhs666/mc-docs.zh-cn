@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 09/20/2018
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 17695cec488e20dc1b5d9862ae06079c000ed521
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 90bf8ab623bb64291ccd8a8e2e1ade8ddcb75560
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528348"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838924"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure 诊断 1.3 及更高版本的配置架构
 > [!NOTE]
@@ -30,9 +30,7 @@ ms.locfileid: "74528348"
 
 此处描述的配置文件用来在诊断监视器启动时设置诊断配置设置。  
 
-此扩展可以与其他 Azure 诊断产品（例如 Azure Monitor，其中包含 Application Insights 和 Log Analytics）结合使用。
-
-
+此扩展与其他 Microsoft 诊断产品（例如 Azure Monitor，其中包含 Application Insights 和 Log Analytics）结合使用。
 
 通过执行以下 PowerShell 命令下载公共配置文件架构定义：  
 

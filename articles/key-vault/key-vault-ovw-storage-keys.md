@@ -8,13 +8,13 @@ author: msmbaldwin
 ms.author: v-tawe
 manager: rkarlin
 origin.date: 09/18/2019
-ms.date: 10/30/2019
-ms.openlocfilehash: e7a621ae794154dc6b7a6665dcfe18a048170785
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.date: 12/09/2019
+ms.openlocfilehash: 799eda87c793d4a905eaa1c9436b14b56a2b7c5c
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426099"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838975"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>使用 Key Vault 和 Azure CLI 管理存储帐户密钥
 
@@ -44,6 +44,8 @@ Key Vault 是已在所有 Azure AD 租户中预先注册的 Microsoft 应用程�
 
 | 租户 | 云 | 应用程序 ID |
 | --- | --- | --- |
+| Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
+| Azure AD | Azure 公用 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | 其他  | 任意 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>先决条件

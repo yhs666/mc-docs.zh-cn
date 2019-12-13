@@ -8,12 +8,12 @@ author: lingliw
 ms.author: v-lingwu
 origin.date: 08/09/2019
 ms.date: 08/19/2019
-ms.openlocfilehash: 8bd5cf7aa270fd8af34112a14bbc46f358cdcd96
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 5ec448e781cf44b5491f2f7b4da429c7c1c423dc
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970844"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839035"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -30,6 +30,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
 若要重新启用对群集的监视，请参阅[使用 Azure CLI 启用监视](container-insights-enable-new-cluster.md#enable-using-azure-cli)。
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
+
 下面提供了两个 Azure 资源管理器模板，以支持在资源组中一致且重复地删除解决方案资源。 一个是 JSON 模板，用于指定配置为“停止监视”，另一个模板包含配置的参数值，用于指定在其中部署群集的 AKS 群集资源 ID 和资源组。 
 
 如果不熟悉使用模板部署资源的概念，请参阅：
@@ -162,9 +163,8 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 ProvisioningState       : Succeeded
 ```
 
+
+## <a name="next-steps"></a>后续步骤
+
 如果创建的工作区仅用于支持监视群集且不再被需要，则需要手动删除它。 如果不熟悉如何删除工作区，请参阅[使用 Azure 门户删除 Azure Log Analytics 工作区](/azure-monitor/platform/delete-workspace)。 不要忘记之前在步骤 4 中复制的“工作区资源 ID”，稍后将会需要  。 
-
-
-
-
 

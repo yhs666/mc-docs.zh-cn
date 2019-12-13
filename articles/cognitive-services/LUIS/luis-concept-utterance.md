@@ -9,15 +9,15 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 05/07/2019
-ms.date: 09/07/2019
+origin.date: 10/15/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: cb34694daf7fe549e002456c9dbec812ddabd757
-ms.sourcegitcommit: 2f2ced6cfaca64989ad6114a6b5bc76700870c1a
+ms.openlocfilehash: 433cf45d8baf6f9b5582c4bd2b083f009e962b85
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71330084"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884465"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 
@@ -36,7 +36,7 @@ ms.locfileid: "71330084"
 
 ## <a name="how-to-choose-varied-utterances"></a>如何选择不同的陈述
 
-第一次开始[将示例话语 添加](luis-how-to-add-example-utterances.md)到 LUIS 模型时，请记住以下原则。
+第一次开始将示例话语添加到 LUIS 模型时，请记住以下原则。
 
 ### <a name="utterances-arent-always-well-formed"></a>陈述并非始终格式正确
 
@@ -61,19 +61,19 @@ ms.locfileid: "71330084"
 |我想要一台计算机，我该怎么做？|
 |我什么时候能有一台计算机？| 
 
-这里的核心术语“计算机”没有变化。 可以使用替代话语“台式电脑”、“笔记本电脑”、“工作站”，甚至是“机器”。 LUIS 会智能地从上下文中推断同义词，但当你为训练创建陈述时，最好还是改变它们。
+这里的核心术语“计算机”没有变化。 可以使用替代话语“台式电脑”、“笔记本电脑”、“工作站”，甚至是“机器”。 LUIS 可以根据上下文智能地推断同义词，但当你创建用于训练的话语时，最好是改变它们。
 
 ## <a name="example-utterances-in-each-intent"></a>每个意向的示例陈述
 
-每个意向都需要有示例话语，至少 15 个。 如果你的意向没有任何示例陈述，则将无法训练 LUIS。 如果你的意向只有一个或非常少的示例陈述，则 LUIS 将无法准确预测意向。 
+每个意向都需要有示例话语，至少 15 个。 如果你的意向没有任何示例陈述，则将无法训练 LUIS。 如果你的意向仅包含一个或非常少的示例话语，LUIS 可能无法准确预测该意向。 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>为每个创作迭代添加由 15 个话语构成的小组
 
-在模型的每个迭代中，不要添加大量陈述。 添加数量为 15 的话语。 再次[训练](luis-how-to-train.md)、[发布](luis-how-to-publish-app.md)和[测试](luis-interactive-test.md)。  
+在模型的每个迭代中，不要添加大量陈述。 添加数量为 15 的话语。 [训练](luis-how-to-train.md)并再次测试。  
 
-LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 添加太多话语是没有价值的，因为它会引起混乱。  
+LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 添加太多话语是没有价值的，因为它会引起混乱。
 
-最好先从几个陈述开始，然后[审查终结点陈述](luis-how-to-review-endpoint-utterances.md)以进行正确的意向预测和实体提取。
+最好先从几个话语开始，然后审查终结点话语以进行正确的意向预测和实体提取。
 
 ## <a name="utterance-normalization"></a>话语规范化
 
@@ -123,18 +123,29 @@ LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 �
 
 ## <a name="testing-utterances"></a>测试陈述 
 
-开发人员应通过向[预测终结点](luis-how-to-azure-subscription.md) URL 发送话语来开始使用实际流量测试其 LUIS 应用程序。 这些陈述用于通过[审查陈述](luis-how-to-review-endpoint-utterances.md)来改善意向和实体的表现。 使用 LUIS 网站测试窗格提交的测试不会通过终结点发送，因此不会对主动学习有所帮助。 
+开发人员应通过向[预测终结点](luis-how-to-azure-subscription.md) URL 发送话语来开始使用实际流量测试其 LUIS 应用程序。 这些话语用于通过审查话语来改善意向和实体的表现。 使用 LUIS 网站测试窗格提交的测试不会通过终结点发送，因此不会对主动学习有所帮助。 
 
-## <a name="review-utterances"></a>审查陈述
+## <a name="review-utterances"></a>评审陈述
 
-在模型经过训练、发布并接收[终结点](luis-glossary.md#endpoint)查询后，请[审查 LUIS 建议的陈述](luis-how-to-review-endpoint-utterances.md)。 LUIS 会选择意向或实体得分较低的终结点陈述。 
+在模型经过训练、发布并接收[终结点](luis-glossary.md#endpoint)查询后，请审查 LUIS 建议的话语。 LUIS 会选择意向或实体得分较低的终结点陈述。 
 
 ## <a name="best-practices"></a>最佳实践
 
 查看[最佳做法](luis-concept-best-practices.md)并将其应用为常规创作周期的一部分。
 
-## <a name="next-steps"></a>后续步骤
-有关定型 LUIS 应用以理解用户话语的信息，请参阅[添加示例话语](luis-how-to-add-example-utterances.md)。
+## <a name="label-for-word-meaning"></a>字词含义的标签
+
+如果选词或字词排列方式相同，但含义并不相同，请勿将其标记为实体。 
+
+以下话语中，`fair` 一词为同形异义词。 该词虽拼写相同但含义不同：
+
+|话语|
+|--|
+|今年夏天西雅图地区会举办什么样的乡村集市？|
+|西雅图评审的当前评级公平吗？|
+
+如果希望事件实体查找所有事件数据，请标记第一个话语中的 `fair` 一词，而不是第二个话语。
+
 
 
 

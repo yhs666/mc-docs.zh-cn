@@ -9,12 +9,12 @@ origin.date: 8/19/2019
 ms.date: 9/23/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: a8110c5bc64ad9c8d3091145451f637ef01f3df0
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9b073a8a2ed4f69a5fa146ed52a1215ae5ea91e9
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527899"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839014"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>在 Azure 门户中创建和管理器操作组
 操作组是由 Azure 订阅的所有者定义的通知首选项的集合。 Azure Monitor 和服务运行状况警报使用操作组来通知用户某个警报已触发。 各种警报可以使用相同的操作组或不同的操作组，具体取决于用户的要求。 可以在订阅中最多配置 2,000 个操作组。
@@ -32,9 +32,9 @@ ms.locfileid: "74527899"
 有关如何使用 Azure 资源管理器模板以配置操作组的信息，请参阅[操作组资源管理器模板](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)。
 
 ## <a name="create-an-action-group-by-using-the-azure-portal"></a>使用 Azure 门户创建操作组
-1. 在[门户](https://portal.azure.cn)中，选择“监视器”  。 “监视器”  窗格将所有监视设置和数据合并到一个视图中。
 
-    ![“监视”服务](./media/action-groups/home-monitor.png)
+1. 在 [Azure 门户](https://portal.azure.cn)中，搜索并选择“监视器”  。 “监视器”  窗格将所有监视设置和数据合并到一个视图中。
+
 1. 依次选择“警报”  、“管理操作”  。
 
     ![“管理操作”按钮](./media/action-groups/manage-action-groups.png)
@@ -71,6 +71,11 @@ ms.locfileid: "74527899"
 ## <a name="action-specific-information"></a>特定于操作的信息
 > [!NOTE]
 > 有关以下每项的数值限制，请参阅[用于监视的订阅服务限制](/azure-subscription-service-limits#monitor-limits)。  
+
+### <a name="automation-runbook"></a>自动化 Runbook
+有关 Runbook 有效负载的限制，请参考 [Azure 订阅服务限制](../../azure-subscription-service-limits.md)。
+
+一个操作组中可以存在有限数量的 Runbook 操作。 
 
 ### <a name="azure-app-push-notifications"></a>Azure 应用推送通知
 一个操作组中可以存在有限数量的 Azure 应用操作。

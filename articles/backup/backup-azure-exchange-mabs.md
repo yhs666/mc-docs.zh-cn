@@ -1,28 +1,29 @@
 ---
-title: 使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
+title: 使用 Azure 备份服务器备份 Exchange 服务器
 description: 了解如何使用 Azure 备份服务器将 Exchange Server 备份到 Azure 备份
-ms.reviewer: kasinh
 author: lingliw
-manager: digimobile
-ms.service: backup
+ms.reviewer: kasinh
 ms.topic: conceptual
-origin.date: 08/26/2019
+origin.date: 03/24/2017
 ms.date: 07/05/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d381c8b4133525850826cdcad0c65c465d6273c0
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: b9cd5b7c3764e2230270053a82999bfc10990493
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730349"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838590"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>使用 Azure 备份服务器将 Exchange Server 备份到 Azure
+
 本文说明如何配置 Microsoft Azure 备份服务器 (MABS)，将 Microsoft Exchange Server 备份到 Azure。  
 
 ## <a name="prerequisites"></a>先决条件
+
 在继续之前，请确保 Azure 备份服务器[已安装且已准备好](backup-azure-microsoft-azure-backup.md)。
 
 ## <a name="mabs-protection-agent"></a>MABS 保护代理
+
 若要在 Exchange Server 上安装 MABS 保护代理，请遵循以下步骤：
 
 1. 确保已正确配置防火墙。 请参阅[配置代理的防火墙异常](https://technet.microsoft.com/library/Hh758204.aspx)。

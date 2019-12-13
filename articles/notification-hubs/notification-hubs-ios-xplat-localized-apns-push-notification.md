@@ -1,11 +1,11 @@
 ---
-title: 使用 Azure 通知中心向 iOS 设备推送本地化通知 | Azure
+title: 使用 Azure 通知中心向 iOS 发送本地化推送通知 | Azure
 description: 了解如何使用 Azure 通知中心向 iOS 设备推送本地化通知。
 services: notification-hubs
 documentationcenter: ios
-author: jwargo
-manager: patniko
-editor: spelluru
+author: sethmanheim
+manager: femila
+editor: jwargo
 ms.assetid: 484914b5-e081-4a05-a84a-798bbd89d428
 ms.service: notification-hubs
 ms.workload: mobile
@@ -13,27 +13,29 @@ ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 01/04/2019
-ms.date: 10/08/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 50f22e7a6beae0be786f1417275b91a6449303ad
-ms.sourcegitcommit: c9398f89b1bb6ff0051870159faf8d335afedab3
+ms.reviewer: jowargo
+ms.lastreviewed: 01/04/2019
+ms.openlocfilehash: dfbb59da8ef6b973305ab851145cb1723f4c51c8
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272620"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884948"
 ---
-# <a name="tutorial-push-localized-notifications-to-ios-devices-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 设备推送本地化通知
+# <a name="tutorial-send-localized-push-notifications-to-ios-using-azure-notification-hubs"></a>教程：使用 Azure 通知中心向 iOS 发送本地化推送通知
 
 > [!div class="op_single_selector"]
 > * [Windows 应用商店 C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
 > * [iOS](notification-hubs-ios-xplat-localized-apns-push-notification.md)
 
-本教程介绍如何使用 Azure 通知中心的[模板](notification-hubs-templates-cross-platform-push-messages.md)功能广播已按语言和设备本地化的突发新闻通知。 在本教程中，从在[使用通知中心发送突发新闻]中创建的 iOS 应用开始操作。 完成后，可注册感兴趣的突发新闻类别，指定要接收通知的语言并仅接收采用该语言的所选类别的推送通知。
+本教程介绍如何使用 Azure 通知中心的[模板](notification-hubs-templates-cross-platform-push-messages.md)功能广播已按语言和设备本地化的突发新闻通知。 在本教程中，将从在[使用通知中心发送突发新闻]中创建的 iOS 应用开始操作。 完成后，可注册感兴趣的类别，指定接收通知的语言并仅接收采用该语言的所选类别的推送通知。
 
 此方案包含两个部分：
 
-- iOS 应用程序允许客户端设备指定一种语言并订阅不同的突发新闻类别；
-- 后端使用 Azure 通知中心的“标记”和“模板”功能广播通知   。
+* iOS 应用程序允许客户端设备指定一种语言并订阅不同的突发新闻类别；
+* 后端使用 Azure 通知中心的“标记”和“模板”功能广播通知   。
 
 在本教程中，会执行以下步骤：
 
@@ -45,7 +47,7 @@ ms.locfileid: "72272620"
 
 ## <a name="overview"></a>概述
 
-在[使用通知中心发送突发新闻]中，构建了一个使用**标记**订阅不同新闻类别通知的应用。 但是，很多应用程序针对多个市场，需要本地化。 这意味着通知内容本身必须本地化且传递到正确的设备组。 本教程介绍如何使用通知中心的“模板”功能轻松传递本地化突发新闻通知  。
+在[使用通知中心发送突发新闻]中，生成了一个使用“标记”订阅不同新闻类别通知的应用  。 但是，很多应用程序针对多个市场，需要本地化。 这意味着通知内容本身必须本地化且传递到正确的设备组。 本教程介绍如何使用通知中心的“模板”功能轻松传递本地化突发新闻通知  。
 
 > [!NOTE]
 > 发送本地化通知的一种方式是创建每个标签的多个版本。 例如，要支持英语、法语和汉语，需要对世界新闻使用三种不同的标签：“world_en”、“world_fr”和“world_ch”。 然后必须将本地化版本的世界新闻分别发送到这些标签。 在本主题中，会使用模板来避免增生标签和发送多个消息的要求。
@@ -274,11 +276,7 @@ ms.locfileid: "72272620"
 <!-- URLs. -->
 <!-- URLs 404 -->
 <!-- [How To: Service Bus Notification Hubs (iOS Apps)]: https://msdn.microsoft.com/library/jj927168.aspx -->
-[使用通知中心发送突发新闻]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
-<!-- [Mobile Service]: /develop/mobile/tutorials/get-started -->
-[使用通知中心通知用户:ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md [使用通知中心通知用户:移动服务]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 <!-- [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582 -->
-[我的应用程序]: https://go.microsoft.com/fwlink/p/?LinkId=262039
 <!-- [Live SDK for Windows]: https://go.microsoft.com/fwlink/p/?LinkId=262253 -->
 <!-- [Get started with Mobile Services]: /develop/mobile/tutorials/get-started/#create-new-service -->
 <!-- [Get started with data]: /develop/mobile/tutorials/get-started-with-data-ios -->
@@ -288,4 +286,12 @@ ms.locfileid: "72272620"
 <!-- [Authorize users with scripts]: /develop/mobile/tutorials/authorize-users-in-scripts-ios -->
 <!-- [JavaScript and HTML]: ../get-started-with-push-js.md -->
 <!-- [Windows Developer Preview registration steps for Mobile Services]: ../mobile-services-windows-developer-preview-registration.md -->
-[wns 对象]: https://go.microsoft.com/fwlink/p/?LinkId=260591 [通知中心指南]: https://msdn.microsoft.com/library/jj927170.aspx [适用于 iOS 的通知中心操作指南]: https://msdn.microsoft.com/library/jj927168.aspx
+
+[使用通知中心发送突发新闻]: notification-hubs-ios-xplat-segmented-apns-push-notification.md
+[Mobile Service]: /develop/mobile/android
+[Notify users with Notification Hubs: ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
+[Notify users with Notification Hubs: Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
+[wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
+[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx

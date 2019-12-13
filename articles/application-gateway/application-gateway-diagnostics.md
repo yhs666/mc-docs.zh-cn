@@ -6,15 +6,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-origin.date: 11/14/2019
-ms.date: 11/21/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: e0b7634d55a1c4cefa8b295ec069ebde3b14e647
-ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
+ms.openlocfilehash: e3f0200e6aa154f3d018d18c4b4767e8b4d5dbf6
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327158"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884950"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>应用程序网关的后端运行状况和诊断日志
 
@@ -304,7 +303,7 @@ az network application-gateway show-backend-health --resource-group AdatumAppGat
 |ruleSetVersion     | 所使用的规则集版本。 可用值为 2.2.9 和 3.0。     |
 |ruleId     | 触发事件的规则 ID。        |
 |message     | 触发事件的用户友好消息。 详细信息部分提供了更多详细信息。        |
-|action     |  针对请求执行的操作。 可用值为 Blocked 和 Allowed。      |
+|action     |  针对请求执行的操作。 可用值为 Matched 和 Blocked。      |
 |site     | 为其生成日志的站点。 目前仅列出 Global，因为规则是全局性的。|
 |详细信息     | 触发事件的详细信息。        |
 |details.message     | 规则的说明。        |

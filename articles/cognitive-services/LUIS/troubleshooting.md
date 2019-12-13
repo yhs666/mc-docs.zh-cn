@@ -1,5 +1,5 @@
 ---
-title: 常见问题 (FAQ)
+title: 常见问题解答 (FAQ) - LUIS
 titleSuffix: Azure Cognitive Services
 description: 本文包含有关语言理解 (LUIS) 的常见问题的解答。
 author: lingliw
@@ -9,15 +9,15 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 10/04/2019
-ms.date: 10/31/2019
+origin.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 09a185f00d1623c3b846d8dc8ee229db5e839a77
-ms.sourcegitcommit: 8d3a0d134a7f6529145422670af9621f13d7e82d
+ms.openlocfilehash: 7fa7bb8347846878eb85568c50d8e941cfd6fa35
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73416317"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884684"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -25,7 +25,7 @@ ms.locfileid: "73416317"
 
 ## <a name="whats-new"></a>新增功能
 
-[详细了解](whats-new.md)语言理解中的新增功能。
+[详细了解](whats-new.md)语言理解 (LUIS) 中的新增功能。
 
 <a name="luis-authoring"></a>
 
@@ -68,11 +68,11 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>预生成实体在示例话语中标记，而不是在我的自定义实体中标记。 如何修复此问题？ 
 
-请参阅[排查预生成实体问题](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)。
+请参阅[排查预生成实体问题](luis-concept-entity-types.md。
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>我尝试导入应用或版本文件，但收到了错误，发生了什么情况？ 
 
-详细了解[版本导入错误](luis-how-to-manage-versions.md#import-errors)和[应用导入错误](luis-how-to-start-new-app.md#import-errors)。
+详细了解[版本导入错误](luis-how-to-manage-versions.md#import-errors)。
 
 <a name="luis-collaborating"></a>
 
@@ -92,7 +92,7 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 
 当你使用了所有这些免费的 1000 个终结点查询或超出定价层的每月事务配额时，将收到 HTTP 403 错误状态代码。 
 
-若要修复此错误，需要[将定价层更改](luis-how-to-azure-subscription.md#change-pricing-tier)为更高层，或者[创建新资源](get-started-portal-deploy-app.md#create-the-endpoint-resource)并[将其分配给应用](get-started-portal-deploy-app.md#assign-the-resource-key-to-the-luis-app-in-the-luis-portal)。
+若要修复此错误，需要[将定价层更改](luis-how-to-azure-subscription.md#change-pricing-tier)为更高层。
 
 此错误的解决方法包括：
 
@@ -114,8 +114,6 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 ### <a name="my-endpoint-query-returned-unexpected-results-what-should-i-do"></a>我的终结点查询返回了意外的结果。 我该怎么办？
 
 意外的查询预测结果基于已发布模型的状态。 若要更正模型，可能需要更改模型、进行训练，然后重新发布。 
-
-更正模型从[主动学习](luis-how-to-review-endpoint-utterances.md)开始。
 
 可以通过更新[应用程序版本设置 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 来删除非确定性训练，以便使用所有训练数据。
 
@@ -162,7 +160,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 请参阅[实体最佳做法](luis-concept-entity-types.md#if-you-need-more-than-the-maximum-number-of-entities)。
 
 ### <a name="what-are-the-limits-on-the-number-and-size-of-phrase-lists"></a>短语列表的数目和大小限制是多少？
-若要了解[短语列表](./luis-concept-feature.md)的最大长度，请查看[边界](luis-boundaries.md)参考文档。
+若要了解短语列表的最大长度，请参阅[边界](luis-boundaries.md)参考。
 
 ### <a name="what-are-the-limits-on-example-utterances"></a>示例表述有哪些限制？
 请查看[边界](luis-boundaries.md)参考文档。
@@ -205,7 +203,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 
 ### <a name="how-do-i-know-what-key-i-need-where-i-get-it-and-what-i-do-with-it"></a>如何了解我需要什么密钥，从哪里获取它，以及使用它来做什么？ 
 
-若要了解[创作密钥](luis-how-to-azure-subscription.md)与[终结点预测密钥](luis-how-to-azure-subscription.md)之间的差异，请参阅 [LUIS 中的创作密钥和查询预测终结点密钥](luis-concept-keys.md)。 
+请参阅 [LUIS 中的创作密钥和查询预测终结点密钥](luis-concept-keys.md)，以了解创作密钥与预测运行时密钥之间的区别。 
 
 ### <a name="i-got-an-error-about-being-out-of-quota-how-do-i-fix-it"></a>我收到有关超出配额的错误。 如何解决问题？ 
 

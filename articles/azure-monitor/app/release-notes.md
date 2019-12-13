@@ -9,20 +9,17 @@ manager: digimobile
 origin.date: 05/17/2017
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 49b6a852afed67ff3c01e2ca038479d6a551402b
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 0dc7e3608883c6df9dc7a82a02ffba4463caf1c8
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730581"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838969"
 ---
 # <a name="sdk-release-notes---application-insights"></a>SDK 发行说明 - Application Insights
 以下是 SDK 的详细发行说明和更新说明：
 
-* [ASP.NET Web Server SDK](https://github.com/Microsoft/ApplicationInsights-server-dotnet/releases)
-* [.NET Core SDK](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
-* [.NET 日志记录适配器](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/releases)
-* [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
+* [.NET SDK（包括 ASP.NET、ASP.Net Core 和日志记录适配器）](https://github.com/Microsoft/ApplicationInsights-dotnet/releases) 
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
 * [其他平台](https://github.com/Microsoft/ApplicationInsights-Home)

@@ -1,18 +1,15 @@
 ---
-title: 没有 800 计数限制的 Azure 资源
+title: 没有 800 计数限制的资源
 description: 列出可以在一个资源组中有 800 多个实例的 Azure 资源类型。
-author: rockboyfor
-ms.service: azure-resource-manager
 ms.topic: conceptual
-origin.date: 07/30/2019
-ms.date: 09/23/2019
-ms.author: v-yeche
-ms.openlocfilehash: 72140c2d7a7118a58059b8c91c275b647b8519db
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+origin.date: 11/07/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 01af3de89c90a16fd756a3ca5acadeded7c50d23
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156087"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884830"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>没有每个资源组 800 个实例限制的资源
 
@@ -38,6 +35,8 @@ ms.locfileid: "71156087"
 * images
 * snapshots
 * virtualMachines
+
+<!--Not Available on ## Microsoft.ContainerInstance-->
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -66,8 +65,16 @@ ms.locfileid: "71156087"
 
 <!--Not Available on ## Microsoft.EnterpriseKnowledgeGraph-->
 
+## <a name="microsofteventhub"></a>Microsoft.EventHub
+
+* clusters
+* namespaces
+
+<!--Not Available on ## Microsoft.Experimentation-->
+
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* configurationProfileAssignments
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -77,6 +84,8 @@ ms.locfileid: "71156087"
 
 * integrationAccounts
 * workflows
+
+<!--Not Available on ## Microsoft.NetApp-->
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -112,7 +121,7 @@ ms.locfileid: "71156087"
 * privateDnsZones/virtualNetworkLinks
 * privateEndpoints
 * privateLinkServices
-* publicIPAddresses - 若要提高限制，请联系支持部门。
+* publicIPAddresses - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
 * serviceEndpointPolicies
 * trafficmanagerprofiles
 * virtualNetworkTaps
@@ -121,11 +130,19 @@ ms.locfileid: "71156087"
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
-* workspaceCollections - 若要提高限制，请联系支持部门。
+* workspaceCollections - 默认情况下，限制为 800 个实例。 可以通过联系支持人员来提高该限制。
+
+## <a name="microsoftrelay"></a>Microsoft.Relay
+
+* namespaces
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * jobcollections
+
+## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
+
+* namespaces
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
@@ -140,4 +157,4 @@ ms.locfileid: "71156087"
 
 有关配额和限制的完整列表，请参阅 [Azure 订阅和服务限制、配额与约束](../azure-subscription-service-limits.md)。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

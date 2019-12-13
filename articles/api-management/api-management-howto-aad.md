@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 origin.date: 11/04/2019
 ms.author: v-yiso
-ms.date: 12/09/2019
-ms.openlocfilehash: bb300bc1ac9539e4c766dd959f691e7f5a06c9e6
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.date: 12/16/2019
+ms.openlocfilehash: 0890df9076abbc3893b5fe6789e03818672423fa
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657668"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884742"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>在 Azure API 管理中使用 Azure Active Directory 授权开发人员帐户
 
@@ -114,6 +114,9 @@ ms.locfileid: "74657668"
 ![“AAD 按钮”小组件](./media/api-management-howto-aad/portal-oauth-widget.png)
 
 尽管每当新用户使用 AAD 登录时都会自动创建一个新帐户，但你可以考虑向注册页添加同一小组件。
+
+> [!IMPORTANT]
+> 需要[重新发布门户](api-management-howto-developer-portal-customize.md#publish)才能使 AAD 更改生效。
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>旧开发人员门户 - 如何使用 Azure AD 登录
 

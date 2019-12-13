@@ -7,15 +7,15 @@ manager: rajvijan
 ms.service: key-vault
 ms.topic: tutorial
 origin.date: 09/05/2018
-ms.date: 07/29/2019
-ms.author: v-biyu
+ms.date: 12/09/2019
+ms.author: v-tawe
 ms.custom: mvc
-ms.openlocfilehash: 3d8ef65f9d2fd1e8a2bfe5ed210199ebf1582a5f
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: e4d3591f5d34de3414107ec29461b310e2d77df9
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657880"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838865"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-python-app-to-store-secrets-in-azure-key-vault"></a>教程：使用 Linux VM 和 Python 应用在 Azure 密钥保管库中存储机密
 
@@ -27,17 +27,17 @@ Azure Key Vault 用于保护机密，例如访问应用程序、服务和 IT 资
 > * 创建密钥保管库
 > * 在密钥保管库中存储机密
 > * 创建 Linux 虚拟机
-> * 为虚拟机启用托管标识。
+> * 为虚拟机启用[托管标识](../active-directory/managed-identities-azure-resources/overview.md)
 > * 授予所需的权限，让控制台应用程序从密钥保管库读取数据
 > * 从密钥保管库检索机密
 
-在进一步讨论之前，确保了解[有关密钥保管库的基本概念](key-vault-whatis.md#basic-concepts)。
+在进一步讨论之前，确保了解[有关密钥保管库的基本概念](basic-concepts.md)。
 
 ## <a name="prerequisites"></a>先决条件
 
 * [Git](https://git-scm.com/downloads)。
   * Azure 订阅。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
-  * [Azure CLI](https://docs.azure.cn/cli/install-azure-cli?view=azure-cli-latest) 2.0.4 或更高版本。 适用于 Windows、Mac 和 Linux。
+* [Azure CLI 2.0.4 版或更高版本](/cli/install-azure-cli?view=azure-cli-latest)。
 
 
 ## <a name="understand-managed-service-identity"></a>了解托管服务标识
@@ -175,20 +175,20 @@ ssh azureuser@<PublicIpAddress>
 
 ```python
 # importing the requests library
-  import requests
-  
+import requests
+
 # Step 1: Fetch an access token from an MSI-enabled Azure resource      
-  # Note that the resource here is https://vault.azure.cn for public cloud and api-version is 2018-02-01
+  # Note that the resource here is https://vault.azure.cn for Azure cloud and api-version is 2018-02-01
   MSI_ENDPOINT = "https://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.cn"
-  r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
+r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"})
 
 # Extracting data in JSON format 
-  # This request gets an access token from Azure Active Directory by using the local MSI endpoint
-  data = r.json()
+# This request gets an access token from Azure Active Directory by using the local MSI endpoint
+data = r.json()
 
 # Step 2: Pass the access token received from the previous HTTP GET call to the key vault
   KeyVaultURL = "https://prashanthwinvmvault.vault.azure.cn/secrets/RandomSecret?api-version=2016-10-01"
-  kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
+kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
 
 print(kvSecret.json()["value"])
 ```

@@ -7,17 +7,17 @@ author: msmbaldwin
 ms.author: v-tawe
 manager: rkarlin
 origin.date: 09/10/2019
-ms.date: 10/31/2019
-ms.openlocfilehash: 118797ebc40221586ed84f841f2783527ce4cafd
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.date: 12/09/2019
+ms.openlocfilehash: c0493c7535628823cafbe644b102f18dd823059b
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426109"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838869"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>通过编写代码提取共享访问签名令牌
 
-可以使用密钥保管库中的[共享访问签名令牌](../storage/common/storage-dotnet-shared-access-signature-part-1.md)来管理存储帐户。 本文提供了提取 SAS 令牌并对其执行操作的 C# 代码示例。  有关如何创建和存储 SAS 令牌的信息，请参阅[使用 Key Vault 和 Azure CLI 管理存储帐户密钥](key-vault-ovw-storage-keys.md)。
+可以使用密钥保管库中的[共享访问签名令牌](../storage/common/storage-dotnet-shared-access-signature-part-1.md)来管理存储帐户。 本文提供了提取 SAS 令牌并对其执行操作的 C# 代码示例。  有关如何创建和存储 SAS 令牌的信息，请参阅[使用密钥保管库和 Azure CLI 管理存储帐户密钥](key-vault-ovw-storage-keys.md)或[使用密钥保管库和 Azure PowerShell 管理存储帐户密钥](key-vault-overview-storage-keys-powershell.md)。
 
 ## <a name="code-samples"></a>代码示例
 
@@ -51,7 +51,7 @@ accountSasCredential.UpdateSASToken(sasToken);
 
 
 ## <a name="next-steps"></a>后续步骤
-- 了解如何[使用 Key Vault 和 Azure CLI 管理存储帐户密钥](key-vault-ovw-storage-keys.md)。
+- 了解如何[使用密钥保管库和 Azure CLI 管理存储帐户密钥](key-vault-ovw-storage-keys.md)或 [Azure PowerShell](key-vault-overview-storage-keys-powershell.md)。
 - 请参阅[托管存储帐户密钥示例](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
 - [关于键、密钥和证书](about-keys-secrets-and-certificates.md)
 - [Key Vault PowerShell 参考](https://docs.microsoft.com/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault)

@@ -1,19 +1,15 @@
 ---
-title: 使用 Azure 容器注册表任务（ACR 任务）自动构建和修补容器映像
+title: ACR 任务概述
 description: 介绍 ACR 任务。ACR 任务是 Azure 容器注册表中的功能套件，它在云中提供安全、自动化的容器映像的生成、管理和修补。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
-ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1b4d1f8c08d3b105aac9340b1592d8cfc5ced02e
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 12/09/2019
+ms.openlocfilehash: 038db1859e83ab2c142fbe9b82f37dd3fc002d7e
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306715"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884864"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>使用 ACR 任务自动执行容器映像的生成和维护
 
@@ -124,6 +120,7 @@ ACR 任务旨在用作容器生命周期基元。 例如，将 ACR 任务集成�
 | GitHub 主分支 | GitHub 存储库主分支（或其他默认分支）中的文件。  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub 分支 | GitHub 存储库的特定分支。| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub 子文件夹 | GitHub 存储库中某个子文件夹内的文件。 示例显示了分支和子文件夹规范的组合。 | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Azure DevOps 子文件夹 | Azure 存储库中某个子文件夹内的文件。 示例显示了分支和子文件夹规范的组合。 | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | 远程 tarball | 远程 Web 服务器上某个压缩存档中的文件。 | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>映像平台
@@ -175,4 +172,4 @@ az acr task update-run --registry myregistry --run-id cf11 --no-archive false
 [quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png
 [quick-build-02-browser]: ./media/container-registry-tutorial-quick-build/quick-build-02-browser.png
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

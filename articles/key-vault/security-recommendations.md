@@ -7,19 +7,19 @@ manager: rkarlin
 ms.service: key-vault
 ms.topic: article
 origin.date: 09/30/2019
-ms.date: 10/30/2019
+ms.date: 12/09/2019
 ms.author: v-tawe
 ms.custom: security-recommendations
-ms.openlocfilehash: af68e76d559ce82010aa372e6554c53a8f0df046
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 85a83176fe5c15cc85f2219b78c45ff92380584e
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426110"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74838871"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>适用于 Azure Key Vault 的安全建议
 
-本文包含适用于 Azure Key Vault 的安全建议。 实施执行建议将有助于你履行我们的共享职责模型中描述的安全职责。
+本文包含适用于 Azure Key Vault 的安全建议。 实施执行建议将有助于你履行我们的共享职责模型中描述的安全职责。 若要详细了解 Microsoft 采取哪些措施来履行服务提供商责任，请阅读[云计算的责任分担](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)。
 
 包含在本文中的某些建议可能受 Azure 安全中心的自动监视。 在保护你在 Azure 中的资源方面，Azure 安全中心是第一道防线。 它定期分析 Azure 资源的安全状态，以识别潜在的安全漏洞。 然后向你提供有关如何解决这些安全漏洞的建议。
 
@@ -30,7 +30,7 @@ ms.locfileid: "73426110"
 
 | 建议 | 注释 | 安全中心 |
 |-|----|--|
-| 启用软删除 | [软删除](key-vault-ovw-soft-delete.md)允许恢复已删除的保管库和保管库对象 |  - |
+|启用软删除 | [软删除](key-vault-ovw-soft-delete.md)允许恢复已删除的保管库和保管库对象 |  - |
 | 限制对保管库数据的访问  | 遵循“最低访问权限”原则，限制组织成员对保管库数据的访问 |  - |
 
 ## <a name="identity-and-access-management"></a>标识和访问管理
@@ -51,3 +51,7 @@ ms.locfileid: "73426110"
 | 建议 | 注释 | 安全中心 |
 |-|----|--|
 |限制网络暴露 | 网络访问应该仅限需要进行保管库访问的解决方案所使用的虚拟网络。 查看有关 [Azure Key Vault 虚拟网络服务终结点](key-vault-overview-vnet-service-endpoints.md)的信息 | - |
+
+<!-- ## Next steps -->
+
+<!-- Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../security/fundamentals/abstract-develop-secure-apps.md). -->

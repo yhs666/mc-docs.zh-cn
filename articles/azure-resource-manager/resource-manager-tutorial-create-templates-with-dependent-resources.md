@@ -1,29 +1,21 @@
 ---
-title: 使用依赖的资源创建 Azure 资源管理器模板 | Azure
+title: 具有依赖资源的模板
 description: 了解如何使用多个资源创建 Azure 资源管理器模板，以及如何使用 Azure 门户部署该模板
-services: azure-resource-manager
-documentationcenter: ''
 author: rockboyfor
-manager: digimobile
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 origin.date: 03/04/2019
-ms.date: 04/15/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: 9f9f284b526cbce826d543e97ccc4a18ac3215b7
-ms.sourcegitcommit: 9f7a4bec190376815fa21167d90820b423da87e7
+ms.openlocfilehash: 5d7b54e965889e3c76e2259539993461fb9e333a
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59529372"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884847"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>教程：使用依赖的资源创建 Azure 资源管理器模板
 
-了解如何创建 Azure 资源管理器模板以部署多个资源和配置部署顺序。  创建模板以后，你将通过本地电脑使用 Azure CLI 和 PowerShell 部署该模板。
+了解如何创建 Azure 资源管理器模板以部署多个资源和配置部署顺序。  创建模板后，使用本地电脑中的 Azure PowerShell 部署模板。
 
 <!--Not Available on Cloud Shell-->
 
@@ -44,7 +36,7 @@ ms.locfileid: "59529372"
 
 若要完成本文，需要做好以下准备：
 
-* 包含资源管理器工具扩展的 [Visual Studio Code](https://code.visualstudio.com/)。  请参阅[安装扩展](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)。
+* 包含资源管理器工具扩展的 Visual Studio Code。 请参阅[使用 Visual Studio Code 创建 Azure 资源管理器模板](./resource-manager-tools-vs-code.md)。
 * 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 以下是密码生成示例：
 
     ```azurecli
@@ -56,14 +48,14 @@ ms.locfileid: "59529372"
 
 Azure 快速入门模板是资源管理器模板的存储库。 无需从头开始创建模板，只需找到一个示例模板并对其自定义即可。 本教程中使用的模板称为[部署简单的 Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/)。
 
-1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。
-2. 在“文件名”中粘贴以下 URL：
+1. 在 Visual Studio Code 中，选择“文件”>“打开文件”。  
+2. 在“文件名”中粘贴以下 URL： 
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. 选择“打开”以打开该文件。
-4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。
+3. 选择“打开”以打开该文件。 
+4. 选择“文件”>“另存为”，将该文件的副本保存到名为 **azuredeploy.json** 的本地计算机。  
 
 ## <a name="explore-the-template"></a>浏览模板
 
@@ -91,16 +83,17 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 2. 展开第一个资源。 它是一个存储帐户。 
     
-    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/Microsoft.Storage/storageAccounts)-->
+    <!-- Not Available on [template reference](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)-->
 
     ![Visual Studio Code Azure 资源管理器模板存储帐户定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
 
 3. 展开第二个资源。 资源类型为 `Microsoft.Network/publicIPAddresses`。
     
-    <!-- Not Available on [template reference](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.network/publicipaddresses)-->
+    <!-- Not Available on [template reference](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)-->
 
     ![Visual Studio Code Azure 资源管理器模板公共 IP 地址定义](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
-4. 展开第四个资源。 资源类型为 `Microsoft.Network/networkInterfaces`：  
+
+4. 展开第四个资源。 资源类型为 `Microsoft.Network/networkInterfaces`：
 
     ![Visual Studio Code Azure 资源管理器模板 dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -124,15 +117,14 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-可通过多种方法来部署模板。 在本教程中，你将从本地电脑使用 Azure CLI 和 PowerShell。
+可通过多种方法来部署模板。 本教程从本地电脑使用 Azure PowerShell。
 
 <!--Not Available on Cloud Shell-->
 
-1. 在本地 Shell 中运行以下命令，以验证 JSON 文件的内容。
+1. 选择前面在本教程中保存的模板。 默认名称为 **azuredeploy.json**。  如果某个文件的文件名相同，则会覆盖旧文件，没有任何通知。
 
-    ```bash
-    cat azuredeploy.json
-    ```
+    还可以选择使用 ls $HOME  命令和 cat $HOME/azuredeploy.json  命令来验证文件是否已成功上传。
+
 2. 在本地 Shell 中运行以下 PowerShell 命令。 若要提高安全性，请使用为虚拟机管理员帐户生成的密码。 请参阅[先决条件](#prerequisites)。
 
     ```azurepowershell
@@ -142,7 +134,7 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     $adminPassword = Read-Host -Prompt "Enter the admin password" -AsSecureString
     $dnsLabelPrefix = Read-Host -Prompt "Enter the DNS label prefix"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location $location
+    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment `
         -ResourceGroupName $resourceGroupName `
         -adminUsername $adminUsername `
@@ -165,10 +157,10 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 
 不再需要 Azure 资源时，请通过删除资源组来清理部署的资源。
 
-1. 在 Azure 门户上的左侧菜单中选择“资源组”。
-2. 在“按名称筛选”字段中输入资源组名称。
+1. 在 Azure 门户上的左侧菜单中选择“资源组”  。
+2. 在“按名称筛选”字段中输入资源组名称。 
 3. 选择资源组名称。  应会看到，该资源组中总共有六个资源。
-4. 在顶部菜单中选择“删除资源组”。
+4. 在顶部菜单中选择“删除资源组”。 
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -177,4 +169,4 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
 > [!div class="nextstepaction"]
 > [使用条件](./resource-manager-tutorial-use-conditions.md)
 
-<!-- Update_Description: update link, wording update, update cmdlet -->
+<!-- Update_Description: update meta properties, wording update, update link -->

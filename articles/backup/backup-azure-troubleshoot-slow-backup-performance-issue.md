@@ -1,22 +1,21 @@
 ---
-title: 排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题
+title: 排查备份文件和文件夹时速度缓慢的问题
 description: 提供了故障排除指导，帮助你诊断 Azure 备份性能问题的原因
 ms.reviewer: saurse
 author: lingliw
-manager: digimobile
-ms.service: backup
 ms.topic: troubleshooting
 origin.date: 07/05/2019
 ms.date: 9/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 840ed018bb138a6d37a8df696c01e3d3eb54aa04
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c2158d5492de320fda2ab372544a68b8fc7cd0cd
+ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730589"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74839026"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>排查在 Azure 备份中备份文件和文件夹时速度缓慢的问题
+
 本文提供故障排除指导，帮助你诊断使用 Azure 备份来备份文件和文件夹时备份性能缓慢的原因。 使用 Azure 备份代理备份文件时，备份过程花费的时间可能比预期要长。 这种延迟可能由以下一个或多个原因所造成：
 
 * [正在备份的计算机存在性能瓶颈。](#cause1)
@@ -30,9 +29,10 @@ ms.locfileid: "73730589"
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-<a name="cause1"></a>
+<a id="cause1"></a>
 
 ## <a name="cause-performance-bottlenecks-on-the-computer"></a>原因：计算机存在性能瓶颈
+
 正在备份的计算机上可能有一些瓶颈导致延迟。 例如，计算机读取或写入到磁盘的能力、用于通过网络发送数据的带宽，都可能会造成瓶颈。
 
 Windows 提供了名为[性能监视器](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon) 的内置工具，用于检测这些瓶颈。
@@ -54,9 +54,10 @@ Windows 提供了名为[性能监视器](https://technet.microsoft.com/magazine/
 >
 >
 
-<a name="cause2"></a>
+<a id="cause2"></a>
 
 ## <a name="cause-another-process-or-antivirus-software-interfering-with-azure-backup"></a>原因：其他进程或防病毒软件正在干扰 Azure 备份
+
 在许多场合中，我们发现 Windows 系统中的其他进程对 Azure 备份代理进程的性能造成负面影响。 例如，如果同时使用 Azure 备份代理和其他程序来备份数据，或者防病毒软件正在运行，因而锁定了要备份的文件，则文件中的多个锁可能会造成资源争用。 在此情况下，备份可能失败，或者作业花费的时间可能长于预期。
 
 在这种情况下，建议的最佳做法是关闭其他备份程序，并观察 Azure 备份代理的备份时间是否有所变化。 一般情况下，确保多个备份作业不在同一时间运行，就足以防止作业彼此干扰。
@@ -67,12 +68,13 @@ Windows 提供了名为[性能监视器](https://technet.microsoft.com/magazine/
 * C:\Program Files\Microsoft Azure Recovery Services Agent\（文件夹）
 * 暂存位置（如果未使用标准位置）
 
-<a name="cause3"></a>
+<a id="cause3"></a>
 
 ## <a name="cause-backup-agent-running-on-an-azure-virtual-machine"></a>原因：备份代理在 Azure 虚拟机上运行
+
 如果在 VM 上运行备份代理，其性能比在物理机上运行要慢。 这是预期行为，因为存在 IOPS 限制。  但是，可以通过将正在备份的数据驱动器切换到 Azure 高级存储来优化性能。 我们正在努力解决此问题，将来的版本将有这方面的修复。
 
-<a name="cause4"></a>
+<a id="cause4"></a>
 
 ## <a name="cause-backing-up-a-large-number-millions-of-files"></a>原因：正在备份大量的（数百万个）文件
 移动大量数据所花费的时间比移动少量数据要长。 但在某些情况下，备份时间不仅与数据大小相关，也与文件或文件夹数目相关。 在备份几百万个小型文件（几个字节到几 KB）时更是如此。

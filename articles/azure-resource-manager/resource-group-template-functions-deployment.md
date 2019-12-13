@@ -2,20 +2,21 @@
 title: 模板函数 - 部署
 description: 介绍可在 Azure Resource Manager 模板中使用的用于检索部署信息的函数。
 ms.topic: conceptual
-origin.date: 09/13/2019
-ms.date: 11/25/2019
-ms.openlocfilehash: 4121c99b147134c7737be7dd37bb2e953575e37f
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+origin.date: 11/27/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: 1faf883d18e18a71aef0da618dabc97711072f51
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389462"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884938"
 ---
 # <a name="deployment-functions-for-azure-resource-manager-templates"></a>用于 Azure Resource Manager 模板的部署函数 
 
-Resource Manager 提供以下函数，用于从与部署相关的模板和值部分获取值：
+资源管理器提供了以下函数，用于获取与当前部署相关的值：
 
 * [部署](#deployment)
+* [环境](#environment)
 * [参数](#parameters)
 * [variables](#variables)
 
@@ -24,6 +25,7 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 <a name="deployment" />
 
 ## <a name="deployment"></a>部署
+
 `deployment()`
 
 返回有关当前部署操作的信息。
@@ -134,9 +136,110 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 
 对于使用部署功能的订阅级别模板，请参阅[订阅部署功能](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deploymentsubscription.json)。 它使用 `az deployment create` 或 `New-AzDeployment` 命令进行部署。
 
-<a name="parameters" />
+## <a name="environment"></a>环境
+
+`environment()`
+
+返回有关用于部署的 Azure 环境的信息。
+
+### <a name="return-value"></a>返回值
+
+此函数返回当前 Azure 环境的属性。 以下示例显示了全局 Azure 的属性。 主权云可能会返回略有不同的属性。
+
+```json
+{
+  "name": "",
+  "gallery": "",
+  "graph": "",
+  "portal": "",
+  "graphAudience": "",
+  "activeDirectoryDataLake": "",
+  "batch": "",
+  "media": "",
+  "sqlManagement": "",
+  "vmImageAliasDoc": "",
+  "resourceManager": "",
+  "authentication": {
+    "loginEndpoint": "",
+    "audiences": [
+      "",
+      ""
+    ],
+    "tenant": "",
+    "identityProvider": ""
+  },
+  "suffixes": {
+    "acrLoginServer": "",
+    "azureDatalakeAnalyticsCatalogAndJob": "",
+    "azureDatalakeStoreFileSystem": "",
+    "azureFrontDoorEndpointSuffix": "",
+    "keyvaultDns": "",
+    "sqlServerHostname": "",
+    "storage": ""
+  }
+}
+```
+
+### <a name="example"></a>示例
+
+以下示例模板返回环境对象。
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [],
+    "outputs": {
+        "environmentOutput": {
+            "value": "[environment()]",
+            "type" : "object"
+        }
+    }
+}
+```
+
+前面的示例在部署到全局 Azure 时返回以下对象：
+
+<!--Generate the report on 12/04/2019-->
+<!--Verified successfully-->
+
+```json
+{
+    "name":"AzureChinaCloud",
+    "gallery":"https://gallery.chinacloudapi.cn",
+    "graph":"https://graph.chinacloudapi.cn",
+    "portal":"https://portal.azure.cn",
+    "graphAudience":"https://graph.chinacloudapi.cn",
+    "activeDirectoryDataLake":null,
+    "batch":"https://batch.chinacloudapi.cn",
+    "media":"https://rest.media.chinacloudapi.cn",
+    "sqlManagement":"https://management.core.chinacloudapi.cn:8443",
+    "vmImageAliasDoc":"https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
+    "resourceManager":"https://management.chinacloudapi.cn",
+    "authentication":{
+        "loginEndpoint":"https://login.chinacloudapi.cn",
+        "audiences":[
+            "https://management.core.chinacloudapi.cn/",
+            "https://management.chinacloudapi.cn/"
+        ],
+        "tenant":"common",
+        "identityProvider":"AAD"
+    },
+    "suffixes":{
+        "acrLoginServer":".azurecr.cn",
+        "azureDatalakeAnalyticsCatalogAndJob":null,
+        "azureDatalakeStoreFileSystem":null,
+        "azureFrontDoorEndpointSuffix":"",
+        "keyvaultDns":".vault.azure.cn",
+        "sqlServerHostname":".database.chinacloudapi.cn",
+        "storage":"core.chinacloudapi.cn"
+    }
+}
+```
+<!--Generate the report on 12/04/2019-->
 
 ## <a name="parameters"></a>参数
+
 `parameters(parameterName)`
 
 返回一个参数值。 指定的参数名称必须已在模板的 parameters 节中定义。
@@ -338,4 +441,4 @@ Resource Manager 提供以下函数，用于从与部署相关的模板和值部
 * 若要在创建资源类型时迭代指定的次数，请参阅[在 Azure Resource Manager 中创建多个资源实例](resource-group-create-multiple.md)。
 * 要查看如何部署已创建的模板，请参阅[使用 Azure 资源管理器模板部署应用程序](resource-group-template-deploy.md)。
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

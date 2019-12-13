@@ -1,6 +1,6 @@
 ---
-title: 企业概念
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: 企业概念 - LUIS
+titleSuffix: Azure Cognitive Services
 description: 了解大型 LUIS 应用程序或多个应用程序（包括 LUIS 和 QnA Maker）的设计概念。
 services: cognitive-services
 author: lingliw
@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 07/29/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 36b1fa49dc3de7021ff33734243667691e8a31f1
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 1d6f7ff523f71c37d2e79b4fcbe68ccd2d6211d9
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657739"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884494"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>LUIS 应用的企业策略
 查看企业应用的设计策略。
@@ -40,7 +40,7 @@ LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。
 
 将单个应用指定为主应用。 建议查看的任何陈述都应添加到主应用，然后移回所有其他应用。 这是应用的一次完整导出，或是将主应用中已标记的陈述加载到子级。 可从 [LUIS](luis-reference-regions.md) 网站或者[单个话语](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08)或[批量话语](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)的创作 API 完成加载。 
 
-计划定期评审（例如每两周一次）[终结点话语](luis-how-to-review-endpoint-utterances.md)以进行主动学习，然后重新训练并重新发布。 
+计划定期审查（例如每两周一次）终结点话语以进行主动学习，然后重新训练并重新发布。 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>将多个 LUIS 密钥分配到相同的应用
 如果 LUIS 应用接收到的终结点命中数超过了单个密钥的配额，请创建更多密钥并将它们分配到该 LUIS 应用。 创建流量管理器或负载均衡器，管理这些终结点密钥间的终结点查询。 
@@ -48,7 +48,7 @@ LUIS 基于 Azure 资源的定价层，具有每月配额和每秒配额。
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>单体应用返回错误意向
 如果应用要预测多种陈述，请考虑实施[调度模型](#dispatch-tool-and-model)。 分解单体应用可让 LUIS 成功地专注于意向间的检测，而不会在父应用和子应用中的意向间产生混淆。 
 
-计划定期（例如每两周一次）[查看终结点陈述](luis-how-to-review-endpoint-utterances.md)以进行主动学习，然后重新训练并重新发布。 
+计划定期审查（例如每两周一次）终结点话语以进行主动学习，然后重新训练并重新发布。 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>需要超过 500 个意向
 假设要开发一个包含超过 500 个意向的办公室助手。 如果有 200 个关于计划会议的意向、200 个关于提醒的意向、200 个关于获取同事信息的意向以及 200 个 关于发送电子邮件的意向，则对意向进行分组，每组位于一个应用中，然后创建包含每个意向的顶层应用。 使用[调度模型](#dispatch-tool-and-model)来生成顶层应用。 然后更改机器人以使用[调度模型教程](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&branch=master&tabs=cs)中所示的级联调用。 

@@ -2,14 +2,14 @@
 title: 在 Azure 门户中导出模板
 description: 使用 Azure 门户从订阅中的资源导出 Azure 资源管理器模板。
 ms.topic: conceptual
-origin.date: 10/11/2019
-ms.date: 11/25/2019
-ms.openlocfilehash: 20f77a83e765472fa38eb10f51b406d35d92ae60
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+origin.date: 11/21/2019
+ms.date: 12/09/2019
+ms.openlocfilehash: f2bab4f04bf9bb0484efb0b9d22c71a60d19408c
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389420"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885004"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>在 Azure 门户中将单资源和多资源导出到模板
 
@@ -34,7 +34,7 @@ ms.locfileid: "74389420"
 | 模板是资源当前状态的快照。 其中包含你在部署之后所做的任何手动更改。 | 模板仅显示资源在部署时的状态。 不包含部署之后所做的任何手动更改。 |
 | 可以从资源组中选择要导出的资源。 | 包含特定部署的所有资源。 不能选取其中的一部分资源，或者包含在不同时间添加的资源。 |
 | 模板包含资源的所有属性，包括部署过程中通常不会设置的某些属性。 在重复使用模板之前，你可能需要删除或清理这些属性。 | 模板仅包含部署所需的属性。 模板随时可供使用。 |
-| 模板可能不包含重复使用它所需的所有参数。 大多数属性值在模板中已硬编码。 若要在其他环境中重新部署模板，需要添加参数，以提高配置资源的能力。 | 模板包含一些参数以方便在不同的环境中重新部署。 |
+| 模板可能不包含重复使用它所需的所有参数。 大多数属性值在模板中已硬编码。 若要在其他环境中重新部署模板，需要添加参数，以提高配置资源的能力。  还可以取消选择“包括参数”  ，这样就可以创作自己的参数。 | 模板包含一些参数以方便在不同的环境中重新部署。 |
 
 在以下情况下，请从资源组或资源导出模板：
 
@@ -63,6 +63,8 @@ ms.locfileid: "74389420"
 
     ![显示模板](./media/export-template-portal/show-template.png)
 
+     “包括参数”默认情况下已选中。  如果选中，生成模板时将包括所有模板参数。 如果希望创作自己的参数，请将此复选框切换为不包括参数。
+
 ## <a name="export-template-from-a-resource"></a>从资源导出模板
 
 导出一个资源：
@@ -75,7 +77,7 @@ ms.locfileid: "74389420"
 
     ![导出资源](./media/export-template-portal/export-single-resource.png)
 
-1. 此时将显示导出的模板，并且该模板可供下载和部署。 模板只包含单个资源。
+1. 此时将显示导出的模板，并且该模板可供下载和部署。 模板只包含单个资源。  “包括参数”默认情况下已选中。  如果选中，生成模板时将包括所有模板参数。 如果希望创作自己的参数，请将此复选框切换为不包括参数。
 
 ## <a name="export-template-before-deployment"></a>在部署之前导出模板
 

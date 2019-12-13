@@ -1,20 +1,17 @@
 ---
-title: 异地复制的 Azure 容器注册表
-description: 开始创建和管理异地复制的 Azure 容器注册表。
-services: container-registry
+title: 异地复制注册表
+description: 开始创建和管理异地复制的 Azure 容器注册表，这使注册表能够通过多主区域副本为多个区域提供服务。
 author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
 origin.date: 08/16/2019
-ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 42b50d979b963696bcfdbcb63076c4d9bae61098
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 12/09/2019
+ms.openlocfilehash: 6cf8ab5d1f0514773af53a99abfadb74dbcc6697
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306838"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885028"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure 容器注册表中的异地复制
 
@@ -132,7 +129,7 @@ ACR 将开始在配置的副本间同步映像。 完成后，门户将显示“
 
 将映像推送到异地复制注册表的 Docker 客户端可能不会将所有映像层及其清单推送到单个复制区域。 出现这种情况的原因可能是因为 Azure 流量管理器将注册表请求路由到离网络最近的复制注册表。 如果注册表有两个*附近*的复制区域，则可以将映像层和清单分发到两个站点，并且在验证清单时推送操作将失败。 之所以出现此问题是因为在某些 Linux 主机上解析注册表的 DNS 名称的方式。 这个问题不会发生在 Windows 上，因为 Windows 提供了一个客户端 DNS 缓存。
 
-如果出现此问题，一种解决方案是在 Linux 主机上应用客户端 DNS 缓存，比如 `dnsmasq`。 这有助于确保一致地解析注册表的名称。 如果你使用 Azure 中的 Linux VM 推送到注册表，请参阅 [Azure 中 Linux 虚拟机的 DNS 名称解析选项](/virtual-machines/linux/azure-dns)中的选项。
+如果出现此问题，一种解决方案是在 Linux 主机上应用客户端 DNS 缓存，比如 `dnsmasq`。 这有助于确保一致地解析注册表的名称。 如果你使用 Azure 中的 Linux VM 推送到注册表，请参阅 [Azure 中 Linux 虚拟机的 DNS 名称解析选项](../virtual-machines/linux/azure-dns.md)中的选项。
 
 若要在推送映像时将 DNS 解析优化到最近的副本，请在推送操作源所在的 Azure 区域中配置异地复制注册表，或者在 Azure 外部工作时配置最近的区域。
 
@@ -143,4 +140,4 @@ ACR 将开始在配置的副本间同步映像。 完成后，门户将显示“
 > [!div class="nextstepaction"]
 > [Azure 容器注册表中的异地复制](container-registry-tutorial-prepare-registry.md)
 
-<!--Update_Desciption: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

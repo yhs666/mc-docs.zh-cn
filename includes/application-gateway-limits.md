@@ -2,15 +2,14 @@
 author: vhorne
 ms.service: application-gateway
 ms.topic: include
-origin.date: 06/05/2019
-ms.date: 11/11/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
-ms.openlocfilehash: b79ff893cccbb30903ac04fa5ae9e454cb6f6df1
-ms.sourcegitcommit: 40a58a8b9be0c825c03725802e21ed47724aa7d2
+ms.openlocfilehash: 1368cb7c64d3ee6122835f3e6e050ed1a6202f7f
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73987379"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885180"
 ---
 | Resource | 默认/最大限制 | 注意 |
 | --- | --- | --- |
@@ -34,7 +33,8 @@ ms.locfileid: "73987379"
 | 每个 URL 映射基于路径的最大规则数|100||
 | 重定向配置数 |100<sup>1</sup>| |
 | 并发 WebSocket 连接 |中型网关 20k<br> 大型网关 50k| |
-| 最大 URL 长度|8,000||
+| 最大 URL 长度|32KB| |
+| HTTP/2 的最大标头大小 |4KB| |
 | 最大文件上传大小：标准 |2 GB | |
 | 最大文件上传大小 WAF |中型 WAF 网关，100 MB<br>大型 WAF 网关，500 MB| |
 | WAF 正文大小限制，不带文件|128 KB||
