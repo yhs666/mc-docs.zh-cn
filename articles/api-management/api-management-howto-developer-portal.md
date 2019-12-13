@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-origin.date: 11/04/2019
-ms.date: 12/09/2019
+origin.date: 11/22/2019
+ms.date: 12/16/2019
 ms.author: v-yiso
-ms.openlocfilehash: b10d4ffc77bd9c81c83f32fcbe7030c530025875
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: f7a33f6a35f03bbd691957881ec949535d050013
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657624"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884731"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API 管理开发人员门户概述
 
@@ -27,8 +27,6 @@ ms.locfileid: "74657624"
 本文介绍了 API 管理中开发人员门户的自承载版本与托管版本之间的差异。 此外介绍此门户的体系结构，并提供常见问题的解答。
 
 > [!WARNING]
-> 目前正在推出适用于 API 管理服务的新的开发人员门户。
-> 如果你的服务是新创建的或开发人员层服务，则你应该已有最新版本。 否则，你可能会遇到问题（例如，使用发布功能时）。 该功能推出预计将于 2019 年 11 月 22 日（星期五）前完成。
 >
 > [了解如何从开发人员门户预览版迁移到正式版](#preview-to-ga)。
 
@@ -96,6 +94,8 @@ API 管理内容包括 API、操作、产品和订阅等实体。
 
 新开发人员门户不支持“应用程序”和“问题”。   如果你在旧门户中使用了“问题”，并需要在新门户中继续使用该功能，请在[相关的 GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/122)中留言。 
 
+目前尚不支持在交互式开发人员控制台中使用 OAuth 进行身份验证。 可以通过 [GitHub 问题](https://github.com/Azure/api-management-developer-portal/issues/208)跟踪进度。
+
 ### <a name="has-the-old-portal-been-deprecated"></a>旧门户是否已弃用？
 
 旧的开发人员和发布者门户现在属于旧版功能 - 它们只会接收安全更新。  新功能只会在新开发人员门户中实现。
@@ -112,11 +112,29 @@ API 管理内容包括 API、操作、产品和订阅等实体。
 
 否。
 
-### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>是否需要为托管门户依赖项启用额外的 VNET 连接？
+### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-new-managed-portal-dependencies"></a>是否需要为新的托管门户依赖项启用额外的 VNet 连接？
 
-否。
+大多数情况下是不需要的。
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>使用交互式控制台时出现 CORS 错误。 我该怎么办？
+如果 API 管理服务位于内部 VNet 中，则只能从网络内部访问开发人员门户。 管理终结点的主机名必须解析成用于访问门户管理界面的计算机中的服务的内部 VIP。 请确保管理终结点已在 DNS 中注册。 如果配置不当，将会出现以下错误：`Unable to start the portal. See if settings are specified correctly in the configuration (...)`。
+
+### <a name="i-have-assigned-a-custom-api-management-domain-and-the-published-portal-doesnt-work"></a>我已分配一个自定义 API 管理域，但发布的门户无法正常工作
+
+更新域后，需要[重新发布门户](api-management-howto-developer-portal-customize.md#publish)才能使更改生效。
+
+### <a name="i-have-added-an-identity-provider-and-i-cant-see-it-in-the-portal"></a>我已添加一个标识提供者，但门户中未显示它
+
+配置标识提供者（例如 AAD、AAD B2C）之后，需要[重新发布门户](api-management-howto-developer-portal-customize.md#publish)才能使更改生效。
+
+### <a name="i-have-set-up-delegation-and-the-portal-doesnt-use-it"></a>我已设置委托，但门户不使用它
+
+设置委托后，需要[重新发布门户](api-management-howto-developer-portal-customize.md#publish)才能使更改生效。
+
+### <a name="my-other-api-management-configuration-changes-havent-been-propagated-in-the-developer-portal"></a>我的其他 API 管理配置更改未传播到开发人员门户中
+
+大多数配置更改（例如，VNet、登录和产品条款）都需要[重新发布门户](api-management-howto-developer-portal-customize.md#publish)。
+
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a>使用交互式控制台时出现 CORS 错误
 
 交互式控制台从浏览器发出客户端 API 请求。 在 API 中添加 [CORS 策略](/api-management/api-management-cross-domain-policies#CORS)可以解决 CORS 问题。 可以手动指定所有参数，也可以使用通配符 `*` 值。 例如：
 
@@ -143,6 +161,54 @@ API 管理内容包括 API、操作、产品和订阅等实体。
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> 如果在产品范围而不是 API 范围内应用 CORS 策略，并且 API 通过标头使用订阅密钥身份验证，则控制台无法正常工作。
+>
+> 浏览器会自动发出 OPTIONS HTTP 请求，但该请求不包含带有订阅密钥的标头。 由于缺少订阅密钥，API 管理无法将 OPTIONS 调用与产品相关联，因此也就无法应用 CORS 策略。
+>
+> 解决方法之一是在查询参数中传递订阅密钥。
+
+### <a name="what-permissions-do-i-need-to-edit-the-developer-portal"></a>编辑开发人员门户需要哪些权限？
+
+如果在管理模式下打开门户时出现 `Oops. Something went wrong. Please try again later.` 错误，则原因可能是缺少所需的权限 (RBAC)。
+
+旧门户需要服务范围 (`/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>`) 的 `Microsoft.ApiManagement/service/getssotoken/action` 权限，以允许用户管理员访问门户。 新门户需要 `/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1` 范围的 `Microsoft.ApiManagement/service/users/token/action` 权限。
+
+可以使用以下 PowerShell 脚本创建拥有所需权限的角色。 请记得更改 `<subscription-id>` 参数。 
+
+```PowerShell
+#New Portals Admin Role 
+Import-Module Az 
+Connect-AzAccount 
+$contributorRole = Get-AzRoleDefinition "API Management Service Contributor" 
+$customRole = $contributorRole 
+$customRole.Id = $null
+$customRole.Name = "APIM New Portal Admin" 
+$customRole.Description = "This role gives the user ability to log in to the new Developer portal as administrator" 
+$customRole.Actions = "Microsoft.ApiManagement/service/users/token/action" 
+$customRole.IsCustom = $true 
+$customRole.AssignableScopes.Clear() 
+$customRole.AssignableScopes.Add('/subscriptions/<subscription-id>') 
+New-AzRoleDefinition -Role $customRole 
+```
+ 
+创建角色后，可以通过 Azure 门户中的“访问控制(IAM)”部分将其授予任何用户。  将此角色分配给用户会在服务范围分配权限。 该用户可以代表服务中的任何用户生成 SAS 令牌。  最起码需要将此角色分配给服务的管理员。 以下 PowerShell 命令演示如何在最低范围将角色分配给用户 `user1`，以避免向该用户授予不必要的权限： 
+
+```PowerShell
+New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM New Portal Admin" -Scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ApiManagement/service/<apim-service-name>/users/1" 
+```
+
+向用户授予权限后，该用户必须注销并重新登录到 Azure 门户，才能使新权限生效。
+
+### <a name="im-seeing-the-unable-to-start-the-portal-see-if-settings-are-specified-correctly--error"></a>出现 `Unable to start the portal. See if settings are specified correctly (...)` 错误
+
+对 `https://<management-endpoint-hostname>/subscriptions/xxx/resourceGroups/xxx/providers/Microsoft.ApiManagement/service/xxx/contentTypes/document/contentItems/configuration?api-version=2018-06-01-preview` 发出 `GET` 调用失败时会显示此错误。 该调用是在浏览器中通过门户的管理界面发出的。
+
+如果 API 管理服务位于 VNet 中，请参阅前面的 VNet 连接问题。
+
+调用失败也可能是 SSL 证书引起的，该证书已分配到自定义域，且不受浏览器信任。 作为缓解措施，可以删除管理终结点自定义域 - API 管理将回退到包含受信任证书的默认终结点。
 
 ## <a name="next-steps"></a>后续步骤
 
