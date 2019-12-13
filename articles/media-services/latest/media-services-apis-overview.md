@@ -1,6 +1,7 @@
 ---
-title: 使用 v3 API 进行开发 - Azure | Microsoft Docs
-description: 本文介绍在使用媒体服务 v3 进行开发时适用于实体和 API 的规则。
+title: 使用 v3 API 进行开发
+titleSuffix: Azure Media Services
+description: 了解在使用媒体服务 v3 进行开发时适用于实体和 API 的规则。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -10,17 +11,17 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 10/21/2019
-ms.date: 11/18/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: 68b77eceda147a321fe9516b2b13dc2e5e0e8cf2
-ms.sourcegitcommit: ea2aeb14116769d6f237542c90f44c1b001bcaf3
+ms.openlocfilehash: afa222031fa54b7003bb1e0b074c65e296e9998f
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74116194"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807640"
 ---
-# <a name="developing-with-media-services-v3-apis"></a>使用媒体服务 v3 API 进行开发
+# <a name="develop-with-media-services-v3-apis"></a>使用媒体服务 v3 API 进行开发
 
 作为开发者，可以利用媒体服务 [REST API](https://aka.ms/ams-v3-rest-ref) 或客户端库，与 REST API 交互，以轻松创建、管理和维护自定义媒体工作流。 [媒体服务 v3](https://aka.ms/ams-v3-rest-sdk) API 基于 OpenAPI 规范（以前称为 Swagger）。
 
@@ -30,31 +31,31 @@ ms.locfileid: "74116194"
 
 若要有权访问媒体服务资源和媒体服务 API，必须先进行身份验证。 媒体服务支持[基于 Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) 的身份验证。 下面是两个常用的身份验证选项：
  
-* **服务主体身份验证** - 用于对某个服务（例如 Web 应用、函数应用、逻辑应用、API 和微服务）进行身份验证。 常常使用这种身份验证方法的应用程序是运行守护程序服务、中间层服务或计划作业的应用程序。 例如，此方法适用于应始终位于通过服务主体连接到媒体服务的中间层中的 Web 应用程序。
-* **用户身份验证** - 用于对使用应用来与 Azure 媒体服务资源进行交互的人员进行身份验证。 交互式应用程序应先提示用户输入用户凭据。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。
+* **服务主体身份验证**：用于对某个服务（例如 Web 应用、函数应用、逻辑应用、API 和微服务）进行身份验证。 常常使用这种身份验证方法的应用程序是运行守护程序服务、中间层服务或计划作业的应用程序。 例如，此方法适用于应始终位于通过服务主体连接到媒体服务的中间层中的 Web 应用。
+* **用户身份验证**：用于验证使用应用程序与媒体服务资源进行交互的用户。 交互式应用应先提示用户输入用户凭据。 例如，授权用户用来监视编码作业或实时传送视频流的管理控制台应用程序。
 
-媒体服务 API 要求发出 REST API 请求的用户或应用程序有权访问媒体服务帐户资源，并有权使用“参与者”或“所有者”角色。   可以使用“读者”角色访问 API，但只有“获取”或“列出”操作可用。    有关详细信息，请参阅[媒体服务帐户的基于角色的访问控制](rbac-overview.md)。
+媒体服务 API 要求发出 REST API 请求的用户或应用有权访问媒体服务帐户资源，并有权使用“参与者”或“所有者”角色。   可以使用“读者”角色访问 API，但只有“获取”或“列出”操作可用。    有关详细信息，请参阅[媒体服务帐户的基于角色的访问控制](rbac-overview.md)。
 
 如果不创建服务主体，可以考虑使用 Azure 资源的托管标识通过 Azure 资源管理器来访问媒体服务 API。 若要详细了解 Azure 资源的托管标识，请参阅[什么是 Azure 资源的托管标识？](../../active-directory/managed-identities-azure-resources/overview.md)。
 
-### <a name="azure-ad-service-principal"></a>Azure AD 服务主体 
+### <a name="azure-ad-service-principal"></a>Azure AD 服务主体
 
-如果创建 Azure AD 应用程序和服务主体，该应用程序必须位于其自身的租户中。 创建应用程序后，向应用程序授予对媒体服务帐户的“参与者”或“所有者”角色访问权限。   
+如果创建 Azure AD 应用和服务主体，该应用必须位于其自身的租户中。 创建应用后，向应用授予对媒体服务帐户的“参与者”或“所有者”角色访问权限。  
 
-如果你不确定自己是否有权创建 Azure AD 应用程序，请参阅[所需的权限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
+如果你不确定自己是否有权创建 Azure AD 应用，请参阅[所需的权限](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)。
 
 在下图中，数字表示按时间顺序的请求流：
 
-![中间层应用](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+![在 Web API 中使用 AAD 进行中层应用身份验证](./media/use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
 
 1. 中间层应用请求获取包含以下参数的 Azure AD 访问令牌：  
 
    * Azure AD 租户终结点。
    * 媒体服务资源 URI。
    * REST 媒体服务的资源 URI。
-   * Azure AD 应用程序值：客户端 ID和客户端机密。
-   
-   若要获取所有所需值，请参阅[使用 Azure CLI 访问 Azure 媒体服务 API](access-api-cli-how-to.md)
+   * Azure AD 应用值：客户端 ID和客户端机密。
+
+   若要获取所有所需值，请参阅[使用 Azure CLI 访问 Azure 媒体服务 API](access-api-cli-how-to.md)。
 
 2. Azure AD 访问令牌发送到中间层。
 4. 中间层使用 Azure AD 令牌向 Azure 媒体 REST API 发送请求。
@@ -72,11 +73,11 @@ ms.locfileid: "74116194"
 
 ## <a name="naming-conventions"></a>命名约定
 
-Azure 媒体服务 v3 资源名称（例如，资产、作业、转换）需遵循 Azure 资源管理器命名约束。 根据 Azure 资源管理器的要求，资源名称始终必须唯一。 因此，可以为资源名称使用任何唯一的标识符字符串（例如，GUID）。 
+Azure 媒体服务 v3 资源名称（例如，资产、作业、转换）需遵循 Azure 资源管理器命名约束。 根据 Azure 资源管理器的要求，资源名称始终必须唯一。 因此，可以为资源名称使用任何唯一的标识符字符串（例如，GUID）。
 
-媒体服务资源名称不能包含“<”、“>”、“%”、“&”、“:”、“&#92;”、“?”、“/”、“*”、“+”、“.”、单引号或任何控制字符。 允许其他所有字符。 资源名称的最大长度为 260 个字符。 
+媒体服务资源名称不能包含“<”、“>”、“%”、“&”、“:”、“&#92;”、“?”、“/”、“*”、“+”、“.”、单引号或任何控制字符。 允许其他所有字符。 资源名称的最大长度为 260 个字符。
 
-有关 Azure 资源管理器命名的详细信息，请参阅：[命名需求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。
+有关 Azure 资源管理器命名的详细信息，请参阅[命名要求](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource)和[命名约定](https://docs.microsoft.com/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)。
 
 ### <a name="names-of-filesblobs-within-an-asset"></a>资产中的文件/Blob 的名称
 
@@ -116,14 +117,14 @@ Azure 媒体服务 v3 资源名称（例如，资产、作业、转换）需遵�
 ## <a name="sdks"></a>SDK
 
 > [!NOTE]
-> Azure 媒体服务 v3 SDK 不保证是线程安全的。 在开发多线程应用程序时，应添加自己的线程同步逻辑以保护客户端，或对每个线程使用新的 AzureMediaServicesClient 对象。 你还应该注意由代码提供给客户端的可选对象引入的多线程问题（如 .NET 中的 HttpClient 实例）。
+> Azure 媒体服务 v3 SDK 不保证是线程安全的。 在开发多线程应用时，应添加自己的线程同步逻辑以保护客户端，或对每个线程使用新的 AzureMediaServicesClient 对象。 你还应该注意由代码提供给客户端的可选对象引入的多线程问题（如 .NET 中的 HttpClient 实例）。
 
 |SDK|参考|
 |---|---|
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 参考](https://aka.ms/ams-v3-dotnet-ref)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 参考](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python 参考](https://aka.ms/ams-v3-python-ref)|
-|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 参考](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 参考](https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go 参考](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 

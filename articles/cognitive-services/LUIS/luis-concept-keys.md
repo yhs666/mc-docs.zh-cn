@@ -1,5 +1,5 @@
 ---
-title: 创作密钥和运行时密钥 - LUIS
+title: 如何将创作密钥和运行时密钥与 LUIS 配合使用
 titleSuffix: Azure Cognitive Services
 description: LUIS 使用两种密钥，其中的创作密钥用于创建模型，运行时密钥用于通过用户话语查询预测终结点。
 services: cognitive-services
@@ -9,106 +9,66 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-origin.date: 09/27/2019
-ms.date: 10/31/2019
+origin.date: 10/25/2019
+ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2368da1569bff677ffad7a31aa3ba802d7411783
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 97428f83e1bd66e9a2732661d29e48299394ad73
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657853"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884488"
 ---
 # <a name="authoring-and-runtime-keys"></a>创作和运行时密钥
 
+语言理解 (LUIS) 有两个服务和 API 集： 
 
-LUIS 使用两种类型的 Azure 资源，每种类型都有密钥： 
+* 创作（以前称为编程  ）
+* 预测运行时
+
+可以使用多种密钥类型，具体取决于你要使用什么服务，以及要如何使用该服务。
+
+## <a name="non-azure-resources-for-luis"></a>用于 LUIS 的非 Azure 资源
+
+### <a name="starter-key"></a>初学者密钥
+
+你首次使用 LUIS 时，系统会为你创建一个**初学者密钥**。 此资源提供：
+
+* 通过 LUIS 门户或 API（包括 SDK）发出的免费创作服务请求
+* 每月通过浏览器、API 或 SDK 发出的免费 1,000 个预测终结点请求
+
+## <a name="azure-resources-for-luis"></a>用于 LUIS 的 Azure 资源
+
+<a name="programmatic-key" ></a>
+<a name="endpoint-key"></a>
+<a name="authoring-key"></a>
+
+LUIS 允许三类 Azure 资源： 
  
-* [创作密钥](#programmatic-key)，用于创建意向、实体和带标签的话语，以及用于训练和发布。 准备好发布 LUIS 应用时，需要一个[用于运行时的预测终结点密钥](luis-how-to-azure-subscription.md)（分配给应用）。
-* [用于运行时的预测终结点密钥](#prediction-endpoint-runtime-key)。 客户端应用程序（例如聊天机器人）需要通过此密钥访问运行时的**查询预测终结点**。 
-
 |键|目的|认知服务 `kind`|认知服务 `type`|
 |--|--|--|--|
-|[创作密钥](#programmatic-key)|创作、训练、发布、测试。|`LUIS.Authoring`|`Cognitive Services`|
-|[预测终结点运行时密钥](#prediction-endpoint-runtime-key)| 查询预测终结点运行时，通过用户话语来确定意向和实体。|`LUIS`|`Cognitive Services`|
+|[创作密钥](#programmatic-key)|通过创作、训练、发布和测试访问和管理应用程序的数据。 若要以编程方式创作 LUIS 应用，请创建 LUIS 创作密钥。<br><br>`LUIS.Authoring` 密钥的目的是让你执行以下操作：<br>* 以编程方式管理语言理解应用和模型，包括训练和发布<br> * 为人员分配[参与者角色](#contributions-from-other-authors)，控制对创作资源的权限。|`LUIS.Authoring`|`Cognitive Services`|
+|[预测密钥](#prediction-endpoint-runtime-key)| 查询预测终结点请求。 在客户端应用请求的预测超出初学者资源提供的 1,000 个请求之前，创建 LUIS 预测密钥。 |`LUIS`|`Cognitive Services`|
+|[认知服务多服务资源密钥](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|与 LUIS 和其他受支持的认知服务共享的查询预测终结点请求。|`CognitiveServices`|`Cognitive Services`|
 
-LUIS 还提供[初学者密钥](luis-how-to-azure-subscription.md#starter-key)，其预测终结点配额为每月 1000 个事务。 
-
-虽然不需同时创建这两种密钥，但这样做会带来很大方便。
+资源创建过程完成后，请在 LUIS 门户中为应用[分配密钥](luis-how-to-azure-subscription.md)。
 
 请务必在想要进行发布和查询的[区域](luis-reference-regions.md#publishing-regions)创作 LUIS 应用。
 
-<a name="programmatic-key" ></a>
-
-## <a name="authoring-key"></a>创作密钥
-
-创作密钥是在创建 LUIS 帐户时自动创建的免费密钥。 开始使用 LUIS 时，每个创作[区域](luis-reference-regions.md)的所有 LUIS 应用共享一个初学者密钥。 创作密钥的用途是提供管理 LUIS 应用所需的身份验证，或测试预测终结点查询。 
-
-通过在 Azure 门户中创建创作密钥，可以为人员分配[参与者角色](#contributions-from-other-authors)，控制对创作资源的权限。 需要 Azure 订阅级别的权限才能添加参与者。 
-
-若要找到创作密钥，请登录 [LUIS](luis-reference-regions.md#luis-website) 并单击右上方导航栏中的帐户名称，打开“帐户设置”  。
-
-![创作密钥](./media/luis-concept-keys/authoring-key.png)
-
-需要进行运行时查询时，请创建 Azure [LUIS 订阅](https://www.azure.cn/pricing/details/cognitive-services)。  
-
 > [!CAUTION]
-> 为了方便起见，很多示例使用[初学者密钥](#starter-prediction-endpoint-runtime-key)，因为该密钥在[配额](luis-boundaries.md#key-limits)中提供了几个免费的预测终结点调用。  
+> 为了方便起见，很多示例使用[初学者密钥](#starter-key)，因为该密钥在[配额](luis-boundaries.md#key-limits)中提供了几个免费的预测终结点调用。  
 
-<a name="endpoint-key"></a>
 
-## <a name="prediction-endpoint-runtime-key"></a>预测终结点运行时密钥 
-
-需要**运行时终结点查询**时，请创建语言理解 (LUIS) 资源，然后将其分配给 LUIS 应用。 
-
-[!INCLUDE [Azure runtime resource creation for Language Understanding and Cognitive Service resources](../../../includes/cognitive-services-luis-azure-resource-instructions.md)]
-
-资源创建过程完成后，请为应用[分配密钥](luis-how-to-azure-subscription.md)。 
-
-* 运行时（查询预测终结点）密钥支持的终结点命中次数配额取决于创建运行时密钥时所指定的使用计划。  请参阅[认知服务定价](https://www.azure.cn/pricing/details/cognitive-services)了解定价信息。
+### 查询预测资源 <a name="use-endpoint-key-in-query"></a>
 
 * 运行时密钥可用于所有 LUIS 应用或特定 LUIS 应用。 
 * 请勿将运行时密钥用于创作 LUIS 应用。 
 
-### <a name="starter-prediction-endpoint-runtime-key"></a>初学者预测终结点运行时密钥
-
-**初学者**预测终结点密钥免费提供，包含 1000 个预测终结点查询。 使用这些查询后，应该创建你自己的用于语言理解的预测终结点资源。  
-
-这是为你创建的特殊资源。 它没有显示在 Azure 资源列表中，因为它用作临时启动密钥。 
-
-<a name="use-endpoint-key-in-query"></a>
-
-### <a name="use-runtime-key-in-query"></a>在查询中使用运行时密钥
 LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预测终结点运行时密钥，但使用的位置不同。
 
 用于访问运行时的终结点使用一个特定于资源所在区域的子域，该区域在下表中使用 `{region}` 表示。 
 
-
-#### <a name="v2-prediction-endpointtabv2"></a>[V2 预测终结点](#tab/V2)
-
-|Verb|示例 URL 和密钥位置|
-|--|--|
-|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
-|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
-
-#### <a name="v3-prediction-endpointtabv3"></a>[V3 预测终结点](#tab/V3)
-
-|Verb|示例 URL 和密钥位置|
-|--|--|
-|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.azure.cn/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
-|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.azure.cn/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
-
-详细了解 [V3 预测终结点](luis-migration-api-v3.md)。
-
-* * * 
-
-**GET**：将 `runtime-key` 的终结点查询值从创作（初学者）密钥更改为新的终结点密钥，以便使用 LUIS 终结点密钥配额率。 如果创建并分配了该密钥，但是没有更改 `runtime-key` 的终结点查询值，则不会使用终结点密钥配额。
-
-**POST**：更改 `Ocp-Apim-Subscription-Key` 的标头值<br>如果创建并分配了运行时密钥，但是没有更改 `Ocp-Apim-Subscription-Key` 的终结点查询值，则不会使用运行时密钥。
-
-在以前的 URL 中使用的应用 ID `df67dcdb-c37d-46af-88e1-8b97951ca1c2` 是用于[互动演示](https://www.azure.cn/home/features/cognitive-services/language-understanding-intelligent-service/)的公共 IoT 应用。 
-
-## <a name="assignment-of-the-runtime-key"></a>分配运行时密钥
+## <a name="assignment-of-the-key"></a>分配密钥
 
 可以通过 [LUIS 门户](https://luis.azure.cn)或相应的 API [分配](luis-how-to-azure-subscription.md)运行时密钥。 
 
@@ -125,25 +85,17 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 ## <a name="contributions-from-other-authors"></a>其他作者的贡献
 
-
-
-对协作者的贡献的管理取决于应用的当前状态。
-
 **用于创作资源迁移应用**：_参与者_在用于创作资源的 Azure 门户中使用“访问控制(IAM)”  页进行管理。 了解如何使用协作者的电子邮件地址和_参与者_角色[添加用户](luis-how-to-collaborate.md)。 
 
 **对于尚未迁移的应用**：所有协作者  都在 LUIS 门户中通过“管理 -> 协作者”页面进行管理。 
 
-### <a name="contributor-roles-vs-entity-roles"></a>参与者角色与实体角色
-
-[实体角色](luis-concept-roles.md)适用于 LUIS 应用的数据模型。 协作者/参与者角色适用于创作访问级别。 
-
-## <a name="moving-or-changing-ownership"></a>移动或更改所有权
+## <a name="move-transfer-or-change-ownership"></a>移动、转让或变更所有权
 
 应用通过其 Azure 资源进行定义，这取决于所有者的订阅。 
 
 你可以移动自己的 LUIS 应用。 在 Azure 门户或 Azure CLI 中，请参阅以下文档资源：
 
-* [在 LUIS 创作资源之间移动应用](https://{region}.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [在 LUIS 创作资源之间移动应用](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [将资源移到新的资源组或订阅](../../azure-resource-manager/resource-group-move-resources.md)
 * [在同一订阅内移动资源或跨订阅移动资源](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
 
@@ -167,14 +119,14 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 |公开应用|如果应用公开，任何拥有创作或终结点密钥的人员都可以查询应用。|
 |修改模型|
 |发布|
-|查看用于[主动学习](luis-how-to-review-endpoint-utterances.md)的终结点陈述|
+|查看用于主动学习的终结点言语 |
 |定型|
+
+<a name="prediction-endpoint-runtime-key"></a>
 
 ### <a name="prediction-endpoint-runtime-access"></a>预测终结点运行时访问权限
 
 查询预测终结点所需的访问权限由“应用程序信息”  页上“管理”  部分的设置进行控制。 
-
-![将应用设置为公共](./media/luis-concept-security/set-application-as-public.png)
 
 |[专用终结点](#runtime-security-for-private-apps)|[公共终结点](#runtime-security-for-public-apps)|
 |:--|:--|
@@ -202,9 +154,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 ## <a name="transfer-of-ownership"></a>转让所有权
 
-**用于创作资源迁移应用**：作为资源的所有者，可以添加 `contributor`。
-
-**对于尚未迁移的应用**：将应用导出为 JSON 文件。 其他 LUIS 用户可以导入应用，从而成为应用所有者。 新的应用将具有不同的应用 ID。  
+LUIS 没有转让资源所有权的概念。 
 
 ## <a name="securing-the-endpoint"></a>保护终结点安全 
 
@@ -212,7 +162,6 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 ## <a name="next-steps"></a>后续步骤
 
-* 了解[版本控制](luis-concept-version.md)概念。 
 * 了解[如何创建密钥](luis-how-to-azure-subscription.md)。
 
 

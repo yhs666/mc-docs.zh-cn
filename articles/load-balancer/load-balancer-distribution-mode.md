@@ -1,7 +1,7 @@
 ---
 title: 配置 Azure 负载均衡器分发模式
-titlesuffix: Azure Load Balancer
-description: 如何配置 Azure 负载均衡器的分配模式以支持源 IP 关联。
+titleSuffix: Azure Load Balancer
+description: 在本文中，我们开始配置 Azure 负载均衡器的分配模式以支持源 IP 关联。
 services: load-balancer
 documentationcenter: na
 author: WenJason
@@ -11,15 +11,15 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-origin.date: 09/25/2017
-ms.date: 10/21/2019
+origin.date: 11/19/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: a00059273f3c4ab6cbe706839ee855b247e609cb
-ms.sourcegitcommit: 713bd1d1b476cec5ed3a9a5615cfdb126bc585f9
+ms.openlocfilehash: 51930322bc6c191c26d84ba978e14851d8e1c206
+ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72578536"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884051"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>配置 Azure 负载均衡器的分配模式
 
@@ -27,24 +27,33 @@ ms.locfileid: "72578536"
 
 ## <a name="hash-based-distribution-mode"></a>基于哈希的分发模式
 
-Azure 负载均衡器的默认分配模式是 5 元组哈希。 元组由源 IP、源端口、目标 IP、目标端口、和协议类型构成。 哈希用于将流量映射到可用的服务器，算法仅在传输会话内部提供粘性。 同一会话中的数据包会定向到经过负载均衡的终结点后面的同一数据中心 IP (DIP) 实例。 客户端从同一源 IP 发起新会话时，源端口会更改，并导致流量定向到其他 DIP 终结点。
+Azure 负载均衡器的默认分配模式是五元组哈希。 
 
-![基于 5 元组哈希的分配模式](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
+元组由以下内容组成：
+* **源 IP**
+* **源端口**
+* **目标 IP**
+* **目标端口**
+* **协议类型**
+
+哈希用于将流量映射到可用的服务器。 算法仅在传输会话内部提供粘性。 同一会话中的数据包会定向到经过负载均衡的终结点后面的同一数据中心 IP。 客户端从同一源 IP 发起新会话时，源端口会更改，并导致流量定向到其他数据中心终结点。
+
+![基于五元组哈希的分配模式](./media/load-balancer-distribution-mode/load-balancer-distribution.png)
 
 ## <a name="source-ip-affinity-mode"></a>源 IP 关联模式
 
-还可以使用源 IP 关联分配模式配置负载均衡器。 此分配模式也称为为会话关联或客户端 IP 关联。 该模式使用 2 元组（源 IP 和目标 IP）或 3 元组（源 IP、目标 IP 和协议）哈希将流量映射到可用的服务器。 使用源 IP 关联，从同一客户端计算机启动的连接会进入同一个 DIP 终结点。
+还可以使用源 IP 关联分配模式配置负载均衡器。 此分配模式也称为为会话关联或客户端 IP 关联。 该模式使用二元组（源 IP 和目标 IP）或三元组（源 IP、目标 IP 和协议）哈希将流量映射到可用的服务器。 使用源 IP 关联，从同一客户端计算机启动的连接会进入同一个数据中心终结点。
 
-下图演示 2 元组配置。 请注意 2 元组如何从负载均衡器运行到虚拟机 1 (VM1)。 VM1 随后由 VM2 和 VM3 备份。
+下图演示二元组配置。 请注意二元组如何从负载均衡器运行到虚拟机 1 (VM1)。 VM1 随后由 VM2 和 VM3 备份。
 
-![2 元组会话关联分配模式](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
+![二元组会话关联分配模式](./media/load-balancer-distribution-mode/load-balancer-session-affinity.png)
 
 源 IP 关联模式解决了 Azure 负载均衡器与远程桌面网关（RD 网关）之间的不兼容问题。 使用此模式可在单个云服务中生成 RD 网关场。
 
 另一个用例方案是媒体上传。 数据上传通过 UDP 进行，但控制平面通过 TCP 实现：
 
 * 客户端启动与负载均衡公共地址的 TCP 会话，并定向到特定 DIP。 通道将保持活动状态以监视连接运行状况。
-* 来自同一客户端计算机的新 UDP 会话在同一个负载均衡公共终结点中发起。 连接像前面的 TCP 连接一样定向到同一个 DIP 终结点。 能够以较高的吞吐量执行媒体上传，同时通过 TCP 维护控制通道。
+* 来自同一客户端计算机的新 UDP 会话在同一个负载均衡公共终结点中启动。 连接像前面的 TCP 连接一样定向到同一个 DIP 终结点。 能够以较高的吞吐量执行媒体上传，同时通过 TCP 维护控制通道。
 
 > [!NOTE]
 > 如果通过删除或添加虚拟机来更改负载均衡集，则会重新计算客户端请求的分配。 无法确保现有客户端的新连接最终都会抵达同一台服务器。 此外，使用源 IP 关联分配模式可能导致流量的不均衡分配。 在代理后面运行的客户端可被视为唯一的客户端应用程序。
@@ -56,8 +65,8 @@ Azure 负载均衡器的默认分配模式是 5 元组哈希。 元组由源 IP�
 可以通过修改门户中的负载均衡规则来更改分发模式的配置。
 
 1. 登录 Azure 门户并通过单击“资源组”  找到包含要更改的负载均衡器的资源组。
-2. 在“负载均衡器概述”边栏选项卡中，单击“设置”  下的“负载均衡规则”  。
-3. 在“负载均衡规则”边栏选项卡中，单击要更改分发模式的负载均衡规则。
+2. 在“负载均衡器概述”屏幕中，单击“设置”  下的“负载均衡规则”  。
+3. 在“负载均衡规则”屏幕中，单击要更改分发模式的负载均衡规则。
 4. 在规则下，通过更改“会话持续性”  下拉框来更改分发模式。  提供了以下选项：
     
     * **无(基于哈希)** - 指定任何虚拟机可能处理来自同一客户端的后续请求。
@@ -82,7 +91,7 @@ Set-AzLoadBalancer -LoadBalancer $lb
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 -LoadBalancerDistribution sourceIP | Update-AzureVM
 ```
 
-设置 `LoadBalancerDistribution` 元素的值，实现所需的负载均衡量。 为 2 元组（源 IP 和目标 IP）负载均衡指定 sourceIP。 为 3 元组（源 IP、目标 IP 和协议类型）负载均衡指定 sourceIPProtocol。 为 5 元组负载均衡的默认行为指定 none。
+设置 `LoadBalancerDistribution` 元素的值，实现所需的负载均衡量。 为二元组（源 IP 和目标 IP）负载均衡指定 sourceIP。 为三元组（源 IP、目标 IP 和协议类型）负载均衡指定 sourceIPProtocol。 为五元组负载均衡的默认行为指定 none。
 
 使用以下设置检索终结点负载均衡器分配模式配置：
 
@@ -106,7 +115,7 @@ Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Pro
     IdleTimeoutInMinutes : 15
     LoadBalancerDistribution : sourceIP
 
-如果 `LoadBalancerDistribution` 元素不存在，Azure 负载均衡器会使用默认的 5 元组算法。
+如果 `LoadBalancerDistribution` 元素不存在，Azure 负载均衡器会使用默认的五元组算法。
 
 ### <a name="configure-distribution-mode-on-load-balanced-endpoint-set"></a>在负载均衡终结点集上配置分配模式
 
@@ -171,7 +180,7 @@ Set-AzureLoadBalancedEndpoint -ServiceName MyService -LBSetName LBSet1 -Protocol
       </InputEndpoint>
     </LoadBalancedEndpointList>
 
-如前所述，针对 2 元组关联、3 元组关联或 5 元组关联，分别将 `LoadBalancerDistribution` 元素设置为 sourceIP、sourceIPProtocol 或 none（表示无关联）。
+如前所述，针对二元组关联、三元组关联或五元组关联，分别将 `LoadBalancerDistribution` 元素设置为 sourceIP、sourceIPProtocol 或 none（表示无关联）。
 
 #### <a name="response"></a>响应
 

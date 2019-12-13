@@ -1,6 +1,7 @@
 ---
-title: Azure 媒体服务中的转换和作业 | Microsoft Docs
-description: 使用媒体服务时，需要创建一个转换来描述处理视频的的规则或规范。 本文概述了何为转换及其使用方法。
+title: 媒体服务中的转换和作业
+titleSuffix: Azure Media Services
+description: 了解如何创建一个转换来描述在 Azure 媒体服务中处理视频的的规则。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -10,42 +11,42 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 origin.date: 08/19/2019
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: a3d6d5c7d2f3d1213bcb6ad8a6cc27b3b5eca48a
-ms.sourcegitcommit: 8248259e4c3947aa0658ad6c28f54988a8aeebf8
+ms.openlocfilehash: 1ecc6903ccd9eff097ea1db6253901110a49c171
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71125506"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807655"
 ---
-# <a name="transforms-and-jobs"></a>转换和作业
+# <a name="transforms-and-jobs-in-media-services"></a>媒体服务中的转换和作业
 
-本主题提供有关[转换](https://docs.microsoft.com/rest/api/media/transforms)和[作业](https://docs.microsoft.com/rest/api/media/jobs)的详细信息，并解释这些实体之间的关系。 
+本主题提供有关[转换](https://docs.microsoft.com/rest/api/media/transforms)和[作业](https://docs.microsoft.com/rest/api/media/jobs)的详细信息，并解释这些实体之间的关系。
 
-## <a name="overview"></a>概述 
+## <a name="overview"></a>概述
 
 ### <a name="transformsjobs-workflow"></a>转换/作业工作流
 
-下面的关系图展示了转换/作业工作流。
+下面的关系图展示了转换/作业工作流：
 
-![转换](./media/encoding/transforms-jobs.png)
+![Azure 媒体服务中的转换和作业工作流](./media/encoding/transforms-jobs.png)
 
 #### <a name="typical-workflow"></a>典型工作流
 
-1. 创建转换 
-2. 在该转换下提交作业 
-3. 列出转换 
-4. 请删除将来不打算使用的转换。 
+1. 创建转换。
+2. 在该转换下提交作业。
+3. 列出转换。
+4. 请删除将来不打算使用的转换。
 
 #### <a name="example"></a>示例
 
-假设希望提取所有视频的第一帧作为缩略图，应采取的步骤如下： 
+假设希望提取所有视频的第一帧作为缩略图，应采取的步骤如下：
 
-1. 定义脚本或者用于处理视频的规则 -“使用视频的第一帧作为缩略图”。 
-2. 对于每个视频，请告知服务： 
-    1. 在何处查找该视频；  
-    2. 在何处写入输出缩略图。 
+1. 定义脚本或者用于处理视频的规则：“使用视频的第一帧作为缩略图”。
+2. 对于每个视频，请告知服务：
+    1. 在何处查找该视频。
+    2. 在何处写入输出缩略图。
 
 **转换**可帮助你一次性创建脚本（步骤 1），然后使用该脚本提交作业（步骤 2）。
 
@@ -58,7 +59,7 @@ ms.locfileid: "71125506"
 
 ### <a name="viewing-schema"></a>查看架构
 
-在媒体服务 v3 中，预设是 API 本身中的强类型化实体。 可以在[开放 API 规范（或 Swagger）](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)中找到这些对象的“架构”定义。 也可以在 [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)、[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet)（或其他媒体服务 v3 SDK 参考文档）中查看预设定义（例如 **StandardEncoderPreset**）。
+在媒体服务 v3 中，预设是 API 本身中的强类型化实体。 可以在[开放 API 规范（或 Swagger）](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)中找到这些对象的“架构”定义。 也可以在 [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset)、[.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) 或其他媒体服务 v3 SDK 参考文档中查看预设定义（例如 **StandardEncoderPreset**）。
 
 ### <a name="creating-transforms"></a>创建转换
 
@@ -70,13 +71,15 @@ ms.locfileid: "71125506"
 
 ### <a name="transform-object-diagram"></a>转换对象关系图
 
-下图显示了**转换**对象及其引用的对象，包括派生关系。 灰色箭头显示作业引用的类型，绿色箭头显示类派生关系。<br/>单击图像查看其完整大小。  
+下图显示了**转换**对象及其引用的对象，包括派生关系。 灰色箭头显示作业引用的类型，绿色箭头显示类派生关系。
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
+选择图像查看其完整大小。  
+
+<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
 
 ## <a name="jobs"></a>作业
 
-**作业**是针对 Azure 媒体服务的实际请求，目的是将**转换**应用到给定的输入视频或音频内容。 创建转换后，可以使用媒体服务 API 或任何已发布的 SDK 来提交作业。 **作业**指定输入视频位置和输出位置等信息。 可以使用以下各项指定输入视频的位置：HTTPS URL、SAS URL 或[资产](https://docs.microsoft.com/rest/api/media/assets)。  
+**作业**是针对媒体服务的实际请求，目的是将**转换**应用到给定的输入视频或音频内容。 创建转换后，可以使用媒体服务 API 或任何已发布的 SDK 来提交作业。 **作业**指定输入视频位置和输出位置等信息。 可以使用以下各项指定输入视频的位置：HTTPS URL、SAS URL 或[资产](https://docs.microsoft.com/rest/api/media/assets)。  
 
 ### <a name="job-input-from-https"></a>来自 HTTPS 的作业输入
 
@@ -92,9 +95,11 @@ ms.locfileid: "71125506"
 
 ### <a name="job-object-diagram"></a>作业对象关系图
 
-下图显示了**作业**对象及其引用的对象，包括派生关系。<br/>单击图像查看其完整大小。  
+下图显示了**作业**对象及其引用的对象，包括派生关系。
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
+单击图像查看其完整大小。  
+
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
 
 ## <a name="configure-media-reserved-units"></a>配置媒体预留单位
 

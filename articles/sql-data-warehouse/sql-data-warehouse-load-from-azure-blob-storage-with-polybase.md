@@ -1,26 +1,27 @@
 ---
-title: 将 Contoso 零售数据加载到 Azure SQL 数据仓库 | Microsoft Docs
-description: 使用 PolyBase 和 T-SQL 命令可将两张表从 Contoso 零售数据加载到 Azure SQL 数据仓库。
+title: 加载 Contoso 零售数据
+description: 使用 PolyBase 和 T-SQL 命令可将两张表从 Contoso 零售数据加载到 Azure SQL Analytics。
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: load-data
 origin.date: 04/17/2018
-ms.date: 05/20/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: d3680721b3bb4b97084bdaba2891d7f19a468be7
-ms.sourcegitcommit: 2f487fba38fd225111e07411cd9eb85e2e8e3153
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a147cc1fdd1047f422b836c2c7db911e12dab496
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65828821"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807627"
 ---
-# <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>将 Contoso 零售数据加载到 Azure SQL 数据仓库
+# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>将 Contoso 零售数据加载到 SQL Analytics 数据仓库
 
-本教程介绍如何使用 PolyBase 和 T-SQL 命令将两个表从 Contoso 零售数据载入 Azure SQL 数据仓库。 
+本教程介绍如何使用 PolyBase 和 T-SQL 命令将两个表从 Contoso 零售数据载入 SQL Analytics 数据仓库。 
 
 在本教程中，你会：
 
@@ -29,10 +30,10 @@ ms.locfileid: "65828821"
 3. 完成加载后执行优化。
 
 ## <a name="before-you-begin"></a>准备阶段
-若要运行本教程，需要一个已包含 SQL 数据仓库的 Azure 帐户。 如果尚未预配数据仓库，请参阅[创建 SQL 数据仓库并设置服务器级防火墙规则][Create a SQL Data Warehouse]。
+若要运行本教程，需要一个已包含 SQL Analytics 数据仓库的 Azure 帐户。 如果尚未预配数据仓库，请参阅[创建 SQL 数据仓库并设置服务器级防火墙规则][创建 SQL 数据仓库]。
 
 ## <a name="1-configure-the-data-source"></a>1.配置数据源
-PolyBase 使用 T-SQL 外部对象来定义外部数据的位置和属性。 外部对象定义存储在 SQL 数据仓库中。 数据存储在外部。
+PolyBase 使用 T-SQL 外部对象，定义外部数据的位置和属性。 外部对象定义存储在 SQL Analytics 数据仓库中。 数据存储在外部。
 
 ### <a name="11-create-a-credential"></a>1.1. 创建凭据
 **跳过此步骤** 。 不需要以安全方式访问公共数据，因为它已经可供任何人访问。
@@ -116,7 +117,7 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. 创建外部表。
-运行以下脚本以创建 DimProduct 和 FactOnlineSales 外部表。 在此处，只需定义列名和数据类型，并以 Azure blob 存储文件的格式将其绑定到这些文件的位置。 定义存储在 SQL 数据仓库中，数据仍位于 Azure 存储 Blob 中。
+运行以下脚本以创建 DimProduct 和 FactOnlineSales 外部表。 在此处，只需定义列名和数据类型，并以 Azure blob 存储文件的格式将其绑定到这些文件的位置。 定义存储在 SQL Analytics 数据仓库中，数据仍位于 Azure 存储 Blob 中。
 
 **LOCATION** 参数是 Azure 存储 Blob 中根文件夹下的文件夹。 每个表位于不同的文件夹中。
 
@@ -265,7 +266,7 @@ ORDER BY
 ```
 
 ## <a name="5-optimize-columnstore-compression"></a>5.优化列存储压缩
-默认情况下，SQL 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  有不同的原因会导致发生此问题： 若要了解详细信息，请参阅 [管理列存储索引][manage columnstore indexes]。
+默认情况下，SQL Analytics 数据仓库将表存储为聚集列存储索引。 加载完成后，某些数据行可能未压缩到列存储中。  有不同的原因会导致发生此问题： 若要了解详细信息，请参阅[管理列存储索引][manage columnstore indexes]。
 
 若要在加载后优化查询性能和列存储压缩，请重新生成表，以强制列存储索引压缩所有行。 
 
@@ -277,12 +278,12 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-有关维护列存储索引的详细信息，请参阅 [管理列存储索引][manage columnstore indexes] 一文。
+有关维护列存储索引的详细信息，请参阅[管理列存储索引][manage columnstore indexes]一文。
 
 ## <a name="6-optimize-statistics"></a>6.优化统计信息
 最好是在加载之后马上创建单列统计信息。 如果知道某些列不会在查询谓词中使用，可以不创建有关这些列的统计信息。 如果针对每个列创建单列统计信息，则重新生成所有统计信息可能需要花费很长时间。 
 
-如果决定针对每个表的每个列创建单列统计信息，可以使用[统计信息][statistics]一文中的存储过程代码示例 `prc_sqldw_create_stats`。
+如果决定针对每个表的每个列创建单列统计信息，可以使用 [statistics][statistics]（统计信息）一文中的存储过程代码示例 `prc_sqldw_create_stats`。
 
 以下示例是创建统计信息的不错起点。 它会针对维度表中的每个列以及事实表中的每个联接列创建单列统计信息。 以后，随时可以将单列或多列统计信息添加到其他事实表列。
 
@@ -329,7 +330,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>大功告成！
-已成功地将公共数据加载到 Azure SQL 数据仓库。 干得不错！
+已成功地将公共数据加载到 SQL Analytics 数据仓库。 干得不错！
 
 现在可以开始查询表以探索数据。 运行以下查询，找出每个品牌的总销售额：
 
@@ -344,14 +345,14 @@ GROUP BY p.[BrandName]
 ## <a name="next-steps"></a>后续步骤
 若要加载完整的数据集，请运行 Microsoft SQL Server 示例存储库中的[加载完整的 Contoso 零售数据仓库](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md)示例。
 
-有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL Data Warehouse development overview]。
+有关更多开发技巧，请参阅 [SQL 数据仓库开发概述][SQL 数据仓库开发概述]。
 
 <!--Image references-->
 
 <!--Article references-->
-[Create a SQL Data Warehouse]: sql-data-warehouse-get-started-provision.md
-[Load data into SQL Data Warehouse]: sql-data-warehouse-overview-load.md
-[SQL Data Warehouse development overview]: sql-data-warehouse-overview-develop.md
+[Create a SQL Analytics data warehouse]: sql-data-warehouse-get-started-provision.md
+[Load data into SQL Analytics data warehouse]: sql-data-warehouse-overview-load.md
+[SQL Analytics data warehouse development overview]: sql-data-warehouse-overview-develop.md
 [manage columnstore indexes]: sql-data-warehouse-tables-index.md
 [Statistics]: sql-data-warehouse-tables-statistics.md
 [CTAS]: sql-data-warehouse-develop-ctas.md

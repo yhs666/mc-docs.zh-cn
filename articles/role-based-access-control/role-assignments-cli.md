@@ -11,16 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/11/2019
-ms.date: 10/30/2019
+ms.date: 12/04/2019
 ms.author: v-junlch
 ms.reviewer: bagovind
-ms.openlocfilehash: ac47e9e5e3592c37cb1b6ccb9210c24190165f1a
-ms.sourcegitcommit: 1d4dc20d24feb74d11d8295e121d6752c2db956e
+ms.openlocfilehash: 4b2cedea0d81a43b5bb4a1247915877e3598ac6f
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73068925"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884917"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>使用 RBAC 和 Azure CLI 管理对 Azure 资源的访问权限
 
@@ -266,6 +265,34 @@ az role assignment list --scope /providers/Microsoft.Management/managementGroups
 az role assignment list --scope /providers/Microsoft.Management/managementGroups/marketing-group --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
 ```
 
+## <a name="get-object-ids"></a>获取对象 ID
+
+若要列出、添加或删除角色分配，可能需要指定对象的唯一 ID。 ID 的格式为：`11111111-1111-1111-1111-111111111111`。 可以使用 Azure 门户或 Azure CLI 获取 ID。
+
+### <a name="user"></a>User
+
+若要获取 Azure AD 用户的对象 ID，可以使用 [az ad user show](/cli/ad/user#az-ad-user-show)。
+
+```azurecli
+az ad user show --id "{email}" --query objectId --output tsv
+```
+
+### <a name="group"></a>组
+
+若要获取 Azure AD 组的对象 ID，可以使用 [az ad group show](/cli/ad/group#az-ad-group-show) 或 [az ad group list](/cli/ad/group#az-ad-group-list)。
+
+```azurecli
+az ad group show --group "{name}" --query objectId --output tsv
+```
+
+### <a name="application"></a>应用程序
+
+若要获取 Azure AD 服务主体的对象ID（应用程序使用的标识），可以使用 [az ad sp list](/cli/ad/sp#az-ad-sp-list)。 对于服务主体，请使用对象 ID，而**不**是使用应用程序 ID。
+
+```azurecli
+az ad sp list --display-name "{name}" --query [].objectId --output tsv
+```
+
 ## <a name="grant-access"></a>授予访问权限
 
 在 RBAC 中，若要授予访问权限，请创建角色分配。
@@ -311,7 +338,7 @@ az role assignment create --role 9980e02c-c2be-4d73-94e8-173b1dc7cf3c --assignee
 
 ### <a name="create-a-role-assignment-for-a-group"></a>为组创建角色分配
 
-若要向组授予服务权限，请使用 [az role assignment create](/cli/role/assignment#az-role-assignment-create)。 若要获取组的 ID，可以使用 [az ad group list](/cli/ad/group#az-ad-group-list) 或 [az ad group show](/cli/ad/group#az-ad-group-show)。
+若要向组授予服务权限，请使用 [az role assignment create](/cli/role/assignment#az-role-assignment-create)。 有关如何获取组的对象 ID 的信息，请参阅[获取对象 ID](#get-object-ids)。
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group> --scope </subscriptions/subscription_id>
@@ -331,7 +358,7 @@ az role assignment create --role "Virtual Machine Contributor" --assignee-object
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-resource-group-scope"></a>在资源组范围内为应用程序创建角色分配
 
-若要向应用程序授予访问权限，请使用 [az role assignment create](/cli/role/assignment#az-role-assignment-create)。 若要获取应用程序的对象 ID，可以使用 [az ad app list](/cli/ad/app#az-ad-app-list) 或 [az ad app show](/cli/ad/app#az-ad-app-show)。
+若要向应用程序授予访问权限，请使用 [az role assignment create](/cli/role/assignment#az-role-assignment-create)。 有关如何获取应用程序的对象 ID 的信息，请参阅[获取对象 ID](#get-object-ids)。
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee-object-id <assignee_object_id> --resource-group <resource_group>
@@ -401,7 +428,7 @@ az role assignment delete --assignee <assignee> --role <role_name_or_id> --resou
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales
 ```
 
-以下示例将“读者”角色  从订阅范围内 ID 为 22222222-2222-2222-2222-222222222222 的“Ann Mack 团队”组删除。  若要获取组的 ID，可以使用 [az ad group list](/cli/ad/group#az-ad-group-list) 或 [az ad group show](/cli/ad/group#az-ad-group-show)。
+以下示例将“读者”角色  从订阅范围内 ID 为 22222222-2222-2222-2222-222222222222 的“Ann Mack 团队”组删除。  有关如何获取组的对象 ID 的信息，请参阅[获取对象 ID](#get-object-ids)。
 
 ```azurecli
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000

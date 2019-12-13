@@ -1,20 +1,16 @@
 ---
-title: Azure 容器注册表任务参考 - YAML
+title: YAML 参考 - ACR 任务
 description: 有关在 YAML 中为 ACR 任务定义任务的参考，包括任务属性、步骤类型、步骤属性和内置变量。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
-origin.date: 08/26/2019
-ms.date: 08/26/2019
+origin.date: 10/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: f71f2b5a5537122c88f952bfe69c80ff9d5803b8
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.date: 12/09/2019
+ms.openlocfilehash: 9a6e64b2a5ba5da40060565d6be4f47be6d7ea7c
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134501"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74884862"
 ---
 # <a name="acr-tasks-reference-yaml"></a>ACR 任务参考：YAML
 
@@ -129,7 +125,7 @@ ACR 任务支持三种步骤类型。 每种步骤类型支持多个属性，每
 ### <a name="syntax-build"></a>语法：build
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [build]: -t [imageName]:[tag] -f [Dockerfile] [context]
     [property]: [value]
@@ -181,18 +177,18 @@ az acr run -f build-hello-world.yaml https://github.com/AzureCR/acr-tasks-sample
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile .
+  - build: -t $Registry/hello-world -f hello-world.dockerfile .
 
 ```
 
 #### <a name="build-image---context-in-subdirectory"></a>生成映像 - 子目录中的上下文
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world -f hello-world.dockerfile ./subDirectory
+  - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
 
 ## <a name="push"></a>push
@@ -204,21 +200,21 @@ steps:
 `push` 步骤类型支持映像集合。 YAML 集合语法支持内联和嵌套格式。 推送单个映像的操作通常使用内联语法来表示：
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Inline YAML collection syntax
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 为方便阅读，请在推送多个映像时使用嵌套语法：
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # Nested YAML collection syntax
   - push:
-    - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-    - {{.Run.Registry}}/hello-world:latest
+    - $Registry/hello-world:$ID
+    - $Registry/hello-world:latest
 ```
 
 ### <a name="properties-push"></a>属性：push
@@ -245,10 +241,11 @@ az acr run -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-t
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f hello-world.dockerfile .
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
+  - push: 
+    - $Registry/hello-world:$ID
 
 ```
 
@@ -261,12 +258,12 @@ az acr run -f build-run-hello-world.yaml https://github.com/Azure-Samples/acr-ta
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f hello-world.dockerfile .
+  - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
   - push:
-    - {{.Run.Registry}}/hello-world:{{.Run.ID}}
-  - cmd: {{.Run.Registry}}/hello-world:{{.Run.ID}}
+    - $Registry/hello-world:$ID
+  - cmd: $Registry/hello-world:$ID
 
 ```
 
@@ -277,7 +274,7 @@ steps:
 ### <a name="syntax-cmd"></a>语法：cmd
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - [cmd]: [containerImage]:[tag (optional)] [cmdParameters to the image]
 ```
@@ -324,7 +321,7 @@ az acr run -f hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: hello-world
 
@@ -341,7 +338,7 @@ az acr run -f bash-echo.yaml https://github.com/Azure-Samples/acr-tasks.git
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: bash echo hello world
 
@@ -360,7 +357,7 @@ az acr run -f bash-echo-3.yaml https://github.com/Azure-Samples/acr-tasks.git
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo-3.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: bash:3.0 echo hello world
 
@@ -371,33 +368,31 @@ steps:
 `cmd` 步骤类型使用标准的 `docker run` 格式引用映像。 不是以注册表名称开头的映像被认为源自 dockerhub.azk8s.cn。 下面是前一示例的同等表示形式：
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   - cmd: dockerhub.azk8s.cn/bash:3.0 echo hello world
 ```
 
 使用标准的 `docker run` 映像引用约定，`cmd` 可以运行任何专用注册表或公共 Docker Hub 中的映像。 如果引用执行 ACR 任务的同一注册表中的映像，则无需指定任何注册表凭据。
 
-* 运行 Azure 容器注册表中的映像
-
-    将 `[myregistry]` 替换为注册表的名称：
+* 运行 Azure 容器注册表中的映像。 以下示例假设已有一个名为 `myregistry` 的注册表，以及一个自定义映像 `myimage:mytag`。
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-        - cmd: [myregistry].azurecr.cn/bash:3.0 echo hello world
+        - cmd: myregistry.azurecr.cn/myimage:mytag
     ```
 
-* 使用 Run 变量通用化注册表引用
+* 使用 Run 变量或别名通用化注册表引用
 
-    不要在 `acr-task.yaml` 文件中将注册表名称硬编码，可以使用 [Run 变量](#run-variables)来提高此名称的可移植性。 在运行时，`Run.Registry` 变量将扩展到执行任务的注册表的名称。
+    不要在 `acr-task.yaml` 文件中将注册表名称硬编码，可以使用 [Run 变量](#run-variables)或[别名](#aliases)来提高此名称的可移植性。 在运行时，`Run.Registry` 变量或 `$Registry` 别名将扩展到执行任务的注册表的名称。
 
-    若要通用化上述任务，使其可在任何 Azure 容器注册表中运行，请在映像名称中引用 [Run.Registry](#runregistry) 变量：
+    例如，若要通用化上述任务，使其可在任何 Azure 容器注册表中运行，请在映像名称中引用 $Registry 变量：
 
     ```yml
-    version: v1.0.0
+    version: v1.1.0
     steps:
-      - cmd: {{.Run.Registry}}/bash:3.0 echo hello world
+      - cmd: $Registry/myimage:mytag
     ```
 
 ## <a name="task-step-properties"></a>任务步骤属性
@@ -442,18 +437,18 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel-dependent.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # build website and func-test images, concurrently
   - id: build-hello-world
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f hello-world.dockerfile .
+    build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
     when: ["-"]
   - id: build-hello-world-test
     build: -t hello-world-test -f hello-world.dockerfile .
     when: ["-"]
   # run built images to be tested
   - id: hello-world
-    cmd: {{.Run.Registry}}/hello-world:{{.Run.ID}}
+    cmd: $Registry/hello-world:$ID
     when: ["build-hello-world"]
   - id: func-tests
     cmd: hello-world-test
@@ -461,7 +456,7 @@ steps:
       - TEST_TARGET_URL=hello-world
     when: ["hello-world"]
   # push hello-world if func-tests are successful  
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
     when: ["func-tests"]
 
 ```
@@ -484,7 +479,7 @@ az acr run -f when-sequential-default.yaml https://github.com/Azure-Samples/acr-
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-sequential-default.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
     - cmd: bash echo one
     - cmd: bash echo two
@@ -501,7 +496,7 @@ az acr run -f when-sequential-id.yaml https://github.com/Azure-Samples/acr-tasks
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-sequential-id.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
     - id: step1
       cmd: bash echo one
@@ -522,11 +517,11 @@ az acr run -f when-parallel.yaml https://github.com/Azure-Samples/acr-tasks.git
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # build website and func-test images, concurrently
   - id: build-hello-world
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f hello-world.dockerfile .
+    build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
     when: ["-"]
   - id: build-hello-world-test
     build: -t hello-world-test -f hello-world.dockerfile .
@@ -543,18 +538,18 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel-dependent.yaml -->
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
   # build website and func-test images, concurrently
   - id: build-hello-world
-    build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} -f hello-world.dockerfile .
+    build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
     when: ["-"]
   - id: build-hello-world-test
     build: -t hello-world-test -f hello-world.dockerfile .
     when: ["-"]
   # run built images to be tested
   - id: hello-world
-    cmd: {{.Run.Registry}}/hello-world:{{.Run.ID}}
+    cmd: $Registry/hello-world:$ID
     when: ["build-hello-world"]
   - id: func-tests
     cmd: hello-world-test
@@ -562,7 +557,7 @@ steps:
       - TEST_TARGET_URL=hello-world
     when: ["hello-world"]
   # push hello-world if func-tests are successful  
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - push: ["$Registry/hello-world:$ID"]
     when: ["func-tests"]
 
 ```
@@ -572,21 +567,28 @@ steps:
 ACR 任务包含一组在执行时可供任务步骤使用的默认变量。 可以使用 `{{.Run.VariableName}}` 格式访问这些变量，其中，`VariableName` 是以下值之一：
 
 * `Run.ID`
+* `Run.SharedVolume`
 * `Run.Registry`
+* `Run.RegistryName`
 * `Run.Date`
+* `Run.OS`
+* `Run.Architecture`
 * `Run.Commit`
 * `Run.Branch`
+* `Run.TaskName`
+
+变量名称通常是自释性的。 常用的变量会附带详细信息。 从 YAML 版本 `v1.1.0` 开始，可以使用缩写的预定义[任务别名](#aliases)来代替大部分 run 变量。 例如，可以使用 `$Registry` 别名来代替 `{{.Run.Registry}}`。
 
 ### <a name="runid"></a>Run.ID
 
-通过 `az acr run` 执行的，或者使用基于触发器的执行任务通过 `az acr task create` 创建的每个运行都有唯一的 ID。 此 ID 表示当前正在执行的运行。
+通过 `az acr run` 执行的，或者使用基于触发器的任务执行通过 `az acr task create` 创建的每个 Run 都有唯一的 ID。 此 ID 表示当前正在执行的运行。
 
 通常用于唯一标记某个映像：
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-    - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+    - build: -t $Registry/hello-world:$ID .
 ```
 
 ### <a name="runregistry"></a>Run.Registry
@@ -594,9 +596,21 @@ steps:
 注册表的完全限定服务器名称。 通常用于泛式引用正在运行任务的注册表。
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
+  - build: -t $Registry/hello-world:$ID .
+```
+
+### <a name="runregistryname"></a>Run.RegistryName
+
+容器注册表的名称。 通常在不需要完全限定的服务器名称的任务步骤中使用，例如，针对注册表运行 Azure CLI 命令的 `cmd` 步骤。
+
+```yml
+version 1.1.0
+steps:
+# List repositories in registry
+- cmd: az login --identity
+- cmd: az acr repository list --name $RegistryName
 ```
 
 ### <a name="rundate"></a>Run.Date
@@ -610,6 +624,81 @@ steps:
 ### <a name="runbranch"></a>Run.Branch
 
 对于提交到 GitHub 存储库后触发的任务，值为分支名称。
+
+## <a name="aliases"></a>别名
+
+从 `v1.1.0` 开始，ACR 任务在执行时支持适用于任务步骤的别名。 别名在概念上类似于 bash 和其他一些命令 shell 中支持的别名（命令快捷方式）。 
+
+使用别名，只需输入一个单词即可启动任一命令或一组命令（包括选项和文件名）。
+
+ACR 任务支持多个预定义的别名以及创建的自定义别名。
+
+### <a name="predefined-aliases"></a>预定义的别名
+
+可使用以下任务别名来代替 [run 变量](#run-variables)：
+
+| 别名 | Run 变量 |
+| ----- | ------------ |
+| `ID` | `Run.ID` |
+| `SharedVolume` | `Run.SharedVolume` |
+| `Registry` | `Run.Registry` |
+| `RegistryName` | `Run.RegistryName` |
+| `Date` | `Run.Date` |
+| `OS` | `Run.OS` |
+| `Architecture` | `Run.Architecture` |
+| `Commit` | `Run.Commit` |
+| `Branch` | `Run.Branch` |
+
+在任务步骤中，请在别名的前面加上 `$` 指令，如以下示例所示：
+
+```yaml
+version: v1.1.0
+steps:
+  - build: -t $Registry/hello-world:$ID -f hello-world.dockerfile .
+```
+
+### <a name="image-aliases"></a>映像别名
+
+以下每个别名指向 Azure 容器注册表 (MCR) 中的一个稳定映像。 可以在任务文件的 `cmd` 节中引用其中的每个别名，而无需使用指令。
+
+| 别名 | 映像 |
+| ----- | ----- |
+| `acr` | `mcr.microsoft.com/acr/acr-cli:0.1` |
+| `az` | `mcr.microsoft.com/acr/azure-cli:d0725bc` |
+| `bash` | `mcr.microsoft.com/acr/bash:d0725bc` |
+| `curl` | `mcr.microsoft.com/acr/curl:d0725bc` |
+
+以下示例任务使用多个别名，来[清除](container-registry-auto-purge.md)运行注册表中 `samples/hello-world` 存储库内超过 7 天的映像标记：
+
+```yaml
+version: v1.1.0
+steps:
+  - cmd: acr tag list --registry $RegistryName --repository samples/hello-world
+  - cmd: acr purge --registry $RegistryName --filter samples/hello-world:.* --ago 7d
+```
+
+### <a name="custom-alias"></a>自定义别名
+
+在 YAML 文件中定义自定义别名，并如以下示例所示使用它。 别名只能包含字母数字字符。 用于展开别名的默认指令是 `$` 字符。
+
+```yml
+version: v1.1.0
+alias:
+  values:
+    repo: myrepo
+steps:
+  - build: -t $Registry/$repo/hello-world:$ID -f Dockerfile .
+```
+
+可以链接到自定义别名定义的远程或本地 YAML 文件。 以下示例链接到 Azure Blob 存储中的 YAML 文件：
+
+```yml
+version: v1.1.0
+alias:
+  src:  # link to local or remote custom alias files
+    - 'https://link/to/blob/remoteAliases.yml?readSasToken'
+[...]
+```
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -629,5 +718,4 @@ steps:
 [az-acr-task-create]: https://docs.azure.cn/cli/acr/task?view=azure-cli-latest#az-acr-task-create
 [az-configure]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-configure
 
-<!-- Update_Description: new article about container registry task reference yaml -->
-<!--ms.date: 09/02/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

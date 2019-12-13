@@ -1,20 +1,16 @@
 ---
-title: 使用服务主体的 Azure 容器注册表身份验证
+title: 使用服务主体进行身份验证
 description: 使用 Azure Active Directory 服务主体允许访问专用容器注册表中的映像。
-services: container-registry
-author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
-origin.date: 12/13/2018
-ms.date: 09/23/2019
+origin.date: 10/04/2019
 ms.author: v-yeche
-ms.openlocfilehash: ca97cc524b69c9e935fdaf27bcd0f9d82866f17e
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 12/09/2019
+ms.openlocfilehash: 94de093464e4069728fd4a34f0ba0ab1be67d960
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303277"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885033"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>使用服务主体的 Azure 容器注册表身份验证
 
@@ -36,7 +32,7 @@ Azure AD“服务主体”  提供对订阅中的 Azure 资源的访问权限。
 
 在**无外设方案**中，应当使用服务主体来提供注册表访问。 即，任何必须以自动或其他无人参与方式来推送或拉取容器映像的应用程序、服务或脚本。 例如：
 
-* *拉取*：将容器从注册表部署到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）。 还可以从容器注册表拉取到相关的 Azure 服务，例如 [Azure Kubernetes 服务 (AKS)](container-registry-auth-aks.md)、[应用服务](../app-service/index.yml)、[Batch](../batch/index.yml)、[Service Fabric](/service-fabric/)，等等。
+* *拉取*：将容器从注册表部署到业务流程系统（包括 Kubernetes、DC/OS 和 Docker Swarm）。 还可以从容器注册表拉取到相关的 Azure 服务，例如 [Azure Kubernetes 服务 (AKS)](../aks/cluster-container-registry-integration.md)、[应用服务](../app-service/index.yml)、[Batch](../batch/index.yml)、[Service Fabric](/service-fabric/)，等等。
     
     <!--Not Available on , [Azure Container Instances](container-registry-auth-aci.md)-->
     
@@ -68,15 +64,13 @@ Azure AD“服务主体”  提供对订阅中的 Azure 资源的访问权限。
 
 ### <a name="use-credentials-with-azure-services"></a>在 Azure 服务中使用凭据
 
-可以使用能够使用 Azure 容器注册表进行身份验证的任何 Azure 服务的服务主体凭据。 示例包括：
+可以使用通过 Azure 容器注册表进行身份验证的任何 Azure 服务的服务主体凭据。  许多情况下可以使用服务主体凭据来代替注册表的管理员凭据。
 
-* [使用 Azure 容器注册表从 Azure Kubernetes 服务 (AKS) 进行身份验证](container-registry-auth-aks.md)
-
-    <!--Not Available on * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)-->
+<!--Not Available on * [Azure Container Instances](container-registry-auth-aci.md)-->
 
 ### <a name="use-with-docker-login"></a>在 docker login 中使用
 
-还可以使用服务主体运行 `docker login`。 在以下示例中，服务主体应用程序 ID 将传入到环境变量 `$SP_APP_ID` 中，密码将传入到变量 `$SP_PASSWD` 中。 有关管理 Docker 凭据的最佳做法，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
+可以使用服务主体运行 `docker login`。 在以下示例中，服务主体应用程序 ID 将传入到环境变量 `$SP_APP_ID` 中，密码将传入到变量 `$SP_PASSWD` 中。 有关管理 Docker 凭据的最佳做法，请参阅 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 命令参考。
 
 ```bash
 # Log in to Docker with service principal credentials
@@ -84,6 +78,26 @@ docker login myregistry.azurecr.cn --username $SP_APP_ID --password $SP_PASSWD
 ```
 
 登录后，Docker 将缓存凭据。
+
+### <a name="use-with-certificate"></a>与证书一起使用
+
+如果已将证书添加到服务主体，则可使用基于证书的身份验证登录到 Azure CLI，然后使用 [az acr login][az-acr-login] 命令访问注册表。 使用 CLI 时，使用证书作为机密而不是密码可以提高安全性。 
+
+可以在[创建服务主体](https://docs.azure.cn/cli/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)时创建自签名证书。 也可向现有服务主体添加一个或多个证书。 例如，如果使用本文中的多个脚本中的一个来创建或更新有权通过注册表拉取或推送映像的服务主体，请使用 [az ad sp credential reset][az-ad-sp-credential-reset] 命令来添加证书。
+
+若要使用服务主体和证书[登录到 Azure CLI](https://docs.azure.cn/cli/authenticate-azure-cli?view=azure-cli-latest#sign-in-with-a-service-principal)，证书必须为 PEM 格式且包含私钥。 如果证书未采用所需格式，请使用 `openssl` 之类的工具来转换它。 当你运行 [az login][az-login] 以使用服务主体登录到 CLI 时，另请提供服务主体的应用程序 ID 和 Active Directory 租户 ID。 下面的示例演示这些充当环境变量的值：
+
+```azurecli
+az login --service-principal --username $SP_APP_ID --tenant $SP_TENANT_ID  --password /path/to/cert/pem/file
+```
+
+然后运行 [az acr login][az-acr-login]，通过注册表进行身份验证：
+
+```azurecli
+az acr login --name myregistry
+```
+
+CLI 使用你运行 `az login` 时创建的令牌，通过注册表对会话进行身份验证。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -99,5 +113,7 @@ docker login myregistry.azurecr.cn --username $SP_APP_ID --password $SP_PASSWD
 <!-- LINKS - Internal -->
 
 [az-acr-login]: https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-login
+[az-login]: https://docs.azure.cn/cli/reference-index?view=azure-cli-latest#az-login
+[az-ad-sp-credential-reset]: https://docs.azure.cn/cli/ad/sp/credential?view=azure-cli-latest#az-ad-sp-credential-reset
 
-<!-- Update_Description: update link, update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

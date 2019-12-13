@@ -1,40 +1,56 @@
 ---
-title: Azure SQL 数据仓库常见问题解答 | Microsoft Docs
-description: 本文列出客户和开发人员提出的 Azure SQL 数据仓库常见问题
+title: Azure Synapse Analytics（前称为 SQL 数据仓库）常见问题解答
+description: 本文列出了客户和开发人员提出的有关 Azure Synapse Analytics（前称为 SQL 数据仓库）的常见问题的解答
 services: sql-data-warehouse
 author: WenJason
 manager: digimobile
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-origin.date: 04/17/2018
-ms.date: 04/01/2019
+origin.date: 11/04/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.reviewer: igorstan
-ms.openlocfilehash: 9f8cee8a806f74775e13898e1be456e8e70cff29
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.openlocfilehash: 7789673f0883956d063a651a0d56d841af65f770
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58625125"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807625"
 ---
-# <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL 数据仓库常见问题解答
+# <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics（前称为 SQL 数据仓库）常见问题解答
 
 ## <a name="general"></a>常规
 
-问： SQL DW 为数据安全提供哪些功能？
+问： 什么是 Azure Synapse？
 
-A. SQL DW 提供若干解决方案，用于保护数据（如 TDE）和审核。 有关详细信息，请参阅[安全性]。
+A. Azure Synapse 是一种无限制的分析服务，它将数据仓库和大数据分析结合在一起。 它让你可以根据自己的条件自由查询数据，无论是使用无服务器的按需资源还是使用大规模预配的资源。 Azure Synapse 将这两个领域结合在一起，提供统一的体验来引入、准备、管理和处理数据，以满足即时 BI 需求。 有关详细信息，请参阅[什么是 Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)。
 
-问： 从何处可以查明 SQL DW 符合哪些法律或业务标准？
+问： Azure SQL 数据仓库有什么变化？
 
-A. 请访问 [Microsoft 符合性]页面，查明产品（如 SOC 和 ISO）的各种符合性规定。 首先选择“符合性”标题，并在页面右侧的“Microsoft 范围内云服务”部分展开 Azure，查看哪些服务是 Azure 符合性服务。
+A. Azure Synapse 是 Azure SQL 数据仓库 (SQL DW) 的演进。 我们的数据仓库依然行业领先，并且在性能和功能方面已发展到全新的水平。 现在，你可以继续使用 Azure Synapse 在生产环境中运行现有的数据仓库工作负荷，同时还能自动受益于预览版的新功能。 有关详细信息，请参阅[什么是 Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)。
 
-问： 是否可以连接 PowerBI？
+问： 什么是 SQL Analytics？
 
-A. 能！ 尽管 PowerBI 支持使用 SQL DW 进行直接查询，但不适合大量用户或实时数据。 要将 PowerBI 用于生产用途，建议基于 Azure Analysis Services 或 Analysis Service IaaS 使用 PowerBI。 
+A. SQL Analytics 是 Azure Synapse 中正式发布的企业数据仓库功能。 有关详细信息，请参阅[什么是 Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md)。
 
-问： SQL 数据仓库容量限制有哪些？
+问： Azure Synapse 如何入门？
+
+A. 可以从一个 [Azure 试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)着手。 
+
+问： Azure Synapse 提供哪些功能来确保数据安全性？
+
+A. Azure Synapse 提供多种解决方案来保护数据，例如 TDE 和审核。 有关详细信息，请参阅[安全性]。
+
+问： 从何处可以查明 Azure Synapse 符合哪些法律或企业标准？
+
+A. 请访问 [Microsoft 符合性]页面，查明产品（如 SOC 和 ISO）的各种符合性规定。 首先选择“合规性”标题，然后在页面右侧的“Microsoft 范围内云服务”部分展开“Azure”，查看哪些服务符合 Azure Synapse 的要求。
+
+问： 是否可以连接 Power BI？
+
+A. 能！ 尽管 Power BI 支持使用 Azure Synapse 进行直接查询，但不适合大量用户或实时数据。 若要进一步优化 Power BI 性能，请考虑在 Azure Analysis Services 或 Analysis Service IaaS 的顶层使用 Power BI。
+
+问： SQL Analytics 容量有哪些限制？
 
 A. 请参阅当前[容量限制]页。 
 
@@ -47,28 +63,28 @@ A. 多种因素可能会影响计算管理操作的时间。 一个常见的长�
 
 问： 该如何操作？
 
-A. 有关使用 SQL 数据仓库进行开发的帮助，可在 [Stack Overflow] 页提出问题。 
+A. 在使用 Azure Synapse 进行开发时如需帮助，可在 [Stack Overflow] 页面中提问。 
 <!--Support Tickets not available in Azure.cn-->
 
 ## <a name="sql-languagefeature-support"></a>SQL 语言/功能支持 
 
-问： SQL 数据仓库支持哪些数据类型？
+问： 支持哪些数据类型？
 
-A. 请参阅 SQL 数据仓库[数据类型]。
+A. 请参阅[数据类型]。
 
 问： 支持哪些表功能？
 
-A. 虽然 SQL 数据仓库支持许多功能，但不支持某些功能，这些功能记录在[不支持的表功能]中。
+A. 支持许多功能，但也有一些功能不受支持，具体请参阅[不支持的表功能]中的阐述。
 
 ## <a name="tooling-and-administration"></a>工具和管理
 
 问： Visual Studio 中是否支持数据库项目？
 
-A. 目前 Visual Studio 对于 SQL 数据仓库，不支持数据库项目。 如果想通过投票获取此功能，请访问“用户之声”[数据库项目功能请求]。
+A. 目前不支持 Visual Studio 中的数据库项目。 如果想通过投票获取此功能，请访问“用户之声”[数据库项目功能请求]。
 
-问： SQL 数据仓库是否支持 REST API？
+问： SQL Analytics 是否支持 REST API？
 
-A. 是的。 SQL 数据仓库还提供可与 SQL 数据库搭配使用的大多数 REST 功能。 可以在 REST 文档页或 [MSDN] 中找到 API 信息。
+A. 是的。 SQL Analytics 还提供可与 SQL 数据库搭配使用的大多数 REST 功能。 可以在 REST 文档页或 [MSDN] 中找到 API 信息。
 
 
 ## <a name="loading"></a>加载
@@ -77,33 +93,34 @@ A. 是的。 SQL 数据仓库还提供可与 SQL 数据库搭配使用的大多�
 
 A. 可在[连接字符串]页找到 DW 驱动程序支持
 
-问：使用 SQL 数据仓库时，PolyBase 支持哪些文件格式？
+问：PolyBase 支持哪些文件格式？
 
 答：Orc、RC、Parquet 和带分隔符的平面文本
 
-问：使用 PolyBase 时，可以从 SQL DW 连接到什么？ 
+问：使用 PolyBase 可以连接到哪些数据源？ 
 
 答：[Azure 存储 Blob]
 
 问：连接 Azure 存储 Blob 或 ADLS 时能否进行计算下推？ 
 
-答：不能，SQL DW PolyBase 仅与存储组件交互。 
+答：不能，PolyBase 仅与存储组件交互。 
 
 问：能否连接到 HDI？
 
 答：HDI 可使用 ADLS 或 WASB 作为 HDFS 层。 如果将两者中任意一种作为 HDFS 层，可以将该数据加载到 SQL DW。 但是，无法生成 HDI 实例的下推计算。 
 
 ## <a name="next-steps"></a>后续步骤
-若要深入了解 SQL 数据仓库的概述信息，请参阅[概述]页。
+有关 Azure Synapse 的综合性详细信息，请参阅[概述]页。
 
 
 <!-- Article references -->
 [连接字符串]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [安全性]: ./sql-data-warehouse-overview-manage-security.md
 [Microsoft 符合性]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
 [容量限制]: ./sql-data-warehouse-service-capacity-limits.md
 [数据类型]: ./sql-data-warehouse-tables-data-types.md
 [不支持的表功能]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-<!-- Not Available on [Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md -->
-[Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx [概述]: ./sql-data-warehouse-overview-faq.md
+[Azure 存储 Blob]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+[MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
+[概述]: ./sql-data-warehouse-overview-faq.md

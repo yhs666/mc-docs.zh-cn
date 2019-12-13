@@ -1,6 +1,7 @@
 ---
-title: 将 DRM 动态加密和许可证传送服务与 Azure 媒体服务配合使用 | Microsoft Docs
-description: 可以使用 Azure 媒体服务来传送通过 Microsoft PlayReady 或 Apple FairPlay 许可证加密的流。
+title: 使用 DRM 动态加密和许可证传送服务
+titleSuffix: Azure Media Services
+description: 了解如何使用 DRM 动态加密和许可传递服务来传送通过 Microsoft PlayReady 或 Apple FairPlay 许可证加密的流。
 services: media-services
 documentationcenter: ''
 author: WenJason
@@ -12,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/25/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.custom: seodec18
-ms.openlocfilehash: a7f84f0be363efa945799481f9cb344a1246f672
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: e513d8fdc56a7b75d79574c95f6b95d0546ecee0
+ms.sourcegitcommit: 369038a7d7ee9bbfd26337c07272779c23d0a507
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655465"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807656"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>教程：使用 DRM 动态加密和许可证传送服务
 
@@ -28,37 +29,37 @@ ms.locfileid: "74655465"
 > Google Widevine 目前在中国地区不可用。
 
 > [!NOTE]
-> 尽管本教程使用了 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 示例，但 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](/cli/ams/live-event?view=azure-cli-latest) 或其他受支持的 [SDK](media-services-apis-overview.md#sdks) 的常规步骤是相同的。
+> 尽管本教程使用了 [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) 示例，但 [REST API](https://docs.microsoft.com/rest/api/media/liveevents)、[CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) 或其他受支持的 [SDK](media-services-apis-overview.md#sdks) 的常规步骤是相同的。
 
 可以使用 Azure 媒体服务来传送通过 Microsoft PlayReady 或 Apple FairPlay 许可证加密的流。 如需深入说明，请参阅[使用动态加密保护内容](content-protection-overview.md)。
 
-此外，媒体服务提供用于传送 PlayReady 和 FairPlay DRM 许可证的服务。 当用户请求受 DRM 保护的内容时，播放器应用程序会从媒体服务许可证服务请求许可证。 如果播放器应用程序获得授权，媒体服务许可证服务会向该播放器颁发许可证。 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
+媒体服务还提供用于传送 PlayReady 和 FairPlay DRM 许可证的服务。 当用户请求受 DRM 保护的内容时，播放器应用会从媒体服务许可证服务请求许可证。 如果播放器应用获得授权，媒体服务许可证服务会向该播放器颁发许可证。 许可证包含客户端播放器用来对内容进行解密和流式传输的解密密钥。
 
-本文基于[使用 DRM 进行加密](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM)示例。 
+本文基于[使用 DRM 进行加密](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM)示例。
 
 本文中所述的示例生成以下结果：
 
-![具有 DRM 保护的视频的 AMS](./media/protect-with-drm/ams_player.png)
+![Azure Media Player 中的具有 DRM 保护视频的 AMS](./media/protect-with-drm/ams_player.png)
 
-本教程演示如何：    
+本教程演示如何：
 
 > [!div class="checklist"]
-> * 创建编码转换
-> * 设置用于验证令牌的签名密钥
-> * 设置对内容密钥策略的要求
-> * 使用指定的流式处理策略创建 StreamingLocator
-> * 创建一个用于播放文件的 URL
+> * 创建编码转换。
+> * 设置用于验证令牌的签名密钥。
+> * 设置对内容密钥策略的要求。
+> * 使用指定的流式处理策略创建 StreamingLocator。
+> * 创建一个用于播放文件的 URL。
 
 ## <a name="prerequisites"></a>先决条件
 
-以下是完成本教程所需具备的条件。
+以下项目是完成本教程所需具备的条件：
 
 * 查看[内容保护概述](content-protection-overview.md)一文。
-* 查看[设计带访问控制的多 DRM 内容保护系统](design-multi-drm-system-with-access-control.md)
-* 安装 Visual Studio Code 或 Visual Studio
+* 查看[设计带访问控制的多 DRM 内容保护系统](design-multi-drm-system-with-access-control.md)。
+* 安装 Visual Studio Code 或 Visual Studio。
 * 按照[本快速入门](create-account-cli-quickstart.md)所述，创建新的 Azure 媒体服务帐户。
 * 根据[访问 API](access-api-cli-how-to.md) 中所述，获取使用媒体服务 API 时所需的凭据
-* 在应用程序配置文件 (appsettings.json) 中设置相应的值。
+* 在应用配置文件 (appsettings.json) 中设置相应的值。
 
 ## <a name="download-code"></a>下载代码
 
@@ -71,11 +72,11 @@ ms.locfileid: "74655465"
 “使用 DRM 进行加密”示例位于 [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM) 文件夹中。
 
 > [!NOTE]
-> 每次运行应用程序时，该示例就将创建唯一的资源。 通常，你会重复使用现有的资源，例如转换和策略（如果现有资源具有所需的配置）。 
+> 每次运行应用时，该示例就会创建唯一的资源。 通常，我们会重复使用现有的资源，例如转换和策略（如果现有资源具有所需的配置）。
 
 ## <a name="start-using-media-services-apis-with-net-sdk"></a>开始结合使用媒体服务 API 与 .NET SDK
 
-若要开始将媒体服务 API 与 .NET 结合使用，需要创建 AzureMediaServicesClient 对象  。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。 
+若要开始将媒体服务 API 与 .NET 结合使用，请创建 AzureMediaServicesClient 对象  。 若要创建对象，需要提供客户端所需凭据以使用 Azure AD 连接到 Azure。 在本文开头克隆的代码中，**GetCredentialsAsync** 函数根据本地配置文件中提供的凭据创建 ServiceClientCredentials 对象。
 
 ```c#
 private static async Task<IAzureMediaServicesClient> CreateMediaServicesClientAsync(ConfigWrapper config)
@@ -161,7 +162,7 @@ private static async Task<Transform> GetOrCreateTransformAsync(
 
 ## <a name="submit-job"></a>提交作业
 
-如上所述，**转换**对象为脚本，[作业则是](transforms-jobs-concept.md)对媒体服务的实际请求，请求将转换应用到给定输入视频或音频内容  。 作业指定输入视频位置和输出位置等信息  。
+如上所述，**转换**对象为脚本，[作业则是](transforms-jobs-concept.md)对媒体服务的实际请求，请求将转换应用到给定输入视频或音频内容  。 Job 指定输入视频位置和输出位置等信息  。
 
 本教程基于直接从 [HTTPs 源 URL](job-input-from-http-how-to.md) 引入的文件创建作业的输入。
 
@@ -205,7 +206,7 @@ private static async Task<Job> SubmitJobAsync(IAzureMediaServicesClient client,
 
 ## <a name="wait-for-the-job-to-complete"></a>等待作业完成
 
-此作业需要一些时间才能完成，完成时可发出通知。 以下代码示例显示如何轮询服务以获取**作业**状态。
+该作业需要一些时间才能完成操作。 在该过程中，你应能够接收通知。 以下代码示例显示如何轮询服务以获取**作业**状态。
 
 **作业**通常会经历以下状态：**已计划**、**已排队**、**正在处理**、**已完成**（最终状态）。 如果作业出错，则显示“错误”状态  。 如果作业正处于取消过程中，则显示“正在取消”，完成时则显示“已取消”   。
 
@@ -330,14 +331,14 @@ private static async Task<ContentKeyPolicy> GetOrCreateContentKeyPolicyAsync(
 
 ## <a name="create-a-streaming-locator"></a>创建流定位符
 
-完成编码并设置内容密钥策略后，下一步是使输出资产中的视频可供客户端播放。 通过两个步骤实现此目的： 
+完成编码并设置内容密钥策略后，下一步是使输出资产中的视频可供客户端播放。 可以通过两个步骤来提供视频：
 
-1. 创建[流式处理定位符](streaming-locators-concept.md)
-2. 生成客户端可以使用的流式处理 URL。 
+1. 创建[流式处理定位符](streaming-locators-concept.md)。
+2. 生成客户端可以使用的流式处理 URL。
 
-创建**流定位器**的过程称为发布。 默认情况下，除非配置可选的开始和结束时间，否则调用 API 后，**流定位符**立即生效，并持续到被删除为止。 
+创建**流定位器**的过程称为发布。 默认情况下，除非配置可选的开始和结束时间，否则调用 API 后，流式处理定位符  立即生效， 并持续到被删除为止。
 
-创建**流定位器**时，需要指定所需的 `StreamingPolicyName`。 本教程使用某个预定义的流式处理策略来告知 Azure 媒体服务如何发布流式处理的内容。 在此示例中，请将 StreamingLocator.StreamingPolicyName 设置为“Predefined_MultiDrmCencStreaming”策略。 将应用 PlayReady 加密，并根据配置的 DRM 许可证将密钥传送到播放客户端。 如果还要使用 CBCS (FairPlay) 加密流，请使用“Predefined_MultiDrmStreaming”。 
+创建**流定位器**时，需要指定所需的 `StreamingPolicyName`。 本教程使用某个预定义的流式处理策略来告知 Azure 媒体服务如何发布流式处理的内容。 在此示例中，请将 StreamingLocator.StreamingPolicyName 设置为“Predefined_MultiDrmCencStreaming”策略。 将应用 PlayReady 加密，并根据配置的 DRM 许可证将密钥传送到播放客户端。 如果还要使用 CBCS (FairPlay) 加密流，请使用“Predefined_MultiDrmStreaming”。
 
 > [!IMPORTANT]
 > 使用自定义的[流策略](streaming-policy-concept.md)时，应为媒体服务帐户设计有限的一组此类策略，并在需要同样的加密选项和协议时重新将这些策略用于 StreamingLocators。 媒体服务帐户具有对应于 StreamingPolicy 条目数的配额。 不应为每个 StreamingLocator 创建新的 StreamingPolicy。
@@ -370,8 +371,8 @@ private static async Task<StreamingLocator> CreateStreamingLocatorAsync(
 ```
 
 ## <a name="get-a-test-token"></a>获取测试令牌
-        
-本教程在内容密钥策略中指定使用令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用 [JSON Web 令牌](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) 格式的令牌，我们在示例中配置了此格式。
+
+本教程在内容密钥策略中指定使用令牌限制。 令牌限制策略必须附带由安全令牌服务 (STS) 颁发的令牌。 媒体服务支持采用 [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) 格式的令牌，我们在示例中配置了此格式。
 
 ContentKeyPolicy 中使用了 ContentKeyIdentifierClaim，这意味着，提供给密钥传送服务的令牌必须包含 ContentKey 的标识符。 本示例未指定内容密钥，在创建流定位器时，系统会创建一个随机内容密钥。 若要生成测试令牌，必须获取要放入 ContentKeyIdentifierClaim 声明中的 ContentKeyId。
 
@@ -457,15 +458,15 @@ private static async Task<string> GetDASHStreamingUrlAsync(
 }
 ```
 
-运行应用时看到以下内容：
+运行应用时看到以下屏幕：
 
 ![使用 DRM 提供保护](./media/protect-with-drm/playready_encrypted_url.png)
 
-可以打开浏览器并粘贴生成的 URL 来启动 Azure Media Player 演示页，其中已经填充了该 URL 和令牌。 
- 
+可以打开浏览器并粘贴生成的 URL 来启动 Azure Media Player 演示页，其中已经填充了该 URL 和令牌。
+
 ## <a name="clean-up-resources-in-your-media-services-account"></a>清理媒体服务帐户中的资源
 
-通常情况下，除了打算重复使用的对象，用户应清理所有内容（通常将重复使用转换并保留 StreamingLocators 等）。 如果希望帐户在试验后保持干净状态，则应删除不打算重复使用的资源。  例如，以下代码可删除作业。
+一般来说，除了打算重用的对象之外，应该清除所有对象（通常，将重用转换、StreamingLocators 等）。 如果希望帐户在试验后保持干净状态，则删除不打算重复使用的资源。 例如，以下代码可删除作业：
 
 ```c#
 private static async Task CleanUpAsync(
@@ -501,7 +502,7 @@ private static async Task CleanUpAsync(
 
 ## <a name="clean-up-resources"></a>清理资源
 
-如果不再需要资源组中的任何一个资源（包括为本教程创建的媒体服务和存储帐户），请删除之前创建的资源组。 
+如果不再需要资源组中的任何一个资源（包括为本教程创建的媒体服务和存储帐户），请删除之前创建的资源组。
 
 执行以下 CLI 命令：
 
@@ -515,4 +516,3 @@ az group delete --name amsResourceGroup
 
 > [!div class="nextstepaction"]
 > [使用 AES-128 进行保护](protect-with-aes128.md)
-

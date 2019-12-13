@@ -1,20 +1,17 @@
 ---
-title: Azure 容器注册表 - 常见问题解答
+title: 常见问题
 description: 有关 Azure 容器注册表服务的常见问题的解答
-services: container-registry
 author: rockboyfor
-manager: digimobile
-ms.service: container-registry
 ms.topic: article
 origin.date: 07/02/2019
-ms.date: 09/23/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8c83af6ec4fada4e34db86674e30e477a46802aa
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 12/09/2019
+ms.openlocfilehash: 2442ecd772a4ad639998e1485208fabc376de235
+ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306794"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885025"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>有关 Azure 容器注册表的常见问题解答
 
@@ -46,7 +43,7 @@ ms.locfileid: "71306794"
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>如何使用 Azure 容器注册表配置 Kubernetes？
 
-请参阅 [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) 的文档以及适用于 [Azure Kubernetes 服务](container-registry-auth-aks.md)的步骤。
+请参阅 [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) 的文档以及适用于 [Azure Kubernetes 服务](../aks/cluster-container-registry-integration.md)的步骤。
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>如何获取容器注册表的管理员凭据？
 
@@ -253,10 +250,13 @@ ACR 支持提供不同权限级别的[自定义角色](container-registry-roles.
 - [使用 `az acr check-health` 检查运行状况](#check-health-with-az-acr-check-health)
 - [Docker 提取失败并出现错误：net/http: 等待连接时取消了请求(等待标头时超过了 Client.Timeout)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [Docker 推送成功，但 Docker 提取失败并出现错误：未授权: 需要身份验证](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
+- [`az acr login` 成功，但 Docker 命令失败并出现错误：未授权: 需要身份验证](#az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required)
 - [启用和获取 Docker 守护程序的调试日志](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
 - [新用户权限在更新后可能不会立即生效](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [未在 REST API 调用中以正确的格式指定身份验证信息](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [为何 Azure 门户不列出我的所有存储库或标记？](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [为何 Azure 门户无法提取存储库或标记？](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
+- [为什么我的拉取或推送请求失败，出现操作不被允许的情况？](#why-does-my-pull-or-push-request-fail-with-disallowed-operation)
 - [如何在 Windows 上收集 HTTP 跟踪？](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>使用 `az acr check-health` 检查运行状况
@@ -314,6 +314,10 @@ unauthorized: authentication required
     ```
 
 运行 `man dockerd` 可以找到 `--signature-verification` 的详细信息。
+
+### <a name="az-acr-login-succeeds-but-docker-fails-with-error-unauthorized-authentication-required"></a>az acr login 成功，但 Docker 失败并出现错误：未授权: 需要身份验证
+
+请确保使用全小写的服务器 URL（例如 `docker push myregistry.azurecr.cn/myimage:latest`），即使注册表资源名称是大写的或大小写混合的（例如 `myRegistry`）。
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>启用和获取 Docker 守护程序的调试日志  
 
@@ -407,6 +411,24 @@ curl $redirect_url
 
 如果使用 Microsoft Edge/IE 浏览器，则最多可以查看 100 个存储库或标记。 如果注册表中的存储库或标记超过 100 个，则我们建议使用 Firefox 或 Chrome 浏览器将其列出。
 
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>为何 Azure 门户无法提取存储库或标记？
+
+浏览器可能无法向服务器发送请求来提取存储库或标记。 可能有各种原因，例如：
+
+* 缺少网络连接
+* 防火墙
+* 广告阻止程序
+* DNS 错误
+
+请与网络管理员联系，或者检查网络配置和连接性。 尝试使用 Azure CLI 来运行 `az acr check-health -n yourRegistry`，以便检查环境是否能够连接到容器注册表。 另外，也可尝试在浏览器中使用 incognito 或专用会话，避免使用任何过时的浏览器缓存或 Cookie。
+
+### <a name="why-does-my-pull-or-push-request-fail-with-disallowed-operation"></a>为什么我的拉取或推送请求失败，出现操作不被允许的情况？
+
+下面是会导致操作被禁用的一些情况：
+* 不再支持经典注册表。 请使用 [az acr update](https://docs.azure.cn/cli/acr?view=azure-cli-latest#az-acr-update) 或 Azure 门户升级到受支持的 [SKU](https://aka.ms/acr/skus)。
+* 映像或存储库可能会处于锁定状态，导致无法删除或更新。 可以使用 [az acr show repository](/container-registry/container-registry-image-lock) 命令来查看当前属性。
+* 如果映像处于隔离状态，则会禁用某些操作。 详细了解[隔离](https://github.com/Azure/acr/tree/master/docs/preview/quarantine)。
+
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>如何在 Windows 上收集 HTTP 跟踪？
 
 #### <a name="prerequisites"></a>先决条件
@@ -433,6 +455,8 @@ curl $redirect_url
 
 - [如何批量取消运行？](#how-do-i-batch-cancel-runs)
 - [如何在 az acr build 命令中包含 .git 文件夹？](#how-do-i-include-the-git-folder-in-az-acr-build-command)
+- [任务是否支持用于源触发器的 GitLab？](#does-tasks-support-gitlab-for-source-triggers)
+- [任务支持什么 git 存储库管理服务？](#what-git-repository-management-service-does-tasks-support)
 
 ### <a name="how-do-i-batch-cancel-runs"></a>如何批量取消运行？
 
@@ -447,11 +471,30 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 如果将本地源文件夹传递到 `az acr build` 命令，则默认会从上传的包中排除 `.git` 文件夹。 可以使用以下设置创建 `.dockerignore` 文件。 这会告知命令还原已上传包中 `.git` 下的所有文件。 
 
-```
+```sh
 !.git/**
 ```
 
 此设置也适用于 `az acr run` 命令。
+
+### <a name="does-tasks-support-gitlab-for-source-triggers"></a>任务是否支持用于源触发器的 GitLab？
+
+我们目前不支持用于源触发器的 GitLab。
+
+### <a name="what-git-repository-management-service-does-tasks-support"></a>任务支持什么 git 存储库管理服务？
+
+| Git 服务 | 源上下文 | 手动生成 | 通过“提交”触发器自动生成 |
+|---|---|---|---|
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 是 | 是 |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 是 | 是 |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 是 | 否 |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 是 | 否 |
+
+## <a name="run-error-message-troubleshooting"></a>运行错误消息故障排除操作
+
+| 错误消息 | 故障排除指南 |
+|---|---|
+|未为 VM 配置任何访问权限，因此未找到订阅|如果在 ACR 任务中使用 `az login --identity`，则可能发生这种情况。 这是暂时性错误，在托管标识的角色分配无法传播时发生。 请等几秒钟，然后重试即可。|
 
 ## <a name="cicd-integration"></a>CI/CD 集成
 
@@ -462,4 +505,4 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 * [详细了解](container-registry-intro.md) Azure 容器注册表。
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->
