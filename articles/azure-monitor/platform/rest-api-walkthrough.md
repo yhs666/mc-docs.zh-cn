@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 03/19/2018
 ms.date: 05/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1420c71d484b3e56e77ce19ba722e6fc2e7eb19e
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 2381f8d9a3c1836f9fe77250785c4a5c2031fec6
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838589"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982145"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Azure 监视 REST API 演练
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -293,7 +293,7 @@ Invoke-RestMethod -Uri $request `
     }
   ],
   "namespace": "Microsoft.Storage/storageAccounts",
-  "resourceregion": "eastus"
+  "resourceregion": "China East"
 }
 ```
 
@@ -377,7 +377,7 @@ Invoke-RestMethod -Uri $request `
     }
   ],
   "namespace": "Microsoft.Storage/storageAccounts",
-  "resourceregion": "eastus"
+  "resourceregion": "China East"
 }
 ```
 
@@ -622,10 +622,10 @@ Get-AzLogicApp -ResourceGroupName azmon-rest-api-walkthrough -Name contosotweets
 Id             : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/azmon-rest-api-walkthrough/providers/Microsoft.Logic/workflows/ContosoTweets
 Name           : ContosoTweets
 Type           : Microsoft.Logic/workflows
-Location       : centralus
+Location       : China East
 ChangedTime    : 8/21/2017 6:58:57 PM
 CreatedTime    : 8/18/2017 7:54:21 PM
-AccessEndpoint : https://prod-08.centralus.logic.chinacloudapi.cn:443/workflows/f3a91b352fcc47e6bff989b85446c5db
+AccessEndpoint : https://prod-08.chinaeast.logic.chinacloudapi.cn:443/workflows/f3a91b352fcc47e6bff989b85446c5db
 State          : Enabled
 Definition     : {$schema, contentVersion, parameters, triggers...}
 Parameters     : {[$connections, Microsoft.Azure.Management.Logic.Models.WorkflowParameter]}
@@ -656,7 +656,7 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
   "identity": null,
   "kind": "Storage",
   "lastGeoFailoverTime": null,
-  "location": "centralus",
+  "location": "China East",
   "name": "contosotweets2017",
   "networkAcls": null,
   "primaryEndpoints": {
@@ -665,11 +665,11 @@ az storage account show -g azmon-rest-api-walkthrough -n contosotweets2017
     "queue": "https://contosotweets2017.queue.core.chinacloudapi.cn/",
     "table": "https://contosotweets2017.table.core.chinacloudapi.cn/"
   },
-  "primaryLocation": "centralus",
+  "primaryLocation": "China East",
   "provisioningState": "Succeeded",
   "resourceGroup": "azmon-rest-api-walkthrough",
   "secondaryEndpoints": null,
-  "secondaryLocation": "eastus2",
+  "secondaryLocation": "China East 2",
   "sku": {
     "name": "Standard_GRS",
     "tier": "Standard"

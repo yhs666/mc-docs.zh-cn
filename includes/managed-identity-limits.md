@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 05/31/2018
 ms.author: daveba
 ms.custom: include file
-ms.openlocfilehash: 2f2ae279f47ad1796e25bfea4ce617817adeb449
-ms.sourcegitcommit: 1414c787aa13b802e43fc7317af96a9e14889e20
+ms.openlocfilehash: 82528cda0a7d73b826204bce9244734ea3c65bf8
+ms.sourcegitcommit: 2a0e119227b4539553310267a70f552cfc116a04
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68332766"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74954914"
 ---
 | Category | 限制 |
 | --- | --- |

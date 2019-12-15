@@ -8,12 +8,12 @@ ms.topic: conceptual
 origin.date: 05/19/2019
 ms.date: 06/19/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 987fbc8422c045f3066c2acfbed7a4e53def556e
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 7181b45313780f92c1ef6d15170f7c373161f5be
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730337"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982124"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>使用 PowerShell 管理 Azure Monitor 中的 Log Analytics 工作区
 
@@ -62,7 +62,7 @@ ms.locfileid: "73730337"
 
 $ResourceGroup = "oms-example"
 $WorkspaceName = "log-analytics-" + (Get-Random -Maximum 99999) # workspace names need to be unique across all Azure subscriptions - Get-Random helps with this for the example code
-$Location = "westeurope"
+$Location = "China East"
 
 # List of solutions to enable
 $Solutions = "Security", "Updates", "SQLAssessment"
@@ -209,7 +209,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 | IoT 中心                |     | 是 |
 | 密钥保管库               | 是 | |
 | 负载均衡器          | 是 | |
-| Logic Apps              | 是 | 是 |
+| 逻辑应用              | 是 | 是 |
 | 网络安全组 | 是 | |
 | 用于 Redis 的 Azure 缓存             |     | 是 |
 | 搜索服务         | 是 | 是 |

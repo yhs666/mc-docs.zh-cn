@@ -10,12 +10,12 @@ ms.topic: quickstart
 origin.date: 09/18/2018
 ms.date: 09/15/2019
 ms.author: v-lingwu
-ms.openlocfilehash: b962eeb9f934462c568b5a20d9c97b0d7fd66ea4
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: b135df6b46cec2059e0c79b6270b0b9b1c38b5d2
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527993"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982184"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>快速入门：使用 Azure CLI 创建服务总线队列
 本快速入门介绍了如何使用 Azure CLI 和服务总线 Java 库通过服务总线来发送和接收消息。 最后，如果对更多的技术细节感兴趣，可以[阅读说明](#understand-the-sample-code)，了解示例代码的重要元素。
@@ -43,7 +43,7 @@ az group create --name $resourceGroupName --location chinaeast
 
 # Create a Service Bus messaging namespace with a unique name
 namespaceName=myNameSpace$RANDOM
-az servicebus namespace create --resource-group $resourceGroupName --name $namespaceName --location eastus
+az servicebus namespace create --resource-group $resourceGroupName --name $namespaceName --location 'China East'
 
 # Create a Service Bus queue
 az servicebus queue create --resource-group $resourceGroupName --namespace-name $namespaceName --name BasicQueue

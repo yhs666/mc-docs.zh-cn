@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: a8bb3fcbace9f278843a426317c52bf578822ee4
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: f26879ef2b6c1b019f2f5c015860ca500cd25c7c
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674710"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982181"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>使用 Azure 网络观察程序 Azure CLI 对虚拟网络网关和连接进行故障排除
 
@@ -66,7 +66,7 @@ az network vpn-connection show --resource-group resourceGroupName --ids vpnConne
 1. 创建存储帐户
 
     ```azurecli
-    az storage account create --name storageAccountName --location chinaeast --resource-group resourceGroupName --sku Standard_LRS
+    az storage account create --name storageAccountName --location 'China East 2' --resource-group resourceGroupName --sku Standard_LRS
     ```
 
 1. 获取存储帐户密钥

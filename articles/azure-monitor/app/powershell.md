@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 10/17/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f06a87795584e525e4c6cc250538341cedb23903
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: b944a7d95f79a33849e8c773831eb1195b1a14bf
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74839045"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982123"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>使用 PowerShell 管理 Application Insights 资源
 
@@ -46,7 +46,7 @@ ms.locfileid: "74839045"
 下面演示了如何使用 [New-AzApplicationInsights](https://docs.microsoft.com/powershell/module/az.applicationinsights/New-AzApplicationInsights) cmdlet 在 Azure 中国北部数据中心创建新的 Application Insights 资源：
 
 ```PS
-New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location eastus
+New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource name> -location 'China East'
 ```
 
 
@@ -83,7 +83,7 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
             },
             "appLocation": {
                 "type": "string",
-                "defaultValue": "eastus",
+                "defaultValue": "China East",
                 "metadata": {
                     "description": "Enter the location of your Application Insights resource."
                 }
@@ -246,7 +246,7 @@ armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 用于设置保留期的命令是一个类似的 PUT：
 
 ```PS
-armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'eastus', properties: {'retentionInDays': 365}}"
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName?api-version=2018-05-01-preview "{location: 'China East', properties: {'retentionInDays': 365}}"
 ```
 
 若要使用上面的模板将数据保留期设置为 365 天，请运行以下代码：

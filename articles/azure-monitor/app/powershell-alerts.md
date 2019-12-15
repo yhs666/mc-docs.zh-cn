@@ -9,12 +9,12 @@ manager: digimobile
 origin.date: 10/31/2016
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 214d37b3e8a0533d4afec0efbf43f4170dc39d13
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: c0ca8f1f3fd8c91b24190b6b4d0d666b22b7e8d8
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838719"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982125"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>使用 PowerShell 在 Application Insights 中设置警报
 
@@ -57,7 +57,7 @@ ms.locfileid: "74838719"
      -WindowSize {HH:MM:SS}  `
      [-SendEmailToServiceOwners] `
      [-CustomEmails "EMAIL1@X.COM","EMAIL2@Y.COM" ] `
-     -Location "East US" // must be China North at present
+     -Location "China East" // must be China North at present
      -RuleType Metric
 
 
@@ -76,7 +76,7 @@ GUID 是订阅 ID（不是应用程序的检测密钥）。
      -Threshold 1 `
      -WindowSize 00:05:00 `
      -SendEmailToServiceOwners `
-     -Location "East US" -RuleType Metric
+     -Location "China East" -RuleType Metric
 
 ## <a name="example-2"></a>示例 2
 我在应用程序中使用 [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) 报告名为“salesPerHour”的指标。 如果“salesPerHour”低于 100（平均值超出 24 小时），会向我的同事发送电子邮件。
@@ -90,7 +90,7 @@ GUID 是订阅 ID（不是应用程序的检测密钥）。
      -Threshold 100 `
      -WindowSize 24:00:00 `
      -CustomEmails "satish@fabrikam.com","lei@fabrikam.com" `
-     -Location "East US" -RuleType Metric
+     -Location "China East" -RuleType Metric
 
 同一规则可用于通过使用另一跟踪调用（如 TrackEvent 或 trackPageView）的[测量参数](../../azure-monitor/app/api-custom-events-metrics.md#properties)报告的指标。
 

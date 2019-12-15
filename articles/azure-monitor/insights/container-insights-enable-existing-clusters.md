@@ -8,12 +8,12 @@ author: mgoedtel
 ms.author: v-lingwu
 origin.date: 09/12/2019
 ms.date: 09/20/2019
-ms.openlocfilehash: 02feb884d7c215361d46824b7d687e55fec98ed7
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: edc1cd01411d719cfd389ca7f000a4f62d0262e4
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528357"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982134"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>启用对已部署的 Azure Kubernetes 服务 (AKS) 群集的监视
 
@@ -190,7 +190,7 @@ provisioningState       : Succeeded
         "aksResourceLocation": {
           "type": "string",
           "metadata": {
-            "description": "Location of the AKS resource e.g. \"East US\""
+            "description": "Location of the AKS resource e.g. \"China East\""
           }
         },
         "aksResourceTagValues": {

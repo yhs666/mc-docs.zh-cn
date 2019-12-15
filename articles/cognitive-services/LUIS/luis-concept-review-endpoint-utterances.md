@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 10/10/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 4823c529e8f4a9704a4688216bcc0c8e098f4448
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 8d43971c8c0cbb30db792655c023219fb4d6cf7d
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884487"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982164"
 ---
 # <a name="concepts-for-enabling-active-learning-by-reviewing-endpoint-utterances"></a>通过评审终结点话语启用主动学习的相关概念
 主动学习是提高预测准确性的三个策略之一，也是最易于实现的策略。 评审终结点话语通过主动学习获取正确的意向和实体。 LUIS 选择它不确定的终结点话语。
@@ -38,7 +38,7 @@ ms.locfileid: "74884487"
 不需要每天评审建议的陈述，但应将此纳入 LUIS 的常规维护。 
 
 ## <a name="delete-review-items-programmatically"></a>以编程方式删除评审项
-使用 **[删除未标记话语](https://{region}.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API。 在删除之前，请通过 **[导出日志文件](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 备份这些话语。
+使用 **[删除未标记话语](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)** API。 在删除之前，请通过 **[导出日志文件](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)** 备份这些话语。
 
 
 

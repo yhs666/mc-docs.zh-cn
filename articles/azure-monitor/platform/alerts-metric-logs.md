@@ -9,12 +9,12 @@ origin.date: 09/17/2018
 ms.date: 06/21/2019
 ms.author: v-lingwu
 ms.subservice: alerts
-ms.openlocfilehash: 432d87931ab22ba3d189dec88909d005a703d900
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 98c7fcceb169c2e75c8444ac6e3b85cec8bc346c
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838979"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982139"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>在 Azure Monitor 中创建日志的指标警报
 
@@ -315,7 +315,7 @@ Azure Monitor 支持比[经典警报](../../azure-monitor/platform/alerts-classi
             "value": "Test rule to extract metrics from logs via template"
         },
         "convertRuleRegion": {
-            "value": "West Central US"
+            "value": "China East"
         },
         "convertRuleStatus": {
             "value": "true"
@@ -625,7 +625,7 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
             "value": "Test rule to extract metrics from logs via template"
         },
         "convertRuleRegion": {
-            "value": "West Central US"
+            "value": "China East"
         },
         "convertRuleStatus": {
             "value": "true"

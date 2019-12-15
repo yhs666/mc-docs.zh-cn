@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 03/04/2019
 ms.date: 09/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c13fd97466d90646c4624c5515ebfd0f2e0336a1
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 3e9f7f5c8eced9b38e1925aab082ffdbe6b08265
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730561"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982151"
 ---
 # <a name="common-api-response-codes-and-their-meaning"></a>常见的 API 响应代码及其含义
 
@@ -43,7 +43,7 @@ ms.locfileid: "73730561"
 
 ## <a name="next-steps"></a>后续步骤
 
-* REST API [创作](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[终结点](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)文档
+* REST API [创作](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f)和[终结点](https://{region}.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)文档
 
 
 

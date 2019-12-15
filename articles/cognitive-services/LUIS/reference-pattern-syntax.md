@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 4ee73ff1fb467f76e154c92f12feb2aa07afd0f1
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 0f0b838b4f3e74888746d0d6f85aab3ee4deb1f4
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885117"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982148"
 ---
 # <a name="pattern-syntax"></a>模式语法
 
@@ -104,7 +104,7 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 ## <a name="explicit-lists"></a>显式列表
 
-在以下情况下请通过创作 API 创建一个[显式列表](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)来允许例外：
+在以下情况下请通过创作 API 创建一个[显式列表](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)来允许例外：
 
 * 你的模式包含 [Pattern.any](luis-concept-entity-types.md#patternany-entity)
 * 并且该模式语法可能会基于话语提取不正确的实体。 
@@ -122,7 +122,7 @@ Pattern.any 实体可用于向模式添加不同长度的实体。 只要按照�
 
 在上表中，主题应当是 `the man from La Mancha`（书名），但因为主题包含可选字词 `from`，因此书名没有正确预测。 
 
-要避免模式出现此异常，需使用[显式列表的创作 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) 添加 `the man from la mancha` 作为 {subject} 实体的显式列表匹配。
+要避免模式出现此异常，需使用[显式列表的创作 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) 添加 `the man from la mancha` 作为 {subject} 实体的显式列表匹配。
 
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>用于在模板话语中标记可选文本的语法
 使用正则表达式方括号语法 `[]` 标出话语中的可选文本。 最多能对两个括号使用方括号嵌套可选文本。

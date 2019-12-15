@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 08/16/2019
 ms.date: 08/30/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2137f62667ce5a483c1a53d57ce387d01d2f4c96
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: da84c3d8d4b3d3e6d8e9e9e3cfe12977575ee327
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528289"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982137"
 ---
 # <a name="create-an-application-insights-resource"></a>创建 Application Insights 资源
 
@@ -69,7 +69,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
 #### <a name="example"></a>示例
 
 ```powershell
-New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location 'China East'
 ```
 #### <a name="results"></a>结果
 
@@ -78,7 +78,7 @@ Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/m
 ResourceGroupName  : testgroup
 Name               : test1027
 Kind               : web
-Location           : eastus
+Location           : China East
 Type               : microsoft.insights/components
 AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
 ApplicationType    : web
@@ -120,13 +120,13 @@ az monitor app-insights component create --app
 #### <a name="example"></a>示例
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+az monitor app-insights component create --app demoApp --location 'China East' --kind web -g demoRg --application-type web
 ```
 
 #### <a name="results"></a>结果
 
 ```azurecli
-az monitor app-insights component create --app demoApp --location eastus --kind web -g demoApp  --application-type web
+az monitor app-insights component create --app demoApp --location 'China East' --kind web -g demoApp  --application-type web
 {
   "appId": "87ba512c-e8c9-48d7-b6eb-118d4aee2697",
   "applicationId": "demoApp",
@@ -139,7 +139,7 @@ az monitor app-insights component create --app demoApp --location eastus --kind 
   "id": "/subscriptions/{subid}/resourceGroups/demoApp/providers/microsoft.insights/components/demoApp",
   "instrumentationKey": "00000000-aaaa-bbbb-cccc-dddddddddddd",
   "kind": "web",
-  "location": "eastus",
+  "location": "China East",
   "name": "demoApp",
   "provisioningState": "Succeeded",
   "requestSource": "rest",

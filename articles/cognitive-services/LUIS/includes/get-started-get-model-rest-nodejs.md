@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: cdd909ab507cba3e99d83269905938c69f30c2f9
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 9b297d2efa7bd27811be8c28a952471b5506bf02
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885101"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "75002668"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -114,7 +114,7 @@ ms.locfileid: "74885101"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥
-    * `YOUR-ENDPOINT` 替换为终结点，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` 替换为终结点，例如 `chinaeast2.api.cognitive.azure.cn`
     * `YOUR-APP-ID` 替换为应用 ID
 
 1. 在创建该文件的同一目录中，在命令提示符下输入以下命令来运行文件：

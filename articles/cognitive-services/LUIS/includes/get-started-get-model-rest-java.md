@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 0100299aa03b26fc02d45e0ea7058e6cb50debcc
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: e631a3397536522dbe4b636a9e19c1628a08516f
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885099"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "75002665"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -73,7 +73,7 @@ ms.locfileid: "74885099"
                 // Add your endpoint key 
                 String Key = "YOUR-KEY";
     
-                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+                // Add your endpoint, example is chinaeast2.api.cognitive.azure.cn
                 String Endpoint = "YOUR-ENDPOINT";
     
                 String Utterance = "[{'text': 'go to Seattle today','intentName': 'BookFlight','entityLabels': [{'entityName': 'Location::LocationTo',"
@@ -136,7 +136,7 @@ ms.locfileid: "74885099"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥
-    * `YOUR-ENDPOINT` 替换为终结点，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` 替换为终结点，例如 `chinaeast2.api.cognitive.azure.cn`
     * `YOUR-APP-ID` 替换为应用 ID
 
 1. 在创建该文件的同一目录中，在命令提示符下输入以下命令来编译 Java 文件：

@@ -10,12 +10,12 @@ origin.date: 01/19/2018
 ms.date: 6/4/2019
 ms.reviewer: sdash
 ms.author: v-lingwu
-ms.openlocfilehash: 86fb8e3c2e561d726c5061bb26d594ad5ea34d2b
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: d1db4b151c01a3cc60f04d537a64ea0e36148284
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658069"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982136"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>统一的跨组件事务诊断
 
@@ -67,6 +67,9 @@ ms.locfileid: "74658069"
 此可折叠窗格会显示符合筛选条件的其他结果。 单击任何结果可更新上面列出的 3 个部分的相应详细信息。 我们试图找到最可能从所有组件中获得详细信息的样本，即使在任何一个组件中采样都是有效的。 这些显示为“建议的”样本。
 
 ![搜索结果](media/transaction-diagnostics/searchResults.png)
+
+
+
 
 ## <a name="faq"></a>常见问题
 

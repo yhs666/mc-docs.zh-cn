@@ -12,12 +12,12 @@ ms.topic: quickstart
 origin.date: 10/17/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 14e16ebfff90a53ce899a517b1b2a8315ad0b382
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: a369a3109be924ba4ba48df8d52c708d75847014
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885087"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982156"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>快速入门：使用浏览器获取意向
 
@@ -41,7 +41,7 @@ ms.locfileid: "74885087"
     **GET** 终结点（按槽）请求的 V3 URL 格式为：
     
     `
-    https://{region}.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
+    https://{region}.api.cognitive.azure.cn/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
     #### <a name="v2-prediction-requesttabv2-1-2"></a>[V2 预测请求](#tab/V2-1-2)
@@ -49,7 +49,7 @@ ms.locfileid: "74885087"
     **GET** 终结点请求的 V2 URL 格式为：
     
     `
-    https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
+    https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
     `
 
 1. 将该 URL 粘贴到浏览器窗口中，然后按 Enter。 浏览器显示的 JSON 结果指示 LUIS 将 `HomeAutomation.TurnOn` 意向检测为首要意向，并检测到值为 `on` 的 `HomeAutomation.Operation` 实体。
@@ -105,7 +105,7 @@ ms.locfileid: "74885087"
     将 `show-all-intents=true` 添加到查询字符串末尾可**显示所有意向**：
 
     `
-    https://{region}.api.cognitive.microsoft.com/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY&show-all-intents=true
+    https://{region}.api.cognitive.azure.cn/luis/predict/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY&show-all-intents=true
     `
 
     ```JSON
@@ -138,7 +138,7 @@ ms.locfileid: "74885087"
     将 `verbose=true` 添加到查询字符串末尾可**显示所有意向**：
 
     `
-    https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
+    https://{region}.api.cognitive.azure.cn/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?q=turn on all lights&subscription-key={your-key}&verbose=true
     `
 
     ```json

@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 10/25/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 97428f83e1bd66e9a2732661d29e48299394ad73
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 1491ba63e36fd0e550e45d47fa0a4ee7ccd48542
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884488"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982163"
 ---
 # <a name="authoring-and-runtime-keys"></a>创作和运行时密钥
 
@@ -95,7 +95,7 @@ LUIS 运行时终结点接受两种样式的查询，这两种查询都使用预
 
 你可以移动自己的 LUIS 应用。 在 Azure 门户或 Azure CLI 中，请参阅以下文档资源：
 
-* [在 LUIS 创作资源之间移动应用](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
+* [在 LUIS 创作资源之间移动应用](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
 * [将资源移到新的资源组或订阅](../../azure-resource-manager/resource-group-move-resources.md)
 * [在同一订阅内移动资源或跨订阅移动资源](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
 

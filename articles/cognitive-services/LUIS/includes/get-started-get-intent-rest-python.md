@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: e89c4dfa620a38c05cbc10391573cf3bce1ee2ad
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 3147417b713cc3c24f8d86da3fa507937a1b17be
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885089"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982157"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -38,7 +38,7 @@ ms.locfileid: "74885089"
     try:
     
         key = 'YOUR-KEY'
-        endpoint = 'YOUR-ENDPOINT' # such as 'westus2.api.cognitive.microsoft.com' 
+        endpoint = 'YOUR-ENDPOINT' # such as 'chinaeast2.api.cognitive.azure.cn' 
         appId = 'df67dcdb-c37d-46af-88e1-8b97951ca1c2'
         utterance = 'turn on all lights'
     
@@ -65,7 +65,7 @@ ms.locfileid: "74885089"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥。
-    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`westus2.api.cognitive.microsoft.com`。
+    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`chinaeast2.api.cognitive.azure.cn`。
 
 1. 安装 `requests` 依赖项。 这用于发出 HTTP 请求：
 

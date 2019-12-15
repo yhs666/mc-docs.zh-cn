@@ -13,18 +13,18 @@ origin.date: 10/17/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: e0577ceae380e97126d84376359f42371298249b
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 6329116ca3cfe47ce07d2c481ed2fcb4ec3ca2bf
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885088"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982161"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>快速入门：使用 REST API 获取意向
 
 本快速入门使用可用的公共 LUIS 应用从会话文本中确定用户的意向。 将用户的意向作为文本发送到公共应用的 HTTP 预测终结点。 在终结点处，LUIS 应用公共应用的模型来分析自然语言文本的含义，确定总体意向并提取与应用的主题域相关的数据。 
 
-本快速入门使用终结点 REST API。 有关详细信息，请参阅[终结点 API 文档](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)。
+本快速入门使用终结点 REST API。 有关详细信息，请参阅[终结点 API 文档](https://chinaeast.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)。
 
 对于本文，需要一个免费的 [LUIS](https://www.luis.ai) 帐户。 
 

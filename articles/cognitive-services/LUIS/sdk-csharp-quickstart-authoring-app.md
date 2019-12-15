@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 08/30/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 06b3fd9d568df73246d8ceab3fb1908ee96343fa
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: a205da65e120918a20ddb1d135d2797d46dba0e0
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884701"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982147"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>快速入门：适用于 .NET 的语言理解 (LUIS) 创作客户端库
 
@@ -47,7 +47,7 @@ ms.locfileid: "74884701"
 使用密钥和密钥区域，创建两个用于身份验证的环境变量：
 
 * `COGNITIVESERVICE_AUTHORING_KEY` - 用于验证请求的资源密钥。
-* `COGNITIVESERVICE_REGION` - 与密钥关联的区域。 例如，`westus`。
+* `COGNITIVESERVICE_REGION` - 与密钥关联的区域。 例如，`chinaeast`。
 
 使用操作系统的说明。
 

@@ -8,12 +8,12 @@ origin.date: 04/26/2019
 author: lingliw
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5b5929f506326333be23505dcd50787acdc29f22
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 68a8c13899a482ac79fbf54d74a44d3ff6a242ab
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74839008"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982061"
 ---
 # <a name="monitor-azure-app-service-performance"></a>监视 Azure 应用服务性能
 
@@ -326,6 +326,9 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 > [!NOTE]
 > 仅支持通过基于手动 SDK 的检测在 Azure 应用服务中使用 Java 和 Node.js 应用程序，因此，以下步骤不适用于这些方案。
+
+> [!NOTE]
+> 不支持 ASP.NET Core 3.0 应用程序。 请通过 ASP.NET Core 3.0 应用的代码执行[手动检测](/azure-monitor/app/asp-net-core)。
 
 1. 通过 `ApplicationInsightsAgent` 检查应用程序是否受监视。
     * 检查 `ApplicationInsightsAgent_EXTENSION_VERSION` 应用设置是否设置为值“~2”。

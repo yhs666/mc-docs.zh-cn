@@ -9,12 +9,12 @@ origin.date: 04/03/2017
 ms.date: 02/16/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 8b1281a785f84c5af29a2fb0104d83a4b4096c2a
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 1a0d4e0aaa329b00747ebcba8e7ef574914c79a2
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838599"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982055"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>在 Azure Monitor 中对经典指标警报调用 Webhook
 可以使用 Webhook 将 Azure 警报通知路由到其他系统，以便进行后续处理或自定义操作。 可以针对警报使用 Webhook，以将警报路由到可以发送短信的服务，以记录 Bug、通过聊天/消息服务通知团队，或进行各种其他操作。 
@@ -41,7 +41,7 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
     "status": "Activated",
     "context": {
         "timestamp": "2015-08-14T22:26:41.9975398Z",
-        "id": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.insights/alertrules/ruleName1",
+        "id": "/subscriptions/s1/resourceGroups/chinaeast/providers/microsoft.insights/alertrules/ruleName1",
         "name": "ruleName1",
         "description": "some description",
         "conditionType": "Metric",
@@ -55,12 +55,12 @@ POST 操作对于所有基于指标的警报包含以下 JSON 有效负载和架
             "operator": "GreaterThanOrEqual"
         },
         "subscriptionId": "s1",
-        "resourceGroupName": "useast",
+        "resourceGroupName": "China East",
         "resourceName": "mysite1",
         "resourceType": "microsoft.foo/sites",
-        "resourceId": "/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1",
+        "resourceId": "/subscriptions/s1/resourceGroups/chinaeast/providers/microsoft.foo/sites/mysite1",
         "resourceRegion": "centralus",
-        "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/useast/providers/microsoft.foo/sites/mysite1"
+        "portalLink": "https://portal.azure.cn/#resource/subscriptions/s1/resourceGroups/chinaeast/providers/microsoft.foo/sites/mysite1"
     },
     "properties": {
         "key1": "value1",

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: 2891060372e853c462b0689f59263231ef9acf87
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 677c98434e3c73691b5beef15cf7d4d74817fe1a
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885102"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "75002689"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -49,7 +49,7 @@ ms.locfileid: "74885102"
     
     LUIS_APP_ID = "YOUR-APP-ID"
     
-    # Authoring endpoint, example: westus.api.cognitive.microsoft.com
+    # Authoring endpoint, example: chinaeast2.api.cognitive.azure.cn
     LUIS_ENDPOINT = "YOUR-ENDPOINT"
 
     # The version number of your LUIS app
@@ -79,7 +79,7 @@ ms.locfileid: "74885102"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥
-    * `YOUR-ENDPOINT` 替换为终结点，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` 替换为终结点，例如 `chinaeast2.api.cognitive.azure.cn`
     * `YOUR-APP-ID` 替换为应用 ID
 
 1. 在创建该文件的同一目录中，在命令提示符下输入以下命令来运行文件：

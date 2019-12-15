@@ -8,12 +8,12 @@ manager: digimobile
 ms.topic: quickstart
 origin.date: 05/06/2019
 ms.date: 07/12/2019
-ms.openlocfilehash: 97a9981cb995ded3baa81a22b5a58fb49713afa2
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: bc4db7f935ffea8c48c4b0d716afe0c7cebc977e
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674700"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982176"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>快速入门：在 Visual Studio Code 中创建 Azure 流分析云作业（预览）
 
@@ -70,7 +70,7 @@ ms.locfileid: "71674700"
 
 4. 在完成时选择“下一步:  设置大小和规模”。
 
-5. 选择“定价和缩放层”  。 就本快速入门来说，请选择“F1 - 免费”层（前提是此层在订阅上仍然可用）  。 如果免费层不可用，请选择可用的最低层。 有关详细信息，请参阅 [IoT 中心定价](https://azure.microsoft.com/pricing/details/iot-hub/)。
+5. 选择“定价和缩放层”  。 就本快速入门来说，请选择“F1 - 免费”层（前提是此层在订阅上仍然可用）  。 如果免费层不可用，请选择可用的最低层。 有关详细信息，请参阅 [IoT 中心定价](https://www.azure.cn/zh-cn/pricing/details/iot-hub/)。
 
    ![设置 IoT 中心的大小和规模](./media/quick-create-vs-code/iot-hub-size-and-scale.png)
 

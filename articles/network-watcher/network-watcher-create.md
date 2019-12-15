@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: e1def70147f08b09e512223b159c2acf8c39be0a
-ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
+ms.openlocfilehash: 6e94b9249094d1f2c9249bcc64e5eae4d0147c25
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597988"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982174"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>创建 Azure 网络观察程序实例
 
@@ -50,7 +50,7 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>在门户中创建网络观察程序
 
-导航到“所有服务” > “网络” > “网络观察程序”。 可以选择要为其启用网络观察程序的所有订阅。 此操作在每个可用的区域中创建网络观察程序。
+导航到“所有服务”   > “网络”   > “网络观察程序”  。 可以选择要为其启用网络观察程序的所有订阅。 此操作在每个可用的区域中创建网络观察程序。
 
 ![创建网络观察程序](./media/network-watcher-create/figure1.png)
 
@@ -73,7 +73,7 @@ New-AzNetworkWatcher -Name "NetworkWatcher_chinaeast" -ResourceGroupName "Networ
 若要创建网络观察程序的实例，请运行以下示例：
 
 ```azurecli
-az network watcher configure --resource-group NetworkWatcherRG --locations chinaeast --enabled
+az network watcher configure --resource-group NetworkWatcherRG --locations 'China East 2' --enabled
 ```
 
 ## <a name="create-a-network-watcher-with-the-rest-api"></a>使用 REST API 创建网络观察程序

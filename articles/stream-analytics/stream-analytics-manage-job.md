@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 origin.date: 06/03/2019
 ms.date: 08/03/2019
-ms.openlocfilehash: 7ece05e5950b1722b40ac1047eb526e67d26e6f0
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: e96b570c25c806da31a09506060c465543f39c4f
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674804"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982182"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>使用流分析来分析电话呼叫数据并在 Power BI 仪表板中将结果可视化
 
@@ -56,7 +56,7 @@ ms.locfileid: "71674804"
    |Name     | myEventHubsNS        |  用于标识事件中心命名空间的唯一名称。       |
    |订阅     |   \<订阅\>      |   选择要在其中创建事件中心的 Azure 订阅。      |
    |资源组     |   MyASADemoRG      |  选择“新建”  ，然后输入帐户的新资源组名称。       |
-   |Location     |   美国西部 2      |    一个位置，可在其中部署事件中心命名空间。     |
+   |位置     |   中国东部 2      |    一个位置，可在其中部署事件中心命名空间。     |
 
 4. 对其余设置使用默认选项，然后选择“创建”。 
 
@@ -139,7 +139,7 @@ ms.locfileid: "71674804"
    |作业名称     |  ASATutorial       |   用于标识事件中心命名空间的唯一名称。      |
    |订阅    |  \<订阅\>   |   选择要在其中创建作业的 Azure 订阅。       |
    |资源组   |   MyASADemoRG      |   选择“使用现有”  ，然后输入帐户的新资源组名称。      |
-   |Location   |    美国西部 2     |      一个位置，可在其中部署作业。 为获得最佳性能，建议将作业和事件中心放置在同一区域，这样在不同区域之间传输数据时就不需要付费。      |
+   |位置   |    中国东部 2     |      一个位置，可在其中部署作业。 为获得最佳性能，建议将作业和事件中心放置在同一区域，这样在不同区域之间传输数据时就不需要付费。      |
    |宿主环境    | 云        |     流分析作业可以部署到云或边缘设备。 可以通过云部署到 Azure 云，通过“Edge”部署到 IoT Edge 设备。    |
    |流式处理单位     |    1       |      流单元表示执行作业所需的计算资源。 默认情况下，此值设置为 1。 若要了解如何缩放流单元，请参阅[了解和调整流单元](stream-analytics-streaming-unit-consumption.md)一文。      |
 

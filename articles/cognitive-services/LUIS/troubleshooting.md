@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 11/08/2019
 ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7fa7bb8347846878eb85568c50d8e941cfd6fa35
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 6320c0f8c01b828743f23a63c95b664fab4a0d04
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884684"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982146"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>语言理解常见问题解答 (FAQ)
 
@@ -115,7 +115,7 @@ Cortana 预构建应用已于 2017 年弃用。 它们不再受支持。
 
 意外的查询预测结果基于已发布模型的状态。 若要更正模型，可能需要更改模型、进行训练，然后重新发布。 
 
-可以通过更新[应用程序版本设置 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 来删除非确定性训练，以便使用所有训练数据。
+可以通过更新[应用程序版本设置 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 来删除非确定性训练，以便使用所有训练数据。
 
 有关其他提示，请查看[最佳做法](luis-concept-best-practices.md)。 
 

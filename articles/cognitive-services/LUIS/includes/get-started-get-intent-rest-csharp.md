@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad3de50edae1a9e6a2b175cf64e9eab4ca56b13
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: dec70a634fb9460499068767e5801c7bb7bcf9e6
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885090"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982160"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -58,7 +58,7 @@ ms.locfileid: "74885090"
                 // YOUR-KEY: for example, the starter key
                 var key = "YOUR-KEY";
                 
-                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+                // YOUR-ENDPOINT: example is chinaeast2.api.cognitive.azure.cn
                 var endpoint = "YOUR-ENDPOINT";
 
                 // //public sample app
@@ -105,7 +105,7 @@ ms.locfileid: "74885090"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥。
-    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`westus2.api.cognitive.microsoft.com`。
+    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`chinaeast2.api.cognitive.azure.cn`。
 
 1. 使用以下命令生成控制台应用程序： 
 

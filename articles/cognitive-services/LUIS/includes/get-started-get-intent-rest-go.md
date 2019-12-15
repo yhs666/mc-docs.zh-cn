@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 8f074d345ff9974a64cbd8a41cd1aeac0d67ba41
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 19f22ab3fafc03c5aa02460a693a8e247caa0b15
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885086"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982159"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,7 +53,7 @@ ms.locfileid: "74885086"
         // YOUR-KEY - your starter or prediction key
         var endpointKey = "YOUR-KEY"
         
-        // YOUR-ENDPOINT - example is westus2.api.cognitive.microsoft.com
+        // YOUR-ENDPOINT - example is chinaeast2.api.cognitive.azure.cn
         var endpoint = "YOUR-ENDPOINT"
     
         endpointPrediction(appID, endpointKey, endpoint, utterance)
@@ -86,7 +86,7 @@ ms.locfileid: "74885086"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥。
-    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`westus2.api.cognitive.microsoft.com`。
+    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`chinaeast2.api.cognitive.azure.cn`。
 
 1. 在创建该文件的同一目录中，在命令提示符下输入以下命令来编译 Go 文件：
 
@@ -105,7 +105,7 @@ ms.locfileid: "74885086"
     ```console
     appID has value df67dcdb-c37d-46af-88e1-8b97951ca1c2
     endpointKey has value a7b206911f714e71a1ddae36928a61cc
-    endpoint has value westus2.api.cognitive.microsoft.com
+    endpoint has value chinaeast2.api.cognitive.azure.cn
     utterance has value turn on all lights
     response
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}

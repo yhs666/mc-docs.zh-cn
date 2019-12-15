@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 09/05/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 206faf322e24b0a5d0997ab794f865806e13149e
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 1cf0756d2d70d5cf0809d53d8c7833aad64eb7e8
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884882"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982150"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>使用 Node.js 以编程方式生成 LUIS 应用
 
@@ -87,7 +87,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         inFile: path.join(__dirname, uploadFile),
         batchSize: 100,
-        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
+        uri: "https://{region}.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/examples"
     };
 
     /* create app parameters */
@@ -96,7 +96,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_versionId: LUIS_versionId,
         appName: LUIS_appName,
         culture: LUIS_appCulture,
-        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/"
+        uri: "https://{region}.api.cognitive.azure.cn/luis/api/v2.0/apps/"
     };
 
     /* add intents parameters */
@@ -105,7 +105,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         intentList: intents,
-        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
+        uri: "https://{region}.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/intents"
     };
 
     /* add entities parameters */
@@ -114,7 +114,7 @@ LUIS 提供与 [LUIS](luis-reference-regions.md) 网站功能相同的编程 API
         LUIS_appId: LUIS_appId,
         LUIS_versionId: LUIS_versionId,
         entityList: entities,
-        uri: "https://westus.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
+        uri: "https://{region}.api.cognitive.azure.cn/luis/api/v2.0/apps/{appId}/versions/{versionId}/entities"
     };
 
     /* input and output files for parsing CSV */
@@ -564,7 +564,7 @@ module.exports = addEntities;
 
 
 ## <a name="add-utterances"></a>添加表达
-LUIS 应用中定义了实体和意向后，可以添加陈述。 下面的代码使用 [Utterances_AddBatch](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API，它允许每次添加最多 100 个陈述。  复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js)它，并将其保存到 `_upload.js`。
+LUIS 应用中定义了实体和意向后，可以添加陈述。 下面的代码使用 [Utterances_AddBatch](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09) API，它允许每次添加最多 100 个陈述。  复制或[下载](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/_upload.js)它，并将其保存到 `_upload.js`。
 
 ```
 // node 7.x
@@ -754,10 +754,10 @@ upload done
 ## <a name="additional-resources"></a>其他资源
 
 此示例应用程序使用以下 LUIS API：
-- [创建应用](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
-- [添加意向](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
-- [添加实体](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
-- [添加陈述](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)
+- [创建应用](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)
+- [添加意向](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0c)
+- [添加实体](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0e) 
+- [添加陈述](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09)
 
 
 

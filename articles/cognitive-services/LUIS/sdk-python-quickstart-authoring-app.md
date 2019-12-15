@@ -11,12 +11,12 @@ ms.topic: quickstart
 origin.date: 11/22/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 8734f06c60755bd32f02605580cdd1938c4b8eff
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 746053344ee94400a96c972cac6f8436b5e3c0d6
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884690"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982144"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>快速入门：适用于 Python 的语言理解 (LUIS) 创作客户端库
 
@@ -47,7 +47,7 @@ ms.locfileid: "74884690"
 使用密钥和密钥区域，创建两个用于身份验证的环境变量：
 
 * `LUIS_AUTHORING_KEY` - 用于验证请求的资源密钥。
-* `LUIS_REGION` - 与密钥关联的区域。 例如，`westus`。
+* `LUIS_REGION` - 与密钥关联的区域。 例如，`chinaeast`。
 
 使用操作系统的说明。
 

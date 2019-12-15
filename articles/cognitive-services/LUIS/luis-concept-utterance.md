@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 10/15/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 433cf45d8baf6f9b5582c4bd2b083f009e962b85
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 59b7d4f479742bcb1e174f745c2b8c394c7ec78b
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884465"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982052"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>了解哪些良好的话语适用于你的 LUIS 应用
 
@@ -119,7 +119,7 @@ LUIS 使用由 LUIS 模型作者精心挑选的话语构建有效的模型。 �
 
 ## <a name="training-utterances"></a>训练陈述
 
-训练通常是非确定性的：在不同版本或应用中，陈述预测可能略有不同。 可以通过使用 `UseAllTrainingData` 名称/值对更新[版本设置](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API 来使用所有训练数据。
+训练通常是非确定性的：在不同版本或应用中，陈述预测可能略有不同。 可以通过使用 `UseAllTrainingData` 名称/值对更新[版本设置](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API 来使用所有训练数据。
 
 ## <a name="testing-utterances"></a>测试陈述 
 

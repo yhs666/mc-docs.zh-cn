@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 11/08/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 08d43fd5dae7c6db4e98df576c13cfd4bb131e4e
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 3bb695ca1e84b44b742b5be71a27ac10f6cc5585
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884784"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982060"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>安装并运行 LUIS docker 容器
  
@@ -41,8 +41,8 @@ ms.locfileid: "74884784"
 
 用于打包应用的创作 API：
 
-* [已发布的包 API](https://westus.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip)
-* [未发布、仅经过训练的包 API](https://westus.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip)
+* [已发布的包 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip)
+* [未发布、仅经过训练的包 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagetrainedapplicationasgzip)
 
 ### <a name="the-host-computer"></a>主计算机
 
@@ -76,7 +76,7 @@ ms.locfileid: "74884784"
 1. 使用完此容器后，从 LUIS 门户的输出装入点[导入终结点日志](#import-the-endpoint-logs-for-active-learning)并[停止](#stop-the-container)容器。
 1. 在“查看终结点话语”页上使用 LUIS 门户的主动学习改进应用。 
 
-无法更改正在容器中运行的应用。 若要更改容器中的应用，必须使用 [LUIS](https://luis.azure.cn) 门户或使用 LUIS [创作 API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 更改 LUIS 服务中的应用。 然后进行训练和/或发布，下载新包并再次运行该容器。
+无法更改正在容器中运行的应用。 若要更改容器中的应用，必须使用 [LUIS](https://luis.azure.cn) 门户或使用 LUIS [创作 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) 更改 LUIS 服务中的应用。 然后进行训练和/或发布，下载新包并再次运行该容器。
 
 容器内的 LUIS 应用无法导出回 LUIS 服务。 只能上传查询日志。 
 
@@ -158,7 +158,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | 已发布 LUIS 应用的应用程序 ID。 |
 | **{SLOT_NAME}** | 已发布 LUIS 应用的环境。 使用以下值之一：<br/>`PRODUCTION`<br/>`STAGING` |
 | **{AUTHORING_KEY}** | 已发布 LUIS 应用的 LUIS 帐户的创作密钥。<br/>可以从 LUIS 门户的“用户设置”  页面中获取创作密钥。 |
-| **{AZURE_REGION}** | 相应的 Azure 区域：<br/><br/>`westus` - 美国西部<br/>`westeurope` - 西欧<br/>`australiaeast` - 澳大利亚东部 |
+| **{AZURE_REGION}** | 相应的 Azure 区域：<br/><br/>`chinaeast` - 中国东部 |
 
 若要下载已发布的包，请参考[此处的 API 文档][download-published-package]。 如果下载成功，响应是一个 LUIS 包文件。 将文件保存在为容器的输入装入点指定的存储位置中。 
 
@@ -177,7 +177,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 | **{APP_ID}** | 已训练 LUIS 应用的应用程序 ID。 |
 | **{APP_VERSION}** | 已训练 LUIS 应用的应用程序版本。 |
 | **{AUTHORING_KEY}** | 已发布 LUIS 应用的 LUIS 帐户的创作密钥。<br/>可以从 LUIS 门户的“用户设置”  页面中获取创作密钥。 |
-| **{AZURE_REGION}** | 相应的 Azure 区域：<br/><br/>`westus` - 美国西部<br/>`westeurope` - 西欧<br/>`australiaeast` - 澳大利亚东部 |
+| **{AZURE_REGION}** | 相应的 Azure 区域：<br/><br/>`eastchina` - 中国东部 |
 
 若要下载已进行版本控制的包，请参考[此处的 API 文档][download-versioned-package]。 如果下载成功，响应是一个 LUIS 包文件。 将文件保存在为容器的输入装入点指定的存储位置中。 
 
@@ -250,7 +250,7 @@ ApiKey={API_KEY}
 
 |包类型|HTTP 谓词|路由|查询参数|
 |--|--|--|--|
-|已发布|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)、[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
+|已发布|[GET](https://{region}.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)、[POST](https://{region}.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|`/luis/v2.0/apps/{appId}?`|`q={q}`<br>`&staging`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]<br>|
 |带有版本|GET、POST|`/luis/v2.0/apps/{appId}/versions/{versionId}?`|`q={q}`<br>[`&timezoneOffset`]<br>[`&verbose`]<br>[`&log`]|
 
 查询参数配置查询响应的返回方式以及返回内容：

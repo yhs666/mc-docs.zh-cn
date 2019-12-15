@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 11/08/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 70b28f66886ee8c9b07c043b56b781f0a93a9bef
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: c74e26c3a0818d9675235be0488ec24675d60ac1
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885115"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982165"
 ---
 # <a name="developer-resources-for-language-understanding"></a>用于语言理解的开发人员资源
 
@@ -44,8 +44,8 @@ ms.locfileid: "74885115"
 
 |类型|版本|
 |--|--|
-|创作|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[预览 V3](https://{region}.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
-|预测|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://{region}.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
+|创作|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[预览 V3](https://{region}.dev.cognitive.azure.cn/docs/services/luis-programmatic-apis-v3-0-preview)|
+|预测|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://{region}.dev.cognitive.azure.cn/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>基于语言的 SDK
 

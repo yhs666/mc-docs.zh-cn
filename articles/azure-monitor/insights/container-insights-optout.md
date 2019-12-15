@@ -8,12 +8,12 @@ author: lingliw
 ms.author: v-lingwu
 origin.date: 08/09/2019
 ms.date: 08/19/2019
-ms.openlocfilehash: 5ec448e781cf44b5491f2f7b4da429c7c1c423dc
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: ab2cdec2615b557aeebba4d162a6a7e69cb68792
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74839035"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982122"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>如何停止使用用于容器的 Azure Monitor 监视 Azure Kubernetes 服务 (AKS)
 
@@ -61,7 +61,7 @@ az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingMan
       "aksResourceLocation": {
         "type": "string",
         "metadata": {
-           "description": "Location of the AKS resource e.g. \"East US\""
+           "description": "Location of the AKS resource e.g. \"China East\""
          }
        }
        },

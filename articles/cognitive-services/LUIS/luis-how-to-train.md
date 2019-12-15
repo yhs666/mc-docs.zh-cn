@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 11/15/2019
 ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 2fc9b551bc21726e9c0448b64793820460b5f985
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 3bd3a54532ba40b88ba857cb560725383947a0e7
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884604"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982153"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>训练 LUIS 应用的有效版本 
 
@@ -47,7 +47,7 @@ ms.locfileid: "74884604"
 
 ### <a name="version-settings-api-use-of-usealltrainingdata"></a>使用 UseAllTrainingData 的版本设置 API
 
-使用[版本设置 API](https://{region}.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 并将 `UseAllTrainingData` 设置为 true 可关闭此功能。 
+使用[版本设置 API](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 并将 `UseAllTrainingData` 设置为 true 可关闭此功能。 
 
 ## <a name="unnecessary-training"></a>不必要的训练
 
@@ -55,7 +55,7 @@ ms.locfileid: "74884604"
 
 ## <a name="training-with-the-rest-apis"></a>使用 REST API 进行训练
 
-在 LUIS 门户中进行训练是单个步骤，只需按下“训练”  按钮。 使用 REST API 进行训练是一个两步过程。 第一个步骤是通过 HTTP POST [请求训练](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)。 然后通过 HTTP Get 请求[训练状态](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46)。 
+在 LUIS 门户中进行训练是单个步骤，只需按下“训练”  按钮。 使用 REST API 进行训练是一个两步过程。 第一个步骤是通过 HTTP POST [请求训练](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45)。 然后通过 HTTP Get 请求[训练状态](https://{region}.dev.cognitive.azure.cn/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46)。 
 
 若要了解训练是何时完成的，必须对状态进行轮询，直至所有模型都成功训练。 
 

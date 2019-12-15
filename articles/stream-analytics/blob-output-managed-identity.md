@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 08/09/2019
 ms.date: 11/12/2019
-ms.openlocfilehash: b7de0a1940d15058d4420bd33751dd03592039d5
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: a69a0b0ef6f9ed1da70076c9d848222c8369f967
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527955"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982175"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>使用托管标识在 Azure Blob 存储输出（预览版）中对 Azure 流分析作业进行身份验证
 
@@ -120,7 +120,7 @@ ms.locfileid: "74527955"
             "userAssignedIdentities": null
         },
         "kind": null,
-        "location": "West US",
+        "location": "China East",
         "managedBy": null,
         "name": "{RESOURCE_NAME}",
         "plan": null,

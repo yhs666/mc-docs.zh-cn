@@ -1,5 +1,10 @@
-# YamlMime:ZonePivotGroups
-# GitHub repository = 'MicrosoftDocs/mc-docs-pr.zh-cn'
+### YamlMime:Yaml
+ms.openlocfilehash: b4666d5ee4a0d2868ecf663103167eed95a6beb3
+ms.sourcegitcommit: 3be64cd198700989de265f91ceb3af8a19ceb05a
+ms.translationtype: HT
+ms.contentlocale: zh-CN
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74935977"
 groups:
 - id: programming-languages-set-one
   title: 编程语言

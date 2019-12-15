@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 3442b34ea4fdf0ccb3ecafca938793df76d70990
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 1b86d7bfa1a82feeb9c9d7f6aef8839866fe15cb
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885084"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982162"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -63,7 +63,7 @@ ms.locfileid: "74885084"
                 // Add your endpoint key 
                 String Key = "YOUR-KEY";
     
-                // Add your endpoint, example is westus.api.cognitive.microsoft.com
+                // Add your endpoint, example is chinaeast2.api.cognitive.azure.cn
                 String Endpoint = "YOUR-ENDPOINT";
     
                 String Utterance = "turn on all lights";
@@ -107,7 +107,7 @@ ms.locfileid: "74885084"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥
-    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`westus2.api.cognitive.microsoft.com`。
+    * 将 `YOUR-ENDPOINT` 替换为终结点。 例如，`chinaeast2.api.cognitive.azure.cn`。
 
 
 1. 通过命令行编译 Java 程序： 

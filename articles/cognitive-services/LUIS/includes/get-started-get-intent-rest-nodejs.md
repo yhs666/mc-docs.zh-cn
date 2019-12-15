@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 2a5f10d6d072c54bd81bc3d08b56bd732fa5830c
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 93f2dd60feb08d26db760ce4e24f23ba8c668e86
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885091"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982158"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -43,7 +43,7 @@ ms.locfileid: "74885091"
         // YOUR-KEY - Language Understanding starter key
         var endpointKey = "YOUR-KEY";
     
-        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is westus2.api.cognitive.microsoft.com
+        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is chinaeast2.api.cognitive.azure.cn
         var endpoint = "YOUR-ENDPOINT";
     
         // Set the LUIS_APP_ID environment variable 
@@ -79,7 +79,7 @@ ms.locfileid: "74885091"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥。
-    * 将 `YOUR-ENDPOINT` 替换为终结点 URL。 例如，`westus2.api.cognitive.microsoft.com`。
+    * 将 `YOUR-ENDPOINT` 替换为终结点 URL。 例如，`chinaeast2.api.cognitive.azure.cn`。
 
 1. 使用以下命令安装 `request`、`request-promise` 和 `querystring` 依赖项： 
 

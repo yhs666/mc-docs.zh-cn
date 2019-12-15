@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 307d162f70ef015ad9edb81aca60e5b90149d4cc
-ms.sourcegitcommit: 6999c27ddcbb958752841dc33bee68d657be6436
+ms.openlocfilehash: aa892af3fad4074f8ee867a4ace40e9c8449fd40
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989494"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982142"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>使用 PowerShell 创建 Log Analytics 工作区
 
@@ -39,7 +39,7 @@ ms.locfileid: "69989494"
 $ResourceGroupName = "ResourceGroup01"
 $SubscriptionID = "SubscriptionID"
 $WorkspaceName = "DefaultWorkspace-" + (Get-Random -Maximum 99999) + "-" + $ResourceGroupName
-$Location = "eastus"
+$Location = "China East"
 
 # Stop the script if any errors occur
 $ErrorActionPreference = "Stop"

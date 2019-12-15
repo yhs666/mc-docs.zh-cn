@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: b5c89038db997a0a47c7cde360fce083b8349743
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: fc6f2e07c5e9f1ec8592ae6944a6d4ade1c00edb
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885104"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "75002652"
 ---
 ## <a name="prerequisites"></a>先决条件
 
@@ -58,7 +58,7 @@ ms.locfileid: "74885104"
         // NOTE: change to your starter key
         var authoringKey = "YOUR-KEY"
     
-        // NOTE: change to your starter key's endpoint, for example, westus.api.cognitive.microsoft.com
+        // NOTE: change to your starter key's endpoint, for example, chinaeast2.api.cognitive.azure.cn
         var endpoint = "YOUR-ENDPOINT"  
     
         var version = "0.1"
@@ -145,7 +145,7 @@ ms.locfileid: "74885104"
 1. 替换以下值：
 
     * 将 `YOUR-KEY` 替换为初学者密钥
-    * `YOUR-ENDPOINT` 替换为终结点，例如 `westus2.api.cognitive.microsoft.com`
+    * `YOUR-ENDPOINT` 替换为终结点，例如 `chinaeast2.api.cognitive.azure.cn`
     * `YOUR-APP-ID` 替换为应用 ID
 
 1. 在创建该文件的同一目录中，在命令提示符下输入以下命令来编译 Go 文件：
