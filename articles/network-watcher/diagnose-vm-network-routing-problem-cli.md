@@ -18,12 +18,12 @@ origin.date: 04/20/2018
 ms.date: 10/19/2018
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 1299c743f42e0399ca33dba0240307791c2c3873
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: d9833c1afcb78b85a5b2c8c2fbe6cb3d3cb8e270
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674793"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982167"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>诊断虚拟机网络路由问题 - Azure CLI
 
@@ -61,12 +61,12 @@ az vm create \
 
 ### <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在“中国东部”区域启用网络观察程序，请跳到[使用下一跃点](#use-next-hop)。 使用 [az network watcher configure](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-configure) 命令在“中国东部”区域中创建网络观察程序：
+如果已在“中国东部”区域启用网络观察程序，请跳到[使用下一跃点](#use-next-hop)。 使用 [az network watcher configure](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-configure) 命令在“中国东部 2”区域中创建网络观察程序：
 
 ```azurecli
 az network watcher configure \
   --resource-group NetworkWatcherRG \
-  --locations chinaeast \
+  --locations 'China East 2' \
   --enabled
 ```
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 origin.date: 03/12/2019
 ms.date: 08/21/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7dea0cf7897315092603d5a54f7459bda9acfea4
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: d90c02116584caf374bc67b2bf6db2fb2acd414a
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730310"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982059"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>使用 Azure CLI 2.0 创建 Log Analytics 工作区
 
@@ -38,11 +38,11 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
 如果选择在本地安装并使用 CLI，本快速入门要求运行 Azure CLI 2.0.30 或更高版本。 运行 `az --version` 即可查找版本。 如果需要进行安装或升级，请参阅[安装 Azure CLI 2.0](https://docs.azure.cn/zh-cn/cli/install-azure-cli?view=azure-cli-latest)。
 
 ## <a name="create-a-workspace"></a>创建工作区
-使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在 eastus  位置的资源组 Lab  中创建名为 TestWorkspace  的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 也可以将模板存储在 Azure 存储帐户中，以便在组织中共享访问。 有关使用模板的更多信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../../azure-resource-manager/resource-group-template-deploy-cli.md)；有关支持的区域的信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/zh-cn/home/features/products-by-region)并从“搜索产品”  字段中搜索 Azure Monitor。 
+使用 [az group deployment create](https://docs.azure.cn/zh-cn/cli/group/deployment?view=azure-cli-latest#az-group-deployment-create) 创建工作区。 以下示例使用本地计算机上的资源管理器模板在“中国东部”  位置的资源组 Lab  中创建名为 TestWorkspace  的工作区。 JSON 模板在经过配置后，只提示你输入工作区的名称，并为其他参数指定默认值，这些参数将会用作环境中的标准配置。 也可以将模板存储在 Azure 存储帐户中，以便在组织中共享访问。 有关使用模板的更多信息，请参阅[使用资源管理器模板和 Azure CLI 部署资源](../../azure-resource-manager/resource-group-template-deploy-cli.md)；有关支持的区域的信息，请参阅[提供 Log Analytics 的区域](https://www.azure.cn/zh-cn/home/features/products-by-region)并从“搜索产品”  字段中搜索 Azure Monitor。 
 
 以下参数设置默认值：
 
-* 位置 - 默认为“美国东部”
+* 位置 - 默认为“中国东部”
 * sku - 默认为新的“按 GB”定价层，该层已在 2018 年 4 月的定价模型中发布
 
 >[!WARNING]
@@ -67,10 +67,10 @@ Azure CLI 2.0 用于从命令行或脚本创建和管理 Azure 资源。 本快�
         "location": {
             "type": "String",
             "allowedValues": [
-              "eastus",
-              "westus"
+              "China East",
+              "China North"
             ],
-            "defaultValue": "eastus",
+            "defaultValue": "China East",
             "metadata": {
               "description": "Specifies the location in which to create the workspace."
             }

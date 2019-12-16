@@ -18,12 +18,12 @@ origin.date: 04/20/2018
 ms.date: 07/02/2018
 ms.author: v-yeche
 ms.custom: ''
-ms.openlocfilehash: d2ffe2b5d031235c9a2b7ba04ce07ca56005d3f2
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: a89e01d1d7b0ff8555a77437e8467b80427965bd
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838755"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982166"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>诊断虚拟机网络路由问题 - Azure PowerShell
 
@@ -40,10 +40,10 @@ ms.locfileid: "74838755"
 
 ## <a name="create-a-vm"></a>创建 VM
 
-在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 创建资源组。 以下示例在“eastus”  位置创建名为“myResourceGroup”  的资源组。
+在创建 VM 之前，必须创建该 VM 所属的资源组。 使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.Resources/New-azResourceGroup) 创建资源组。 以下示例在“中国东部 2”位置创建名为 *myResourceGroup* 的资源组。 
 
 ```PowerShell
-New-AzResourceGroup -Name myResourceGroup -Location EastUS
+New-AzResourceGroup -Name myResourceGroup -Location 'China East 2'
 ```
 
 使用 [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 创建 VM。 运行此步骤时，会提示输入凭据。 输入的值将配置为用于 VM 的用户名和密码。
@@ -63,7 +63,7 @@ $vM = New-AzVm `
 
 ## <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在中国东部区域启用了网络观察程序，请使用 [Get-AzureRmNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 来检索网络观察程序。 以下示例检索 NetworkWatcherRG  资源组中名为 NetworkWatcher_chinaeast  的现有网络观察程序：
+如果已在“中国东部 2”区域启用了网络观察程序，请使用 [Get-AzureRmNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 来检索网络观察程序。 以下示例检索 NetworkWatcherRG  资源组中名为 NetworkWatcher_chinaeast  的现有网络观察程序：
 
 ```powershell
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,13 +71,13 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-如果还没有在中国东部区域启用网络观察程序，请使用 [New-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkwatcher) 在中国东部区域创建网络观察程序：
+如果还没有在“中国东部 2”区域启用网络观察程序，请使用 [New-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkwatcher) 在“中国东部 2”区域创建网络观察程序：
 
 ```powershell
 $networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_chinaeast" `
   -ResourceGroupName "NetworkWatcherRG" `
-  -Location "China East"
+  -Location "China East 2"
 ```
 
 ### <a name="use-next-hop"></a>使用下一个跃点

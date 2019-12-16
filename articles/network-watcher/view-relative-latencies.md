@@ -17,12 +17,12 @@ origin.date: 12/14/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: ''
-ms.openlocfilehash: 17f78fa34ca7e3e42a90dc53e879242ef3331b3e
-ms.sourcegitcommit: 0500a329025e55e4e0bdbf68d48d8bcbfab06ec1
+ms.openlocfilehash: a9c426e15b32f9e1d90994b00dcc5a6216f5dae9
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65597987"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982171"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>查看从特定位置到 Azure 区域的相对延迟
 
@@ -32,13 +32,13 @@ ms.locfileid: "65597987"
 
 ## <a name="create-a-network-watcher"></a>创建网络观察程序
 
-如果已至少在一个 Azure [区域](https://www.azure.cn/regions)中部署了网络观察程序，则可以跳过本部分所述的任务。 创建网络观察程序的资源组。 此示例在中国东部区域创建了资源组，但你可以在任何 Azure 区域创建资源组。
+如果已至少在一个 Azure [区域](https://www.azure.cn/regions)中部署了网络观察程序，则可以跳过本部分所述的任务。 创建网络观察程序的资源组。 此示例在“中国东部 2”区域创建了资源组，但你可以在任何 Azure 区域创建资源组。
 
 ```powershell
 New-AzResourceGroup -Name NetworkWatcherRG -Location chinaeast
 ```
 
-创建网络观察程序。 必须至少在一个 Azure 区域创建网络观察程序。 在此示例中，网络观察程序是在中国东部 Azure 区域中创建的。
+创建网络观察程序。 必须至少在一个 Azure 区域创建网络观察程序。 在此示例中，网络观察程序在“中国东部 2”Azure 区域中创建。
 
 ```powershell
 New-AzNetworkWatcher -Name NetworkWatcher_chinaeast -ResourceGroupName NetworkWatcherRG -Location chinaeast
@@ -52,7 +52,7 @@ New-AzNetworkWatcher -Name NetworkWatcher_chinaeast -ResourceGroupName NetworkWa
 Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_chinaeast `
   -ResourceGroupName NetworkWatcherRG `
-  -Location "China North" `
+  -Location "China East 2" `
   -Country "China" `
   -State "Beijing" `
   -StartTime "2017-12-13" `

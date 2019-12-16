@@ -8,12 +8,12 @@ author: lingliw
 ms.author: v-lingwu
 origin.date: 10/22/2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 7622dbb85e7561c91d2808baffac9cc2981dc47a
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: e3f7f2de61a8edb944f653046fabfd044a635b8b
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730554"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982135"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 资源日志支持的服务、架构和类别
 
@@ -42,7 +42,7 @@ ms.locfileid: "73730554"
 | correlationId | 可选 | 用于将一组相关事件组合在一起的 GUID。 通常情况下，如果两个事件具有相同 operationName，但具有两个不同状态（例如 “Started”和“Succeeded”），则它们共享相同的关联 ID。 这也可以代表事件之间的其他关系。 |
 | identity | 可选 | 描述执行操作的用户或应用程序的标识的 JSON Blob。 通常，这将包括 Active Directory 中的授权和声明/JWT 令牌。 |
 | Level | 可选 | 事件的严重级别。 必须是信息性、警告、错误或严重。 |
-| location | 可选 | 发出事件的资源区域，例如 “美国东部”或“法国南部” |
+| location | 可选 | 发出事件的资源区域，例如 “中国东部”或“中国北部” |
 | properties | 可选 | 与此特定类别的事件相关的任何扩展属性。 所有自定义/唯一属性都必须放入此架构的“B 部分”。 |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>资源日志的服务特定架构

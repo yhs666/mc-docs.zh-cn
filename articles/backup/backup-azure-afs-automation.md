@@ -7,12 +7,12 @@ ms.topic: conceptual
 origin.date: 08/20/2019
 ms.date: 11/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 6cd057058f382a38302c4d0d121a62a92d9f9b01
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 70c4fbb4766d2ab55286bcb52c575e7001663b4a
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838958"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982121"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>使用 PowerShell 备份和还原 Azure 文件
 
@@ -94,16 +94,16 @@ ms.locfileid: "74838958"
 
 请按照以下步骤创建恢复服务保管库。
 
-1. 保管库放在资源组中。 如果没有现有的资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) 新建一个。 此示例在美国西部区域创建一个新的资源组。
+1. 保管库放在资源组中。 如果没有现有的资源组，请使用 [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-1.4.0) 新建一个。 此示例在“中国东部”区域创建一个新的资源组。
 
    ```powershell
-   New-AzResourceGroup -Name "test-rg" -Location "West US"
+   New-AzResourceGroup -Name "test-rg" -Location "China East"
    ```
 
 2. 使用 [New-AzRecoveryServicesVault](https://docs.microsoft.com/powershell/module/az.recoveryservices/New-AzRecoveryServicesVault?view=azps-1.4.0) cmdlet 创建保管库。 请为保管库指定与资源组相同的位置。
 
     ```powershell
-    New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "West US"
+    New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName "test-rg" -Location "China East"
     ```
 
 3. 指定保管库存储使用的冗余类型。

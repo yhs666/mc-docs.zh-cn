@@ -18,12 +18,12 @@ origin.date: 04/20/2018
 ms.date: 10/19/2018
 ms.author: v-lingli
 ms.custom: mvc
-ms.openlocfilehash: 406445fcd8ac68d7f4dc412f9b74a54fbb127a20
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: ee59089572f5edd9f2d09852ad5eef88072b105f
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674694"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982169"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-cli"></a>快速入门：诊断虚拟机网络流量筛选器问题 - Azure CLI
 
@@ -60,12 +60,12 @@ az vm create \
 
 ### <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在“中国东部”区域启用网络观察程序，请跳到[使用 IP 流验证](#use-ip-flow-verify)。 使用 [az network watcher configure](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-configure) 命令在“中国东部”区域中创建网络观察程序：
+如果已在“中国东部 2”区域启用网络观察程序，请跳到[使用 IP 流验证](#use-ip-flow-verify)。 使用 [az network watcher configure](https://docs.azure.cn/zh-cn/cli/network/watcher?view=azure-cli-latest#az-network-watcher-configure) 命令在“中国东部 2”区域中创建网络观察程序：
 
 ```azurecli
 az network watcher configure \
   --resource-group NetworkWatcherRG \
-  --locations chinaeast \
+  --locations 'China East 2' \
   --enabled
 ```
 

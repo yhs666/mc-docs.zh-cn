@@ -17,12 +17,12 @@ origin.date: 04/24/2018
 ms.date: 12/24/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 8244874aecf12559f5cca2997d4d475507413e75
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 1f08da21add8e94274e2282b6680a35803df6ad3
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674677"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982183"
 ---
 # <a name="what-is-azure-network-watcher"></a>Azure 网络观察程序是什么？
 
@@ -84,7 +84,7 @@ Azure 网络观察程序提供所需的工具用于监视、诊断 Azure 虚拟�
 
 ## <a name="metrics"></a>指标
 
-在一个 Azure 订阅和区域中可以创建的网络资源数有[限制](../azure-subscription-service-limits.md?toc=%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果超过了限制，则无法在该订阅或区域中创建更多的资源。 网络订阅限制功能汇总每个网络资源在某个订阅和区域中部署的数目，以及该资源的限制。  下图显示了在“中国东部”区域为某个示例订阅部署的网络资源的部分输出：
+在一个 Azure 订阅和区域中可以创建的网络资源数有[限制](../azure-subscription-service-limits.md?toc=%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits)。 如果超过了限制，则无法在该订阅或区域中创建更多的资源。 网络订阅限制功能汇总每个网络资源在某个订阅和区域中部署的数目，以及该资源的限制。  下图显示了在“中国东部 2”区域为某个示例订阅部署的网络资源的部分输出：
 
 ![订阅限制](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

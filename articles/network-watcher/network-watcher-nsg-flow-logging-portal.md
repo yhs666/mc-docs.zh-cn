@@ -18,12 +18,12 @@ origin.date: 04/30/2018
 ms.date: 11/26/2018
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: a62925d645b5bef0ea9567aa9cd889ef922693ff
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 469608d846b68ddd037a2dd36faa643fe8754a34
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528335"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982141"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>教程：使用 Azure 门户记录出入虚拟机的网络流量
 
@@ -61,7 +61,7 @@ ms.locfileid: "74528335"
 
 ## <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在“中国东部”区域中启用网络观察程序，请跳到[注册 Insights 提供程序](#register-insights-provider)。
+如果已在“中国东部 2”区域中启用网络观察程序，请跳到[注册 Insights 提供程序](#register-insights-provider)。
 
 1. 在门户中，选择“所有服务”。  在“筛选器”框中，输入“网络观察程序”   。 结果中出现“网络观察程序”后，将其选中  。
 2. 选择“区域”，以便将其展开，然后选择“中国东部”右侧的“...”，如下图所示：   

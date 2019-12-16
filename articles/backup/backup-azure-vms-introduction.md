@@ -6,12 +6,12 @@ author: lingliw
 origin.date: 09/13/2019
 ms.date: 09/23/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 1e8796ddaf63f74fa6b9afd1da99e1750b4563ed
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 5f71a1d3aae60fc6f44ea51fb94030491f1490be
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74839054"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982090"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>概要了解 Azure VM 备份
 
@@ -140,11 +140,11 @@ OS 磁盘 | 4095 GB | 17 GB
 
 <a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
 
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>公共预览版：备份磁盘大小最大为 30 TB 的 VM
+## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-32-tb"></a>公共预览版：备份磁盘大小最大为 32 TB 的 VM
 
-Azure 备份现在支持大小更大且功能更强大的 [Azure 托管磁盘](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)（最大为 30 TB）的公共预览版。 该预览版为托管虚拟机提供生产级别的支持。
+Azure 备份现在支持大小更大且功能更强大的 [Azure 托管磁盘](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/)（最大为 32 TB）的公共预览版。 该预览版为托管虚拟机提供生产级别的支持。
 
-虚拟机的备份（每个磁盘大小高达 30 TB，VM 中所有磁盘的最大合计容量为 256 TB）应该可以不间断运行，而不会影响现有备份。 如果虚拟机已配置了 Azure 备份，则无需用户操作即可运行大容量磁盘的备份。
+虚拟机的备份（每个磁盘大小高达 32 TB，VM 中所有磁盘的最大合计容量为 256 TB）应该可以不间断运行，而不会影响现有备份。 如果虚拟机已配置了 Azure 备份，则无需用户操作即可运行大容量磁盘的备份。
 
 所有具有配置了备份的大磁盘的 Azure 虚拟机都应成功备份。
 

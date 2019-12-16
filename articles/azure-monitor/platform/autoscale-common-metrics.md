@@ -9,12 +9,12 @@ origin.date: 12/6/2016
 ms.date: 12/6/2018
 ms.author: v-lingwu
 ms.subservice: autoscale
-ms.openlocfilehash: 6e7cbcaae5326bdf1fcec86915c24015cad853b6
-ms.sourcegitcommit: dd0ff08835dd3f8db3cc55301815ad69ff472b13
+ms.openlocfilehash: 327c5bf4184c5a2d443eb05ad5da28936235080b
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70737328"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982138"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure 监视器自动缩放常用指标
 
@@ -188,6 +188,6 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 ```
 
 > [!NOTE]
-> 若使用服务总线，则不存在资源组这一概念，但 Azure 资源管理器会为每个区域创建一个默认资源组。 此资源组通常采用“Default-ServiceBus-[region]”的格式。 例如，“Default-ServiceBus-EastUS”、“Default-ServiceBus-WestUS”、“Default-ServiceBus-AustraliaEast”等等。
+> 若使用服务总线，则不存在资源组这一概念，但 Azure 资源管理器会为每个区域创建一个默认资源组。 此资源组通常采用“Default-ServiceBus-[region]”的格式。 例如，“Default-ServiceBus-Chinanorth”、“Default-ServiceBus-Chinaeast”等。
 >
 >

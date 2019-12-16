@@ -18,12 +18,12 @@ origin.date: 04/20/2018
 ms.date: 04/20/2019
 ms.author: v-lingwu
 ms.custom: mvc
-ms.openlocfilehash: 766409eefb820ef271599ae68e48138c43e323d5
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: ffbe5e081ede63c84b010a489dfa0261e28ac0d0
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674830"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982170"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem---azure-powershell"></a>快速入门：诊断虚拟机网络流量筛选器问题 - Azure PowerShell
 
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name myResourceGroup -Location ChinaEast
 $vM = New-AzVm `
     -ResourceGroupName "myResourceGroup" `
     -Name "myVm" `
-    -Location "China East"
+    -Location "China East 2"
 ```
 
 创建 VM 需要几分钟时间。 在创建好 VM 且 PowerShell 返回输出之前，请勿继续执行剩余的步骤。
@@ -61,7 +61,7 @@ $vM = New-AzVm `
 
 ### <a name="enable-network-watcher"></a>启用网络观察程序
 
-如果已在中国东部区域启用了网络观察程序，请使用 [Get-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 来检索网络观察程序。 以下示例检索 NetworkWatcherRG  资源组中名为 NetworkWatcher_chinaeast  的现有网络观察程序：
+如果已在“中国东部 2”区域启用了网络观察程序，请使用 [Get-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcher) 来检索网络观察程序。 以下示例检索 NetworkWatcherRG  资源组中名为 NetworkWatcher_chinaeast  的现有网络观察程序：
 
 ```PowerShell
 $networkWatcher = Get-AzNetworkWatcher `
@@ -69,13 +69,13 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-如果还没有在中国东部区域启用网络观察程序，请使用 [New-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkwatcher) 在中国东部区域创建网络观察程序：
+如果还没有在“中国东部 2”区域启用网络观察程序，请使用 [New-AzNetworkWatcher](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermnetworkwatcher) 在“中国东部 2”区域创建网络观察程序：
 
 ```PowerShell
 $networkWatcher = New-AzNetworkWatcher `
   -Name "NetworkWatcher_chinaeast" `
   -ResourceGroupName "NetworkWatcherRG" `
-  -Location "China East"
+  -Location "China East 2"
 ```
 
 ### <a name="use-ip-flow-verify"></a>使用 IP 流验证

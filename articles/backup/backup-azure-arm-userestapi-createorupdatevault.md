@@ -8,16 +8,16 @@ origin.date: 08/21/2018
 ms.date: 09/21/2019
 ms.author: v-lingwu
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: 953068860357877febcda13e09abc49bd83d94c3
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 5ea6d83090e4a2f971b2e4c2966c802da8590faa
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838956"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982119"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>使用 REST API 创建 Azure 恢复服务保管库
 
-[创建保管库 REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) 文档中概述了使用 REST API 创建 Azure 恢复服务保管库的步骤。 让我们使用本文档作为参考在“美国西部”区域中创建一个名为“testVault”的保管库。
+[创建保管库 REST API](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate) 文档中概述了使用 REST API 创建 Azure 恢复服务保管库的步骤。 让我们使用本文档作为参考在“中国东部”区域中创建一个名为“testVault”的保管库。
 
 若要创建或更新 Azure 恢复服务保管库，请使用以下 *PUT* 操作。
 
@@ -54,7 +54,7 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
 
 ## <a name="example-request-body"></a>示例请求正文
 
-以下示例正文用来在“美国西部”区域中创建一个保管库。 指定位置。 SKU 始终为“Standard”。
+以下示例正文用来在“中国东部”区域中创建一个保管库。 指定位置。 SKU 始终为“Standard”。
 
 ```json
 {
@@ -62,7 +62,7 @@ PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/resourceG
   "sku": {
     "name": "Standard"
   },
-  "location": "West US"
+  "location": "China East"
 }
 ```
 

@@ -9,12 +9,12 @@ origin.date: 09/09/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
 ms.subservice: metrics
-ms.openlocfilehash: 361060c3c9bf416769a0e212fc5dd984e640598b
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6871832a51646bac4882ffcb3bbadb3455488ee5
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74527945"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982126"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Azure Monitor 中的自定义指标
 
@@ -47,7 +47,7 @@ ms.locfileid: "74527945"
 >
 
 ### <a name="region"></a>区域
-此属性捕获针对其发出指标的资源所部署到的 Azure 区域。 必须将指标发出到资源部署区域所在的同一个 Azure Monitor 区域终结点。 例如，部署在中国东部的 VM 的自定义指标必须发送到美国西部区域 Azure Monitor 终结点。 区域信息也在 API 调用的 URL 中编码。
+此属性捕获针对其发出指标的资源所部署到的 Azure 区域。 必须将指标发出到资源部署区域所在的同一个 Azure Monitor 区域终结点。 例如，部署在中国东部的 VM 的自定义指标必须发送到“中国东部”区域 Azure Monitor 终结点。 区域信息也在 API 调用的 URL 中编码。
 
 > [!NOTE]  
 > 在公共预览期，自定义指标只在一部分 Azure 区域中可用。 本文稍后的部分提供了受支持区域的列表。

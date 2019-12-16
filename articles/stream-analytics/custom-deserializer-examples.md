@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: ddf458836060bad3c38a1308c275d9f09982f534
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 2614b292a237bd6df418e1672d1c47b9279e6492
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528586"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982173"
 ---
 # <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>对 Azure 流分析作业使用 .NET 反序列化程序
 
@@ -226,12 +226,8 @@ namespace ExampleCustomCode.Serialization
 
 此功能已在以下区域推出：
 
-* 美国中西部（已推出）
-* 北欧（已推出）
-* 美国东部（已推出）
-* 美国西部（即将推出）
-* 美国东部 2（即将推出）
-* 西欧（即将推出）
+* 中国东部 2（可用）
+
 
 其他区域的用户可以[请求支持](https://aka.ms/ccodereqregion)。
 

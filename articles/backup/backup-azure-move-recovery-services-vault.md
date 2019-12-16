@@ -7,12 +7,12 @@ author: lingliw
 origin.date: 04/08/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 534a4fad20ccb107cea371504080c0b1b0c68db2
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 7c0e7ec39d293abbcd2af4b050fe2b70cf0281b5
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74839060"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982113"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>跨 Azure 订阅和资源组移动恢复服务保管库
 
@@ -20,7 +20,7 @@ ms.locfileid: "74839060"
 
 ## <a name="supported-regions"></a>支持的区域
 
-以下区域支持恢复服务保管库的资源移动：澳大利亚东部、澳大利亚东南部、加拿大中部、加拿大东部、东南亚、东亚、美国中部、美国中北部、美国东部、美国东部 2、美国中南部、美国中西部、美国中西部 2、美国西部、印度中部、印度南部、日本东部、日本西部、韩国中部、韩国南部、北欧、西欧、南非北部、南非西部、英国南部和英国西部。
+中国北部、中国北部 2、中国东部、中国东部 2 支持恢复服务保管库的资源移动。
 
 ## <a name="prerequisites-for-moving-recovery-services-vault"></a>移动恢复服务保管库的先决条件
 

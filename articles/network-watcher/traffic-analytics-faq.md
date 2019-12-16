@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 origin.date: 03/08/2018
 ms.date: 9/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: a54145ac13fe229b7764875e781305f3316d8dc0
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6daf9799b03eb02782ccc9254ccf64790eb8b53c
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528385"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982185"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>流量分析常见问题解答
 
@@ -66,16 +66,10 @@ ms.locfileid: "74528385"
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>流量分析在哪些 Azure 区域中可用？
 
 可以在以下任何受支持的区域中对 NSG 使用流量分析：
-- 中国东部
 - 中国东部 2
-- 中国北部
-- 中国北部 2
 
 Log Analytics 工作区必须存在于以下区域中：
-- 中国东部
 - 中国东部 2
-- 中国北部
-- 中国北部 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>启用流日志的 NSG 是否可与工作区位于不同的区域？
 
@@ -207,7 +201,7 @@ armclient post "https://management.chinacloudapi.cn/subscriptions/<NSG subscript
 
 流量分析是计量式的。 该计量的基础是由服务处理流日志数据，并将生成的增强日志存储在 Log Analytics 工作区中。 
 
-例如，根据[定价计划](https://www.azure.cn/pricing/details/network-watcher/)，就“中国东部”区域而言，如果流量分析处理的存储帐户中存储的流日志数据为 10 GB，而 Log Analytics 工作区中引入的增强日志为 1 GB，则适用的费用是：10 x 2.3$ + 1 x 2.76$ = 25.76$
+例如，根据[定价计划](https://www.azure.cn/pricing/details/network-watcher/)，就“中国东部 2”区域而言，如果流量分析处理的存储帐户中存储的流日志数据为 10 GB，而 Log Analytics 工作区中引入的增强日志为 1 GB，则相应的费用是：10 x 2.3$ + 1 x 2.76$ = 25.76$
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>流量分析多久处理一次数据？
 
