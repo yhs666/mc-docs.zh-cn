@@ -8932,7 +8932,7 @@
     {
         "source_path": "articles/virtual-machines/windows/classic/web-app-visual-studio.md",
         "redirect_url": "/app-service/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md",
@@ -18413,7 +18413,7 @@
     {
         "source_path": "articles/hdinsight/hdinsight-hadoop-install-presto.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hdinsight-hadoop-script-actions.md",
@@ -18443,7 +18443,7 @@
     {
         "source_path": "articles/hdinsight/hdinsight-migrate-from-windows-to-linux.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hdinsight-monitor-use-ambari-api.md",
@@ -18488,22 +18488,22 @@
     {
         "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-curl.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-datafu-udf.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-dotnet-sdk.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-powershell.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-remote-desktop.md",
@@ -18513,7 +18513,7 @@
     {
         "source_path": "articles/hdinsight/hadoop/apache-hadoop-use-pig-ssh.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hadoop/apache-hive-analyze-sensor-data.md",
@@ -18528,7 +18528,7 @@
     {
         "source_path": "articles/hdinsight/hadoop/hdinsight-use-pig.md",
         "redirect_url": "/hdinsight/",
-        "redirect_document_id": true
+        "redirect_document_id": false
     },
     {
         "source_path": "articles/hdinsight/hbase/apache-hbase-phoenix-squirrel-linux.md",
