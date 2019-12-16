@@ -9,12 +9,12 @@ origin.date: 09/20/2019
 ms.date: 10/20/2019
 ms.author: v-lingwu
 ms.subservice: ''
-ms.openlocfilehash: aa8490c090b9ed039a85e03f3a1d8317b05e4452
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 693870df566f6fc32a17959c6ee63569861320eb
+ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72971132"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74982143"
 ---
 # <a name="stream-azure-resource-logs-to-azure-event-hubs"></a>将 Azure 资源日志流式传输到 Azure 事件中心
 Azure 中的[资源日志](resource-logs-overview.md)提供有关 Azure 资源内部操作的丰富、频繁的数据。 本文介绍如何将资源日志流式传输到事件中心，以便将数据发送到外部系统，例如第三方 SIEM 和其他日志分析解决方案。
@@ -93,7 +93,7 @@ Azure 中的[资源日志](resource-logs-overview.md)提供有关 Azure 资源�
                     "workflowId": "243aac67fe904cf195d4a28297803785",
                     "workflowName": "JohnKemTestLA",
                     "runId": "08587330013509921957",
-                    "location": "westus",
+                    "location": "China East",
                     "actionName": "Send_email"
                 },
                 "correlation": {
@@ -119,7 +119,7 @@ Azure 中的[资源日志](resource-logs-overview.md)提供有关 Azure 资源�
                     "workflowId": "243aac67fe904cf195d4a28297803785",
                     "workflowName": "JohnKemTestLA",
                     "runId": "08587330012106702630",
-                    "location": "westus",
+                    "location": "China East",
                     "actionName": "Send_email"
                 },
                 "correlation": {
