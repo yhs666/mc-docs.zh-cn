@@ -19029,7 +19029,17 @@
       "source_path": "articles/sql-database/sql-database-develop-error-messages.md",
       "redirect_url": "/sql-database/troubleshoot-connectivity-issues-microsoft-azure-sql-database",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path": "articles/iot-central/preview/tutorial-connect-pnp-device.md",
+      "redirect_url": "/iot-central/core/tutorial-add-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-central/preview/howto-connect-devkit.md",
+      "redirect_url": "/iot-central/core/howto-connect-devkit",
+      "redirect_document_id": false
+    }  
 
   ]
 }
