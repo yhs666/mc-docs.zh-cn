@@ -32,7 +32,7 @@ ms.locfileid: "74389388"
 | AnotherOperationInProgress | 等待并发操作完成。 | |
 | AuthorizationFailed | 帐户或服务主体没有足够的访问权限，无法完成部署。 请检查帐户所属的角色，及其与部署范围相对应的访问权限。<br /><br />所需的资源提供程序未注册时，可能会收到此错误。 | [Azure 基于角色的访问控制](../role-based-access-control/role-assignments-portal.md)<br /><br />[解决注册问题](resource-manager-register-provider-errors.md) |
 | BadRequest | 发送的部署值与资源管理器预期的值不匹配。 请检查内部状态消息，获取故障排除帮助。 | [支持的位置](resource-location.md) |
-| 冲突 | 在资源的当前状态下不允许所请求的操作。 例如，仅当创建 VM 或该 VM 已取消分配时，才允许磁盘重设大小。 | |
+| Conflict | 在资源的当前状态下不允许所请求的操作。 例如，仅当创建 VM 或该 VM 已取消分配时，才允许磁盘重设大小。 | |
 | DeploymentActiveAndUneditable | 等待目标为此资源组的并发部署完成。 | |
 | DeploymentFailedCleanUp | 在完整模式下部署时，模板中不存在的任何资源都将被删除。 当没有足够的权限删除模板中所有不存在的资源时，会出现此错误。 若要避免此错误，请将部署模式更改为“增量”。 | [Azure 资源管理器部署模式](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | 部署名称只能包含字母、数字、"-"、"." 或 "_"。 | |

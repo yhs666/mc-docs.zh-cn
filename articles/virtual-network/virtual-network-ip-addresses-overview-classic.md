@@ -90,7 +90,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 ### <a name="at-a-glance"></a>速览
 下表显示了具有可能分配方法（动态/静态）的每种资源类型以及它是否具有分配多个公共 IP 地址的能力。
 
-| Resource | 动态 | 静态 | 多个 IP 地址 |
+| 资源 | 动态 | 静态 | 多个 IP 地址 |
 | --- | --- | --- | --- |
 | 云服务 |是 |是 |是 |
 | IaaS VM 或 PaaS 角色实例 |是 |否 |否 |
@@ -140,7 +140,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 ### <a name="at-a-glance"></a>速览
 下表显示了具有可能分配方法（动态/静态）的每种资源类型以及它是否具有分配多个专用 IP 地址的能力。
 
-| Resource | 动态 | 静态 | 多个 IP 地址 |
+| 资源 | 动态 | 静态 | 多个 IP 地址 |
 | --- | --- | --- | --- |
 | VM（在独立云服务或 VNet 中）  |是 |是 |是 |
 | PaaS 角色实例（在独立云服务或 VNet 中）  |是 |否 |否 |
@@ -165,7 +165,7 @@ Azure [应用程序网关](../application-gateway/application-gateway-introducti
 ## <a name="differences-between-resource-manager-and-classic-deployments"></a>Resource Manager 与经典部署之间的差异
 下面是 Resource Manager 和经典部署模型中的 IP 寻址功能的比较。
 
-|  | Resource | 经典 | Resource Manager |
+|  | 资源 | 经典 | Resource Manager |
 | --- | --- | --- | --- |
 | **公共 IP 地址** |***VM*** |称为 ILPIP（仅限动态） |称为公共 IP（动态或静态） |
 |  ||分配到 IaaS VM 或 PaaS 角色实例 |与 VM 的 NIC 关联 |

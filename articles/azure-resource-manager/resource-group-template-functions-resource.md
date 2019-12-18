@@ -842,7 +842,7 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
