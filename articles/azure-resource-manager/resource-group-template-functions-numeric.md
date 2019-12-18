@@ -15,7 +15,7 @@ ms.locfileid: "74389393"
 
 Resource Manager 提供以下用于处理整数的函数：
 
-* [添加](#add)
+* [add](#add)
 * [copyIndex](#copyindex)
 * [div](#div)
 * [float](#float)
@@ -30,7 +30,7 @@ Resource Manager 提供以下用于处理整数的函数：
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="add"></a>添加
+## <a name="add"></a>add
 `add(operand1, operand2)`
 
 返回提供的两个整数的总和。
@@ -83,7 +83,7 @@ Resource Manager 提供以下用于处理整数的函数：
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | addResult | int | 8 |
 
@@ -200,7 +200,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | divResult | int | 2 |
 
@@ -294,7 +294,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | intResult | int | 4 |
 
@@ -357,7 +357,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | int | 5 |
 | intOutput | int | 5 |
@@ -421,7 +421,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | arrayOutput | int | 0 |
 | intOutput | int | 0 |
@@ -492,7 +492,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | modResult | int | 1 |
 
@@ -563,7 +563,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | mulResult | int | 15 |
 
@@ -633,7 +633,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | subResult | int | 4 |
 

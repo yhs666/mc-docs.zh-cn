@@ -21,7 +21,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 * [not](#not)
 * [or](#or)
 
-## <a name="and"></a>和
+## <a name="and"></a>and
 
 `and(arg1, arg2, ...)`
 
@@ -67,7 +67,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 前述示例的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -120,7 +120,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 上述示例中使用默认值的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | trueString | Bool | True |
 | falseString | Bool | False |
@@ -178,7 +178,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 前述示例的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | yesOutput | String | 是 |
 | noOutput | String | 否 |
@@ -276,7 +276,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 前述示例的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |
@@ -300,7 +300,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 前述示例的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
@@ -350,7 +350,7 @@ Resource Manager 提供了多个用于在模板中进行比较的函数。
 
 前述示例的输出为：
 
-| Name | 类型 | Value |
+| 名称 | 类型 | Value |
 | ---- | ---- | ----- |
 | andExampleOutput | Bool | False |
 | orExampleOutput | Bool | True |

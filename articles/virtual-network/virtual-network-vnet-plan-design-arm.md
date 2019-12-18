@@ -32,7 +32,7 @@ ms.locfileid: "74658029"
 
 <!--Not Available on  For suggestions, see [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions?toc=%2fvirtual-network%2ftoc.json#networking)-->
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>区域
 
 在 Azure 区域和订阅中创建所有 Azure 资源。 只能在与资源位于相同区域和订阅的虚拟网络中创建资源。 但是，可连接存在于不同订阅和区域中的虚拟网络。 有关详细信息，请参阅[连接性](#connectivity)。 在决定要在哪个区域部署资源时，请考虑资源的使用者位于何处：
 

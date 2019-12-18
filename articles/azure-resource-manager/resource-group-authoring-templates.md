@@ -40,7 +40,7 @@ ms.locfileid: "74389346"
 | $schema |是 |描述模板语言版本的 JSON 架构文件所在的位置。<br /><br /> 对于资源组部署，请使用：`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br /><br />对于订阅部署，请使用：`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |是 |模板的版本（例如 1.0.0.0）。 可为此元素提供任意值。 使用此值记录模板中的重要更改。 使用模板部署资源时，此值可用于确保使用正确的模板。 |
 | apiProfile |否 | 用作资源类型 API 版本集合的 API 版本。 使用此值可以避免为模板中的每个资源指定 API 版本。 如果你指定 API 配置文件版本但不指定资源类型的 API 版本，则资源管理器将使用配置文件中为该资源类型定义的 API 版本。<br /><br />将模板部署到不同的环境（例如 Azure Stack 和全球 Azure）时，API 配置文件属性非常有用。 使用 API 配置文件版本可确保模板自动使用两个环境均支持的版本。 有关最新 API 配置文件版本以及配置文件中定义的资源 API 版本的列表，请参阅 [API 配置文件](https://github.com/Azure/azure-rest-api-specs/tree/master/profile)。<br /><br />有关详细信息，请参阅[使用 API 配置文件跟踪版本](templates-cloud-consistency.md#track-versions-using-api-profiles)。 |
-| [参数](#parameters) |否 |执行部署以自定义资源部署时提供的值。 |
+| [parameters](#parameters) |否 |执行部署以自定义资源部署时提供的值。 |
 | [variables](#variables) |否 |在模板中用作 JSON 片段以简化模板语言表达式的值。 |
 | [functions](#functions) |否 |可在模板中使用的用户定义函数。 |
 | [resources](#resources) |是 |已在资源组或订阅中部署/更新的资源类型。 |
@@ -81,7 +81,7 @@ ms.locfileid: "74389346"
 | maxValue |否 |int 类型参数的最大值，此值是包容性的。 |
 | minLength |否 |string、secure string 和 array 类型参数的最小长度，此值是包容性的。 |
 | maxLength |否 |string、secure string 和 array 类型参数的最大长度，此值是包容性的。 |
-| 说明 |否 |通过门户向用户显示的参数的说明。 有关详细信息，请参阅[模板中的注释](#comments)。 |
+| description |否 |通过门户向用户显示的参数的说明。 有关详细信息，请参阅[模板中的注释](#comments)。 |
 
 有关如何使用参数的示例，请参阅 [Azure 资源管理器模板中的参数](template-parameters.md)。
 
@@ -239,20 +239,20 @@ ms.locfileid: "74389346"
 
 | 元素名称 | 必须 | 说明 |
 |:--- |:--- |:--- |
-| 条件 | 否 | 布尔值，该值指示在此部署期间是否将预配资源。 为 `true` 时，在部署期间创建资源。 为 `false` 时，此部署将跳过资源。 请参阅[条件](conditional-resource-deployment.md)。 |
+| condition | 否 | 布尔值，该值指示在此部署期间是否将预配资源。 为 `true` 时，在部署期间创建资源。 为 `false` 时，此部署将跳过资源。 请参阅[条件](conditional-resource-deployment.md)。 |
 | apiVersion |是 |用于创建资源的 REST API 版本。|
 | type |是 |资源的类型。 此值是资源提供程序的命名空间和资源类型（例如 **Microsoft.Storage/storageAccounts**）的组合。 对于子资源，类型的格式取决于该资源是嵌套在父资源中，还是在父资源的外部定义。 请参阅[设置子资源的名称和类型](child-resource-name-type.md)。 |
 | name |是 |资源的名称。 该名称必须遵循 RFC3986 中定义的 URI 构成部分限制。 向外部各方公开资源名称的 Azure 服务会验证名称，以确保它不是试图窃取另一标识。 对于子资源，名称的格式取决于该资源是嵌套在父资源中，还是在父资源的外部定义。 请参阅[设置子资源的名称和类型](child-resource-name-type.md)。 |
 | location |多种多样 |提供的资源支持的地理位置。 可以选择任何可用位置，但通常选取靠近用户的位置。 通常还会将彼此交互的资源置于同一区域。 大多数资源类型需要一个位置，但某些类型（如角色分配）不需要位置。 请参阅[设置资源位置](resource-location.md)。 |
-| 标记 |否 |与资源关联的标记。 应用可以在订阅中对资源进行逻辑组织的标记。 |
-| 注释 |否 |用于描述模板中资源的注释。 有关详细信息，请参阅[模板中的注释](resource-group-authoring-templates.md#comments)。 |
-| 复制 |否 |如果需要多个实例，则为要创建的资源数。 默认模式为并行。 若不想同时部署所有资源，请指定为串行模式。 有关详细信息，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。 |
+| tags |否 |与资源关联的标记。 应用可以在订阅中对资源进行逻辑组织的标记。 |
+| comments |否 |用于描述模板中资源的注释。 有关详细信息，请参阅[模板中的注释](resource-group-authoring-templates.md#comments)。 |
+| copy |否 |如果需要多个实例，则为要创建的资源数。 默认模式为并行。 若不想同时部署所有资源，请指定为串行模式。 有关详细信息，请参阅[在 Azure 资源管理器中创建多个资源实例](resource-group-create-multiple.md)。 |
 | dependsOn |否 |部署此资源之前必须部署的资源。 Resource Manager 会评估资源之间的依赖关系，并按正确的顺序部署资源。 如果资源互不依赖，则会并行部署资源。 该值可以是资源名称或资源唯一标识符的逗号分隔列表。 在此模板中仅部署列出的资源。 未在此模板中定义的资源必须是已存在的资源。 避免添加不必要的依赖项，因为这些依赖项可能会降低部署速度并创建循环依赖项。 有关设置依赖项的指导，请参阅[在 Azure Resource Manager 模板中定义依赖项](resource-group-define-dependencies.md)。 |
 | properties |否 |特定于资源的配置设置。 properties 的值与创建资源时，在 REST API 操作（PUT 方法）的请求正文中提供的值相同。 还可以指定副本数组，为一个属性创建多个实例。 |
 | sku | 否 | 某些资源接受定义了要部署的 SKU 的值。 例如，可以为存储帐户指定冗余类型。 |
 | kind | 否 | 某些资源接受定义了你部署的资源类型的值。 例如，可以指定要创建的 Cosmos DB 的类型。 |
-| 计划 | 否 | 某些资源接受定义了要部署的计划的值。 例如，可以为虚拟机指定市场映像。 |
-| 资源 |否 |依赖于所定义的资源的子资源。 只能提供父资源的架构允许的资源类型。 不隐式表示对父资源的依赖。 必须显式定义该依赖关系。 请参阅[设置子资源的名称和类型](child-resource-name-type.md)。 |
+| plan | 否 | 某些资源接受定义了要部署的计划的值。 例如，可以为虚拟机指定市场映像。 |
+| resources |否 |依赖于所定义的资源的子资源。 只能提供父资源的架构允许的资源类型。 不隐式表示对父资源的依赖。 必须显式定义该依赖关系。 请参阅[设置子资源的名称和类型](child-resource-name-type.md)。 |
 
 <!--Not Available on Line 237,238,249 To determine available values, see [template reference](https://docs.microsoft.com/azure/templates/)-->
 
@@ -275,7 +275,7 @@ ms.locfileid: "74389346"
 | 元素名称 | 必须 | 说明 |
 |:--- |:--- |:--- |
 | output-name |是 |输出值的名称。 必须是有效的 JavaScript 标识符。 |
-| 条件 |否 | 指示此输出值是否返回的布尔值。 如果为 `true`，则该值包含在部署的输出中。 如果为 `false`，则此部署将跳过输出值。 如果未指定，则默认值为 `true`。 |
+| condition |否 | 指示此输出值是否返回的布尔值。 如果为 `true`，则该值包含在部署的输出中。 如果为 `false`，则此部署将跳过输出值。 如果未指定，则默认值为 `true`。 |
 | type |是 |输出值的类型。 输出值支持的类型与模板输入参数相同。 如果指定 **securestring** 作为输出类型，则值不会显示在部署历史记录中，并且无法从另一个模板检索。 若要在多个模板中使用机密值，请在 Key Vault 中存储该机密，并在参数文件中引用该机密。 有关详细信息，请参阅[在部署过程中使用 Azure Key Vault 传递安全参数值](resource-manager-keyvault-parameter.md)。 |
 | value |是 |要求值并作为输出值返回的模板语言表达式。 |
 

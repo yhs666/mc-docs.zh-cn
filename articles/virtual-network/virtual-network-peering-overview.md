@@ -52,7 +52,7 @@ ms.locfileid: "74658040"
 
 可以部署中心辐射型网络，允许中心虚拟网络在其中托管基础结构组件，如网络虚拟设备或 VPN 网关。 然后，可将所有分支虚拟网络对等互连到中心虚拟网络。 流量可以流经中心虚拟网络中的网络虚拟设备或 VPN 网关。 
 
-通过虚拟网络对等互连，用户定义的路由中的下一个跃点可以成为对等虚拟网络中虚拟机或 VNP 网关的 IP 地址。 但在虚拟网络之间进行路由时，不能通过用户定义的路由将 ExpressRoute 网关指定为下一跃点类型。 若要深入了解用户定义的路由，请参阅[用户定义的路由概述](virtual-networks-udr-overview.md#user-defined)。 
+通过虚拟网络对等互连，用户定义的路由中的下一个跃点可以成为对等虚拟网络中虚拟机或 VPN 网关的 IP 地址。 但在虚拟网络之间进行路由时，不能通过用户定义的路由将 ExpressRoute 网关指定为下一跃点类型。 若要深入了解用户定义的路由，请参阅[用户定义的路由概述](virtual-networks-udr-overview.md#user-defined)。 
 
 <!-- Not Available on  [hub and spoke network topology](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json#virtual network-peering)-->
 
