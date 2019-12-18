@@ -24,7 +24,7 @@ ms.locfileid: "74658038"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>故障排除：无法在 Azure 中删除虚拟网络
 
-尝试在 Microsoft Azure 中删除虚拟网络时，可能会收到错误。 本文提供解决此问题的故障排除步骤。 
+尝试在 Azure 中删除虚拟网络时，可能会收到错误。 本文提供解决此问题的故障排除步骤。 
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
