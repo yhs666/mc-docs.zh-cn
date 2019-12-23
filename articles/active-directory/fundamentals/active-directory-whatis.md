@@ -20,7 +20,7 @@ ms.locfileid: "74084709"
 ---
 # <a name="what-is-azure-active-directory"></a>什么是 Azure Active Directory？
 
-Azure Active Directory (Azure AD) 是 Microsoft 推出的基于云的标识和访问管理服务，可帮助员工登录及访问以下位置的资源：
+Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service, which helps your employees sign in and access resources in Azure:
 
 ## <a name="who-uses-azure-ad"></a>谁在使用 Azure AD？
 
@@ -66,7 +66,7 @@ Microsoft Online 业务服务（例如 Office 365 或 Azure）要求通过 Azure
 |单租户| 可以将访问专用环境中的其他服务的 Azure 租户视为单租户。|
 |多租户| 可以将访问共享环境中的其他服务的 Azure 租户（跨多个组织）视为多租户。|
 |Azure AD 目录|每个 Azure 租户都有一个专用且受信任的 Azure AD 目录。 Azure AD 目录包括租户的用户、组和应用，用于针对租户资源执行标识和访问管理功能。|
-|自定义域|每个新的 Azure AD directory 都附带了一个初始域名 domainname.partner.onmschina.cn。 除了该初始名称，还可以向列表添加组织的域名，其中包括用来开展业务的名称以及用户用来访问组织资源的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 alain@contoso.com。|
+|自定义域|每个新的 Azure AD 目录都附带了一个初始域名 domainname.partner.onmschina.cn。 除了该初始名称，还可以向列表添加组织的域名，其中包括用来开展业务的名称以及用户用来访问组织资源的名称。 添加自定义域名有助于创建用户所熟悉的用户名，例如 alain@contoso.com。|
 |帐户管理员|从概念上讲，此经典订阅管理员角色是订阅的账单所有者。 此角色可以访问 [Azure 帐户中心](https://account.windowsazure.cn/Subscriptions)，用于管理一个帐户中的所有订阅。 有关详细信息，请参阅[经典订阅管理员角色、Azure 基于角色的访问控制 (RBAC) 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
 |服务管理员|此经典订阅管理员角色用于管理所有 Azure 资源，包括访问权限。 此角色拥有在订阅范围内分配有“所有者”角色的用户的等效访问权限。 有关详细信息，请参阅[经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
 |所有者|此角色有助于管理所有 Azure 资源，包括访问权限。 此角色在称为基于角色的访问控制 (RBAC) 的较新授权系统上构建，该系统可提供对 Azure 资源的精细访问管理。 有关详细信息，请参阅[经典订阅管理员角色、Azure RBAC 角色和 Azure AD 管理员角色](../../role-based-access-control/rbac-and-directory-admin-roles.md)。|
