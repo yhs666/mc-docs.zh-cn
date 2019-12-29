@@ -4,24 +4,25 @@ description: Azure IoT Central 是一个 IoT 应用程序平台，可简化 IoT 
 author: dominicbetts
 ms.author: v-yiso
 origin.date: 11/12/2019
+ms.date: 12/30/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 57746ad5a6284bab6e155efdeaa0974a5fae5785
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 733752cf2547010d4b145eecc99bc400716e5c83
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883795"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334731"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Azure IoT Central（预览版功能）是什么？
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> Azure IoT Central 中的 IoT 即插即用功能目前以公共预览版提供。 请勿将已启用 IoT 即插即用的 IoT Central [应用程序模板](../core/concepts-app-templates.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)用于生产工作负荷。 对于生产环境，请使用从当前正式发布的[应用程序模板](../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)创建的 IoT Central 应用程序。
+> Azure IoT Central 中的 IoT 即插即用功能目前以公共预览版提供。 请勿将已启用 IoT 即插即用的 IoT Central [应用程序模板](../core/concepts-app-templates.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)用于生产工作负荷。 对于生产环境，请使用从当前正式发布的[应用程序模板](../core/concepts-app-templates.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)创建的 IoT Central 应用程序。
 
 IoT Central 是一个 IoT 应用程序平台，可减轻开发、管理和维护企业级 IoT 解决方案的负担和成本。 选择使用 IoT Central 进行构建可将时间、金钱和精力集中于使用 IoT 数据转换业务，而不仅仅是维护和更新复杂且不断发展的 IoT 基础结构。
 
@@ -41,17 +42,12 @@ IoT Central 是一个 IoT 应用程序平台，可减轻开发、管理和维护
 > [!Note]
 > 这些已知问题仅适用于 IoT Central 预览版应用程序。
 
-- 规则并不支持所有操作（仅限电子邮件）。
-- 对于复杂的类型 - 规则、分析和设备组不受支持。
 - 连续数据导出不支持 Avro 格式（不兼容）。
-- 模拟设备不支持所有复杂类型。
 - 目前不支持 GeoJSON。
 - 目前不支持地图图块。
 - 作业不支持复杂类型。
 - 不支持数组架构类型。
-- 不支持应用程序模板导出和应用程序复制。
 - 仅支持 C 设备 SDK 以及 Node.js 设备和服务 SDK。
-- 仅在美国和欧洲地区提供。
 - 必须在同一文件中以内联方式定义设备功能模型的所有接口。
 
 ## <a name="personas"></a>角色
@@ -149,7 +145,7 @@ IoT Central 应用程序完全由 Microsoft 托管，这降低了管理应用程
 
 现在，你已大致了解了 IoT Central，下面是建议的后续步骤：
 
-- 了解 [IoT Central 与 Azure IoT 解决方案加速器](../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)之间的区别。
+- 了解 [IoT Central 与 Azure IoT 解决方案加速器](../core/overview-iot-options.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)之间的区别。
 - 熟悉 [Azure IoT Central UI](overview-iot-central-tour.md)。
 - 通过[创建 Azure IoT Central 应用程序](quick-deploy-iot-central.md)开始使用此解决方案。
 - 了解如何[创建 Azure IoT Edge 设备模板](./tutorial-define-edge-device-type.md)

@@ -7,13 +7,13 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-origin.date: 11/18/2019
-ms.openlocfilehash: 038cff951bf8fd948fb1eba23fd5ff76f9d4c9b8
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+origin.date: 12/16/2019
+ms.openlocfilehash: 7df408ee3674c0a2d930c575adff71bddb7f079c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020969"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335938"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建事件中心数据连接
 

@@ -6,13 +6,13 @@ ms.author: v-tawe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/18/2019
-ms.openlocfilehash: 86abe4ab27c94565805d5886355358aecd716b91
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: 648c6e5abdf92d00ff1ae20ad7dfd14b62887453
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020942"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335949"
 ---
 # <a name="create-an-event-hub-data-connection-for-azure-data-explorer-by-using-c"></a>使用 C# 为 Azure 数据资源管理器创建事件中心数据连接
 

@@ -7,13 +7,13 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-origin.date: 11/18/2019
-ms.openlocfilehash: e01e4c7525155563d79a97c06cb142717075f8d8
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+origin.date: 12/16/2019
+ms.openlocfilehash: e7f2563382de2212c85d181c3e7c47dd6e869f7c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020946"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335936"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>使用 Python 为 Azure 数据资源管理器创建 IoT 中心数据连接（预览版）
 

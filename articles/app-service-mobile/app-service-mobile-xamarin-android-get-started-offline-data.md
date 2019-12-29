@@ -13,22 +13,23 @@ ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: d8ec1e0c43db567d3a14af9c81c4499fb2f949b7
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: b9dedc29a985a99e1c85cb86da3f501f675418da
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583577"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335758"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>为 Xamarin.Android 移动应用启用脱机同步
 
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-offline-data)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 
@@ -41,7 +42,7 @@ ms.locfileid: "72583577"
 
 ## <a name="update-the-client-app-to-support-offline-features"></a>更新客户端应用以支持脱机功能
 
-脱机情况下，可使用 Azure 移动应用脱机功能与本地数据库交互。 要在应用中使用这些功能，请将 [SyncContext] 初始化到本地存储。 然后，通过 [IMobileServiceSyncTable](/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) 接口引用表。 SQLite 在设备上用作本地存储。
+脱机情况下，可使用 Azure 移动应用脱机功能与本地数据库交互。 要在应用中使用这些功能，请将 [SyncContext] 初始化到本地存储。 然后，通过 [IMobileServiceSyncTable](https://docs.azure.cn/dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet) 接口引用表。 SQLite 在设备上用作本地存储。
 
 1. 在 Visual Studio 中，打开在 [创建 Xamarin Android 应用] 教程中完成的应用项目的 NuGet 包管理器。  搜索并安装 **Microsoft.Azure.Mobile.Client.SQLiteStore** NuGet 包。
 2. 打开 ToDoActivity.cs 文件，并取消评论 `#define OFFLINE_SYNC_ENABLED` 定义。
@@ -101,7 +102,7 @@ ms.locfileid: "72583577"
 
         // Uses the default conflict handler, which fails on conflict
         // To use a different conflict handler, pass a parameter to InitializeAsync.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=521416.
+        // For more details, see https://go.microsoft.com/fwlink/?LinkId=521416.
         await client.SyncContext.InitializeAsync(store);
     }
     ```

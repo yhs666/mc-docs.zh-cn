@@ -8,12 +8,12 @@ origin.date: 09/14/2018
 ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 5b6a152f2f0a0d6655c7b2edfe2fd4f900660c9b
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 7cbf8713d38e0c45c0dc342d93506a89888983be
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334861"
 ---
 ## <a name="create-an-azure-signalr-service-instance"></a>创建 Azure SignalR 服务实例
 
@@ -30,9 +30,9 @@ ms.locfileid: "74179065"
     | 设置      | 建议的值  | 说明                                        |
     | ------------ |  ------- | -------------------------------------------------- |
     | **资源名称** | 全局唯一名称 | 用于标识新的 SignalR 服务实例的名称。 有效的字符是 `a-z`、`0-9` 和 `-`。  | 
-    | **订阅** | 订阅 | 在其下创建此新 SignalR 服务实例的订阅。 | 
-    |  [资源组](../../azure-resource-manager/resource-group-overview.md) |  myResourceGroup | 要在其中创建 SignalR 服务实例的新资源组的名称。 | 
-    | **位置** | 中国东部 | 选择你附近的[区域](https://azure.microsoft.com/regions/)。 |
+    | **订阅** | 你的订阅 | 在其下创建此新 SignalR 服务实例的订阅。 | 
+    |  [资源组](../../azure-resource-manager/resource-group-overview.md) |  MyResourceGroup | 要在其中创建 SignalR 服务实例的新资源组的名称。 | 
+    | **位置** | 中国东部 | 选择你附近的[区域](https://www.azure.cn/home/features/products-by-region)。 |
     | **定价层** | 免费 | 免费试用 Azure SignalR 服务。 |
     | **单位计数** |  不适用 | 单位计数指定 SignalR 服务实例可以接受的连接数。 它只能在标准层中配置。 |
     | **服务模式** |  无服务器 | 用于 Azure Functions 或 REST API。 |

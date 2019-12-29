@@ -6,14 +6,14 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 07/23/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: ba63c3322a14f310cd7a06e5eeb533ce15577e9e
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 8a0e4e4a8992b1490f4426026a4b69b2901be1d5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913341"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336233"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>一致性级别和 Azure Cosmos DB API
 

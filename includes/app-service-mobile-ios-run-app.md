@@ -4,13 +4,13 @@ ms.service: app-service-mobile
 ms.topic: include
 origin.date: 08/23/2018
 ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: bcc79b9367fbb00562cfa47fbbd290ac732ebd4c
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.author: v-tawe
+ms.openlocfilehash: 099020ea7fb824dfc880c12e3d44404220e57a2a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335765"
 ---
 1. 使用 Xcode 打开下载的客户端项目。
 

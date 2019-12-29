@@ -6,12 +6,12 @@ origin.date: 11/21/2019
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
-ms.openlocfilehash: afe52437f527c16bc5fd789a0dedb5363c26f60f
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 5e09b2c8c2b3be5e8c2508e312ea3b3abd2b1db6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336007"
 ---
 <!--Verify successfully-->
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>教程：使用 Azure 资源管理器模板导入 SQL BACPAC 文件
@@ -57,6 +57,9 @@ BACPAC 文件在 [GitHub](https://github.com/Azure/azure-docs-json-samples/raw/m
 1. 将以下 PowerShell 脚本复制并粘贴到 Shell 窗口中。
 
     ```powershell
+    # Sign in the Azure China Cloud
+    Connect-AzAccount -Environment AzureChinaCloud
+    
     $projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
     $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
 

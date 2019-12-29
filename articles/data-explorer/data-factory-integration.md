@@ -9,12 +9,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 11/14/2019
 ms.date: 12/02/2019
-ms.openlocfilehash: 7a8d1c4a8595d3108d4248a2b753bb45de317f30
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 782f8e33a3c1b8285cb7ce93e9c62359849ed676
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658184"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335745"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>将 Azure 数据资源管理器与 Azure 数据工厂集成
 
@@ -79,7 +79,7 @@ Azure IR (Integration Runtime) 支持使用 Azure 数据资源管理器在 Azure
 | | 复制活动 | 从查询引入<br> `.set-or-append` / `.set-or-replace` / `.set` / `.replace` | 从存储引入 <br> `.ingest` |
 |---|---|---|---|
 | **流程说明** | ADF 从源数据存储获取数据，将数据转换为表格格式，并执行所需的架构映射更改。 然后，ADF 将数据上传到 Azure Blob，将数据拆分为区块，然后下载 Blob 以将其引入 ADX 表中。 <br> （**源数据存储 > ADF > Azure Blob > ADX**） | 这些命令可以执行查询或 `.show` 命令，并将查询结果引入表中 (**ADX > ADX**)。 | 此命令通过从一个或多个云存储项目“提取”数据，将数据引入表中。 |
-| **支持的源数据存储** |  [多种选项](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2、Azure Blob、SQL（使用 sql_request 插件）、Cosmos（使用 cosmosdb_sql_request 插件），以及提供 HTTP 或 Python API 的任何其他数据存储。 | Filesystem、Azure Blob 存储、ADLS Gen 1、ADLS Gen 2 |
+| **支持的源数据存储** |  [多种选项](https://docs.azure.cn/data-factory/copy-activity-overview#supported-data-stores-and-formats) | ADLS Gen 2、Azure Blob、SQL（使用 sql_request 插件）、Cosmos（使用 cosmosdb_sql_request 插件），以及提供 HTTP 或 Python API 的任何其他数据存储。 | Filesystem、Azure Blob 存储、ADLS Gen 1、ADLS Gen 2 |
 | **性能** | 引入内容将会排队并受到管理，确保实现小规模的引入，并通过提供负载均衡、重试和错误处理来确保高可用性。 | <ul><li>这些命令并不旨在用于导入大量数据。</li><li>它们可按预期方式运行，且成本低廉。 但是，对于生产方案以及在流量速率和数据量较大时，请使用复制活动。</li></ul> |
 | **服务器限制** | <ul><li>无大小限制。</li><li>最大超时限制：引入每个 Blob 为 1 小时。 |<ul><li>只有查询部分存在大小限制，可通过指定 `noTruncation=true` 来跳过该限制。</li><li>最大超时限制：1 小时。</li></ul> | <ul><li>无大小限制。</li><li>最大超时限制：1 小时。</li></ul>|
 

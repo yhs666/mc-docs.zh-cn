@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: v-tawe
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 35ba5696b3bd61309a3ee5cb3b893d2eaace35f3
-ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
+ms.openlocfilehash: bcee857175e6ec6e7489f1464ffb54d5957b86d7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556044"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335728"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>在 Azure 应用服务的代码中使用 SSL 证书
 
@@ -39,7 +39,7 @@ ms.locfileid: "74556044"
 
 ## <a name="find-the-thumbprint"></a>查找指纹
 
-在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用服务” > “\<app-name>”   。
+在 <a href="https://portal.azure.cn" target="_blank">Azure 门户</a>的左侧菜单中，选择“应用程序服务” > “\<app-name>”   。
 
 在应用的左侧导航栏中选择“TLS/SSL 设置”，然后选择“私钥证书(.pfx)”或“公钥证书(.cer)”。   
 
@@ -124,6 +124,8 @@ PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCha
 > az cloud set -n AzureChinaCloud
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> 这种在代码中使用证书的方法利用应用服务中的 SSL 功能，要求应用位于“基本”层或更高层。 
 
 以下 C# 示例从应用中的相对路径加载公用证书：
 

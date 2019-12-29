@@ -1,6 +1,6 @@
 ---
 title: 示例 - 不允许的 VM 扩展
-description: 此示例策略定义禁止在虚拟机上使用指定的扩展。
+description: 此示例策略定义禁止在虚拟机上使用参数中定义的指定扩展。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: e88478712b555924a49e55654f4f5f64e71faf36
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: d1c1ceaff6499b8331145416559fa782ebe443b9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335976"
 ---
 # <a name="sample---not-allowed-vm-extensions"></a>示例 - 不允许的 VM 扩展
 

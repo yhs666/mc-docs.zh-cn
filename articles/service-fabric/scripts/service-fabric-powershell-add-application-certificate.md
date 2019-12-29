@@ -12,49 +12,88 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 origin.date: 01/18/2018
-ms.date: 08/26/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: 7e68728a879538f8157c5d41ea717da212ea60ff
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 0f59fe1604067f98b1141e3808684b70ab830a80
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173970"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335714"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>将应用程序证书添加到 Service Fabric 群集
 
-此示例脚本在指定的 Azure Key Vault 中创建一个自签名证书，并将它安装到 Service Fabric 群集的所有节点上。 该证书还会下载到本地文件夹。 已下载证书的名称与 Key Vault 中证书的名称相同。 根据需要自定义参数。
+此示例脚本演示如何在 Key Vault 中创建证书，然后将其部署到运行群集的虚拟机规模集之一。 此方案不直接使用 Service Fabric，而是取决于 Key Vault 和虚拟机规模集。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 必要时，请使用 [Azure PowerShell 指南](https://docs.microsoft.com/powershell/azure/overview)中的说明安装 Azure PowerShell，并运行 `Connect-AzAccount -Environment AzureChinaCloud` 创建与 Azure 的连接。 
 
-## <a name="sample-script"></a>示例脚本
+## <a name="create-a-certificate-in-key-vault"></a>在 Key Vault 中创建证书
 
 ```powershell
-
-# Variables for common values.
-$clusterloc="chinaeast"
-$groupname="mysfclustergroup"
-$clustername = "mysfcluster"
-$vaultname = "mykeyvault"
-$subname="$clustername.$clusterloc.cloudapp.chinacloudapi.cn"
-$subscriptionID = 'subscription ID'
-
-# Login and select your subscription
 Connect-AzAccount -Environment AzureChinaCloud
-Get-AzSubscription -SubscriptionId $subscriptionID | Select-AzSubscription
 
-# Certificate variables.
-$appcertpwd = ConvertTo-SecureString -String 'Password#1234' -AsPlainText -Force
-$appcertfolder="c:\myappcertificates\"
+$VaultName = ""
+$CertName = ""
+$SubjectName = "CN="
 
-# Create a new self-signed certificate and add it to all the VMs in the cluster.
-Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername `
-    -KeyVaultName $vaultname -KeyVaultResouceGroupName $groupname -CertificateSubjectName $subname `
-    -CertificateOutputFolder $appcertfolder -CertificatePassword $appcertpwd
+$policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName Self -ValidityInMonths 12
+Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
 ```
+
+## <a name="or-upload-an-existing-certificate-into-key-vault"></a>或将现有证书上传到 Key Vault
+
+```powershell
+$VaultName= ""
+$CertName= ""
+$CertPassword= ""
+$PathToPFX= ""
+
+$Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $PathToPFX, $CertPassword
+
+$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
+$base64 = [System.Convert]::ToBase64String($bytes)
+$jsonBlob = @{
+   data = $base64
+   dataType = 'pfx'
+   password = $CertPassword
+   } | ConvertTo-Json
+$contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
+$content = [System.Convert]::ToBase64String($contentbytes)
+
+$SecretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
+
+# Upload the certificate to the key vault as a secret
+$Secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
+
+```
+
+## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>通过证书更新虚拟机规模集配置文件
+
+```powershell
+$ResourceGroupName = ""
+$VMSSName = ""
+$CertStore = "My" # Update this with the store you want your certificate placed in, this is LocalMachine\My
+
+$CertConfig = New-AzVmssVaultCertificateConfig -CertificateUrl (Get-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName).SecretId -CertificateStore $CertStore
+$VMSS = Get-AzVmss -ResourceGroupName $ResourceGroupName -VMScaleSetName $VMSSName
+
+# If this KeyVault is already known by the virtual machine scale set, for example if the cluster certificate is deployed from this keyvault, use
+$VMSS.virtualmachineprofile.osProfile.secrets[0].vaultCertificates.Add($certConfig)
+
+# Otherwise use
+$VMSS = Add-AzVmssSecret -VirtualMachineScaleSet $VMSS -SourceVaultId (Get-AzKeyVault -VaultName $VaultName).ResourceId  -VaultCertificate $CertConfig
+```
+
+## <a name="update-the-virtual-machine-scale-set"></a>更新虚拟机规模集
+```powershell
+Update-AzVmss -ResourceGroupName $ResourceGroupName -VirtualMachineScaleSet $VMSS -VMScaleSetName $VMSSName
+```
+
+> [!NOTE]
+> 如果希望将证书放置在群集中的多个节点上，应针对每个应具有证书的节点类型重复此脚本的第二个和第三部分。
 
 ## <a name="script-explanation"></a>脚本说明
 
@@ -62,7 +101,12 @@ Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $c
 
 | 命令 | 注释 |
 |---|---|
-| [Add-AzServiceFabricApplicationCertificate](https://docs.microsoft.com/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | 将新的应用程序证书添加到构成群集的虚拟机规模集。  |
+| [New-AzKeyVaultCertificatePolicy](https://docs.microsoft.com/powershell/module/az.keyvault/New-AzKeyVaultCertificatePolicy) | 创建表示证书的内存中策略 |
+| [Add-AzKeyVaultCertificate](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultCertificate)| 将策略部署到 Key Vault |
+| [New-AzVmssVaultCertificateConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzVmssVaultCertificateConfig) | 创建表示 VM 中证书的内存中配置 |
+| [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Get-AzVmss) |  |
+| [Add-AzVmssSecret](https://docs.microsoft.com/powershell/module/az.compute/Add-AzVmssSecret) | 将证书添加到虚拟机规模集的内存中定义 |
+| [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss) | 部署虚拟机规模集的新定义 |
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -70,4 +114,4 @@ Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $c
 
 可以在 [Azure PowerShell 示例](../service-fabric-powershell-samples.md)中找到 Azure Service Fabric 的其他 Azure Powershell 示例。
 
-<!--Update_Description: update meta properties, update link, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

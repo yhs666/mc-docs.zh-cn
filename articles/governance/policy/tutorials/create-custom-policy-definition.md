@@ -1,19 +1,19 @@
 ---
-title: 创建自定义策略定义
-description: 创建 Azure Policy 的自定义策略定义以在 Azure 资源上强制实施自定义业务规则。
+title: 教程：创建自定义策略定义
+description: 本教程介绍如何创建 Azure Policy 的自定义策略定义以在 Azure 资源上强制实施自定义业务规则。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 04/23/2019
-ms.date: 12/02/2019
+origin.date: 11/25/2019
+ms.date: 12/16/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 3782d1b4f853b5033c9fc4b594389b3f268e9777
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: bd13fb016580d2838422910f831969496d224ec5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657916"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336240"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>教程：创建自定义策略定义
 
@@ -36,6 +36,8 @@ ms.locfileid: "74657916"
 > - 确定要使用的效果
 > - 撰写策略定义
 
+## <a name="prerequisites"></a>先决条件
+
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial)。
 
 ## <a name="identify-requirements"></a>确定要求
@@ -55,12 +57,17 @@ ms.locfileid: "74657916"
 
 可通过多种方式确定 Azure 资源的属性。 本教程将介绍其中的每种方式：
 
+- 适用于 VS Code 的 Azure Policy 扩展
 - Resource Manager 模板
   - 导出现有资源
   - 创建体验
   - 快速入门模板 (GitHub)
   - 模板参考文档
 - Azure 资源浏览器
+
+### <a name="view-resources-in-vs-code-extension"></a>查看 VS Code 扩展中的资源
+
+[VS Code 扩展](../how-to/extension-for-vscode.md#search-for-and-view-resources)可用于浏览环境中的资源和查看每个资源上的资源管理器属性。
 
 ### <a name="resource-manager-templates"></a>Resource Manager 模板
 
@@ -146,8 +153,8 @@ GitHub 上的 [Azure 快速入门模板](https://github.com/Azure/azure-quicksta
 
 #### <a name="resource-reference-docs"></a>资源参考文档
 
-若要验证 **supportsHttpsTrafficOnly** 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的资源管理器模板参考。
-属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求，**supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
+若要验证 **supportsHttpsTrafficOnly** 是否为正确的属性，请在存储提供商网站上查看[存储帐户资源](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts)的资源管理器模板参考。
+属性对象包含有效参数的列表。 选择 [StorageAccountPropertiesCreateParameters-object](https://docs.microsoft.com/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) 链接会显示可接受的属性表。 若要满足业务要求，**supportsHttpsTrafficOnly** 必须存在，并且说明必须与所要查找的内容相匹配。
 
 <!-- Azure Resource Explorer not availible -->
 
@@ -158,9 +165,14 @@ GitHub 上的 [Azure 快速入门模板](https://github.com/Azure/azure-quicksta
 
 可通过多种方式确定 Azure 资源的别名。 本教程将介绍其中的每种方式：
 
+- 适用于 VS Code 的 Azure Policy 扩展
 - Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
+
+### <a name="get-aliases-in-vs-code-extension"></a>在 VS Code 扩展中获取别名
+
+利用适用于 VS Code 扩展的 Azure Policy 扩展，可轻松浏览资源并[发现别名](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties)。
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -192,7 +204,7 @@ az provider show --namespace Microsoft.Storage --expand "resourceTypes/aliases" 
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md) 是一个新的预览版服务。 它是用于查找 Azure 资源属性的另一种方法。 下面是使用 Resource Graph 查找单个存储帐户的示例查询：
+[Azure Resource Graph](../../resource-graph/overview.md) 是一项新服务。 它是用于查找 Azure 资源属性的另一种方法。 下面是使用 Resource Graph 查找单个存储帐户的示例查询：
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -309,8 +321,7 @@ Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1
 
 ## <a name="determine-the-effect-to-use"></a>确定要使用的效果
 
-确定如何处理不合规的资源几乎与确定最初要评估的项一样重要。 针对不合规资源做出的每种可能响应称为[效果](../concepts/effects.md)。
-效果控制是否要记录、阻止不合规的资源、在其中追加数据，或者将一个部署关联到其中，使该资源恢复合规状态。
+确定如何处理不合规的资源几乎与确定最初要评估的项一样重要。 针对不合规资源做出的每种可能响应称为[效果](../concepts/effects.md)。 效果控制是否要记录、阻止不合规的资源、在其中追加数据，或者将一个部署关联到其中，使该资源恢复合规状态。
 
 在本示例中，“拒绝”是所需的效果，因为我们不希望在 Azure 环境中创建不合规的资源。 “审核”是策略效果的第一个合理选项，它确定策略在设置为“拒绝”之前的影响。 使更改每个分配的效果变得更轻松的方法之一是将效果参数化。 有关详细信息，请参阅下面的[参数](#parameters)。
 
@@ -443,6 +454,16 @@ Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1
 ```
 
 完成的定义可用于创建新策略。 门户和每个 SDK（Azure CLI、Azure PowerShell 和 REST API）以不同的方式接受定义，因此，请检查各自的命令，以验证用法是否正确。 然后使用参数化的效果将定义分配到相应的资源，以管理存储帐户的安全性。
+
+## <a name="clean-up-resources"></a>清理资源
+
+如果今后不再使用本教程中的资源，请使用以下步骤删除前面创建的所有分配或定义：
+
+1. 在“Azure Policy”页左侧的“创作”下选择“定义”（如果尝试删除分配，则选择“分配”）    。
+
+1. 搜索要删除的新计划或策略定义（或分配）。
+
+1. 右键单击定义（或分配）对应的行或选择其末尾的省略号，然后选择“删除定义”（或“删除分配”）。  
 
 ## <a name="review"></a>审阅
 

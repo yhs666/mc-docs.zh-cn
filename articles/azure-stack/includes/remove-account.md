@@ -17,12 +17,12 @@ ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: avishwan
 ms.lastreviewed: 09/17/2019
-ms.openlocfilehash: 4dbd4491416836f2d344b2295718901307f09aaf
-ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+ms.openlocfilehash: 5ab250cfa65b5ddcda766880901d58bc45ec7e8f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020055"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469879"
 ---
 >[!Note]
->如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount-Scope Process`
+>如果会话过期，密码已更改，或者只是希望切换帐户，请在使用 Add-AzureRmAccount 登录之前运行以下 cmdlet：`Remove-AzureRmAccount -Scope Process`

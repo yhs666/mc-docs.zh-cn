@@ -3,14 +3,14 @@ author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
 origin.date: 08/23/2018
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 0ce9f6879753fec2d1ac2e7b1946c0b4ff419e1a
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 2997fe05133ba66d4bef3a8df37c1b68fa76feec
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006578"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334628"
 ---
 **Objective-C**：
 

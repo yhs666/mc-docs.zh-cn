@@ -13,18 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/25/2019
-ms.date: 11/06/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bfe1cd268ce888963a3fe1dd8b80a6ea721f14e
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 95aaae43056c25506a5fabd92ca5ba9a5a0de490
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830938"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335284"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft 标识平台身份验证库
 
@@ -62,7 +61,7 @@ Microsoft 标识平台终结点使用两种类型的库：
 ![Angular](./media/sample-v2-code/logo_angular.png) | MSAL Angular（预览） | [NPM](https://www.npmjs.com/package/@azure/msal-angular) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | | | |
 | ![.NET framework](./media/sample-v2-code/logo_NET.png) ![UWP](./media/sample-v2-code/logo_windows.png) ![Xamarin](./media/sample-v2-code/logo_xamarin.png) | MSAL.NET  |[NuGet](https://www.nuget.org/packages/Microsoft.Identity.Client) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) | [桌面应用](tutorial-v2-windows-desktop.md) | [MSAL.NET](https://docs.azure.cn/zh-cn/dotnet/api/microsoft.identity.client?view=azure-dotnet-preview) |[概念文档](msal-overview.md) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki#roadmap)
 | ![Python](./media/sample-v2-code/logo_python.png) | MSAL Python（预览版） | [PyPI](https://pypi.org/project/msal) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-python) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-python/tree/dev/sample) | [ReadTheDocs](https://msal-python.rtfd.io/) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki/Roadmap)
-| ![Java](./media/sample-v2-code/logo_java.png) | MSAL Java（预览版） | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [引用](https://javadoc.io/doc/com.microsoft.azure/msal4j/0.6.0-preview/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
+| ![Java](./media/sample-v2-code/logo_java.png) | MSAL Java（预览版） | [Maven](https://mvnrepository.com/artifact/com.microsoft.azure/msal4j) | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-java) | [示例](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples) | [引用](https://javadoc.io/doc/com.microsoft.azure/msal4j/latest/index.html) | [Wiki](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | [路线图](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki)
 | iOS 和 macOS | MSAL iOS 和 macOS | [GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-objc) | [iOS 应用](https://github.com/Azure-Samples/ms-identity-mobile-apple-swift-objc)、[macOS 应用](https://github.com/Azure-Samples/ms-identity-macOS-swift-objc) | [引用](https://azuread.github.io/microsoft-authentication-library-for-objc/index.html)  | [概念文档](msal-overview.md) | |
 |![Android / Java](./media/sample-v2-code/logo_Android.png) | MSAL Android | [中央存储库](https://repo1.maven.org/maven2/com/microsoft/identity/client/msal/) |[GitHub](https://github.com/AzureAD/microsoft-authentication-library-for-android) | [Android 应用](quickstart-v2-android.md) | [JavaDocs](https://javadoc.io/doc/com.microsoft.identity.client/msal) | [概念文档](msal-overview.md) |[路线图](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Roadmap)
 
@@ -150,4 +149,4 @@ Microsoft 标识平台终结点使用两种类型的库：
 [ServerLib-Node-Lib]: https://www.npmjs.com/package/passport-azure-ad
 [ServerLib-Node-Repo]: https://github.com/AzureAD/passport-azure-ad/
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->

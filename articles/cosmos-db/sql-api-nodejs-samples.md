@@ -1,21 +1,22 @@
 ---
-title: 用于 Azure Cosmos DB 的 Node.js 示例
+title: 管理 Azure Cosmos 数据库中数据的 Node.js 示例
 description: 在 GitHub 上查找用于 Azure Cosmos DB 中常见任务的 Node.js 示例，包括 CRUD 操作。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 08/23/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2e380fc9b5f76a9f1d40c6a8b902ae335fd8bced
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 7d82a09b5f5bc3eaa6af8e4f9aac4e37f0c68afd
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336167"
 ---
-# <a name="azure-cosmos-db-nodejs-examples"></a>Azure Cosmos DB Node.js 示例
+# <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>管理 Azure Cosmos DB 中数据的 Node.js 示例
+
 > [!div class="op_single_selector"]
 > * [.NET V2 SDK 示例](sql-api-dotnet-samples.md)
 > * [.NET V3 SDK 示例](sql-api-dotnet-v3sdk-samples.md)
@@ -42,10 +43,10 @@ ms.locfileid: "72913213"
 
 也需 [JavaScript SDK](sql-api-sdk-node.md)。
 
-   > [!NOTE]
-   > 每个示例都是独立的，自行对自身进行设置并在完成后自行进行清理。 因此，这些示例对 [Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest) 发出多个调用。 每次执行完此操作，均会按照正在创建的容器的性能层，向订阅收取使用 1 小时的费用。
-   > 
-   > 
+> [!NOTE]
+> 每个示例都是独立的，自行对自身进行设置并在完成后自行进行清理。 因此，这些示例对 [Containers.create](https://docs.microsoft.com/javascript/api/%40azure/cosmos/containers?view=azure-node-latest) 发出多个调用。 每次执行完此操作，均会按照正在创建的容器的性能层，向订阅收取使用 1 小时的费用。
+> 
+> 
 
 ## <a name="database-examples"></a>数据库示例
 

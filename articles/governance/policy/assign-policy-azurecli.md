@@ -1,19 +1,19 @@
 ---
-title: 使用 Azure CLI 创建策略以审核资源
-description: 使用 Azure CLI 创建 Azure Policy 分配以识别不符合的资源。
+title: 快速入门：通过 Azure CLI 进行新策略分配
+description: 本快速入门介绍如何使用 Azure CLI 创建 Azure Policy 分配以识别不合规的资源。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 01/23/2019
-ms.date: 12/02/2019
+origin.date: 11/25/2019
+ms.date: 12/16/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 1214d21db62eb56280ebf109cfcad9d59de4345f
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 54d599006159cf603715c5f78f6a94f83b927cd5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657596"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336114"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>快速入门：使用 Azure CLI 创建策略分配以识别不符合的资源
 
@@ -24,22 +24,23 @@ ms.locfileid: "74657596"
 
 Azure CLI 用于从命令行或脚本创建和管理 Azure 资源。 本指南使用 Azure CLI 创建策略分配，并识别 Azure 环境中的不合规资源。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
-
-本快速入门需要运行 Azure CLI 2.0.4 版或更高版本，以便在本地安装并使用 CLI。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
-
 ## <a name="prerequisites"></a>先决条件
 
-使用 Azure CLI 注册 Azure Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 要注册资源提供程序，必须具有注册资源提供程序操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
+- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
-```azurecli
-az provider register --namespace 'Microsoft.PolicyInsights'
-```
+- 本快速入门需要运行 Azure CLI 版本 2.0.76 或更高版本，以便在本地安装并使用 CLI。 若要查找版本，请运行 `az --version`。 如果需要进行安装或升级，请参阅[安装 Azure CLI](/cli/install-azure-cli)。
 
-有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../../azure-resource-manager/resource-manager-supported-services.md)
+- 使用 Azure CLI 注册 Azure Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 要注册资源提供程序，必须具有注册资源提供程序操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
-安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 API。
+  ```azurecli
+  az provider register --namespace 'Microsoft.PolicyInsights'
+  ```
+
+  有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../../azure-resource-manager/resource-manager-supported-services.md)
+
+- 安装 [ARMClient](https://github.com/projectkudu/ARMClient)（如果尚未安装）。 该工具可将 HTTP 请求发送到基于 Azure 资源管理器的 API。
+
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
 ## <a name="create-a-policy-assignment"></a>创建策略分配
 
@@ -53,7 +54,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 上述命令使用以下信息：
 
-- **名称** - 分配的实际名称。 对于此示例，使用 *audit-vm-manageddisks*。
+- **名称** - 分配的实际名称。 对于此示例，使用 _audit-vm-manageddisks_。
 - **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”  。
 - **策略** - 策略定义 ID，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID  。 若要获取策略定义 ID，请运行以下命令：`az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **范围** - 范围确定在其中实施策略分配的资源或资源组。 它可以从订阅延伸至资源组。 请务必将 &lt;scope&gt; 替换为资源组的名称。

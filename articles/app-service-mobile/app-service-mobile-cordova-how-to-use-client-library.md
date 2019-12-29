@@ -13,21 +13,22 @@ ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: b9fac8475a1ed8293df7b0f13978a9e79f110de0
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 6ded59e90c8025592db58aec22fb452e3dd468b1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657935"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334632"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 Apache Cordova 客户端库
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 本指南介绍如何使用最新的 [适用于 Azure 移动应用的 Apache Cordova 插件]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure 移动应用快速入门]，创建后端、创建表并下载预先生成的 Apache Cordova 项目。 本指南侧重于客户端 Apache Cordova 插件。
@@ -78,7 +79,7 @@ Azure 移动应用 Cordova 插件同时支持 Ionic v1 和 v2 应用。  只有 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>如何：对用户进行身份验证
-Azure 应用服务支持使用标识提供者对应用用户进行身份验证和授权：Microsoft 帐户。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅[身份验证入门]教程。
+Azure 应用服务支持使用各种外部标识提供者对应用用户进行身份验证和授权：Microsoft 帐户。 可以在表中设置权限，以便将特定操作的访问权限限制给已经过身份验证的用户。 还可以在服务器脚本中使用已经过身份验证的用户的标识来实施授权规则。 有关详细信息，请参阅[身份验证入门]教程。
 
 在 Apache Cordova 应用中使用身份验证时，以下 Cordova 插件必须可用：
 

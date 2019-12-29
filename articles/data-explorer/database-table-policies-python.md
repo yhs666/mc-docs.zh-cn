@@ -7,13 +7,13 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/24/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: c41c6fa5cb203996b02f7dff7b3ae7bf42e39d11
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: 33bd348af823c508ae9b347a3916aa00b12c54fd
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020921"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335742"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>使用 Python 为 Azure 数据资源管理器创建数据库和表策略
 

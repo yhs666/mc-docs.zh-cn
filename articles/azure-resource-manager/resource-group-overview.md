@@ -4,12 +4,12 @@ description: 介绍如何使用 Azure Resource Manager 在 Azure 上部署和管
 ms.topic: overview
 origin.date: 08/29/2019
 ms.date: 11/25/2019
-ms.openlocfilehash: 1d0c8247e804663ba4a5880f16b0c7cc067df4ca
-ms.sourcegitcommit: c74ea6bb80aec1a6c200f19832393adf806921fd
+ms.openlocfilehash: 84d8519cacd6c961132b49bd3472412826e77bc2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74717502"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334793"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 概述
 
@@ -57,7 +57,7 @@ Azure 资源管理器是 Azure 的部署和管理服务。 它提供一个管理
 
 ## <a name="understand-scope"></a>了解范围
 
-Azure 提供四个级别的范围：[管理组](/governance/management-groups/overview)、订阅、[资源组](#resource-groups)和资源。 下图显示了这些层的一个示例。
+Azure 提供四个级别的范围：[管理组](/governance/management-groups/index)、订阅、[资源组](#resource-groups)和资源。 下图显示了这些层的一个示例。
 
 <!--Not Available on 21st Nov 2019, [management groups](../governance/management-groups/overview.md)-->
 

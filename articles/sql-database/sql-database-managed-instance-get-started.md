@@ -1,5 +1,5 @@
 ---
-title: Azure 门户：创建 SQL 数据库托管实例 | Microsoft Docs
+title: Azure 门户：创建托管实例
 description: 创建要访问的 SQL 数据库托管实例、网络环境和客户端 VM。
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 09/26/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 4e4b6487fc41ac51ff5cc25e9dbc72dd9c265011
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: f46b969ec29a8f712432354f0271a1f5a145f750
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041244"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336188"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>快速入门：创建 Azure SQL 数据库托管实例
 
@@ -55,10 +55,10 @@ ms.locfileid: "73041244"
    | 设置| 建议的值 | Description |
    | ------ | --------------- | ----------- |
    | **订阅** | 你的订阅。 | 你有权在其中创建新资源的订阅。 |
-   | **资源组** | 新的或现有的资源组。|有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。|
-   | **托管实例名称** | 任何有效的名称。|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
+   | **资源组** | 新的或现有的资源组。|有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。|
+   | **托管实例名称** | 任何有效的名称。|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。|
    | **区域** |要在其中创建托管实例的区域。|有关区域的信息，请参阅 [Azure 区域](https://azure.microsoft.com/global-infrastructure/services/?regions=china-non-regional,china-east,china-east-2,china-north,china-north-2&products=all)。|
-   | **托管实例管理员登录名** | 任何有效的用户名。 | 请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
+   | **托管实例管理员登录名** | 任何有效的用户名。 | 请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。|
    | **密码** | 任何有效的密码。| 密码必须至少 16 个字符，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。|
 
 - 选择“配置托管实例”，以设置计算和存储资源的大小并查看定价层。  使用滑块或文本框指定存储量和虚拟核心数。 完成后，选择“应用”以保存所做的选择。  

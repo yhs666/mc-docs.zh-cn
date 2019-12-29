@@ -1,6 +1,6 @@
 ---
 title: 示例 - 在资源组强制执行标记及值
-description: 此示例策略定义要求对资源组使用标记和值。
+description: 此示例策略定义要求在资源组的参数中定义标记和值。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 678654cf0f9e3cdf89af59f567954563dd417a89
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 3d362ade177a39afdbcffb7528983bad1e6e4e27
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657958"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335773"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>示例 - 在资源组强制执行标记及其值
 
@@ -122,10 +122,10 @@ ms.locfileid: "74657958"
     }
 }
 ```
-|Name |类型 |字段 |说明 |
+|名称 |类型 |字段 |说明 |
 |---|---|---|---|
-|tagName |String |标记 |标记的名称，如 costCenter|
-|tagValue |String |标记 |标记的值，如 headquarter|
+|tagName |String |tags |标记的名称，如 costCenter|
+|tagValue |String |tags |标记的值，如 headquarter|
 
 通过 PowerShell 或 Azure CLI 创建分配时，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 通过字符串或文件将参数值传递为 JSON。
 PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一个 Name/Value 哈希表，其中，**Name** 是参数名称，**Value** 是在赋值期间传递的单个值或值数组。

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 origin.date: 05/16/2018
 ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1114bab31b617d56d6d9af1082c24366df66b9b2
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: c300d5a32af51eeb538f2d0271f9d72e2b9cb231
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336235"
 ---
 # <a name="plan-virtual-networks"></a>计划虚拟网络
 
@@ -38,11 +38,11 @@ ms.locfileid: "74658029"
 
 - 资源的使用者通常希望其资源的网络延迟最低。 若要确定指定位置与 Azure 区域之间的相对延迟，请参阅[查看相对延迟](../network-watcher/view-relative-latencies.md?toc=%2fvirtual-network%2ftoc.json)。
 - 是否有数据驻留、主权、符合性或复原能力需求？ 如果有，选择符合需求的区域至关重要。 
-
+    
     <!-- Not Available on  [Azure geographies](https://www.azure.cn/global-infrastructure/geographies/) -->
     
 - 是否需要在部署资源的相同 Azure 区域内跨 Azure 可用性区域提供复原能力？ 可将资源（如虚拟机 (VM)）部署到相同虚拟网络中的不同可用性区域。 但并非所有 Azure 区域都支持可用性区域。
-
+    
     <!-- Not Available on [Availability zones](../availability-zones/az-overview.md?toc=%2fvirtual-network%2ftoc.json)-->
 
 ## <a name="subscriptions"></a>订阅
@@ -111,6 +111,7 @@ Azure 为子网中的出站流量创建多个默认路由。 可通过创建路�
 可通过[站点到站点 VPN ](../vpn-gateway/vpn-gateway-tutorial-vpnconnection-powershell.md?toc=%2fvirtual-network%2ftoc.json)或与 Azure [ExpressRoute](../expressroute/expressroute-introduction.md?toc=%2fvirtual-network%2ftoc.json) 的专用连接，使用 Azure [VPN 网关](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fvirtual-network%2ftoc.json)将虚拟网络连接到本地网络。
 
 <!--Not Available on [hub and spoke networks](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fvirtual-network%2ftoc.json)-->
+
 ### <a name="name-resolution"></a>名称解析
 
 一个虚拟网络中的资源无法使用 Azure 的[内置 DNS](virtual-networks-name-resolution-for-vms-and-role-instances.md) 来解析对等互连虚拟网络中的资源名称。 若要在对等互连虚拟网络中解析名称，请[部署自己的 DNS 服务器](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)或使用 Azure DNS 专用域。 在虚拟网络和本地网络的资源之间解析名称也需要部署自己的 DNS 服务器。

@@ -1,7 +1,7 @@
 ---
 title: Azure IoT 中心设备孪生入门 (Python)
 description: 如何使用 Azure IoT 中心设备孪生添加标记，并使用 IoT 中心查询。 使用用于 Python 的 Azure IoT SDK 来实现一个模拟设备应用，并实现可添加标记和运行 IoT 中心查询的一个服务应用。
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/26/2019
-ms.date: 11/11/2019
+ms.date: 11/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 1fb123e9e3bfde466b9df5f19cbca91dbae2e1c9
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 7d00caef958c158d079b506a8c7171cb29a9a1c8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426103"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336417"
 ---
 # <a name="get-started-with-device-twins-python"></a>设备孪生入门 (Python)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -58,7 +58,7 @@ ms.locfileid: "73426103"
    ```
 
    > [!NOTE]
-   > azure-iothub-service-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
+   > azure-iothub-service-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
    >
 
 2. 使用文本编辑器，新建一个 **AddTagsAndQuery.py** 文件。
@@ -249,33 +249,3 @@ ms.locfileid: "73426103"
 充分利用以下资源：
 
 * 通过 [IoT 中心入门](quickstart-send-telemetry-python.md)教程学习如何从设备发送遥测数据。
-* 通过[使用所需属性配置设备][lnk-twin-how-to-configure]教程学习如何使用设备孪生的所需属性配置设备。
-* 通过[使用直接方法][lnk-methods-tutorial]教程学习如何以交互方式控制设备（例如从用户控制的应用打开风扇）。
-<!-- images -->
-[1]: media/iot-hub-python-twin-getstarted/1.png [2]: media/iot-hub-python-twin-getstarted/2.png [3]: media/iot-hub-python-twin-getstarted/3.png
-
-<!-- links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
-[lnk-free-trial]: https://www.azure.cn/pricing/1rmb-trial/
-
-[lnk-python-download]: https://www.python.org/downloads/
-[lnk-visual-c-redist]: http://www.microsoft.com/download/confirmation.aspx?id=48145
-[lnk-install-pip]: https://pip.pypa.io/en/stable/installing/
-[lnk-python-devbox]: https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md
-
-[lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
-[lnk-methods]: iot-hub-devguide-direct-methods.md
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-query]: iot-hub-devguide-query-language.md
-[lnk-identity]: iot-hub-devguide-identity-registry.md
-
-[lnk-iothub-getstarted]: quickstart-send-telemetry-python.md
-[lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: ../iot-edge/quickstart-linux.md
-[lnk-connect-device]: /develop/iot/
-
-[lnk-twin-how-to-configure]: tutorial-device-twins.md
-[lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
-
-[lnk-methods-tutorial]: quickstart-control-device-node.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md

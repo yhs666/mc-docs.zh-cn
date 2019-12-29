@@ -5,14 +5,14 @@ author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: overview
-origin.date: 09/01/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: daafe8b9b815c2ade0f0b818a9fbb26ef6cd6e88
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+origin.date: 10/23/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 5227b185c87a179e16f51a98fb560f838e0c4f13
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970252"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336206"
 ---
 <!-- Notice in meta : 全球 to 多个区域 -->
 # <a name="welcome-to-azure-cosmos-db"></a>欢迎使用 Azure Cosmos DB

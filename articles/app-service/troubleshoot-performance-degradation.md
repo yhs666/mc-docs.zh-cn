@@ -18,12 +18,12 @@ origin.date: 08/03/2016
 ms.date: 09/05/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 79065a4a89b6200ad96cd711c64f7f622c6f00de
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: f4442d0cb7c961ed7577754a7e94a3b1da82bcb2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806670"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336099"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>排查 Azure 应用服务中应用性能缓慢的问题
 本文帮助排查 [Azure 应用服务](./overview.md)中应用性能缓慢的问题。
@@ -82,8 +82,6 @@ ms.locfileid: "70806670"
 使用 HTTP 响应代码监视运行时间，并且以毫秒为单位计算响应时间。 如果 HTTP 响应代码大于或等于 400 或响应时间超过 30 秒，则监视测试失败。 如果从所有指定的位置监视测试均成功，则终结点被视为可用。
 
 有关详细信息，请参阅[在 Azure 应用服务中监视应用](web-sites-monitor.md)
-
-另外，有关终结点监视的视频，请参阅[保持 Azure 网站运行以及终结点监视 - Stefan Schackow](https://channel9.msdn.com/Shows/Azure-Friday/Keeping-Azure-Web-Sites-up-plus-Endpoint-Monitoring-with-Stefan-Schackow)。
 
 #### <a name="application-performance-monitoring-using-extensions"></a>使用扩展的应用程序性能监视
 还可以使用站点扩展监视应用程序的性能。 

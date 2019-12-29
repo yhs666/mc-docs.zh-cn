@@ -7,13 +7,13 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/24/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: 9c520eb5cb718ceb41e25e16e738e9c4d49e83c8
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: e21bda305e052aa9e299692a3d3f195918558a27
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335743"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-c"></a>使用 C# 为 Azure 数据资源管理器创建数据库和表策略
 

@@ -8,13 +8,13 @@ ms.author: v-yeche
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/24/2018
-ms.date: 10/28/2019
-ms.openlocfilehash: 15da7a0de0142cd7f904d9b8db30acf33d447dde
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/16/2019
+ms.openlocfilehash: 6fb89bfcf3551f614ed9cd5b0404193d212ae8a4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913336"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334548"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>快速入门：使用 .NET SDK 和 Azure Cosmos DB 构建 Cassandra 应用
@@ -181,4 +181,4 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 Cassandra 数据导入 Azure Cosmos DB](cassandra-import-data.md)
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

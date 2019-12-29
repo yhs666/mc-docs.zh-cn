@@ -10,12 +10,12 @@ origin.date: 04/10/2018
 ms.date: 6/4/2019
 ms.reviewer: mbullwin
 ms.author: v-lingwu
-ms.openlocfilehash: 7cea1a7577cb1128abae677ac68fa210945401ae
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: c3b5dc8f006c4d61daa39e0a202b051ed60e4e71
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730491"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500358"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 队列
 
@@ -117,7 +117,7 @@ ms.locfileid: "73730491"
 
     ```KQL
     union customEvents, pageViews
-    | where client_CountryOrRegion == "United Kingdom"
+    | where client_CountryOrRegion == "China East"
     ```
 
 3. 选择“运行查询”。  如果表中未显示用户 ID，请更改为应用程序用户所在的国家/地区。

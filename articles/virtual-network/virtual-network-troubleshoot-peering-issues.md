@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 08/28/2019
 ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: d8e55ad8ff83b412435bc8d134005762945b6725
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: bbb69f89972df8411453091bfa787ad59c764580
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658032"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335815"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>排查虚拟网络对等互连问题
 
@@ -231,9 +231,9 @@ ms.locfileid: "74658032"
 
 若要排查此问题，请从两个虚拟网络中删除对等互连，然后重新创建对等互连。
 
-### <a name="failed-to-peer-a-databricks-virtual-network"></a>无法对等互连 Databricks 虚拟网络
-
-若要解决此问题，请在“Azure Databricks”下配置虚拟网络对等互连，然后使用“资源 ID”指定目标虚拟网络。   有关详细信息，请参阅[将 Databricks 虚拟网络对等互连到远程虚拟网络](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)。
+<!--Not Available on ### Failed to peer a Databricks virtual network-->
+<!--Not Available on To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see Peer a Databricks virtual network to a remote virtual network-->
+<!--Not Avaialble on [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2)-->
 
 ## <a name="next-steps"></a>后续步骤
 

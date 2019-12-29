@@ -7,15 +7,15 @@ author: hrasheed-msft
 ms.author: v-yiso
 ms.reviewer: jasonh
 ms.topic: conceptual
-origin.date: 03/15/2019
-ms.date: 07/22/2019
+origin.date: 11/15/2019
+ms.date: 12/23/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: d91ff8bdf596cd1ec08ca765a7b0fb80b65161d0
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: fb1b29bb9cb41bc6712cb0d8fddeb8a893182d88
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878771"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335879"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>在 HDInsight 中通过 Apache Hive 和 Apache Pig 使用 Python 用户定义函数 (UDF)
 
@@ -169,6 +169,9 @@ if(-not($sub))
     Connect-AzAccount
 }
 
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
+
 # Revise file path as needed
 $pathToStreamingFile = ".\hiveudf.py"
 
@@ -213,6 +216,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Get cluster info
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
@@ -437,6 +443,9 @@ if(-not($sub))
 {
     Connect-AzAccount -EnvironmentName AzureChinaCloud
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Revise file path as needed
 $pathToJythonFile = ".\pigudf.py"

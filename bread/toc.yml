@@ -171,8 +171,6 @@
       tocHref: /azure-portal/
       topicHref: /azure-portal/
     - name: 物联网
-      tocHref: /iot-fundamentals/
-      topicHref: /iot-fundamentals/
       items:
         - name: IoT 中心
           tocHref: /iot-hub/

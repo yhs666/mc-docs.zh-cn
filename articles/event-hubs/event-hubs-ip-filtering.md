@@ -10,14 +10,14 @@ ms.devlang: na
 ms.custom: seodec18
 ms.topic: article
 origin.date: 12/06/2018
-ms.date: 12/02/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: c244f83a19110aa1efa431fc34307b118dbe73e9
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: e284ab6d6c7384773e939bcd8bf803dea40e49a4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658002"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336244"
 ---
 # <a name="use-firewall-rules"></a>使用防火墙规则
 
@@ -47,7 +47,6 @@ IP 筛选器规则将按顺序应用，与 IP 地址匹配的第一个规则决�
 > 实施 IP 筛选（防火墙）时，受信任的 Microsoft 服务不受支持，但很快就会变得可用。
 >
 > 不适用于 IP 筛选的常见 Azure 方案（请注意，该列表内容并不详尽）  -
-> - Azure Monitor
 > - Azure 流分析
 > - 与 Azure 事件网格的集成
 > - Azure IoT 中心路由

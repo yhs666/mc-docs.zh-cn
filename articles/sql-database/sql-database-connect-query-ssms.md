@@ -1,5 +1,5 @@
 ---
-title: SSMS：在 Azure SQL 数据库中连接和查询数据 | Microsoft Docs
+title: SSMS：连接和查询数据
 description: 了解如何通过使用 SQL Server Management Studio (SSMS) 连接到在 Azure 上的 SQL 数据库。 然后，通过运行 Transact-SQL (T-SQL) 语句来查询和编辑数据。
 keywords: 连接到 sql 数据库, sql server management studio
 services: sql-database
@@ -11,15 +11,14 @@ ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 03/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: e3fe0322fe73319a24f5d8be27cd79eac88113a4
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 12/16/2019
+ms.openlocfilehash: f78be6a75902440c4997c9a824065aa9aa47b4c7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544141"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336073"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>快速入门：使用 SQL Server Management Studio 连接和查询 Azure SQL 数据库
 
@@ -27,7 +26,7 @@ ms.locfileid: "69544141"
 
 ## <a name="prerequisites"></a>先决条件
 
-Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+Azure SQL 数据库。 可以根据下述快速入门之一，在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
   || 单一数据库 | 托管实例 |
   |:--- |:--- |:---|
@@ -79,7 +78,7 @@ Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Az
 
    ![连接到服务器](./media/sql-database-connect-query-ssms/connect.png)  
 
-3. 选择“连接到服务器”对话框中的“选项”   。 在“连接到数据库”下拉菜单中，选择“mySampleDatabase”   。
+3. 选择“连接到服务器”对话框中的“选项”   。 在“连接到数据库”下拉菜单中，选择 mySampleDatabase。如果将下拉菜单保留为默认值，则将连接到主数据库    。
 
    ![连接到服务器上的 DB](./media/sql-database-connect-query-ssms/options-connect-to-db.png)  
 

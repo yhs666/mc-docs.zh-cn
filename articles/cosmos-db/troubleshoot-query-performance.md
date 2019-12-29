@@ -5,22 +5,22 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: troubleshooting
 origin.date: 07/10/2019
-ms.date: 09/09/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: c43ba97a61cde99b0ce2de152b07193733968d97
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: fa1e6447ecc9409e45c878d6e65c3092f58ad2f0
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335995"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>排查 Azure Cosmos DB 的查询性能问题
 本文介绍如何识别、诊断和排查 Azure Cosmos DB SQL 查询问题。 若要实现 Azure Cosmos DB 查询的最佳性能，请执行以下故障排除步骤。 
 
 ## <a name="collocate-clients-in-same-azure-region"></a>将客户端并置在同一 Azure 区域 
-通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure 区域](https://www.azure.cn/global-infrastructure/regions/#services)一文。
+通过确保在与预配 Azure Cosmos DB 终结点所在的同一 Azure 区域中调用应用程序，可能会实现最低的延迟。 有关可用区域的列表，请参阅 [Azure 区域](https://www.azure.cn/home/features/products-by-region)一文。
 
 ## <a name="check-consistency-level"></a>检查一致性级别
 [一致性级别](consistency-levels.md)可能会影响性能和费用。 请确保一致性级别适合给定的方案。 有关更多详细信息，请参阅[选择一致性级别](consistency-levels-choosing.md)。
@@ -179,4 +179,4 @@ ms.locfileid: "70254609"
 * [优化 Azure Cosmos DB 的查询性能](sql-api-sql-query-metrics.md)
 * [.NET SDK 性能提示](performance-tips.md)
 
-<!--Update_Description: troubleshoot query performance -->
+<!-- Update_Description: update meta properties, wording update, update link -->

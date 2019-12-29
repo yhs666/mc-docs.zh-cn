@@ -5,16 +5,16 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 09/17/2019
-ms.date: 09/23/2019
+origin.date: 11/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: da3e11aaf2eb0fc429fa47958011bbe1c1ef5962
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 83403f9c71cbd45608715282c07ba48348bad5d0
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336339"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>教程：使用 Azure 门户在混合网络中部署和配置 Azure 防火墙
 
@@ -86,7 +86,10 @@ ms.locfileid: "71156485"
 > [!NOTE]
 > AzureFirewallSubnet 子网的大小为 /26。 有关子网大小的详细信息，请参阅 [Azure 防火墙常见问题解答](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“网络”下，选择“虚拟网络”。  
 4. 对于“名称”，请键入 **VNet-hub**。 
 5. 对于“地址空间”，请键入 **10.5.0.0/16**。 
@@ -110,17 +113,12 @@ ms.locfileid: "71156485"
 10. 对于“地址范围”，请键入 **10.6.0.0/24**。 
 11. 接受其他默认设置，然后选择“创建”。 
 
-现在，为网关创建第二个子网。
-
-1. 在“VNet-Spoke”页上，选择“子网”。  
-2. 选择“+子网”。 
-3. 对于“名称”，请键入 **GatewaySubnet**。 
-4. 对于“地址范围(CIDR 块)”，请键入 **10.6.1.0/24**。 
-5. 选择“确定”  。
-
 ## <a name="create-the-on-premises-virtual-network"></a>创建本地虚拟网络
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“网络”下，选择“虚拟网络”。  
 4. 对于“名称”，请键入 **VNet-OnPrem**。 
 5. 对于“地址空间”，请键入 **192.168.0.0/16**。 
@@ -143,7 +141,10 @@ ms.locfileid: "71156485"
 
 这是用于本地网关的公共 IP 地址。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在搜索文本框中，键入“公共 IP 地址”并按 **Enter**。 
 3. 依次选择“公共 IP 地址”、“创建”。  
 4. 对于“名称”，请键入 **VNet-Onprem-GW-pip**。
@@ -155,7 +156,10 @@ ms.locfileid: "71156485"
 
 现在，将防火墙部署到防火墙中心虚拟网络中。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在左列中选择“网络”，然后选择“防火墙”。  
 4. 在“创建防火墙”页上，使用下表配置防火墙： 
 
@@ -163,8 +167,8 @@ ms.locfileid: "71156485"
     |---------|---------|
     |订阅     |\<用户的订阅\>|
     |资源组     |**FW-Hybrid-Test** |
-    |Name     |**AzFW01**|
-    |Location     |选择前面使用的同一位置|
+    |名称     |**AzFW01**|
+    |位置     |选择前面使用的同一位置|
     |选择虚拟网络     |**使用现有项**：<br /> **VNet-hub**|
     |公共 IP 地址     |新建： <br />“名称” - “fw-pip”。   |
 
@@ -201,7 +205,7 @@ ms.locfileid: "71156485"
 3. 对于“源地址”，请键入 **192.168.1.0/24**。 
 4. 对于“目标地址”，请键入 **10.6.0.0/16**
 5. 对于“目标端口”，请键入 **3389**。 
-6. 选择“设置”  （应用程序对象和服务主体对象）。
+6. 选择“添加”   。
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>创建并连接 VPN 网关
 
@@ -211,7 +215,10 @@ ms.locfileid: "71156485"
 
 现在，为中心虚拟网络创建 VPN 网关。 网络到网络配置需要 RouteBased VpnType。 创建 VPN 网关通常需要 45 分钟或更长时间，具体取决于所选 VPN 网关的 SKU。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在搜索文本框中，键入“虚拟网络网关”并按 **Enter**。 
 3. 依次选择“虚拟网络网关”、“创建”。  
 4. 对于“名称”，请键入 **GW-hub**。 
@@ -228,7 +235,10 @@ ms.locfileid: "71156485"
 
 现在，为本地虚拟网络创建 VPN 网关。 网络到网络配置需要 RouteBased VpnType。 创建 VPN 网关通常需要 45 分钟或更长时间，具体取决于所选 VPN 网关的 SKU。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在搜索文本框中，键入“虚拟网络网关”并按 **Enter**。 
 3. 依次选择“虚拟网络网关”、“创建”。  
 4. 对于“名称”，请键入 **GW-Onprem**。 
@@ -249,7 +259,7 @@ ms.locfileid: "71156485"
 
 1. 打开“FW-Hybrid-Test”资源组并选择“GW-hub”网关。  
 2. 在左栏中选择“连接”。 
-3. 选择“设置”  （应用程序对象和服务主体对象）。
+3. 选择“添加”   。
 4. 键入 **Hub-to-Onprem** 作为连接名称。
 5. 选择“VNet 到 VNet”作为“连接类型”。  
 6. 对于“第二个虚拟网络网关”，请选择“GW-Onprem”。  
@@ -260,7 +270,7 @@ ms.locfileid: "71156485"
 
 1. 打开“FW-Hybrid-Test”资源组并选择“GW-Onprem”网关。  
 2. 在左栏中选择“连接”。 
-3. 选择“设置”  （应用程序对象和服务主体对象）。
+3. 选择“添加”   。
 4. 键入 **Onprem-to-Hub** 作为连接名称。
 5. 选择“VNet 到 VNet”作为“连接类型”。  
 6. 对于“第二个虚拟网络网关”，请选择“GW-hub”。  
@@ -279,7 +289,7 @@ ms.locfileid: "71156485"
 
 1. 打开“FW-Hybrid-Test”资源组并选择“VNet-hub”虚拟网络。  
 2. 在左栏中选择“对等互连”。 
-3. 选择“设置”  （应用程序对象和服务主体对象）。
+3. 选择“添加”   。
 4. 对于“名称”，请键入 **HubtoSpoke**。 
 5. 对于“虚拟网络”，请选择“VNet-spoke”。  
 6. 键入 **SpoketoHub** 作为从 VNetSpoke 到 VNet-hub 的对等互连名称。
@@ -303,7 +313,10 @@ ms.locfileid: "71156485"
 - 通过防火墙 IP 地址从中心网关子网连接到分支子网的路由
 - 通过防火墙 IP 地址从分支子网连接的默认路由
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在搜索文本框中，键入“路由表”并按 **Enter**。 
 3. 选择“路由表”。 
 4. 选择“创建”  。
@@ -313,7 +326,7 @@ ms.locfileid: "71156485"
 9. 选择“创建”  。
 10. 创建路由表后，请选择它以打开路由表页。
 11. 在左栏中选择“路由”。 
-12. 选择“设置”  （应用程序对象和服务主体对象）。
+12. 选择“添加”   。
 13. 键入 **ToSpoke** 作为路由名称。
 14. 键入 **10.6.0.0/16** 作为地址前缀。
 15. 选择“虚拟设备”作为下一跃点类型。 
@@ -342,8 +355,8 @@ ms.locfileid: "71156485"
 1. 选择“创建”  。
 2. 创建路由表后，请选择它以打开路由表页。
 3. 在左栏中选择“路由”。 
-4. 选择“设置”  （应用程序对象和服务主体对象）。
-5. 键入 **ToSpoke** 作为路由名称。
+4. 选择“添加”   。
+5. 键入“ToHub”作为路由名称  。
 6. 键入 **0.0.0.0/0** 作为地址前缀。
 7. 选择“虚拟设备”作为下一跃点类型。 
 8. 键入前面记下的防火墙专用 IP 地址作为下一跃点地址。
@@ -366,14 +379,17 @@ ms.locfileid: "71156485"
 
 在分支虚拟网络中，创建运行 IIS 且不使用公共 IP 地址的虚拟机。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“常用”下，选择“Windows Server 2016 Datacenter”。  
 3. 输入虚拟机的以下值：
     - **资源组** - 选择“FW-Hybrid-Test”。 
     - **虚拟机名称**：*VM-Spoke-01*。
     - **区域** - 前面使用的同一区域。
     - **用户名**：*azureuser*。
-    - **密码**：*Azure123456!* -
+    - **密码**：*Azure123456!*
 4. 选择“下一步:磁盘”  。
 5. 接受默认设置，然后选择“下一步:  网络”。
 6. 选择“VNet-Spoke”作为虚拟网络；子网为“SN-Workload”。  
@@ -386,7 +402,7 @@ ms.locfileid: "71156485"
 ### <a name="install-iis"></a>安装 IIS
 
 1. 在 Azure 门户中打开本地 Shell，确保它设置为“PowerShell”。 
-2. 运行以下命令以在虚拟机上安装 IIS：
+2. 运行以下命令以在虚拟机上安装 IIS 并根据需要更改位置：
 
     ```powershell
     Set-AzVMExtension `
@@ -404,7 +420,10 @@ ms.locfileid: "71156485"
 
 你将使用此虚拟机通过远程桌面连接到公共 IP 地址。 然后，请在该虚拟机中通过防火墙连接到本地服务器。
 
-1. 在 Azure 门户主页上，选择“创建资源”。 
+1. 在 Azure 门户菜单中，选择“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“常用”下，选择“Windows Server 2016 Datacenter”。  
 3. 输入虚拟机的以下值：
     - **资源组** - 选择现有资源组，然后选择“FW-Hybrid-Test”。 
@@ -422,7 +441,7 @@ ms.locfileid: "71156485"
 
 ## <a name="test-the-firewall"></a>测试防火墙
 
-1. 首先，获取并记下 **VM-spoke-01** 虚拟机的专用 IP 地址。
+1. 首先，记下“VM-spoke-01”虚拟机的专用 IP 地址  。
 
 2. 在 Azure 门户中，连接到 **VM-Onprem** 虚拟机。
 
@@ -462,5 +481,4 @@ ms.locfileid: "71156485"
 > [!div class="nextstepaction"]
 > [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!-- Update_Description: new article about tutorial hybrid portal -->
-<!--ms.date: 09/23/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

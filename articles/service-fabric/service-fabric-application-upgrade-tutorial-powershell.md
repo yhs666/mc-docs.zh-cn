@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/04/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: b5ab0c27002d2de8ad30505dedc330eaf411fc01
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 8159846672e400cb06d965a3a40873ebca91fe7a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336375"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>使用 PowerShell 升级 Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ ms.locfileid: "57204147"
 
 可使用托管或本机 API、PowerShell、Azure CLI、Java 或 REST 执行受监视的应用程序升级。 有关使用 Visual Studio 执行升级的说明，请参阅[使用 Visual Studio 升级应用程序](service-fabric-application-upgrade-tutorial.md)。
 
-使用 Service Fabric 监视的滚动升级，应用程序管理员可以配置 Service Fabric 用于确定应用程序运行状况是否正常的运行状况评估策略。 此外，管理员还可以配置当运行状况评估失败时要采取的措施（例如，执行自动回滚）。本部分演练使用 PowerShell 对其中一个 SDK 示例进行受监视的升级。
+使用 Service Fabric 监视的滚动升级，应用程序管理员可以配置 Service Fabric 用于确定应用程序运行状况是否正常的运行状况评估策略。 此外，管理员还可以配置当运行状况评估失败时要采取的措施（例如，执行自动回滚）。本部分演练使用 PowerShell 对其中一个 SDK 示例进行受监视的升级。 
 
 ## <a name="step-1-build-and-deploy-the-visual-objects-sample"></a>步骤 1：构建和部署 Visual Objects 示例
 单击右键应用程序项目 **VisualObjectsApplication**，并选择“**发布**”命令生成并发布应用程序。  有关详细信息，请参阅 [Service Fabric 应用程序升级教程](service-fabric-application-upgrade-tutorial.md)。  或者，也可以使用 PowerShell 来部署应用程序。
@@ -60,7 +60,7 @@ ms.locfileid: "57204147"
 完成更改后，清单应该如下所示（突出显示的部分即为所做的更改）：
 
 ```xml
-<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ServiceManifestName="VisualObjects.ActorService" Version="2.0" xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance">
 
 <CodePackageName="Code" Version="2.0">
 ```
@@ -68,7 +68,7 @@ ms.locfileid: "57204147"
 现在，*ApplicationManifest.xml* 文件（位于 **VisualObjects** 解决方案下的 **VisualObjects** 项目下）已更新为 **VisualObjects.ActorService** 项目的 2.0 版。 此外，应用程序版本已从 1.0.0.0 更新为 2.0.0.0。 *ApplicationManifest.xml* 应类似于以下代码片段：
 
 ```xml
-<ApplicationManifestxmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
+<ApplicationManifestxmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" ApplicationTypeName="VisualObjects" ApplicationTypeVersion="2.0.0.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
  <ServiceManifestRefServiceManifestName="VisualObjects.ActorService" ServiceManifestVersion="2.0" />
 ```

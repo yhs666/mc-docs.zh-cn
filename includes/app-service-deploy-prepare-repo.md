@@ -9,12 +9,12 @@ origin.date: 06/12/2019
 ms.date: 09/10/2019
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: b874c46636b86c898af192a2165779808ca1d276
-ms.sourcegitcommit: 0529a2aa102e058636d726b4a4f25208e1e60597
+ms.openlocfilehash: 2e4ad3a6e1b4c7ebf407cddd9c9c4ef75191fe3c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466454"
 ---
 ## <a name="prepare-your-repository"></a>准备存储库
 
@@ -34,6 +34,6 @@ ms.locfileid: "71059571"
 要自定义部署，可以在存储库根路径中添加 .deployment 文件  。 有关详细信息，请参阅[自定义部署](https://github.com/projectkudu/kudu/wiki/Customizing-deployments)和[自定义部署脚本](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)。
 
 > [!NOTE]
-> 如果在 Visual Studio 中进行开发，让 [Visual Studio 创建存储库](/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio)。 该项目可立即通过 Git 进行部署。
+> 如果在 Visual Studio 中进行开发，让 [Visual Studio 创建存储库](https://docs.microsoft.com/azure/devops/repos/git/creatingrepo?view=vsts&tabs=visual-studio)。 该项目可立即通过 Git 进行部署。
 >
 

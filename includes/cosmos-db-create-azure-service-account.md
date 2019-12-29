@@ -5,17 +5,17 @@ services: cosmos-db
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
-origin.date: 04/06/2018
-ms.date: 04/23/2018
+origin.date: 10/07/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: 95d9bf67f0afb3c77bfed665d9c63509bcff76a7
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 19e97b6244791a4c8aaa3438ffee1ee7327b614e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52656422"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335997"
 ---
-可以通过 Azure 表存储使用表。 需要为所要使用的服务创建一个帐户。
-<!-- Not Avaiable on Azure Cosmos DB-->
-<!-- Not Avaiable on [Table offerings](../articles/cosmos-db/table-introduction.md#table-offerings) -->
+可以通过 Azure 表存储或 Azure Cosmos DB 使用表。 若要了解有关服务之间差异的详细信息，请参阅[表产品](../articles/cosmos-db/table-introduction.md#table-offerings)。 需要为所要使用的服务创建一个帐户。
+
+<!-- Update_Description: update meta properties, wording update, update link -->

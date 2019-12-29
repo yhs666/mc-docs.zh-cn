@@ -13,12 +13,12 @@ origin.date: 10/17/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 6329116ca3cfe47ce07d2c481ed2fcb4ec3ca2bf
-ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
+ms.openlocfilehash: 5ce4cc8f477da6153e4556ab2b20018d69663e32
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74982161"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500359"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>快速入门：使用 REST API 获取意向
 
@@ -26,7 +26,7 @@ ms.locfileid: "74982161"
 
 本快速入门使用终结点 REST API。 有关详细信息，请参阅[终结点 API 文档](https://chinaeast.dev.cognitive.azure.cn/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)。
 
-对于本文，需要一个免费的 [LUIS](https://www.luis.ai) 帐户。 
+对于本文，需要一个免费的 [LUIS](https://luis.azure.cn) 帐户。 
 
 <a name="create-luis-subscription-key"></a>
 

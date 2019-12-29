@@ -13,21 +13,22 @@ ms.tgt_pltfrm: html
 ms.devlang: javascript
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 440df2d9c9c8bf76d380099019189f880ec5d61b
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 544bfec717b93affca7aea6b0e9b06c27d0e5421
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657931"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334622"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>如何使用适用于 Azure 移动应用的 JavaScript 客户端库
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-html-how-to-use-client-library)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 本指南介绍如何使用最新的 [Azure 移动应用 JavaScript SDK]执行常见任务。 对于 Azure 移动应用的新手，请先完成 [Azure Mobile Apps Quick Start] （Azure 移动应用快速入门）创建后端和表。 本指南着重介绍如何在 HTML/JavaScript Web 应用程序中使用移动后端。

@@ -1,5 +1,5 @@
 ---
-title: 处理 Azure SQL 数据库中的 JSON 数据 | Microsoft Docs
+title: 处理 JSON 数据
 description: 使用 Azure SQL 数据库可以分析、查询数据，以 JavaScript 对象表示法 (JSON) 设置数据格式。
 services: sql-database
 ms.service: sql-database
@@ -10,18 +10,17 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 01/15/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: db4de24220b771201fec7fd492a6da62db217544
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 12/16/2019
+ms.openlocfilehash: a385d0d94ee3cd7c4c34af5df5fc9526e2873f27
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336060"
 ---
 # <a name="getting-started-with-json-features-in-azure-sql-database"></a>Azure SQL 数据库中的 JSON 功能入门
-使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](http://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。 以下 JSON 方案在 Azure SQL 数据库中可用：
+使用 Azure SQL 数据库可以分析和查询以 JavaScript 对象表示法 [(JSON)](https://www.json.org/) 格式表示的数据，并将关系数据导出为 JSON 文本。 以下 JSON 方案在 Azure SQL 数据库中可用：
 - 使用 `FOR JSON` 子句[将关系数据设置为 JSON 格式](#formatting-relational-data-in-json-format)。
 - [处理 JSON 数据](#working-with-json-data)
 - 使用 JSON 标量函数[查询 JSON 数据](#querying-json-data)。

@@ -9,12 +9,12 @@ ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 839a1d6f44bc935a0ae59100a3e51dcf29697cb7
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 7c4294256202fa3ec1d2d965ac1d1591b03f36a7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883626"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335916"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>导出 Azure IoT Central 数据（预览版功能）
 
@@ -194,7 +194,7 @@ ms.locfileid: "74883626"
 
 - IoT Central 中设备的 `@id`
 - 设备的 `name`
-- [设备预配服务](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)中的 `deviceId`
+- [设备预配服务](../core/howto-connect-nodejs.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)中的 `deviceId`
 - 设备模板信息
 - 属性值
 

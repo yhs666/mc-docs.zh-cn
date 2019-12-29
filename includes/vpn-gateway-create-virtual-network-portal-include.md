@@ -6,23 +6,23 @@ author: WenJason
 ms.service: vpn-gateway
 ms.topic: include
 origin.date: 08/02/2019
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: v-jay
 ms.custom: include file
-ms.openlocfilehash: eeaa419cbb584bfedc09f732dea01fe25df8ceed
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: a941447c1c08b2746fd4e580a041746221133c52
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655485"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335956"
 ---
-若要使用 Azure 门户在 Resource Manager 部署模型中创建 VNet，请执行以下步骤。 如果是在教程中使用这些步骤，请使用**示例值**。 如果并非在教程中使用这些步骤，请务必将其中的值替换为自己的值。 有关使用虚拟网络的详细信息，请参阅 [虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
+若要使用 Azure 门户在 Resource Manager 部署模型中创建 VNet，请执行以下步骤。 如果是作为教程使用这些步骤，请使用 **''示例值''** 。 否则，请务必将其中的值替换为自己的值。 有关使用虚拟网络的详细信息，请参阅 [虚拟网络概述](../articles/virtual-network/virtual-networks-overview.md)。
 
 >[!NOTE]
 >为了让此 VNet 连接到本地位置，需与本地网络管理员协调操作，指定一个 IP 地址范围，将其专用于此虚拟网络。 如果 VPN 连接的两侧存在重复的地址范围，则流量不会按预期的方式路由。 另外，若要将此 VNet 连接到其他 VNet，则地址空间不能与其他 VNet 重叠。 请注意对网络配置进行相应的计划。
 >
 
-1. 在 [Azure 门户](https://portal.azure.com)菜单中，选择“创建资源”  。 
+1. 在 [Azure 门户](https://portal.azure.cn)菜单中，选择“创建资源”  。 
 
    ![在 Azure 门户中创建资源](./media/vpn-gateway-create-virtual-network-portal-include/azure-portal-create-resource.png)
 2. 在“在市场中搜索”  字段中，键入“虚拟网络”。 从返回的列表中找到“虚拟网络”  ，单击打开“虚拟网络”  页。

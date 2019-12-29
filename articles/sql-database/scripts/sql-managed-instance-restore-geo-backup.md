@@ -1,5 +1,5 @@
 ---
-title: PowerShell 示例还原异地备份 - Azure SQL 数据库 | Microsoft Docs
+title: PowerShell 示例还原异地备份 - Azure SQL 数据库
 description: 通过异地冗余备份还原 Azure SQL 托管实例数据库的 Azure PowerShell 示例脚本。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: sample
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
-manager: digimobile
 origin.date: 07/03/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: be21762c7efca4b123d00eece15ca7536409d3c4
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 12/16/2019
+ms.openlocfilehash: 502f92e72ef138ac35f2f9ec383f4f8dad99b20d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544869"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334608"
 ---
 # <a name="use-powershell-to-restore-a-managed-instance-database-to-another-geo-region"></a>使用 PowerShell 将托管实例数据库还原到另一个地理区域
 
@@ -54,8 +53,8 @@ $backup = Get-AzSqlInstanceDatabaseGeoBackup `
 -Name $SourceDatabaseName
 
 $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
--TargetInstanceDatabaseName $TargetInstanceName `
--TargetInstanceName $TargetDatabaseName `
+-TargetInstanceDatabaseName $TargetDatabaseName `
+-TargetInstanceName $TargetInstanceName `
 -TargetResourceGroupName $TargetResourceGroupName
 
 ```

@@ -1,5 +1,5 @@
 ---
-title: 使用 Windows VM 用户分配的托管标识访问 Azure 资源管理器
+title: 教程`:`使用托管标识访问 Azure 资源管理器 - Windows - Azure AD
 description: 本教程介绍了使用 Windows VM 上用户分配的托管标识访问 Azure 资源管理器的过程。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/10/2018
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9596b675d2082cb6c6d4ec833c6ee9d60d851148
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 996914987d2c3e75335b4f46ba7f300b69ad8a27
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335536"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>教程：使用 Windows VM 上用户分配的托管标识访问 Azure 资源管理器
 
@@ -51,7 +50,7 @@ ms.locfileid: "68818606"
 - 若要执行本教程中必需的资源创建和角色管理步骤，你的帐户需要在相应范围（订阅或资源组）具有“所有者”权限。 如果需要有关角色分配的帮助，请参阅[使用基于角色的访问控制管理对 Azure 订阅资源的访问权限](/role-based-access-control/role-assignments-portal)。
 - [安装最新版本的 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。 
 - 运行 `Connect-AzAccount -Environment AzureChinaCloud`，创建与 Azure 的连接。
-- 安装[最新版本的 PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
+- 安装[最新版本的 PowerShellGet](https://docs.microsoft.com/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)。
 - 运行 `Install-Module -Name PowerShellGet -AllowPrerelease` 以获得 `PowerShellGet` 模块的预发布版本（运行此命令安装 `Az.ManagedServiceIdentity` 模块后，可能需要从当前 PowerShell 会话中退出`Exit`）。
 - 运行 `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` 来安装 `Az.ManagedServiceIdentity` 模块的预发布版本，以执行本文中用户分配的标识操作。
 
@@ -155,3 +154,4 @@ CanDelegate: False
 > [!div class="nextstepaction"]
 >[Azure 资源管理器](/azure-resource-manager/resource-group-overview)
 
+<!-- Update_Description: link update -->

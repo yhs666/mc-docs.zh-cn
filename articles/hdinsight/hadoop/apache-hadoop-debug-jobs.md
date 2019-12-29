@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 origin.date: 11/14/2017
-ms.date: 10/28/2019
+ms.date: 12/23/2019
 ms.author: ashish
-ms.openlocfilehash: 76f7b4a2db6c43b846b6a5257534de725cda9f9a
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: e38c606989efe2c1f77bedf5133d5b29bf321b5f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336113"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>在 Azure HDInsight 中分析 Apache Hadoop 日志
 
@@ -112,10 +112,6 @@ Azure HDInsight 中的每个 Apache Hadoop 群集都有一个用作默认文件�
 使用写入到 Azure 表的日志，可以在一定程度上了解 HDInsight 群集中发生的事件。 但是，这些表不提供任务级日志，这些日志在问题发生时可以用于进一步分析问题。 为了更进一步地详细了解所发生的问题，可以对 HDInsight 群集进行配置，将通过 Templeton 提交的作业的任务日志写入 Blob 存储帐户。 实际上，这是指通过 Microsoft Azure PowerShell cmdlet 或 .NET 作业提交 API 提交的作业，而不是指通过 RDP 提交的或通过命令行访问群集时提交的作业。 
 
 若要查看日志，请参阅[在基于 Linux 的 HDInsight 上访问 Apache Hadoop YARN 应用程序日志](../hdinsight-hadoop-access-yarn-app-logs-linux.md)。
-
-
-有关应用程序日志的详细信息，请参阅 [Simplifying user-logs management and access in Apache Hadoop YARN](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)（简化 Apache Hadoop YARN 中的用户日志管理和访问）。
-
 
 ## <a name="view-cluster-health-and-job-logs"></a>查看群集运行状况和作业日志
 ### <a name="access-the-ambari-ui"></a>访问 Ambari UI

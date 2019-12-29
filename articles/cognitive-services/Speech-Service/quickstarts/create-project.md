@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 11/04/2019
-ms.date: 11/25/2019
+origin.date: 11/19/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 96cc400c2724bbc84513883dbf3a42b0e42bf5af
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: a5b1c6c920edbecacce1cd34d1e17d3e6fb321d8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74390030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336252"
 ---
 # <a name="quickstart-create-a-project"></a>快速入门：创建一个项目
 
@@ -39,7 +39,7 @@ ms.locfileid: "74390030"
 **选择目标环境**
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 就此示例来说，我们使用 g++ 进行编译，因此你只需使用喜欢的文本编辑器为空项目创建一个 helloworld.cpp 即可。
-#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
+#### <a name="macostabmacos"></a>[macOS](#tab/macos)
 就此示例来说，我们使用 g++ 进行编译，因此你只需使用喜欢的文本编辑器为空项目创建一个 helloworld.cpp 即可。
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 [!INCLUDE [C++ quickstart](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]

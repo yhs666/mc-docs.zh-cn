@@ -6,13 +6,13 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: 769b518eaff3486395b3db15d25aa89dc40d0aa1
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/16/2019
+ms.openlocfilehash: 804b1eca26f07db6b3bc6cbb3fdd9c3d27a02c9e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913246"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336088"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>保护对 Azure Cosmos DB 中数据的访问
 
@@ -59,7 +59,7 @@ Azure Cosmos DB 帐户除了有两个主密钥以外，还有两个只读密钥�
 //NB > Keep these values in a safe and secure location. Together they provide Administrative access to your DocDB account.
 
 private static readonly string endpointUrl = ConfigurationManager.AppSettings["EndPointUrl"];
-private static readonly SecureString authorizationKey = ToSecureString(ConfigurationManager.AppSettings["AuthorizationKey"]);
+private static readonly string authorizationKey = ConfigurationManager.AppSettings["AuthorizationKey"];
 
 client = new DocumentClient(new Uri(endpointUrl), authorizationKey);
 
@@ -199,4 +199,4 @@ DocumentClient userClient = new DocumentClient(new Uri(endpointUrl), permList);
 * 若要详细了解 Cosmos 数据库安全性，请参阅 [Cosmos DB：数据库安全性](database-security.md)。
 * 若要了解如何构造 Azure Cosmos DB 授权令牌，请参阅 [Azure Cosmos DB 资源的访问控制](https://docs.microsoft.com/rest/api/cosmos-db/access-control-on-cosmosdb-resources)。
 
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update -->

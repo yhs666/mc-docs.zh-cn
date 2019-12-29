@@ -9,19 +9,19 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
 origin.date: 10/28/2019
-ms.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 335acbf6722c2be0ecd85f2a939383c0572e5de9
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: fec160075aabe6603006ac4ef57130f96b1e8ec4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74390070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75467657"
 ---
 **选择目标环境**
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 [!INCLUDE [linux](./linux.md)]
-#### <a name="macostabmacos"></a>[MacOS](#tab/MacOS)
+#### <a name="macostabmacos"></a>[macOS](#tab/macOS)
 [!INCLUDE [macos](./macos.md)]
 #### <a name="windowstabwindows"></a>[Windows](#tab/Windows)
 [!INCLUDE [windows](./windows.md)]

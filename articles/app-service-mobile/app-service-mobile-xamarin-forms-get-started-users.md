@@ -13,21 +13,22 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: a55d4ba12f6cbae02b75b2552b446918f8c8c32e
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 4624ef824de1a2d327ae2c2ec0dbf8c4f4c6c76e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657778"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336018"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>向 Xamarin Forms 应用添加身份验证
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started-users)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 本主题演示如何从客户端应用程序对应用服务移动应用的用户进行身份验证。 在本教程中，使用应用服务支持的标识提供者向 Xamarin Forms 快速入门项目添加身份验证。 移动应用成功进行身份验证和授权后，将显示用户 ID 值，该用户能够访问受限制的表数据。
@@ -245,7 +246,7 @@ ms.locfileid: "74657778"
 5. 通过添加 MobileServiceUser 字段和 IAuthenticate 接口所需的 Authenticate 方法，更新 AppDelegate 类，如下所示     ：
 
     ```
-    // Define a authenticated user.
+    // Define an authenticated user.
     private MobileServiceUser user;
 
     public async Task<bool> Authenticate()
@@ -273,8 +274,9 @@ ms.locfileid: "74657778"
         }
 
         // Display the success or failure message.
-        UIAlertView avAlert = new UIAlertView("Sign-in result", message, null, "OK", null);
-        avAlert.Show();         
+        UIAlertController avAlert = UIAlertController.Create("Sign-in result", message, UIAlertControllerStyle.Alert);
+        avAlert.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+        UIApplication.SharedApplication.KeyWindow.RootViewController.PresentViewController(avAlert, true, null);
 
         return success;
     }
@@ -289,7 +291,7 @@ ms.locfileid: "74657778"
             return TodoItemManager.DefaultManager.CurrentClient.ResumeWithURL(url);
         }
 
-6. 调用 `LoadApplication()` 之前，向 FinishedLaunching 方法添加以下代码行  ：
+7. 调用 `LoadApplication()` 之前，向 FinishedLaunching 方法添加以下代码行  ：
 
     ```
     App.Init(this);
@@ -299,7 +301,7 @@ ms.locfileid: "74657778"
 
 8. 打开 Info.plist 并添加 **URL 类型**。 将“标识符”设置  为所选的名称，将“URL 方案”  设置为应用的 URL 方案，将“角色”  设置为“无”。
 
-7. 重新生成应用，运行它，使用所选的身份验证提供者登录，并验证是否能够以经过身份验证的用户身份访问数据。
+9. 重新生成应用，运行它，使用所选的身份验证提供者登录，并验证是否能够以经过身份验证的用户身份访问数据。
 
 ## <a name="add-authentication-to-windows-10-including-phone-app-projects"></a>向 Windows 10（包括 Phone）应用项目添加身份验证
 本部分演示如何在 Windows 10 应用项目中实现“IAuthenticate”接口。  相同的步骤适用于通用 Windows 平台 (UWP) 项目，但使用的是 UWP 项目（具有已注明的更改）  。 如果不要支持 Windows 设备，请跳过本部分。
@@ -362,7 +364,7 @@ ms.locfileid: "74657778"
 
     如果使用的是 MicrosoftAccount 以外的其他标识提供者，请为 [MobileServiceAuthenticationProvider] 选择不同的值。
 
-6. 调用 `LoadApplication()` 之前，在 MainPage 类的构造函数中添加以下代码行  ：
+1. 调用 `LoadApplication()` 之前，在 MainPage 类的构造函数中添加以下代码行  ：
 
     ```
     // Initialize the authenticator before loading the app.
@@ -406,6 +408,6 @@ ms.locfileid: "74657778"
 [3]: https://msdn.microsoft.com/library/azure/dn268341(v=azure.10).aspx
 [4]: https://msdn.microsoft.com/library/azure/JJ553674(v=azure.10).aspx
 [5]: app-service-mobile-dotnet-how-to-use-client-library.md#serverflow
-[6]: app-service-mobile-dotnet-how-to-use-client-library.m d#clientflow
+[6]: app-service-mobile-dotnet-how-to-use-client-library.md#clientflow
 [7]: https://msdn.microsoft.com/library/azure/jj730936(v=azure.10).aspx
 [8]: https://portal.azure.cn

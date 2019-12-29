@@ -1,19 +1,19 @@
 ---
 title: Azure 防火墙规则处理逻辑
-description: 了解 Azure 防火墙规则处理逻辑
+description: Azure 防火墙具有 NAT 规则、网络规则和应用程序规则。 规则是根据规则类型进行处理的。
 services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 09/27/2018
-ms.date: 07/22/2019
+origin.date: 11/19/2018
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: fc3a2f4a38d001f2f25c4bed94d7fd8d9f998464
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: a9f9a6d5797b58da4d6b40f0b89e914fc7516cdc
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336117"
 ---
 # <a name="azure-firewall-rule-processing-logic"></a>Azure 防火墙规则处理逻辑
 Azure 防火墙具有 NAT 规则、网络规则和应用程序规则。 规则是根据规则类型进行处理的。
@@ -28,5 +28,4 @@ Azure 防火墙具有 NAT 规则、网络规则和应用程序规则。 规则�
 
 - 了解如何[部署和配置 Azure 防火墙](tutorial-firewall-deploy-portal.md)。
 
-<!-- Update_Description: new article about rule processing -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

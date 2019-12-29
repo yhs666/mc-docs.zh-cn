@@ -14,12 +14,12 @@ ms.date: 11/25/2019
 ms.author: v-tawe
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 54e0c09b949261a24654cc721d1d9c0b083250e8
-ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
+ms.openlocfilehash: 521581ae0d689dd09ccea876d8fbf450182f9b76
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556029"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335731"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>在 Azure 应用服务中使用 SSL 绑定保护自定义 DNS 名称
 
@@ -242,4 +242,4 @@ New-AzWebAppSSLBinding -WebAppName $webappname -ResourceGroupName $webappname -N
 ## <a name="more-resources"></a>更多资源
 
 * [在应用程序代码中使用 SSL 证书](configure-ssl-certificate-in-code.md)
-* [常见问题解答：应用服务证书](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)
+* [常见问题解答：应用服务证书](https://docs.azure.cn/app-service/faq-configuration-and-management/)

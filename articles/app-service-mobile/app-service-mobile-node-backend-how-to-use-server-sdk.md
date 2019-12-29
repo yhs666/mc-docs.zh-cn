@@ -13,18 +13,23 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: e8335908a46c6ca47e4be337f1e5c422f85a715a
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 2de76be1a27e25d907b9247a97ecd1c4229af133
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583583"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335764"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>如何使用移动应用 Node.js SDK
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
+>
+>  如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 本文提供详细的信息和示例，说明如何在 Azure 应用服务的移动应用功能中使用 Node.js 后端。
 
@@ -57,7 +62,7 @@ Azure 移动应用 Node.js SDK 支持两个数据库驱动程序：
     mkdir basicapp
     ```
 
-2. 运行 `npm init` 初始化包结构：
+1. 运行 `npm init` 初始化包结构：
 
     ```
     cd basicapp
@@ -68,13 +73,13 @@ Azure 移动应用 Node.js SDK 支持两个数据库驱动程序：
 
     ![npm init 输出][0]
 
-3. 从 npm 存储库安装 `express` 和 `azure-mobile-apps` 库：
+1. 从 npm 存储库安装 `express` 和 `azure-mobile-apps` 库：
 
     ```
     npm install --save express azure-mobile-apps
     ```
 
-4. 创建 app.js 文件，实现基本移动服务器：
+1. 创建 app.js 文件，实现基本移动服务器：
 
     ```javascript
     var express = require('express'),
@@ -185,7 +190,8 @@ Azure 提供了许多将移动应用 Node.js 后端发布到 Azure 服务的机�
 
 Azure 应用服务提供有关 Node.js 应用程序的具体建议，请在发布后端之前查看：
 
-* 如何[指定 Node 版本]
+<!-- * How to [specify the Node version] -->
+
 * 如何 [使用 Node 模块]
 
 ### <a name="howto-enable-homepage"></a>启用应用程序的主页
@@ -279,6 +285,7 @@ module.exports = table;
 如果以静态方式定义表，则还必须调用 `tables.initialize()` 方法，在启动时创建数据库架构。 `tables.initialize()` 方法返回 [Promise]，使 Web 服务不会在数据库初始化之前处理请求。
 
 ### <a name="howto-sqlexpress-setup"></a>使用 SQL Server Express 作为本地计算机上的开发数据存储
+
 移动应用 Node.js SDK 提供三种现成可用的数据提供选项：
 
 * 使用**内存**驱动程序提供非持久性示例存储。
@@ -400,11 +407,12 @@ azureMobile.js 文件中的大多数设置在 [Azure 门户]中都有对等的�
 1. 滚动到“应用设置”部分  。
 1. 如果该应用设置已存在，请选择其值进行编辑。
    如果该应用设置不存在，请在“键”框中输入“应用设置”，在“值”框中输入值   。
-1. 选择**保存**。
+1. 选择“保存”  。
 
 更改大多数应用设置后都需要重启服务。
 
 ### <a name="howto-use-sqlazure"></a>使用 SQL 数据库作为生产数据存储
+
 <!--- ALTERNATE INCLUDE - we can't use ../includes/app-service-mobile-dotnet-backend-create-new-service.md - slightly different semantics -->
 
 无论使用哪种 Azure 应用服务应用程序类型，将 Azure SQL 数据库用作数据存储的过程都是相同的。 如果尚未这样做，请根据以下步骤创建移动应用后端：
@@ -640,6 +648,7 @@ module.exports = table;
 应该建立记录删除机制：客户端应用程序、Web 作业、Azure 函数或自定义 API。
 
 ### <a name="howto-tables-seeding"></a>在数据库中植入数据
+
 创建新应用程序时，可能需要在表中植入数据。 可在表定义 JavaScript 文件中实现此目的，如下所示：
 
 ```javascript
@@ -933,7 +942,6 @@ Node.js 应用程序可访问各种诊断日志工具。 在内部，移动应�
 [监视 Azure 应用服务]: ../app-service/web-sites-monitor.md
 [在 Azure 应用服务中启用诊断日志记录]: ../app-service/troubleshoot-diagnostic-logs.md
 [在 Visual Studio 中对 Azure 应用服务进行故障排除]: ../app-service/troubleshoot-dotnet-visual-studio.md
-[指定 Node 版本]: /nodejs-specify-node-version-azure-apps
 [使用 Node 模块]: ../nodejs-use-node-modules-azure-apps.md
 [Create a new Azure App Service]: ../app-service/
 [azure-mobile-apps]: https://www.npmjs.com/package/azure-mobile-apps

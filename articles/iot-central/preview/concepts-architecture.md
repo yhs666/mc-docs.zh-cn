@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 3f24fe0a6d38df1126d922cc9c149739906e3e20
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 5d85384595aff15ee3a0e0c1b5acbcbe716af5c4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883081"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336345"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 体系结构（预览版功能）
 
@@ -149,7 +149,7 @@ Azure IoT Central 将时序存储用于从设备发送的度量数据。 设备�
 
 ## <a name="batch-device-updates"></a>设备批量更新
 
-在 Azure IoT Central 应用程序中，可以[创建并运行作业](../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)来管理连接的设备。 使用这些作业可对设备属性或设置进行批量更新，或运行命令。 例如，可以创建一个作业来提高多个冷冻食品自动售货机的风扇速度。
+在 Azure IoT Central 应用程序中，可以[创建并运行作业](../core/howto-run-a-job.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)来管理连接的设备。 使用这些作业可对设备属性或设置进行批量更新，或运行命令。 例如，可以创建一个作业来提高多个冷冻食品自动售货机的风扇速度。
 
 ## <a name="role-based-access-control-rbac"></a>基于角色的访问控制 (RBAC)
 

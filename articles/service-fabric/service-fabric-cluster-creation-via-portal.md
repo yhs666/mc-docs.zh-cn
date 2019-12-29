@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/06/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 07f1ecbf0a876314446c7b0cb4732f8868256d7e
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 26c0cf37c8ab41a7ada1b778f5786849e7e9cd8c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174163"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336358"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>使用 Azure 门户在 Azure 中创建 Service Fabric 群集
 > [!div class="op_single_selector"]
@@ -221,7 +221,6 @@ ms.locfileid: "70174163"
 <!-- Links -->
 
 [azure-powershell]: https://docs.azure.cn/powershell-install-configure
-[service-fabric-rp-helpers]: https://github.com/ChackDan/Service-Fabric/tree/master/Scripts/ServiceFabricRPHelpers
 [azure-portal]: https://portal.azure.cn/
 [key-vault-get-started]: ../key-vault/key-vault-overview.md
 [create-cluster-arm]: service-fabric-cluster-creation-via-arm.md
@@ -256,4 +255,4 @@ ms.locfileid: "70174163"
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png
 [cluster-security-cert-installation]: ./media/service-fabric-cluster-creation-via-arm/cluster-security-cert-installation.png
 
-<!--Update_Description: update meta properties, wording update, update link  -->
+<!-- Update_Description: update meta properties, wording update, update link -->

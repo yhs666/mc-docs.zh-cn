@@ -9,15 +9,15 @@ ms.service: hdinsight
 ms.devlang: na
 ms.topic: quickstart
 origin.date: 06/12/2019
-ms.date: 10/28/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
 ms.custom: mvc
-ms.openlocfilehash: 08da44231984bf6e3a0b8fc9d2479fcd8c504bdf
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 3c19360a272afe39d4ea4b18222e0548c7f84f04
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583978"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336163"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-powershell"></a>快速入门：使用 PowerShell 在 Azure HDInsight 中创建 Apache Spark 群集
 
@@ -28,9 +28,10 @@ ms.locfileid: "72583978"
 > [!IMPORTANT]
 > HDInsight 群集是基于分钟按比例收费，而不管用户是否正在使用它们。 请务必在使用完之后删除群集。 有关详细信息，请参阅本文的[清理资源](#clean-up-resources)部分。
 
-## <a name="prerequisites"></a>先决条件
+如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+## <a name="prerequisite"></a>先决条件
 
-* 如果没有 Azure 订阅，可以在开始前[创建一个免费帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * 已安装 PowerShell [Az 模块](https://docs.microsoft.com/powershell/azure/overview)。
 
@@ -47,7 +48,7 @@ ms.locfileid: "72583978"
 |参数|值|
 |------|------|
 |Azure 资源组名称 | 提供资源组的唯一名称。|
-|Location| 指定 Azure 区域，例如“中国东部”。 |
+|位置| 指定 Azure 区域，例如“中国东部”。 |
 |默认存储帐户名 | 为存储帐户提供唯一名称。 |
 |群集名称 | 提供 HDInsight Spark 群集的唯一名称。|
 |群集登录凭据 | 在本快速入门中稍后使用该帐户连接到群集仪表板。|

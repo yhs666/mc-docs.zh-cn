@@ -102,6 +102,6 @@ sections:
           - title: SDK
             html: '<p><a href="https://aka.ms/luis-endpoint-sdk"> .NET 终结点 SDK</a></p><p><a href="https://aka.ms/luis-authoring-sdk"> .NET 创作 SDK</a></p>'
           - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
           - title: CLI
             html: '<p><a href="https://docs.azure.cn/zh-cn/cli/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'

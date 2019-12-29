@@ -6,15 +6,15 @@ author: sethmanheim
 ms.service: event-hubs
 ms.topic: include
 origin.date: 05/22/2019
-ms.date: 09/16/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: a0c94bce99c641f0b6ca8f59fceb77c8e484a335
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 132241c5fe505e94a8e9e58c9decc5795102fb64
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872889"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469659"
 ---
 下表提供了特定于 [Azure 事件中心](https://www.azure.cn/home/features/event-hubs/)的配额和限制。 有关事件中心定价的信息，请参阅[事件中心定价](https://www.azure.cn/pricing/details/event-hubs/)。
 
@@ -27,7 +27,7 @@ ms.locfileid: "72872889"
 | 每个事件中心的分区数 |实体 |- |32 |
 | 事件中心名称的最大大小 |实体 |- |50 个字符 |
 | 每个使用者组的非 epoch 接收者数 |实体 |- |5 |
-| 最大吞吐量单位 |命名空间 |超出吞吐量单位限制会导致数据受到限制，并生成[服务器忙异常](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 若要为标准层请求更大数量的吞吐量单位，请提交[支持请求](/azure/azure-supportability/how-to-create-azure-support-request)。 [额外的吞吐量单位](../articles/event-hubs/event-hubs-auto-inflate.md)将基于承诺的购买以大小为 20 个单位的块的形式提供。 |20 个 |
+| 最大吞吐量单位 |命名空间 |超出吞吐量单位限制会导致数据受到限制，并生成[服务器忙异常](/dotnet/api/microsoft.servicebus.messaging.serverbusyexception)。 若要为标准层请求更大数量的吞吐量单位，请提交[支持请求](https://support.azure.cn/support/support-azure/)。 [额外的吞吐量单位](../articles/event-hubs/event-hubs-auto-inflate.md)将基于承诺的购买以大小为 20 个单位的块的形式提供。 |20 个 |
 | 每个命名空间的授权规则数量 |命名空间|将拒绝后续的授权规则创建请求。|12 |
 | 对 GetRuntimeInformation 方法的调用次数 | 实体 | - | 每秒 50 次 | 
 | 虚拟网络 (VNet) 和 IP 配置规则的数量 | 实体 | - | 128 | 

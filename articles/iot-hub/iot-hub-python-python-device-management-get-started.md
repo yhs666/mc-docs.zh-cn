@@ -1,7 +1,7 @@
 ---
 title: Azure IoT 中心设备管理入门 (Python)
 description: 如何使用 IoT 中心设备管理进行远程设备重启。 使用适用于 Python 的 Azure IoT SDK 实现包含直接方法的模拟设备应用和调用直接方法的服务应用。
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/20/2019
-ms.date: 09/30/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 3c3920aad3ec30f295fac2412347737ecf84e3ad
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 032266acd413557df9c936a3868ee578e34d2dc9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156070"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336419"
 ---
 # <a name="get-started-with-device-management-python"></a>设备管理入门 (Python)
 
@@ -62,10 +62,6 @@ ms.locfileid: "71156070"
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > azure-iothub-service-client 的 pip 包仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
-   >
 
 2. 使用文本编辑器，在工作目录中创建名为 **dmpatterns_getstarted_device.py** 的文件。
 
@@ -160,7 +156,7 @@ ms.locfileid: "71156070"
     ```
 
    > [!NOTE]
-   > azure-iothub-service-client 和 azure-iothub-device-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
+   > azure-iothub-service-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
    >
 
 2. 使用文本编辑器，在工作目录中创建名为 **dmpatterns_getstarted_service.py** 的文件。

@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-origin.date: 12/15/2018
-ms.date: 09/09/2019
+origin.date: 11/05/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 Customer intent: As a developer, I want to build a Java application with the Async Java SDK to access and manage Azure Cosmos DB resources so that customers can utilize the multiple-region distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
-ms.openlocfilehash: b5f5f99fa5524c5ca2d1ad55ef50b51ea906971c
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 7e6a5f8a4243b8c9c59aa665420b9341922e9c7c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254506"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335817"
 ---
 <!--Verify sucessfully-->
 # <a name="tutorial-build-a-java-app-with-the-async-java-sdk-to-manage-data-stored-in-a-sql-api-account"></a>教程：使用异步 Java SDK 生成 Java 应用，以便管理存储在 SQL API 帐户中的数据
@@ -91,6 +91,7 @@ public class AccountSettings
   // Replace MASTER_KEY and HOST with values from your Azure Cosmos account.
 
   // <!--[SuppressMessage("Microsoft.Security", "CS002:SecretInNextLine")]-->
+
   public static String MASTER_KEY = System.getProperty("ACCOUNT_KEY", 
           StringUtils.defaultString(StringUtils.trimToNull(
           System.getenv().get("ACCOUNT_KEY")), "<Fill your Azure Cosmos account key>"));

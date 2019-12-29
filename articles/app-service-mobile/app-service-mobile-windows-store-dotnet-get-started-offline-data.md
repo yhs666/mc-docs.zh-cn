@@ -13,21 +13,22 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 047a83121380a652e0921a27660a8d2bd0890667
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: c3b28137f4ec08719f2e3eb07d71e5db4ec53db3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335761"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>为 Windows 应用启用脱机同步
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-offline-data)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 本教程演示如何使用 Azure 移动应用后端为通用 Windows 平台 (UWP) 应用添加脱机支持。 脱机同步允许最终用户与移动应用交互（查看、添加或修改数据），即使在没有网络连接时也是如此。 在本地数据库中存储更改。 设备重新联机后，这些更改会与远程后端同步。
@@ -110,6 +111,7 @@ ms.locfileid: "72583581"
 [11]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/app-service-mobile-add-wp81-reference-sqlite-dialog.png
 [13]: ./media/app-service-mobile-windows-store-dotnet-get-started-offline-data/cpu-architecture.png
 
+
 <!-- URLs. -->
 [Azure 移动应用中的脱机数据同步]: app-service-mobile-offline-data-sync.md
 [创建 windows 应用]: app-service-mobile-windows-store-dotnet-get-started.md
@@ -118,13 +120,13 @@ ms.locfileid: "72583581"
 [SQLite for Windows 10]: https://go.microsoft.com/fwlink/?LinkID=716921
 [synccontext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [sqlite store nuget]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client.SQLiteStore/
-[IMobileServiceSyncTable]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable?view=azure-dotnet
-[IMobileServiceTableQuery]: /dotnet/api/microsoft.windowsazure.mobileservices.imobileservicetablequery-1?redirectedfrom=MSDN&view=azure-dotnet
-[IMobileServicesSyncContext]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext?redirectedfrom=MSDN&view=azure-dotnet
-[MobileServicePushFailedException]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception?redirectedfrom=MSDN&view=azure-dotnet
-[Status]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_MobileServices_Sync_MobileServicePushCompletionResult_Status
-[CancelledByNetworkError]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus?redirectedfrom=MSDN&view=azure-dotnet
-[PullAsync]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable-1.pullasync?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_MobileServices_Sync_IMobileServiceSyncTable_1_PullAsync__1_System_String_Microsoft_WindowsAzure_MobileServices_IMobileServiceTableQuery___0__System_Boolean_System_Threading_CancellationToken_Microsoft_WindowsAzure_MobileServices_Sync_PullOptions_
-[PushAsync]: /dotnet/api/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_MobileServices_MobileServiceSyncContextExtensions_PushAsync_Microsoft_WindowsAzure_MobileServices_Sync_IMobileServiceSyncContext_
-[PurgeAsync]: /dotnet/api/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync?redirectedfrom=MSDN&view=azure-dotnet#Microsoft_WindowsAzure_MobileServices_Sync_IMobileServiceSyncTable_PurgeAsync_System_String_System_String_System_Boolean_System_Threading_CancellationToken_
+[IMobileServiceSyncTable]: https://msdn.microsoft.com/library/azure/mt691742(v=azure.10).aspx
+[IMobileServiceTableQuery]: https://msdn.microsoft.com/library/azure/dn250631(v=azure.10).aspx
+[IMobileServicesSyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynccontext(v=azure.10).aspx
+[MobileServicePushFailedException]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushfailedexception(v=azure.10).aspx
+[Status]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushcompletionresult.status(v=azure.10).aspx
+[CancelledByNetworkError]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.mobileservicepushstatus(v=azure.10).aspx
+[PullAsync]: https://msdn.microsoft.com/library/azure/mt667558(v=azure.10).aspx
+[PushAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileservicesynccontextextensions.pushasync(v=azure.10).aspx
+[PurgeAsync]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.sync.imobileservicesynctable.purgeasync(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md

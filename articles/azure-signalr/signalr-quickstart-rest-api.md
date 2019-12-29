@@ -1,18 +1,18 @@
 ---
 title: 快速入门 - Azure SignalR 服务 REST API
-description: 有关使用 Azure SignalR 服务 REST API 的快速入门。
+description: 通过以下示例了解如何将 REST API 与 Azure SignalR 服务结合使用。 查找 REST API 规范的详细信息。
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
 origin.date: 03/01/2019
-ms.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 9c0c1fa555c989dd19f6e3e9b2b19467e21036d9
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 57663779c7bd15aa9fdbfb545c38ac2284d59342
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179063"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334860"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>快速入门：从控制台应用广播实时消息
 
@@ -41,7 +41,7 @@ Azure SignalR 服务提供了 [REST API](https://github.com/Azure/azure-signalr/
 
 1. 打开 git 终端窗口。 切换到要克隆示例项目的文件夹。
 
-1. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
+1. 运行下列命令，克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git

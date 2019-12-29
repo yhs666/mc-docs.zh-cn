@@ -8,12 +8,12 @@ ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: c275d734645f5f6dbf6f208a6b10185ead1fdb64
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 662eed710a5921161559eb5ba1bd9971cc0b36b3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883210"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335921"
 ---
 # <a name="what-are-application-templates"></a>什么是应用程序模板？
 
@@ -52,8 +52,6 @@ Azure IoT Central 中的应用程序模板是一项工具，可帮助解决方�
 - 政府 > 水质监视
 - 医疗保健 > 持续患者监视
 
-> [!NOTE]
-> “自定义应用程序”、“示例 Contoso”、“示例 Devkits”模板目前在“美国”、“澳大利亚”、“亚太”或“欧洲”位置提供，而其他模板目前仅在“欧洲”和“美国”位置提供。       
 
 ## <a name="industry-focused-templates"></a>行业关注的模板
 

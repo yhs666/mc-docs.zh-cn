@@ -1,23 +1,24 @@
 ---
-title: 有关自动完成功能和建议的 C# 教程 - Azure 搜索
-description: 本教程是在“搜索结果分页 - Azure 搜索”项目的基础上编写的，目的是添加自动完成功能和建议。 这么做是为了丰富用户体验。 了解如何结合使用内联自动完成功能和下拉建议列表。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-tawe
+title: 有关自动完成功能和建议的 C# 教程
+titleSuffix: Azure Cognitive Search
+description: 本教程演示使用下拉列表收集用户的搜索词输入时的自动完成功能和建议。 它基于现有的酒店项目。
+manager: nitinme
 author: PeterTurcan
-origin.date: 05/01/2019
-ms.date: 09/26/2019
-ms.openlocfilehash: b4f8f30b09fa90d6b07c3818711d161e22875701
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+ms.author: v-tawe
+ms.service: cognitive-search
+ms.topic: tutorial
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: db31232bf9e6d29a0466a20853de1db267f6f1a0
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335854"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C# 教程：添加自动完成功能和建议 - Azure 搜索
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# 教程：添加自动完成功能和建议 - Azure 认知搜索
 
-了解如何在用户开始在搜索框中键入内容时实现自动完成功能（提前键入和提供建议）。 本教程将分别展示提前键入的结果和建议结果，然后展示一种将二者相结合来创建更丰富的用户体验的方法。 用户可能只需按下两个或三个键就能得到所有可用结果。 本教程是在 [C# 教程：搜索结果分页 - Azure 搜索](tutorial-csharp-paging.md)教程中创建的分页项目的基础上编写的。
+了解如何在用户开始在搜索框中键入内容时实现自动完成功能（提前键入和提供建议）。 本教程将分别展示提前键入的结果和建议结果，然后展示一种将二者相结合来创建更丰富的用户体验的方法。 用户可能只需按下两个或三个键就能得到所有可用结果。 本教程是在 [C# 教程：搜索结果分页 - Azure 认知搜索](tutorial-csharp-paging.md)教程中创建的分页项目的基础上编写的。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -30,7 +31,7 @@ ms.locfileid: "71674475"
 
 要完成本教程，需要：
 
-启动并运行 [C# 教程：搜索结果分页 - Azure 搜索](tutorial-csharp-paging.md)项目。 此项目可使用上一教程中完成的版本，或从 GitHub 安装它：[创建第一个应用](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
+启动并运行 [C# 教程：搜索结果分页 - Azure 认知搜索](tutorial-csharp-paging.md)项目。 此项目可使用上一教程中完成的版本，或从 GitHub 安装它：[创建第一个应用](https://github.com/Azure-Samples/azure-search-dotnet-samples)。
 
 ## <a name="add-suggestions"></a>添加建议
 
@@ -147,7 +148,7 @@ ms.locfileid: "71674475"
  
     ![在将 fuzzy 设置为 true 后，键入“pa”](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    如果感兴趣，可阅读 [Azure 搜索中的 Lucene 查询语法](query-lucene-syntax.md)，其中详细介绍了模糊搜索使用的逻辑。
+    如果感兴趣，可阅读 [Azure 认知搜索中的 Lucene 查询语法](https://docs.azure.cn/search/query-lucene-syntax)，其中详细介绍了模糊搜索使用的逻辑。
 
 ## <a name="add-highlighting-to-the-suggestions"></a>为建议添加突出显示
 
@@ -256,7 +257,7 @@ ms.locfileid: "71674475"
 
 ## <a name="combine-autocompletion-and-suggestions"></a>结合使用自动完成功能和建议
 
-将自动完成功能和建议结合使用，是最复杂的选项，但却可能提供最佳的用户体验。 我们希望显示出要键入的文本或与之相符的文本，显示出 Azure 搜索自动完成文本时的首选内容。 我们还需要一系列以下拉列表形式显示的建议。
+将自动完成功能和建议结合使用，是最复杂的选项，但却可能提供最佳的用户体验。 我们希望显示出要键入的文本或与之相符的文本，显示出 Azure 认知搜索自动完成文本时的首选内容。 我们还需要一系列以下拉列表形式显示的建议。
 
 有提供此功能的库 - 库名通常为“内联自动完成”或类似名称。 但我们将以本机方式实现此功能，以便可以展示其工作原理。 在此示例中，我们从控制器上的工作着手。
 
@@ -465,6 +466,6 @@ ms.locfileid: "71674475"
 下一个教程介绍改进用户体验的另一种方法，即使用 facet 通过一次单击来缩小搜索范围。
 
 > [!div class="nextstepaction"]
-> [C# 教程：使用 facet 辅助导航 - Azure 搜索](tutorial-csharp-facets.md)
+> [C# 教程：使用 facet 辅助导航 - Azure 认知搜索](tutorial-csharp-facets.md)
 
 

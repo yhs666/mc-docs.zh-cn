@@ -12,15 +12,15 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-origin.date: 07/08/2019
-ms.date: 09/30/2019
+origin.date: 01/25/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8104230831414caa6b871e5270ba4d84413f3989
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 9578227fad17acb66eed1629998cdc78ee10182f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340924"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336173"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>在 Windows 上创建第一个 Service Fabric 容器应用程序
 
@@ -329,15 +329,15 @@ Windows 支持容器的两种隔离模式：进程和 Hyper-V。 使用进程隔
 ## <a name="deploy-the-container-application"></a>部署容器应用程序
 保存所有更改，生成应用程序。 若要发布应用程序，请右键单击解决方案资源管理器中的“MyFirstContainer”，选择“发布”。  
 
-在“连接终结点”中  输入群集的管理终结点。 例如“containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000”。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”选项卡中查找客户端连接终结点。
+在“连接终结点”中  输入群集的管理终结点。 例如，`containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19000`。 在 [Azure 门户](https://portal.azure.cn)中，可以在群集的“概览”选项卡中查找客户端连接终结点。
 
 单击“发布”。 
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项基于 Web 的工具，用于检验和管理 Service Fabric 群集中的应用程序和节点。 打开浏览器，导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19080/Explorer/ ，并执行应用程序部署。 将映像下载到群集节点（这可能需要一段时间，具体时间取决于映像大小）之前，应用程序可部署但处于错误状态：![错误][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 是一项基于 Web 的工具，用于检验和管理 Service Fabric 群集中的应用程序和节点。 打开浏览器，导航到 `http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:19080/Explorer/` ，并执行应用程序部署。 将映像下载到群集节点（这可能需要一段时间，具体时间取决于映像大小）之前，应用程序可部署但处于错误状态：![错误][1]
 
 如果应用程序处于 ```Ready``` 状态，则表示它已准备就绪：![就绪][2]
 
-打开浏览器并导航到 http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:8081 。 此时会看到标题“Hello World!” 显示在浏览器中。
+打开浏览器并导航到 `http://containercluster.chinanorth2.cloudapp.chinacloudapi.cn:8081` 。 此时会看到标题“Hello World!” 显示在浏览器中。
 
 ## <a name="clean-up"></a>清理
 

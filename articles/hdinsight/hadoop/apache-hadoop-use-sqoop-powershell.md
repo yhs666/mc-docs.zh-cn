@@ -12,14 +12,14 @@ ms.custom: hdinsightactive
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 04/11/2019
-ms.date: 05/20/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 6600ceeee6a70dd6db3def97247e8613a3fa9a18
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 3b5d20734fe026d2064aa2723ddd66eef7bfff79
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878637"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336253"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>使用 HDInsight 中用于 Apache Hadoop 的 Azure PowerShell 运行 Apache Sqoop 作业
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -28,7 +28,9 @@ ms.locfileid: "68878637"
 
 ## <a name="prerequisites"></a>先决条件
 
-要阅读本教程，必须具备以下项：
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+在开始阅读本文前，必须具有以下项：
 
 * 安装有 Azure PowerShell [AZ 模块](https://docs.microsoft.com/powershell/azure/overview)的工作站。
 

@@ -1,26 +1,23 @@
 ---
-title: 使用 IoT 中心事件触发 Azure 逻辑应用 | Microsoft Docs
-description: 使用 Azure 事件网格的事件路由服务创建自动化过程，用于根据 IoT 中心事件执行 Azure 逻辑应用操作。
+title: 教程 - 使用 IoT 中心事件触发 Azure 逻辑应用
+description: 教程 - 使用 Azure 事件网格的事件路由服务创建自动化过程，用于根据 IoT 中心事件执行 Azure 逻辑应用操作。
 services: iot-hub
-documentationcenter: ''
-author: kgremban
-manager: philmea
-editor: ''
+author: robinsh
 ms.service: iot-hub
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-origin.date: 12/07/2018
-ms.date: 06/03/2019
+origin.date: 11/21/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 08b7f4becd6002854ef194864fb2201a2e1bfbc1
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 0f0d893795a8f670bc62bf7f88f8ee4ea95bb5ec
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337501"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335792"
 ---
-# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>教程：使用逻辑应用发送有关 Azure IoT 中心事件的电子邮件
+# <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-event-grid-and-logic-apps"></a>教程：使用事件网格和逻辑应用发送有关 Azure IoT 中心事件的电子邮件通知
 
 使用 Azure 事件网格可以通过在下游业务应用程序中触发操作，对 IoT 中心内的事件做出反应。
 
@@ -38,16 +35,21 @@ ms.locfileid: "68337501"
 
 ### <a name="create-a-logic-app-resource"></a>创建逻辑应用资源
 
-1. 在 [Azure 门户](https://portal.azure.cn)中，选择“创建资源” > “集成” > “逻辑应用”    。
+1. 在 [Azure 门户](https://portal.azure.com)中，选择“创建资源”，然后在搜索框中键入“逻辑应用”并选择“返回”  。 从结果中选择“逻辑应用”  。
 
    ![创建逻辑应用](./media/publish-iot-hub-events-to-logic-apps/select-logic-app.png)
 
-2. 为逻辑应用指定一个在订阅中唯一的名称，然后选择 IoT 中心所在的同一订阅、资源组和位置。 
-3. 选择“创建”  。
+1. 在下一个屏幕上选择“创建”  。 
 
-4. 创建资源后，导航到你的逻辑应用。 
+1. 为逻辑应用指定一个在订阅中唯一的名称，然后选择 IoT 中心所在的同一订阅、资源组和位置。 
 
-5. 逻辑应用设计器会显示针对常用模式的模板，以便你可以更快地入门。 在逻辑应用设计器中的“模板”  下选择“空白逻辑应用”  ，以便从头开始生成逻辑应用。
+   ![用于创建逻辑应用的字段](./media/publish-iot-hub-events-to-logic-apps/create-logic-app-fields.png)
+
+1. 选择“创建”  。
+
+1. 创建资源后，导航到你的逻辑应用。 为此，请选择“资源组”，然后选择本教程中创建的资源组  。 然后在资源列表中查找逻辑应用并选择。 
+
+1. 在“逻辑应用设计器”中，下滑页面查看“模板”  。 选择“空白逻辑应用”，以便可以从头开始构建逻辑应用  。
 
 ### <a name="select-a-trigger"></a>选择触发器
 
@@ -116,7 +118,7 @@ ms.locfileid: "68337501"
 
 操作是在触发器启动逻辑应用工作流之后发生的任何步骤。 在本教程中，操作是从电子邮件提供程序发送电子邮件通知。 
 
-1. 选择“新建步骤”。  此时会打开一个窗口，供用户“选择操作”。 
+1. 选择“新建步骤”。  随即会打开一个窗口，供用户“选择操作”  。
 
 2. 搜索“电子邮件”。 
 
@@ -130,7 +132,10 @@ ms.locfileid: "68337501"
 
 6. 生成电子邮件模板。 
    * **收件人**：输入接收通知电子邮件的电子邮件地址。 本教程使用你可以访问的测试电子邮件帐户。 
-   * **主题**和**正文**：编写电子邮件的文本。 在选择器工具中选择 JSON 属性，以包含基于事件数据的动态内容。  
+
+   * **使用者**：填写主题文本。 单击“主题”文本框时，可以选择要包含的动态内容。 例如，本教程使用 `IoT Hub alert: {event Type}`。 如果未看到“动态内容”，请选择“添加动态内容”超链接，该操作可以开启和关闭此超链接  。
+
+   * **正文**：编写电子邮件的文本。 在选择器工具中选择 JSON 属性，以包含基于事件数据的动态内容。 如果未看到“动态内容”，请选择“正文”文本框下的“添加动态内容”超链接   。 如果未看到所需字段，单击“动态内容”屏幕中的“更多”，以包含上一个操作中的字段  。
 
    电子邮件模板可能如以下示例所示：
 
@@ -153,7 +158,8 @@ ms.locfileid: "68337501"
 
 本部分将 IoT 中心配置为在发生事件时发布事件。 
 
-1. 在 Azure 门户中导航到 IoT 中心。 
+1. 在 Azure 门户中导航到 IoT 中心。 为此，可以选择“资源组”，然后选择本教程中的资源组，接着从资源列表中选择 IoT 中心  。
+
 2. 选择“事件”  。
 
    ![打开事件网格详细信息](./media/publish-iot-hub-events-to-logic-apps/event-grid.png)
@@ -163,33 +169,55 @@ ms.locfileid: "68337501"
    ![创建新的事件订阅](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. 使用以下值创建事件订阅： 
-   * **事件类型**：取消选中“订阅所有事件类型”，然后从菜单中选择“已创建的设备”。 
-   * **终结点详细信息**：选择“Webhook”作为“终结点类型”，单击所选终结点并粘贴从逻辑应用中复制的 URL，然后确认选择。 
 
-     ![选择终结点 URL](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+   * **事件订阅详细信息**：提供一个说明性的名称，然后选择“事件网格架构”  。
 
-   * **事件订阅详细信息**：提供一个说明性的名称，然后选择“事件网格架构” 
+   * **事件类型**：在“筛选事件类型”中，取消选中除“创建的设备”以外的所有选项   。
 
-   完成后，窗体应如以下示例所示： 
+       ![订阅事件类型](./media/publish-iot-hub-events-to-logic-apps/subscription-event-types.png)
+
+   * **终结点详细信息**：选择 Web Hook 作为“终结点类型”，然后选择“选择终结点”并粘贴从逻辑应用中复制的 URL，然后确认选择   。
+
+     ![选择终结点 URL](./media/publish-iot-hub-events-to-logic-apps/endpoint-webhook.png)
+
+   完成后，窗格应如以下示例所示： 
 
     ![示例事件订阅窗体](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
-5. 可在此处保存事件订阅，并接收针对 IoT 中心内创建的每个设备发送的通知。 不过，在本教程中，我们将使用可选字段来筛选特定的设备。 选择窗体顶部的“其他功能”  。 
+5. 可在此处保存事件订阅，并接收针对 IoT 中心内创建的每个设备发送的通知。 不过，在本教程中，我们将使用可选字段来筛选特定的设备。 在窗格顶部，选择“筛选器”  。
 
-6. 创建以下筛选器：
+6. 选择“添加新筛选器”  。 在字段中填写以下值：
 
-   * **主题开头为**：输入 `devices/Building1_`，筛选建筑物 1 中的设备事件。
-   * **主题结尾为**：输入 `_Temperature`，筛选与温度相关的设备事件。
+   * **密钥**：选择 `Subject`。
 
-5. 选择“创建”保存事件订阅。 
+   * **操作员**：选择 `String begins with`。
+
+   * **值**：输入 `devices/Building1_`，筛选建筑物 1 中的设备事件。
+  
+   在另一个筛选器中添加以下值：
+
+   * **密钥**：选择 `Subject`。
+
+   * **操作员**：选择 `String ends with`。
+
+   * **值**：输入 `_Temperature`，筛选与温度相关的设备事件。
+
+   事件订阅的“筛选器”选项卡现在应如下图所示  ：
+
+   ![向事件订阅添加筛选器](./media/publish-iot-hub-events-to-logic-apps/event-subscription-filters.png)
+
+7. 选择“创建”保存事件订阅。 
 
 ## <a name="create-a-new-device"></a>创建新设备
 
 创建新设备来触发事件通知电子邮件，以测试逻辑应用。 
 
 1. 在 IoT 中心选择“IoT 设备”。  
-2. 选择“设置”  （应用程序对象和服务主体对象）。
-3. 对于“设备 ID”，请输入 `Building1_Floor1_Room1_Temperature`。 
+
+2. 选择“新建”  。
+
+3. 对于“设备 ID”，请输入 `Building1_Floor1_Room1_Light`。 
+
 4. 选择“保存”  。 
 5. 可以添加具有不同设备 ID 的多个设备来测试事件订阅筛选器。 尝试以下示例： 
    * Building1_Floor1_Room1_Light
@@ -197,15 +225,27 @@ ms.locfileid: "68337501"
    * Building2_Floor1_Room1_Temperature
    * Building2_Floor1_Room1_Light
 
-将一些设备添加到 IoT 中心后，请检查电子邮件，确定哪些设备触发了逻辑应用。 
+   如果添加了四个示例，IoT 设备列表应如下图所示：
+
+   ![IoT 中心设备列表](./media/publish-iot-hub-events-to-logic-apps/iot-hub-device-list.png)
+
+6. 将一些设备添加到 IoT 中心后，请检查电子邮件，确定哪些设备触发了逻辑应用。 
 
 ## <a name="use-the-azure-cli"></a>使用 Azure CLI
 
-如果不使用 Azure 门户，也可以使用 Azure CLI 来完成 IoT 中心相关的步骤。 有关详细信息，请参阅有关使用 Azure CLI [创建事件订阅](/cli/eventgrid/event-subscription)和[创建 IoT 设备](/cli/ext/azure-cli-iot-ext/iot/hub/device-identity)的网页
+如果不使用 Azure 门户，也可以使用 Azure CLI 来完成 IoT 中心相关的步骤。 有关详细信息，请参阅有关使用 Azure CLI [创建事件订阅](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription)和[创建 IoT 设备](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity)的网页。
 
 ## <a name="clean-up-resources"></a>清理资源
 
 本教程使用的资源会在 Azure 订阅中产生费用。 学习完本教程并测试结果后，请禁用或删除不再想要保留的资源。 
+
+若要删除在本教程中创建的所有资源，请删除资源组。 
+
+1. 选择“资源组”，然后选择本教程中创建的资源组  。
+
+2. 在“资源组”页上，选择“删除资源组”  。 系统将提示输入资源组名称，然后你可以将其删除。 同时会删除其中包含的所有资源。
+
+如果不想删除所有资源，可以逐个进行管理。 
 
 如果不希望丢弃针对逻辑应用所执行的操作，可以禁用逻辑应用，但不要将其删除。 
 
@@ -225,6 +265,7 @@ ms.locfileid: "68337501"
 
 ## <a name="next-steps"></a>后续步骤
 
+* 详细了解如何[通过使用事件网格触发操作来对 IoT 中心事件做出反应](../iot-hub/iot-hub-event-grid.md)。
 * [了解如何订阅设备已连接和已断开连接事件](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * 了解[事件网格](overview.md)的其他作用。
 

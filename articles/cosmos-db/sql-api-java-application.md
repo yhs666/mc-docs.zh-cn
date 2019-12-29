@@ -1,22 +1,22 @@
 ---
-title: 使用 Azure Cosmos DB 的 Java 应用程序开发教程
-description: 此 Java Web 应用程序教程展示了如何使用 Azure Cosmos DB 和 SQL API 从 Azure 网站上托管的 Java 应用程序来存储和访问数据。
+title: 教程：使用 Azure Cosmos DB 的 Java 应用程序开发教程
+description: 教程：此 Java Web 应用程序教程展示了如何使用 Azure Cosmos DB 和 SQL API 从 Azure 网站上托管的 Java 应用程序来存储和访问数据。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-origin.date: 12/22/2018
-ms.date: 09/09/2019
+origin.date: 11/05/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 4e59095e5cfc4f49627ebc7eb72113e538a083f0
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: d11817d8e77aa13609346d76f6ee79f562c88c1b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335739"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>教程：使用 Azure Cosmos DB 和 SQL API 构建 Java Web 应用程序
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -101,7 +101,7 @@ ms.locfileid: "70254504"
     * 在“项目 ID”  框中输入 azure-documentdb。
     * 在“版本”  框中输入 1.5.1。
 
-    ![安装 SQL Java 应用程序 SDK](./media/sql-api-java-application/image13.png)
+        ![安装 SQL Java 应用程序 SDK](./media/sql-api-java-application/image13.png)
 
     * 或者，通过文本编辑器直接将组 ID 和项目 ID 的依赖项 XML 添加到 pom.xml：
         ```xml
@@ -460,92 +460,99 @@ ms.locfileid: "70254504"
         }
 3. 我们需要一个 Web 用户界面来向用户显示。 让我们重新编写之前创建的 index.jsp：
     ```html
-        <html>
-        <head>
-          <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-          <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
-          <title>Azure Cosmos DB Java Sample</title>
+    <html>
+    <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge;" />
+      <title>Azure Cosmos DB Java Sample</title>
 
-          <!-- Bootstrap -->
-          <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+      <!-- Bootstrap -->
 
-          <style>
-            /* Add padding to body for fixed nav bar */
-            body {
-              padding-top: 50px;
-            }
-          </style>
-        </head>
-        <body>
-          <!-- Nav Bar -->
-          <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-              <div class="navbar-header">
-                <a class="navbar-brand" href="#">My Tasks</a>
-              </div>
-            </div>
+      <link href="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+
+      <style>
+        /* Add padding to body for fixed nav bar */
+        body {
+          padding-top: 50px;
+        }
+      </style>
+    </head>
+    <body>
+      <!-- Nav Bar -->
+
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">My Tasks</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Body -->
+
+      <div class="container">
+        <h1>My ToDo List</h1>
+
+        <hr/>
+
+        <!-- The ToDo List -->
+
+        <div class = "todoList">
+          <table class="table table-bordered table-striped" id="todoItems">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Complete</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+
+          <!-- Update Button -->
+
+          <div class="todoUpdatePanel">
+            <form class="form-horizontal" role="form">
+              <button type="button" class="btn btn-primary">Update Tasks</button>
+            </form>
           </div>
 
-          <!-- Body -->
-          <div class="container">
-            <h1>My ToDo List</h1>
+        </div>
 
-            <hr/>
+        <hr/>
 
-            <!-- The ToDo List -->
-            <div class = "todoList">
-              <table class="table table-bordered table-striped" id="todoItems">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Category</th>
-                    <th>Complete</th>
-                  </tr>
-                </thead>
-                <tbody>
-                </tbody>
-              </table>
+        <!-- Item Input Form -->
 
-              <!-- Update Button -->
-              <div class="todoUpdatePanel">
-                <form class="form-horizontal" role="form">
-                  <button type="button" class="btn btn-primary">Update Tasks</button>
-                </form>
+        <div class="todoForm">
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label for="inputItemName" class="col-sm-2">Task Name</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputItemName" placeholder="Enter name">
               </div>
-
             </div>
 
-            <hr/>
-
-            <!-- Item Input Form -->
-            <div class="todoForm">
-              <form class="form-horizontal" role="form">
-                <div class="form-group">
-                  <label for="inputItemName" class="col-sm-2">Task Name</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputItemName" placeholder="Enter name">
-                  </div>
-                </div>
-
-                <div class="form-group">
-                  <label for="inputItemCategory" class="col-sm-2">Task Category</label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" id="inputItemCategory" placeholder="Enter category">
-                  </div>
-                </div>
-
-                <button type="button" class="btn btn-primary">Add Task</button>
-              </form>
+            <div class="form-group">
+              <label for="inputItemCategory" class="col-sm-2">Task Category</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" id="inputItemCategory" placeholder="Enter category">
+              </div>
             </div>
 
-          </div>
+            <button type="button" class="btn btn-primary">Add Task</button>
+          </form>
+        </div>
 
-          <!-- Placed at the end of the document so the pages load faster -->
-          <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
-          <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
-          <script src="assets/todo.js"></script>
-        </body>
-        </html>
+      </div>
+
+      <!-- Placed at the end of the document so the pages load faster -->
+
+      <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.1.min.js"></script>
+      <script src="//ajax.aspnetcdn.com/ajax/bootstrap/3.2.0/bootstrap.min.js"></script>
+      <script src="assets/todo.js"></script>
+    </body>
+    </html>
     ```
 4. 最后，编写一些客户端 Javascript 将 Web 用户界面和 servlet 绑定在一起：
 
@@ -766,4 +773,4 @@ GitHub 上的 [todo](https://github.com/Azure-Samples/documentdb-java-todo-app) 
 21. 在浏览器中，导航到 `http://localhost:8080/azure-documentdb-java-sample/` 并开始向任务列表添加内容。 请注意，如果更改了默认端口值，请将 8080 更改成选择的值。
 22. 要将项目部署到 Azure 网站，请参阅[步骤 6. 将应用程序部署到 Azure 网站](#Deploy)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

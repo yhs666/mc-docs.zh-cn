@@ -7,13 +7,13 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 07/14/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: 4b32ca0d617f5811a2deabb7ef4f047f421aa9c5
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: abeee095a77ed204aec88bcf997aaf834ccb54b1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020996"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336347"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>在 Azure 数据资源管理器中管理水平缩放（横向扩展）群集以适应不断变化的需求
 
@@ -80,7 +80,7 @@ ms.locfileid: "74020996"
     | 冷却（分钟）  | 选择需要在两项缩放操作之间等待的适当时间间隔。 一开始可将默认值设置为 5分钟。 |
     |  |  |
 
-5. 选择“设置”  （应用程序对象和服务主体对象）。
+5. 选择“添加”   。
 
 6. 在左侧的“实例限制”部分，输入每项设置的值。 
 

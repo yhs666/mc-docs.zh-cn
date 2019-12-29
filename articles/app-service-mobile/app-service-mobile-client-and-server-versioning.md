@@ -13,16 +13,21 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 06/17/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: fdb0e669d760a578998263d6462412916f4cddb7
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: db6b51de991b38a229abceb60846e9ff926a1f52
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336544"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>移动应用和移动服务中的客户端与服务器版本控制
+> [!NOTE]
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
+>
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
+
 Azure 移动服务的最新版本是 Azure 应用服务的 **移动应用** 功能。
 
 移动应用客户端和服务器 SDK 最初基于移动服务中的 SDK，但它们彼此 *不* 兼容。

@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 11/07/2019
-ms.date: 12/02/2019
+ms.date: 12/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: a8ea0b554b04e3ee7704ff818e8bf5b31ecfcbba
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: e0392afdfcb857681ffe5eea10d45c6567c452d6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336455"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>教程：开发适用于 Linux 设备的 C IoT Edge 模块
 
@@ -360,7 +360,9 @@ ms.locfileid: "74389375"
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，创建了 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 准备好生成自己的模块时，可以详细了解如何[开发自己的 IoT Edge 模块](module-development.md)或如何[使用 Visual Studio Code 开发模块](how-to-vs-code-develop-module.md)。 可以继续学习后续教程，了解 Azure IoT Edge 如何帮助你部署 Azure 云服务，以在边缘位置处理和分析数据。
+在本教程中，创建了 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 准备好生成自己的模块时，可以详细了解如何[开发自己的 IoT Edge 模块](module-development.md)或如何[使用 Visual Studio Code 开发模块](how-to-vs-code-develop-module.md)。 有关 IoT Edge 模块的示例，包括模拟温度模块，请参阅 [IoT Edge 模块示例](https://github.com/Azure/iotedge/tree/master/edge-modules)和 [IoT C SDK 示例](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)。 
+
+可以继续学习后续教程，了解 Azure IoT Edge 如何帮助你部署 Azure 云服务，以在边缘位置处理和分析数据。
 
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)

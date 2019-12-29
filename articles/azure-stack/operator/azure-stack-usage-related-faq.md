@@ -16,12 +16,12 @@ ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: alfredop
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: fa56e1b9ff463561f416d3ec1056e756ab7859e3
-ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+ms.openlocfilehash: fb4dc2b63de273b6739bbb9c56c2b60098ad6338
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020072"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336459"
 ---
 # <a name="frequently-asked-questions-about-azure-stack-usage"></a>有关 Azure Stack 使用情况的常见问题解答
 
@@ -289,9 +289,15 @@ ms.locfileid: "74020072"
 **单元**：字节\*小时   
 **注释**：高级托管磁盘的实际大小（已弃用）快照 
 
-**计量 ID**：75d4b707-1027-4403-9986-6ec7c05579c8 **计量名称**：ActualStandardSnapshotSize **单位**：GB\*月**说明**：托管标准快照的磁盘实际大小（已弃用）  
+**计量 ID**：75d4b707-1027-4403-9986-6ec7c05579c8   
+**计量名称**：ActualStandardSnapshotSize   
+**单元**：GB\*月   
+**注释**：托管标准快照的磁盘实际大小（已弃用）  
 
-**计量 ID**：5ca1cbb9-6f14-4e76-8be8-1ca91547965e **计量名称**：ActualPremiumSnapshotSize **单位**：GB\*月**说明**：高级托管磁盘的实际大小（已弃用）快照  
+**计量 ID**：5ca1cbb9-6f14-4e76-8be8-1ca91547965e   
+**计量名称**：ActualPremiumSnapshotSize   
+**单元**：GB\*月   
+**注释**：高级托管磁盘的实际大小（已弃用）快照  
 
 ### <a name="sql-rp"></a>Sql RP
   

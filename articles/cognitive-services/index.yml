@@ -10,25 +10,28 @@ metadata:
   author: nitinme
   ms.author: v-tawe
   manager: nitinme
-  origin.date: 09/12/2019
-  ms.date: 10/11/2019
-  ms.openlocfilehash: 13e5a80ab3a3d378309802b2bd2e4c9fda812e8f
-  ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+  origin.date: 11/04/2019
+  ms.date: 12/16/2019
+  ms.openlocfilehash: 9d1fa1668a2e870dc1485977213c7b08407f1484
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/22/2019
-  ms.locfileid: "74388960"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75335064"
 highlightedContent:
   items:
   - title: 什么是认知服务？
     itemType: overview
     url: ./welcome.md
-  - title: 创建认知服务资源
-    itemType: how-to-guide
-    url: ./cognitive-services-apis-create-account.md
   - title: 认知服务中的语言支持
     itemType: reference
     url: ./language-support.md
+  - title: 创建认知服务资源
+    itemType: how-to-guide
+    url: ./cognitive-services-apis-create-account.md
+  - title: 认知服务的自定义子域
+    itemType: how-to-guide
+    url: cognitive-services-custom-subdomains.md
 conceptualContent:
   items:
   - title: 影像
@@ -69,17 +72,19 @@ additionalContent:
   - items:
     - title: 其他资源
       links:
+      - text: 支持和帮助选项
+        url: cognitive-services-support-options.md
       - text: Azure CLI
         url: https://docs.azure.cn/cli/cognitiveservices?view=azure-cli-latest
       - text: PowerShell
-        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-2.5.0#cognitive_services
+        url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/?view=azps-3.0.0#cognitive_services
     - title: REST API
       links:
       - text: 认知服务管理
         url: https://docs.microsoft.com/rest/api/cognitiveservices/
     - title: SDK
       links:
-      - text: .Net
+      - text: .NET
         url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Go
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices

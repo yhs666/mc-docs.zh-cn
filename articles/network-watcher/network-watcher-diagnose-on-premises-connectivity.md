@@ -13,14 +13,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 3e10513ef7a047c365d19e7e861289a8896f1270
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: ee054f0ea6626baab8d692c3a0c7e935a5b8bcec
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335205"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>通过 VPN 网关诊断本地连接
 
@@ -42,7 +42,7 @@ ms.locfileid: "71674682"
 
 有关配置站点到站点配置的详细分步指南，请访问：[使用 Azure 门户创建具有站点到站点连接的 VNet](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)。
 
-一个关键的配置步骤是配置 IPsec 通信参数，任何不当的配置都会导致本地网络与 Azure 之间的连接断开。 目前，Azure VPN 网关配置为支持第 1 阶段的以下 IPsec 参数。 请注意，如前所述，这些设置不可修改。  如下表中所示，Azure VPN 网关支持的加密算法包括 AES256、AES128、和 3DES。
+一个关键的配置步骤是配置 IPsec 通信参数，任何不当的配置都会导致本地网络与 Azure 之间的连接断开。 目前，Azure VPN 网关配置为支持第 1 阶段的以下 IPsec 参数。 如下表中所示，Azure VPN 网关支持的加密算法包括 AES256、AES128、和 3DES。
 
 ### <a name="ike-phase-1-setup"></a>IKE 第 1 阶段设置
 
@@ -53,7 +53,7 @@ ms.locfileid: "71674682"
 | 身份验证方法 |预共享密钥 |预共享密钥 |
 | 加密算法 |AES256 AES128 3DES |AES256 3DES |
 | 哈希算法 |SHA1(SHA128) |SHA1(SHA128)、SHA2(SHA256) |
-| 阶段 1 安全关联 (SA) 生命周期（时间） |28,800 秒 |10,800 秒 |
+| 阶段 1 安全关联 (SA) 生命周期（时间） |28,800 秒 |28,800 秒 |
 
 用户需要配置 FortiGate，在 [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt) 上可以找到示例配置。 无意中将 FortiGate 配置为使用 SHA-512 作为哈希算法。 由于基于策略的连接不支持此算法，因此 VPN 连接无法正常工作。
 

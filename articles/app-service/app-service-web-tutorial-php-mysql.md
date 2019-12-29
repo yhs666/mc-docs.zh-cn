@@ -12,21 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: tutorial
-origin.date: 11/15/2018
-ms.date: 09/03/2019
+origin.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: f9618f2356bd86953830be04b851877a54e41dde
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 85b65a29188da8aec01dd30d08b115e15ed4c443
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806886"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334900"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>教程：在 Azure 中构建 PHP 和 MySQL 应用
 
 
-[Azure 应用服务](overview.md)提供高度可缩放、自修补的 Web 托管服务。 本教程介绍如何在 Azure 中创建 PHP 应用，并将其连接到 MySQL 数据库。 完成本教程后，Azure 应用服务中将会运行一个 [Laravel](https://laravel.com/) 应用。
+[Azure 应用服务](overview.md)提供高度可缩放、自修复的 Web 托管服务。 本教程介绍如何在 Azure 中创建 PHP 应用，并将其连接到 MySQL 数据库。 完成本教程后，Azure 应用服务中将会运行一个 [Laravel](https://laravel.com/) 应用。
 
 ![在 Azure 应用服务中运行的 PHP 应用](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 

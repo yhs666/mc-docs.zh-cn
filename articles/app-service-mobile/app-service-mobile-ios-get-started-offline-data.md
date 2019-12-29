@@ -13,21 +13,22 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: bdcca25ed1176d00e8cbe63068e90af3e6795d0c
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: d3c3177603a7acbd0054c5e47680334fe5695da9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334625"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>启用 iOS 移动应用的脱机同步功能
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-ios-get-started-offline-data)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 本教程介绍 Azure 应用服务 for iOS 的移动应用功能的脱机同步。 通过脱机同步功能，最终用户可在无网络连接的情况下与移动应用进行交互，以查看、添加或修改数据。 更改存储在本地数据库中。 设备重新联机后，这些更改会与远程后端同步。
@@ -171,6 +172,7 @@ MS_TableOperations
 | properties | 二进制数据 |
 | 表 | String |
 | tableKind | 16 位整数 |
+
 
 MS_TableOperationErrors 
 

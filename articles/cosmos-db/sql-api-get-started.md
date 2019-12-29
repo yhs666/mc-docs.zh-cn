@@ -1,22 +1,22 @@
 ---
-title: 生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用
-description: 了解如何使用 C# 控制台应用程序创建 Azure Cosmos DB SQL API 资源。
+title: 教程：生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用
+description: 教程：了解如何使用 C# 控制台应用程序创建 Azure Cosmos DB SQL API 资源。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 09/24/2019
-ms.date: 10/28/2019
+origin.date: 11/05/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 92853bc1e4768330b200eac80caed2a4d3cc4cb0
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: cfe1ffe7f2736933832ef51b88a7599274999a9b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913225"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336396"
 ---
-# <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用
+# <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>教程：生成一个用于在 Azure Cosmos DB SQL API 帐户中管理数据的 .NET 控制台应用
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -299,6 +299,17 @@ ms.locfileid: "72913225"
     ```
 
 1. 选择 F5 来运行应用程序。
+
+    > [!NOTE]
+    > 如果收到“503 服务不可用异常”错误，则直接连接模式所需的[端口](performance-tips.md#networking)可能已被防火墙阻止。 若要解决此问题，打开所需端口或使用网关模式连接，如以下代码所示：
+    
+    ```csharp
+     // Create a new instance of the Cosmos Client in Gateway mode
+     this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
+            {
+                ConnectionMode = ConnectionMode.Gateway
+            });
+    ```
 
 祝贺！ 你已成功创建 Azure Cosmos 数据库。  
 

@@ -1,5 +1,5 @@
 ---
-title: 什么是 Azure SQL 数据库服务？ | Microsoft Docs
+title: 什么是 Azure SQL 数据库服务？
 description: 获取 SQL 数据库简介：Microsoft 在云中的关系数据库管理系统 (RDBMS) 的技术详细信息与功能。
 keywords: SQL 简介, 什么是 SQL 数据库
 services: sql-database
@@ -12,19 +12,19 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 04/08/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 16a2ca3b397b105c36d46e0a3e2ce5a916dfcb5d
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: 2980895475fcc0382a1029fd9a0b32a2ff7fbee2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041209"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334941"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>什么是 Azure SQL 数据库服务？
 
 Azure SQL 数据库是通用的关系数据库，以托管服务的形式提供。 使用它可为 Azure 中的应用程序和解决方案创建高可用性和高性能数据存储层。 SQL 数据库可成为各种新式云应用程序的正确选择，因为它可让你处理关系数据和[非关系结构](sql-database-multi-model-features.md)（例如图形、JSON、空间和 XML）。
 
-SQL 数据库基于 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json)的最新稳定版本。 你可以使用高级查询处理功能集，例如[高性能内存中技术](sql-database-in-memory.md)和[智能查询处理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/sql-database/toc.json)。 事实上，SQL Server 的最新功能会先发布到 SQL 数据库，然后再发布到 SQL Server 本身。 无需投入任何修补或升级开销，即可获得 SQL Server 的最新功能，这些功能已在数百万个数据库中进行测试。 
+SQL 数据库基于 [Microsoft SQL Server 数据库引擎](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/sql-database/toc.json)的最新稳定版本。 你可以使用高级查询处理功能集，例如[高性能内存中技术](sql-database-in-memory.md)和[智能查询处理](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/sql-database/toc.json)。 事实上，SQL Server 的最新功能会先发布到 SQL 数据库，然后再发布到 SQL Server 本身。 无需投入任何修补或升级开销，即可获得 SQL Server 的最新功能，这些功能已在数百万个数据库中进行测试。 
 
 使用 SQL 数据库可在两个不同的购买模型中轻松定义和缩放性能：[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)和[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。 SQL 数据库是完全托管型服务，提供内置的可用性、备份和其他常见维护操作。 Azure 可以处理 SQL 和操作系统代码的所有修补与更新。 你无需管理底层基础结构。
 

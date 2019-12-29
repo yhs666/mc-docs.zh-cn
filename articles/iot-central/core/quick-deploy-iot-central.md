@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: a9c3695c5e2b2cf9c1fc1f92d6186b58768006f1
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: d7272869f4f0042e76a6f666d2e3285971128195
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883326"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336046"
 ---
 # <a name="create-an-azure-iot-central-application"></a>创建 Azure IoT Central 应用程序
 
@@ -49,7 +49,7 @@ ms.locfileid: "74883326"
    - **即用即付**应用程序按设备收费，前 5 台设备免费。 若要创建即用即付应用程序，需要选择“目录”、“Azure 订阅”和“位置”     ：
         - 目录是用于创建应用程序的 Azure Active Directory (AD)  。 它包含用户标识、凭据和其他组织信息。 如果没有 Azure AD，则在创建 Azure 订阅时，系统会为你创建一个 Azure AD。
         - 有了 *Azure 订阅*，就可以创建 Azure 服务的实例。 IoT Central 将在订阅中预配资源。 如果没有 Azure 订阅，则可在 [Azure 注册页](https://aka.ms/createazuresubscription)上创建一个。 创建 Azure 订阅以后，请导航回“创建应用程序”页。  新订阅显示在“Azue 订阅”  下拉列表中。
-        - “位置”是你想要创建应用程序的[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)  。 通常，应选择物理上离设备最近的位置以获得最佳性能。 目前，美国、澳大利亚、亚太地区或欧洲提供 Azure IoT Central     。  选择一个位置后，之后便不能将应用程序移到其他位置。
+        - “位置”是你想要创建应用程序的[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)  。 通常，应选择物理上离设备最近的位置以获得最佳性能。 选择一个位置后，之后便不能将应用程序移到其他位置。
 
         可在 [Azure IoT Central 定价页](htps://www.azure.cn/pricing/details/iot-central/)上了解定价详细信息。
 

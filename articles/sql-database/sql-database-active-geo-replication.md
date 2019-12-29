@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 origin.date: 07/09/2019
 ms.date: 09/30/2019
-ms.openlocfilehash: a6f1d43bd6468e0f477d1d5863a80b5528918976
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.openlocfilehash: 70e9866e2fd32ea20805937669841d3bc0b697a4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262929"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336143"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>创建并使用活动异地复制
 

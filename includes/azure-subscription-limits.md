@@ -9,12 +9,12 @@ origin.date: 05/18/2018
 ms.date: 09/26/2018
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: 7cb7d0e12b2b0fdde7ebc38a291bfdd521132636
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 193817f4f35df2f4c0e31666e31d5de108291a18
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578674"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500407"
 ---
 | 资源 | 默认限制 | 最大限制 |
 | --- | --- | --- |
@@ -22,7 +22,7 @@ ms.locfileid: "69578674"
 | 每个订阅的[共同管理员数](/billing/billing-add-change-azure-subscription-administrator) |200 |200 |
 | 每个订阅在每个区域中的[存储帐户数](../articles/storage/common/storage-quickstart-create-account.md)<sup>2</sup> |200 |250 |
 | 每个订阅的[云服务数](../articles/cloud-services/cloud-services-choose-me.md) |20 |200 |
-| 每个订阅的[本地网络数](http://msdn.microsoft.com/library/jj157100.aspx) |10 |500 |
+| 每个订阅的[本地网络数](https://msdn.microsoft.com/library/jj157100.aspx) |10 |500 |
 | 每个订阅的 SQL 数据库服务器数 |6 |200 |
 | 每个订阅的 DNS 服务器 |9 |100 |
 | 每个订阅的保留的 IP |20 |100 |

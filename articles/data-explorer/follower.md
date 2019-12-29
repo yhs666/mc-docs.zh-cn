@@ -7,13 +7,13 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 11/07/2019
-ms.date: 12/02/2019
-ms.openlocfilehash: cb0455ab46843a92601025869e976b73ad6d5ea8
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.date: 12/16/2019
+ms.openlocfilehash: 7251c2b912f4ea415eba966debc752c72d808a40
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658186"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335989"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>在 Azure 数据资源管理器中使用后继数据库来附加数据库
 
@@ -49,23 +49,26 @@ ms.locfileid: "74658186"
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = followerSubscriptionId
+};
 
-var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
+var leaderResourceGroup = "leaderResouceGroup";
 var leaderClusterName = "leader";
 var followerClusterName = "follower";
 var attachedDatabaseConfigurationName = "adc";
-var databaseName = "db" // Can be specific database name or * for all databases
+var databaseName = "db"; // Can be specific database name or * for all databases
 var defaultPrincipalsModificationKind = "Union"; 
 var location = "China East 2";
 
 AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new AttachedDatabaseConfiguration()
 {
-    ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}",
+    ClusterResourceId = $"/subscriptions/{leaderSubscriptionId}/resourceGroups/{leaderResourceGroup}/providers/Microsoft.Kusto/Clusters/{leaderClusterName}",
     DatabaseName = databaseName,
     DefaultPrincipalsModificationKind = defaultPrincipalsModificationKind,
     Location = location
@@ -199,10 +202,13 @@ var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseCo
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = followerSubscriptionId
+};
 
 var followerResourceGroupName = "testrg";
 //The cluster and database that are created as part of the prerequisites
@@ -220,10 +226,13 @@ resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceG
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
 var clientId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Application ID
 var clientSecret = "xxxxxxxxxxxxxx";//Client secret
-var subscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var leaderSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
+var followerSubscriptionId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";
 
 var serviceCreds = await ApplicationTokenProvider.LoginSilentAsync(tenantId, clientId, clientSecret);
-var resourceManagementClient = new ResourceManagementClient(serviceCreds);
+var resourceManagementClient = new KustoManagementClient(serviceCreds){
+    SubscriptionId = leaderSubscriptionId
+};
 
 var leaderResourceGroupName = "testrg";
 var followerResourceGroupName = "followerResouceGroup";
@@ -233,7 +242,7 @@ var followerClusterName = "follower";
 var followerDatabaseDefinition = new FollowerDatabaseDefinition()
     {
         AttachedDatabaseConfigurationName = "adc",
-        ClusterResourceId = $"/subscriptions/{subscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
+        ClusterResourceId = $"/subscriptions/{followerSubscriptionId}/resourceGroups/{followerResourceGroupName}/providers/Microsoft.Kusto/Clusters/{followerClusterName}"
     };
 
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
@@ -248,7 +257,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 |**种类** |**说明**  |
 |---------|---------|
 |**联合**     |   附加的数据库主体始终包括原始数据库主体，以及添加到后继数据库的其他新主体。      |
-|**将**   |    不会从原始数据库继承主体。 必须为附加的数据库创建新主体。 至少需要添加一个主体来阻止主体继承。     |
+|**将**   |    不会从原始数据库继承主体。 必须为附加的数据库创建新主体。     |
 |**无**   |   附加的数据库主体只包括原始数据库的主体，而不包括其他主体。      |
 
 有关使用控制命令配置已授权主体的详细信息，请参阅[用于管理后继群集的控制命令](https://docs.microsoft.com/azure/kusto/management/cluster-follower)。

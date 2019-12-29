@@ -8,18 +8,19 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 07/12/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: a1a430808c89bc40d1bd1cbb27d763113b9a30d3
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 12/16/2019
+ms.openlocfilehash: d609d7c68471a1fb761307176b81307e2c4b7943
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306733"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334546"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>快速入门：生成 .NET 控制台应用以管理 Azure Cosmos DB SQL API 资源
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -55,6 +56,8 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 如果你有自己的 Azure 订阅或者免费创建了订阅，则应显式创建 Azure Cosmos 帐户。 以下代码将创建具有会话一致性的 Azure Cosmos 帐户。 该帐户在 `China East` 和 `China North` 中复制。  
 
+[!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
+
 <!--Not Available on  Select the **Try It** button and paste the code to run it in the Azure local Shell.-->
 
 ```azurecli
@@ -64,7 +67,7 @@ resourceGroupName='myResourceGroup'
 location='chinaeast'
 
 # The Azure Cosmos account name must be multiple-regionally unique, make sure to update the `mysqlapicosmosdb` value before you run the command
-accountName='mysqlapicosmosdb' 
+accountName='mysqlapicosmosdb'
 
 # Create a resource group
 az group create \
@@ -374,17 +377,14 @@ private async Task AddItemsToContainerAsync()
 
     try
     {
-        // Read the item to see if it exists. ReadItemAsync will throw an exception if the item does not exist and return status code 404 (Not found).
-        ItemResponse<Family> andersenFamilyResponse = await this.container.ReadItemAsync<Family>(andersenFamily.Id, new PartitionKey(andersenFamily.LastName));
-        Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamilyResponse.Resource.Id);
-    }
-    catch(CosmosException ex) when (ex.StatusCode == HttpStatusCode.NotFound)
-    {
-        // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
+        // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen".
         ItemResponse<Family> andersenFamilyResponse = await this.container.CreateItemAsync<Family>(andersenFamily, new PartitionKey(andersenFamily.LastName));
-
-        // Note that after creating the item, we can access the body of the item with the Resource property off the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+        // Note that after creating the item, we can access the body of the item with the Resource property of the ItemResponse. We can also access the RequestCharge property to see the amount of RUs consumed on this request.
         Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
+    }
+    catch (CosmosException ex) when (ex.StatusCode == HttpStatusCode.Conflict)
+    {
+        Console.WriteLine("Item in database with id: {0} already exists\n", andersenFamily.Id);                
     }
 }
 
@@ -499,4 +499,4 @@ az group delete -g "myResourceGroup"
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: wording update, update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

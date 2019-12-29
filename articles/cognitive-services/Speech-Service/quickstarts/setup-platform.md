@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 11/04/2019
-ms.date: 11/25/2019
+origin.date: 11/19/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: ddbf89e8554fd16de7b161c4a8c693dd5cb87f59
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: bbe4c01ea0c4a05970fcbb7ad647043e4204fc9d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389959"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336413"
 ---
 # <a name="quickstart-setup-development-environment"></a>快速入门：安装开发环境
 
 ::: zone pivot="programming-language-csharp"
 **选择目标环境**
-#### <a name="nettabdotnet"></a>[.Net](#tab/dotnet)
+#### <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 [!INCLUDE [dotnet](../includes/quickstarts/platform/csharp-dotnet-windows.md)]
-#### <a name="net-coretabdotnetcore"></a>[.Net Core](#tab/dotnetcore)
+#### <a name="net-coretabdotnetcore"></a>[.NET Core](#tab/dotnetcore)
 [!INCLUDE [dotnetcore](../includes/quickstarts/platform/csharp-dotnetcore-windows.md)]
 #### <a name="unitytabunity"></a>[Unity](#tab/unity)
 [!INCLUDE [unity](../includes/quickstarts/platform/csharp-unity.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "74389959"
 **选择目标环境**
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 [!INCLUDE [linux](../includes/quickstarts/platform/cpp-linux.md)]
-#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
+#### <a name="macostabmacos"></a>[macOS](#tab/macos)
 [!INCLUDE [macos](../includes/quickstarts/platform/cpp-macos.md)]
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 [!INCLUDE [windows](../includes/quickstarts/platform/cpp-windows.md)]

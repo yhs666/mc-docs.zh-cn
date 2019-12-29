@@ -7,24 +7,24 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/30/2018
-ms.date: 09/09/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 752d7439a83fc3ec4115780c0c1e8b12842e8a79
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 9d16aff5590dcc5f20b6d9c42310608083a891d8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254803"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336403"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户通过 Xamarin 构建待办事项应用
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可快速创建和查询文档、键/值和图形数据库，所有这些都受益于 Azure Cosmos DB 核心的多区域分布和水平缩放功能。
 
@@ -130,7 +130,6 @@ ToDoItems 解决方案中的代码包含：
 * 查询容器中的文档时，使用 `DocumentClient.CreateDocumentQuery<T>` 方法，如下面的 `CosmosDBService.GetToDoItems` 函数所示：
 
     ```csharp
-
     /// <summary> 
     /// </summary>
     /// <returns></returns>
@@ -170,7 +169,6 @@ ToDoItems 解决方案中的代码包含：
 * `ComsmosDBService.InsertToDoItem` 函数演示如何插入新文档：
 
     ```csharp
-
     /// <summary> 
     /// </summary>
     /// <returns></returns>
@@ -183,7 +181,6 @@ ToDoItems 解决方案中的代码包含：
            UriFactory.CreateDocumentCollectionUri(databaseName, collectionName),
            item);
     }
-
     ```
 
     指定了项 URI 以及要插入的项。
@@ -191,7 +188,6 @@ ToDoItems 解决方案中的代码包含：
 * `CosmosDBService.UpdateToDoItem` 函数演示如何将现有文档替换为新文档：
 
     ```csharp
-
     /// <summary> 
     /// </summary>
     /// <returns></returns>
@@ -203,7 +199,6 @@ ToDoItems 解决方案中的代码包含：
        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
        await docClient.ReplaceDocumentAsync(docUri, item);
     }
-
     ```
 
     此处需要使用新的 URI 来唯一标识要替换的文档，而获得该 URI 的方法是先使用 `UriFactory.CreateDocumentUri`，然后向其传递数据库和容器的名称以及文档的 ID。
@@ -213,7 +208,6 @@ ToDoItems 解决方案中的代码包含：
 * `CosmosDBService.DeleteToDoItem` 函数演示了如何删除某个项：
 
     ```csharp
-
     /// <summary> 
     /// </summary>
     /// <returns></returns>
@@ -225,7 +219,6 @@ ToDoItems 解决方案中的代码包含：
        var docUri = UriFactory.CreateDocumentUri(databaseName, collectionName, item.Id);
        await docClient.DeleteDocumentAsync(docUri);
     }
-
     ```
 
     再次请注意这个在创建后传递给 `DocumentClient.DeleteDocumentAsync` 函数的唯一的文档 URI。

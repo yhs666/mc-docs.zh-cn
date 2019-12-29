@@ -1,5 +1,5 @@
 ---
-title: 使用 .NET Core 查询 Azure SQL 数据库 | Microsoft Docs
+title: 使用 .NET Core 进行查询
 description: 本主题介绍如何使用 .NET Core 创建连接到 Azure SQL 数据库的程序并使用 Transact-SQL 语句对其进行查询。
 services: sql-database
 ms.service: sql-database
@@ -10,25 +10,27 @@ ms.topic: quickstart
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
-origin.date: 03/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 32ba8d2ec4370701bd1663137c4f0024c9bda277
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 07/29/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: d163e66cd8ff2e11000be6c903a24c92e7ec19e7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336079"
 ---
 # <a name="quickstart-use-net-core-c-to-query-an-azure-sql-database"></a>快速入门：使用 .NET Core (C#) 查询 Azure SQL 数据库
 
 在本快速入门中，将使用 [.NET Core](https://www.microsoft.com/net/) 和 C# 代码连接到 Azure SQL 数据库。 然后，将运行 Transact-SQL 语句来查询数据。
 
+> [!TIP]
+> 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+
 ## <a name="prerequisites"></a>先决条件
 
 对于本教程的内容，你需要：
 
-- Azure SQL 数据库。 可以根据下述快速入门中的一个的说明在 Azure SQL 数据库中创建数据库，然后对其进行配置：
+- Azure SQL 数据库。 可以根据下述快速入门之一，在 Azure SQL 数据库中创建数据库，然后对其进行配置：
 
   || 单一数据库 | 托管实例 |
   |:--- |:--- |:---|

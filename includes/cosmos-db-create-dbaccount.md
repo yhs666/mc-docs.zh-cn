@@ -6,21 +6,21 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 04/08/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: dedf040d5ff08d601e18b3f75b41034aa559ac7c
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 959e15927c34ce0be36d294cc459b369f4c4efb5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334551"
 ---
-1. 登录到 [Azure 门户](https://portal.azure.cn/)。
-1. 选择“创建资源”   >   “数据库” >   “Azure Cosmos DB”。
+1. 转到 [Azure 门户](https://portal.azure.cn/)以创建 Azure Cosmos DB 帐户。 搜索“Azure Cosmos DB”，然后选择它。  。
 
     ![Azure 门户“数据库”窗格](./media/cosmos-db-create-dbaccount/create-nosql-db-databases-json-tutorial-1.png)
 
+1. 选择“添加”   。
 1. 在“创建 Azure Cosmos DB 帐户”页上，输入新 Azure Cosmos 帐户的基本设置  。 
 
     |设置|值|Description |
@@ -42,3 +42,5 @@ ms.locfileid: "72913217"
 1. 选择“转到资源”，转到 Azure Cosmos DB 帐户页。  
 
     ![Azure Cosmos DB 帐户页](./media/cosmos-db-create-dbaccount/azure-cosmos-db-account-created-2.png)
+
+<!-- Update_Description: update meta properties, wording update, update link -->

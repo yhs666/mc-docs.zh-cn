@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB Gremlin 响应标头
 description: 有关帮助进一步进行故障排除的服务器响应元数据的参考文档
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
 origin.date: 09/03/2019
-ms.date: 09/30/2019
+ms.date: 12/16/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: d1b8342e273041f485bb778c0308765a9273c3a2
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 9a665cbe1eefadeae78febf0c2ecfe733c3543d5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306846"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336093"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Azure Cosmos DB Gremlin 服务器响应标头
 本文介绍在执行请求后由 Cosmos DB Gremlin 服务器返回给调用方的标头。 这些标头可用于排查请求性能问题，构建原生可与 Cosmos DB 服务集成的应用程序，以及简化客户支持。
@@ -32,6 +32,8 @@ ms.locfileid: "71306846"
 | **x-ms-substatus-code** | long | 1003 | 仅限故障 | Cosmos DB 是在统一存储层之上构建的多模型数据库。 此标头包含当高可用性堆栈的较低层中发生故障时有关故障原因的其他见解。 建议在应用程序中存储此标头，并在联系 Cosmos DB 客户支持人员时使用此标头。 Cosmos DB 工程师可以使用此标头的值快速进行故障排除。 |
 | **x-ms-retry-after-ms** | 字符串 (TimeSpan) | "00:00:03.9500000" | 仅限故障 | 此标头是 .NET [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan) 类型的字符串表示形式。 此值仅包含在由于耗尽预配吞吐量而失败的请求中。 在指定的时间段后，应用程序应再次重新提交遍历。 |
 | **x-ms-activity-id** | 字符串 (Guid) | "A9218E01-3A3A-4716-9636-5BD86B056613" | Success 和 Failure | 标头包含请求的唯一服务器端标识符。 服务器将为每个请求分配一个唯一标识符用于跟踪。 应用程序应该记录服务器针对请求返回的活动标识符，客户在联系客户支持人员时可以使用这些标识符。 Cosmos DB 支持人员可在 Cosmos DB 服务遥测数据中按这些标识符查找特定的请求。 |
+
+<!--CORRECT ON [TimeSpan](https://docs.microsoft.com/dotnet/api/system.timespan)-->
 
 ## <a name="status-codes"></a>状态代码
 
@@ -112,5 +114,4 @@ try {
 * [常见的 Azure Cosmos DB REST 响应标头](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers)
 * [TinkerPop 图形驱动程序提供程序要求]( http://tinkerpop.apache.org/docs/current/dev/provider/#_graph_driver_provider_requirements)
 
-<!-- Update_Description: new article about gremlin headers -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

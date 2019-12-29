@@ -7,13 +7,13 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 origin.data: 06/03/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: 1a6bba06f0fd9c15a6e40c6564700af6c6c3b377
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: 27764c33d040c1d219cea80b79606853ead22177
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020691"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335952"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>使用 C# 创建 Azure 数据资源管理器群集和数据库
 
@@ -35,9 +35,9 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="install-c-nuget"></a>安装 C# Nuget
 
-1. 安装 [Azure 数据资源管理器 (Kusto) nuget 包](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
+* 安装 [Azure 数据资源管理器 (Kusto) nuget 包](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)。
 
-1. 安装 [Microsoft.IdentityModel.Clients.ActiveDirectory nuget 包](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)以进行身份验证。
+* 安装 [Microsoft.IdentityModel.Clients.ActiveDirectory nuget 包](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/)以进行身份验证。
 
 ## <a name="authentication"></a>身份验证
 为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 查看[创建 Azure AD 应用程序](https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序，并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。

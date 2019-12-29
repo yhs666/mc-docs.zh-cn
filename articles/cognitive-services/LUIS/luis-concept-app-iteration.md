@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 11/20/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 028f523a1d75a97c6c18fdf457715735e154bc83
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 3f4ce0cce563376c63f92f9759f5292cccb16fc7
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884501"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500355"
 ---
 # <a name="iterative-app-design-for-luis"></a>LUIS 的迭代应用设计
 
@@ -119,7 +119,7 @@ LUIS 需要在每个**意向**中添加几个示例言语。 示例言语需要�
 * 机器学习信息，因为应用在导入后会经过重新训练
 * 参与者信息
 
-若要备份 LUIS 应用架构，请从 [LUIS 门户](https://www.luis.ai/applications)导出版本。
+若要备份 LUIS 应用架构，请从 [LUIS 门户](https://luis.azure.cn/applications)导出版本。
 
 ## <a name="manage-contributor-changes-with-versions-and-contributors"></a>使用版本和参与者信息管理参与者更改
 

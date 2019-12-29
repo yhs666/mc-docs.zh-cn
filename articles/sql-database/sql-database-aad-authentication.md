@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 身份验证 - Azure SQL | Microsoft 文档
+title: Azure Active Directory
 description: 了解如何将 Azure Active Directory 身份验证与 SQL 数据库、托管实例和 SQL 数据仓库结合使用
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
 origin.date: 02/20/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 10429cbbafa59afea93d7c4162cd6ee9252133fa
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 12/16/2019
+ms.openlocfilehash: 6a97add29f4a043155780d5d8b53457227747ea1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336144"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>使用 Azure Active Directory 身份验证进行 SQL 身份验证
 
@@ -37,6 +37,7 @@ Azure Active Directory 身份验证是使用 Azure Active Directory (Azure AD) �
 - Azure AD 支持对连接到 SQL 数据库的应用程序进行基于令牌的身份验证。
 - Azure AD 身份验证支持对本地 Azure Active Directory 进行 ADFS（域联合）或本机用户/密码身份验证，而无需进行域同步。
 - Azure AD 支持从 SQL Server Management Studio 进行连接，后者使用 Active Directory 通用身份验证，其中包括多重身份验证 (MFA)。  MFA 包括利用一系列简单的验证选项进行的强身份验证，这些选项包括电话、短信、含有 PIN 码的智能卡或移动应用通知。 有关详细信息，请参阅 [SQL 数据库和 SQL 数据仓库针对 Azure AD MFA 的 SSMS 支持](sql-database-ssms-mfa-authentication.md)。
+- Azure AD 支持来自 SQL Server Data Tools (SSDT) 的使用 Active Directory 交互式身份验证的类似连接。 有关详细信息，请参阅 [SQL Server Data Tools (SSDT) 中的 Azure Active Directory 支持](https://docs.microsoft.com/sql/ssdt/azure-active-directory)。
 
 > [!NOTE]  
 > 不支持使用 Azure Active Directory 帐户连接到 Azure VM 上运行的 SQL Server。 请改用域 Active Directory 帐户。  
@@ -126,6 +127,7 @@ Azure AD 服务器主体（登录名）（**公共预览版**）支持以下身�
 - Azure Active Directory 密码
 - 集成式 Azure Active Directory
 - 采用了 MFA 的通用 Azure Active Directory
+
 
 ### <a name="additional-considerations"></a>其他注意事项
 

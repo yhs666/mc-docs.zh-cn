@@ -5,15 +5,15 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-origin.date: 01/21/2019
-ms.date: 06/03/2019
+origin.date: 11/04/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: faeeb563bc72464190b5154953af253a21b21f95
-ms.sourcegitcommit: 5a57f99d978b78c1986c251724b1b04178c12d8c
+ms.openlocfilehash: 66f61ca611eb3ca8042802a5c03160b368f3bdec
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195224"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334586"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure 事件网格中的事件处理程序
 
@@ -61,7 +61,7 @@ ms.locfileid: "66195224"
 |---------|---------|
 | [教程：将事件发送到混合连接](custom-event-to-hybrid-connection.md) | 将自定义事件发送到现有混合连接以供侦听器应用程序处理。 |
 
-## <a name="logic-apps"></a>Logic Apps
+## <a name="logic-apps"></a>逻辑应用
 
 使用逻辑应用自动执行事件响应业务流程。
 

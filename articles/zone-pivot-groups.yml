@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: b4666d5ee4a0d2868ecf663103167eed95a6beb3
-ms.sourcegitcommit: 3be64cd198700989de265f91ceb3af8a19ceb05a
+ms.openlocfilehash: fca1099d0c2b8a623c4d1b0ad17dab24421d8a79
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74935977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336052"
 groups:
 - id: programming-languages-set-one
   title: 编程语言
@@ -92,3 +92,11 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
+- id: URL-test-interface
+  title: URL 测试工具
+  prompt: 选择以下工具之一
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: postman

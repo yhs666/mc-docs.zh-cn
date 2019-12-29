@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-origin.date: 12/22/2018
-ms.date: 09/09/2019
+origin.date: 11/05/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: c78c844aa90eb1c08a12d19dfa3ca9abbecdf322
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: b5983e9217054a456b87bfa2fb4e30070a2860d6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254494"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335735"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL 教程：构建 SQL API Java 控制台应用程序
 

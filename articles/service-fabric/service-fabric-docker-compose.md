@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 08/05/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: f809d51eb277797d8f11566fb4a7b53c7dbd58d0
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: e6b404c9757b81a739eb2225d861392c7a5d435c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753130"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336330"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Azure Service Fabric 中的 Docker Compose 部署支持（预览版）
 
 Docker 使用 [docker-compose.yml](https://docs.docker.com/compose) 文件定义多容器应用程序。 为了让客户轻松地熟练使用 Docker 来安排 Azure Service Fabric 中的现有容器应用程序，我们在平台中添加了对 Docker Compose 部署的本机预览支持。 Service Fabric 可接受 `docker-compose.yml` 文件的版本 3 和更高版本。 
 
-由于这种支持处于预览状态，因此仅支持一部分 Compose 指令。 例如，不支持应用程序升级。 但是，始终可以删除并部署应用程序，而不是对其进行升级。
+由于这种支持处于预览状态，因此仅支持一部分 Compose 指令。
 
 若要使用此预览版，请通过 Azure 门户以及相应的 SDK 使用 5.7 版本或更高版本的 Service Fabric 运行时创建群集。 
 

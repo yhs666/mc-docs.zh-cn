@@ -6,35 +6,35 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: quickstart
-origin.date: 05/21/2019
-ms.date: 10/28/2019
+origin.date: 11/03/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 982d159b83d55075617937c79c9ad4fe85d278e1
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: fa7954bc452c2398a45d478734a8b8034b810edf
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913334"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334550"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>快速入门：使用 Azure Cosmos DB SQL API 帐户生成 Python 应用程序
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
->  
 
 本快速入门演示如何使用 Azure 门户创建 Azure Cosmos DB [SQL API](sql-api-introduction.md) 帐户、文档数据库和容器， 然后使用 [SQL API](sql-api-sdk-python.md) 的 Python SDK 构建并运行控制台应用。
 
 Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 可以快速创建和查询文档、键/值、宽列和图形数据库。 所有这些操作受益于 Azure Cosmos DB 的分布和规模。
 
-本快速入门使用 3.0 版的 [Python SDK](https://pypi.org/project/azure-cosmos)。
+本快速入门使用 [Python SDK](https://pypi.org/project/azure-cosmos/#history) 版本 4。
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -42,7 +42,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 ## <a name="prerequisites"></a>先决条件
 
-* [Python 3.6](https://www.python.org/downloads/)，以及在 `PATH` 中可用的 `python` 可执行文件。
+* [Python 3.6+](https://www.python.org/downloads/)，以及在 `PATH` 中可用的 `python` 可执行文件。
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [适用于 Visual Studio Code 的 Python 扩展](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -93,91 +93,80 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 
 现在返回到 Azure 门户，获取连接字符串信息，并将其复制到应用。
 
-1. 在 [Azure 门户](https://portal.azure.cn/)上你的 Azure Cosmos 帐户中，选择左侧导航栏中的“密钥”。  在下一步骤中你将使用屏幕右侧的复制按钮将 **URI** 和**主密钥**复制到 `CosmosGetStarted.py` 文件中。
+1. 在 [Azure 门户](https://portal.azure.cn/)上你的 Azure Cosmos 帐户中，选择左侧导航栏中的“密钥”。  在下一步骤中你将使用屏幕右侧的复制按钮将 **URI** 和**主密钥**复制到 `cosmos_get_started.py` 文件中。
 
     ![在 Azure 门户的“密钥”设置中获取访问密钥和 URI](./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png)
 
-2. 在 Visual Studio Code 中打开 \git-samples\azure-cosmos-db-python-getting-started 中的 `CosmosGetStarted.py` 文件。
+2. 在 Visual Studio Code 中打开 \git-samples\azure-cosmos-db-python-getting-started 中的 `cosmos_get_started.py` 文件。
 
-3. 从门户中复制 **URI** 值（使用复制按钮），并在 ``CosmosGetStarted.py`` 中将其设为**终结点**密钥的值。 
+3. 从门户中复制“URI”值（使用复制按钮），并在 ``cosmos_get_started.py`` 中将其设为 **endpoint** 变量的值。  
 
-    `'ENDPOINT': 'https://FILLME.documents.azure.cn',`
+    `endpoint = 'https://FILLME.documents.azure.cn',`
 
-4. 然后从门户中复制“主密钥”值，并在 ``CosmosGetStarted.py`` 中将其设为 **config.PRIMARYKEY** 的值。  现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
+4. 然后从门户复制“主密钥”值，并在 ``cosmos_get_started.py`` 中将其设为 **key** 的值。  现已使用与 Azure Cosmos DB 进行通信所需的所有信息更新应用。 
 
-    `'PRIMARYKEY': 'FILLME',`
+    `key = 'FILLME'`
 
-5. 保存 ``CosmosGetStarted.py`` 文件。
+5. 保存 ``cosmos_get_started.py`` 文件。
 
 ## <a name="review-the-code"></a>查看代码
 
 此步骤是可选的。 了解在代码中创建的数据库资源，或者跳转到[更新连接字符串](#update-your-connection-string)。
 
-注意，如果你熟悉旧版 Python SDK，则可能已看惯了术语“集合”和“文档”。 由于 Azure Cosmos DB 支持多 API 模型，因此 3.0+ 版的 Python SDK 使用通用术语“容器”（可能是集合、图形或表），并使用“项”来描述容器的内容。
+以下代码片段全部摘自 `cosmos_get_started.py` 文件。
 
-以下代码片段全部摘自 `CosmosGetStarted.py` 文件。
-
-* 对 CosmosClient 进行初始化。 请确保更新“Endpoint”和“masterkey”值，如[更新连接字符串](#update-your-connection-string)部分中所述。 
+* 对 CosmosClient 进行初始化。 请务必根据[更新连接字符串](#update-your-connection-string)部分中所述更新“endpoint”和“key”值。 
 
     ```python
-    # Initialize the Cosmos client
-    client = cosmos_client.CosmosClient(url_connection=config['ENDPOINT'], auth={'masterKey': config['MASTERKEY']})
+    client = CosmosClient(endpoint, key)
     ```
 
 * 会创建一个新数据库。
 
     ```python
-    # Create a database
-    db = client.CreateDatabase({ 'id': config['DATABASE'] })
+    database_name = 'AzureSampleFamilyDatabase'
+    database = client.create_database_if_not_exists(id=database_name)
     ```
 
-* 将创建一个新容器。
+* 将创建一个[预配吞吐量](request-units.md)为 400 RU/秒的新容器。 选择 `lastName` 作为[分区键](partitioning-overview.md#choose-partitionkey)，这可以按属性进行筛选并执行有效的查询。 
 
     ```python
-    # Create container options
-    options = {
-        'offerThroughput': 400
-    }
-
-    # Create a container
-    container = client.CreateContainer(db['_self'], container_definition, options)
-    ```
-
-* 向容器中添加一些项。
-
-    ```python
-    # Create and add some items to the container
-    item1 = client.CreateItem(container['_self'], {
-        'serverId': 'server1',
-        'Web Site': 0,
-        'Cloud Service': 0,
-        'Virtual Machine': 0,
-        'message': 'Hello World from Server 1!'
-        }
-    )
-
-    item2 = client.CreateItem(container['_self'], {
-        'serverId': 'server2',
-        'Web Site': 1,
-        'Cloud Service': 0,
-        'Virtual Machine': 0,
-        'message': 'Hello World from Server 2!'
-        }
+    container_name = 'FamilyContainer'
+    container = database.create_container_if_not_exists(
+        id=container_name, 
+        partition_key=PartitionKey(path="/lastName"),
+        offer_throughput=400
     )
     ```
 
-* 使用 SQL 执行查询
+* 向容器中添加一些项。 容器是项（JSON 文档）的集合，这些项可以采用不同的架构。 帮助器方法 ```get_[name]_family_item``` 返回 Azure Cosmos DB 中作为 JSON 文档存储的家族表示形式。
 
     ```python
-    query = {'query': 'SELECT * FROM server s'}
+    for family_item in family_items_to_create:
+        container.create_item(body=family_item)
+    ```
 
-    options = {}
-    options['enableCrossPartitionQuery'] = True
-    options['maxItemCount'] = 2
+* 使用 `read_item` 方法执行点读取（键值查找）。 我们将输出每个操作的 [RU 费用](request-units.md)。
+    ```python
+    for family in family_items_to_create:
+        item_response = container.read_item(item=family['id'], partition_key=family['lastName'])
+        request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+        print('Read item with id {0}. Operation consumed {1} request units'.format(item_response['id'], (request_charge)))
+    ```
 
-    result_iterable = client.QueryItems(container['_self'], query, options)
-    for item in iter(result_iterable):
-        print(item['message'])
+* 使用 SQL 查询语法执行查询。 由于我们在 WHERE 子句中使用 ```lastName``` 的分区键值，因此 Azure Cosmos DB 会有效地将此查询路由到相关分区，从而提高性能。
+
+    ```python
+    query = "SELECT * FROM c WHERE c.lastName IN ('Wakefield', 'Andersen')"
+
+    items = list(container.query_items(
+        query=query,
+        enable_cross_partition_query=True
+    ))
+
+    request_charge = container.client_connection.last_response_headers['x-ms-request-charge']
+
+    print('Query returned {0} items. Operation consumed {1} request units'.format(len(items), request_charge))
     ```
 
 ## <a name="run-the-app"></a>运行应用程序
@@ -199,20 +188,48 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 5. 运行以下命令来安装 azure-cosmos 程序包。 
 
     ```python
-    pip3 install azure-cosmos
+    pip install --pre azure-cosmos
     ```
 
     如果尝试安装 azure-cosmos 时收到有关访问被拒绝的错误，则需要[以管理员身份运行 VS Code](https://stackoverflow.com/questions/37700536/visual-studio-code-terminal-how-to-run-a-command-with-administrator-rights)。
 
-6. 运行以下命令来运行示例并将新文档存储在 Azure Cosmos dB 中。
+6. 运行以下命令来运行示例并将新文档存储在 Azure Cosmos DB 中。
 
     ```python
-    python CosmosGetStarted.py
+    python cosmos_get_started.py
     ```
 
-7. 若要确认是否已创建并保存了新项，请在 Azure 门户中选择“数据资源管理器”  ，展开“列”  ，展开“文档”  ，然后选择 **server1** 文档。 server1 文档内容与在集成的终端窗口中返回的内容相匹配。 
+7. 若要确认是否已创建并保存新项，请在 Azure 门户中选择“数据资源管理器” > “AzureSampleFamilyDatabase” > “项”。    查看创建的项。 例如，下面是 Andersen 家族的示例 JSON 文档：
 
-    ![在 Azure 门户中查看新文档](./media/create-sql-api-python/azure-cosmos-db-confirm-documents.png)
+    ```json
+    {
+        "id": "Andersen-1569479288379",
+        "lastName": "Andersen",
+        "district": "WA5",
+        "parents": [
+            {
+                "familyName": null,
+                "firstName": "Thomas"
+            },
+            {
+                "familyName": null,
+                "firstName": "Mary Kay"
+            }
+        ],
+        "children": null,
+        "address": {
+            "state": "WA",
+            "county": "King",
+            "city": "Seattle"
+        },
+        "registered": true,
+        "_rid": "8K5qAIYtZXeBhB4AAAAAAA==",
+        "_self": "dbs/8K5qAA==/colls/8K5qAIYtZXc=/docs/8K5qAIYtZXeBhB4AAAAAAA==/",
+        "_etag": "\"a3004d78-0000-0800-0000-5d8c5a780000\"",
+        "_attachments": "attachments/",
+        "_ts": 1569479288
+    }
+    ```
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
@@ -229,4 +246,4 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 > [!div class="nextstepaction"]
 > [将 SQL API 的数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

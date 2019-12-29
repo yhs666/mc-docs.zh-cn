@@ -12,12 +12,12 @@ ms.topic: conceptual
 origin.date: 10/04/2019
 ms.date: 10/27/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 38089e51484953e135280ed469f33eb08e6cacb2
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 35cca5028568925fe92ae9d034b1e88eb2852d7b
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884923"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500364"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 应用的 URL 预生成实体
 URL 实体提取带域名或 IP 地址的 URL。 此实体已定型，因此不需要将包含 URL 的示例陈述添加到应用程序。 仅在 `en-us` 区域性中支持 URL 实体。 
@@ -29,7 +29,7 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 查询返回以下实体对象：
 
-`https://www.luis.ai is a great cognitive services example of artificial intelligence`
+`https://luis.azure.cn is a great cognitive services example of artificial intelligence`
 
 #### <a name="v3-responsetabv3"></a>[V3 响应](#tab/V3)
 
@@ -49,13 +49,13 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 ```json
 "entities": {
     "url": [
-        "https://www.luis.ai"
+        "https://luis.azure.cn"
     ],
     "$instance": {
         "url": [
             {
                 "type": "builtin.url",
-                "text": "https://www.luis.ai",
+                "text": "https://luis.azure.cn",
                 "startIndex": 0,
                 "length": 17,
                 "modelTypeId": 2,
@@ -70,12 +70,12 @@ URL 托管在 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 ```
 #### <a name="v2-responsetabv2"></a>[V2 响应](#tab/V2)
 
-以下示例显示了 https://www.luis.ai 的解析是人工智能的一个良好认知服务示例
+以下示例显示了 https://luis.azure.cn 的解析是人工智能的一个良好认知服务示例
 
 ```json
 "entities": [
     {
-        "entity": "https://www.luis.ai",
+        "entity": "https://luis.azure.cn",
         "type": "builtin.url",
         "startIndex": 0,
         "endIndex": 17

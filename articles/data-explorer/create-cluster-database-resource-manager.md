@@ -7,13 +7,13 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/26/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: 8229c261599c782d0019579b90259342bb035d23
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.date: 12/16/2019
+ms.openlocfilehash: f91edc2b73b0ab1345268e35bb6c7948b443f88e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657956"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335951"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板创建 Azure 数据资源管理器群集和数据库
 
@@ -105,7 +105,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
 
 1. 若要创建群集和数据库，请使用以下按钮开始部署。 右键单击并选择“在新窗口中打开”  ，以便按本文中的剩余步骤操作。
 
-    [![“部署到 Azure”](media/create-cluster-database-resource-manager/deploybutton.png)](https://github.com/Azure/azure-quickstart-templates/blob/master/101-kusto-cluster-database/azuredeploy.json)
+    [![“部署到 Azure”](media/create-cluster-database-resource-manager/deploybutton.png)](https://portal.azure.cn/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-kusto-cluster-database%2Fazuredeploy.json)
 
     “部署到 Azure”  按钮将转到 Azure 门户以填写部署窗体。
 

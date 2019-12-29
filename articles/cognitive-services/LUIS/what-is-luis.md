@@ -11,12 +11,12 @@ ms.topic: overview
 origin.date: 11/22/2019
 ms.date: 12/05/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 5ba8acd68d1b86ee038c7f4c4a421719b7356a78
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 77f78bd99462bc3322efad053732d3786c27c56e
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884676"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500361"
 ---
 # <a name="what-is-language-understanding-luis"></a>什么是语言理解 (LUIS)？
 
@@ -84,7 +84,7 @@ LUIS 应用包含特定于域的自然语言模型，这些模型协同工作。
 * **自定义模型** LUIS 提供多种方法用于生成自己的自定义模型，包括意向和实体。 实体包括机器习得实体、模式匹配实体，以及机器习得实体和模式匹配实体的组合。
 
 ## <a name="build-the-luis-app"></a>生成 LUIS 应用
-使用[创作](https://go.microsoft.com/fwlink/?linkid=2092087) API 或 [LUIS 门户](https://www.luis.ai)生成应用。
+使用[创作](https://go.microsoft.com/fwlink/?linkid=2092087) API 或 [LUIS 门户](https://luis.azure.cn)生成应用。
 
 LUIS 应用从称为 **[意向](luis-concept-intent.md)** 的输入文本类别入手。 每个意向都需要用户 **[话语](luis-concept-utterance.md)** 的示例。 每个言语都可以提供需要提取的数据。 
 

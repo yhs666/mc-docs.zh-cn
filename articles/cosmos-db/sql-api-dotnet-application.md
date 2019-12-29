@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 09/24/2019
-ms.date: 10/28/2019
+origin.date: 11/05/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9c548b791876f600078f5d407f84f5e2477932cc
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 0cd5e9d1209ed403410b175a5587a614ac84e118
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913232"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336005"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>教程：通过 .NET SDK 开发使用 Azure Cosmos DB 的 ASP.NET Core MVC Web 应用程序
 
@@ -184,7 +184,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
     * 在“模板”中选择“创建”。  
     * 在“模型类”中，选择“项(todo.Models)”。  
     * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。 
-    * 选择“设置”  （应用程序对象和服务主体对象）。
+    * 选择“添加”   。
 
 <a name="AddEditIndexView"></a>
 #### <a name="add-an-edit-item-view"></a>添加“编辑项”视图
@@ -199,7 +199,7 @@ Azure Cosmos DB 使用 JSON 来移动和存储数据。 可以使用 `JsonProper
     * 在“模板”框中，选择“编辑”。  
     * 在“模型类”框中，选择“项(todo.Models)”。  
     * 选择“使用布局页”并输入 *~/Views/Shared/_Layout.cshtml*。 
-    * 选择“设置”  （应用程序对象和服务主体对象）。
+    * 选择“添加”   。
 
 完成这些步骤后，请关闭 Visual Studio 中的所有 *cshtml* 文档，因为稍后要返回到这些视图。
 

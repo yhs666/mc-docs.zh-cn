@@ -1,6 +1,6 @@
 ---
 title: 示例 - 对 VM NIC 使用已批准的子网
-description: 此示例策略定义要求网络接口使用已批准的子网。
+description: 此示例策略定义要求网络接口使用参数中定义的已批准子网。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: b73dfef1732fa056eea2cc20d251415be2f8bc55
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: deaf36b0a2eeea5baacb4783fb897eddb762920c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335972"
 ---
 # <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>示例 - 对 VM 网络接口使用已批准的子网
 

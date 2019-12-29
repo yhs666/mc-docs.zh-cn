@@ -12,12 +12,12 @@ ms.custom: seodec18
 origin.date: 11/05/2019
 ms.date: 12/02/2019
 ms.author: v-tawe
-ms.openlocfilehash: 88b1b30d56bea9d34d967b0cd914db09d3b0d536
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: e9c846a731bad7c14b5422cadeda57f00e11a220
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658004"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336243"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建事件中心
 
@@ -36,7 +36,7 @@ Azure 事件中心是一个大数据流式处理平台和事件引入服务，�
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows) 2.0 或更高版本。
 
 
-如果在本地使用 PowerShell，必须运行最新版本的 PowerShell 才能完成本快速入门。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](/powershell-install-configure)。
+如果在本地使用 PowerShell，必须运行最新版本的 PowerShell 才能完成本快速入门。 如需进行安装或升级，请参阅[安装和配置 Azure PowerShell](https://docs.microsoft.com/powershell-install-configure)。
 
 ## <a name="create-a-resource-group"></a>创建资源组
 

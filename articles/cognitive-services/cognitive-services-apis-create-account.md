@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 10/23/2019
 ms.date: 11/18/2019
 ms.author: v-tawe
-ms.openlocfilehash: 034d95e99857b11bc27ab92367241e2b30233178
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 3468a14e0228a533f34434360e9b7020465cc5de
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389493"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335726"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>使用 Azure 门户创建认知服务资源
 
@@ -62,7 +62,7 @@ ms.locfileid: "74389493"
     |--|--|
     | **名称** | 认知服务资源的描述性名称。 例如，*MyCognitiveServicesResource*。 |
     | **订阅** | 选择一个可用的 Azure 订阅。 |
-    | **Location** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。 |
+    | **位置** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。 |
     | **定价层** | 认知服务帐户的费用取决于你所选的选项和你的使用情况。 有关详细信息，请参阅 API [定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)。
     | **资源组** | 将包含认知服务资源的 Azure 资源组。 可以创建新组或将其添加到预先存在的组。 |
 
@@ -76,7 +76,7 @@ ms.locfileid: "74389493"
     |--|--|
     | **名称** | 认知服务资源的描述性名称。 例如，*TextAnalyticsResource*。 |
     | **订阅** | 选择一个可用的 Azure 订阅。 |
-    | **Location** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。 |
+    | **位置** | 认知服务实例的位置。 不同位置可能会导致延迟，但不会影响资源的运行时可用性。 请记住你的 Azure 位置，因为在调用 Azure 认知服务时可能需要用到它。 |
     | **定价层** | 认知服务帐户的费用取决于你所选的选项和你的使用情况。 有关详细信息，请参阅 API [定价详细信息](https://www.azure.cn/pricing/details/cognitive-services/)。
     | **资源组** | 将包含认知服务资源的 Azure 资源组。 可以创建新组或将其添加到预先存在的组。 |
 
@@ -85,6 +85,7 @@ ms.locfileid: "74389493"
     单击**创建**。
 
     ***
+
 
 ## <a name="get-the-keys-for-your-resource"></a>获取资源的密钥
 

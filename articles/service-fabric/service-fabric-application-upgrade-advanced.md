@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: c5ae3707e60f7f258196c6ae21ebc3b84bf10f1d
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 23a145fb5af7116405dab24b8fe46def9787090e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174064"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336175"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 应用程序升级：高级主题
 ## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>在升级应用程序期间添加或删除服务类型

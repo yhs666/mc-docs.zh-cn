@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 07/30/2019
 ms.date: 08/20/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 67889eaa369d5d78c7093914583932d5109301a7
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: 6566a89cd853a9f0047b002dc429b82055652a10
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970866"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500357"
 ---
 # <a name="using-search-in-application-insights"></a>使用 Application Insights 中的搜索
 
@@ -100,7 +100,7 @@ ms.locfileid: "72970866"
 | String |  未找到 | 已找到 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
-|美国|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`
+|美国|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"China"`
 
 下面是可以使用的搜索表达式：
 

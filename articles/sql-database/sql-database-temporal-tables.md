@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 09/25/2018
 ms.date: 02/25/2019
-ms.openlocfilehash: 29c2e416461e92ae501a6f0139683cad81418210
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: 681971499133539b08cb77a111da243f986d3ebc
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578559"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334937"
 ---
 # <a name="getting-started-with-temporal-tables-in-azure-sql-database"></a>Azure SQL 数据库中的临时表入门
 

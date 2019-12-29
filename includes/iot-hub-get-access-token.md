@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e51148124eaae9cfd1bc815fc2c3fb854fc7b643
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 2a152d9f313468af52d3a0d31a09ac6041941310
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156560"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466880"
 ---
 ## <a name="obtain-an-azure-resource-manager-token"></a>获取 Azure 资源管理器令牌
 Azure Active Directory 必须使用 Azure Resource Manager 来验证所有针对资源执行的任务。 此处显示的示例使用密码身份验证。有关其他方法，请参阅[对 Azure 资源管理器请求进行身份验证][lnk-authenticate-arm]。
@@ -13,7 +13,7 @@ Azure Active Directory 必须使用 Azure Resource Manager 来验证所有针对
    
     ```csharp
     var authContext = new AuthenticationContext(string.Format  
-      ("https://login.microsoftonline.com/{0}", tenantId));
+      ("https://login.chinacloudapi.cn/{0}", tenantId));
     var credential = new ClientCredential(applicationId, password);
     AuthenticationResult token = authContext.AcquireTokenAsync
       ("https://management.core.windows.net/", credential).Result;

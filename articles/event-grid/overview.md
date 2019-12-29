@@ -1,21 +1,21 @@
 ---
-title: 发布和订阅应用程序事件 - Azure 事件网格
+title: 什么是 Azure 事件网格？
 description: 使用 Azure 事件网格将事件数据从源发送到处理程序。 生成基于事件的应用程序，并与 Azure 服务集成。
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-origin.date: 05/25/2019
-ms.date: 11/11/2019
+origin.date: 10/22/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
 ms.custom: seodec18
-ms.openlocfilehash: a7276820ba92242fc41dbf6ef7f61569a48c5d1a
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 7be90fbb20774f0aacfd0ba931d8cdae96d07534
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73426077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335779"
 ---
 # <a name="what-is-azure-event-grid"></a>什么是 Azure 事件网格？
 
@@ -57,7 +57,7 @@ ms.locfileid: "73426077"
 * [逻辑应用](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [队列存储](event-handlers.md#queue-storage)
-* [服务总线](event-handlers.md#service-bus-queue-preview)（预览版）
+* [服务总线](event-handlers.md#service-bus)
 * [WebHook](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>概念

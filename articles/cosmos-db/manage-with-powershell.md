@@ -4,16 +4,16 @@ description: 使用 Azure Powershell 管理 Azure Cosmos DB 帐户、数据库�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: sample
-origin.date: 08/05/2019
-ms.date: 10/28/2019
+origin.date: 10/23/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 42ef1233c3869ea32e56f03b67f30192e064da02
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: ce3f9cf7c83e23e2b2e4729dd163719f415b183f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913282"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336540"
 ---
 # <a name="manage-azure-cosmos-db-sql-api-resources-using-powershell"></a>使用 PowerShell 管理 Azure Cosmos DB SQL API 资源
 
@@ -268,7 +268,8 @@ $keys = Invoke-AzResourceAction -Action listKeys `
     -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" `
     -ResourceGroupName $resourceGroupName -Name $accountName
 
-Select-Object $keys
+Write-Host "PrimaryKey =" $keys.primaryMasterKey
+Write-Host "SecondaryKey =" $keys.secondaryMasterKey
 ```
 
 <a name="list-connection-strings"></a>
@@ -821,4 +822,4 @@ Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/data
 [azure-resource-tags]: /azure-resource-manager/resource-group-using-tags
 [rp-rest-api]: https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

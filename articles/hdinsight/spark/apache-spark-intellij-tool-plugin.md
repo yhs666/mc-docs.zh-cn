@@ -8,14 +8,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 origin.date: 09/04/2019
-ms.date: 11/11/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: f65f7feaab96111ad24c8816181f37afcd2f7943
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: 3a687a410193bb1a6fb93f7a3d4ee45dce76eed1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425758"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336170"
 ---
 # <a name="tutorial-use-azure-toolkit-for-intellij-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>教程：使用 Azure Toolkit for IntelliJ 为 HDInsight 群集创建 Apache Spark 应用程序
 
@@ -331,7 +331,6 @@ ms.locfileid: "73425758"
 
 
 ### <a name="spark-livy-interactive-session-consolescala"></a>Spark Livy Interactive Session Console(Scala)
-它仅在 IntelliJ 2018.2 和 2018.3 上受支持。
 
 1. 在菜单栏中，导航到“运行” > “编辑配置...”。  
 

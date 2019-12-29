@@ -1,22 +1,23 @@
 ---
 title: 什么是 Azure SignalR 服务？
-description: Azure SignalR 服务概述。
+description: 更好地了解使用 Azure SignalR 的典型用例方案，并了解 Azure SignalR 的主要优势。
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-origin.date: 06/20/2019
-ms.date: 11/25/2019
+origin.date: 11/13/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 750311fe98aacb833cf9021a6543439e3f2dd556
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 9638adc1c213b30b34eef08d05a49686b535f1b9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179104"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335723"
 ---
 # <a name="what-is-azure-signalr-service"></a>什么是 Azure SignalR 服务？
 
 Azure SignalR Service 简化了通过 HTTP 向应用程序添加实时 Web 功能的过程。 这种实时功能允许服务将内容更新推送到连接的客户端，例如单页 Web 或移动应用程序。 因此，无需轮询服务器，或提交针对更新的新 HTTP 请求，即可更新客户端。
+
 
 本文简要介绍了 Azure SignalR Service。
 

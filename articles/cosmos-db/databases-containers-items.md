@@ -6,14 +6,14 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/01/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: b3c4458411960ef6770b4430f107c9d0b34a783b
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 11fe89d832332cfa6dc79523154cddd2dea177c2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913299"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336541"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中使用数据库、容器和项
 
@@ -122,7 +122,7 @@ Azure Cosmos 容器具备一组系统定义的属性。 根据所用的 API，�
 |\_etag | 由系统生成 | 用于乐观并发控制的实体标记 | 是 | 否 | 否 | 否 | 否 |
 |\_ts | 由系统生成 | 项上次更新的时间戳 | 是 | 否 | 否 | 否 | 否 |
 |\_self | 由系统生成 | 项的可寻址 URI | 是 | 否 | 否 | 否 | 否 |
-|id | 任一个 | 逻辑分区中用户定义的唯一名称。 如果用户没有指定该 ID，则系统会自动生成一个。 | 是 | 是 | 是 | 是 | 是 |
+|id | 任一个 | 逻辑分区中用户定义的唯一名称。 | 是 | 是 | 是 | 是 | 是 |
 |任意用户定义的属性 | 用户定义 | 用户定义的属性以 API 本机表示形式表示（包括 JSON、BSON 和 CQL） | 是 | 是 | 是 | 是 | 是 |
 
 > [!NOTE]

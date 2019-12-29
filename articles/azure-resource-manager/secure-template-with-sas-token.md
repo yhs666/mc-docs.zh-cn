@@ -4,12 +4,12 @@ description: 使用受 SAS 令牌保护的 Azure 资源管理器模板将资源�
 ms.topic: conceptual
 origin.date: 08/14/2019
 ms.date: 12/09/2019
-ms.openlocfilehash: 63d926bd62fa5d9b11726b228fc40d90ae7de626
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: b47a8ddb666f871771104f0167c147f262cf33d6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884826"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336002"
 ---
 <!--Verify successfully-->
 <!--Merge with two files which contain PowerShell and CLI seperated-->
@@ -48,7 +48,7 @@ New-AzStorageContainer `
 [!INCLUDE [azure-cli-2-azurechinacloud-environment-parameter](../../includes/azure-cli-2-azurechinacloud-environment-parameter.md)]
 
 ```azurecli
-az cloud set -n AzureCloud
+az cloud set -n AzureChinaCloud
 az log
 
 az group create \

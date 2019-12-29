@@ -7,13 +7,13 @@ ms.author: v-lingwu
 ms.service: stream-analytics
 ms.topic: conceptual
 origin.date: 06/21/2019
-ms.date: 07/12/2019
-ms.openlocfilehash: e81e3c6bd6898c833f27d79cfea83ef2fec0a9f5
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.date: 12/12/2019
+ms.openlocfilehash: 8ae45a72892122126a2cec5111f6678d832f4442
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674796"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334555"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Azure 流分析数据错误
 
@@ -31,7 +31,7 @@ ms.locfileid: "71674796"
     "Type": "DataError",
     "DataErrorType": "InputDeserializerError.InvalidData",
     "BriefMessage": "Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
-    "Message": "Input Message Id: https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt Error: Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
+    "Message": "Input Message Id: https:\\/\\/exampleBlob.blob.core.chinacloudapi.cn\\/inputfolder\\/csv.txt Error: Json input stream should either be an array of objects or line separated objects. Found token type: Integer",
     "ExampleEvents": "[\"1,2\\\\u000d\\\\u000a3,4\\\\u000d\\\\u000a5,6\"]",
     "FromTimestamp": "2019-03-22T22:34:18.5664937Z",
     "ToTimestamp": "2019-03-22T22:34:18.5965248Z",
@@ -53,7 +53,7 @@ ms.locfileid: "71674796"
 **错误消息**
 
 ```json
-"BriefMessage": "Unable to decompress events from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please ensure compression setting fits the data being processed."
+"BriefMessage": "Unable to decompress events from resource 'https:\\/\\/exampleBlob.blob.core.chinacloudapi.cn\\/inputfolder\\/csv.txt'. Please ensure compression setting fits the data being processed."
 ```
 
 ### <a name="inputdeserializererrorinvalidheader"></a>InputDeserializerError.InvalidHeader
@@ -69,7 +69,7 @@ ms.locfileid: "71674796"
 **错误消息**
 
 ```json
-"BriefMessage": "Invalid CSV Header for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt'. Please make sure there are no duplicate field names."
+"BriefMessage": "Invalid CSV Header for resource 'https:\\/\\/exampleBlob.blob.core.chinacloudapi.cn\\/inputfolder\\/csv.txt'. Please make sure there are no duplicate field names."
 ```
 
 ### <a name="inputdeserializererrormissingcolumns"></a>InputDeserializerError.MissingColumns
@@ -86,7 +86,7 @@ ms.locfileid: "71674796"
 **错误消息**
 
 ```json
-"BriefMessage": "Could not deserialize the input event(s) from resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
+"BriefMessage": "Could not deserialize the input event(s) from resource 'https:\\/\\/exampleBlob.blob.core.chinacloudapi.cn\\/inputfolder\\/csv.txt' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
 ```
 
 ```json
@@ -106,7 +106,7 @@ ms.locfileid: "71674796"
 **错误消息**
 
 ```json
-"BriefMessage": "Could not deserialize the input event(s) from resource '''https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
+"BriefMessage": "Could not deserialize the input event(s) from resource '''https:\\/\\/exampleBlob.blob.core.chinacloudapi.cn\\/inputfolder\\/csv.txt ' as Csv. Some possible reasons: 1) Malformed events 2) Input source configured with incorrect serialization format" 
 ```
 
 ```json
@@ -147,7 +147,7 @@ ms.locfileid: "71674796"
 **错误消息**
 
 ```json
-"BriefMessage": "Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.windows.net\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'"
+"BriefMessage": "Unable to get timestamp for resource 'https:\\/\\/exampleBlob.blob.core.chinacloudapi.cn\\/inputfolder\\/csv.txt ' due to error 'Cannot convert string to datetime'"
 ```
 
 ### <a name="invalidinputtimestampkey"></a>InvalidInputTimeStampKey
@@ -170,8 +170,7 @@ ms.locfileid: "71674796"
 * 原因：应用程序时间与抵达时间之间的差大于延期抵达容限时限。
 * 提供的门户通知：否
 * 诊断日志级别：信息
-* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理延期输入事件。 有关详细信息，请参阅[时间处理策略](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics)。
-* 日志详细信息
+* 影响：将会根据作业配置的“事件排序”部分中的“处理其他事件”设置来处理延期输入事件。
    * 应用程序时间和抵达时间。 
    * 最大若干 KB 的实际有效负载。
 

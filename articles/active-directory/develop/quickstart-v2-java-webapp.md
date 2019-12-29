@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 10/09/2019
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: f2d7d861cdd1a61749b54953c9398f171e460b52
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: a668bbbeb6d1e81b23e6a7ff93ffb5413cd6e611
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655306"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335280"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>快速入门：向 Java Web 应用添加 Microsoft 登录功能
 
@@ -38,7 +37,7 @@ ms.locfileid: "74655306"
 若要运行此示例，需要：
 
 - [Java 开发工具包 (JDK)](https://openjdk.java.net/) 8 或更高版本以及 [Maven](https://maven.apache.org/)。
-- 一个 Azure Active Directory (Azure AD) 租户。 
+- 一个 Azure Active Directory (Azure AD) 租户。 有关如何获取 Azure AD 租户的详细信息，请参阅[如何获取 Azure AD 租户](/active-directory/develop/quickstart-create-new-tenant/)。
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>注册并下载快速入门应用
@@ -137,7 +136,7 @@ ms.locfileid: "74655306"
 
 ### <a name="getting-msal"></a>获取 MSAL
 
-MSAL4J 是一个 Java 库，用于用户登录和请求令牌，此类令牌用于访问受 Microsoft 标识平台保护的 API。
+MSAL for Java (MSAL4J) 是一个 Java 库，用于用户登录和请求令牌，此类令牌用于访问受 Microsoft 标识平台保护的 API。
 
 使用 Maven 或 Gradle 将 MSAL4J 添加到应用程序，以通过对应用程序的 pom.xml (Maven) 或 build.gradle (Gradle) 文件进行以下更改来管理依赖项。
 
@@ -155,7 +154,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 
 ### <a name="msal-initialization"></a>MSAL 初始化
 
-通过将以下代码添加到要在其中使用 MSAL4J 的文件的顶部，来添加对 MSAL4J 的引用：
+通过将以下代码添加到要在其中使用 MSAL4J 的文件的顶部，来添加对 MSAL for Java 的引用：
 
 ```Java
 import com.microsoft.aad.msal4j.*;

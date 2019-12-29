@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 33a5a989086165cb144ecc0f634417279429b9cf
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 8c7be55c8f368fabaf3bb898adf4574d550871e9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883745"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335920"
 ---
 # <a name="configure-the-application-dashboard"></a>配置应用程序仪表板
 
@@ -76,7 +76,6 @@ ms.locfileid: "74883745"
 | 内容 | 应用程序和设备集仪表板 |Markdown 支持的磁贴是可单击的磁贴，其中会显示标题和说明文本。 还可以使用此磁贴作为链接磁贴，使用户能够导航到与你的应用程序相关的 URL。|
 | 映像 | 应用程序和设备集仪表板 |“图像”磁贴显示自定义图像，是可单击的。 使用图像磁贴可将图形添加到仪表板，有时还使用户能够导航到与你的应用程序相关的 URL。|
 | Label | 应用程序仪表板 |“标签”磁贴显示仪表板上的自定义文本。 可以选择文本大小。 使用标签磁贴可将说明、联系人详细信息或帮助等相关信息添加到仪表板。|
-| 映射 | 应用程序和设备集仪表板 |“地图”磁贴显示设备在地图上的位置和状态。 例如，可以显示设备的位置，以及其风扇是否已打开。|
 | 折线图 | 应用程序和设备仪表板 |“折线图”磁贴显示设备在一段时间内的聚合测量图表。 例如，可以在折线图中显示设备在过去一小时的平均温度和压力。|
 | 条形图 | 应用程序和设备仪表板 |“条形图”磁贴显示设备在一段时间内的聚合测量图表。 例如，可以在条形图中显示设备在过去一小时的平均温度和压力。|
 | 饼图 | 应用程序和设备集仪表板 |“饼图”磁贴显示设备在一段时间内的聚合测量图表。|

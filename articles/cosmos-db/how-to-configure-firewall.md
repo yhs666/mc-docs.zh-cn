@@ -4,15 +4,15 @@ description: 了解如何配置 IP 访问控制策略，以为 Azure Cosmos 帐�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 09/28/2019
-ms.date: 10/28/2019
+origin.date: 10/31/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3b84e001f1f9d7cf783770855789f5d323da76ff
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 318baedb9e16a557b89f28053c05f48aed9d4e03
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970265"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335818"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中配置 IP 防火墙
 
@@ -104,7 +104,7 @@ ms.locfileid: "72970265"
 {
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "name": "[variables('accountName')]",
-  "apiVersion": "2016-03-31",
+  "apiVersion": "2019-08-01",
   "location": "[parameters('location')]",
   "kind": "GlobalDocumentDB",
   "properties": {
@@ -112,8 +112,7 @@ ms.locfileid: "72970265"
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,139.217.8.252"
+    "ipRangeFilter":"139.217.8.252"
   }
 }
 ```

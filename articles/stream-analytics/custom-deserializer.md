@@ -2,18 +2,18 @@
 title: 用于 Azure 流分析云作业的自定义 .NET 反序列化程序
 description: 本教程演示如何使用 Visual Studio 为 Azure 流分析云作业创建自定义 .NET 反序列化程序。
 services: stream-analytics
-author: mamccrea
-ms.author: mamccrea
-ms.reviewer: mamccrea
+author: lingliw
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 05/06/2019
-ms.openlocfilehash: c9f5d909fe7f9d79c4f1f352e97a45c47f24e944
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+origin.date: 09/11/2019
+ms.date: 11/12/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 1b7cca7c9412e9ac932f7e4d3a8dbfc21f09f2be
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528588"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334557"
 ---
 # <a name="tutorial-custom-net-deserializers-for-azure-stream-analytics"></a>教程：为 Azure 流分析自定义 .NET 反序列化程序
 
@@ -31,7 +31,7 @@ Azure 流分析[内置了对三种数据格式的支持](stream-analytics-parsin
 
 ## <a name="prerequisites"></a>先决条件
 
-* 如果还没有 Azure 订阅，可以创建一个[免费帐户](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
 * 安装 [Visual Studio 2017](https://www.visualstudio.com/downloads/) 或 [Visual Studio 2015](https://www.visualstudio.com/vs/older-downloads/)。 支持 Enterprise (Ultimate/Premium)、Professional 和 Community 版本。 不支持 Express 版本。
 
@@ -80,12 +80,12 @@ Azure 流分析[内置了对三种数据格式的支持](stream-analytics-parsin
    |设置|建议的值|
    |-------|---------------|
    |Source|Blob 存储|
-   |Resource|选择当前帐户中的数据源|
+   |资源|选择当前帐户中的数据源|
    |订阅|<你的订阅>|
    |存储帐户|<你的存储帐户>|
    |容器|<你的存储容器>|
    |事件序列化格式|其他（Protobuf、XML、专有…）|
-   |Resource|从 ASA 项目引用或 CodeBehind 加载|
+   |资源|从 ASA 项目引用或 CodeBehind 加载|
    |CSharp 程序集名称|ProtobufDeserializer.dll|
    |类名|MessageBodyProto.MessageBodyDeserializer|
    |事件压缩类型|无|

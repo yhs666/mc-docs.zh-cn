@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/11/2018
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: d32d09bd9cfe7477916c94d786e002039b80888b
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: ac0e7299d439ff15b628ca6b603d8d9df0711564
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195454"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334823"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>创建第一个 Azure Service Fabric 应用程序
 > [!div class="op_single_selector"]
@@ -142,6 +142,7 @@ cd myapp
 * [Service Fabric CLI 入门](service-fabric-cli.md)
 
 <!-- Images -->
+
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-csharp/yeoman-csharp.png
 [sfx-primary]: ./media/service-fabric-create-your-first-linux-application-with-csharp/sfx-primary.png
 

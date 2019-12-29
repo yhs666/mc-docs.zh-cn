@@ -7,12 +7,12 @@ origin.date: 10/20/2019
 ms.date: 12/09/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c9c10688a2e58ca6d798edb30973b4fa38be5c79
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 4cd44fb2a97ce7f4c85962dc2ac2f52e809e3590
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838941"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336156"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>快速入门：适用于 Node.js 的 Azure Key Vault 客户端库 (v4)
 
@@ -27,7 +27,7 @@ Azure 密钥保管库可帮助保护云应用程序和服务使用的加密密�
 
 <!-- - Use FIPS 140-2 Level 2 validated HSMs. -->
 
-[API 参考文档](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [包 (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
+[API 参考文档](https://docs.microsoft.com/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [库源代码](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [包 (npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -138,7 +138,7 @@ const { SecretClient } = require("@azure/keyvault-secrets");
 
 ### <a name="authenticate-and-create-a-client"></a>进行身份验证并创建客户端
 
-向密钥保管库进行身份验证和创建密钥保管库客户端依赖于上面[设置环境变量](#set-environmental-variables)步骤中的环境变量以及 [SecretClient 构造函数](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-)。 
+向密钥保管库进行身份验证和创建密钥保管库客户端依赖于上面[设置环境变量](#set-environmental-variables)步骤中的环境变量以及 [SecretClient 构造函数](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#secretclient-string--tokencredential--pipelineoptions-)。 
 
 密钥保管库的名称将扩展为密钥保管库 URI，格式为 `https://<your-key-vault-name>.vault.azure.cn`。 
 
@@ -152,7 +152,7 @@ const client = new SecretClient(KVUri, credential);
 
 ### <a name="save-a-secret"></a>保存机密
 
-应用程序通过身份验证后，你可以使用 [client.setSecret 方法](/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setsecret-string--string--setsecretoptions-)将机密放入密钥保管库。此操作需要使用机密的名称，本示例中使用“mySecret”。  
+应用程序通过身份验证后，你可以使用 [client.setSecret 方法](https://docs.microsoft.com/javascript/api/@azure/keyvault-secrets/secretclient?view=azure-node-latest#setsecret-string--string--setsecretoptions-)将机密放入密钥保管库。此操作需要使用机密的名称，本示例中使用“mySecret”。  
 
 ```javascript
 await client.setSecret(secretName, secretValue);

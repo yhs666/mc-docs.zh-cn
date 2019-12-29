@@ -5,17 +5,17 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-origin.date: 12/26/2018
-ms.date: 09/30/2019
+origin.date: 11/18/2019
+ms.date: 12/16/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: c19aadd207648c4d09f28e4ed4a534a27fc7bae1
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 15a88af5b0d552c6b9115714c0d3a0ea4a61f848
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335850"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>将 Node.js Mongoose 应用程序连接到 Azure Cosmos DB
 
@@ -63,20 +63,24 @@ Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服务。 
 1. 导入 index.js 文件中的依赖项。
     ```JavaScript
     var mongoose = require('mongoose');
-    var env = require('dotenv').load();    //Use the .env file to load the variables
+    var env = require('dotenv').config();   //Use the .env file to load the variables
     ```
 
 1. 将 Cosmos DB 连接字符串和 Cosmos DB 名称添加到 ```.env``` 文件。 将占位符 {cosmos-account-name} 和 {dbname} 替换为你自己的 Cosmos 帐户名称和数据库名称，不要带大括号符号。
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.cn:10255/{dbname}
-    COSMODDB_USER=cosmos-account-name
-    COSMOSDB_PASSWORD=cosmos-secret
+   # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
+
+   COSMODDB_USER = "<Azure Cosmos account's user name>"
+   COSMOSDB_PASSWORD = "<Azure Cosmos account passowrd>"
+   COSMOSDB_DBNAME = "<Azure Cosmos database name>"
+   COSMOSDB_HOST= "<Azure Cosmos Host name>"
+   COSMOSDB_PORT=10255
     ```
 
 1. 将以下代码添加到 index.js 末尾，以使用 Mongoose 框架连接到 Cosmos DB。
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+    mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
         user: process.env.COSMODDB_USER,
         password: process.env.COSMOSDB_PASSWORD

@@ -5,16 +5,16 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 05/03/2019
-ms.date: 09/23/2019
+origin.date: 10/18/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 73e1b278681f2573e7ae5056c9391521e647c5c3
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 20e99999382b1c5f06eacae8304f7a62c00f95f5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156216"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335352"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>使用 Azure PowerShell 在混合网络中部署和配置 Azure 防火墙
 
@@ -50,7 +50,7 @@ ms.locfileid: "71156216"
 
 ## <a name="prerequisites"></a>先决条件
 
-本文要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 验证 PowerShell 版本以后，请运行 `Conncet-AzAccount -Environment AzureChinaCloud`，以便创建与 Azure 的连接。
+本文要求在本地运行 PowerShell。 必须安装 Azure PowerShell 模块。 运行 `Get-Module -ListAvailable Az` 即可查找版本。 如果需要进行升级，请参阅 [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-Az-ps)（安装 Azure PowerShell 模块）。 验证 PowerShell 版本以后，请运行 `Connect-AzAccount -Environment AzureChinaCloud`，以便创建与 Azure 的连接。
 
 若要正常开展此方案，必须符合三项关键要求：
 
@@ -58,14 +58,15 @@ ms.locfileid: "71156216"
 - 中心网关子网中的 UDR 必须指向用作分支网络下一跃点的防火墙 IP 地址。
 
     无需在 Azure 防火墙子网中创建 UDR，因为它会从 BGP 探测路由。
+    
 - 在 VNet-Hub 与 VNet-Spoke 之间建立对等互连时，请务必设置 **AllowGatewayTransit**；在 VNet-Spoke 与 VNet-Hub 之间建立对等互连时，请务必设置 **UseRemoteGateways**。
 
 请参阅本文的[创建路由](#create-the-routes)部分来了解如何创建这些路由。
 
 >[!NOTE]
->Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubnet 知道通过 BGP 的本地网络的默认路由，则必须将其替代为 0.0.0.0/0 UDR，将 NextHopType 值设置为 Internet 以保持 Internet 直接连接   。 默认情况下，Azure 防火墙不支持强制的安全加密链路连接到本地网络。
+>Azure 防火墙必须具有直接的 Internet 连接。 如果 AzureFirewallSubnet 知道通过 BGP 的本地网络的默认路由，则必须将其替代为 0.0.0.0/0 UDR，将 NextHopType 值设置为 Internet 以保持 Internet 直接连接   。
 >
->但是，如果你的配置要求通过强制隧道连接到本地网络，Azure 将基于具体的情况提供支持。 请联系支持人员，以便我们可以查看你的情况。 如果接受，我们会将你的订阅添加到白名单，确保保持所需的防火墙 Internet 连接。
+>Azure 防火墙目前不支持强制隧道。 如果你的配置需要通过强制隧道连接到本地网络，并且可以确定 Internet 目标的目标 IP 前缀，则可以通过 AzureFirewallSubnet 上用户定义的路由将本地网络的这些范围配置为下一跃点。 或者，可以使用 BGP 来定义这些路由。
 
 >[!NOTE]
 >即使 UDR 指向作为默认网关的 Azure 防火墙，也会直接路由直接对等互连 VNet 之间的流量。 若要在此方案中将子网到子网流量发送到防火墙，UDR 必须在这两个子网上显式地包含目标子网网络前缀。

@@ -8,12 +8,12 @@ ms.topic: overview
 origin.date: 06/24/2019
 ms.date: 09/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 74f6a5a692c7b0649a5c6e622354ec3ce7f85db8
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: f76f98072afab3a018686da9262b9f8bc502383d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254819"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336094"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Azure Cosmos DB Gremlin API 的图形数据建模
 

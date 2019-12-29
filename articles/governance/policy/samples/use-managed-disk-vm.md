@@ -1,6 +1,6 @@
 ---
 title: 示例 - 使用托管磁盘创建 VM
-description: 此示例策略定义要求虚拟机使用托管磁盘。
+description: 此示例策略定义要求虚拟机和虚拟机规模集使用托管磁盘。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 193207d4f2e613bf345b58dbf4f39c492f8587b9
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 8ae255281ef44afcdfefdf56838e5ca2af9d31be
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526582"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335971"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>示例 - 使用托管磁盘创建 VM
 

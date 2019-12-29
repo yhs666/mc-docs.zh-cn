@@ -11,12 +11,12 @@ ms.topic: landing-page
 origin.date: 01/15/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7ccff3dcb7792025a18c34213eb4e439c4993ce4
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: d18595069227bf17d1db653c4dde3b563324c70b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657975"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335848"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -136,8 +136,7 @@ ms.locfileid: "74657975"
                                                             <a href="./app/java-trace-logs.md">跟踪日志记录</a><br>
                                                             <a href="./app/java-agent.md">依赖项跟踪的代理配置</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">自定义事件和指标</a><br>
-                                                            <a href="/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java
-">配置 .xml</a><br>
+                                                            <a href="/azure-monitor/app/configuration-with-applicationinsights-config#channel-parameters-java">配置 .xml</a><br>
                                                             <a href="https://github.com/Microsoft/ApplicationInsights-Java">开源 Java SDK GitHub 存储库</a>
                                                         </p>
                                                         <br><br>

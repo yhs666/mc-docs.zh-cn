@@ -6,14 +6,14 @@ ms.author: v-yeche
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/30/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4c2d2cd8afedc2c32096b5fa3c12bddbc5ff0398
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 429544bced39a560ec7ddf5c46519ce07d8f1d14
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914798"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336096"
 ---
 # <a name="multiple-regionally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Azure Cosmos 容器的多区域分布式事务和分析存储
 
@@ -38,8 +38,8 @@ Azure Cosmos 容器在内部以两个存储引擎（事务存储引擎和可更�
 |持续性  |    99.99999（7-9 秒）     |  99.99999（7-9 秒）       |
 |用于访问数据的 API  |   SQL、MongoDB、Cassandra、Gremlin 和表。       | Apache Spark         |
 |保留期（生存时间或 TTL）   |  由策略驱动，使用 `DefaultTimeToLive` 属性在 Azure Cosmos 容器中配置。       |   由策略驱动，使用 `ColumnStoreTimeToLive` 属性在 Azure Cosmos 容器中配置。      |
-|每 GB 价格    |   2\.576 元/GB      |       |
-|存储事务的价格    | 预配吞吐量按每 100 RU/秒 0.008 美元收费，按小时计费。        |  基于消耗的吞吐量按 10,000 个写入事务 0.05 美元、10,000 个读取事务 0.004 美元收费。       |
+|每 GB 价格    |   请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)     |   请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)        |
+|存储事务的价格    |  请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)         |   请参阅[定价页](https://www.azure.cn/pricing/details/cosmos-db/)        |
 
 <!--Not Avaialble on Line 34 and Etcd-->
 
@@ -71,66 +71,8 @@ Azure Cosmos 容器在内部以两个存储引擎（事务存储引擎和可更�
 
 事务工作负荷消耗预配的吞吐量 (RU)。 与事务工作负荷不同，分析工作负荷的吞吐量基于实际消耗量。 分析工作负荷按需消耗资源。
 
-### <a name="on-demand-snapshots-and-time-travel-analytics"></a>按需快照和时光穿越分析
-
-随时可以通过对容器调用 `CreateSnapshot (name, timestamp)` 命令，来为 Azure Cosmos 容器的分析存储中存储的数据创建快照。 快照在容器曾经发生的更新历史记录中命名为“书签”。
-
-![按需快照和时光穿越分析](./media/globally-distributed-transactional-analytical-storage/ondemand-analytical-data-snapshots.png)
-
-<!--MOONCAKE: CORRECT LINE 72 ON  (./media/globally-distributed-xxxx.png)-->
-
-创建快照时，除了名称以外，还可以指定时间戳来定义更新历史记录中容器的状态。 然后，可将快照数据载入 Spark 并执行查询。
-
-目前，只能随时对容器创建按需快照；尚不支持基于计划或自定义策略自动创建快照。
-
-### <a name="configure-and-tier-data-between-transactional-and-analytical-storage-independently"></a>在事务存储与分析存储之间单独配置和分层数据
-
-根据具体的方案，可以单独启用或禁用这两个存储引擎中的每一个。 下面是每种方案的配置：
-
-|方案 |事务存储设置  |分析存储设置 |
-|---------|---------|---------|
-|仅运行分析工作负荷（使用无限保留期） |  DefaultTimeToLive = 0       |  ColumnStoreTimeToLive = -1       |
-|仅运行事务工作负荷（使用无限保留期）  |   DefaultTimeToLive = -1      |  ColumnStoreTimeToLive = 0       |
-|同时运行事务工作负荷与分析工作负荷（使用无限保留期）   |   DefaultTimeToLive = -1      | ColumnStoreTimeToLive = -1        |
-|同时运行事务工作负荷与分析工作负荷（使用不同的保留时间间隔，也称为存储分层）  |  DefaultTimeToLive = <Value1>       |     ColumnStoreTimeToLive = <Value2>    |
-
-1. **仅为分析工作负荷配置容器（使用无限保留期）**
-
-    可以仅为分析工作负荷配置 Azure Cosmos 容器。 此配置的优势是无需为事务存储付费。 如果你的目标是仅将容器用于分析工作负荷，可以通过在 Cosmos 容器中将 `DefaultTimeToLive` 设置为 0 来禁用事务存储，并可以通过将 `ColumnStoreTimeToLive` 设置为 -1 来启用使用无限保留期的分析存储。
-
-    ![使用无限保留期的分析工作负荷](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
-    
-    <!--MOONCAKE: CORRECT LINE 96 ON  (./media/globally-distributed-xxxx.png)-->
-    
-1. **仅为事务工作负荷配置容器（使用无限保留期）**
-
-    可以仅为事务工作负荷配置 Azure Cosmos 容器。 可以通过在 Cosmos 容器中将 `ColumnStoreTimeToLive` 设置为 0 来禁用分析存储，并可以通过将 `DefaultTimeToLive` 设置为 -1 来启用使用无限保留期的分析存储。
-
-    ![使用无限保留期的事务工作负荷](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
-    
-    <!--MOONCAKE: CORRECT LINE 102 ON  (./media/globally-distributed-xxxx.png)-->
-    
-1. **同时为事务工作负荷与分析工作负荷配置容器（使用无限保留）**
-
-    可以同时为事务工作负荷与分析工作负荷配置 Azure Cosmos 容器，并在它们之间实现完全的性能隔离。 可以通过将 `ColumnStoreTimeToLive` 设置为 -1 来启用分析存储，并通过将 `DefaultTimeToLive ` 设置为 -1 来启用使用无限保留期的事务存储。
-
-    ![使用无限保留期的事务工作负荷与分析工作负荷](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
-    
-    <!--MOONCAKE: CORRECT LINE 110 ON  (./media/globally-distributed-xxxx.png)-->
-    
-1. **同时为事务工作负荷与分析工作负荷配置容器（使用存储分层）**
-
-    可以同时为事务工作负荷与分析工作负荷配置 Azure Cosmos 容器，并使用不同的保留时间间隔在它们之间实现完全的性能隔离。 Azure Cosmos DB 会强制使分析存储始终保留比事务存储更长的持续时间。
-
-    可以通过将 `DefaultTimeToLive` 设置为 <Value 1> 来启用使用无限保留期的事务存储，并通过将 `ColumnStoreTimeToLive` 设置为 <Value 2> 来启用分析存储。 Azure Cosmos DB 会强制 <Value 2> 始终大于 <Value 1>。
-
-    ![使用存储分层的事务工作负荷与分析工作负荷](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
-    
-    <!--MOONCAKE: CORRECT LINE 122 ON  (./media/globally-distributed-xxxx.png)-->
-    
 ## <a name="next-steps"></a>后续步骤
 
 * [Azure Cosmos DB 中的生存时间](time-to-live.md)
 
-<!--Update_Description: new articles on global-distributed transactional analytical storage  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

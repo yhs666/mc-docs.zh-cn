@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 638da1f2c08d084afe48d76c83908b7afefd14be
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 0eb2b3ceeca7c0ceaf176066fd90dbb7684952fd
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389060"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469295"
 ---
 [消息路由](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)能够将遥测数据从 IoT 设备发送到内置的与事件中心兼容的终结点或自定义终结点，例如，Blob 存储、服务总线队列、服务总线主题和事件中心。 若要配置自定义消息路由，请创建[路由查询](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md)来自定义与特定条件匹配的路由。 设置完成后，引入的数据将通过 IoT 中心自动路由到终结点。 如果某个消息不匹配定义的任何路由查询，它将路由到默认终结点。
 
@@ -47,4 +47,4 @@ ms.locfileid: "74389060"
   - 有权访问用于分析默认终结点的流分析的 Power BI 帐户。 （[免费试用 Power BI](https://app.powerbi.com/signupredirect?pbi_source=web)。）
   - 提供一个用于发送通知电子邮件的 Office 365 帐户。
 
-[!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]
+<!-- [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)] -->

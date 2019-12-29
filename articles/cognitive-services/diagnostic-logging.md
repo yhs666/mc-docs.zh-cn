@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.topic: article
 origin.date: 06/14/2019
 ms.date: 07/24/2019
-ms.author: v-junlch
-ms.openlocfilehash: 261f459538df1b8004988e3bf8ec2b8abeb58eb4
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.author: v-tawe
+ms.openlocfilehash: c8a4c46584e1d4b16a11153e0ff17219ad5c7685
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74178873"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336232"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>为 Azure 认知服务启用诊断日志记录
 
@@ -43,7 +43,7 @@ ms.locfileid: "74178873"
 4. 输入设置名称。 依次选择“存档到存储帐户”、“发送到 Log Analytics”。  
 5. 出现配置提示时，请选择你要用来存储诊断日志的存储帐户和 OMS 工作区。 **注意**：如果你没有存储帐户或 OMS 工作区，请按提示创建一个。
 6. 依次选择“审核”  、**RequestResponse** 和 **AllMetrics**。 然后设置诊断日志数据的保留期。 如果将保留策略设置为零，则会无限期存储该日志类别的事件。
-7. 单击“ **保存**”。
+7. 单击“保存”  。
 
 最长可能需要在两个小时之后，日志数据才可供查询和分析。 因此，如果当前未显示任何内容，请不要担心。
 

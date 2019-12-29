@@ -9,14 +9,14 @@ ms.workload: core
 ms.topic: article
 ms.custom: seodec18, seo-java-august2019, seo-java-september2019
 origin.date: 04/15/2019
-ms.date: 09/16/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 32cb323773d03d73dc193cc895dff967fd416058
-ms.sourcegitcommit: a1575acb8d0047fae425deb8196e3c89bd3dac57
+ms.openlocfilehash: 6d4e45fcad7cac210858df4d2769b02c5329bc89
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72872962"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336245"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs"></a>使用 Java 将事件发送到 Azure 事件中心或从其中接收事件
 

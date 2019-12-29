@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 09/06/2019
-ms.date: 10/28/2019
 ms.author: v-yeche
-ms.openlocfilehash: b8c22d55c18311121940bf886bfbcc893ff41abc
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/16/2019
+ms.openlocfilehash: 784f21e1541072e3c2dae91f5406ea1db89316e3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970248"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336398"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>通过 Gremlin SDK 使用 Azure Cosmos DB 资源令牌
 

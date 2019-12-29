@@ -3,20 +3,20 @@ author: WenJason
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-origin.date: 07/31/2019
-ms.date: 09/30/2019
+origin.date: 11/04/2019
+ms.date: 12/16/2019
 ms.author: v-jay
-ms.openlocfilehash: 640694eb66d967f6b0dcb848b5537dd8001518ea
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.openlocfilehash: c2fb8344482124a071285f489993faa5943a6665
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262936"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336287"
 ---
 在此步骤中，将创建 Azure SQL 数据库单一数据库。 
 
 > [!IMPORTANT]
-> 请务必设置防火墙规则，以使用本文中执行步骤的计算机的公共 IP 地址。 
+> 请务必设置防火墙规则，以使用用于完成本文的计算机的公共 IP 地址。
 >
 > 有关详细信息，请参阅[创建数据库级防火墙规则](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database)，或参阅[创建服务器级防火墙](../sql-database-server-level-firewall-rule.md)，确定用于计算机的服务器级防火墙规则的 IP 地址。  
 
@@ -27,7 +27,7 @@ ms.locfileid: "71262936"
 1. 在 Azure 门户的左上角选择“创建资源”。 
 2. 选择“数据库”，然后选择“SQL 数据库”打开“创建 SQL 数据库”页。   
 
-   ![创建单一数据库](../media/sql-database-get-started-portal/create-database-1.png)
+   ![创建单一数据库](../media/sql-database-get-started-portal/create-single-database.png)
 
 3. 在“项目详细信息”部分的“基本信息”选项卡上，键入或选择以下值：  
 
@@ -55,12 +55,12 @@ ms.locfileid: "71262936"
 
      ![SQL 数据库详细信息](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - 选择“已预配”  和 **Gen5**。
+   - 选择“已预配”  。
 
      ![已预配 Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - 查看“最大 vCore 数”、“最小 vCore 数”、“自动暂停延迟”和“数据最大大小”的设置     。 根据需要进行更改。
-   - 接受预览版条款，然后单击“确定”  。
+   - 查看“Vcore”和“数据最大大小”设置   。 根据需要进行更改。 
+     - 还可以选择“更改配置”来更改硬件生成  。
    - 选择“应用”。 
 
 5. 选择“其他设置”选项卡。  
@@ -142,6 +142,15 @@ ms.locfileid: "71262936"
    $database
    ```
 
+本文的此部分使用以下 PowerShell cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule) | 为逻辑服务器创建防火墙规则。 | 
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 新建 Azure SQL 数据库单一数据库。 | 
+
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 使用 AZ CLI 创建资源组和单一数据库。
@@ -207,5 +216,16 @@ ms.locfileid: "71262936"
       --family Gen5 \
       --capacity 2
    ```
+
+此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
+
+| 命令 | 注释 |
+|---|---|
+| [az account set](/cli/account?view=azure-cli-latest#az-account-set) | 将订阅设置为当前的活动订阅。 | 
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [az sql server firewall-rule create](/cli/sql/server/firewall-rule) | 创建服务器的防火墙规则。 | 
+| [az sql db create](/cli/sql/db?view=azure-cli-latest) | 创建数据库。 | 
+
 
 ---

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 03/23/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5087d161fb09027cde2456b95d232a856a300c61
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: ce156a3b025b7e1f384b5cf0c1410dca22116c11
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174131"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335190"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 节点类型与虚拟机规模集
 [虚拟机规模集](/virtual-machine-scale-sets)是一种 Azure 计算资源。 可使用规模集以集的形式部署和管理虚拟机集合。 Azure Service Fabric 群集中定义的每个节点类型均设置了独立的规模集。  规模集中每个虚拟机上均通过 Microsoft.Azure.ServiceFabric 虚拟机扩展安装了 Service Fabric 运行时。 可独立增加或减少每个节点类型、更改每个群集节点上运行的 OS SKU、打开不同的端口集，并使用不同的容量指标。

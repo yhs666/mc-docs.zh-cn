@@ -1,23 +1,23 @@
 ---
-title: 快速入门：使用 REST API 在 PowerShell 中创建搜索索引 - Azure 搜索
-description: 介绍如何使用 PowerShell 的 Invoke-RestMethod 和 Azure 搜索 REST API 创建索引、加载数据以及运行查询。
-origin.date: 09/10/2019
-ms.date: 09/29/2019
-author: heidisteen
+title: 快速入门：使用 REST API 在 PowerShell 中创建搜索索引
+titleSuffix: Azure Cognitive Search
+description: 在此 REST API 快速入门中，了解如何使用 PowerShell 的 Invoke-RestMethod 和 Azure 认知搜索 REST API 创建索引、加载数据以及运行查询。
 manager: nitinme
+author: heidisteen
 ms.author: v-tawe
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: 9e295efbee225527cd9cf78e7c3c821fae225f36
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+ms.devlang: rest-api
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: ca689f933431f8eac774a7bacd7191a6d3222d49
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335336"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>快速入门：在 PowerShell 中使用 REST API 创建 Azure 搜索索引
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>快速入门：在 PowerShell 中使用 REST API 创建 Azure 认知搜索索引
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "71674490"
 > * [Portal](search-create-index-portal.md)
 > 
 
-本文引导你完成使用 PowerShell 和 [Azure 搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/) 创建、加载和查询 Azure 搜索索引的过程。 本文介绍如何以交互方式运行 PowerShell 命令。 你也可以[下载并运行一个 PowerShell 脚本](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)来执行相同的操作。
+本文引导你完成使用 PowerShell 和 [Azure 认知搜索 REST API](https://docs.microsoft.com/rest/api/searchservice/) 创建、加载和查询 Azure 认知搜索索引的过程。 本文介绍如何以交互方式运行 PowerShell 命令。 你也可以[下载并运行一个 PowerShell 脚本](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)来执行相同的操作。
 
 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
@@ -34,23 +34,23 @@ ms.locfileid: "71674490"
 
 本快速入门需要以下服务和工具。 
 
-+ [PowerShell 5.1 或更高版本](https://github.com/PowerShell/PowerShell)。你将使用 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 来执行有序步骤和交互式步骤。
++ [PowerShell 5.1 或更高版本](https://github.com/PowerShell/PowerShell)，使用 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 按序完成交互式步骤。
 
-+ [创建 Azure 搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
++ [创建 Azure 认知搜索服务](search-create-service-portal.md)或在当前订阅下[查找现有服务](https://portal.azure.cn/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)。 可以使用本快速入门的免费服务。 
 
 ## <a name="get-a-key-and-url"></a>获取密钥和 URL
 
-REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 搜索，则请按以下步骤获取必需信息：
+REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服务是使用这二者创建的，因此，如果向订阅添加了 Azure 认知搜索，则请按以下步骤获取必需信息：
 
 1. [登录到 Azure 门户](https://portal.azure.cn/)，在搜索服务的“概述”页中获取 URL。  示例终结点可能类似于 `https://mydemo.search.chinacloudapi.cn`。
 
 2. 在“设置” > “密钥”中，获取有关该服务的完全权限的管理员密钥   。 有两个可交换的管理员密钥，为保证业务连续性而提供，以防需要滚动一个密钥。 可以在请求中使用主要或辅助密钥来添加、修改和删除对象。
 
-![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "Get an HTTP endpoint and access key")
+![获取 HTTP 终结点和访问密钥](media/search-get-started-postman/get-url-key.png "获取 HTTP 终结点和访问密钥")
 
 所有请求对发送到服务的每个请求都需要 API 密钥。 具有有效的密钥可以在发送请求的应用程序与处理请求的服务之间建立信任关系，这种信任关系以每个请求为基础。
 
-## <a name="connect-to-azure-search"></a>连接到 Azure 搜索
+## <a name="connect-to-azure-cognitive-search"></a>连接到 Azure 认知搜索
 
 1. 在 PowerShell 中，创建一个 **$headers** 对象用于存储内容类型和 API 密钥。 将管理 API 密钥 (YOUR-ADMIN-API-KEY) 替换为对搜索服务有效的值。 在整个会话持续时间内，只需设置此标头一次，但需要将它添加到每个请求。 
 
@@ -324,7 +324,7 @@ REST 调用需要在每个请求中使用服务 URL 和访问密钥。 搜索服
 
 1. 将终结点设置为 *hotels-quickstart* 文档集合，并添加一个 **search** 参数以传入查询字符串。 
   
-   此字符串执行空搜索 (search=*)，返回任意文档的未排名列表 (search score  = 1.0)。 默认情况下，Azure 搜索每次返回 50 个匹配项。 由于已结构化，此查询将返回整个文档结构和值。 添加 **$count=true** 以获取结果中所有文档的计数。
+   此字符串执行空搜索 (search=*)，返回任意文档的未排名列表 (search score  = 1.0)。 默认情况下，Azure 认知搜索每次返回 50 个匹配项。 由于已结构化，此查询将返回整个文档结构和值。 添加 **$count=true** 以获取结果中所有文档的计数。
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.chinacloudapi.cn/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
@@ -392,7 +392,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.chinacloudapi.cn/indexes/hotels-qui
 
 $url = 'https://<YOUR-SEARCH-SERVICE>.search.chinacloudapi.cn/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=pool&$orderby=Address/City asc&$select=HotelName, Address/City, Tags, Rating'
 ```
-## <a name="clean-up"></a>清理 
+## <a name="clean-up-resources"></a>清理资源
 
 在自己的订阅中操作时，最好在项目结束时确定是否仍需要已创建的资源。 持续运行资源可能会产生费用。 可以逐个删除资源，也可以删除资源组以删除整个资源集。
 
@@ -402,7 +402,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.chinacloudapi.cn/indexes/hotels-qui
 
 ## <a name="next-steps"></a>后续步骤
 
-在本快速入门中，你已使用 PowerShell 逐步完成了在 Azure 搜索中创建和访问内容的基本工作流。 我们建议，在了解相关概念后，继续学习更高级的方案，例如，从 Azure 数据源编制索引。
+在本快速入门中，已使用 PowerShell 逐步完成了在 Azure 认知搜索中创建和访问内容的基本工作流。 我们建议，在了解相关概念后，继续学习更高级的方案，例如，从 Azure 数据源编制索引。
 
 > [!div class="nextstepaction"]
-> [REST 教程：在 Azure 搜索中为半结构化数据 (JSON Blob) 编制索引以及搜索此类数据](search-semi-structured-data.md)
+> [REST 教程：在 Azure 认知搜索中为半结构化数据 (JSON Blob) 编制索引以及搜索此类数据](search-semi-structured-data.md)

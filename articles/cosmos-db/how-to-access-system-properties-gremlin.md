@@ -1,19 +1,19 @@
 ---
 title: 通过 Azure Cosmos DB 图形访问系统文档属性
 description: 了解如何通过 Gremlin API 读取和写入 Cosmos DB 系统文档属性
-author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 09/10/2019
-ms.date: 09/30/2019
+ms.date: 12/16/2019
+author: rockboyfor
 ms.author: v-yeche
-ms.openlocfilehash: 29af101fbe6ab13a3b2e616e6957f6ee7edc21e3
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 5f531ac93355402f942f92c75a644f1cb3965e71
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306856"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336229"
 ---
 # <a name="system-document-properties"></a>系统文档属性
 
@@ -45,5 +45,4 @@ g.addV('vertex-one').property('ttl', 123)
 * [Cosmos DB 乐观并发](faq.md#how-does-the-sql-api-provide-concurrency)
 * Azure Cosmos DB 中的[生存时间 (TTL)](time-to-live.md)
 
-<!-- Update_Description: new article about  -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

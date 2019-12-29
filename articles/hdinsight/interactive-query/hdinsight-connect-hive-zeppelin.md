@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 origin.date: 05/06/2019
-ms.date: 06/10/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 144c36a0ac3cc183403e644b585fa4f4a2a6e9f8
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.openlocfilehash: 28d4fa3010f5cb8589691db7054bc81f6900c0eb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878638"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335335"
 ---
 # <a name="quickstart-execute-apache-hive-queries-in-azure-hdinsight-with-apache-zeppelin"></a>快速入门：使用 Apache Zeppelin 在 Azure HDInsight 中执行 Apache Hive 查询
 
@@ -91,12 +91,3 @@ ms.locfileid: "68878638"
 
 > [!div class="nextstepaction"]
 > [使用适用于 Visual Studio 的 Data Lake 工具连接到 Azure HDInsight 并运行 Apache Hive 查询](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)
-
-## <a name="see-also"></a>另请参阅
-
-* [在 Azure HDInsight 中使用 Microsoft Power BI 直观显示 Apache Hive 数据](../hadoop/apache-hadoop-connect-hive-power-bi.md)。
-* [在 Azure HDInsight 中使用 Power BI 直观显示交互式查询 Apache Hive 数据](./apache-hadoop-connect-hive-power-bi-directquery.md)。
-* [使用 Microsoft Hive ODBC 驱动程序将 Excel 连接到 HDInsight](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)。
-* [使用 Power Query 将 Excel 连接到 Apache Hadoop](../hadoop/apache-hadoop-connect-excel-power-query.md)。
-* [使用用于 Visual Studio Code 的 Azure HDInsight 工具](../hdinsight-for-vscode.md)。
-* [将数据上传到 HDInsight](../hdinsight-upload-data.md)。

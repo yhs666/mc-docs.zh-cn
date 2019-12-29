@@ -3,29 +3,30 @@ title: Azure Policy 概述
 description: Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理 Azure 环境中的策略定义。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 12/06/2018
-ms.date: 10/12/2019
+origin.date: 11/25/2019
+ms.date: 12/16/2019
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: da446e5556e1c096385079cbea6c741eb9c7f07c
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 72e9ba05d669d6864cc9ec75d60e9c3f007453bb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657989"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335804"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Azure Policy 服务概述
+# <a name="what-is-azure-policy"></a>什么是 Azure Policy？
 
 治理验证组织是否能够通过有效且高效地使用 IT 来实现其目标。 它通过详细说明业务目标和 IT 项目来满足这一需求。
 
-你的公司是否正遇到了大量似乎难以解决的 IT 问题？
-良好的 IT 治理涉及在战略级别规划各项举措和设置优先级，以便管理和预防问题。 Azure Policy 迎合了此策略需求。
+你的公司是否正遇到了大量似乎难以解决的 IT 问题？ 良好的 IT 治理涉及在战略级别规划各项举措和设置优先级，以便管理和预防问题。 Azure Policy 迎合了此策略需求。
 
 Azure Policy 是 Azure 中的一项服务，用于创建、分配和管理策略。 这些策略将在整个资源中强制实施不同的规则和效果，使这些资源符合公司标准和服务级别协议。 Azure Policy 通过评估资源是否符合指定策略来满足此需求。 例如，可以制定一项策略，只允许环境中存在特定 SKU 大小的虚拟机。 实施此策略后，将评估新资源和现有资源的符合性。 通过使用正确的策略类型，可以确保现有资源的符合性。 本文档后面将更详细地讲述如何使用 Azure Policy 创建和实施策略。
 
 > [!IMPORTANT]
 > 现在，无论定价层如何，为所有分配都提供了 Azure Policy 的符合性评估。 如果分配未显示符合性数据，请确保已向 Microsoft.PolicyInsights 资源提供程序注册订阅。
+
+<!-- [!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)] -->
 
 ## <a name="how-is-it-different-from-rbac"></a>策略与 RBAC 有什么不同？
 
@@ -38,7 +39,7 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者(预览版)”角色包括大多数 Azure Policy 操作  。 “所有者”具有完全权限  。 “参与者”和“读者”都可以使用所有读取 Azure Policy 操作，但“参与者”还可以触发修正    。
+许多内置角色可授予对 Azure Policy 资源的权限。 “资源策略参与者”角色包括大多数 Azure Policy 操作  。 “所有者”具有完全权限  。 “参与者”和“读者”都可以使用所有读取 Azure Policy 操作，但“参与者”还可以触发修正    。
 
 如果没有任何内置角色具有所需的权限，可创建[自定义角色](../../role-based-access-control/custom-roles.md)。
 
@@ -48,12 +49,11 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 
 在 Azure Policy 中，我们将提供一些默认可供使用的内置策略。 例如：
 
-- **需要 SQL Server 12.0**：验证是否所有 SQL Server 都使用版本 12.0。 其效果是拒绝所有不符合这些条件的服务器。
 - **允许的存储帐户 SKU**：确定正在部署的存储帐户是否在 SKU 大小集内。 其效果是拒绝所有不符合定义的 SKU 大小集的存储帐户。
 - **允许的资源类型**：定义可以部署的资源类型。 其效果是拒绝所有不属于此定义列表的资源。
 - **允许的位置**：限制新资源的可用位置。 其效果是用于强制执行异地符合性要求。
 - **允许的虚拟机 SKU**：指定可以部署的虚拟机 SKU 集。
-- **应用标记及其默认值**：如果部署请求未指定，则应用所需的标记及其默认值。
+- **向资源添加标记**：如果部署请求未指定，则应用所需的标记及其默认值。
 - **强制实施标记及其值**：对资源强制执行所需的标记及其值。
 - **不允许的资源类型**：禁止部署资源类型的列表。
 
@@ -84,6 +84,9 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 ## <a name="initiative-definition"></a>计划定义
 
 计划定义是策略定义的集合，是为实现单一的总体目标量身定制的。 计划定义可以简化管理和分配策略定义。 它们通过将一组策略组合为一个单独的项来实现简化。 例如，可以创建一个标题为“启用 Azure 安全中心中的监视”  的计划，用于专门监视 Azure 安全中心中的所有可用的安全建议。
+
+> [!NOTE]
+> Azure CLI 和 Azure PowerShell 等 SDK 使用名为 PolicySet 的属性和参数来引用计划  。
 
 在此计划中，将具有特定策略定义，例如：
 
@@ -129,17 +132,19 @@ Azure Policy 在两个资源提供程序中具有多个权限（称为操作）�
 - 请在创建定义和分配时考虑组织的层次结构。 我们建议在更高级别创建定义，例如管理组或订阅级别。 然后，在下一子级别创建分配。 如果在管理组中创建定义，则可以将分配范围缩小到该管理组中的订阅或资源组。
 
 - 我们建议创建并分配计划定义，即使对于单个策略定义，也是如此。
-例如，你有策略定义 policyDefA 并在计划定义 initiativeDefC 下创建它   。 如果稍后为 policyDefB 创建另一个策略定义，其目标类似于 policyDefA，则可以在 initiativeDefC 下添加它并一起跟踪它们    。
+  例如，你有策略定义 policyDefA 并在计划定义 initiativeDefC 下创建它   。 如果稍后为 policyDefB 创建另一个策略定义，其目标类似于 policyDefA，则可以在 initiativeDefC 下添加它并一起跟踪它们    。
 
 - 创建计划分配后，添加到该计划中的策略定义也将成为该计划分配的一部分。
 
-- 评估计划分配后，还会评估计划内的所有策略。 如果需要单独评估某个策略，最好不要将其包含在计划中。
+- 评估计划分配后，还会评估计划内的所有策略。
+  如果需要单独评估某个策略，最好不要将其包含在计划中。
+
+<!-- ## Video overview -->
 
 ## <a name="next-steps"></a>后续步骤
 
 大致了解 Azure Policy 和一些关键概念后，建议执行后续步骤：
 
-- [使用门户分配策略定义](assign-policy-portal.md)
-- [使用 Azure CLI 分配策略定义](assign-policy-azurecli.md)
-- [使用 PowerShell 分配策略定义](assign-policy-powershell.md)
-- 参阅[使用 Azure 管理组来组织资源](../management-groups/overview.md)，了解什么是管理组
+- [使用门户分配策略定义](./assign-policy-portal.md)。
+- [使用 Azure CLI 分配策略定义](./assign-policy-azurecli.md)。
+- [使用 PowerShell 分配策略定义](./assign-policy-powershell.md)。

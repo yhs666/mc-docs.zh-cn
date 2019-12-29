@@ -1,19 +1,19 @@
 ---
 title: 示例 - 允许的 ExpressRoute 带宽
-description: 此示例策略定义要求 ExpressRoute 使用一组指定的带宽。
+description: 此示例策略定义要求 ExpressRoute 使用参数中定义的一组指定带宽。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/23/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: a65502bf73f0a92b0d82a616cff7fdabf3733100
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 4c4dbe2c309d9b251309e3e13f5ff2ea4dc4fb09
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526683"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334587"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>示例 - 允许的 ExpressRoute 带宽
 

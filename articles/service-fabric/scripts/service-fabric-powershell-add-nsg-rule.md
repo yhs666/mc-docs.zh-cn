@@ -12,19 +12,19 @@ ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 origin.date: 11/28/2017
-ms.date: 08/26/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: e36ff88084cf4e54227e0aae89818489cd31553e
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: caa583aa976c0870f174e6844cc0ca14c93d7a19
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335732"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>添加入站网络安全组规则
 
-本示例脚本创建网络安全组规则，以允许端口 8081 上的入站流量。 该脚本获取群集所在的 `Microsoft.Network/networkSecurityGroups` 资源，创建新的网络安全配置规则，并更新网络安全组。 根据需要自定义参数。
+本示例脚本创建网络安全组规则，以允许端口 8081 上的入站流量。 该脚本获取网络安全组、创建新的网络安全配置规则，并更新网络安全组。 根据需要自定义参数。
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -33,7 +33,7 @@ ms.locfileid: "70174066"
 ## <a name="sample-script"></a>示例脚本
 
 ```powershell
-Login-AzAccount -EnvironmentName AzureChinaCloud
+Connect-AzAccount -Environment AzureChinaCloud
 Get-AzSubscription
 Set-AzContext -SubscriptionId "yourSubscriptionID"
 
@@ -43,7 +43,6 @@ $rulename="allowAppPort$port"
 $nsgname="sf-vnet-security"
 
 # Get the NSG resource
-$resource = Get-AzResource | Where {$_.ResourceGroupName -eq $RGname -and $_.ResourceType -eq "Microsoft.Network/networkSecurityGroups"} 
 $nsg = Get-AzNetworkSecurityGroup -Name $nsgname -ResourceGroupName $RGname
 
 # Add the inbound security rule.
@@ -71,4 +70,4 @@ $nsg | Set-AzNetworkSecurityGroup
 
 有关 Azure PowerShell 模块的详细信息，请参阅 [Azure PowerShell 文档](https://docs.microsoft.com/powershell/azure/overview)。
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

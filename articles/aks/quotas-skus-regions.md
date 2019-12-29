@@ -6,14 +6,14 @@ author: rockboyfor
 ms.service: container-service
 ms.topic: conceptual
 origin.date: 04/09/2019
-ms.date: 07/29/2019
 ms.author: v-yeche
-ms.openlocfilehash: e86e9e18cc913ea8dd072afe9068614c40f8b9b7
-ms.sourcegitcommit: 57994a3f6a263c95ff3901361d3e48b10cfffcdd
+ms.date: 12/09/2019
+ms.openlocfilehash: d67905c5a78662f3d56e2d233f8da29db76d539e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70500733"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335884"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 服务 (AKS) 中的配额、虚拟机大小限制和适用地区
 
@@ -55,14 +55,16 @@ AKS 群集中的每个节点都包含固定数量的计算资源，例如 vCPU �
 
 ## <a name="next-steps"></a>后续步骤
 
+<!--MOONCAKE: CORRECT ON Support Type with Quota-->
+
 某些默认限制和配额可以提高。 如果资源支持提高配额，请通过 [Azure 支持请求][azure-support]来请求提高配额（请选择“配额”作为“支持类型”   ）。
 
 <!--MOONCAKE: CORRECT ON Support Type with Quota-->
 
 <!-- LINKS - External -->
 
-[azure-support]: https://support.azure.cn/zh-cn/support/support-azure/
-[region-availability]: https://www.azure.cn/zh-cn/home/features/products-by-region
+[azure-support]: https://support.azure.cn/support/support-azure/
+[region-availability]: https://www.azure.cn/home/features/products-by-region
 
 <!-- LINKS - Internal -->
 
@@ -70,4 +72,4 @@ AKS 群集中的每个节点都包含固定数量的计算资源，例如 vCPU �
 
 <!--Not Available on [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool-->
 
-<!-- Update_Description: wording update, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

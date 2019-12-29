@@ -12,12 +12,12 @@ ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 07/16/2019
 ms.date: 09/09/2019
-ms.openlocfilehash: 84862eba69dd7fcc8f276e96bb4653276def53f0
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.openlocfilehash: 22c4490f068ceb998fb055a15f220513d6178b58
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373067"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334695"
 ---
 # <a name="use-powershell-to-add-an-azure-sql-database-single-database-to-a-failover-group"></a>使用 PowerShell 将 Azure SQL 数据库单一数据库添加到故障转移组 
 
@@ -106,11 +106,11 @@ $drServer
 # Create a failover group between the servers
 $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
 New-AzSqlDatabaseFailoverGroup `
-   –ResourceGroupName $resourceGroupName `
+   -ResourceGroupName $resourceGroupName `
    -ServerName $serverName `
    -PartnerServerName $drServerName  `
-   –FailoverGroupName $failoverGroupName `
-   –FailoverPolicy Automatic `
+   -FailoverGroupName $failoverGroupName `
+   -FailoverPolicy Automatic `
    -GracePeriodWithDataLossHours 2
 $failovergroup
 

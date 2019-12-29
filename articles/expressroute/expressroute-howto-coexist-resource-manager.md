@@ -11,13 +11,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 07/01/2019
 ms.author: v-yiso
-ms.date: 12/02/2019
-ms.openlocfilehash: 9eeed66545c368b06f5295c0131eb203a942857a
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/23/2019
+ms.openlocfilehash: 6a19bd5e2fbb07a895316e30a4ff92318d13e79a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389452"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334760"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>使用 PowerShell 配置 ExpressRoute 和站点到站点共存连接
 > [!div class="op_single_selector"]
@@ -229,8 +229,6 @@ ms.locfileid: "74389452"
     ```azurepowershell
    $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
    $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
-   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
    $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
    ```
 

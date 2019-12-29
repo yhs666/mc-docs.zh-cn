@@ -7,12 +7,12 @@ ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 631ebc156b0e080b4c8931ca2c46b5d5e504e7d2
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: c231d9318bdf1e72c0352c84fa40608f5c2827cc
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884836"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336001"
 ---
 <!-- Verify successfully-->
 # <a name="tutorial-integrate-azure-key-vault-in-your-resource-manager-template-deployment"></a>教程：在你的资源管理器模板部署中集成 Azure 密钥保管库
@@ -64,6 +64,9 @@ ms.locfileid: "74884836"
 <!--Not Available on Cloud Shell-->
 
 ```powershell
+# Sign in the Azure China Cloud
+Connect-AzAccount -Environment AzureChinaCloud
+
 $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
 $location = Read-Host -Prompt "Enter the location (i.e. chinaeast)"
 $upn = Read-Host -Prompt "Enter your user principal name (email address) used to sign in to Azure"
@@ -112,7 +115,8 @@ Azure 快速入门模板是资源管理器模板的存储库。 无需从头开�
     ```
 
 1. 选择“打开”以打开该文件。  方案与以下教程中使用的方案相同[：使用依赖的资源创建 Azure 资源管理器模板](./resource-manager-tutorial-create-templates-with-dependent-resources.md)中使用的。
-   该模板定义五个资源：
+
+    该模板定义五个资源：
 
     * `Microsoft.Storage/storageAccounts`。
     * `Microsoft.Network/publicIPAddresses`。

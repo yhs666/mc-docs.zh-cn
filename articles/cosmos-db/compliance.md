@@ -4,16 +4,16 @@ description: 本文介绍了 Azure Cosmos DB 合规性产品的认证覆盖范�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 05/23/2019
-ms.date: 10/28/2019
+origin.date: 10/15/2019
 ms.author: v-yeche
+ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 063b07e30dac027138c5f4eb75685a4fe62c91ab
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 60912abf1e07a82310bf0d882084ff98cc981710
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913340"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335737"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Azure Cosmos DB 符合性 
 
@@ -27,10 +27,13 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户�
 
 <!--Notice: make by Azure-->
 <!--Not Available on Azure compliance offerings are grouped into four segments - multiple-region applicable, US Government, industry specific, and region or country specific.-->
-<!--Not Available on ## Azure Cosmos DB certifications-->
 
+## <a name="azure-cosmos-db-certifications"></a>Azure Cosmos DB 认证  
+
+若要了解有关每个合规性产品及其益处的详细信息，请参阅 [Azure 合规性概述](https://www.trustcenter.cn/cloudservices/azure.html)页面。
 
 <!--Not Available on The following table lists the certifications supported by Azure Cosmos DB in Azure China Cloud:-->
+
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -42,4 +45,4 @@ Azure Cosmos DB 在所有 Azure 中国区域中提供。 Azure 为中国客户�
 
 * 有关我们的认证的详细信息，请参阅 [Azure 信任中心](https://www.trustcenter.cn/cloudservices/azure.html)。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

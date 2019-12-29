@@ -48,6 +48,16 @@
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fexpressroute%2ftoc.json
         - name: 数据平面分析
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fexpressroute%2ftoc.json
+    - name: 跨网连接
+      href: cross-network-connectivity.md
+    - name: 内置安全控件
+      href: expressroute-security-controls.md
+    - name: 针对高可用性进行设计
+      href: designing-for-high-availability-with-expressroute.md
+    - name: 针对灾难恢复进行设计
+      items:
+        - name: 专用对等互连
+          href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
 - name: 操作指南
   items:
     - name: 创建和修改线路
@@ -58,6 +68,9 @@
           href: expressroute-howto-circuit-arm.md
         - name: Azure CLI
           href: howto-circuit-cli.md
+        - name: Azure Resource Manager 模板
+          displayName: 'ARM,resource manager template'
+          href: expressroute-howto-circuit-resource-manager-template.md
     - name: 创建和修改对等配置
       items:
         - name: Azure 门户
@@ -124,6 +137,8 @@
           href: ../security/azure-security-network-security-best-practices.md
         - name: 优化路由
           href: expressroute-optimize-routing.md
+        - name: 非对称路由
+          href: expressroute-asymmetric-routing.md
         - name: 用于 ExpressRoute 的 NAT
           href: expressroute-nat.md
     - name: 故障排除

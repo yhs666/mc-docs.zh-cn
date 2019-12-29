@@ -12,13 +12,13 @@ metadata:
   author: kfollis
   ms.author: v-tawe
   origin.date: 09/17/2019
-  ms.date: 11/04/2019
-  ms.openlocfilehash: bf8abc92ac55873e3159df58b2645bbd5b2a53e3
-  ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+  ms.date: 12/16/2019
+  ms.openlocfilehash: 76d538171cb927ca910d6698935690cdbc3f0924
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 11/13/2019
-  ms.locfileid: "74020718"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75335797"
 landingContent:
 - title: 关于 Azure 门户
   linkLists:

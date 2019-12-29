@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: overview
 origin.date: 09/09/2019
-ms.date: 09/30/2019
 ms.author: v-yeche
-ms.openlocfilehash: bf8632b8e86a7d97c262d3d9bb0ea7049d2e7176
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.date: 12/16/2019
+ms.openlocfilehash: ecc2f8252441b07e01ec7cc2412666a597a27b90
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306867"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336399"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Azure Cosmos DB Graph 帐户的区域终结点
 Azure Cosmos DB Graph 数据库是[多区域分布](distribute-data-globally.md)的，因此应用程序可以使用多个读取终结点。 需要在多个位置具有写入访问权限的应用程序应启用[多主数据库](how-to-multi-master.md)功能。
@@ -115,5 +115,4 @@ foreach (string location in readLocations)
 * [Azure Cosmos DB 多区域分布 - 揭秘](global-dist-under-the-hood.md)
 * Azure Cosmos DB 的 [Azure CLI 示例](cli-samples.md)
 
-<!-- Update_Description: new article about how to use regional gremlin -->
-<!--ms.date: 09/30/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

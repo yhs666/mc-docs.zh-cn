@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: v-yiso
   origin.date: 10/25/2019
-  ms.openlocfilehash: 67303c0d867078de6090adebf7987130f49989ed
-  ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+  ms.openlocfilehash: d3d10bed4ff1ea440939a629a16f669041faaf9a
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/06/2019
-  ms.locfileid: "74883128"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75335899"
 landingContent:
 - title: 关于 Azure IoT Central（预览版功能）
   linkLists:
@@ -48,7 +48,7 @@ landingContent:
     - text: 准备和连接 MX Chip IoT DevKit
       url: howto-connect-devkit.md
     - text: 连接其他 IoT 云
-      url: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      url: ../core/howto-build-iotc-device-bridge.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
 - title: 保持连接
   linkLists:
   - linkListType: tutorial
@@ -60,7 +60,7 @@ landingContent:
     - text: 管理设备
       url: howto-manage-devices.md
     - text: 运行作业
-      url: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      url: ../core/howto-run-a-job.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
     - text: 分析设备数据
       url: howto-create-analytics.md
 - title: 转换
@@ -77,8 +77,6 @@ landingContent:
     links:
     - text: 创建自定义规则
       url: howto-create-custom-rules.md
-    - text: 创建自定义分析
-      url: howto-create-custom-analytics.md
 - title: 管理
   linkLists:
   - linkListType: how-to-guide
@@ -92,8 +90,8 @@ landingContent:
     - text: 自定义应用程序 UI
       url: howto-customize-ui.md
     - text: 配置个人仪表板
-      url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      url: ../core/howto-create-personal-dashboards.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
     - text: 使用仪表板磁贴
-      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
     - text: 使用应用程序模板
       url: howto-use-app-templates.md

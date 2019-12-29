@@ -5,17 +5,17 @@ author: shizn
 manager: ''
 ms.author: v-yiso
 origin.date: 08/20/2019
-ms.date: 10/08/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: cefa033746fe24dfc41830d1d9d32d6543416731
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 4ffac928f469fa65e5a6d2c46effdf4c431e3978
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340831"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334554"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>向 Azure IoT Edge 进行持续集成和持续部署
 
@@ -47,7 +47,7 @@ ms.locfileid: "71340831"
 >1. 在 Azure DevOps 中，选择个人资料图标，然后选择“预览功能”  。
 >2. 关闭“新的 YAML 管道创建体验”  。 
 >
->有关详细信息，请参阅[创建生成管道](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav#create-a-build-pipeline)。
+>有关详细信息，请参阅[创建生成管道](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline)。
 
 1. 登录 Azure DevOps 组织 (**https:\//dev.azure.com/{your organization}/** ) 并打开包含 IoT Edge 解决方案存储库的项目。
 
@@ -220,6 +220,5 @@ ms.locfileid: "71340831"
 
 
 ## <a name="next-steps"></a>后续步骤
-* 有关 IoT Edge DevOps 最佳做法示例，请参阅[用于 IoT Edge 的 Azure DevOps 项目](how-to-devops-project.md)
 * 在[了解单设备 IoT Edge 部署或大规模 IoT Edge 部署](module-deployment-monitoring.md)中了解 IoT Edge 部署
 * 阅读[大规模地部署和监视 IoT Edge 模块](how-to-deploy-monitor.md)，详细了解创建、更新或删除部署的步骤。

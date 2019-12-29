@@ -13,17 +13,22 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/09/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 278dffd3016388b1de49e81ef5d070ed92e2ea48
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: e5c3bd59b228ff251e356fb5c7c01b83030ef88f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336247"
 ---
 # <a name="add-authentication-to-your-android-app"></a>将身份验证添加到 Android 应用
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
+
+> [!NOTE]
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
+>
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="summary"></a>摘要
 本教程介绍如何使用支持的标识提供者将身份验证添加到 Android 上的待办事项列表快速入门项目。 本教程基于 [Get started with Mobile Apps] （移动应用入门）教程，必须先完成该教程。
@@ -65,8 +70,9 @@ ms.locfileid: "74657742"
 ## <a name="next-steps"></a>后续步骤
 完成此基本身份验证教程后，请考虑继续学习以下教程之一：
 
-
-+ [为 Android 应用启用脱机同步](app-service-mobile-android-get-started-offline-data.md)。
+<!-- * [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md). -->
+<!--   Learn how to configure your Mobile Apps back end to use Azure notification hubs to send push notifications. -->
+* [为 Android 应用启用脱机同步](app-service-mobile-android-get-started-offline-data.md)。
   了解如何使用移动应用后端向应用添加脱机支持。 使用脱机同步，用户可以与移动应用进行交互&mdash;查看、添加或修改数据&mdash;，即使在没有网络连接时也是如此。
 
 <!-- Anchors. -->

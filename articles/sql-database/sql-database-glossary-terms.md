@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库术语表 | Microsoft Docs
+title: 术语词汇表
 description: Azure SQL 数据库术语表
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 04/26/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 4880856d6c1b2c01a58b18a049f2b3fee96be19b
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 12/16/2019
+ms.openlocfilehash: eff89df435c9cd8289435b0ac2593ea7d791c10c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70372953"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336283"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL 数据库术语表
 
 |上下文|术语|详细信息|
 |:---|:---|:---|
 |Azure 服务名称|Azure SQL 数据库或 SQL 数据库|[Azure SQL 数据库服务](sql-database-technical-overview.md)|
-|计算层|无服务器（预览版）|[无服务器计算层](sql-database-serverless.md)
+|计算层|无服务器 |[无服务器计算层](sql-database-serverless.md)
 ||已预配|[无服务器计算层](sql-database-serverless.md)
 |部署选项 |单一数据库|[单一数据库](sql-database-single-database.md)|
 ||弹性池|[弹性池](sql-database-elastic-pool.md)|

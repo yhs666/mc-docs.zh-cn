@@ -1,19 +1,19 @@
 ---
-title: 使用 PowerShell 创建策略以审核资源
-description: 使用 Azure PowerShell 创建 Azure Policy 分配以识别不符合的资源。
+title: 快速入门：通过 PowerShell 进行新策略分配
+description: 在本快速入门中，你将使用 Azure PowerShell 创建 Azure Policy 分配以确定不符合的资源。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 03/11/2019
-ms.date: 12/02/2019
+origin.date: 11/25/2019
+ms.date: 12/16/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 29464f0176787300ea8ae47dc027aa51393f1467
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 0f97c725df52bb8d5fb14c8077f8149df2983d91
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335986"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>快速入门：使用 Azure PowerShell 创建策略分配以识别不符合的资源
 
@@ -22,11 +22,12 @@ ms.locfileid: "74657599"
 Azure PowerShell 模块用于从命令行或脚本管理 Azure 资源。
 本指南介绍如何使用 Az 模块来创建策略分配。
 
-如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
-
 ## <a name="prerequisites"></a>先决条件
 
+- 如果没有 Azure 订阅，请在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
 - 在开始之前，请确保安装 Azure PowerShell 的最新版本。 有关详细信息，请参阅[安装 Azure PowerShell 模块](https://docs.microsoft.com/powershell/azure/install-az-ps)。
+
 - 使用 Azure PowerShell 注册 Azure Policy Insights 资源提供程序。 注册此资源提供程序可确保订阅能够使用它。 要注册资源提供程序，必须具有注册资源提供程序操作的权限。 此操作包含在“参与者”和“所有者”角色中。 运行以下命令，注册资源提供程序：
 
   ```azurepowershell
@@ -34,11 +35,13 @@ Azure PowerShell 模块用于从命令行或脚本管理 Azure 资源。
   Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
   ```
 
-  有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../../azure-resource-manager/resource-manager-supported-services.md)
+  有关注册和查看资源提供程序的详细信息，请参阅[资源提供程序和类型](../../azure-resource-manager/resource-manager-supported-services.md)。
+
+<!-- [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)] -->
 
 ## <a name="create-a-policy-assignment"></a>创建策略分配
 
-本快速入门将为*不带托管磁盘的审核 VM* 定义创建策略分配。 此策略定义可识别不使用托管磁盘的虚拟机。
+本快速入门将为_不带托管磁盘的审核 VM_ 定义创建策略分配。 此策略定义可识别不使用托管磁盘的虚拟机。
 
 运行以下命令创建新的策略分配：
 
@@ -55,7 +58,7 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 上述命令使用以下信息：
 
-- **名称** - 分配的实际名称。 对于此示例，使用 *audit-vm-manageddisks*。
+- **名称** - 分配的实际名称。 对于此示例，使用 _audit-vm-manageddisks_。
 - **显示名称** - 策略分配的显示名称。 本例使用了“审核未使用托管磁盘分配的虚拟机”  。
 - **定义** - 策略定义，用作创建分配的依据。 在本例中，它为策略定义“审核未使用托管磁盘的 VM”的 ID  。
 - **范围** - 范围确定在其中实施策略分配的资源或资源组。 它可以从订阅延伸至资源组。 请务必将 &lt;scope&gt; 替换为资源组的名称。

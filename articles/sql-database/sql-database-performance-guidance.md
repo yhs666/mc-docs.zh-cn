@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库性能优化指南 | Microsoft Docs
+title: 性能优化指南
 description: 了解如何使用建议手动优化 Azure SQL 数据库查询性能。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 01/25/2019
-ms.date: 03/25/2019
-ms.openlocfilehash: 39d79b118b4a648255e19d11cfd1a83f07599109
-ms.sourcegitcommit: 02c8419aea45ad075325f67ccc1ad0698a4878f4
+ms.date: 12/16/2019
+ms.openlocfilehash: 4580465ff9c29c778bcc0874a0660c805b74b699
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318964"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336136"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>手动优化 Azure SQL 数据库中的查询性能
 
@@ -27,15 +26,15 @@ ms.locfileid: "58318964"
 - 优化应用程序，应用某些可以提高性能的最佳做法。
 - 通过更改索引和查询来优化数据库，以便更有效地处理数据。
 
-本文假定你已完成了 Azure SQL 数据库[数据库顾问建议](sql-database-advisor.md)和 Azure SQL 数据库[自动优化建议](sql-database-automatic-tuning.md)。 它还假定你已查看了[监视和优化概述](sql-database-monitor-tune-overview.md)以及与性能问题故障排除相关的文章。 此外，本文还假定你没有 CPU 资源，与运行相关的性能问题可以通过提升计算大小或服务层来向数据库提供更多资源来解决。
+本文假定你已完成了 Azure SQL 数据库[数据库顾问建议](sql-database-advisor.md)和 Azure SQL 数据库[自动优化建议](sql-database-automatic-tuning.md)。 它还假定你已查看了[监视和优化概述](sql-database-monitor-tune-overview.md)以及与性能问题故障排除相关的文章。 此外，本文还假定你没有 CPU 资源，与运行相关的性能问题可以通过提升计算大小或服务层级来向数据库提供更多资源来解决。
 
 ## <a name="tune-your-application"></a>优化应用程序
 
-在传统的本地 SQL Server 中，进行初始容量规划的过程经常与在生产中运行应用程序的过程分离。 首先购买硬件和产品许可证，然后进行性能优化。 使用 Azure SQL 数据库时，最好是交替完成应用程序的运行和优化过程。 使用按需支付容量的模型，可以优化应用程序以使用目前所需的最少资源，而不是靠推测应用程序的未来增长计划过度预配硬件（这通常是不正确的做法）。 有些客户可能选择不优化应用程序，而是选择过度配置硬件资源。 如果不想在繁忙时段更改关键应用程序，不妨使用此方法。 但是，在使用 Azure SQL 数据库中的服务层时，优化应用程序可以使资源需求降至最低并减少每月的费用。
+在传统的本地 SQL Server 中，进行初始容量规划的过程经常与在生产中运行应用程序的过程分离。 首先购买硬件和产品许可证，然后进行性能优化。 使用 Azure SQL 数据库时，最好是交替完成应用程序的运行和优化过程。 使用按需支付容量的模型，可以优化应用程序以使用目前所需的最少资源，而不是靠推测应用程序的未来增长计划过度预配硬件（这通常是不正确的做法）。 有些客户可能选择不优化应用程序，而是选择过度配置硬件资源。 如果不想在繁忙时段更改关键应用程序，不妨使用此方法。 但是，在使用 Azure SQL 数据库中的服务层级时，优化应用程序可以使资源需求降至最低并减少每月的费用。
 
 ### <a name="application-characteristics"></a>应用程序特征
 
-尽管 Azure SQL 数据库服务层旨在提高应用程序的性能稳定性和可预测性，但一些最佳做法可以帮助你优化应用程序，以便更好地利用某一计算大小的资源。 虽然许多应用程序只需通过切换到更大的计算大小或服务层便会显著提升性能，但某些应用程序需要进一步优化，才能受益于更高级别的服务。 若要提高性能，可考虑对具有以下特征的应用程序进行额外的优化：
+尽管 Azure SQL 数据库服务层级旨在提高应用程序的性能稳定性和可预测性，但一些最佳做法可以帮助你优化应用程序，以便更好地利用某一计算大小的资源。 虽然许多应用程序只需通过切换到更大的计算大小或服务层级便会显著提升性能，但某些应用程序需要进一步优化，才能受益于更高级别的服务。 若要提高性能，可考虑对具有以下特征的应用程序进行额外的优化：
 
 - **因“闲聊”行为而性能变慢的应用程序**
 
@@ -122,7 +121,7 @@ CREATE INDEX missing_index_5006_5005 ON [dbo].[missingindex] ([col2])
 
 ![已更正索引的查询计划](./media/sql-database-performance-guidance/query_plan_corrected_indexes.png)
 
-重要见解是共享商用系统的 IO 容量会比专用服务器计算机的容量受到更多限制。 客观上鼓励将不必要 IO 降至最低，最大限度地在 Azure SQL 数据库服务层的每个计算大小 DTU 范围内利用系统。 选择适当的物理数据库设计方式可显著缩短单个查询的延迟、提高按缩放单元处理的并发请求的吞吐量，以及将满足查询所需的成本降至最低。 有关缺少索引 DMV 的详细信息，请参阅 [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx)。
+重要见解是共享商用系统的 IO 容量会比专用服务器计算机的容量受到更多限制。 客观上鼓励将不必要 IO 降至最低，最大限度地在 Azure SQL 数据库服务层级的每个计算大小 DTU 范围内利用系统。 选择适当的物理数据库设计方式可显著缩短单个查询的延迟、提高按缩放单元处理的并发请求的吞吐量，以及将满足查询所需的成本降至最低。 有关缺少索引 DMV 的详细信息，请参阅 [sys.dm_db_missing_index_details](https://msdn.microsoft.com/library/ms345434.aspx)。
 
 ### <a name="query-tuning-and-hinting"></a>查询优化和提示
 
@@ -255,7 +254,7 @@ SQL Server 用户经常将许多功能集中在单一数据库内。 例如，�
 
 对于以大量、频繁的即席查询形式访问数据的应用程序，在应用程序层与 Azure SQL 数据库层之间的网络通信上花费了大量响应时间。 即使在应用程序与 Azure SQL 数据库同处一个数据中心时，大量数据访问操作也可能会增大二者之间的网络延迟。 要减少进行数据访问操作所需的网络往返，可考虑使用相应选项，要么批处理即席查询，要么将其编译为存储过程。 如果批处理即席查询，可将多个查询作为一个大批次在一次行程中发送到 Azure SQL 数据库。 将即席查询编入存储过程可获得与分批相同的结果。 使用存储过程还有一个好处，即可以有更多的机会将查询计划缓存在 Azure SQL 数据库中，以便再次使用存储过程。
 
-某些应用程序频繁写入。 有时，通过考虑如何统一批处理写入，可以减少数据库上的总 IO 负载。 通常，这与在存储过程和即席批处理中使用显式事务代替自动提交事务一样简单。 有关各种可用方法的评估，请参阅 [Azure 中 SQL 数据库应用程序的批处理技术](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx)。 使用自己的工作负荷进行实验，找到正确的批处理模型。 请务必了解，模型的事务一致性保证可能略有不同。 要找到将资源用量降至最低的正确工作负荷，需要找到一致性与性能折中的正确组合。
+某些应用程序频繁写入。 有时，通过考虑如何统一批处理写入，可以减少数据库上的总 IO 负载。 通常，这与在存储过程和即席批处理中使用显式事务代替自动提交事务一样简单。 有关各种可用方法的评估，请参阅 [Azure 中 SQL 数据库应用程序的批处理技术](sql-database-use-batching-to-improve-performance.md)。 使用自己的工作负荷进行实验，找到正确的批处理模型。 请务必了解，模型的事务一致性保证可能略有不同。 要找到将资源用量降至最低的正确工作负荷，需要找到一致性与性能折中的正确组合。
 
 ### <a name="application-tier-caching"></a>应用程序层缓存
 
@@ -263,7 +262,7 @@ SQL Server 用户经常将许多功能集中在单一数据库内。 例如，�
 
 ## <a name="next-steps"></a>后续步骤
 
-- 有关基于 DTU 的服务层的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。
-- 有关基于 vCore 的服务层的详细信息，请参阅[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
+- 有关基于 DTU 的服务层级的详细信息，请参阅[基于 DTU 的购买模型](sql-database-service-tiers-dtu.md)。
+- 有关基于 vCore 的服务层级的详细信息，请参阅[基于 vCore 的购买模型](sql-database-service-tiers-vcore.md)。
 - 有关弹性池的详细信息，请参阅[什么是 Azure 弹性池？](sql-database-elastic-pool.md)
 - 有关性能和弹性池的信息，请参阅[何时考虑弹性池](sql-database-elastic-pool-guidance.md)

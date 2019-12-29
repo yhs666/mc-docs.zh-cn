@@ -1,19 +1,19 @@
 ---
-title: 创建和管理策略以强制实施符合性
-description: 使用 Azure Policy 强制执行标准、满足法规遵从性、审核需求、控制成本、维护安全和性能的一致性，并实施企业范围的设计原则。
+title: 教程：构建策略以强制实施符合性
+description: 本教程中将使用策略来强制执行标准、控制成本、维护安全性并施加企业范围的设计原则。
 author: DCtheGeek
 ms.author: v-tawe
-origin.date: 02/04/2019
-ms.date: 12/02/2019
+origin.date: 11/25/2019
+ms.date: 12/16/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 2f9d557f6d433a07a4a18d717221ff1eef81a9cd
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 1ff0f9a8360f5942e630abe9f6ab0f3726c4b020
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657919"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336242"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>教程：创建和管理策略以强制实施符合性
 
@@ -25,7 +25,11 @@ ms.locfileid: "74657919"
 > - 解决不符合或遭拒绝的资源
 > - 在组织中实施新策略
 
-若要分配一个策略用于识别现有资源的当前符合性状态，请参阅快速入门文章。 如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+若要分配一个策略用于识别现有资源的当前符合性状态，请参阅快速入门文章。
+
+## <a name="prerequisites"></a>先决条件
+
+如果没有 Azure 订阅，可在开始前创建一个[试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
 
 ## <a name="assign-a-policy"></a>分配策略
 
@@ -121,7 +125,7 @@ ms.locfileid: "74657919"
 可通过适用于 Azure Policy 定义的 REST API 来创建策略。 REST API 可让你创建和删除策略定义，以及获取现有定义的信息。 若要创建策略定义，请使用以下示例：
 
 ```http
-PUT https://management.chinacloudapi.cn/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
+PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 ```
 
 包括类似于以下示例的请求正文：
@@ -448,7 +452,7 @@ az policy definition list
 
 1. 右键单击定义（或分配）对应的行或选择其末尾的省略号，然后选择“删除定义”（或“删除分配”）。  
 
-## <a name="next-steps"></a>后续步骤
+## <a name="review"></a>审阅
 
 在本教程中，你已成功完成以下任务：
 
@@ -457,6 +461,8 @@ az policy definition list
 > - 创建并分配计划定义，跟踪多个资源的符合性
 > - 解决不符合或遭拒绝的资源
 > - 在组织中实施新策略
+
+## <a name="next-steps"></a>后续步骤
 
 若要了解有关策略定义结构的详细信息，请查看以下文章：
 

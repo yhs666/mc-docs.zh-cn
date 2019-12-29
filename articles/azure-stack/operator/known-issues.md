@@ -17,12 +17,12 @@ ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: prchint
 ms.lastreviewed: 09/13/2019
-ms.openlocfilehash: 4cbc2495596acbe0b2cd396f151d90b0b2c3f20d
-ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+ms.openlocfilehash: 4536fc021391e53d9d516080d33570b8061d170f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020375"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336183"
 ---
 # <a name="azure-stack-known-issues"></a>Azure Stack 已知问题
 
@@ -376,7 +376,7 @@ ms.locfileid: "74020375"
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：无法使用 Azure Stack 门户查看订阅的权限。
-- 补救措施：使用 [PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
+- 补救措施：使用 [PowerShell 验证权限](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
 ### <a name="subscriptions-properties-blade"></a>“订阅属性”边栏选项卡
@@ -551,7 +551,7 @@ ms.locfileid: "74020375"
 
 - 适用于：此问题适用于所有支持的版本。
 - 原因：无法使用 Azure Stack 门户查看订阅的权限。
-- 补救措施：使用 [PowerShell 验证权限](/powershell/module/azurerm.resources/get-azurermroleassignment)。
+- 补救措施：使用 [PowerShell 验证权限](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermroleassignment)。
 - 发生次数：常见
 
 ### <a name="marketplace-management"></a>市场管理

@@ -1,15 +1,13 @@
 - name: Azure
   tocHref: /azure
-  topicHref: /azure/index
+  topicHref: /index
   items:
     - name: 物联网
-      tocHref: /azure/iot-fundamentals/
-      topicHref: /azure/iot-fundamentals/index
       items:
         - name: IoT Central
-          tocHref: /azure/iot-central/
-          topicHref: /azure/iot-central/
+          tocHref: /iot-central/
+          topicHref: /iot-central/
           items:
             - name: 零售业用 IoT Central（预览功能）
-              tocHref: /azure/iot-central/
-              topicHref: /azure/iot-central/retail/index/
+              tocHref: /iot-central/
+              topicHref: /iot-central/retail/index/

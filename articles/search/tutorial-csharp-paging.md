@@ -1,23 +1,24 @@
 ---
-title: 有关搜索结果分页的 C# 教程 - Azure 搜索
-description: 本教程是根据“创建第一个应用 - Azure 搜索”项目编写的，有两种类型的分页可供选择。 第一个使用一系列页码按钮，还使用“第一页”、“下一页”、“上一页”和“最后一页”按钮。 第二个分页系统使用无限滚动，它通过将垂直滚动条移到其下限进行触发。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-tawe
+title: 有关搜索结果分页的 C# 教程
+titleSuffix: Azure Cognitive Search
+description: 本教程演示如何对搜索结果进行分页。 它基于现有的酒店项目，通过第一个、下一个、前一个、最后一个和编号按钮进行分页。 第二个分页系统使用无限滚动，它通过将垂直滚动条移到其下限进行触发。
+manager: nitinme
 author: PeterTurcan
-origin.date: 05/01/2019
-ms.date: 09/26/2019
-ms.openlocfilehash: 949ab051f6260a7d2ea27066c693a10f1801de84
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+ms.author: v-tawe
+ms.service: cognitive-search
+ms.topic: tutorial
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 1473b2f59022bbf3b524f8f5fe4547b5dee02cd5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674462"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335116"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>C# 教程：搜索结果分页 - Azure 搜索
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C# 教程：搜索结果分页 - Azure 认知搜索
 
-了解如何实现这两个不同的分页系统，其中第一个基于页码，第二个基于无限滚动。 这两个分页系统都得到广泛使用，请根据要用于结果的用户体验选择合适的系统。 本教程将分页系统构建到在 [C# 教程：创建第一个应用 - Azure 搜索](tutorial-csharp-create-first-app.md)教程中创建的项目。
+了解如何实现这两个不同的分页系统，其中第一个基于页码，第二个基于无限滚动。 这两个分页系统都得到广泛使用，请根据要用于结果的用户体验选择合适的系统。 本教程将分页系统构建到在 [C# 教程：创建第一个应用 - Azure 认知搜索](tutorial-csharp-create-first-app.md)教程中创建的项目。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -28,7 +29,7 @@ ms.locfileid: "71674462"
 
 要完成本教程，需要：
 
-启动并运行 [C# 教程：创建第一个应用 - Azure 搜索](tutorial-csharp-create-first-app.md)项目。 此项目可以是你自己的版本，也可从 GitHub 安装：[创建第一个应用](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+启动并运行 [C# 教程：创建第一个应用 - Azure 认知搜索](tutorial-csharp-create-first-app.md)项目。 此项目可以是你自己的版本，也可从 GitHub 安装：[创建第一个应用](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="extend-your-app-with-numbered-paging"></a>使用带编号的分页来扩展应用
 
@@ -362,7 +363,7 @@ ms.locfileid: "71674462"
     ```
 
     > [!Note]
-    > 通过将 IncludeTotalResultCount 更改为 true，会影响性能，而通常影响得不多，原因是 Azure 搜索需要计算这一总数  。 使用复杂数据集时，会出现警告显示返回的值是一个近似值  。 对于酒店数据而言，该值很准确。
+    > 通过将 IncludeTotalResultCount 更改为 true，会影响性能，而通常影响得不多，原因是 Azure 认知搜索需要计算这一总数  。 使用复杂数据集时，会出现警告显示返回的值是一个近似值  。 对于酒店数据而言，该值很准确。
 
 ### <a name="compile-and-run-the-app"></a>编译并运行应用
 
@@ -475,7 +476,7 @@ ms.locfileid: "71674462"
 
 1. 打开主控制器文件，从原始脚本中删除 RunQueryAsync 方法  。
 
-2. 将 Index(model) 操作替换为以下代码  。 它现可处理“分页”字段（为 null 时），或者设置为“下一步”并处理对 Azure 搜索的调用  。
+2. 将 Index(model) 操作替换为以下代码  。 它现可处理“分页”字段（为 null 时），或者设置为“下一步”并处理对 Azure 认知搜索的调用  。
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -601,4 +602,4 @@ ms.locfileid: "71674462"
 分页是 Internet 搜索的基础。 在详细了解分页后，下一步是添加预先输入搜索，进一步改进用户体验。
 
 > [!div class="nextstepaction"]
-> [C# 教程：添加自动完成功能和建议 - Azure 搜索](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# 教程：添加自动完成功能和建议 - Azure 认知搜索](tutorial-csharp-type-ahead-and-suggestions.md)

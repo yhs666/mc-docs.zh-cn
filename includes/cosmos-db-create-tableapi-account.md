@@ -6,19 +6,17 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 04/06/2018
-ms.date: 03/18/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: d5585852c30e7f6ccf64d676e896dbf46d78fc49
-ms.sourcegitcommit: 77475d11bc3b6a1fa7ab8aa1421fcdf39c0cd370
+ms.openlocfilehash: 6640cda6fbfc29afc1b7fc67ce9958eee9f70ef6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71267047"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335999"
 ---
 <!--Verify sucessfully-->
-有关创建 Azure Cosmos DB 表 API 帐户的说明，请参阅[创建表 API 帐户](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account)。
+有关创建 Azure Cosmos DB 表 API 帐户的说明，请参阅[创建数据库帐户](../articles/cosmos-db/create-table-dotnet.md#create-a-database-account)。
 
-<!--Verify sucessfully-->
-<!--Update_Description: new articles on  -->
-<!--ms.date: 03/18/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

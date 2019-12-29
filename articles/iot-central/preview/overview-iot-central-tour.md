@@ -10,12 +10,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 82146f9d30fc0dac574f517c6ae48a47f4329a21
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 2c8e1122116f2fa1e0506f71adebaffc2a33b7ec
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883258"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336241"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui-preview-features"></a>浏览 Azure IoT Central UI（预览功能）
 
@@ -104,7 +104,6 @@ ms.locfileid: "74883258"
 * 若要搜索设备模板和设备，请输入“搜索”  值。
 * 若要更改 UI 语言或主题，请选择“设置”  图标。 详细了解[管理应用程序首选项](../core/howto-manage-preferences.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)
 * 若要从应用程序中注销，请选择“帐户”  图标。
-* 若要获取帮助和支持，请选择**帮助**下拉列表以显示资源列表。 在试用版应用程序中，支持资源包括对[实时聊天](../core/howto-show-hide-chat.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)的访问权限。
 
 可以为 UI 选择浅色主题或深色主题：
 
@@ -118,7 +117,7 @@ ms.locfileid: "74883258"
 > [!div class="mx-imgBorder"]
 > ![仪表板](media/overview-iot-central-tour/dashboard-pnp.png)
 
-* 仪表板是登录到 Azure IoT Central 应用程序后看到的第一个页面。 解决方案构建者可以为其他用户创建和自定义多个全局应用程序仪表板  。 详细了解[将磁贴添加到仪表板](../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
+* 仪表板是登录到 Azure IoT Central 应用程序后看到的第一个页面。 解决方案构建者可以为其他用户创建和自定义多个全局应用程序仪表板  。 详细了解[将磁贴添加到仪表板](../core/howto-add-tiles-to-your-dashboard.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)
 
 * 如果操作员的用户角色允许，则可以创建个人仪表板来监视所关注的内容  。 若要了解详细信息，请参阅[创建 Azure IoT Central 个人仪表板](../core/howto-create-personal-dashboards.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json)操作指南文章。
 

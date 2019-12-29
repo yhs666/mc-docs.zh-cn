@@ -1,19 +1,19 @@
 ---
 title: 示例 - 允许的 ExpressRoute SKU
-description: 此示例策略定义要求 ExpressRoute 使用已批准的 SKU。
+description: 此示例策略定义要求 ExpressRoute 使用参数中定义的已批准 SKU。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/29/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4af8718de29a2b5126bd251a011f0e5dac94ce5e
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: d2b3604bad1cebfa44cce32132298b7aa1ea53e7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526682"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334580"
 ---
 # <a name="sample---allowed-expressroute-skus"></a>示例 - 允许的 ExpressRoute SKU
 

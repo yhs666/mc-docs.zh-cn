@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
 origin.date: 07/16/2019
-ms.date: 09/09/2019
-ms.openlocfilehash: 03cc495e4daed49da5ead944784b1258528a59d4
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.date: 12/16/2019
+ms.openlocfilehash: fbae710938caaf9dce703d95099fe9e6f230473b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373068"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334692"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-single-database-into-a-failover-group"></a>使用 CLI 将 Azure SQL 数据库单一数据库添加到故障转移组
 
@@ -32,21 +32,21 @@ ms.locfileid: "70373068"
 ```cli
 #!/bin/bash
 # Set variables
-$subscriptionID=<SubscriptionID>
-$resourceGroupName=myResourceGroup-$RANDOM
-$location=ChinaEast2
-$adminLogin=azureuser
+$subscriptionID="<SubscriptionID>"
+$resourceGroupName="myResourceGroup-$RANDOM"
+$location="ChinaEast2"
+$adminLogin="azureuser"
 $password="PWD27!"+`openssl rand -base64 18`
-$serverName=mysqlserver-$RANDOM
-$databaseName=mySampleDatabase
-$drLocation=ChinaNorth2
-$drServerName=mysqlsecondary-$RANDOM
-$failoverGroupName=failovergrouptutorial-$RANDOM
+$serverName="mysqlserver-$RANDOM"
+$databaseName="mySampleDatabase"
+$drLocation="ChinaNorth2"
+$drServerName="mysqlsecondary-$RANDOM"
+$failoverGroupName="failovergrouptutorial-$RANDOM"
 
 # The ip address range that you want to allow access to your DB. 
 # Leaving at 0.0.0.0 will prevent outside-of-azure connections
-$startip=0.0.0.0
-$endip=0.0.0.0
+$startip="0.0.0.0"
+$endip="0.0.0.0"
 
 # Print out randomized variables
 echo Resource group name is $resourceGroupName
@@ -167,6 +167,7 @@ az group delete --name $resourceGroupName
 | [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
 | [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
 | [az sql server firewall-rule create](/cli/sql/server/firewall-rule) | 创建服务器的防火墙规则。 | 
+| [az sql db create](/cli/sql/db?view=azure-cli-latest) | 创建数据库。 | 
 | [az sql failover-group create](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | 创建故障转移组。 | 
 | [az sql failover-group list](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 列出某个服务器中的故障转移组。 |
 | [az sql failover-group set-primary](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 通过对当前主服务器上的所有数据库进行故障转移来设置故障转移组的主服务器。 | 

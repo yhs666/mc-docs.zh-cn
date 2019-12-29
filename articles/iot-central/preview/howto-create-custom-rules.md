@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 7e35600f42be6e63b5423f1171cf6805d108ec00
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: fceb969946f658aa82b8125ef2d8a36b9857ecfd
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883033"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335734"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid-preview-features"></a>使用流分析、Azure Functions 和 SendGrid 通过自定义规则扩展 Azure IoT Central（预览版功能）
 
@@ -64,11 +64,11 @@ ms.locfileid: "74883033"
 
 | 设置 | 值 |
 | ------- | ----- |
-| Name    | 选择命名空间名称 |
+| 名称    | 选择命名空间名称 |
 | 定价层 | 基本 |
 | 订阅 | 你的订阅 |
 | 资源组 | DetectStoppedDevices |
-| 位置 | 美国东部 |
+| 位置 | 中国东部 |
 | 吞吐量单位 | 1 |
 
 ### <a name="stream-analytics-job"></a>流分析作业
@@ -77,10 +77,10 @@ ms.locfileid: "74883033"
 
 | 设置 | 值 |
 | ------- | ----- |
-| Name    | 选择作业名称 |
+| 名称    | 选择作业名称 |
 | 订阅 | 你的订阅 |
 | 资源组 | DetectStoppedDevices |
-| 位置 | 美国东部 |
+| 位置 | 中国东部 |
 | 宿主环境 | 云 |
 | 流式处理单位 | 3 |
 
@@ -95,7 +95,7 @@ ms.locfileid: "74883033"
 | 资源组 | DetectStoppedDevices |
 | 操作系统 | Windows |
 | 托管计划 | 消耗计划 |
-| 位置 | 美国东部 |
+| 位置 | 中国东部 |
 | 运行时堆栈 | .NET |
 | 存储 | 新建 |
 
@@ -105,7 +105,7 @@ ms.locfileid: "74883033"
 
 | 设置 | 值 |
 | ------- | ----- |
-| Name    | 选择 SendGrid 帐户名称 |
+| 名称    | 选择 SendGrid 帐户名称 |
 | 密码 | 创建密码 |
 | 订阅 | 你的订阅 |
 | 资源组 | DetectStoppedDevices |
@@ -357,4 +357,4 @@ test-device-3   2019-05-02T14:24:28.919Z
 * 创建一个流分析查询用于检测设备何时已停止发送数据。
 * 使用 Azure Functions 和 SendGrid 服务发送电子邮件通知。
 
-了解如何创建自定义规则和通知后，建议接下来了解如何[使用自定义分析扩展 Azure IoT Central](howto-create-custom-analytics.md)。
+

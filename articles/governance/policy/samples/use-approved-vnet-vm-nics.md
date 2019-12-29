@@ -1,6 +1,6 @@
 ---
 title: 示例 - 对 VM 网络接口使用列出的 vNet
-description: 此示例策略定义要求网络接口使用已批准的虚拟网络。
+description: 此示例策略定义要求网络接口使用参数中定义的已批准的虚拟网络。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 2ec61d6f4b6bacadc834bd1d8382dad4385ab9b0
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 4a26ce20e6e6056bf887c61b11a3815dd63f64e9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657922"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335973"
 ---
 # <a name="sample---use-approved-vnet-for-vm-network-interfaces"></a>示例 - 对 VM 网络接口使用已批准的 vNet
 

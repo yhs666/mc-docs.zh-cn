@@ -12,16 +12,21 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 01/07/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: cf59ad658c7d280136f9cdc28711a912f252610d
-ms.sourcegitcommit: c21b37e8a5e7f833b374d8260b11e2fb2f451782
+ms.openlocfilehash: 4ed7b2396f3f45ed678f85c70a6ee4f0c5c0cd9b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72583586"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336545"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure 应用服务中针对移动应用的身份验证和授权
+
+> [!NOTE]
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
+>
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 本文介绍了在开发具有应用服务后端的原生移动应用时身份验证和授权功能如何工作。 应用服务提供了集成的身份验证和授权，因此，移动应用可以在不更改应用服务中的任何代码的情况下让用户登录。 该功能可以方便地保护应用程序和处理每个用户的数据。 
 

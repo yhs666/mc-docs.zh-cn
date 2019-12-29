@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5593f44939ba8d835d276ca3c4143489c6bc9a63
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 6f14eed77b1958a58e12604ebb72af3bdaf58e04
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913330"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336406"
 ---
 <!--Verify sucessfully-->
 # <a name="quickstart-build-a-net-framework-or-core-application-using-the-azure-cosmos-db-gremlin-api-account"></a>快速入门：使用 Azure Cosmos DB Gremlin API 帐户生成 .NET Framework 或 Core 应用程序

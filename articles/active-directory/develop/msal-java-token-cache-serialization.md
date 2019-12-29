@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/07/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.author: v-junlch
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a54e6522659b4b5019a3382b361166a923474fbe
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: 91d3bd8ee0339cba397e3e900647977eeef5132a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655473"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335287"
 ---
-# <a name="custom-token-cache-serialization-in-msal-for-java-msal4j"></a>MSAL for Java (MSAL4J) 中的自定义令牌缓存序列化
+# <a name="custom-token-cache-serialization-in-msal-for-java"></a>MSAL for Java 中的自定义令牌缓存序列化
 
 若要在应用程序实例之间始终使用令牌缓存，需要自定义序列化。 涉及到令牌缓存序列化的 Java 类和接口如下所示：
 
@@ -70,3 +69,4 @@ PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persis
 
 了解如何[使用 MSAL for Java 在令牌缓存中获取和删除帐户](msal-java-get-remove-accounts-token-cache.md)。
 
+<!-- Update_Description: wording update -->

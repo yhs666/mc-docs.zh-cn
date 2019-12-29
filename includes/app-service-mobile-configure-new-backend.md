@@ -6,15 +6,15 @@ author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
 origin.date: 05/06/2019
-ms.date: 07/15/2019
-ms.author: v-biyu
+ms.date: 12/16/2019
+ms.author: v-tawe
 ms.custom: include file
-ms.openlocfilehash: 11ea0694dc63f8f8d5f2e04e9cad56465c3b27ca
-ms.sourcegitcommit: 32d62e27e59e42c8d21a667e77b61b8d87efbc19
+ms.openlocfilehash: 20826fa969fb8b560543251a11bb83cfb97a33b6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71006546"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334638"
 ---
 1. 下载以下平台的客户端 SDK 快速入门：
     

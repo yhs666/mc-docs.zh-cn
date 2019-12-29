@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76778c8c889fbdbfc81837fb917ad177e3ca746d
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 701d79e96a2fcf1aa681395595e84cbf03a43248
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883211"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336205"
 ---
 # <a name="get-connected-to-azure-iot-central-preview-features"></a>连接到 Azure IoT Central（预览版功能）
 
@@ -39,7 +39,6 @@ Azure IoT Central 使用 [Azure IoT 中心设备预配服务 (DPS)](/iot-dps/abo
 - [使用 SAS 大规模连接设备](#connect-devices-at-scale-using-sas)
 - [使用 X.509 证书大规模连接设备](#connect-devices-using-x509-certificates)：建议在生产环境中使用这种方法。
 - [直接连接而无需首先注册设备](#connect-without-registering-devices)
-- [使用 IoT 即插即用功能连接设备](#connect-devices-with-iot-plug-and-play)
 
 ## <a name="connect-a-single-device"></a>连接单个设备
 
@@ -160,23 +159,6 @@ IoT Central 支持以下证明机制
 1. **X.509 证书：** 顾名思义，X.509 证书是一种基于证书的证明机制，也是缩放生产工作负荷的极佳方式。 若要使用对称密钥创建单独注册，请选择“单独注册”和“X.509”机制，上传主要和辅助证书，然后保存以创建注册。 [此链接](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/X509Sample)提供了代码示例来帮助你编写设备代码，以使用 X509 预配设备。 与[单独注册](/iot-dps/concepts-service#individual-enrollment)入口配合使用的设备证书有一个要求：必须将“所有者名称”设置为单独注册入口的设备 ID（也称为注册 ID）。
 1. **TPM 证明：** TPM 是“受信任平台模块”的缩写，它是一种硬件安全模块 (HSM)，也是最安全的设备连接方式之一。  本文假定你使用单独的、固件式的或集成式的 TPM。 软件模拟 TPM 适用于原型制作或测试，但其提供的安全级别不同于单独的、固件式的或集成式的 TPM。 建议不要在生产中使用软件 TPM。 若要使用对称密钥创建单独注册，请选择“单独注册”和“TPM”机制，然后输入认可密钥以创建注册。有关 TPM 类型的详细信息，请参阅[此处](/iot-dps/concepts-tpm-attestation)详述的 TPM 证明。 [此链接](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/TpmSample)提供了代码示例来帮助你编写设备代码，以使用 TPM 预配设备。 若要创建基于 TPM 的证明，请键入认可密钥并保存。
 
-## <a name="connect-devices-with-iot-plug-and-play"></a>使用 IoT 即插即用功能连接设备
-
-IoT Central 中的重要 IoT 即插即用功能之一是在设备连接中自动关联设备模板。 结合设备凭据，设备现在可将 **CapabilityModelId** 作为设备注册调用的一部分发送，而 IoT Central 可以发现并关联设备模板。 发现过程遵循以下顺序：
-
-1. 关联设备模板（如果该模板已在 IoT Central 应用程序中发布）。
-1. 从已发布且认证的功能模型的公共存储库中提取数据。
-
-下面是 DPS 注册调用期间设备要发送的其他有效负载的格式
-
-```javascript
-'__iot:interfaces': {
-              CapabilityModelId: <this is the URN for the capability model>
-          }
-```
-
-> [!NOTE]
-> 请注意，要使设备能够自动连接、发现模型并开始发送数据，需启用“自动批准”选项。
 
 ## <a name="device-status"></a>服务状态
 

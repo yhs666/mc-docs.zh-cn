@@ -8,12 +8,12 @@ ms.topic: article
 origin.date: 08/31/2019
 ms.date: 11/21/2019
 ms.author: v-junlch
-ms.openlocfilehash: ee4f2b3a6cbf35e3dac837847f30819cee3f220e
-ms.sourcegitcommit: fdbd1b6df618379dfeab03044a18c373b5fbb8ec
+ms.openlocfilehash: e15f979f1ff739e60eebfb58c221972df8a1dfe9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336476"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>有关应用程序网关的常见问题解答
 
@@ -315,10 +315,6 @@ WAF 目前支持 CRS [2.2.9](../web-application-firewall/ag/application-gateway-
 * 检测常见应用程序错误配置（即 Apache、IIS 等）
 
 有关详细信息，请参阅 [OWASP 10 大漏洞](https://www.owasp.org/index.php/Top10#OWASP_Top_10_for_2013)。
-
-### <a name="does-waf-support-ddos-protection"></a>WAF 是否支持 DDoS 防护？
-
-是的。 可以在部署了应用程序网关的虚拟网络中启用 DDoS 保护。 此设置确保 Azure DDoS 防护服务同时保护应用程序网关虚拟 IP (VIP)。
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>是否有从 v1 SKU 迁移到 v2 SKU 的指导？
 

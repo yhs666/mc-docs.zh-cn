@@ -61,6 +61,8 @@
   items:
     - name: 缩放
       items:
+        - name: 单实例
+          href: signalr-howto-scale-signalr.md
         - name: 多个实例
           href: signalr-howto-scale-multi-instances.md
     - name: 安全
@@ -85,23 +87,19 @@
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
 - name: 资源
   items:
-    - name: 客户案例
-      href: 'https://customers.microsoft.com/search?sq=signalr'
-    - name: SignalR 路线图
-      href: 'https://github.com/aspnet/Home/wiki/Roadmap'
     - name: 服务更新
-      href: 'https://azure.microsoft.com/updates/'
+      href: 'https://www.azure.cn/what-is-new/'
     - name: 上市区域
-      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=signalr-service&regions=china-non-regional,china-north,china-north-2,china-east,china-east-2'
     - name: 常见问题
       href: signalr-resource-faq.md
     - name: SignalR 服务订阅级别限制
       href: 'https://docs.azure.cn/azure-subscription-service-limits#signalr-service-limits'
     - name: 定价
       href: 'https://www.azure.cn/pricing/details/signalr-service/'
-    - name: 视频
-      href: 'https://www.youtube.com/results?search_query=Azure+SignalR+Core'
     - name: StackOverflow
       href: 'https://stackoverflow.com/search?q=signalr+service'
+    - name: MSDN 论坛
+      href: 'https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs'
     - name: ASP.NET 论坛
       href: 'https://forums.asp.net/1254.aspx'

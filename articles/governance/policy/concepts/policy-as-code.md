@@ -1,19 +1,19 @@
 ---
-title: 设计策略即代码工作流
+title: 将策略设计为代码工作流
 description: 了解如何设计工作流，以将 Azure Policy 定义部署为代码，并自动验证资源。
 ms.author: v-tawe
-origin.date: 09/23/2019
-ms.date: 12/02/2019
+origin.date: 11/04/2019
+ms.date: 12/16/2019
 ms.service: azure-policy
 ms.topic: conceptual
-ms.openlocfilehash: 888a2115058877102978a34c8e0a5328022e74d3
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 533a03e12945740019b565fa59ef3fdc9a134736
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658120"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335810"
 ---
-# <a name="design-policy-as-code-workflows"></a>设计策略即代码工作流
+# <a name="design-policy-as-code-workflows"></a>将策略设计为代码工作流
 
 在使用云监管的历程中，你希望将通过 Azure 门户或各种 SDK 手动管理每个策略定义的做法，过渡到可在整个企业中运用的、更易于管理且可重用的方法。 在云中大规模管理系统的两种主流方法是：
 
@@ -122,7 +122,7 @@ ms.locfileid: "74658120"
 
 在这种情况下，在测试订阅或资源组中完成应用程序或基础结构的部署后，应在该范围执行策略评估，以检查所有现有策略和计划的验证结果。 尽管此类环境中可能采用 **enforcementMode** _disabled_ 配置，但提前知道某个应用程序或基础结构部署是否违反策略定义会很有作用。 因此，此策略评估应是这些工作流中的一个步骤，并使得创建不合规资源的部署失败。
 
-## <a name="review"></a>内容回顾
+## <a name="review"></a>审阅
 
 本文介绍了策略即代码的一般工作流，以及在哪种情况下策略评估应是其他部署工作流的一部分。 此工作流可在支持脚本化步骤和基于触发器的自动化的任何环境中使用。
 
@@ -131,6 +131,6 @@ ms.locfileid: "74658120"
 - 了解[策略定义结构](./definition-structure.md)。
 - 了解[策略分配结构](./assignment-structure.md)。
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
-- 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[获取合规性数据](../how-to/get-compliance-data.md)。
 - 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

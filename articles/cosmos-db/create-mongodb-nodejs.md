@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 origin.date: 05/21/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: a44d8a5f04cbe896d6c8296210026a058e101639
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 2afc226f327fc0b48a4ce833c372d23ee3d03f80
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970275"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336402"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>快速入门：将现有的 MongoDB Node.js Web 应用迁移到 Azure Cosmos DB 
 
@@ -55,7 +55,7 @@ Azure Cosmos DB 是世纪互联提供的多区域分布式多模型数据库服�
 1. 打开命令提示符，新建一个名为“git-samples”的文件夹，然后关闭命令提示符。
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. 打开诸如 git bash 之类的 git 终端窗口，并使用 `cd` 命令更改为要安装示例应用的新文件夹。
@@ -183,15 +183,16 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>检索密钥
 
-<!--MOONCAKE: CORRECT ON [az cosmosdb list-keys](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys)-->
+<!--MOONCAKE: CORRECT ON reference with global URL-->
 
-若要连接到 Cosmos 数据库，需要使用数据库密钥。 使用 [az cosmosdb list-keys](https://docs.azure.cn/cli/cosmosdb?view=azure-cli-latest#az-cosmosdb-list-keys) 命令检索主键。
+若要连接到 Cosmos 数据库，需要使用数据库密钥。 使用 [az cosmosdb keys list](https://docs.microsoft.com/cli/azure/cosmosdb/keys?view=azure-cli-latest#az-cosmosdb-keys-list) 命令检索主键。
 
 ```azurecli
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
-<!--MOONCAKE: CORRECT ON az cosmosdb list-keys-->
+<!--CORRECT ON [az cosmosdb keys list](https://docs.microsoft.com/cli/azure/cosmosdb/keys?view=azure-cli-latest#az-cosmosdb-keys-list)-->
+<!--MOONCAKE: CORRECT ON reference with global URL-->
 
 Azure CLI 输出类似于以下示例的信息。 
 
@@ -265,4 +266,4 @@ git commit -m "configured MongoDB connection string"
 > [!div class="nextstepaction"]
 > [将 MongoDB 数据导入 Azure Cosmos DB](mongodb-migrate.md)
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

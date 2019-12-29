@@ -94,10 +94,7 @@
   expanded: false
   items:
     - name: 方案
-      items:
-        - name: 呼叫中心
-          href: get-started.md
-          displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
+      items: null
     - name: 操作指南
       items:
         - name: 试用语音服务
@@ -116,8 +113,6 @@
               href: 'https://chinaeast2.cris.azure.cn/swagger/ui/index'
             - name: 语音转文本 REST API
               href: rest-speech-to-text.md
-            - name: Webhook REST API
-              href: webhooks.md
         - name: Swagger 文档
           href: swagger-documentation.md
 - name: 语音 SDK
@@ -156,19 +151,38 @@
     - name: 参考
       items:
         - name: C++
-          href: 'https://docs.microsoft.comcpp/cognitive-services/speech/index'
+          href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/index'
         - name: 'C#'
-          href: 'https://docs.microsoft.comdotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet'
+          href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet'
         - name: Java
-          href: 'https://docs.microsoft.comjava/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable'
+          href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable'
         - name: Javascript
-          href: 'https://docs.microsoft.comjavascript/api/microsoft-cognitiveservices-speech-sdk/?view=azure-node-latest'
+          href: 'https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/?view=azure-node-latest'
         - name: Objective-C
-          href: 'https://docs.microsoft.comobjectivec/cognitive-services/speech/'
+          href: 'https://docs.microsoft.com/objectivec/cognitive-services/speech/'
         - name: Python
-          href: 'https://docs.microsoft.compython/api/azure-cognitiveservices-speech/?view=azure-python'
+          href: 'https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/?view=azure-python'
         - name: 语音 SDK 发行说明
           href: releasenotes.md
+- name: 设备
+  exanded: false
+  items:
+    - name: 概述
+      items:
+        - name: 关于语音设备 SDK
+          href: speech-devices-sdk.md
+        - name: 获取语音设备 SDK
+          href: get-speech-devices-sdk.md
+    - name: 硬件
+      items:
+        - name: 麦克风阵列建议
+          href: speech-devices-sdk-microphone.md
+        - name: Roobo v1 工具包
+          href: speech-devices-sdk-roobo-v1.md
+    - name: 资源
+      items:
+        - name: 排查语音设备 SDK 问题
+          href: speech-devices-sdk-troubleshooting.md
 - name: 迁移
   exanded: false
   items:
@@ -179,6 +193,8 @@
   items:
     - name: 支持
       href: support.md
+    - name: 区域
+      href: regions.md
     - name: 定价和限制
       href: 'https://www.azure.cn/pricing/details/cognitive-services/speech-services/'
     - name: 合规性

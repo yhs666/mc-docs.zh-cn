@@ -4,16 +4,16 @@ description: 本文档介绍 Azure Cosmos 帐户的虚拟网络和子网访问�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 11/06/2018
-ms.date: 04/15/2019
+origin.date: 05/23/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.reviewer: sngun
-ms.openlocfilehash: 4726e3f00ae8e5ee12b2ee8d4ba5b1a79eb2c9e2
-ms.sourcegitcommit: f85e05861148b480d6c9ea95ce84a17145872442
+ms.openlocfilehash: 1dc084051f6b591bd9f9aca9292153bb7332bb72
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59615233"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335990"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>从虚拟网络 (VNet) 访问 Azure Cosmos DB
 
@@ -61,5 +61,4 @@ NSG 规则用于限制与虚拟网络中子网之间的连接。 将 Azure Cosmo
 * [如何限制 Azure Cosmos 帐户访问虚拟网络中的子网](how-to-configure-vnet-service-endpoint.md)
 * [如何为 Azure Cosmos 帐户配置 IP 防火墙](how-to-configure-firewall.md)
 
-
-<!-- Update_Description: update meta properties -->
+<!-- Update_Description: update meta properties, wording update, update link -->

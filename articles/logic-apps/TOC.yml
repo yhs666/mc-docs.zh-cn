@@ -17,15 +17,15 @@
   items:
     - name: 创建基于计划的工作流
       href: tutorial-build-schedule-recurring-logic-app-workflow.md
-    - name: 管理邮件列表请求
+    - name: 创建基于审批的工作流
       href: tutorial-process-mailing-list-subscriptions-workflow.md
-    - name: 处理电子邮件附件
+    - name: 创建 Azure 存储和 Azure Functions 工作流
       href: tutorial-process-email-attachments-workflow.md
 - name: 概念
   items:
     - name: 适用于逻辑应用的连接器
       href: ../connectors/apis-list.md
-    - name: 计划自动重复执行工作流
+    - name: 安排重复工作流
       href: concepts-schedule-automated-recurring-tasks-workflows.md
     - name: Azure 的无服务器体验
       href: logic-apps-serverless-overview.md
@@ -163,10 +163,6 @@
           href: ../connectors/connectors-create-api-salesforce.md
         - name: SAP（新）
           href: logic-apps-using-sap-connector.md
-        - name: SAP
-          href: logic-apps-using-sap-connector-old.md
-        - name: 计划
-          href: ../connectors/connectors-native-recurrence.md
         - name: SendGrid
           href: ../connectors/connectors-create-api-sendgrid.md
         - name: SFTP
@@ -199,13 +195,15 @@
           href: ../connectors/connectors-schema-migration.md
     - name: 部署
       items:
-        - name: 定义和部署逻辑应用
-          href: logic-apps-create-deploy-azure-resource-manager-templates.md
-        - name: 创建部署模板 - Visual Studio
-          href: logic-apps-create-deploy-template.md
+        - name: 概述 - 自动执行逻辑应用部署
+          href: logic-apps-azure-resource-manager-templates-overview.md
+        - name: 创建逻辑应用模板
+          href: logic-apps-create-azure-resource-manager-templates.md
+        - name: 部署逻辑应用模板
+          href: logic-apps-deploy-azure-resource-manager-templates.md
     - name: 监视
       items:
-        - name: 监视逻辑应用状态
+        - name: 监视逻辑应用
           href: logic-apps-monitor-your-logic-apps.md
     - name: 示例、方案和演练
       href: logic-apps-examples-and-scenarios.md

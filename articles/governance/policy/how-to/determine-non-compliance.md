@@ -4,16 +4,16 @@ description: 有多种可能的原因会导致资源不合规。 了解如何查
 author: DCtheGeek
 ms.author: v-tawe
 origin.date: 04/26/2019
-ms.date: 12/02/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 03bbb553806956f67a3da883b2de600cf45aaea8
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: a5c50a707ca953157fc980265dc0325f5bfd24af
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335809"
 ---
 # <a name="determine-causes-of-non-compliance"></a>确定导致非符合性的原因
 
@@ -200,6 +200,6 @@ Audit that an application is installed inside Windows VMs                 NonCom
 - 查看 [Azure Policy 定义结构](../concepts/definition-structure.md)。
 - 查看[了解策略效果](../concepts/effects.md)。
 - 了解如何[以编程方式创建策略](programmatically-create.md)。
-- 了解如何[获取合规性数据](getting-compliance-data.md)。
+- 了解如何[获取合规性数据](get-compliance-data.md)。
 - 了解如何[修正不合规的资源](remediate-resources.md)。
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

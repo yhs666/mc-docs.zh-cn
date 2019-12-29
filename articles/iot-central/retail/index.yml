@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: v-yiso
   origin.date: 10/25/2019
-  ms.openlocfilehash: 46d11c5d0e86e24b8a6cf0528ff3c8b37ae54a21
-  ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+  ms.openlocfilehash: a1a473efb5b71658647fd7cec6ade13a6ba1ac27
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/06/2019
-  ms.locfileid: "74883772"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75335718"
 landingContent:
 - title: 生成零售解决方案
   linkLists:
@@ -83,8 +83,6 @@ landingContent:
     links:
     - text: 创建自定义规则
       url: ../preview/howto-create-custom-rules.md
-    - text: 创建自定义分析
-      url: ../preview/howto-create-custom-analytics.md
 - title: 管理
   linkLists:
   - linkListType: how-to-guide

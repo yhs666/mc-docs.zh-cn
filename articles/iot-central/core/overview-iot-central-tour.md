@@ -10,12 +10,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 69127a3f73e855f92713384e4696ab283cf3678e
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: a78f9398ed244968096a858baae330f0be1967fc
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336048"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>浏览 Azure IoT Central UI
 
@@ -72,7 +72,6 @@ ms.locfileid: "74883121"
 - 若要搜索设备模板和设备，请输入“搜索”  值。
 - 若要更改 UI 语言或主题，请选择“设置”  图标。
 - 若要从应用程序中注销，请选择“帐户”  图标。
-- 若要获取帮助和支持，请选择**帮助**下拉列表以显示资源列表。 在试用版应用程序中，支持资源包括对[实时聊天](howto-show-hide-chat.md)的访问权限。
 
 可以为 UI 选择浅色主题或深色主题：
 

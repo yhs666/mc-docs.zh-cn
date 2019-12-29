@@ -9,14 +9,14 @@ origin.date: 02/02/2018
 ms.date: 03/18/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 7b89f0a2a3a5a59192fdc6829480f3280faf54a6
-ms.sourcegitcommit: 0529a2aa102e058636d726b4a4f25208e1e60597
+ms.openlocfilehash: ce1bacac27cbd54b6f980bf07b18bf7122cd32d8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059581"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334901"
 ---
-使用 [az webapp create](https://docs.azure.cn/zh-cn/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
+使用 [az webapp create](https://docs.azure.cn/cli/webapp?view=azure-cli-latest#az_webapp_create) 命令在 `myAppServicePlan` 应用服务计划中创建一个 Web 应用。 
 
 在 Azure CLI 中，可以使用 [`az webapp create`](/cli/webapp?view=azure-cli-latest) 命令。在以下示例中，将 `<app-name>` 替换为全局唯一的应用名称（有效字符是 `a-z`、`0-9` 和 `-`）。 运行时设置为 `PHP|7.0`。 若要查看所有受支持的运行时，请运行 [az webapp list-runtimes](/cli/webapp?view=azure-cli-latest)。 
 

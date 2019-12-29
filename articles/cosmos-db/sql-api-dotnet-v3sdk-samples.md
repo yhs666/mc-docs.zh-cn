@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 origin.date: 10/07/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 0d8d6d4bcdbba5dd2f74255cdff3babb514f3c36
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: b00f0113235477b536ea73b9a21d8da4b99ea31c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914776"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336086"
 ---
 # <a name="azure-cosmos-dbnet-v3-sdk-microsoftazurecosmos-examples-for-the-sql-api"></a>SQL API 的 Azure Cosmos DB.NET V3 SDK (Microsoft.Azure.Cosmos) 示例
 
@@ -39,7 +39,7 @@ ms.locfileid: "72914776"
 
 - 你可以下载并使用**免费的** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)。 在安装 Visual Studio 的过程中，请确保启用“Azure 开发”。 
 
-   [Microsoft.Azure.cosmos NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.cosmos/)
+    [Microsoft.Azure.cosmos NuGet 包](https://www.nuget.org/packages/Microsoft.Azure.cosmos/)
 
 Azure 订阅，或免费的 Cosmos DB 试用帐户
 
@@ -131,5 +131,4 @@ Azure 订阅，或免费的 Cosmos DB 试用帐户
 | [执行存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L135) |[Scripts.ExecuteStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.executestoredprocedureasync?view=azure-dotnet) |
 | [删除存储过程](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos.Samples/Usage/ServerSideScripts/Program.cs#L351) |[Scripts.DeleteStoredProcedureAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.scripts.scripts.deletestoredprocedureasync?view=azure-dotnet) |
 
-<!--Update_Description: new articles on sql api dotnet v3 sdk samples  -->
-<!--New.date: 10/28/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

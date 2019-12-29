@@ -1,25 +1,26 @@
 ---
-title: 有关结果排序的 C# 教程 - Azure 搜索
-description: 本教程是在“搜索结果分页 - Azure 搜索”项目的基础上编写的，目的是向搜索结果添加排序。 了解如何根据主属性对结果排序；如果结果的主属性相同，则了解如何根据辅助属性对结果进行排序。 最后，了解如何基于计分概要文件对结果进行排序。
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-tawe
+title: 有关结果排序的 C# 教程
+titleSuffix: Azure Cognitive Search
+description: 本教程演示如何对搜索结果进行排序。 它基于之前的酒店项目，按主要属性和次要属性排序，并包含计分概要文件，以添加提升条件。
+manager: nitinme
 author: PeterTurcan
-origin.date: 06/21/2019
-ms.date: 09/26/2019
-ms.openlocfilehash: cf601601a6786e1cc18993aa41c65dd8e89fe8f6
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+ms.author: v-tawe
+ms.service: cognitive-search
+ms.topic: tutorial
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 68d3d9c83713f466fe2e19c0045757b1f5453734
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674463"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336177"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>C# 教程：对结果排序 - Azure 搜索
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# 教程：对结果排序 - Azure 认知搜索
 
 一直到本系列教程的此部分为止，结果都是按默认顺序返回并显示的。 这可以是数据所在的顺序，或者可能已定义了一个默认计分概要文件，将在未指定任何排序参数时使用该文件  。 在本教程中，我们将探讨如何根据主属性对结果排序，然后对于主属性相同的结果，如何根据辅助属性对所选结果进行排序。 除了根据数值进行排序，最后一个示例还介绍了如何根据自定义计分概要文件进行排序。 我们还将再深入一些探讨复杂类型的显示  。
 
-为了轻松比较所返回的结果，此项目构建在 [C# 教程：搜索结果分页 - Azure 搜索](tutorial-csharp-paging.md)教程中创建的无限滚动项目之上。
+为了轻松比较所返回的结果，此项目构建在 [C# 教程：搜索结果分页 - Azure 认知搜索](tutorial-csharp-paging.md)教程中创建的分页项目的基础上编写的。
 
 本教程介绍如何执行下列操作：
 > [!div class="checklist"]
@@ -32,7 +33,7 @@ ms.locfileid: "71674463"
 
 要完成本教程，需要：
 
-已设置并运行 [C# 教程：搜索结果分页 - Azure 搜索](tutorial-csharp-paging.md)项目的无限滚动版本。 此项目可以是你自己的版本，也可从 GitHub 安装：[创建第一个应用](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+已设置并运行 [C# 教程：搜索结果分页 - Azure 认知搜索](tutorial-csharp-paging.md)项目。 此项目可以是你自己的版本，也可从 GitHub 安装：[创建第一个应用](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="order-results-based-on-one-property"></a>根据一个属性对结果排序
 
@@ -321,7 +322,7 @@ ms.locfileid: "71674463"
 
     ![显示房价范围](./media/tutorial-csharp-create-first-app/azure-search-orders-rooms.png)
 
-搜索参数的 OrderBy 属性将不接受 Rooms.BaseRate 之类的条目来提供最低房价，即使客房已按房价进行排序（但事实并非如此）   。 为了显示示例数据集中已按房价排序的酒店，你必须在主控制器中对结果进行排序，并按所需顺序将这些结果发送到视图中。
+搜索参数的 **OrderBy** 属性将不接受 **Rooms.BaseRate** 之类的条目来提供最低房价，即使客房已按房价进行排序。 在这种情况下，房间不按费率排序。 为了显示示例数据集中已按房价排序的酒店，你必须在主控制器中对结果进行排序，并按所需顺序将这些结果发送到视图中。
 
 ## <a name="order-results-based-on-multiple-values"></a>根据多个值对结果排序
 
@@ -436,7 +437,7 @@ ms.locfileid: "71674463"
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. 虽然结果是 Azure 搜索通过距离筛选器返回的，但不返回在数据与指定的点之间计算得出的距离  。 如果要在结果中显示此值，请在视图中重新计算它。
+3. 虽然结果是 Azure 认知搜索通过距离筛选器返回的，但不返回在数据与指定的点之间计算得出的距离  。 如果要在结果中显示此值，请在视图中重新计算它。
 
     以下代码将计算两个纬度/经度点之间的距离。
 
@@ -459,14 +460,11 @@ ms.locfileid: "71674463"
         }
     ```
 
-4. 现在，必须将这些概念关联起来。 但是，我们的教程中讲到了这些代码片段，而构建基于映射的应用这一操作留给读者做练习。 要进一步了解此示例，请考虑输入一个带半径的城市名，或者在地图上找一个点，然后选择一个半径。 要进一步探讨这些选项，请参阅以下资源：
-
-* [Azure Maps 文档](https://docs.azure.cn/azure-maps/)
-* [使用 Azure Maps 搜索服务查找地址](https://docs.azure.cn/azure-maps/how-to-search-for-address)
+4. 现在，必须将这些概念关联起来。 但是，我们的教程中讲到了这些代码片段，而构建基于映射的应用这一操作留给读者做练习。 要进一步了解此示例，请考虑输入一个带半径的城市名，或者在地图上找一个点，然后选择一个半径。
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>根据计分概要文件对结果排序
 
-本教程中至今为止提供的示例展示了如何根据数值（评级、翻新日期和地理距离）进行排序，提供了确切的排序过程  。 但是，部分搜索和一些数据不会使自身实现两个数据元素之间的此类简单比较。 Azure 搜索包含了评分的概念  。 可针对一组数据指定计分概要文件，这些数据可用于提供更复杂和更定性的比较，在比较基于文本的数据来决定应显示哪项内容等情况下，这最具价值  。
+本教程中至今为止提供的示例展示了如何根据数值（评级、翻新日期和地理距离）进行排序，提供了确切的排序过程  。 但是，部分搜索和一些数据不会使自身实现两个数据元素之间的此类简单比较。 Azure 认知搜索包含了评分的概念  。 可针对一组数据指定计分概要文件，这些数据可用于提供更复杂和更定性的比较，在比较基于文本的数据来决定应显示哪项内容等情况下，这最具价值  。
 
 计分概要文件不是由用户定义的，而通常是数据集的管理员定义的。 已针对酒店数据设置了多个计分概要文件。 让我们看看如何定义计分概要文件，然后试着编写代码来搜索这些文件。
 
@@ -958,7 +956,7 @@ ms.locfileid: "71674463"
 
 ### <a name="resources"></a>资源
 
-有关详细信息，请参阅下面的[将计分概要文件添加到 Azure 搜索索引](index-add-scoring-profiles.md)。
+有关详细信息，请参阅下面的[将计分概要文件添加到 Azure 认知搜索索引](https://docs.azure.cn/search/index-add-scoring-profiles)。
 
 ## <a name="takeaways"></a>要点
 
@@ -972,6 +970,6 @@ ms.locfileid: "71674463"
 
 ## <a name="next-steps"></a>后续步骤
 
-你已学完本系列的 C# 教程，应该已经找到了有关 Azure 搜索 API 的宝贵知识。
+你已学完本系列的 C# 教程，应该已经找到了有关 Azure 认知搜索 API 的宝贵知识。
 
-有关进一步的参考和教程，请考虑浏览 [Microsoft Learn](https://school.azure.cn) 或查看 [Azure 搜索文档](https://docs.azure.cn/search/)中的其他教程。
+有关进一步的参考和教程，请考虑浏览 [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) 或 [Azure 认知搜索文档](https://docs.azure.cn/search/)中的其他教程。

@@ -9,12 +9,12 @@ origin.date: 10/02/2019
 ms.date: 12/16/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d4a1d589f79c5c4666351b3cae8a4471301e5905
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: d3725aa762b7245860bc9d36206b9f6e1a0ebcc8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883328"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335918"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>通过 Azure 门户管理 IoT Central
 
@@ -46,10 +46,8 @@ ms.locfileid: "74883328"
 
 ![创建 IoT Central 窗体](media/howto-manage-iot-central-from-portal/image6a.png)
 
-“位置”是你想要创建应用程序的[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)  。 通常，应选择物理上离设备最近的位置以获得最佳性能。 目前，美国、澳大利亚、亚太地区或欧洲提供 Azure IoT Central     。  选择一个位置后，之后便不能将应用程序移到其他位置。
+“位置”是你想要创建应用程序的[地理位置](https://azure.microsoft.com/global-infrastructure/geographies/)  。 通常，应选择物理上离设备最近的位置以获得最佳性能。 选择一个位置后，之后便不能将应用程序移到其他位置。
 
-> [!NOTE]
-> 预览应用程序模板目前仅在“欧洲”和“美国”   位置可用。
 
 ![管理门户：创建 IoT Central 资源](media/howto-manage-iot-central-from-portal/image1a.png)  
 

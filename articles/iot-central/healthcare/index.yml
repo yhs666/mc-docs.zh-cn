@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: v-yiso
   origin.date: 10/25/2019
-  ms.openlocfilehash: 801e198f53f82e5e38f8acda011bd6455af88958
-  ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+  ms.openlocfilehash: f3ee80b8bfdd50d7f1e687ebc2b54e1caf1d2136
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 12/06/2019
-  ms.locfileid: "74883209"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75335719"
 landingContent:
 - title: 生成医疗保健解决方案
   linkLists:
@@ -69,8 +69,6 @@ landingContent:
     links:
     - text: 创建自定义规则
       url: ../preview/howto-create-custom-rules.md
-    - text: 创建自定义分析
-      url: ../preview/howto-create-custom-analytics.md
 - title: 管理
   linkLists:
   - linkListType: how-to-guide

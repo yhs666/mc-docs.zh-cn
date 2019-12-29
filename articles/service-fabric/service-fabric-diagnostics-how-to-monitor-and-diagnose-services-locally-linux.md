@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/23/2018
-ms.date: 03/04/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: a17bd71b0f9c0fe0230c1d94d7e88b102c30ce9c
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 02d301801504ebecf9ad7f513b0aac3f60d4c72d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204134"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336194"
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>在本地计算机开发安装过程中监视和诊断服务
 
@@ -34,9 +34,9 @@ ms.locfileid: "57204134"
 
 ## <a name="debugging-service-fabric-java-applications"></a>调试 Service Fabric Java 应用程序
 
-对于 Java 应用程序，可以使用 [多个日志记录框架](http://en.wikipedia.org/wiki/Java_logging_framework) 。 由于 `java.util.logging` 是 JRE 的默认选项，因此也适用于 [GitHub 中的代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 以下内容说明如何配置 `java.util.logging` 框架。
+对于 Java 应用程序，可以使用 [多个日志记录框架](https://en.wikipedia.org/wiki/Java_logging_framework) 。 由于 `java.util.logging` 是 JRE 的默认选项，因此也适用于 [GitHub 中的代码示例](https://github.com/Azure-Samples/service-fabric-java-getting-started)。 以下内容说明如何配置 `java.util.logging` 框架。
 
-使用 java.util.logging 可将应用程序日志重定向到内存、输出流、控制台文件或套接字。 对于其中的每个选项，框架中已提供默认处理程序。 可以通过创建 `app.properties` 文件来配置应用程序的文件处理程序，将所有日志重定向到本地文件。
+使用 java.util.logging 可将应用程序日志重定向到内存、输出流、控制台文件或套接字。 对于其中的每个选项，框架中已提供默认处理程序。 可以创建 `app.properties` 文件来配置应用程序的文件处理程序，将所有日志重定向到本地文件。
 
 以下代码片段包含一个示例配置：
 
@@ -73,7 +73,7 @@ java -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=<path 
 第一步是添加 System.Diagnostics.Tracing，以便可以将日志写入内存、输出流或控制台文件。  要使用 EventSource 进行日志记录，请将以下项目添加到 project.json：
 
 ```json
-    "System.Diagnostics.StackTrace": "4.0.1"
+"System.Diagnostics.StackTrace": "4.0.1"
 ```
 
 可以使用自定义 EventListener 侦听服务事件，并将它们相应地重定向到跟踪文件。 下面的代码片段展示使用 EventSource 和自定义 EventListener 进行日志记录的实现示例：
@@ -126,7 +126,7 @@ internal class ServiceEventListener : EventListener
 }
 ```
 
-上述代码片段将日志输出到 `/tmp/MyServiceLog.txt` 中的文件。 此文件名需要相应地更新。 如果要将日志重定向到控制台，请在自定义的 EventListener 类中使用以下代码片段：
+上述片段将日志输出到 `/tmp/MyServiceLog.txt` 中的文件。 此文件名需要相应地更新。 如果要将日志重定向到控制台，请在自定义的 EventListener 类中使用以下片段：
 
 ```csharp
 public static TextWriter Out = Console.Out;

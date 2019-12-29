@@ -2,22 +2,23 @@
 title: 使用 Java 将 TPM 设备注册到 Azure 设备预配服务 | Microsoft Docs
 description: Azure 快速入门 - 使用 Java 服务 SDK 将 TPM 设备注册到 Azure IoT 中心设备预配服务。 本快速入门使用单独注册。
 author: wesmc7777
-ms.author: wesmc
-ms.date: 12/20/2017
+ms.author: v-yiso
+origin.date: 11/08/2019
+ms.date: 12/23/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 5b9fa1ba6ef0c160037bee1b8af735eb6539ab6c
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 8acfd0599728148f090ee51ff01b6b802cf9b106
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389517"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336424"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>使用 Java 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>快速入门：使用 Java 服务 SDK 将 TPM 设备注册到 IoT 中心设备预配服务
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
@@ -136,7 +137,7 @@ ms.locfileid: "74389517"
 
 4. 在成功注册后观察输出窗口。 
 
-5. 在 Azure 门户中导航到预配服务。 单击“管理注册”，然后选择“单个注册”选项卡。   请注意，现在列出了模拟 TPM 设备的“注册 ID”。  
+5. 在 Azure 门户中导航到预配服务。 选择“管理注册”，然后选择“单个注册”选项卡   。请注意，现在列出了模拟 TPM 设备的“注册 ID”。  
 
     ![验证是否已在门户中成功完成 TPM 注册](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -145,7 +146,7 @@ ms.locfileid: "74389517"
 
 1. 关闭计算机上的 Java 示例输出窗口。
 1. 关闭可能已创建的用于模拟 TPM 设备的 TPM 模拟器窗口。
-1. 在 Azure 门户中导航到设备预配服务，单击“管理注册”，然后选择“单个注册”选项卡。   选择通过本快速入门注册的设备的“注册 ID”，然后单击边栏选项卡顶部的“删除”按钮。   
+1. 在 Azure 门户中导航到你的设备预配服务，选择“管理注册”，然后选择“单个注册”选项卡。   选中通过本快速入门创建的注册项的“注册 ID”旁边的复选框，然后按窗格顶部的“删除”按钮   。
 
 ## <a name="next-steps"></a>后续步骤
 在本快速入门中，你将模拟的 TPM 设备注册到了设备预配服务。 若要深入了解设备预配，请继续学习本教程有关如何在 Azure 门户中进行设备预配服务设置的内容。 

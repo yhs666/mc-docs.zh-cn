@@ -1,19 +1,19 @@
 ---
 title: 示例 - 允许的 Express Route 对等位置
-description: 此示例策略定义要求 ExpressRoute 使用指定的对等互连位置。
+description: 此示例策略定义要求 ExpressRoute 使用参数中定义的指定对等互连位置。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/23/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1cbf4222107caad1453a310b15627bd19840a320
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: c81b354fa56749bed09fa279dd7f10e1f2b8638b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526664"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334575"
 ---
 # <a name="sample---allowed-peering-location-for-expressroute"></a>示例 - 允许的 ExpressRoute 对等互连位置
 

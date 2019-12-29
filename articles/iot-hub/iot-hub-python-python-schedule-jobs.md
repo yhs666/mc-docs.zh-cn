@@ -1,7 +1,7 @@
 ---
 title: 使用 Azure IoT 中心计划作业 (Python)
 description: 如何安排 Azure IoT 中心作业实现多台设备上的直接方法调用。 使用 Azure IoT SDK for Python 实现模拟设备应用以及用于运行作业的服务应用。
-author: kgremban
+author: robinsh
 manager: timlt
 ms.service: iot-hub
 services: iot-hub
@@ -10,14 +10,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 08/16/2019
-ms.date: 09/30/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 7bcfab0b70d70a1b2c2755223e2938d6eba6e571
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: ae8707b783bc25e6cfec68d892e7fed9b9d95486
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156052"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336418"
 ---
 # <a name="schedule-and-broadcast-jobs-python"></a>计划和广播作业 (Python)
 
@@ -75,10 +75,6 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
     ```cmd/sh
     pip install azure-iot-device
     ```
-
-   > [!NOTE]
-   > azure-iothub-service-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
-   >
 
 2. 使用文本编辑器，在工作目录中创建一个 simDevice.py 文件  。
 
@@ -189,7 +185,7 @@ scheduleJobService.py，它调用模拟设备应用中的直接方法，并通�
     ```
 
    > [!NOTE]
-   > azure-iothub-service-client 和 azure-iothub-device-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
+   > azure-iothub-service-client 的 pip 包目前仅适用于 Windows 操作系统。 对于 Linux/Mac 操作系统，请参阅[准备适用于 Python 的开发环境](https://github.com/Azure/azure-iot-sdk-python/blob/v1-deprecated/doc/python-devbox-setup.md)一文中特定于 Linux 和 Mac 操作系统的部分。
    >
 
 2. 使用文本编辑器，在工作目录中创建一个 scheduleJobService.py 文件  。

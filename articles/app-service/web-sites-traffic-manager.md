@@ -11,18 +11,17 @@ ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
 ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 origin.date: 02/25/2016
-ms.date: 01/21/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 8e33af620472cb6685565933195c3d14d57112bb
-ms.sourcegitcommit: bc34f62e6eef906fb59734dcc780e662a4d2b0a2
+ms.openlocfilehash: 1f9f88dc8f08f3b2f2615ee933d14e2dcfb06e78
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70806849"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336097"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>使用 Azure 流量管理器控制 Azure 应用服务流量
 > [!NOTE]
@@ -36,7 +35,7 @@ ms.locfileid: "70806849"
 ## <a name="routing-methods"></a>路由方法
 Azure 流量管理器使用四种不同的路由方法。 下面的列表中介绍了与 Azure 应用服务相关时这些方法的情况。
 
-* **[优先级](../traffic-manager/traffic-manager-routing-methods.md#priority)：** 所有流量都使用主应用，并提供备份以防主或备份应用不可用。
+* **[优先级](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)：** 所有流量都使用主应用，并提供备份以防主或备份应用不可用。
 * **[加权](../traffic-manager/traffic-manager-routing-methods.md#weighted)：** 将流量分配到一组应用，不管是平均分配还是根据定义的权重进行分配。
 * **[性能](../traffic-manager/traffic-manager-routing-methods.md#performance)：** 当应用位于不同的地理位置时，请使用从最低网络延迟角度而言“最靠近的”应用。
 * **[地理](../traffic-manager/traffic-manager-routing-methods.md#geographic)：** 根据 DNS 查询来自的地理位置将用户定向到特定的应用。 
@@ -59,5 +58,4 @@ Azure 流量管理器使用四种不同的路由方法。 下面的列表中介�
 ## <a name="next-steps"></a>后续步骤
 有关 Azure 流量管理器概念及技术方面的概述，请参阅[流量管理器概述](../traffic-manager/traffic-manager-overview.md)。
 
-有关将流量管理器与应用服务配合使用的详细信息，请参阅博客文章 [Using Azure Traffic Manager with Azure Web Sites](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx)（将 Azure 流量管理器用于 Azure 网站）和 [Azure Traffic Manager can now integrate with Azure Web Sites](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)（Azure 流量管理器现在可以与 Azure 网站集成）。
 

@@ -1,5 +1,5 @@
 ---
-title: SQL 数据库中的扩展事件 | Microsoft 文档
+title: 扩展的事件
 description: 介绍 Azure SQL 数据库中的扩展事件 (XEvents)，以及这些事件会话与 Microsoft SQL Server 中的事件会话的细微差别。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik
-manager: digimobile
 origin.date: 12/19/2018
-ms.date: 02/25/2019
-ms.openlocfilehash: 5f2f4bedd33bee76207ac8fd05c72a85f60c169b
-ms.sourcegitcommit: b8fb6890caed87831b28c82738d6cecfe50674fd
+ms.date: 12/16/2019
+ms.openlocfilehash: 875fdde3551e5abeac32eee3e507128ff8363045
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58626033"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334595"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL 数据库中的扩展事件
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -91,7 +90,7 @@ ms.locfileid: "58626033"
 | **sys.database_event_session_targets** |返回事件会话的每个事件目标所对应的行。 |
 | **sys.database_event_sessions** |返回 SQL 数据库中每个事件会话所对应的行。 |
 
-在 Microsoft SQL Server 中，类似目录视图的名称包含 *.server\_* 而不是 *.database\_*。 名称模式类似于 **sys.server_event_%**。
+在 Microsoft SQL Server 中，类似目录视图的名称包含 *.server\_* 而不是 *.database\_* 。 名称模式类似于 **sys.server_event_%** 。
 
 ## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>新的动态管理视图 [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
@@ -198,7 +197,7 @@ SELECT
 - [如何通过 .NET 使用 Blob 存储](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
 - [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
 - [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
-- [Jonathan Kehayias 撰写的有关 Microsoft SQL Server 中扩展事件的博客文章](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
+- [Jonathan Kehayias 撰写的有关 Microsoft SQL Server 中扩展事件的博客文章](https://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 可通过以下链接访问有关扩展事件的其他代码示例主题。 不过，必须定期检查所有示例，以确定这些示例是针对 Microsoft SQL Server 还是 Azure SQL 数据库。 然后，用户可以在运行示例时确定是否要做出细微的更改。
 

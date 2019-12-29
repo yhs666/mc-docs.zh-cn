@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 09/25/2018
 ms.date: 08/26/2019
-ms.openlocfilehash: 3ba2bb53041b796642998cc061a53c6eb23ddf4a
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.openlocfilehash: d49183047025cce0e38dcd120ac6b7e4b8939561
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578558"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334945"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>通过适用于 Azure SQL 数据库和 SQL Server 的 Spark 连接器，加速实时大数据分析
 
@@ -67,7 +67,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.chinacloudapi.cn",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -105,7 +105,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.chinacloudapi.cn",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))
@@ -132,7 +132,7 @@ val config = Config(Map(
   "queryCustom"  -> query
 ))
 
-sqlContext.SqlDBQuery(config)
+sqlContext.sqlDBQuery(config)
 ```
 
 ## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>使用 AAD 身份验证将 Spark 连接到 Azure SQL 数据库

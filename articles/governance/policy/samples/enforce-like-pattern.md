@@ -1,6 +1,6 @@
 ---
 title: 示例 - 强制实施 like 模式
-description: 此示例策略定义要求资源符合用于命名约定的 like 模式。
+description: 此示例策略定义要求资源符合参数中定义的用于命名约定的 like 模式。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 59771b93f71ea8d3c75f13712f8f7cde05e4669f
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: c85dfaab1d4f8cdc5671a9da3c0edab31693f7a1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335979"
 ---
 # <a name="sample---enforce-like-pattern-for-naming-conventions"></a>示例 - 强制实施用于命名约定的 like 模式
 

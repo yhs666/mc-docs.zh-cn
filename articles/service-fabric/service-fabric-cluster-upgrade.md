@@ -1,5 +1,5 @@
 ---
-title: 升级 Azure Service Fabric 群集 | Azure
+title: 升级 Azure Service Fabric 群集
 description: 了解有关升级 Azure Service Fabric 群集的版本或配置的信息。  本文介绍如何设置群集更新模式、升级证书、添加应用程序端口、执行 OS 修补程序以及执行升级时可预期的内容
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1cd289e4f8b740ca0dd14e08f30eb993548053aa
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 59d67ed0c3947851a5e4beb7afa31164bc330091
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174006"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335140"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>升级和更新 Azure Service Fabric 群集
 
@@ -117,4 +117,4 @@ Service Fabric 使用创建群集时指定的 [X.509 服务器证书](service-fa
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
-<!--Update_Description: update meta properties, wording update-->
+<!--Update_Description: update meta properties -->

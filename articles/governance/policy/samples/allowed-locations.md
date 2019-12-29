@@ -1,19 +1,19 @@
 ---
 title: 示例 - 允许的位置
-description: 此示例策略定义要求所有资源都部署到已批准的位置。
+description: 此示例策略定义要求所有资源都部署到参数中定义的已批准的位置。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/26/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: ec8e034dbdc759e04f8a2da88883dbec7ada1c38
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: e8c8b3906b72f750c5bdaced90f7e8fc7a17503f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020829"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335776"
 ---
 # <a name="sample---allowed-region-locations"></a>示例 - 允许的区域位置
 
@@ -128,7 +128,7 @@ ms.locfileid: "74020829"
 
 ## <a name="parameters"></a>parameters
 
-|Name |类型 |字段 |说明 |
+|名称 |类型 |字段 |说明 |
 |---|---|---|---|
 |listOfAllowedLocations |Array |locations |允许的位置的列表|
 

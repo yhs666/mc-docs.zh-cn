@@ -1,21 +1,21 @@
 ---
-title: 使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
-description: 介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用且速度极快、规模达多个区域的云数据库。
+title: 教程：使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
+description: 教程：介绍如何使用 Azure Cosmos DB 创建 Xamarin iOS、Android 或 Forms 应用程序的教程。 Azure Cosmos DB 是适用于移动应用且速度极快、规模达多个区域的云数据库。
 author: rockboyfor
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-origin.date: 11/15/2018
-ms.date: 09/09/2019
+origin.date: 11/05/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3345e6ee4fcfccde2972acfa8aa7700d3b8f97b7
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 044138f5acadea08199de384a230e3c4d03291b4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254848"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334770"
 ---
-# <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
+# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>教程：使用 Xamarin 和 Azure Cosmos DB 生成移动应用程序
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -76,13 +76,13 @@ Azure Cosmos DB 入门容易。 转到 Azure 门户，并创建新的 Azure Cosm
 
 遵循以下步骤将待办事项列表应用修改为多用户待办事项列表应用： 
 
-  1. 使用 Facebook、Active Directory 或其他任何提供程序将登录名添加到应用。
+1. 使用 Facebook、Active Directory 或其他任何提供程序将登录名添加到应用。
 
-  2. 创建使用 **/userId** 作为分区键的 Azure Cosmos DB UserItems 集合。 为集合指定分区键可让 Azure Cosmos DB 随着应用用户的增多而无限缩放，同时可持续提供快速查询。
+2. 创建使用 **/userId** 作为分区键的 Azure Cosmos DB UserItems 集合。 为集合指定分区键可让 Azure Cosmos DB 随着应用用户的增多而无限缩放，同时可持续提供快速查询。
 
-  3. 添加 Azure Cosmos DB 资源令牌代理。 这是一个简单的 Web API，可对用户进行身份验证，并向只有权访问其自己分区中的文档的已登录用户颁发短期生存的令牌。 在此示例中，资源令牌代理托管在应用服务中。
+3. 添加 Azure Cosmos DB 资源令牌代理。 这是一个简单的 Web API，可对用户进行身份验证，并向只有权访问其自己分区中的文档的已登录用户颁发短期生存的令牌。 在此示例中，资源令牌代理托管在应用服务中。
 
-  4. 将应用修改为使用 Facebook 对资源令牌代理进行身份验证，请求已登录的 Facebook 用户的资源令牌。 然后，可在 UserItems 集合中访问其数据。  
+4. 将应用修改为使用 Facebook 对资源令牌代理进行身份验证，请求已登录的 Facebook 用户的资源令牌。 然后，可在 UserItems 集合中访问其数据。  
 
 可在 [GitHub 上的资源令牌代理](https://aka.ms/documentdb-xamarin-todouser)中找到此模式的完整代码示例。 下图演示了该解决方案：
 

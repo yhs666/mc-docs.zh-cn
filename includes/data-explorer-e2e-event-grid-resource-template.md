@@ -3,14 +3,14 @@ author: lugoldbemicrosoft
 ms.service: data-explorer
 ms.topic: include
 origin.date: 10/07/2019
-ms.date: 11/18/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: c44a8a68f7420841056b78161bb83f1227007ac8
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 8919f814446f000a71c1bae918b67925897771af
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020909"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75466948"
 ---
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
 
@@ -18,7 +18,7 @@ ms.locfileid: "74020909"
 
 ```json
 {
-    "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "eventHubNamespaceName": {

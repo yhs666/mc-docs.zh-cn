@@ -1,6 +1,6 @@
 ---
-title: 查看租户应用程序 - Azure Active Directory | Microsoft Docs
-description: 使用 Azure 门户查看 Azure Active Directory (Azure AD) 租户中的应用程序。
+title: 快速入门 - 使用 Azure Active Directory 查看租户应用程序
+description: 本快速入门使用 Azure 门户查看 Azure Active Directory (Azure AD) 租户中的应用程序。
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -11,20 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-origin.date: 04/09/2019
-ms.date: 08/27/2019
+ms.date: 12/11/2019
 ms.author: v-junlch
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c1173a7f2ac84f40eb0520ac59157aab717fa41
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 21c94e853bd42bf4a0feae83661a119be5f34d9d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134320"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335655"
 ---
-# <a name="view-your-azure-active-directory-tenant-applications"></a>查看 Azure Active Directory 租户应用程序
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>快速入门：查看 Azure Active Directory 租户应用程序
 
 本快速入门使用 Azure 门户查看 Azure Active Directory (Azure AD) 租户中的应用程序。
 

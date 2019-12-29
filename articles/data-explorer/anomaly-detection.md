@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/24/2019
 ms.date: 07/22/2019
-ms.openlocfilehash: 55cb4cb22e6ce2f3d9054fc2b63280b6c7119745
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: 3630778e6f7be89742b477d09bfdb1d908a8b28b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020879"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335988"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>在 Azure 数据资源管理器中进行异常情况检测和预测
 
@@ -124,4 +124,4 @@ demo_make_series2
 
 ## <a name="next-steps"></a>后续步骤
 
-了解 Azure 数据资源管理器中的[机器学习功能](https://docs.microsoft.com/azure/data-explorer/machine-learning-clustering)。
+了解 Azure 数据资源管理器中的[机器学习功能](https://docs.azure.cn/data-explorer/machine-learning-clustering)。

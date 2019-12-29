@@ -15,13 +15,12 @@ ms.date: 11/18/2019
 ms.author: v-jay
 ms.reviewer: sijuman
 ms.lastreviewed: 05/16/2019
-<!-- dev: viananth -->
-ms.openlocfilehash: f5321ed9b56a02abff71f3bbacd236992a31ed79
-ms.sourcegitcommit: 7dfb76297ac195e57bd8d444df89c0877888fdb8
+ms.openlocfilehash: efd3bf8a165c95bc0be7be8387f28121e6250c9d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020295"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336121"
 ---
 # <a name="use-api-version-profiles-with-python-in-azure-stack"></a>在 Azure Stack 中将 API 版本配置文件与 Python 配合使用
 

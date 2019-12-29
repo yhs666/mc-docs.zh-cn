@@ -5,19 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-origin.date: 08/16/2019
-ms.date: 08/29/2019
+ms.date: 12/11/2019
 ms.author: v-junlch
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93fba0c6d27be197c6368013fc78b2ad23280dfa
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 1b2be3d49bb51577c0c145702fa596b613369400
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134164"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335137"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>工作原理：Azure AD 自助密码重置
 
@@ -199,7 +198,7 @@ Azure AD 自助服务密码重置相当于在 Active Directory 中执行管理�
 * [我认为有些功能被破坏。如何对 SSPR 进行故障排除？](active-directory-passwords-troubleshoot.md)
 * [我有在别处未涵盖的问题](active-directory-passwords-faq.md)
 
-[Authentication]: ./media/concept-sspr-howitworks/sspr-authentication-methods.png "可用的 Azure AD 身份验证方法和所需数量"
-[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-writeback-running.png "本地集成密码写回配置和故障排除信息"
+[Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "可用的 Azure AD 身份验证方法和所需数量"
+[Writeback]: ./media/concept-sspr-howitworks/troubleshoot-on-premises-integration-writeback.png "本地集成密码写回配置和故障排除信息"
 
 <!-- Update_Description: wording update -->

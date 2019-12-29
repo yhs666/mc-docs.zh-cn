@@ -2,17 +2,18 @@
 title: 将数据从 IoT 中心引入到 Azure 数据资源管理器
 description: 本文介绍如何将数据从 IoT 中心引入（加载）到 Azure 数据资源管理器中。
 author: oflipman
-ms.author: oflipman
+ms.author: v-tawe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.openlocfilehash: bf7ff6977cb73530e7868a073f553cd1c428a106
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+origin.date: 08/27/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 74efe13005017d3644a7fbb741b15a108aa3e6bf
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020890"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336331"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>将数据从 IoT 中心引入到 Azure 数据资源管理器（预览）
 
@@ -85,7 +86,7 @@ Azure 数据资源管理器是一项快速且高度可缩放的数据探索服�
     | IoT 中心 | IoT 中心名称 |
     | 共享访问策略 | 共享访问策略的名称。 必须有读取权限 |
     | 使用者组 |  在 IoT 中心的内置终结点中定义的使用者组 |
-    | 事件系统属性 | [IoT 中心事件系统属性](/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)。 添加系统属性时，[创建](/kusto/management/tables#create-table)或[更新](/kusto/management/tables#alter-table-and-alter-merge-table)表架构和[映射](/kusto/management/mappings)以包括所选属性。 | | | 
+    | 事件系统属性 | [IoT 中心事件系统属性](/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages)。 添加系统属性时，[创建](https://docs.microsoft.com/kusto/management/tables#create-table)或[更新](https://docs.microsoft.com/kusto/management/tables#alter-table-and-alter-merge-table)表架构和[映射](https://docs.microsoft.com/kusto/management/mappings)以包括所选属性。 | | | 
 
     > [!NOTE]
     > 如果进行[手动故障转移](/iot-hub/iot-hub-ha-dr#manual-failover)，必须重新创建数据连接。

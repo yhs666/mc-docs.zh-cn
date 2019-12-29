@@ -1,21 +1,21 @@
 ---
 title: 什么是 Azure 防火墙？
-description: 了解 Azure 防火墙功能。
+description: Azure 防火墙是托管的基于云的网络安全服务，可保护 Azure 虚拟网络资源。
 author: rockboyfor
 ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-origin.date: 09/04/2019
-ms.date: 09/23/2019
+origin.date: 11/19/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 00d7b714ea15fd4b9725306bbc5bf9206d00e978
-ms.sourcegitcommit: f643ddf75a3178c37428b75be147c9383384a816
+ms.openlocfilehash: 72443ff93c19475e3bbece001e904e84453690aa
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73191589"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334980"
 ---
 # <a name="what-is-azure-firewall"></a>什么是 Azure 防火墙？
 
@@ -67,9 +67,6 @@ FQDN 标记使你可以轻松地允许已知的 Azure 服务网络流量通过�
 
 ## <a name="multiple-public-ip-addresses"></a>多个公共 IP 地址
 
-> [!IMPORTANT]
-> 可通过 Azure 门户、Azure PowerShell、Azure CLI、REST 和模板来使用具有多个公共 IP 地址的 Azure 防火墙。
-
 可将多个公共 IP 地址（最多 100 个）关联到防火墙。
 
 这样可以实现以下方案：
@@ -120,4 +117,4 @@ Azure 防火墙存在以下已知问题：
     
 - [创建 Azure 防火墙测试环境](scripts/sample-create-firewall-test.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

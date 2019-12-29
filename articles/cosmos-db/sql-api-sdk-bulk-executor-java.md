@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 11/21/2018
-ms.date: 09/09/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 97b0ecf99e5d612cc3bfa04792ec215ad38e8b52
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.openlocfilehash: 66dc0445908327079e9ed52b128bb4bbeb5aa77b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254465"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335839"
 ---
 # <a name="java-bulk-executor-library-download-information"></a>Java 批量执行程序库：下载信息
 
@@ -37,7 +37,7 @@ ms.locfileid: "70254465"
 |**说明**|批量执行程序库允许客户端应用程序在 Azure Cosmos DB 帐户中执行批量操作。 批量执行程序库提供 BulkImport 和 BulkUpdate 命名空间。 BulkImport 模块可以批量以优化方式引入文档，以便最大程度地使用为集合配置的吞吐量。 BulkUpdate 模块可以作为修补程序批量更新 Azure Cosmos 容器中的现有数据。|
 |**SDK 下载**|[Maven](https://search.maven.org/#search%7Cga%7C1%7Cdocumentdb-bulkexecutor)|
 |**GitHub 中的批量执行程序库**|[GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-java-getting-started)|
-| **API 文档**| [ 参考文档](https://docs.azure.cn/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
+| **API 文档**| [Java API 参考文档](https://docs.microsoft.com/java/api/com.microsoft.azure.documentdb.bulkexecutor)|
 |**入门**|[批量执行程序库 Java SDK 入门](bulk-executor-java.md)|
 |受支持的最小运行时 |[Java 开发工具包 (JDK) 7+](https://docs.azure.cn/java/java-supported-jdk-runtime?view=azure-java-stable)|
 

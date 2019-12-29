@@ -1,6 +1,6 @@
 ---
 title: 示例 - 强制实施标记匹配模式
-description: 此示例策略定义要求资源符合标记值的匹配模式。
+description: 此示例策略定义要求资源符合特定日期格式的标记值的匹配模式。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: eb1aa511948ad2db5ca4a1c14673ff95234be4cb
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 82672a7076e35e811a77e3ff49662885da231fa1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526652"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335978"
 ---
 # <a name="sample---enforce-tag-match-pattern-for-tag-values"></a>示例 - 强制实施标记值的标记匹配模式
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 origin.date: 03/15/2016
 ms.date: 11/25/2019
 ms.author: v-yeche
-ms.openlocfilehash: d57ac76fa68149d4d4923ed7ebb308cc7debdecb
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: bd2bb9d934c371a91f47a85653e2d205942c3ab5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658016"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336460"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>使用 Azure 经典 CLI 为虚拟机（经典）配置专用 IP 地址
 
@@ -69,14 +69,14 @@ ms.locfileid: "74658016"
         info:    OK
         info:    vm create command OK
 
-   * **-l（或 --location）** 。 会在其中创建 VM 的 Azure 区域。 在本方案中为 *chinaeast*。
-   * **-n（或 --vm-name）** 。 要创建的 VM 的名称。
-   * **-w（或 --virtual-network-name）** 。 会在其中创建 VM 的 VNet 的名称。 
-   * **-S（或 --static-ip）** 。 VM 的静态专用 IP 地址。
-   * **TestService**。 要在其中创建 VM 的云服务的名称。
-   * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**。 用于创建 VM 的映像。
-   * **adminuser**。 Windows VM 的本地管理员。
-   * <strong>AdminP@ssw0rd</strong>. Windows VM 的本地管理员密码。
+    * **-l（或 --location）** 。 会在其中创建 VM 的 Azure 区域。 在本方案中为 *chinaeast*。
+    * **-n（或 --vm-name）** 。 要创建的 VM 的名称。
+    * **-w（或 --virtual-network-name）** 。 会在其中创建 VM 的 VNet 的名称。 
+    * **-S（或 --static-ip）** 。 VM 的静态专用 IP 地址。
+    * **TestService**。 要在其中创建 VM 的云服务的名称。
+    * **bd507d3a70934695bc2128e3e5a255ba__RightImage-Windows-2012R2-x64-v14.2**。 用于创建 VM 的映像。
+    * **adminuser**。 Windows VM 的本地管理员。
+    * <strong>AdminP@ssw0rd</strong>. Windows VM 的本地管理员密码。
 
 ## <a name="how-to-retrieve-static-private-ip-address-information-for-a-vm"></a>如何检索 VM 的静态专用 IP 地址信息
 若要查看使用上述脚本创建的 VM 的静态专用 IP 地址信息，请运行以下 Azure CLI 命令并观察 *Network StaticIP*的值：

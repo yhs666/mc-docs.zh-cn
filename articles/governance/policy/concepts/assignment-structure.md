@@ -6,12 +6,12 @@ origin.date: 09/23/2019
 ms.date: 12/02/2019
 ms.service: azure-policy
 ms.topic: conceptual
-ms.openlocfilehash: 0fbc39a1b888dd9ab3750d5c871d7a3db82a349e
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: ea77028a59eb5ba9d87f1fa8032a827fea2ffc8a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335985"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 分配结构
 
@@ -20,7 +20,7 @@ ms.locfileid: "74658121"
 使用 JSON 创建策略分配。 策略分配包含以下各项的元素：
 
 - 显示名称
-- 说明
+- description
 - metadata
 - 强制模式
 - 策略定义
@@ -96,6 +96,6 @@ ms.locfileid: "74658121"
 
 - 了解[策略定义结构](./definition-structure.md)。
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
-- 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[获取合规性数据](../how-to/get-compliance-data.md)。
 - 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

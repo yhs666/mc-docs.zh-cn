@@ -1,18 +1,18 @@
 ---
 title: Azure SignalR 服务常见问题解答
-description: Azure SignalR 服务的常见问题解答。
+description: 可以快速访问有关 Azure SignalR 服务的常见问题解答，这些问题涉及故障排除和典型使用方案。
 author: sffamily
 ms.service: signalr
 ms.topic: overview
-origin.date: 03/01/2019
-ms.date: 11/25/2019
+origin.date: 11/13/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 45e663c668ba6547789f270ab9402248aa4bf591
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 2ee3b7a7ebde08f99becd52d849ecb92ffbec80e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179087"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334850"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR 服务常见问题解答
 
@@ -64,7 +64,7 @@ SignalR 服务将监视应用程序服务器的检测信号。
 
 ## <a name="can-i-configure-the-transports-available-in-signalr-service-as-configuring-it-on-server-side-with-aspnet-core-signalr-for-example-disable-websocket-transport"></a>是否可以像在服务器端使用 ASP.NET Core SignalR 配置传输一样，在 SignalR 服务中配置传输？ 例如，禁用 WebSocket 传输？
 
-不是。
+否。
 
 默认情况下，Azure SignalR 服务提供 ASP.NET Core SignalR 所支持的所有三种传输。 这些传输不可配置。 SignalR 服务将处理连接以及所有客户端连接的传输。
 

@@ -1,5 +1,5 @@
 ---
-title: 在扩展云数据库之间移动数据 | Microsoft Docs
+title: 在扩大云数据库之间移动数据
 description: 介绍如何使用弹性数据库 API 通过自托管服务来操作分片和移动数据。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
-manager: digimobile
 origin.date: 03/12/2019
-ms.date: 04/08/2019
-ms.openlocfilehash: 57e97b109ff114ead1d83ffd190ad6386f02407a
-ms.sourcegitcommit: 0777b062c70f5b4b613044804706af5a8f00ee5d
+ms.date: 12/16/2019
+ms.openlocfilehash: e2c19142c04df3d163e885c82ead98c79fa3de0a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59003497"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335427"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>在扩大云数据库之间移动数据
 
@@ -30,7 +29,7 @@ ms.locfileid: "59003497"
 
 ## <a name="download"></a>下载
 
-[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
+[Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
 ## <a name="documentation"></a>文档
 
@@ -38,9 +37,9 @@ ms.locfileid: "59003497"
 2. [拆分/合并安全配置](sql-database-elastic-scale-split-merge-security-configuration.md)
 3. [拆分/合并安全注意事项](sql-database-elastic-scale-split-merge-security-configuration.md)
 4. [分片映射管理](sql-database-elastic-scale-shard-map-management.md)
-5. [迁移要扩展的现有数据库](sql-database-elastic-convert-to-use-elastic-tools.md)
+5. [迁移要扩大的现有数据库](sql-database-elastic-convert-to-use-elastic-tools.md)
 6. [弹性数据库工具](sql-database-elastic-scale-introduction.md)
-7. [弹性数据库工具词汇表](sql-database-elastic-scale-glossary.md)
+7. [弹性数据库工具术语表](sql-database-elastic-scale-glossary.md)
 
 ## <a name="why-use-the-split-merge-tool"></a>为什么使用拆分/合并工具
 
@@ -48,11 +47,11 @@ ms.locfileid: "59003497"
 
   应用程序需要灵活伸展到超出单个 Azure SQL DB 数据库的限制。 根据需要使用该工具将数据移到新的数据库，同时保留完整性。
 
-- **通过拆分实现增长**
+- **拆分以实现增长**
 
-  为了提高处理爆炸性增长的总体容量，需要通过对数据进行分片并将数据分发给越来越多的数据库来提供额外容量，直到满足容量需求。 这是“拆分”功能的一个典型示例。
+  为了提高处理爆炸性增长的总体容量，需要通过对数据进行分片并将数据分发给越来越多的数据库来提供额外容量，直到满足容量需求。 这是“拆分”功能的一个典型示例  。
 
-- **通过合并实现缩减**
+- **合并以实现缩减**
 
   由于业务的季节性，需要缩减容量。 当业务减少时，使用该工具可减少到更少的缩放单元。 弹性缩放拆分/合并服务的“合并”功能可以满足此要求。
 
@@ -102,18 +101,19 @@ ms.locfileid: "59003497"
 
     有关引用表和分片表对比的信息可由分片映射上的 `SchemaInfo` API 提供。 以下示例说明了如何在给定分片映射管理器对象上使用这些 API：
 
-    ```c#
+    ```csharp
     // Create the schema annotations
     SchemaInfo schemaInfo = new SchemaInfo();
 
-    // Reference tables
+    // reference tables
     schemaInfo.Add(new ReferenceTableInfo("dbo", "region"));
     schemaInfo.Add(new ReferenceTableInfo("dbo", "nation"));
 
-    // Sharded tables
+    // sharded tables
     schemaInfo.Add(new ShardedTableInfo("dbo", "customer", "C_CUSTKEY"));
     schemaInfo.Add(new ShardedTableInfo("dbo", "orders", "O_CUSTKEY"));
-    // Publish
+
+    // publish
     smm.GetSchemaInfoCollection().Add(Configuration.ShardMapName, schemaInfo);
     ```
 
@@ -174,7 +174,7 @@ ms.locfileid: "59003497"
 - 必须存在分片并且这些分片已在分片映射中注册，才可以对这些分片执行拆分/合并操作。
 - 该服务未将表或任何其他数据库对象的自动创建作为其操作的一部分。 这意味着在任何拆分/合并/移动操作之前，所有分片表和引用表的架构都需要存在于目标分片上。 在要通过拆分/合并/移动操作添加新的 shardlet 的范围中，尤其要求分片表为空。 否则，该操作将无法通过目标分片上的初始一致性检查。 此外，请注意，仅当引用表为空时才复制引用数据，而且对于引用表上的其他并发写入操作没有一致性保证。 我们建议：在运行拆分/合并操作的同时不要使其他写入操作对引用表做出更改。
 - 该服务依赖于行标识（由包含分片键的唯一索引或键构建）来提高较大 shardlet 的性能和可靠性。 这使该服务能够移动粒度比分片键值更加精细的数据。 这有助于减少操作过程中必需的日志空间和锁定的最大数量。 如果希望通过拆分/合并/移动请求使用给定表，请考虑在该表上创建一个包括分片键的唯一索引或主键。 出于性能原因，分片键应为键或索引中的起始列。
-- 在请求处理过程中，一些 shardlet 数据可能会同时存在于源分片和目标分片上。 为了防止在 shardlet 移动过程中出现故障，这是必需的。 拆分/合并服务与分片映射功能的集成可以确保在分片映射上使用“OpenConnectionForKey”方法通过依赖于数据的路由 API 建立的连接不会显示任何不一致的中间状态。 但是，在不使用 **OpenConnectionForKey** 方法连接到源分片或目标分片时，如果正在执行拆分/合并/移动请求，则不一致的中间状态可能可见。 这些连接可能会显示部分或重复的结果，具体取决于时间设置或进行基础连接的分片。 此限制当前包括由弹性缩放多分片查询建立的连接。
+- 在请求处理过程中，一些 shardlet 数据可能会同时存在于源分片和目标分片上。 为了防止在 shardlet 移动过程中出现故障，这是必需的。 拆分/合并服务与分片映射功能的集成可以确保在分片映射上使用“OpenConnectionForKey”方法通过依赖于数据的路由 API 建立的连接不会显示任何不一致的中间状态  。 但是，在不使用 **OpenConnectionForKey** 方法连接到源分片或目标分片时，如果正在执行拆分/合并/移动请求，则不一致的中间状态可能可见。 这些连接可能会显示部分或重复的结果，具体取决于时间设置或进行基础连接的分片。 此限制当前包括由弹性缩放多分片查询建立的连接。
 - 不能在不同的角色之间共享用于拆分/合并服务的元数据数据库。 例如，在过渡环境中运行的拆分/合并服务的角色需要指向其他元数据数据库而不是生产角色。
 
 ## <a name="billing"></a>计费
@@ -218,21 +218,26 @@ ms.locfileid: "59003497"
 ## <a name="deploy-diagnostics"></a>部署诊断
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > PowerShell Azure 资源管理器模块仍受 Azure SQL 数据库的支持，但所有未来的开发都是针对 Az.Sql 模块的。 若要了解这些 cmdlet，请参阅 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)。 Az 模块和 AzureRm 模块中的命令参数大体上是相同的。
 
 针对 NuGet 包所提供的 Web 和辅助角色，若要使用诊断配置启用监视和诊断，请使用 Azure PowerShell 运行以下命令：
 
 ```powershell
-    $storage_name = "<YourAzureStorageAccount>"
-    $key = "<YourAzureStorageAccountKey"
-    $storageContext = New-AzStorageContext -StorageAccountName $storage_name -StorageAccountKey $key  
-    $config_path = "<YourFilePath>\SplitMergeWebContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWeb"
-    $config_path = "<YourFilePath>\SplitMergeWorkerContent.diagnostics.xml"
-    $service_name = "<YourCloudServiceName>"
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
+$storageName = "<azureStorageAccount>"
+$key = "<azureStorageAccountKey"
+$storageContext = New-AzStorageContext -StorageAccountName $storageName -StorageAccountKey $key
+$configPath = "<filePath>\SplitMergeWebContent.diagnostics.xml"
+$serviceName = "<cloudServiceName>"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWeb"
+
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
+    -DiagnosticsConfigurationPath $configPath -ServiceName $serviceName `
+    -Slot Production -Role "SplitMergeWorker"
 ```
 
 可以在此处找到有关如何配置和部署诊断设置的详细信息：[在 Azure 云服务和虚拟机中启用诊断](../cloud-services/cloud-services-dotnet-diagnostics.md)
@@ -243,13 +248,13 @@ ms.locfileid: "59003497"
 
 ![WADLogsTable][2]
 
-上图中突出显示的 WADLogsTable 包含来自拆分/合并服务的应用程序日志的详细事件。 请注意，已下载包提供的默认配置面向生产部署。 因此，从服务实例中提取日志和计数器的时间间隔较大（5 分钟）。 对于测试和开发，可以通过按需调整 Web 或辅助角色的诊断设置来减少该时间间隔。 右键单击 Visual Studio 服务器资源管理器中的角色（如上所示），然后在对话框中调整诊断配置设置的传输时间段： 
+上图中突出显示的 WADLogsTable 包含来自拆分/合并服务的应用程序日志的详细事件。 请注意，已下载包提供的默认配置面向生产部署。 因此，从服务实例中提取日志和计数器的时间间隔较大（5 分钟）。 对于测试和开发，可以通过按需调整 Web 或辅助角色的诊断设置来减少该时间间隔。 右键单击 Visual Studio 服务器资源管理器中的角色（如上所示），然后在对话框中调整诊断配置设置的传输时间段：
 
 ![配置][3]
 
 ## <a name="performance"></a>性能
 
-通常，Azure SQL 数据库中更高、更可执行的服务层应具有更好的性能。 为更高服务层分配更高的 IO、CPU 和内存有利于拆分/合并服务使用的批量复制和删除操作。 因此，在定义的有限时间段内仅为这些数据库提高服务层。
+通常，Azure SQL 数据库中更高、更可执行的服务层级应具有更好的性能。 为更高服务层级分配更高的 IO、CPU 和内存有利于拆分/合并服务在使用的批量复制和删除操作。 因此，在定义的有限时间段内仅为这些数据库提高服务层级。
 
 该服务也会将验证查询作为其常规操作的一部分来执行。 这些验证查询还会检查目标范围中数据的异常存在，确保任何拆分/合并/移动操作都从一致状态开始进行。 这些查询在操作范围定义的分片键范围和作为请求定义的一部分而提供的批大小上都有效。 当使用分片键作为起始列的索引存在时，这些查询表现最好。
 

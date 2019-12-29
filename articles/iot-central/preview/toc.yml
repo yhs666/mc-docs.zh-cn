@@ -5,7 +5,7 @@
     - name: Azure IoT Central 是什么
       href: overview-iot-central.md
     - name: IoT 解决方案选项
-      href: ../core/overview-iot-options.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: ../core/overview-iot-options.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
     - name: UI 教程
       href: overview-iot-central-tour.md
     - name: 建立连接
@@ -52,7 +52,7 @@
     - name: 体系结构
       href: concepts-architecture.md
     - name: 什么是应用程序模板？
-      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: ../core/concepts-app-templates.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
 - name: 操作指南
   items:
     - name: 建立连接
@@ -76,11 +76,11 @@
         - name: 分析设备数据
           href: howto-create-analytics.md
         - name: 向仪表板添加磁贴
-          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
         - name: 创建 Azure IoT Central 个人仪表板
-          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+          href: ../core/howto-create-personal-dashboards.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
         - name: 运行作业
-          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+          href: ../core/howto-run-a-job.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
         - name: 对设备模板进行版本控制
           href: howto-version-device-template.md
     - name: 转换
@@ -93,8 +93,6 @@
           href: howto-use-action-groups.md
         - name: 创建自定义规则
           href: howto-create-custom-rules.md
-        - name: 使用 Databricks 创建自定义分析
-          href: howto-create-custom-analytics.md
     - name: 管理
       items:
         - name: 管理应用程序
@@ -112,46 +110,38 @@
         - name: 从其他位置管理
           items:
             - name: 从 Azure 门户进行管理
-              href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: ../core/howto-manage-iot-central-from-portal.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
             - name: 从 Azure CLI 进行管理
-              href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: ../core/howto-manage-iot-central-from-cli.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
             - name: 从 Azure PowerShell 进行管理
-              href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
-            - name: 从云解决方案提供商门户进行管理
-              href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: ../core/howto-manage-iot-central-from-powershell.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
         - name: 个性化应用程序
           items:
             - name: 管理个人首选项
-              href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
-            - name: 切换实时聊天
-              href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+              href: ../core/howto-manage-preferences.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
 - name: 相关内容
   items:
     - name: 平台服务
       items:
         - name: IoT 中心
-          href: /azure/iot-hub
-        - name: IoT 即插即用
-          href: /azure/iot-pnp
+          href: /iot-hub
         - name: IoT 中心设备预配服务
-          href: /azure/iot-dps
-        - name: Location Based Services
-          href: /azure/location-based-services
+          href: /iot-dps
         - name: 服务 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: '/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: 时序见解
-          href: /azure/time-series-insights
+          href: /time-series-insights
     - name: IoT Edge
       items:
         - name: Azure IoT Edge
-          href: /azure/iot-edge
+          href: /iot-edge
         - name: IoT 设备 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: '/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 资源
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: 客户数据请求
-      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: ../core/iot-central-customer-data-requests.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json
     - name: 支持的浏览器
-      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
+      href: ../core/iot-central-supported-browsers.md?toc=/iot-central/preview/toc.json&bc=/iot-central/preview/breadcrumb/toc.json

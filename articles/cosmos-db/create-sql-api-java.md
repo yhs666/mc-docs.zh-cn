@@ -6,21 +6,22 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-origin.date: 05/21/2019
-ms.date: 10/28/2019
+origin.date: 10/31/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d84bbf92580efffd8227699fa6aff60774adfe58
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 4867bdd7d278c2ad1ca9020b030bf7cec6a00354
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334559"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>快速入门：生成 Java 应用以管理 Azure Cosmos DB SQL API 数据
 
 > [!div class="op_single_selector"]
-> * [.NET](create-sql-api-dotnet.md)
+> * [.NET V3](create-sql-api-dotnet.md)
+> * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -68,101 +69,111 @@ ms.locfileid: "72913304"
 1. 运行下列命令以克隆示例存储库。 此命令在计算机上创建示例应用程序的副本。
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-sql-api-async-java-getting-started
+    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
     ```
 
 ## <a name="review-the-code"></a>查看代码
 
 此步骤是可选的。 如果有意了解如何使用代码创建数据库资源，可以查看以下代码片段。 否则，可以跳到[运行应用](#run-the-app)。 
 
-* `AsyncDocumentClient` 初始化。 [AsyncDocumentClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient) 为 Azure Cosmos 数据库服务提供客户端逻辑表示。 此客户端用于对服务配置和执行请求。
+* `CosmosClient` 初始化。 `CosmosClient` 为 Azure Cosmos 数据库服务提供客户端逻辑表示形式。 此客户端用于对服务配置和执行请求。
 
     ```java
-    client = new AsyncDocumentClient.Builder()
-             .withServiceEndpoint(YOUR_COSMOS_DB_ENDPOINT)
-             .withMasterKeyOrResourceToken(YOUR_COSMOS_DB_MASTER_KEY)
-             .withConnectionPolicy(ConnectionPolicy.GetDefault())
-             .withConsistencyLevel(ConsistencyLevel.Eventual)
-             .build();
+    client = new CosmosClientBuilder()
+        .setEndpoint(AccountSettings.HOST)
+        .setKey(AccountSettings.MASTER_KEY)
+        .setConnectionPolicy(defaultPolicy)
+        .setConsistencyLevel(ConsistencyLevel.EVENTUAL)
+        .buildClient();
     ```
 
-* [Database](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.database) 创建。
+* 创建 CosmosDatabase。
 
     ```java
-    Database databaseDefinition = new Database();
-    databaseDefinition.setId(databaseName);
 
-    client.createDatabase(databaseDefinition, null)
-            .toCompletable()
-            .await();
-    ```
-
-* [DocumentCollection](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.documentcollection) 创建。
-
-    ```java
-    DocumentCollection collectionDefinition = new DocumentCollection();
-    collectionDefinition.setId(collectionName);
-
-    //...
-
-    client.createCollection(databaseLink, collectionDefinition, requestOptions)
-            .toCompletable()
-            .await();
-    ```
-
-* 使用 [createDocument](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.document) 方法创建文档。
-
-    ```java
-    // Any Java object within your code
-    // can be serialized into JSON and written to Azure Cosmos DB
-    Family andersenFamily = new Family();
-    andersenFamily.setId("Andersen.1");
-    andersenFamily.setLastName("Andersen");
-    // More properties
-
-    String collectionLink = String.format("/dbs/%s/colls/%s", databaseName, collectionName);
-    client.createDocument(collectionLink, family, null, true)
-            .toCompletable()
-            .await();
+    database = client.createDatabaseIfNotExists(databaseName).getDatabase();
 
     ```
 
-* 使用 [queryDocuments](https://docs.microsoft.com/java/api/com.microsoft.azure.cosmosdb.rx.asyncdocumentclient.querydocuments?view=azure-java-stable) 方法，对 JSON 执行 SQL 查询。
+* 创建 CosmosContainer。
 
     ```java
-    FeedOptions queryOptions = new FeedOptions();
-    queryOptions.setPageSize(-1);
-    queryOptions.setEnableCrossPartitionQuery(true);
-    queryOptions.setMaxDegreeOfParallelism(-1);
 
-    String collectionLink = String.format("/dbs/%s/colls/%s",
-            databaseName,
-            collectionName);
-    Iterator<FeedResponse<Document>> it = client.queryDocuments(
-            collectionLink,
-            "SELECT * FROM Family WHERE Family.lastName = 'Andersen'",
-            queryOptions).toBlocking().getIterator();
+    CosmosContainerProperties containerProperties =
+        new CosmosContainerProperties(containerName, "/lastName");
 
-    System.out.println("Running SQL query...");
-    while (it.hasNext()) {
-        FeedResponse<Document> page = it.next();
-        System.out.println(
-                String.format("\tRead a page of results with %d items",
-                        page.getResults().size()));
-        for (Document doc : page.getResults()) {
-            System.out.println(String.format("\t doc %s", doc));
-        }
+    //  Create container with 400 RU/s
+    container = database.createContainerIfNotExists(containerProperties, 400).getContainer();
+
+    ```
+
+* 使用 `createItem` 方法创建项。
+
+    ```java
+
+    //  Create item using container that we created using sync client
+
+    //  Use lastName as partitionKey for cosmos item
+    //  Using appropriate partition key improves the performance of database operations
+    CosmosItemRequestOptions cosmosItemRequestOptions = new CosmosItemRequestOptions(family.getLastName());
+    CosmosItemResponse item = container.createItem(family, cosmosItemRequestOptions);
+
+    ```
+
+* 使用 `getItem` 和 `read` 方法执行点读取
+
+    ```java
+
+    CosmosItem item = container.getItem(family.getId(), family.getLastName());
+    try {
+        CosmosItemResponse read = item.read(new CosmosItemRequestOptions(family.getLastName()));
+        double requestCharge = read.getRequestCharge();
+        Duration requestLatency = read.getRequestLatency();
+        System.out.println(String.format("Item successfully read with id %s with a charge of %.2f and within duration %s",
+            read.getItem().getId(), requestCharge, requestLatency));
+    } catch (CosmosClientException e) {
+        e.printStackTrace();
+        System.err.println(String.format("Read Item failed with %s", e));
     }
-    ```    
 
-## <a name="run-the-app"></a>运行应用
+    ```
+
+* 使用 `queryItems` 方法对 JSON 执行 SQL 查询。
+
+    ```java
+
+    // Set some common query options
+    FeedOptions queryOptions = new FeedOptions();
+    queryOptions.maxItemCount(10);
+    queryOptions.setEnableCrossPartitionQuery(true);
+    //  Set populate query metrics to get metrics around query executions
+    queryOptions.populateQueryMetrics(true);
+
+    Iterator<FeedResponse<CosmosItemProperties>> feedResponseIterator = container.queryItems(
+        "SELECT * FROM Family WHERE Family.lastName IN ('Andersen', 'Wakefield', 'Johnson')", queryOptions);
+
+    feedResponseIterator.forEachRemaining(cosmosItemPropertiesFeedResponse -> {
+        System.out.println("Got a page of query result with " +
+            cosmosItemPropertiesFeedResponse.getResults().size() + " items(s)"
+            + " and request charge of " + cosmosItemPropertiesFeedResponse.getRequestCharge());
+
+        System.out.println("Item Ids " + cosmosItemPropertiesFeedResponse
+            .getResults()
+            .stream()
+            .map(Resource::getId)
+            .collect(Collectors.toList()));
+    });
+
+    ```
+
+## <a name="run-the-app"></a>运行应用程序
 
 现在返回到 Azure 门户，获取连接字符串信息，并使用终结点信息启动应用。 这样，应用程序就可以与托管的数据库进行通信。
 
 1. 在 git 终端窗口中，通过 `cd` 转至示例代码文件夹。
 
     ```bash
-    cd azure-cosmos-db-sql-api-async-java-getting-started/azure-cosmosdb-get-started
+    cd azure-cosmos-java-getting-started
     ```
 
 2. 在 git 终端窗口中，使用以下命令安装所需的 Java 包。
@@ -180,17 +191,12 @@ ms.locfileid: "72913304"
 
     此时，终端窗口显示通知，提示 FamilyDB 数据库已创建。 
 
-4. 按下某个键创建数据库，然后按下另一个键创建集合。 
-
-    在浏览器中切换回到数据资源管理器，可以看到，帐户中现在包含 FamilyDB 数据库和 FamilyCollection 集合。
-
-5. 切换到控制台窗口，按下某个键创建第一个文档，再按下另一个键创建第二个文档。 然后切换回到数据资源管理器以查看这些资源。 
-
-6. 按下某个键运行查询，并在控制台窗口中查看输出。 
+4. 该应用创建名为 `AzureSampleFamilyDB` 的数据库
+5. 该应用创建名为 `FamilyContainer` 的容器
+6. 该应用使用对象 ID 和分区键值（在本示例中为 lastName）执行点读取。 
+7. 该应用将查询项，以检索姓氏中包含 ('Andersen', 'Wakefield', 'Johnson') 的所有家庭
 
 7. 应用不删除创建的资源。 切换回门户，以便在帐户中[清理资源](#clean-up-resources)，  以免产生费用。
-
-    ![在控制台窗口中查看输出](./media/create-sql-api-java/rxjava-console-output.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>在 Azure 门户中查看 SLA
 
@@ -207,4 +213,4 @@ ms.locfileid: "72913304"
 > [!div class="nextstepaction"]
 > [将数据导入 Azure Cosmos DB](import-data.md)
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

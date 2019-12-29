@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: v-yeche
-ms.openlocfilehash: 5e1327c59d2e31b465eba6c1c9ffa88f90ee6593
-ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
+ms.openlocfilehash: 038b1f17db412d5d664e9aa03f4d44e7f53d65f5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74556038"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336329"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>使用 Azure Kubernetes 服务 (AKS) 中的已授权 IP 地址范围保护对 API 服务器的访问
 
@@ -51,11 +51,13 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
-    --vm-set-type VirtualMachineScaleSets \
+    --vm-set-type AvailabilitySet \
     --load-balancer-sku standard \
     --api-server-authorized-ip-ranges 73.140.245.0/24 \
     --generate-ssh-keys
 ```
+
+<!--Update to --vm-set-type AvailabilitySet in AKS -->
 
 > [!NOTE]
 > 应将以下范围添加到允许列表：
@@ -72,12 +74,14 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
-    --vm-set-type VirtualMachineScaleSets \
+    --vm-set-type AvailabilitySet \
     --load-balancer-sku standard \
     --api-server-authorized-ip-ranges 73.140.245.0/24 \
     --load-balancer-outbound-ips <publicIpId1>,<publicIpId2> \
     --generate-ssh-keys
 ```
+
+<!--Update to --vm-set-type AvailabilitySet in AKS -->
 
 在以上示例中，将允许参数 *--load-balancer-outbound-ip-prefixes* 中提供的所有 IP，以及参数 *--api-server-authorized-ip-ranges* 中的 IP。
 
@@ -94,11 +98,13 @@ az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
     --node-count 1 \
-    --vm-set-type VirtualMachineScaleSets \
+    --vm-set-type AvailabilitySet \
     --load-balancer-sku standard \
     --api-server-authorized-ip-ranges 0.0.0.0/32 \
     --generate-ssh-keys
 ```
+
+<!--Update to --vm-set-type AvailabilitySet in AKS -->
 
 ## <a name="update-a-clusters-api-server-authorized-ip-ranges"></a>更新群集的 API 服务器已授权 IP 范围
 

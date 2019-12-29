@@ -1,19 +1,19 @@
 ---
 title: 示例 - 应用标记及其默认值
-description: 此示例策略定义会追加指定的标记名称和值（如果未提供该标记）。
+description: 此示例策略定义会追加参数中定义的指定标记名称和值（如果未提供该标记）。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/26/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 296c6fdd2994a1d04bdbf61f38f302cd04ce96b0
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: e46969b1d5e507c8044c504e3032e84f3a93b8f3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020875"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336290"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>示例 - 应用标记及其默认值
 
@@ -122,10 +122,10 @@ ms.locfileid: "74020875"
 }
 ```
 
-|Name |类型 |字段 |说明 |
+|名称 |类型 |字段 |说明 |
 |---|---|---|---|
-|tagName |String |标记 |标记的名称，如 costCenter|
-|tagValue |String |标记 |标记的值，如 headquarter|
+|tagName |String |tags |标记的名称，如 costCenter|
+|tagValue |String |tags |标记的值，如 headquarter|
 
 通过 PowerShell 或 Azure CLI 创建分配时，可以使用 `-PolicyParameter` (PowerShell) 或 `--params` (Azure CLI) 通过字符串或文件将参数值传递为 JSON。
 PowerShell 还支持 `-PolicyParameterObject`，这要求向该 cmdlet 传递一个 Name/Value 哈希表，其中，**Name** 是参数名称，**Value** 是在赋值期间传递的单个值或值数组。

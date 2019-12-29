@@ -12,18 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: Python
 ms.workload: identity
-origin.date: 11/11/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.author: v-junlch
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bb89ced339c519e8c6f213e79041f368a3f13c2
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: c15e9c539a5bff110a19102464a2cf16b2076945
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655475"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334816"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>适用于 Python 的 ADAL 到 MSAL 迁移指南
 
@@ -49,7 +48,7 @@ ADAL Python 获取资源的令牌，而 MSAL Python 则是获取范围的令牌�
 
 ### <a name="error-handling"></a>错误处理。
 
-适用于 Python 的 Azure Active Directory 身份验证库 (ADAL) 使用异常 `AdalError` 来指示问题。 而适用于 Python 的 MSAL 通常使用错误代码。 有关详细信息，请参阅[适用于 Python 的 MSAL 错误处理](msal-handling-exceptions.md#msal-for-python-error-handling)。
+适用于 Python 的 Azure Active Directory 身份验证库 (ADAL) 使用异常 `AdalError` 来指示问题。 而适用于 Python 的 MSAL 通常使用错误代码。 有关详细信息，请参阅[适用于 Python 的 MSAL 错误处理](/active-directory/develop/msal-handling-exceptions?tabs=python)。
 
 ### <a name="api-changes"></a>API 更改
 
@@ -61,7 +60,7 @@ ADAL Python 获取资源的令牌，而 MSAL Python 则是获取范围的令牌�
 | 不适用  | [get_authorization_request_url()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.get_authorization_request_url)  |
 | [acquire_token_with_authorization_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_authorization_code) | [acquire_token_by_authorization_code()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_by_authorization_code) |
 | [acquire_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token) | [acquire_token_silent()](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.acquire_token_silent) |
-| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | 不适用（请参阅前面的部分） |
+| [acquire_token_with_refresh_token()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_refresh_token) | 不适用 |
 | [acquire_user_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_user_code) | [initiate_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.initiate_device_flow) |
 | [acquire_token_with_device_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_device_code) 和 [cancel_request_to_get_token_with_device_code()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.cancel_request_to_get_token_with_device_code) | [acquire_token_by_device_flow()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_device_flow) |
 | [acquire_token_with_username_password()](https://adal-python.readthedocs.io/en/latest/#adal.AuthenticationContext.acquire_token_with_username_password) | [acquire_token_by_username_password()](https://msal-python.readthedocs.io/en/latest/#msal.PublicClientApplication.acquire_token_by_username_password) |
@@ -105,3 +104,4 @@ for old_rt, old_scope in get_preexisting_rt_and_their_scopes_from_elsewhere(...)
 
 有关详细信息，请阅读 [v1.0 与 v2.0 的比较](active-directory-v2-compare.md)。
 
+<!-- Update_Description: wording update -->

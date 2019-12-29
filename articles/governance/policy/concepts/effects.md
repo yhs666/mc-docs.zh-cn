@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 539aef9a195018af92e7c39bcad20c83e17c716d
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 914b5804559080f8502bd0ab619804f1b06a96f5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657587"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335813"
 ---
 # <a name="understand-azure-policy-effects"></a>了解 Azure Policy 效果
 
@@ -432,6 +432,8 @@ DeployIfNotExists 效果的 **details** 属性包含用于定义要匹配的相�
 }
 ```
 
+<!-- ## EnforceOPAConstraint -->
+<!-- ## EnforceRegoPolicy -->
 ## <a name="layering-policies"></a>分层策略
 
 资源可能会受到多个分配的影响。 这些分配可能处于相同或不同的范围。 这些分配中的每一个也可能具有不同的定义效果。 将单独评估每个策略的条件和效果。 例如：
@@ -466,6 +468,6 @@ DeployIfNotExists 效果的 **details** 属性包含用于定义要匹配的相�
 - 在 [Azure Policy 示例](../samples/index.md)中查看示例。
 - 查看 [Azure Policy 定义结构](definition-structure.md)。
 - 了解如何[以编程方式创建策略](../how-to/programmatically-create.md)。
-- 了解如何[获取合规性数据](../how-to/getting-compliance-data.md)。
+- 了解如何[获取合规性数据](../how-to/get-compliance-data.md)。
 - 了解如何[修正不合规的资源](../how-to/remediate-resources.md)。
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

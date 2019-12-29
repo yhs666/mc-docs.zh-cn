@@ -1,5 +1,5 @@
 ---
-title: 使用 Linux VM 系统分配的托管标识访问 Azure 资源管理器
+title: 快速入门`:`使用托管标识访问 Azure 资源管理器 - Azure AD
 description: 本快速入门将指导你完成使用 Linux VM 系统分配的托管标识访问 Azure Resource Manager 的过程。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/20/2017
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b5408e5720b5c11e0f9b568a5f0381413e7b65d
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: 32cd0fe5646fbca7f1be961e77aa1d85f98a4960
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818628"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335537"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>使用 Linux VM 系统分配的托管标识访问 Azure 资源管理器
 
@@ -102,4 +101,6 @@ ms.locfileid: "68818628"
 
 > [!div class="nextstepaction"]
 >[Azure 资源管理器](/azure-resource-manager/resource-group-overview)
+>[使用 Azure PowerShell 创建、列出和删除用户分配托管标识](how-to-manage-ua-identity-powershell.md)
 
+<!-- Update_Description: wording update -->

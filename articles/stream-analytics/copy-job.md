@@ -1,30 +1,29 @@
 ---
 title: 复制或备份 Azure 流分析作业
 description: 本文介绍如何复制或备份 Azure 流分析作业。
-services: stream-analytics
-author: su-jie
-ms.author: sujie
-ms.reviewer: mamccrea
+author: lingliw
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/11/2019
-ms.openlocfilehash: 99f78b3a30110385b4f6283d4fef4c98d9d1b0a0
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+origin.date: 09/11/2019
+ms.date: 11/12/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 3ae64159d02047a90bab96515f3379e859fb108e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528600"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334558"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>复制或备份 Azure 流分析作业
 
 可以使用 Visual Studio Code 或 Visual Studio 来复制或备份已部署的 Azure 流分析作业。 
 
 ## <a name="before-you-begin"></a>准备阶段
-* 如果还没有 Azure 订阅，可以创建一个[免费帐户](https://azure.microsoft.com/free/)。
+* 如果没有 Azure 订阅，请创建一个[试用帐户](https://www.azure.cn/zh-cn/pricing/1rmb-trial-full/?form-type=identityauth)。
 
-* 登录到 [Azure 门户](https://portal.azure.com/)。
+* 登录到 [Azure 门户](https://portal.azure.cn/)。
 
-* 安装[适用于 Visual Studio Code 的 Azure 流分析扩展](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code#install-the-azure-stream-analytics-extension)或[适用于 Visual Studio 的 Azure 流分析工具](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code#install-the-azure-stream-analytics-extension)。  
+* 安装[适用于 Visual Studio Code 的 Azure 流分析扩展](/stream-analytics/quick-create-vs-code#install-the-azure-stream-analytics-extension)或[适用于 Visual Studio 的 Azure 流分析工具](/stream-analytics/quick-create-vs-code#install-the-azure-stream-analytics-extension)。  
 
 
 
@@ -49,7 +48,7 @@ ms.locfileid: "74528600"
 
 ## <a name="visual-studio"></a>Visual Studio 
 
-1. 按照[将部署的 Azure 流分析作业导出到项目说明](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project)进行操作。 
+1. 按照[将部署的 Azure 流分析作业导出到项目说明](/stream-analytics/stream-analytics-vs-tools#export-jobs-to-a-project)进行操作。 
 
 2. 在查询编辑器中打开 \*.asaql 文件，在脚本编辑器中选择“提交到 Azure”  ，然后按照说明使用新名称将作业发布到其他区域或备份。 
 

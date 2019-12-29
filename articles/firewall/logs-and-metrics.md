@@ -1,19 +1,19 @@
 ---
 title: Azure 防火墙日志和指标的概述
-description: 本文概述 Azure 防火墙诊断日志和指标。
+description: 可以使用防火墙日志来监视 Azure 防火墙。 此外，可以使用活动日志来审核对 Azure 防火墙资源执行的操作。
 services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 08/22/2019
-ms.date: 09/23/2019
+origin.date: 11/19/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7500bd1adfe4d938095bed8d6776cfcf9154bcae
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 96d2c916a67a63d515b86f5d44b26b90af04a196
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156199"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334983"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure 防火墙日志和指标
 

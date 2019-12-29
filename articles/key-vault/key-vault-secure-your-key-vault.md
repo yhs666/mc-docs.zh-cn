@@ -10,12 +10,12 @@ ms.topic: conceptual
 origin.date: 01/07/2019
 ms.date: 12/09/2019
 ms.author: v-tawe
-ms.openlocfilehash: 4bef7035957fa6ec871f5e8e82694a2b117a2f05
-ms.sourcegitcommit: 21b02b730b00a078a76aeb5b78a8fd76ab4d6af2
+ms.openlocfilehash: 7d7f4fee762ae9565f67b7a11d6d7c5f58d75efc
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74838977"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336225"
 ---
 # <a name="secure-access-to-a-key-vault"></a>保护对密钥保管库的访问
 
@@ -204,10 +204,6 @@ Set-AzKeyVaultAccessPolicy -VaultName ContosoKeyVault -ObjectId (Get-AzADGroup -
 * [使用 Azure PowerShell 管理 RBAC](../role-based-access-control/role-assignments-powershell.md) 
 
 * [使用 REST API 管理 RBAC](../role-based-access-control/role-assignments-rest.md)
-
-* [适用于 Microsoft Azure 的 RBAC](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
-
-    此 2015 年 Microsoft Ignite 大会视频讨论了 Azure 中的访问管理和报告功能。 它还介绍了使用 Azure AD 保护对 Azure 订阅的访问权限的最佳做法。
 
 * [使用 OAuth 2.0 和 Azure AD 来授权访问 Web 应用程序](../active-directory/develop/v2-oauth2-auth-code-flow.md)
 

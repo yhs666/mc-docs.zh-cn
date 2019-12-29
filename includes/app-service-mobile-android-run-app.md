@@ -3,20 +3,20 @@ author: conceptdev
 ms.service: app-service-mobile
 ms.topic: include
 origin.date: 05/09/2019
-ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 99f3cdebe01a24ad938a7b146cb05834d39c7835
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.date: 12/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: 1955c32bef47ad0e445516108b3777f8ab7ed332
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336250"
 ---
 1. 使用“导入项目（Eclipse ADT、Gradle 等）”打开使用“Android Studio”的项目   。 请确保使用此导入选项以避免任何 JDK 错误。
 
 2. 打开此文件夹（ZUMOAPPNAME/app/src/main/java/com/example/zumoappname）中的文件 `ToDoActivity.java`。 应用程序名称为 `ZUMOAPPNAME`。
 
-3. 转到 [Azure 门户](https://portal.azure.cn/)，并导航到已创建的移动应用。 在 `Overview` 边栏选项卡上，查找作为移动应用公共终结点的 URL。 示例 - 我的应用名称“test123”的站点名将为 https://test123.azurewebsites.net 。
+3. 转到 [Azure 门户](https://portal.azure.cn/)，并导航到已创建的移动应用。 在 `Overview` 边栏选项卡上，查找作为移动应用公共终结点的 URL。 示例 - 我的应用名称“test123”的站点名将为 https://test123.chinacloudsites.cn 。
 
 4. 在 `onCreate()` 方法中，将 `ZUMOAPPURL` 参数替换为上面的公共终结点。
     

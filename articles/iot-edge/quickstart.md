@@ -5,17 +5,17 @@ author: kgremban
 manager: philmea
 ms.author: v-yiso
 origin.date: 08/16/2019
-ms.date: 10/08/2019
+ms.date: 12/23/2019
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 8380bd34d82c0f43575a33786d54c137e425917e
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: ae773c22dc7dd4c419893bd11dc0001a7fe6f95c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389379"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336458"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-virtual-windows-device"></a>快速入门：将第一个 IoT Edge 模块部署到虚拟 Windows 设备
 
@@ -138,9 +138,9 @@ IoT Edge 运行时部署在所有 IoT Edge 设备上。 它有三个组件。 �
 
 使用 PowerShell 下载并安装 IoT Edge 运行时。 使用从 IoT 中心检索的设备连接字符串来配置设备。 
 
-1. 如果还没有，请按照[注册新的 Azure IoT Edge 设备](how-to-register-device-portal.md)中的步骤注册设备并检索设备连接字符串。 
+1. 如果还没有，请按照[注册新的 Azure IoT Edge 设备](how-to-register-device.md)中的步骤注册设备并检索设备连接字符串。
 
-2. 以管理员身份运行 PowerShell。
+2. 在虚拟机中，以管理员身份运行 PowerShell。
 
    >[!NOTE]
    >使用 PowerShell 的 AMD64 会话安装 IoT Edge，不要使用 PowerShell (x86)。 如果不确定您使用的是什么会话类型，请运行以下命令：

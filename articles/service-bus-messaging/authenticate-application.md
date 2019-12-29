@@ -1,19 +1,20 @@
 ---
 title: 对访问 Azure 服务总线实体的应用程序进行身份验证
 description: 本文介绍如何对使用 Azure Active Directory 访问 Azure 服务总线实体（队列、主题等）的应用程序进行身份验证
-services: service-bus-messaging
+author: lingliw
+manager: digimobile
 ms.service: event-hubs
 documentationcenter: ''
-author: axisc
 ms.topic: conceptual
-ms.date: 08/22/2019
-ms.author: aschhab
-ms.openlocfilehash: 18b1c8c5cec1068e2fa2cfbc671aafa77e16c14e
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+origin.date: 08/22/2019
+ms.date: 12/13/2019
+ms.author: v-lingwu
+ms.openlocfilehash: 50441bafaa70b75512f6db03281a9e75e1e1e15a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528332"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334841"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>使用 Azure Active Directory 对应用程序进行身份验证和授权，使之能够访问 Azure 服务总线实体
 Azure 服务总线支持使用 Azure Active Directory (Azure AD) 授权对服务总线实体（队列、主题、订阅或筛选器）的请求。 可以通过 Azure AD 使用基于角色的访问控制 (RBAC) 授予对服务主体的访问权限，该服务主体可能是用户、组或应用程序服务主体。 若要详细了解角色和角色分配，请参阅[了解不同的角色](../role-based-access-control/overview.md)。
@@ -21,7 +22,7 @@ Azure 服务总线支持使用 Azure Active Directory (Azure AD) 授权对服务
 ## <a name="overview"></a>概述
 当某个安全主体（用户、组或应用程序）尝试访问服务总线实体时，请求必须获得授权。 使用 Azure AD 是，访问资源的过程包括两个步骤。 
 
- 1. 首先，验证安全主体的身份并返回 OAuth 2.0 令牌。 用于请求令牌的资源名称为 `https://servicebus.azure.net`。
+ 1. 首先，验证安全主体的身份并返回 OAuth 2.0 令牌。 用于请求令牌的资源名称为 `https://servicebus.chinacloudapi.cn`。
  1. 接下来，将该令牌作为请求的一部分传递给服务总线服务，用于授权访问指定的资源。
 
 身份验证步骤要求应用程序请求包含在运行时使用的 OAuth 2.0 访问令牌。 如果应用程序在 Azure 实体（如 Azure VM、虚拟机规模集或 Azure 函数应用）中运行，它可以使用托管标识来访问资源。 若要了解如何对托管标识向服务总线服务发出的请求进行身份验证，请参阅[对使用 Azure Active Directory 和 Azure 资源的托管标识访问 Azure 服务总线资源进行身份验证](service-bus-managed-service-identity.md)。 

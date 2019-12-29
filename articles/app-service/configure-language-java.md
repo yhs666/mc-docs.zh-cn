@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: v-tawe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c271394bf430a78d4dd4e02f8e3aeb3e75f3e016
-ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
+ms.openlocfilehash: afe876e6ca187acf687072f44a369ae1acaf5bd8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555985"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335730"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>为 Azure 应用服务配置 Windows Java 应用
 
@@ -30,7 +30,7 @@ Azure 应用服务可让 Java 开发人员在完全托管的基于 Windows 的�
 
 ## <a name="deploying-your-app"></a>部署应用
 
-可以使用 [Azure 应用服务的 Maven 插件](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)来部署 .war 文件。 [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) 或 [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse) 还支持通过流行的 IDE 进行部署。
+可以使用 [Azure 应用服务的 Maven 插件](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme)来部署 .war 文件。 [Azure Toolkit for IntelliJ](/java/intellij/azure-toolkit-for-intellij) 或 [Azure Toolkit for Eclipse](/java/eclipse/azure-toolkit-for-eclipse) 还支持通过流行的 IDE 进行部署。
 
 如果不使用这些方法，则部署方法将取决于存档类型：
 

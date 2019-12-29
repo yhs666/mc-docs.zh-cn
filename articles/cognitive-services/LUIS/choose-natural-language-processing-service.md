@@ -8,12 +8,12 @@ ms.service: cognitive-services
 origin.date: 11/04/2019
 ms.date: 11/18/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 7229cb8d98cd6604fd12f10bef54a39e946ef98c
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 2e6bcc419f2f6e45e62b20c462bd2787d0e92c87
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885108"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335120"
 ---
 # <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>使用包含自然语言处理 (NLP) 的认知服务来扩充机器人聊天
 
@@ -86,6 +86,7 @@ ms.locfileid: "74885108"
 * [语言理解 (LUIS)](what-is-luis.md)
 * [调度 CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch)
 * [Bot Framework 示例](https://github.com/Microsoft/BotBuilder-Samples)
-* [Azure 机器人服务](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0)
 * [Azure 机器人仿真器](https://github.com/Microsoft/BotFramework-Emulator)
 * [Bot Framework 网上聊天](https://github.com/microsoft/BotFramework-WebChat)
+
+<!-- * [Azure bot service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) -->

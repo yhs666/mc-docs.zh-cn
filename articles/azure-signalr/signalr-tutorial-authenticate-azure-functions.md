@@ -1,18 +1,18 @@
 ---
-title: 教程：使用 Azure Functions 进行 Azure SignalR 服务身份验证
+title: 教程：使用 Azure Functions 进行身份验证 - Azure SignalR
 description: 本教程介绍如何针对 Azure Functions 绑定，为 Azure SignalR 服务客户端进行身份验证
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 origin.date: 03/01/2019
-ms.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5457a4e6c5661af547c39cc33574dd956c2e4b66
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: d963f9a35ff89eb8f65a01b7596bfeee485cffef
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179057"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334852"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>教程：使用 Azure Functions 进行 Azure SignalR 服务身份验证
 
@@ -48,20 +48,20 @@ ms.locfileid: "74179057"
 
 1. 单击用于创建新 Azure 资源的“创建资源”( **+** ) 按钮。 
 
-1. 搜索“SignalR 服务”并将其选中。  单击“创建”。 
+1. 搜索“SignalR 服务”并将其选中。  单击**创建**。
 
     ![新建 SignalR 服务](media/signalr-tutorial-authenticate-azure-functions/signalr-quickstart-new.png)
 
 1. 输入以下信息。
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
     | 资源名称 | SignalR 服务实例的唯一名称 |
-    | Resource group | 创建具有唯一名称的新资源组 |
+    | 资源组 | 创建具有唯一名称的新资源组 |
     | 位置 | 选择靠近自己的位置 |
     | 定价层 | 免费 |
 
-1. 单击“创建”。 
+1. 单击**创建**。
 
 1. 部署该实例后，在门户中打开它并找到其“设置”页。 将服务模式设置更改为“无服务器”  。
 
@@ -146,11 +146,11 @@ ms.locfileid: "74179057"
 
 1. 出现提示时，请提供以下信息。
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
     | 函数应用文件夹 | 选择主项目文件夹 |
     | 模板 | HTTP 触发器 |
-    | Name | negotiate |
+    | 名称 | negotiate |
     | 授权级别 | 匿名 |
 
     将创建包含新函数的名为 negotiate  的文件夹。
@@ -205,11 +205,11 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 出现提示时，请提供以下信息。
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
     | 函数应用文件夹 | 选择主项目文件夹 |
     | 模板 | HTTP 触发器 |
-    | Name | SendMessage |
+    | 名称 | SendMessage |
     | 授权级别 | 匿名 |
 
     将创建包含新函数的名为 **SendMessage** 的文件夹。
@@ -318,10 +318,10 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 输入以下信息。
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
-    | Subscription | 选择包含 SignalR 服务实例的订阅 |
-    | Resource group | 选择相同资源组 |
+    | 订阅 | 选择包含 SignalR 服务实例的订阅 |
+    | 资源组 | 选择相同资源组 |
     | 资源名称 | 存储帐户的唯一名称 |
     | 位置 | 选择其他资源所在的同一位置 |
     | 性能 | 标准 |
@@ -341,7 +341,7 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 在“索引文档名称”  中，输入 index.html  。
 
-1. 单击“ **保存**”。
+1. 单击“保存”  。
 
 1. “主终结点”  随即出现。 请记下此值。 配置函数应用需要它。
 
@@ -374,13 +374,13 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 出现提示时，请提供以下信息。
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
     | 要部署的文件夹 | 选择主项目文件夹 |
-    | Subscription | 选择订阅 |
+    | 订阅 | 选择订阅 |
     | 函数应用 | 选择“创建新函数应用”  |
     | 函数应用名称 | 输入唯一的名称 |
-    | Resource group | 选择 SignalR 服务实例所在的同一资源组 |
+    | 资源组 | 选择 SignalR 服务实例所在的同一资源组 |
     | 存储帐户 | 选择前面创建的存储帐户 |
 
     随即会在 Azure 中创建新的函数应用，并开始部署。 等待部署完成。
@@ -393,10 +393,10 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 出现提示时，请提供以下信息。
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
     | 本地设置文件 | local.settings.json |
-    | Subscription | 选择订阅 |
+    | 订阅 | 选择订阅 |
     | 函数应用 | 选择前面部署的函数应用 |
 
 本地设置将上传到 Azure 中的函数应用。 如果系统提示是否要覆盖现有设置，请选择“全是”。 
@@ -449,9 +449,9 @@ Web 应用还需要使用一个 HTTP API 来发送聊天消息。 我们将创�
 
 1. 输入以下值：
 
-    | Name | 值 |
+    | 名称 | Value |
     |---|---|
-    | Subscription | 选择订阅 |
+    | 订阅 | 选择订阅 |
     | 存储帐户 | 选择前面创建的存储帐户 |
     | 要部署的文件夹 | 选择“浏览”  ，然后选择“内容”  文件夹 |
 

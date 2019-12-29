@@ -1,20 +1,20 @@
 ---
-title: 适用于 Azure Cosmos DB 的数据库迁移工具
-description: 了解如何使用开源 Azure Cosmos DB 数据迁移工具从各种源将数据导入 Azure Cosmos DB 中，这些源包括 MongoDB、SQL Server、表存储、Amazon DynamoDB、CSV 和 JSON 文件。 将 CSV 转换为 JSON。
+title: 教程：适用于 Azure Cosmos DB 的数据库迁移工具
+description: 教程：了解如何使用开源 Azure Cosmos DB 数据迁移工具从各种源将数据导入 Azure Cosmos DB 中，这些源包括 MongoDB、SQL Server、表存储、Amazon DynamoDB、CSV 和 JSON 文件。 将 CSV 转换为 JSON。
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: tutorial
-origin.date: 05/20/2019
-ms.date: 09/09/2019
+origin.date: 11/05/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6371905473ceb6f2bd36ce9bab240692becf4eea
-ms.sourcegitcommit: 66192c23d7e5bf83d32311ae8fbb83e876e73534
+ms.date: 12/16/2019
+ms.openlocfilehash: f50ad169108c5e99ba22fc9ceabb0d95409204c9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70254788"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336216"
 ---
-# <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>使用数据迁移工具将数据迁移到 Azure Cosmos DB
+# <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>教程：使用数据迁移工具将数据迁移到 Azure Cosmos DB
 
 本教程说明如何使用可将数据从各种源导入 Azure Cosmos 容器和表的 Azure Cosmos DB 数据迁移工具。 可从 JSON 文件、CSV 文件、SQL、MongoDB、Azure 表存储、Amazon DynamoDB 导入，甚至还可以从 Azure Cosmos DB SQL API 集合导入。 可将该数据迁移到集合和表中，以便在 Azure Cosmos DB 中使用。 还可在从单个分区集合迁移到 SQL API 的多分区集合时使用数据迁移工具。
 
@@ -243,6 +243,8 @@ dt.exe /s:CsvFile /s.Files:.\Employees.csv /t:DocumentDBBulk /t.ConnectionString
 
 Azure 表存储连接字符串的格式为：
 
+<!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
+
 `DefaultEndpointsProtocol=<protocol>;AccountName=<Account Name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn;`
     
 <!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
@@ -262,6 +264,8 @@ Azure 表存储源导入程序选项具有下列附加选项︰
     1. Azure 表存储筛选器不支持投影。 如果想要仅导入特定的 Azure 表实体属性，请将它们添加到“选择列”列表中。 将忽略其他所有实体属性。
 
 下面是一个用于从 Azure 表存储导入的命令行示例：
+
+<!-- Add EndpointSuffix=core.chinacloudapi.cn for storage account-->
 
 ```console
 dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;AccountName=<Account Name>;AccountKey=<Account Key>;EndpointSuffix=core.chinacloudapi.cn" /s.Table:metrics /s.InternalFields:All /s.Filter:"PartitionKey eq 'Partition1' and RowKey gt '00001'" /s.Projection:ObjectCount;ObjectSize  /t:DocumentDBBulk /t.ConnectionString:" AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:metrics /t.CollectionThroughput:2500

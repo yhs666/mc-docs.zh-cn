@@ -4,12 +4,12 @@ description: 显示支持标记的 Azure资源类型。 提供所有 Azure 服�
 ms.topic: conceptual
 origin.date: 11/22/2019
 ms.date: 12/09/2019
-ms.openlocfilehash: 6f58b7fbfd81ff11818dc09a7b0db6ba05d681b4
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.openlocfilehash: 0ce0fd7f9b3d37ebd0ce0596c4ba8457d49939c5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884804"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335954"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 资源的标记支持
 本文介绍某一资源类型是否支持[标记](resource-group-using-tags.md)。 标记为“支持标记”  的列指示资源类型是否具有标记的属性。 标记为“在成本报表中标记”  的列指示该资源类型是否将标记传递给成本报表。
@@ -658,7 +658,7 @@ ms.locfileid: "74884804"
 > | ------------- | ----------- | ----------- |
 > | getEntities | 否 | 否 |
 > | managementGroups | 否 | 否 |
-> | 资源 | 否 | 否 |
+> | resources | 否 | 否 |
 > | startTenantBackfill | 否 | 否 |
 > | tenantBackfillStatus | 否 | 否 |
 
@@ -884,7 +884,7 @@ ms.locfileid: "74884804"
 > | 查询 | 是 | 是 |
 > | resourceChangeDetails | 否 | 否 |
 > | resourceChanges | 否 | 否 |
-> | 资源 | 否 | 否 |
+> | resources | 否 | 否 |
 > | resourcesHistory | 否 | 否 |
 > | subscriptionsStatus | 否 | 否 |
 
@@ -1013,7 +1013,15 @@ ms.locfileid: "74884804"
 
 <!--Not Available on ## Service Fabric Mesh-->
 <!--Not Available on ## Microsoft.Services-->
-<!--Not Available on ## Microsoft.SignalRService-->
+
+## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
+
+> [!div class="mx-tableFixed"]
+> | 资源类型 | 支持标记 | 在成本报表中标记 |
+> | ------------- | ----------- | ----------- |
+> | SignalR | 是 | 是 |
+> | SignalR / eventGridFilters | 否 | 否 |
+
 <!--Not Available on ## Microsoft.SiteRecovery-->
 <!--Not Available on ## Microsoft.Solutions-->
 

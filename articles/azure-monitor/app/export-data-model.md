@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 01/08/2019
 ms.date: 6/4/2019
 ms.author: v-lingwu
-ms.openlocfilehash: e080e039085040e131108a9f0f994cb13ec3cd50
-ms.sourcegitcommit: b09d4b056ac695ba379119eb9e458a945b0a61d9
+ms.openlocfilehash: bd1d8bfb451f303f78b188eeaf465d4472f488ee
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72970912"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500354"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 导出数据模型
 此表列出了从 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK 发送到门户的遥测属性。
@@ -70,7 +70,7 @@ ms.locfileid: "72970912"
       "application": { },
       "location": { // derived from client ip
         "continent": "North America",
-        "country": "United States",
+        "country": "China East",
         // last octagon is anonymized to 0 at portal:
         "clientip": "168.62.177.0",
         "province": "",
@@ -115,7 +115,7 @@ ms.locfileid: "72970912"
 | context.custom.dimensions [0] |object [ ] |自定义属性参数设置的键-值字符串对。 键的最大长度为 100，值的最大长度为 1024。 如果唯一值超过 100 个，属性可搜索，但不可用于分段。 每个 ikey 最多有 200 个键。 |
 | context.custom.metrics [0] |object [ ] |自定义测量参数和 TrackMetrics 设置的键-值对。 键的最大长度为 100，值可以是数字。 |
 | context.data.eventTime |string |UTC |
-| context.data.isSynthetic |布尔值 |请求似乎来自 Bot 或 Web 测试。 |
+| context.data.isSynthetic |boolean |请求似乎来自 Bot 或 Web 测试。 |
 | context.data.samplingRate |number |SDK 生成的、发送到门户的遥测百分比。 范围为 0.0-100.0。 |
 | context.device |object |客户端设备 |
 | context.device.browser |string |IE、Chrome... |
@@ -142,14 +142,14 @@ ms.locfileid: "72970912"
 | context.operation.name |string |URL 或请求名称 |
 | context.operation.parentId |string |允许嵌套的相关项。 |
 | context.session.id |string |一组来自相同源的操作的 ID。 如果在 30 分钟期限内没有操作，则表示会话结束。 |
-| context.session.isFirst |布尔值 | |
+| context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |string | |
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[经过身份验证的用户](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
-| context.user.isAuthenticated |布尔值 | |
+| context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | 将项引入到 Application Insights 时分配的唯一 ID |
@@ -177,7 +177,7 @@ ms.locfileid: "72970912"
 | basicException [0] failedUserCodeMethod |string | |
 | basicException [0] failedUserCodeAssembly |string | |
 | basicException [0] handledAt |string | |
-| basicException [0] hasFullStack |布尔值 | |
+| basicException [0] hasFullStack |boolean | |
 | basicException [0] id |string | |
 | basicException [0] method |string | |
 | basicException [0] message |string |异常消息。 最大长度为 10k。 |
@@ -209,7 +209,7 @@ ms.locfileid: "72970912"
 
 | `Path` | 类型 | 注释 |
 | --- | --- | --- |
-| remoteDependency [0] async |布尔值 | |
+| remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |例如“home/index” |
 | remoteDependency [0] count |integer |100/([采样](../../azure-monitor/app/sampling.md)率)。 例如 4 =&gt; 25%。 |
@@ -218,7 +218,7 @@ ms.locfileid: "72970912"
 | remoteDependency [0] id |string | |
 | remoteDependency [0] name |string |URL。 最大长度为 250。 |
 | remoteDependency [0] resultCode |string |源 HTTP 依赖项 |
-| remoteDependency [0] success |布尔值 | |
+| remoteDependency [0] success |boolean | |
 | remoteDependency [0] type |string |Http、Sql... |
 | remoteDependency [0] url |string |最大长度为 2000 |
 | remoteDependency [0] urlData.base |string |最大长度为 2000 |
@@ -235,7 +235,7 @@ ms.locfileid: "72970912"
 | request [0] id |string |操作 ID |
 | request [0] name |string |GET/POST + URL 基。  最大长度为 250 |
 | request [0] responseCode |integer |发送到客户端的 HTTP 响应 |
-| request [0] success |布尔值 |默认值 == (responseCode &lt; 400) |
+| request [0] success |boolean |默认值 == (responseCode &lt; 400) |
 | request [0] url |string |不包括主机 |
 | request [0] urlData.base |string | |
 | request [0] urlData.hashTag |string | |

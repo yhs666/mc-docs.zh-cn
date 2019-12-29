@@ -1,6 +1,6 @@
 ---
 title: 示例 - 审核 SQL Server 审核设置
-description: 此示例策略定义使用 auditIfNotExists 审核 SQL Server 审核设置。
+description: 此示例策略定义使用 auditIfNotExists 审核参数中定义的 SQL Server 审核设置。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: d7b20a5d33f31930f23199a4849c72f493a036ad
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: aa48a934b8ed7ea70a829466cc021dce7c4e3de4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526584"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335974"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>示例 - 审核 SQL Server 审核设置
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 573b25e0456ebdab92428a12770cf841b00aceb2
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: e974d234938b19855ccfec45b4b081c8a40a37b5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883815"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335915"
 ---
 # <a name="manage-your-personal-application-preferences"></a>管理个人应用程序首选项
 
@@ -35,9 +35,3 @@ IoT Central 支持多种语言。 可以使用顶部导航栏上“设置”图�
 > [!NOTE]
 > 如果管理员已为应用程序配置自定义主题，则无法在浅色主题和深色主题之间切换。
 
-## <a name="next-steps"></a>后续步骤
-
-现在，你已了解如何在 Azure IoT Central 中管理配置文件，建议接下来执行以下步骤：
-
-> [!div class="nextstepaction"]
-> [切换实时聊天](howto-show-hide-chat.md)

@@ -4,17 +4,17 @@ description: 介绍在 Azure 中使用设备预配服务和 IoT 中心预配设�
 author: nberdy
 ms.author: v-yiso
 origin.date: 04/04/2019
-ms.date: 09/09/2019
+ms.date: 12/23/2019
 ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 0fcb7b6612ee5e4fef8bfb35f51612b6b7f78eb7
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 6f8708784489b35b6682eb732977bb53d8a7d1ef
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335725"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>使用 Azure IoT 中心设备预配服务预配设备
 Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT 解决方案需求。 IoT 中心设备预配服务是针对 IoT 中心的帮助程序服务，无需人为干预即可零接触实时预配至合适的 IoT 中心，客户可以采用安全且可缩放的方式预配数百万台设备。
@@ -79,7 +79,7 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 
 * 对基于 X.509 和 TPM 的标识  的安全证明支持。
 * 注册列表，其中包含可能在某一时刻注册的设备/设备组的完整记录  。 注册列表包含有关设备注册后所需的设备配置信息，并可随时更新。
-* 多分配策略，用于根据自己的需要控制设备预配服务向 IoT 中心分配设备的方式  。
+* 多分配策略，用于根据自己的需要控制设备预配服务向 IoT 中心分配设备的方式  ：通过注册列表控制最小延迟、平均加权分布（默认值）和静态配置。 请注意，延迟是使用与[流量管理器](/traffic-manager/traffic-manager-routing-methods#performance)相同的方法确定的。
 * **监视和诊断日志记录**，用于确保一切都正常工作。
 * **多中心支持**，允许设备预配服务将设备分配给多个 IoT 中心。 设备预配服务可跨多个 Azure 订阅与中心进行通讯。
 * **跨区域支持**，允许设备预配服务将设备分配给多个 IoT 中心。
@@ -97,7 +97,7 @@ Microsoft Azure 提供一套丰富的集成公有云服务，满足所有 IoT �
 
 设备预配服务仅对服务操作支持 HTTPS 连接。
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>区域
 设备预配服务在许多区域可用。 [Azure 区域](https://azure.microsoft.com/regions/)页面中提供了所有服务的现有区域和新宣布推出区域的更新列表。 可以在 [Azure 状态](https://azure.microsoft.com/status/)页面上检查设备预配服务的可用性。
 
 > [!NOTE]

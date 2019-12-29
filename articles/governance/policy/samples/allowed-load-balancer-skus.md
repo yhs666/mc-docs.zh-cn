@@ -1,19 +1,19 @@
 ---
 title: 示例 - 允许的负载均衡器 SKU
-description: 此示例策略定义要求负载均衡器使用已批准的 SKU。
+description: 此示例策略定义要求负载均衡器使用在参数中定义的已批准的 SKU。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/23/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: aa058998a4a0284649e825b18b8d9205a5ba370d
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: b6eec12a09048125574a181dbd2817515b5faec3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526661"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335984"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>示例 - 允许的负载均衡器 SKU
 

@@ -1,19 +1,19 @@
 ---
 title: Azure 防火墙的 FQDN 标记概述
-description: 了解 Azure 防火墙中的 FQDN 标记
+description: FQDN 标记表示与已知的 Azure 服务关联的一组完全限定的域名 (FQDN)。
 services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 04/23/2019
-ms.date: 07/22/2019
+origin.date: 11/19/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 22bbec59f7a5fac902a724ae185241b88376c1c8
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: 9351480342a5d30f4ec05bfe70dd4b96dea7274f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337605"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335004"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 标记概述
 
@@ -32,13 +32,11 @@ FQDN 标记表示与已知的 Azure 服务关联的一组完全限定的域名 (
 |FQDN 标记  |说明  |
 |---------|---------|
 |Windows 更新     |允许出站访问 Microsoft 更新，如[如何为软件更新配置防火墙](https://technet.microsoft.com/library/bb693717.aspx)中所述。|
-|Windows 诊断|允许出站访问所有 [Windows 诊断终结点](https://docs.microsoft.com/zh-cn/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)。|
+|Windows 诊断|允许出站访问所有 [Windows 诊断终结点](https://docs.microsoft.com/windows/privacy/configure-windows-diagnostic-data-in-your-organization#endpoints)。|
 |Microsoft 主动保护服务 (MAPS)|允许出站访问 [MAPS](https://cloudblogs.microsoft.com/enterprisemobility/2016/05/31/important-changes-to-microsoft-active-protection-service-maps-endpoint/)。|
-|应用服务环境 (ASE)|允许出站访问 ASE 平台流量。 此标记未涵盖特定于客户的存储和由 ASE 创建的 SQL 终结点。 这些应通过[服务终结点](../virtual-network/tutorial-restrict-network-access-to-resources.md)启用或手动添加。<br /><br />|
+|应用服务环境 (ASE)|允许出站访问 ASE 平台流量。 此标记未涵盖特定于客户的存储和由 ASE 创建的 SQL 终结点。 这些应通过[服务终结点](../virtual-network/tutorial-restrict-network-access-to-resources.md)启用或手动添加。<br /><br />有关将 Azure 防火墙与 ASE 集成的详细信息，请参阅[锁定应用服务环境](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)。|
 |Azure 备份|允许对 Azure 备份服务进行出站访问。|
-|Azure HDInsight<br />（预览版）|允许出站访问 HDInsight 平台流量。 此标记未涵盖特定于客户的存储和来自 HDInsight 的 SQL 流量。 使用[服务终结点](../virtual-network/tutorial-restrict-network-access-to-resources.md)启用这些项或手动添加它们。|
-
-<!--Not Available on Line 32 App Service Environment (ASE) [Locking down an App Service Environment](../app-service/environment/firewall-integration.md#configuring-azure-firewall-with-your-ase)-->
+|Azure HDInsight|允许出站访问 HDInsight 平台流量。 此标记未涵盖特定于客户的存储和来自 HDInsight 的 SQL 流量。 使用[服务终结点](../virtual-network/tutorial-restrict-network-access-to-resources.md)启用这些项或手动添加它们。|
 
 > [!NOTE]
 > 在应用程序规则中选择 FQDN 标记时，“协议:端口”字段必须设置为 **https**。
@@ -47,5 +45,4 @@ FQDN 标记表示与已知的 Azure 服务关联的一组完全限定的域名 (
 
 若要了解如何部署 Azure 防火墙，请参阅[教程：使用 Azure 门户部署和配置 Azure 防火墙](tutorial-firewall-deploy-portal.md)。
 
-<!-- Update_Description: new articles on fqdn tags -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: update meta properties, wording update, update link -->

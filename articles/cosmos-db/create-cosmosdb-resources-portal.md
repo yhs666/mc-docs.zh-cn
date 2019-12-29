@@ -1,6 +1,6 @@
 ---
-title: 使用 Azure 门户创建 Azure Cosmos 帐户、容器和项。
-description: 使用 Azure 门户创建 Azure Cosmos 帐户、容器和项。
+title: 从 Azure 门户创建 Azure Cosmos 数据库。
+description: 使用 Azure 门户创建 Azure Cosmos 数据库、容器和项。
 author: rockboyfor
 ms.author: v-yeche
 ms.service: cosmos-db
@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 origin.date: 09/01/2019
-ms.date: 10/28/2019
-ms.openlocfilehash: 4990de49482720d164ec62311bc6afe4e136116e
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/16/2019
+ms.openlocfilehash: 90b8fba6f37b2466f661c28dff6bc83286af0ea7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913331"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335377"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-container-and-items-with-the-azure-portal"></a>快速入门：使用 Azure 门户创建 Azure Cosmos 帐户、容器和项
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>快速入门：从 Azure 门户创建 Azure Cosmos 帐户、数据库、容器和项
 
 > [!div class="op_single_selector"]
 > * [Azure 门户](create-cosmosdb-resources-portal.md)

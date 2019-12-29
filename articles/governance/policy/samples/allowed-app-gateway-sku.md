@@ -1,19 +1,19 @@
 ---
 title: 示例 - 允许的应用程序网关 SKU
-description: 此示例策略定义要求应用程序网关使用已批准的 SKU。
+description: 此示例策略定义要求应用程序网关使用在参数中定义的已批准的 SKU。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 origin.date: 01/23/2019
-ms.date: 10/12/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 5114a8709997a4b56f7252b6ece1d79256b53103
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: 1f5383d49393599443024d83487876502cc55562
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526685"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335065"
 ---
 # <a name="sample---allowed-application-gateway-skus"></a>示例 - 允许的应用程序网关 SKU
 

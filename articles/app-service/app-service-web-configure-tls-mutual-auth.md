@@ -15,12 +15,12 @@ origin.date: 10/01/2019
 ms.date: 11/25/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 55896559fcd8dee28aef24137bc278770fac7fc4
-ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
+ms.openlocfilehash: 68456bfe1527f844321a3a6207c92c0668cf8c4c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555881"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336168"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>为 Azure 应用服务配置 TLS 相互身份验证
 
@@ -65,7 +65,7 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
     namespace ClientCertificateUsageSample
     {
-        public partial class cert : System.Web.UI.Page
+        public partial class Cert : System.Web.UI.Page
         {
             public string certHeader = "";
             public string errorString = "";

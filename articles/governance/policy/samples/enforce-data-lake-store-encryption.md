@@ -1,6 +1,6 @@
 ---
 title: 示例 - 需要对 Data Lake Store 进行加密
-description: 此示例策略定义要求启用 Data Lake Store 加密。
+description: 此示例策略定义要求启用 Data Lake Store 帐户的加密状态。
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
@@ -8,12 +8,12 @@ ms.topic: sample
 origin.date: 01/23/2019
 ms.date: 10/12/2019
 ms.author: v-tawe
-ms.openlocfilehash: 1fce2fdd5653c08d4c3aca5d3e90fc63488b0773
-ms.sourcegitcommit: 0bfa3c800b03216b89c0461e0fdaad0630200b2f
+ms.openlocfilehash: e656e9547776f9b0c0f1dbb3bd530294a9e456b1
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72526654"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335980"
 ---
 # <a name="sample---require-data-lake-store-encryption"></a>示例 - 需要 Data Lake Store 加密
 

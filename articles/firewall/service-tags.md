@@ -1,19 +1,19 @@
 ---
 title: Azure 防火墙服务标记概述
-description: 本文是 Azure 防火墙服务标记的概述。
+description: 服务标记表示一组 IP 地址前缀，帮助最大程度地降低安全规则创建过程的复杂性。
 services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: article
-origin.date: 06/27/2019
-ms.date: 07/22/2019
+origin.date: 11/19/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: c68430da796a26356b0d247d5e53cc6189ffda2e
-ms.sourcegitcommit: 5fea6210f7456215f75a9b093393390d47c3c78d
+ms.openlocfilehash: e4806def0bc08d5aca66ab76cfadd74737d8e4fa
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68337552"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336115"
 ---
 # <a name="azure-firewall-service-tags"></a>Azure 防火墙服务标记
 
@@ -29,5 +29,4 @@ Azure 防火墙服务标记可用于网络规则目标字段。 它们可用于�
 
 若要详细了解 Azure 防火墙规则，请参阅 [Azure 防火墙规则处理逻辑](rule-processing.md)。
 
-<!-- Update_Description: new article about service tag -->
-<!--ms.date: 07/22/2019-->
+<!-- Update_Description: update meta properties, wording update -->

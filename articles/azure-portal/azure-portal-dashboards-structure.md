@@ -14,12 +14,12 @@ ms.workload: na
 origin.date: 09/01/2017
 ms.author: v-tawe
 ms.date: 11/04/2019
-ms.openlocfilehash: d551da7cd2144fca9c3b4baa6cc956f275690d1c
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 7cc4faf389744dde86fa2ebd0403890c97ac98bb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389519"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335799"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 仪表板结构
 本文档将使用以下仪表板作为示例，介绍 Azure 仪表板的结构：
@@ -296,7 +296,7 @@ ms.locfileid: "74389519"
 
 ### <a name="the-id-property"></a>Id 属性
 
-Azure 资源 id 服从 [Azure 资源命名约定](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)。 门户创建仪表板时通常选择 GUID 形式的 id，如果以编程方式创建 id，可随意使用任何有效的名称。 
+门户创建仪表板时通常选择 GUID 形式的 id，如果以编程方式创建 id，可随意使用任何有效的名称。 
 
 ### <a name="the-name-property"></a>“名称”属性
 名称是资源 Id 中不包含订阅、资源类型或资源组信息的那部分。 本质上，它是资源 id 的最后一段。

@@ -10,12 +10,12 @@ ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 983b1d4395db4edc3903a52531dcdf1e34f822b3
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: b6cc1dd85a045d15d865dd2ce812af882534756d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389377"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336454"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>教程：开发适用于 Windows 设备的 C# IoT Edge 模块
 
@@ -360,7 +360,10 @@ Azure IoT Edge Tools 为 Visual Studio 中支持的所有 IoT Edge 模块语言�
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已创建一个 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 准备好生成自己的模块时，可以详细了解如何[开发自己的 IoT Edge 模块](module-development.md)或如何[使用 Visual Studio 开发模块](how-to-visual-studio-develop-module.md)。 可以继续学习后续教程，了解 Azure IoT Edge 如何帮助你部署 Azure 云服务，以在边缘位置处理和分析数据。
+在本教程中，你已创建一个 IoT Edge 模块，其中包含用于筛选 IoT Edge 设备生成的原始数据的代码。 准备好生成自己的模块时，可以详细了解如何[开发自己的 IoT Edge 模块](module-development.md)或如何[使用 Visual Studio 开发模块](how-to-visual-studio-develop-module.md)。 有关 IoT Edge 模块的示例，包括模拟温度模块，请参阅 [IoT Edge 模块示例](https://github.com/Azure/iotedge/tree/master/edge-modules)。 
+
+
+可以继续学习后续教程，了解 Azure IoT Edge 如何帮助你部署 Azure 云服务，以在边缘位置处理和分析数据。
 
 > [!div class="nextstepaction"]
 > [Functions](tutorial-deploy-function.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a8938712a45f25b1c565caf3d72e365872a7fd28
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: da3b922b1d074fad5d861186419c9874f3df5ffb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883015"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335914"
 ---
 # <a name="export-your-application-preview-features"></a>导出应用程序（预览版功能）
 
@@ -32,9 +32,6 @@ ms.locfileid: "74883015"
 可以创建任一应用程序的副本，但其中不会包括任何设备实例、设备数据历史记录和用户数据。 该副本是付费的即用即付应用程序。 不能通过复制某个应用程序来创建试用版应用程序。
 
 选择“复制”。  在对话框中，输入新的即用即付应用程序的详细信息。 再次选择“复制”以确认要继续操作。  若要详细了解窗体中的字段，请参阅[创建应用程序](quick-deploy-iot-central.md)快速入门。
-
-> [!NOTE]
-> 只能**将应用程序复制**到“欧洲”和“美国”位置。  
 
 ![“应用程序设置”页](media/howto-use-app-templates/appcopy2.png)
 
@@ -87,8 +84,6 @@ ms.locfileid: "74883015"
 
 选择付款计划，并填写窗体中的其他字段。 然后选择“创建”，从应用程序模板创建新的 IoT Central 应用程序。 
 
-> [!NOTE]
-> 使用**可共享的链接**创建应用程序时，可用位置为“欧洲”和“美国”。  
 
 ### <a name="manage-application-templates"></a>管理应用程序模板
 

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 06/18/2019
-ms.date: 08/05/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6448d3a637c70e518818b764e0395d885e72f6c6
-ms.sourcegitcommit: 86163e2669a646be48c8d3f032ecefc1530d3b7f
+ms.openlocfilehash: dbf22234fa7b0cb05d5b5e38a1eaccea0827d95a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68753171"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336195"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>有关 Azure Service Fabric 应用程序设计的最佳做法
 
@@ -39,7 +39,7 @@ ms.locfileid: "68753171"
 
 - [与 Service Fabric 集成](/service-fabric/service-fabric-tutorial-deploy-api-management)的 [Azure API 管理](/service-fabric/service-fabric-api-management-overview)。
 - 使用 [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) 从事件中心分区读取数据的 [Azure IoT 中心](/iot-hub/)或 [Azure 事件中心](/event-hubs/)。
-- 使用 [Azure Service Fabric 提供程序](https://docs.traefik.io/configuration/backends/servicefabric/)的 [Træfik 反向代理](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)。
+- 使用 [Azure Service Fabric 提供程序](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/)的 [Træfik 反向代理](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)。
 - [Azure 应用程序网关](/application-gateway/)。
 
     > [!NOTE] 

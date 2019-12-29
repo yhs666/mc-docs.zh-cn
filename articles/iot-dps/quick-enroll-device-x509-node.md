@@ -1,22 +1,22 @@
 ---
-title: 本快速入门展示了如何使用 Node.js 将 X.509 设备注册到 Azure 设备预配服务 | Microsoft Docs
+title: 使用 Node.js 将 X.509 设备注册到 Azure 设备预配服务
 description: 本快速入门使用组注册。 在本快速入门中，将使用 Node.js 服务 SDK 将 X.509 设备注册到 Azure IoT 中心设备预配服务
 author: wesmc7777
 ms.author: v-yiso
-origin.date: 04/10/2019
-ms.date: 05/06/2019
+origin.date: 11/08/2019
+ms.date: 12/23/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: f7eb9495d9895703dc8ef2d88000769bc2c5e467
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 24d189df8d8ea5714697d366f38b089e2b375345
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389550"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334727"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>快速入门：使用 Node.js 将 X.509 设备注册到设备预配服务
 
@@ -113,13 +113,13 @@ ms.locfileid: "74389550"
 ## <a name="run-the-enrollment-group-sample"></a>运行注册组示例
  
 1. 若要运行示例，需要适用于预配服务的连接字符串。 
-    1. 登录到 Azure 门户，单击左侧菜单上的“所有资源”按钮，打开设备预配服务  。 
-    2. 单击“共享访问策略”，然后单击需要用来打开其属性的访问策略。  在“访问策略”窗口中，复制并记下主密钥连接字符串。  
+    1. 登录到 Azure 门户，选择左侧菜单上的“所有资源”按钮，打开设备预配服务  。 
+    2. 单击“共享访问策略”，然后选择需要用来打开其属性的访问策略。  在“访问策略”窗口中，复制并记下主密钥连接字符串。  
 
        ![从门户获取预配服务连接字符串](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. 如[准备测试证书](quick-enroll-device-x509-node.md#prepare-test-certificates)中所述，还需要一个 .pem 文件，其中包含的 X.509 中间或根 CA 证书此前已上传并通过预配服务进行验证。 若要查看证书是否已上传并验证，请在 Azure 门户的设备预配服务摘要页中单击“证书”。  找到要用于组注册的证书，确保其状态值为“已验证”。 
+3. 如[准备测试证书](quick-enroll-device-x509-node.md#prepare-test-certificates)中所述，还需要一个 .pem 文件，其中包含的 X.509 中间或根 CA 证书此前已上传并通过预配服务进行验证。 若要查看证书是否已上传并验证，请在 Azure 门户的设备预配服务摘要页中选择“证书”。  找到要用于组注册的证书，确保其状态值为“已验证”。 
 
     ![门户中的已验证证书](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -141,8 +141,8 @@ ms.locfileid: "74389550"
 如果打算学习 Node.js 服务示例，请勿清除本快速入门中创建的资源。 如果不打算继续学习，请通过以下步骤删除通过本快速入门创建的所有 Azure 资源。
  
 1. 关闭计算机上的 Node.js 示例输出窗口。
-2. 在 Azure 门户中导航到设备预配服务，单击“管理注册”，然后选择“注册组”选项卡。    选择通过本快速入门创建的注册项的“注册 ID”，然后单击边栏选项卡顶部的“删除”按钮。   
-3. 在 Azure 门户的设备预配服务中单击“证书”，  然后单击为本快速入门上传的证书，再单击“证书详细信息”窗口顶部的“删除”按钮。    
+2. 在 Azure 门户中导航到设备预配服务，选择“管理注册”，然后选择“注册组”选项卡。   选中通过本快速入门注册的 X.509 设备的“组名称”旁边的复选框，然后按窗格顶部的“删除”按钮   。    
+3. 在 Azure 门户的设备预配服务中选择“证书”，然后选择为本快速入门上传的证书，再按“证书详细信息”窗口顶部的“删除”按钮。     
  
 ## <a name="next-steps"></a>后续步骤
 本快速入门介绍了如何使用 Azure IoT 中心设备预配服务为 X.509 中间或根 CA 证书创建组注册。 若要深入了解设备预配，请继续学习本教程有关如何在 Azure 门户中进行设备预配服务设置的内容。 

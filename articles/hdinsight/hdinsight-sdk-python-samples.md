@@ -4,14 +4,15 @@ description: 针对用于 Python 的 HDInsight SDK，请在 GitHub 上查找有�
 author: hrasheed-msft
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
+origin.date: 11/08/2019
+ms.date: 12/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0ed5502523e920ba276cbe438525b706923d9adc
-ms.sourcegitcommit: 8b9dff249212ca062ec0838bafa77df3bea22cc3
+ms.openlocfilehash: aa5f6e31b16b8fbfdb80927b07fbf53e8d25dc06
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/10/2019
-ms.locfileid: "65520843"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335930"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight：Python 示例
 
@@ -21,17 +22,19 @@ ms.locfileid: "65520843"
 > * [Java 示例](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
+> [!Important]
+> Python 2.7 将于 2020 年 1 月 1 日弃用。 如果你仍在使用 Python 2.7，请升级到 3.7 以使用 HDInsight Python SDK。  
 
 本文提供：
 
 * 有关群集创建任务的示例链接。
 * 有关其他管理任务的参考内容链接。
 
-## <a name="prerequisites"></a>先决条件
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [用于 Python 的 Azure HDInsight SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+## <a name="prerequisites"></a>先决条件
+
+[用于 Python 的 Azure HDInsight SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>群集管理 - 创建
 

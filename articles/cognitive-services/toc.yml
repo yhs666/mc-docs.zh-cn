@@ -23,5 +23,11 @@
       href: 'https://www.azure.cn/pricing/details/cognitive-services/'
     - name: 定价计算器
       href: 'https://www.azure.cn/pricing/calculator/'
+    - name: 合规性
+      href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+    - name: 支持和帮助选项
+      href: cognitive-services-support-options.md
     - name: 服务级别协议 (SLA)
       href: 'https://www.azure.cn/support/sla/cognitive-services/'
+    - name: 服务更新
+      href: 'https://www.azure.cn/what-is-new'

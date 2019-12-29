@@ -13,17 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 07/16/2019
-ms.date: 08/26/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:UWP
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f050a9f198c7b77e48b1606d2af261016e9eff82
-ms.sourcegitcommit: 18a0d2561c8b60819671ca8e4ea8147fe9d41feb
+ms.openlocfilehash: 059dd27beb389d31dbd2d1cb13f3e38cde58a460
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70134122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335279"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>快速入门：从通用 Windows 平台 (UWP) 应用程序调用 Microsoft Graph API
 
@@ -52,7 +51,7 @@ ms.locfileid: "70134122"
 > 1. 如果你的帐户有权访问多个租户，请在右上角选择该帐户，并将门户会话设置为所需的 Azure AD 租户。
 > 1. 导航到面向开发人员的 Microsoft 标识平台的[应用注册](https://portal.azure.cn/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)页。
 > 1. 选择“新注册”。 
-> 1. 出现“注册应用程序”页后，请输入应用程序的注册信息： 
+> 1. “注册应用程序”页出现后，请输入应用程序的注册信息： 
 >      - 在“名称”  部分输入一个会显示给应用用户的有意义的应用程序名称，例如 `UWP-App-calling-MsGraph`。
 >      - 在“支持的帐户类型”部分，选择“任何组织目录中的帐户”。  
 >      - 选择“注册”  以创建应用程序。
@@ -126,7 +125,7 @@ using Microsoft.Identity.Client;
 
 ```csharp
 public static IPublicClientApplication PublicClientApp;
-PublicClientApp = new PublicClientApplicationBuilder.Create(ClientId)
+PublicClientApp = PublicClientApplicationBuilder.Create(ClientId)
                                                     .Build();
 ```
 
@@ -181,4 +180,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilent(scopes, firstAccount)
 > [!div class="nextstepaction"]
 > [UWP - 调用 Graph API 教程](tutorial-v2-windows-uwp.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: code update -->

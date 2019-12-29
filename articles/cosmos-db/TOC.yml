@@ -12,7 +12,9 @@
       items:
         - name: Azure 门户
           href: create-cosmosdb-resources-portal.md
-        - name: .NET 应用
+        - name: .NET 应用 - V4 SDK
+          href: create-sql-api-dotnet-v4.md
+        - name: .NET 应用 - V3 SDK
           href: create-sql-api-dotnet.md
         - name: Java 应用
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - 迁移数据
-      displayName: import
-      href: import-data.md
+      items:
+        - name: 使用数据迁移工具
+          href: import-data.md
+        - name: 使用 .NET 批量支持
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - 查询数据
       href: tutorial-query-sql-api.md
     - name: 4 - 多区域分配数据
@@ -654,6 +659,8 @@
               href: mongodb-readpreference.md
             - name: 生存时间 - MongoDB
               href: mongodb-time-to-live.md
+            - name: 更改流
+              href: mongodb-change-streams.md
             - name: 管理数据索引编制
               href: mongodb-indexing.md
             - name: 存储和管理 Spring Data
@@ -932,21 +939,15 @@
       items:
         - name: 从备份还原数据
           href: how-to-backup-and-restore.md
-    - name: 日志记录
+    - name: 监视
       items:
         - name: 诊断日志记录
           href: logging.md
+        - name: 从 Cosmos DB 帐户中查看指标
+          href: use-metrics.md
         - name: 使用逻辑应用进行应用程序日志记录
           href: /logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: 使用指标进行监视
-      items:
-        - name: 从 Cosmos DB 帐户中查看指标
-          href: use-metrics.md
-        - name: 从 Azure Monitor 中查看指标
-          href: cosmos-db-azure-monitor-metrics.md
-        - name: 监视 SLA
-          href: monitor-accounts.md
     - name: 本地开发
       items:
         - name: 使用模拟器
@@ -993,6 +994,8 @@
           href: oracle-migrate-cosmos-db-blitzz.md
         - name: 迁移 - Apache Cassandra 到 Cassandra API（使用 Blitzz）
           href: cassandra-migrate-cosmos-db-blitzz.md
+        - name: 将数百 TB 的数据迁移到 Azure Cosmos DB
+          href: migrate-cosmosdb-data.md
     - name: 批量执行程序库
       items:
         - name: 关于批量执行程序库

@@ -4,13 +4,13 @@ ms.service: app-service-mobile
 ms.topic: include
 origin.date: 05/06/2019
 ms.date: 06/17/2019
-ms.author: v-biyu
-ms.openlocfilehash: 38cf0409704d1355f7099393218bc0b5530ad9af
-ms.sourcegitcommit: d7db02d1b62c7b4deebd5989be97326b4425d1d3
+ms.author: v-tawe
+ms.openlocfilehash: 529e24eb8815fa024ccd3713bef8ab92177f1ab9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/05/2019
-ms.locfileid: "66687469"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334640"
 ---
 1. 导航到客户端项目 (.sln) 中的解决方案文件并使用 Visual Studio 将其打开。
 

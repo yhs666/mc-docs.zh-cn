@@ -8,12 +8,12 @@ ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 06/03/2019
 ms.date: 11/18/2019
-ms.openlocfilehash: d31f0da7fef0ddd02077fadc988e7c1bf659e5d7
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.openlocfilehash: a393387a3621983f0762451dbdccfbb2e7e6b30a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020690"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335950"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>使用 Python 创建 Azure 数据资源管理器群集和数据库
 
@@ -40,7 +40,7 @@ pip install azure-common
 pip install azure-mgmt-kusto
 ```
 ## <a name="authentication"></a>身份验证
-为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 查看[创建 Azure AD 应用程序](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序，并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。
+为了运行本文中的示例，我们需要可以访问资源的 Azure AD 应用程序和服务主体。 查看[创建 Azure AD 应用程序](https://docs.azure.cn/active-directory/develop/howto-create-service-principal-portal)以创建免费的 Azure AD 应用程序，并在订阅范围内添加角色分配。 它还演示如何获取 `Directory (tenant) ID`、`Application ID` 和 `Client Secret`。
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>创建 Azure 数据资源管理器群集
 

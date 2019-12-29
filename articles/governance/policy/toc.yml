@@ -2,7 +2,7 @@
   href: index.yml
 - name: 概述
   items:
-    - name: Azure Policy 概述
+    - name: 什么是 Azure Policy？
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
 - name: 快速入门
@@ -268,7 +268,7 @@
       href: ./concepts/guest-configuration.md
 - name: 操作指南
   items:
-    - name: 用于 VSCode 的 Azure Policy 扩展
+    - name: 适用于 VS Code 的 Azure Policy 扩展
       displayName: visual studio code
       href: ./how-to/extension-for-vscode.md
     - name: 以编程方式创建策略
