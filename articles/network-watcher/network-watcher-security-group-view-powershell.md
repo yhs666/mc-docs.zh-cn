@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - PowerShell | Azure
+title: 分析网络安全性 - 安全组视图 - Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 本文介绍如何使用 PowerShell 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 28e674fbbf2c5dfc8190b877cb1f1b983b1cc672
-ms.sourcegitcommit: a89eb0007edd5b4558b98c1748b2bd67ca22f4c9
+ms.openlocfilehash: 120434855ff837c2aa9d72427d1153cb26ba119c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73730003"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336384"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>使用 PowerShell 通过安全组视图分析虚拟机安全性
 

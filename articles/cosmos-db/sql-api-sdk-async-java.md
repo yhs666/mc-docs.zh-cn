@@ -1,20 +1,20 @@
 ---
 title: Azure Cosmos DB：SQL Async Java API、SDK 和资源
-description: 了解有关 SQL Async Java API 的所有信息。
+description: 了解有关 SQL Async Java API 和 SDK 的所有信息。
 author: rockboyfor
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 origin.date: 07/01/2019
-ms.date: 09/30/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7cb93e6227e60e08939850cfe746ebc49fa76da7
-ms.sourcegitcommit: 0d07175c0b83219a3dbae4d413f8e012b6e604ed
+ms.openlocfilehash: 9db0e665046d1639b7d92e73f4c799d809ca0a6d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71306708"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335953"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>适用于 SQL API 的 Azure Cosmos DB Async Java SDK：发行说明和资源
 > [!div class="op_single_selector"]

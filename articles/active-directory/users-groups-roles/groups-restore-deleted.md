@@ -8,18 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-origin.date: 03/18/2019
-ms.date: 04/11/2019
+ms.date: 12/11/2019
 ms.author: v-junlch
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38d9b496b5fbf73db106b09980ce1f273c61a18e
-ms.sourcegitcommit: cf8ad305433d47f9a6760f7a91ee361dc01573db
+ms.openlocfilehash: 803e2eed3a9a621371c1078fb7b1c33a119ab657
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502609"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336408"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>在 Azure Active Directory 中还原已删除的 Office 365 组
 
@@ -32,7 +31,7 @@ ms.locfileid: "59502609"
 
 角色 | 权限
 --------- | ---------
-全局管理员 | 可以还原任何已删除的 Office 365 组
+全局管理员、组管理员 | 可以还原任何已删除的 Office 365 组
 用户管理员 | 可以还原任何已删除的 Office 365 组，但分配给公司管理员角色的组除外
 User | 可以还原他们拥有的任何已删除 Office 365 组
 
@@ -85,9 +84,9 @@ User | 可以还原他们拥有的任何已删除 Office 365 组
 
 以下文章提供了有关 Azure Active Directory 组的更多信息。
 
-- [查看现有组](../fundamentals/active-directory-groups-view-azure-portal.md)
-- [管理组的设置](../fundamentals/active-directory-groups-settings-azure-portal.md)
-- [管理组的成员](../fundamentals/active-directory-groups-members-azure-portal.md)
-- [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [查看现有组](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [管理组的设置](../fundamentals/active-directory-groups-settings-azure-portal.md)
+* [管理组的成员](../fundamentals/active-directory-groups-members-azure-portal.md)
+* [管理组的成员身份](../fundamentals/active-directory-groups-membership-azure-portal.md)
 
 <!-- Update_Description: wording update -->

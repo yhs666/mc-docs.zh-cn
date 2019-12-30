@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库“超大规模”常见问题解答 | Microsoft Docs
+title: “超大规模”常见问题解答
 description: 对客户关于“超大规模”服务层级中的 Azure SQL 数据库（通常称为超大规模数据库）提出的常见问题的回答。
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: ''
 origin.date: 10/12/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: e1addcd5ee241f111dcdf86f936000ae1cfd9772
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: 03452a218f763cd2d4b74d2af19ad47f168d4016
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041190"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336223"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL 数据库“超大规模”常见问题解答
 
@@ -30,7 +30,7 @@ ms.locfileid: "73041190"
 
 ### <a name="what-is-a-hyperscale-database"></a>什么是“超大规模”数据库
 
-超大规模数据库是“超大规模”服务层级中的 Azure SQL 数据库，由超大规模横向扩展存储技术提供支持。 一个“超大规模”数据库支持最多 100 TB 的数据，提供高吞吐量和高性能，可以快速缩放以适应工作负荷要求。 缩放对应用程序透明，在连接、查询处理等方面的工作方式与其他任何 Azure SQL 数据库一样。
+超大规模数据库是“超大规模”服务层级中的 Azure SQL 数据库，由超大规模横向扩展存储技术提供支持。 一个“超大规模”数据库支持最多 100 TB 的数据，提供高吞吐量和高性能，可以快速缩放以适应工作负荷要求。 缩放对应用程序透明 - 连接、查询处理等等，都与其他任何 Azure SQL 数据库一样工作。
 
 ### <a name="what-resource-types-and-purchasing-models-support-hyperscale"></a>哪些资源类型和购买模型支持“超大规模”
 
@@ -47,8 +47,8 @@ ms.locfileid: "73041190"
 | **计算大小**|单一数据库/弹性池* | 1 - 80 个 vCore | 1 - 80 个 vCore* | 1 - 80 个 vCore |
 | |托管实例 | 8、16、24、32、40、64、80 个 vCore | 不适用 | 8、16、24、32、40、64、80 个 vCore |
 | **存储类型** | 全部 |高级远程存储（每个实例） | 具有本地 SSD 缓存的分离的存储（每个实例） | 超快的本地 SSD 存储（每个实例） |
-| **存储大小** | 单一数据库/弹性池 | 5 GB – 4 TB | 最多 100 TB | 5 GB – 4 TB |
-| | 托管实例  | 32 GB – 8 TB | 不适用 | 32 GB – 4 TB |
+| **存储大小** | 单一数据库/弹性池 | 5 GB - 4 TB | 最多 100 TB | 5 GB - 4 TB |
+| | 托管实例  | 32 GB - 8 TB | 不适用 | 32 GB - 4 TB |
 | **IOPS** | 单一数据库** | 每个 vCore 提供 500 IOPS，最大 7000 IOPS | 超大规模是具有多个级别缓存的多层体系结构。 有效 IOPS 将取决于工作负荷。 | 5000 IOPS，最大 200,000 IOPS|
 | | 托管实例 | 取决于文件大小 | 不适用 | 1375 IOPS/vCore |
 |**可用性**|全部|1 个副本，无读取扩展，无本地缓存 | 多个副本，最多 4 个读取扩展，部分本地缓存 | 3 个副本，1 个读取扩展，完整的本地存储 |
@@ -128,7 +128,7 @@ ms.locfileid: "73041190"
 
 ### <a name="can-i-provision-a-compute-replica-with-extra-ram-for-my-memory-intensive-workload"></a>能不能为内存密集型工作负荷预配包含额外 RAM 的计算副本
 
-否。 要获取更多 RAM，需要升级到更大的计算大小。 有关详细信息，请参阅[超大规模存储和计算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)。
+否。 要获取更多 RAM，需要升级到更大的计算大小。 有关详细信息，请参阅[超大规模存储和计算大小](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)。
 
 ### <a name="can-i-provision-multiple-compute-replicas-of-different-sizes"></a>能不能预配大小不同的多个计算副本
 

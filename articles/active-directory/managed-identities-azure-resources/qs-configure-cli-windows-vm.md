@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure VM 上使用 Azure CLI 配置系统分配托管标识和用户分配托管标识
+title: 使用 Azure CLI 在 Azure VM 上配置托管标识 - Azure AD
 description: 分步说明如何使用 Azure CLI 在 Azure VM 上配置系统分和用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 09/26/2019
-ms.date: 11/13/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2249205b5cb51e806db59f0afa7eab92ba217b88
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: 3a6a7725ad5ee65856bb1269580c2beeb5245e95
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084540"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335568"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>使用 Azure CLI 在 Azure VM 上配置 Azure 资源托管标识
 
@@ -36,7 +35,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-it-work)  。
+- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-the-managed-identities-for-azure-resources-work)  。
 - 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
 - 若要运行 CLI 脚本示例，如果你喜欢使用本地 CLI 控制台，则可以[安装 Azure CLI 的最新版本](/cli/install-azure-cli)。 
       
@@ -216,7 +215,7 @@ az vm update -n myVM -g myResourceGroup --set identity.type='SystemAssigned' ide
   - [使用 CLI 创建 Linux 虚拟机](../../virtual-machines/linux/quick-create-cli.md) 
 
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: link update -->
 
 
 

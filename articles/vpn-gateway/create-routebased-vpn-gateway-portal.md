@@ -1,19 +1,20 @@
 ---
-title: 创建基于路由的 VPN 网关：Azure 门户 | Microsoft Docs
+title: 创建基于路由的 VPN 网关：门户
+titleSuffix: Azure VPN Gateway
 description: 使用 Azure 门户创建基于路由的 VPN 网关
 services: vpn-gateway
 author: WenJason
 ms.service: vpn-gateway
 ms.topic: article
 origin.date: 09/24/2019
-ms.date: 11/11/2019
+ms.date: 12/09/2019
 ms.author: v-jay
-ms.openlocfilehash: 151ea72f79cca6392640a5b8bf1e188b03c4f2f2
-ms.sourcegitcommit: d77d5d8903faa757c42b80ee24e7c9d880950fc3
+ms.openlocfilehash: a8668d96a8f3bafeee059d7564c2f7da1ad69762
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73742283"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335957"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>使用 Azure 门户创建基于路由的 VPN 网关
 

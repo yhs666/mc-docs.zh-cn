@@ -9,35 +9,27 @@ ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 03/01/2019
-ms.date: 06/24/2019
+ms.date: 12/09/2019
 ms.author: v-junlch
 ms.reviewer: dkershaw, sureshja
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf42a2a618b02d3137b00cc646b428dd056dea5
-ms.sourcegitcommit: 5f85d6fe825db38579684ee1b621d19b22eeff57
+ms.openlocfilehash: 454dc75ff4dc71d7d80e0993aa4c9b03fb3b0c21
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67568551"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334918"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory 图形 API
 
 > [!IMPORTANT]
->
-> 从 2019 年 2 月开始，我们开始弃用某些旧版 Azure Active Directory Graph API，改为使用 Microsoft Graph API。 
->
-> 有关详细信息、更新和期限，请参阅 Office 开发人员中心的 [Microsoft Graph 或 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)。
->
-> 展望未来，应用程序将使用 Microsoft Graph API。 
+> 强烈建议使用 [Microsoft Graph](https://developer.microsoft.com/graph)（而非 Azure AD Graph API）访问 Azure Active Directory (Azure AD) 资源。 目前，我们在集中开发 Microsoft Graph，未计划进一步改进 Azure AD Graph API。 Azure AD Graph API 仍可能适用的方案数量非常有限；有关详细信息，请参阅 [Microsoft Graph or the Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)（Microsoft Graph 或 Azure AD Graph）博客文章和[将 Azure AD Graph 应用迁移到 Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview)。
 
-
-
-本文适用于 Azure AD 图形 API。 有关与 Microsoft Graph API 相关的类似信息，请参阅[使用 Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)。 
+本文适用于 Azure AD 图形 API。 有关与 Microsoft Graph API 相关的类似信息，请参阅[使用 Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)。
 
 Azure Active Directory 图形 API 通过 REST API 终结点提供对 Azure AD 的编程访问权限。 应用程序可以使用 Azure AD 图形 API 对目录数据和对象执行创建、读取、更新和删除 (CRUD) 操作。 例如，Azure AD 图形 API 支持对用户对象执行以下常见操作：
 
@@ -81,4 +73,4 @@ Azure AD 图形 API 可实现许多应用程序方案。 以下方案最常见�
 * [Azure AD 图形 API 快速入门指南](active-directory-graph-api-quickstart.md)
 * [Azure AD Graph REST 文档](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 
-<!-- Update_Description: update metedata properties -->
+<!-- Update_Description: wording update -->

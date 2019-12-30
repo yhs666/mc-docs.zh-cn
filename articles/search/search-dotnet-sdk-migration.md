@@ -1,24 +1,23 @@
 ---
-title: 升级到 Azure 搜索 .NET SDK 版本 3 - Azure 搜索
+title: 升级到 Azure 搜索 .NET SDK 版本 3
+titleSuffix: Azure Cognitive Search
 description: 从旧版本将代码迁移到 Azure 搜索 .NET SDK 版本 3。 了解新增功能和所需的代码更改。
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: v-tawe
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 05/02/2019
-ms.date: 09/26/2019
-ms.author: v-tawe
-ms.custom: seodec2018
-ms.openlocfilehash: 90f26ead6f5674462fcbc14fa83835a3b4b78b2f
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 89ffd5a001653abdb8c7e2161ac8e3dc167d1ecb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674418"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335447"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-3"></a>升级到 Azure 搜索 .NET SDK 版本 3
+# <a name="upgrade-to-azure-search-net-sdk-version-3"></a>升级到 Azure 搜索 .NET SDK 版本 3
 
 <!--- DETAILS in the word doc
 cosmosdb

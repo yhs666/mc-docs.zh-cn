@@ -5,15 +5,15 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 origin.date: 04/10/2019
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 ms.topic: conceptual
-ms.openlocfilehash: 94392d29ef2a0cb5530bdac051ccfd65a4d3a5cc
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 9f04f493a9b92cfbf65c74fb5e28a045318fd9c7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155789"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335360"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>使用 Azure PowerShell 部署和配置 Azure 防火墙
 
@@ -243,7 +243,7 @@ $NIC | Set-AzNetworkInterface
     Invoke-WebRequest -Uri https://www.microsoft.com
     ```
 
-    www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
+   `www.qq.com` 请求应成功，并且 `www.microsoft.com` 请求应失败。 这表明防火墙规则按预期运行。
 
 现已验证防火墙规则可正常工作：
 
@@ -262,4 +262,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 * [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!--Update_Description: wording update-->
+<!-- Update_Description: update meta properties, wording update -->

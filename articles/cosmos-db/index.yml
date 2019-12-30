@@ -10,13 +10,13 @@ metadata:
   ms.collection: collection
   author: rockboyfor
   ms.author: v-yeche
-  ms.date: 10/28/2019
-  ms.openlocfilehash: 1beab1a9f20332bb62275bf0a37abf6f0e2bc623
-  ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+  ms.date: 12/16/2019
+  ms.openlocfilehash: d587a6728cc5b161bd72bab6b40064ed35611736
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
   ms.translationtype: HT
   ms.contentlocale: zh-CN
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72913287"
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75336207"
 landingContent:
 - title: 关于 Azure Cosmos DB
   linkLists:
@@ -290,12 +290,14 @@ landingContent:
       url: oracle-migrate-cosmos-db-blitzz.md
     - text: 使用 Blitzz 从 Apache Cassandra 迁移到 Cosmos DB
       url: cassandra-migrate-cosmos-db-blitzz.md
+    - text: 迁移 100 TB 的数据
+      url: migrate-cosmosdb-data.md
 - title: 将内置分析功能与 Apache Spark 配合使用
   linkLists:
   - linkListType: concept
     links:
-    - text: Spark 和 Jupyter 笔记本支持
-      url: spark-api-introduction.md
+    - text: 分析用例
+      url: analytics-usecases.md
     - text: Lambda 架构
       url: lambda-architecture.md
   - linkListType: how-to-guide

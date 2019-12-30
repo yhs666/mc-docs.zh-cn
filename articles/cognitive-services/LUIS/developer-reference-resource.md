@@ -11,12 +11,12 @@ ms.topic: conceptual
 origin.date: 11/08/2019
 ms.date: 12/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: c74e26c3a0818d9675235be0488ec24675d60ac1
-ms.sourcegitcommit: 3d27913e9f896e34bd7511601fb428fc0381998b
+ms.openlocfilehash: 794a9d0f7529a43494b1fd4cddcd2a915eb07ad7
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74982165"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500363"
 ---
 # <a name="developer-resources-for-language-understanding"></a>用于语言理解的开发人员资源
 
@@ -75,7 +75,7 @@ Bot Framework 在多种语言中以 [SDK](https://github.com/Microsoft/botframew
 Bot Framework 提供有助于语言理解的[多种工具](https://github.com/microsoft/botbuilder-tools)，其中包括：
 
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) - 使用 Markdown 文件构建 LUIS 语言理解模型
-* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - 创建并管理 LUIS.ai 应用程序
+* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) - 创建并管理 luis.azure.cn 应用程序
 * [Dispatch](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)- 管理父应用和子应用
 * [LUISGen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) - 为 LUIS 意向和实体自动生成 C#/Typescript 支持类。
 * [机器人模拟器](https://github.com/Microsoft/BotFramework-Emulator/releases) - 一款桌面应用程序，方便机器人开发人员测试和调试使用 Bot Framework SDK 构建的机器人
@@ -84,6 +84,6 @@ Bot Framework 提供有助于语言理解的[多种工具](https://github.com/mi
 ## <a name="next-steps"></a>后续步骤
 
 * 了解常见的 [HTTP 错误代码](luis-reference-response-codes.md)
-* 所有 API 和 SDK 的[参考文档](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+* 所有 API 和 SDK 的[参考文档](https://docs.azure.cn/index#pivot=sdkstools)
 * [Bot Framework](https://github.com/Microsoft/botbuilder-dotnet) 和 [Azure 机器人服务](https://dev.botframework.com/)
 * [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)

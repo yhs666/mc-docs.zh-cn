@@ -1,17 +1,19 @@
 ---
 layout: HubPage
 hide_bc: true
+experimental: true
+experiment_id: 81ba5f65-59fb-4d
 title: Azure 文档
 description: 了解如何使用 Azure 云服务构建和管理功能强大的应用程序。 获取文档、示例代码、教程等等。
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: fbc9b8c123e662ce7d79aa08e2f84d4e5840eea1
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: fda6a382d434e4945cb385abf717fa89442645c3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818239"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335942"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -573,7 +575,6 @@ ms.locfileid: "68818239"
                                                 <p>Application Insights</p>
                                             </a>
                                         </li>
-
                                     </ul>
                                     <h3>标识</h3>
                                     <ul>
@@ -619,7 +620,7 @@ ms.locfileid: "68818239"
                                         <li>
                                             <a href="/logic-apps/">
                                                 <img src="media/index/LogicApp.svg" alt="" />
-                                                <p>Logic Apps</p>
+                                                <p>逻辑应用</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -981,7 +982,6 @@ ms.locfileid: "68818239"
                                                 <p>密钥保管库</p>
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="/active-directory/">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
@@ -1021,7 +1021,6 @@ ms.locfileid: "68818239"
                                                 <p>Data Lake Storage Gen2</p>
                                             </a>
                                         </li>
-
                                         <li>
                                             <a href="/storage/blobs/storage-blobs-introduction">
                                                 <img src="media/index/logo_azure-blob-storage.svg" alt="" />
@@ -2852,7 +2851,7 @@ ms.locfileid: "68818239"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>站点恢复</h3>
+                                                    <h3>Site Recovery</h3>
                                                     <p>协调私有云的保护和恢复</p>
                                                 </div>
                                             </div>
@@ -2882,7 +2881,7 @@ ms.locfileid: "68818239"
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">移动型</a>
+                        <a href="#mobile">移动</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/notification-hubs/">
@@ -3139,7 +3138,7 @@ ms.locfileid: "68818239"
                         </ul>
                     </li>
                     <li>
-                        <a href="#security">安全</a>
+                        <a href="#security">安全性</a>
                         <ul id="security" class="cardsA">
                             <li>
                                 <a href="/security/">
@@ -3562,7 +3561,7 @@ ms.locfileid: "68818239"
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
-                                    <h2>语言和框架</h2>
+                                    <h2>语言 &amp; 框架</h2>
                                 </div>
                             </li>
                             <li>

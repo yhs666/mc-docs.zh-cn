@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 05/15/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6488559059ac388e6a31b8a73a5dd6f7e3e0d0ed
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 289447f5b78b260356619e3c4c91e92dd3e7af07
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174053"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336449"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>查看 Service Fabric 容器服务的日志
 Azure Service Fabric 是一种容器业务流程协调程序，支持 [Linux 和 Windows 容器](service-fabric-containers-overview.md)。  本文介绍如何查看正在运行的容器服务或无响应容器的容器日志，以便诊断和排查问题。
 
 ## <a name="access-the-logs-of-a-running-container"></a>访问正在运行的容器的日志
-可以通过 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 来访问容器日志。  在 Web 浏览器中导航到 [http://mycluster.region.cloudapp.chinacloudapi.cn:19080/Explorer](http://mycluster.region.cloudapp.chinacloudapi.cn:19080/Explorer)，从群集的管理终结点打开 Service Fabric Explorer。  
+可以通过 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) 来访问容器日志。  在 Web 浏览器中导航到 `http://mycluster.region.cloudapp.chinacloudapi.cn:19080/Explorer`，从群集的管理终结点打开 Service Fabric Explorer。  
 
 容器日志位于容器服务实例运行时所在的群集节点。 例如，可以获取 [Linux Voting 示例应用程序](service-fabric-quickstart-containers-linux.md)的 Web 前端容器的日志。 在树状视图中，展开“群集”  >“应用程序”  >  “VotingType”>  “fabric:/Voting/azurevotefront”。  然后展开分区（在此示例中为 d1aa737e-f22a-e347-be16-eec90be24bc1），此时会看到容器在群集节点 *_lnxvm_0* 上运行。
 

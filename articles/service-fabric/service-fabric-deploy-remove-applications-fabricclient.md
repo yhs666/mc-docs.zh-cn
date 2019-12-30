@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 应用程序部署 | Azure
+title: 使用 FabricClient 进行 Azure Service Fabric 部署
 description: 使用 FabricClient API 部署和删除 Service Fabric 中的应用程序。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/19/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 9d2fe6027fbaaec917a84161c0f9ae66f3f43ba7
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 9865beab7185f03ef52637aef5c140ab81e9bc10
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335106"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>使用 FabricClient 部署和删除应用程序
 > [!div class="op_single_selector"]

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据同步的 Data Sync Agent | Microsoft Docs
+title: SQL 数据同步的 Data Sync Agent
 description: 了解如何安装并运行 Azure SQL 数据同步的 Data Sync Agent 来将数据与本地 SQL Server 数据库进行同步
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 12/20/2018
-ms.date: 08/19/2019
-ms.openlocfilehash: 5ddcb2dfb491fc6e2a2bf7818b7db06e31ab3ab8
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 12/16/2019
+ms.openlocfilehash: e6c99fb48c255d5e14d2cb355ede23bbddda4625
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336066"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 数据同步的 Data Sync Agent
 
@@ -117,7 +116,7 @@ SQL 数据同步服务通过客户端代理与 SQL Server 数据库进行通信�
 - **解决方法**。 可尝试以下两种解决方法：
 
     -   使用 services.msc 重新输入客户端代理的凭据。
-    -   卸载此客户端代理并安装新代理。 从[下载中心](https://go.microsoft.com/fwlink/?linkid=221479)下载和安装最新的客户端代理。
+    -   卸载此客户端代理并安装新代理。 从[下载中心](https://www.microsoft.com/download/details.aspx?id=27693)下载和安装最新的客户端代理。
 
 ### <a name="agent-list"></a>代理列表中未列出我的数据库
 
@@ -281,6 +280,7 @@ SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdat
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
 
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication windows -encryption true
+
 ```
 
 ### <a name="unregister-a-database"></a>取消注册数据库

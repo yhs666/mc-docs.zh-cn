@@ -6,15 +6,15 @@ author: rockboyfor
 manager: digimobile
 ms.service: service-fabric
 ms.topic: conceptual
-origin.date: 12/06/2018
-ms.date: 01/07/2019
+origin.date: 09/17/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 8d20186a6b9813db452cf61fb13eb24d21379dd2
-ms.sourcegitcommit: 90d5f59427ffa599e8ec005ef06e634e5e843d1e
+ms.openlocfilehash: 49d0c9be79d92cee4bd7a032892ffdf94eaf34c7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54083742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336359"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -34,7 +34,8 @@ Service Fabric CLI 旨在支持 Service Fabric SDK 的最新运行时版本。 �
 
 | CLI 版本   | 支持的运行时版本 |
 |---------------|---------------------------|
-| 最新版（不等于 7）  | 最新版（不等于 6.4）            |
+| 最新 (~=8)  | 最新 (~=6.5)            |
+| 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |
 | 4.0.0         | 6.1                       |
@@ -63,9 +64,9 @@ pip install -I sfctl==1.1.0
 
 2. 启动安装程序。
 
-3. 在提示的底部，选择“将 Python 3.7 添加到路径”。
+3. 在提示的底部，选择“将 Python 3.7 添加到路径”  。
 
-4. 选择“立即安装”，并完成安装。
+4. 选择“立即安装”  ，并完成安装。
 
 现在可以打开新的命令窗口，获取 Python 和 pip 的版本。
 
@@ -114,22 +115,9 @@ echo "export PATH=$PATH:~/.local/bin" >> .bashrc
 sudo pip3 install sfctl
 ```
 
-<!--Not Available on 
-### CentOS 7.5 (Service Fabric preview support)
 
-To install Service Fabric CLI on Red Hat, run the following commands:
-
-<!-- Notice: sudo yum install -y epel-release-->
-```bash
-sudo yum install -y epel-release
-sudo yum install -y python34
-sudo yum install python34-setuptools
-sudo easy_install-3.4 pip
-sudo pip3 install sfctl
-```
--->
-
-如需对安装进行测试，可参阅“适用于 Linux 的 Ubuntu 和 Windows 子系统”部分中提到的步骤
+<!--Not Available on ### Red Hat Enterprise Linux 7.3 (Service Fabric preview support)-->
+<!-- Notice: SHOULD BE ADD ON FIRST ROW IN BASH WITH sudo yum install -y epel-release-->
 
 <a name = "cli-mac"></a>
 ### <a name="macos"></a>MacOS

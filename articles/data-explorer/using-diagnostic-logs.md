@@ -7,13 +7,13 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 09/18/2019
-ms.date: 11/18/2019
-ms.openlocfilehash: ed55e8af58506903970270ebdf63c5bcb235fba5
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: 3512c8a2beb47fab4c65e952c6d3ac93322c688e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020979"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335533"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>使用诊断日志监视 Azure 数据资源管理器引入操作（预览版）
 
@@ -67,7 +67,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 日志 JSON 字符串包含下表中列出的元素：
 
-|Name               |说明
+|名称               |说明
 |---                |---
 |time               |报告时间
 |ResourceId         |Azure Resource Manager 资源 ID
@@ -101,7 +101,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 ```
 **成功操作诊断日志的属性**
 
-|Name               |说明
+|名称               |说明
 |---                |---
 |succeededOn        |引入完成时间
 |operationId        |Azure 数据资源管理器引入操作 ID
@@ -142,7 +142,7 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 **失败操作诊断日志的属性**
 
-|Name               |说明
+|名称               |说明
 |---                |---
 |failedOn           |引入完成时间
 |operationId        |Azure 数据资源管理器引入操作 ID
@@ -159,4 +159,5 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="next-steps"></a>后续步骤
 
-[使用指标来监视群集运行状况](using-metrics.md)
+* [教程：在 Azure 数据资源管理器中引入和查询监视数据](ingest-data-no-code.md)
+* [使用指标来监视群集运行状况](using-metrics.md)

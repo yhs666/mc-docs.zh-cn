@@ -11,12 +11,12 @@ origin.date: 11/04/2019
 ms.date: 11/19/2019
 ms.author: v-lingwu
 ms.custom: seodec18
-ms.openlocfilehash: 5e407432c575db6c141385959d7f0459b0d8323d
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 54a7b98bcbcd9d1966f483e84747151468808f2c
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528073"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500349"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Azure 认知服务的自然语言支持
 
@@ -29,6 +29,14 @@ ms.locfileid: "74528073"
 各个 Azure 认知服务支持以下核心语言：
 
 * 中文
+* 英语
+* 法语
+* 德语
+* 意大利语
+* 日语
+* 韩语¹
+* 葡萄牙语
+* 西班牙语
 
 > [!NOTE]
 > ¹ 不支持 LUIS、文本分析和语音转文本。

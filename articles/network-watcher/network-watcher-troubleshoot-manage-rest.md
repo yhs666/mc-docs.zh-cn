@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序对虚拟网关和连接进行故障排除 - REST | Azure
+title: 对 VNET 网关和连接进行故障排除 | Azure REST API
+titleSuffix: Azure Network Watcher
 description: 本页说明如何在 REST 中使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 06/19/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 3b44e267c0ba4b4dd041560edc22b25f87c81d62
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 9d11ae10fa1c749c0b4d5ff33371f5f512dcf720
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528389"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335860"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>使用 Azure 网络观察程序排查虚拟网络网关和连接问题
 

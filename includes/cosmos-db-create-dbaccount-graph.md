@@ -6,15 +6,15 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: include
 origin.date: 04/13/2018
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: include file
-ms.openlocfilehash: ad0bb1edd087b2cc66c9c62149a52f63b1c1aa71
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: 85aee6733b978e292b7c61962b007d29aa440383
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913325"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336405"
 ---
 <!--Verify sucessfully-->
 1. 在新浏览器窗口中，登录到 [Azure 门户](https://portal.azure.cn/)。
@@ -41,4 +41,4 @@ ms.locfileid: "72913325"
 
     ![Azure 门户“通知”窗格](./media/cosmos-db-create-dbaccount-graph/azure-cosmos-db-graph-created.png)
 
-<!--Verify sucessfully-->
+<!-- Update_Description: update meta properties, wording update, update link -->

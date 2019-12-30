@@ -9,15 +9,15 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 origin.date: 04/15/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: f43e707aa96c197bf2fe8bfa80785390182b62e4
-ms.sourcegitcommit: e9c62212a0d1df1f41c7f40eb58665f4f1eaffb3
+ms.date: 12/23/2019
+ms.openlocfilehash: 131eca17d1f4106c6cae1a08869a20fd0dbd861b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68878754"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335934"
 ---
-# <a name="release-notes-for-azure-hdinsight"></a>Azure HDInsight 发行说明
+# <a name="archived-release-notes"></a>已存档的发行说明
 
 > [!IMPORTANT]  
 > Linux 是 HDInsight 3.4 或更高版本上使用的唯一操作系统。 有关详细信息，请参阅 [HDInsight 版本控制文章](hdinsight-component-versioning.md)。
@@ -26,7 +26,123 @@ ms.locfileid: "68878754"
 
 Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和 Apache Spark 分析服务之一。
 
-## <a name="new-features"></a>新增功能
+## <a name="release-date-08072019"></a>发布日期：2019/08/07
+
+### <a name="component-versions"></a>组件版本
+
+下面提供了所有 HDInsight 4.0 组件的正式 Apache 版本。 列出的组件是可用的最新稳定版本。
+
+- Apache Ambari 2.7.1
+- Apache Hadoop 3.1.1
+- Apache HBase 2.0.0
+- Apache Hive 3.1.0
+- Apache Kafka 1.1.1, 2.1.0
+- Apache Mahout 0.9.0+
+- Apache Oozie 4.2.0
+- Apache Phoenix 4.7.0
+- Apache Pig 0.16.0
+- Apache Ranger 0.7.0
+- Apache Slider 0.92.0
+- Apache Spark 2.3.1, 2.4.0
+- Apache Sqoop 1.4.7
+- Apache TEZ 0.9.1
+- Apache Zeppelin 0.8.0
+- Apache ZooKeeper 3.4.6
+
+除了上面所列的版本以外，Apache 组件的较高版本有时也会捆绑在 HDP 分发版中。 在这种情况下，这些较高版本会列在“技术预览”表中，并且在生产环境中不应替换为上述列表中的 Apache 组件版本。
+
+### <a name="apache-patch-information"></a>Apache 修补程序信息
+
+有关 HDInsight 4.0 中可用的修补程序的详细信息，请参阅下表中适用于每个产品的修补程序列表。
+
+| 产品名称 | 修补程序信息 |
+|---|---|
+| Ambari | [Ambari 修补程序信息](https://docs.hortonworks.com/HDPDocuments/Ambari-2.7.1.0/bk_ambari-release-notes/content/ambari_relnotes-2.7.1.0-patch-information.html) |
+| Hadoop | [Hadoop 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hadoop.html) |
+| HBase | [HBase 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_hbase.html) |
+| Hive  | 此版本提供 Hive 3.1.0，但不提供其他 Apache 修补程序。  |
+| Kafka | 此版本提供 Kafka 1.1.1，但不提供其他 Apache 修补程序。 |
+| Oozie | [Oozie 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_oozie.html) |
+| Phoenix | [Phoenix 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_phoenix.html) |
+| Pig | [Pig 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_pig.html) |
+| Ranger | [Ranger 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_ranger.html) |
+| Spark | [Spark 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_spark.html) |
+| Sqoop | 此版本提供 Sqoop 1.4.7，但不提供其他 Apache 修补程序。 |
+| Tez | 此版本提供 Tez 0.9.1，但不提供其他 Apache 修补程序。 |
+| Zeppelin | 此版本提供 Zeppelin 0.8.0，但不提供其他 Apache 修补程序。 |
+| Zookeeper | [Zookeeper 修补程序信息](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/patch_zookeeper.html) |
+
+### <a name="fixed-common-vulnerabilities-and-exposures"></a>修复了常见漏洞和透露
+
+有关此版本中已解决的安全问题的详细信息，请参阅 Hortonworks 编写的[修复了 HDP 3.0.1 的常见漏洞和透露](https://docs.hortonworks.com/HDPDocuments/HDP3/HDP-3.0.1/release-notes/content/cve.html)。
+
+### <a name="known-issues"></a>已知问题
+
+#### <a name="replication-is-broken-for-secure-hbase-with-default-installation"></a>使用默认安装选项时 Secure HBase 的复制中断
+
+对于 HDInsight 4.0，请执行以下步骤：
+
+1. 启用群集间通信。
+1. 登录到活动的头节点。
+1. 使用以下命令下载一个脚本以启用复制：
+
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. 键入命令 `sudo kinit <domainuser>`。
+1. 键入以下命令以运行该脚本：
+
+    ```
+    sudo bash hdi_enable_replication.sh -m <hn0> -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
+对于 HDInsight 3.6，请执行以下步骤：
+
+1. 登录到活动的 HMaster ZK。
+1. 使用以下命令下载一个脚本以启用复制：
+    ```
+    sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+    ```
+1. 键入命令 `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`。
+1. 输入以下命令：
+
+    ```bash
+    sudo bash hdi_enable_replication.sh -s <srclusterdns> -d <dstclusterdns> -sp <srcclusterpasswd> -dp <dstclusterpasswd> -copydata
+    ```
+
+#### <a name="phoenix-sqlline-stops-working-after-migrating-hbase-cluster-to-hdinsight-40"></a>将 HBase 群集迁移到 HDInsight 4.0 后，Phoenix Sqlline 停止工作
+
+执行以下步骤：
+
+1. 删除以下 Phoenix 表：
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.MUTEX`
+    1. `SYSTEM.CATALOG`
+1. 如果无法删除其中的任何表，请重启 HBase 以清除与表建立的任何连接。
+1. 再次运行 `sqlline.py`。 Phoenix 将重新创建在步骤 1 中删除的所有表。
+1. 重新生成 HBase 数据的 Phoenix 表和视图。
+
+#### <a name="phoenix-sqlline-stops-working-after-replicating-hbase-phoenix-metadata-from-hdinsight-36-to-40"></a>将 HBase Phoenix 元数据从 HDInsight 3.6 复制到 4.0 之后，Phoenix Sqlline 停止工作
+
+执行以下步骤：
+
+1. 在执行复制之前，请转到目标 4.0 群集并执行 `sqlline.py`。 此命令将生成类似于 `SYSTEM.MUTEX` 和 `SYSTEM.LOG` 且只存在于 4.0 中的 Phoenix 表。
+1. 删除以下表：
+    1. `SYSTEM.FUNCTION`
+    1. `SYSTEM.SEQUENCE`
+    1. `SYSTEM.STATS`
+    1. `SYSTEM.CATALOG`
+1. 启动 HBase 复制
+
+### <a name="deprecation"></a>弃用
+
+Apache Storm 和机器学习服务在 HDInsight 4.0 中不可用。
+
+
+## <a name="release-date-04142019"></a>发布日期：2019/04/14
+
+### <a name="new-features"></a>新增功能
 
 新的更新和功能划分为以下类别：
 
@@ -42,7 +158,7 @@ Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和
 
 *  ***HDInsight 企业安全性套餐更新（预览版）*** -（预览版）[虚拟网络服务终结点](/virtual-network/virtual-network-service-endpoints-overview)支持 Azure Blob 存储、ADLS Gen1、Cosmos DB 和 Azure DB。
 
-## <a name="component-versions"></a>组件版本
+### <a name="component-versions"></a>组件版本
 
 下面列出了所有 HDInsight 3.6 组件的正式 Apache 版本。 此处列出的所有组件是最新稳定版本的正式 Apache 发行版。
 
@@ -82,9 +198,9 @@ Azure HDInsight 是 Azure 中最受企业客户青睐的开源 Apache Hadoop 和
 
 除了上面所列的版本以外，某些 Apache 组件的较高版本有时也捆绑在 HDP 分发版中。 在这种情况下，这些较高版本会列在“技术预览”表中，并且在生产环境中不应替换为上述列表中的 Apache 组件版本。
 
-## <a name="apache-patch-information"></a>Apache 修补程序信息
+### <a name="apache-patch-information"></a>Apache 修补程序信息
 
-### <a name="hadoop"></a>Hadoop
+#### <a name="hadoop"></a>Hadoop
 
 此版本提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
@@ -168,7 +284,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 -   [YARN-6805](https://issues.apache.org/jira/browse/YARN-6805)：由于 null PrivilegedOperationException 退出代码，LinuxContainerExecutor 中出现 NPE。
 
-### <a name="hbase"></a>HBase
+#### <a name="hbase"></a>HBase
 
 此版本提供 HBase 1.1.2 和以下 Apache 修补程序。
 
@@ -234,7 +350,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 -   [HBASE-20008](https://issues.apache.org/jira/browse/HBASE-20008)：拆分区域后还原快照时\[向后移植\] NullPointerException。
 
-### <a name="hive"></a>Hive
+#### <a name="hive"></a>Hive
 
 除以下修补程序以外，此版本还提供 Hive 1.2.1 和 Hive 2.1.0：
 
@@ -494,7 +610,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 -   [*HIVE-18944*](https://issues.apache.org/jira/browse/HIVE-18944)：DPP 期间错误地设置分组集位置。
 
-### <a name="kafka"></a>Kafka
+#### <a name="kafka"></a>Kafka
 
 此版本提供 Kafka 1.0.0 和以下 Apache 修补程序。
 
@@ -528,7 +644,7 @@ HDP 2.6.4 提供 Hadoop Common 2.7.3 和以下 Apache 修补程序：
 
 -   [KAFKA-6274](https://issues.apache.org/jira/browse/KAFKA-6274)：改善自动生成的 KTable 源状态存储名称。
 
-### <a name="mahout"></a>Mahout
+#### <a name="mahout"></a>Mahout
 
 HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 Apache Mahout 主干中的特定修订版本点。 此修订版本点在 0.9.0 版本之后、0.10.0 版本之前。 与 0.9.0 版本相比，此版本提供大量的 bug 修复和功能增强，并且在完成转换到 0.10.0 中基于 Spark 的 Mahout 之前，提供 Mahout 功能的稳定版本。
 
@@ -542,7 +658,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   还存在一种更小的可能性：由于二进制兼容问题，在 Mahout 对 hadoop-common 库的 hbase-client 代码调用中，某些 Mahout 作业可能遇到崩溃。 遗憾的是，没有任何方法可以解决此问题，而只能还原到 Mahout 的 HDP-2.4.2 版本，这可能会造成安全问题。 同样，这种情况极少见，在任何给定的 Mahout 作业套件中都不太可能会发生。
 
-### <a name="oozie"></a>Oozie
+#### <a name="oozie"></a>Oozie
 
 此版本提供 Oozie 4.2.0 和以下 Apache 修补程序。
 
@@ -568,7 +684,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [OOZIE-3167](https://issues.apache.org/jira/browse/OOZIE-3167)：升级 Oozie 4.3 分支上的 tomcat 版本。
 
-### <a name="phoenix"></a>Phoenix
+#### <a name="phoenix"></a>Phoenix
 
 此版本提供 Phoenix 4.7.0 和以下 Apache 修补程序：
 
@@ -612,7 +728,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [PHOENIX-4588](https://issues.apache.org/jira/browse/PHOENIX-4588)：如果表达式的子级包含 Determinism.PER\_INVOCATION，则也会克隆表达式。
 
-### <a name="pig"></a>Pig
+#### <a name="pig"></a>Pig
 
 此版本提供 Pig 0.16.0 和以下 Apache 修补程序。
 
@@ -620,7 +736,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [PIG-5175](https://issues.apache.org/jira/browse/PIG-5175)：将 jruby 升级到 1.7.26。
 
-### <a name="ranger"></a>Ranger
+#### <a name="ranger"></a>Ranger
 
 此版本提供 Ranger 0.7.0 和以下 Apache 修补程序：
 
@@ -640,11 +756,11 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [RANGER-2008](https://issues.apache.org/jira/browse/RANGER-2008)：策略评估对于多行策略条件失败。
 
-### <a name="slider"></a>滑块
+#### <a name="slider"></a>滑块
 
 此版本提供了 Slider 0.92.0，但未提供其他 Apache 修补程序。
 
-### <a name="spark"></a>Spark
+#### <a name="spark"></a>Spark
 
 此版本提供 Spark 2.3.0 和以下 Apache 修补程序：
 
@@ -770,11 +886,11 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [SPARK-23881](https://issues.apache.org/jira/browse/SPARK-23881)：修复测试 JobCancellationSuite 中出现的怪异消息“随机读取器的不间断迭代器”。
 
-### <a name="sqoop"></a>Sqoop
+#### <a name="sqoop"></a>Sqoop
 
 此版本提供了 Sqoop 1.4.6，但未提供其他 Apache 修补程序。
 
-### <a name="storm"></a>Storm
+#### <a name="storm"></a>Storm
 
 此版本提供 Storm 1.1.1 和以下 Apache 修补程序：
 
@@ -788,13 +904,13 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [STORM-2960](https://issues.apache.org/jira/browse/STORM-2960)：更好地强调为 Storm 进程设置正确 OS 帐户的重要性。
 
-### <a name="tez"></a>Tez
+#### <a name="tez"></a>Tez
 
 此版本提供 Tez 0.7.0 和以下 Apache 修补程序：
 
 -   [TEZ-1526](https://issues.apache.org/jira/browse/TEZ-1526)：运行大型作业时，TezTaskID 的 LoadingCache 速度较慢。
 
-### <a name="zeppelin"></a>Zeppelin
+#### <a name="zeppelin"></a>Zeppelin
 
 此版本提供了 Zeppelin 0.7.3，但未提供其他 Apache 修补程序。
 
@@ -804,7 +920,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [ZEPPELIN-903](https://issues.apache.org/jira/browse/ZEPPELIN-903)：将 CXF 替换为 Jersey2。
 
-### <a name="zookeeper"></a>ZooKeeper
+#### <a name="zookeeper"></a>ZooKeeper
 
 此版本提供 ZooKeeper 3.4.6 和以下 Apache 修补程序：
 
@@ -818,11 +934,11 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
 -   [ZOOKEEPER-2726](https://issues.apache.org/jira/browse/ZOOKEEPER-2726)：造成潜在争用条件的问题的修补程序。
 
-## <a name="fixed-common-vulnerabilities-and-exposures"></a>修复了常见漏洞和透露
+### <a name="fixed-common-vulnerabilities-and-exposures"></a>修复了常见漏洞和透露
 
 本部分介绍此版本中已解决的所有常见漏洞和透露 (CVE) 问题。
 
-### <a name="cve-2017-7676"></a>**CVE-2017-7676**
+#### <a name="cve-2017-7676"></a>**CVE-2017-7676**
 
 | **摘要：**  Apache Ranger 策略评估忽略“\*”通配符后面的字符 |
 |----------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -846,7 +962,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **修复详细信息：**  Ranger Hive 授权者已更新，可以使用外部位置正确处理权限检查。 |
 | **建议的操作：**  用户应升级到 HDI 3.6（使用 Apache Ranger 0.7.1+）。 |
 
-### <a name="cve-2017-9799"></a>**CVE-2017-9799**
+#### <a name="cve-2017-9799"></a>**CVE-2017-9799**
 
 | **摘要：**  可能以 Apache Storm 中错误用户的身份执行代码 |
 |--------------------------------------------------------------------------------------------------|
@@ -857,7 +973,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **影响：**  在某些情况下使用 storm 的配置时，在理论上，拓扑的所有者能够以不同的非 root 用户身份欺骗监督程序来启动辅助角色。 在最坏的情况下，这可能导致其他用户的安全凭据泄密。 此漏洞仅适用于已启用安全性的 Apache Storm 安装。 |
 | **缓解措施：**  目前没有解决方法，只能升级到 HDP 2.6.2.1。  |
 
-### <a name="cve-2016-4970"></a>**CVE-2016-4970**
+#### <a name="cve-2016-4970"></a>**CVE-2016-4970**
 
 | **摘要：**  4.0.37.Final 之前的 Netty 4.0.x 以及 4.1.1.Final 之前的 4.1.x 中的 handler/ssl/OpenSslEngine.java 允许远程攻击者造成拒绝服务（无限循环） |
 |--------------------------------------------------------------------------------------------------|
@@ -868,7 +984,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **影响：**  影响较低，因为 Hortonworks 不直接在 Hadoop 代码库中使用 OpenSslEngine.java。     |
 | **建议的操作：**  升级到 HDP 2.6.3。   |
 
-### <a name="cve-2016-8746"></a>**CVE-2016-8746**
+#### <a name="cve-2016-8746"></a>**CVE-2016-8746**
 
 | **摘要：**  策略评估中存在 Apache Ranger 路径匹配问题                                                                    |
 |----------------------------------------------------------------------------------------------------------------------------------------|
@@ -880,7 +996,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **修复详细信息：** 已修复策略评估逻辑                                                                                          |
 | **建议的操作：**  用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）         |
 
-### <a name="cve-2016-8751"></a>**CVE-2016-8751**
+#### <a name="cve-2016-8751"></a>**CVE-2016-8751**
 
 | **摘要：**  Apache Ranger 存储跨站点脚本问题  |
 |--------------------------------------------------------------------------------------------------|
@@ -892,7 +1008,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | **修复详细信息：**  添加了逻辑来清理用户输入。  |
 | **建议的操作：**  用户应升级到 HDP 2.5.4+（使用 Apache Ranger 0.6.3+）或 HDP 2.6+（使用 Apache Ranger 0.7.0+）  |
 
-## <a name="fixed-issues-for-support"></a>修复了支持问题
+### <a name="fixed-issues-for-support"></a>修复了支持问题
 
 修复的问题代表以前通过 Hortonworks 支持记录的、但现已在当前版本中解决的选定问题。 这些问题可能已在先前版本的“已知问题”部分中报告；这意味着，这些问题已由客户报告，或者由 Hortonworks 质量工程团队识别。
 
@@ -1295,18 +1411,18 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 | BUG-99807              | [OOZIE-2844](https://issues.apache.org/jira/browse/OOZIE-2844)                                                                                                                                                                                                                 | 当 log4j.properties 缺失或不可读时提高 Oozie 操作的稳定性                                                                         |
 | RMP-9995               | [AMBARI-22222](https://issues.apache.org/jira/browse/AMBARI-22222)                                                                                                                                                                                                             | 切换 druid 以使用 /var/druid 目录而不是本地磁盘上的 /apps/druid                                                                                |
 
-## <a name="behavioral-changes"></a>行为变更
+### <a name="behavioral-changes"></a>行为变更
 
 |**Apache 组件**|**Apache JIRA**|**摘要**|**详细信息**|
 |--|--|--|--|
 |**Spark 2.3** |**不适用** |**Apache Spark 发行说明中所述的更改** |- 提供了“弃用”文档和“行为变更”指南： https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />- 对于 SQL 部分，提供了另一篇详细“迁移”指南（从 2.3 到 2.2）： https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
-|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 作业成功完成，但出现 HDFS 磁盘配额已满错误 |**场景**：当运行 **insert overwrite** 命令的用户的回收站文件夹中设置了配额时运行该命令。<br /><br />**以前的行为：** 作业会成功，但无法将数据移到回收站。 结果可能错误地包含表中以前存在的一些数据。<br /><br />**新行为：** 如果移到回收站失败，会永久删除文件。|
+|Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Spark 作业成功完成，但出现 HDFS 磁盘配额已满错误 |**场景：** 当运行 **insert overwrite** 命令的用户的回收站文件夹中设置了配额时运行该命令。<br /><br />**以前的行为：** 作业会成功，但无法将数据移到回收站。 结果可能错误地包含表中以前存在的一些数据。<br /><br />**新行为：** 如果移到回收站失败，会永久删除文件。|
 |**Kafka 1.0**|**不适用**|**Apache Spark 发行说明中所述的更改** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive/Ranger** | |INSERT OVERWRITE 需要其他 ranger hive 策略 |**场景**：**INSERT OVERWRITE** 需要其他 ranger hive 策略<br /><br />**以前的行为：** Hive **INSERT OVERWRITE** 查询像往常一样成功。<br /><br />**新行为：** 升级到 HDP 2.6.x 之后，Hive **INSERT OVERWRITE** 查询意外失败并出现错误：<br /><br />编译语句时出错:失败:HiveAccessControlException 权限被拒绝: 用户 jdoe 对 /tmp/ 没有写入特权\*(状态=42000，代码=40000)<br /><br />从 HDP-2.6.0 开始，Hive **INSERT OVERWRITE** 查询需要 Ranger URI 策略才能允许写入操作，即使已通过 HDFS 策略为用户授予了写入特权。<br /><br />**解决方法/预期的客户操作：**<br /><br />1.在 Hive 存储库下创建新策略。<br />2.在显示“数据库”的下拉列表中，选择“URI”。<br />3.更新路径（示例：/tmp/*）<br />4.添加用户和组并保存。<br />5.重试 insert 查询。|
 |**HDFS**|**不适用** |HDFS 应受多个 KMS RUI 的支持 |**以前的行为：** dfs.encryption.key.provider.uri 属性用于配置 KMS 提供程序路径。<br /><br />**新行为：** 现已弃用 dfs.encryption.key.provider.uri，改用 hadoop.security.key.provider.path 来配置 KMS 提供程序路径。|
 |**Zeppelin**|[**ZEPPELIN-3271**](https://issues.apache.org/jira/browse/ZEPPELIN-3271)|用于禁用计划程序的选项 |**受影响的组件：** Zeppelin-Server<br /><br />**以前的行为：** 以前的 Zeppelin 版本未提供用于禁用计划程序的选项。<br /><br />**新行为：** 默认情况下，用户不再会看到计划程序，因为它默认已禁用。<br /><br />**解决方法/预期的客户操作：** 若要启用计划程序，需要通过 Ambari 在 Zeppelin 中的自定义 zeppelin 站点设置下添加值为 true 的 azeppelin.notebook.cron.enable。|
 
-## <a name="known-issues"></a>已知问题
+### <a name="known-issues"></a>已知问题
 
 - **HDInsight 与 ADLS Gen 2 集成** 使用 Azure Data Lake Storage Gen 2 的 HDInsight ESP 群集在用户目录和权限上存在两个问题：
    
@@ -1427,7 +1543,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
     1.  用户的主目录未在头节点 1 上创建。 解决方法是，手动创建这些目录并将所有权更改为相应用户的 UPN。
     2.  /hdp 的权限当前未设置为 751。 这需要设置为 a.  chmod 751 /hdp b.  chmod -R 755 /hdp/apps
 
-## <a name="deprecation"></a>弃用
+### <a name="deprecation"></a>弃用
 
 -   **OMS 门户：** 我们已从指向 OMS 门户的 HDInsight 资源页中删除该链接。 Azure Monitor 日志一开始使用其自己的门户（称为 OMS 门户）来管理其配置并分析收集的数据。 此门户的所有功能已移至 Azure 门户，在其中继续进行开发。 HDInsight 已弃用 OMS 门户支持。 客户将在 Azure 门户中使用 HDInsight Azure Monitor 日志集成。
 
@@ -1435,7 +1551,7 @@ HDP 2.3.x 和 2.4.x 未随附 Mahout 的特定 Apache 版本，而是同步到 A
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-## <a name="upgrading"></a>正在升级
+### <a name="upgrading"></a>正在升级
 
 所有这些功能已在 HDInsight 3.6 中提供。 若要获取最新版本的 Spark、Kafka 和 R Server（机器学习服务），请在[创建 HDInsight 3.6 群集](/hdinsight/hdinsight-hadoop-provision-linux-clusters)时选择 Spark、Kafka 和 机器学习服务版本。 若要获取 ADLS 支持，可以选择 ADLS 存储类型作为选项。 现有群集不会自动升级到这些版本。
 

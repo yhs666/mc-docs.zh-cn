@@ -5,15 +5,15 @@ services: firewall
 author: rockboyfor
 ms.service: firewall
 origin.date: 08/29/2019
-ms.date: 09/23/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 ms.topic: article
-ms.openlocfilehash: 81a179d36bc377730a070c1446cd32bb0088f7d4
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 278d1433a0a05143b40c1d942ee716fce48847cc
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155791"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335363"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>使用 Azure CLI 部署和配置 Azure 防火墙
 
@@ -282,7 +282,7 @@ az network firewall network-rule create \
     Invoke-WebRequest -Uri https://www.microsoft.com
     ```
 
-    www.qq.com 请求应成功，而 www.microsoft.com 请求应失败。 这表明防火墙规则按预期运行。
+    `www.qq.com` 请求应成功，并且 `www.microsoft.com` 请求应失败。 这表明防火墙规则按预期运行。
 
 现已验证防火墙规则可正常工作：
 
@@ -302,4 +302,4 @@ az group delete \
 
 * [教程：监视 Azure 防火墙日志](./tutorial-diagnostics.md)
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

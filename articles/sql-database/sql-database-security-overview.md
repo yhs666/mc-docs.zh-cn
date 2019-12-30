@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库安全概述 | Microsoft 文档
+title: 安全性概述
 description: 了解 Azure SQL 数据库和 SQL Server 的安全性，包括云与本地 SQL Server 之间的差异。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab, emlisa
-manager: digimobile
 origin.date: 05/14/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 99d25cf87bee66b1eec7256d4770b305c188985b
-ms.sourcegitcommit: b418463868dac6b3c82b292f70d4a17bc5e01e95
+ms.date: 12/16/2019
+ms.openlocfilehash: e758c820c849cc3b3bac5e6342630c2b3b0f3d60
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69578630"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336023"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL 数据库安全功能概述
 
@@ -151,10 +150,6 @@ SQL 数据库动态数据掩码通过对非特权用户模糊化敏感数据来�
 ### <a name="compliance"></a>合规性
 
 除了上述有助于应用程序符合各项安全要求的特性和功能以外，Azure SQL 数据库还定期参与审核，并已通过许多法规标准的认证。 有关详细信息，请参阅 [Microsoft Azure 信任中心](https://www.trustcenter.cn/zh-cn/compliance/default.html)，可以从中找到 SQL 数据库合规认证的最新列表。
-
-### <a name="feature-restrictions"></a>功能限制
-
-功能限制有助于防止某些形式的 SQL 注入泄漏有关数据库的信息，即使在 SQL 注入成功时也是如此。 有关详细信息，请参阅 [Azure SQL 数据库功能限制](sql-database-feature-restrictions.md)。
 
 ## <a name="next-steps"></a>后续步骤
 

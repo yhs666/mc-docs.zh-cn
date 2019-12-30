@@ -1,24 +1,23 @@
 ---
-title: 升级到 Azure 搜索 .NET SDK 版本 9 - Azure 搜索
+title: 升级到 Azure 搜索 .NET SDK 版本 9
+titleSuffix: Azure Cognitive Search
 description: 从旧版本将代码迁移到 Azure 搜索 .NET SDK 版本 9。 了解新增功能和所需的代码更改。
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: v-tawe
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 05/10/2019
-ms.date: 09/26/2019
-ms.author: v-tawe
-ms.custom: seodec2018
-ms.openlocfilehash: 04c94145e77eccf5c32779b39528d1d5dc0dfb96
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: afbf20e569991c0409021d68344e4f5032d54f0b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674229"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335450"
 ---
-# <a name="upgrade-to-the-azure-search-net-sdk-version-9"></a>升级到 Azure 搜索 .NET SDK 版本 9
+# <a name="upgrade-to-azure-search-net-sdk-version-9"></a>升级到 Azure 搜索 .NET SDK 版本 9
 
 如果你使用的是版本 7.0-preview 或更早版本的 [Azure 搜索 .NET SDK](https://aka.ms/search-sdk)，本文可帮助你升级应用程序，以使用版本 9。
 
@@ -39,7 +38,8 @@ Azure 搜索 .NET SDK 的版本 9 包含了许多针对早期版本进行的更�
 ## <a name="whats-new-in-version-9"></a>版本 9 中的新增功能
 Azure 搜索 .NET SDK 的版本 9 针对 Azure 搜索 REST API 的最新正式发布版本，具体来说就是 2019-05-06。 这使得可在 .NET 应用程序中使用 Azure 搜索的新功能，如下所示：
 
-* [认知搜索](cognitive-search-concept-intro.md)是 Azure 搜索中的 AI 功能，用于从图像、blob 和其他非结构化的数据源中提取文本 - 丰富内容以使其在 Azure 搜索索引中更易于搜索。
+<!-- * [AI enrichment](cognitive-search-concept-intro.md) is the ability to extract text from images, blobs, and other unstructured data sources - enriching the content to make it more searchable in an Azure Search index. -->
+
 * 使用[复杂类型](search-howto-complex-data-types.md)支持几乎可为 Azure 搜索索引中的任何嵌套式 JSON 结构建模。
 * [自动完成](search-autocomplete-tutorial.md)可以取代**建议** API 来实现“一边键入，一边搜索”的行为。 “自动完成”是指“完成”用户当前键入的单词或短语。
 * [JsonLines 分析模式](search-howto-index-json-blobs.md)（Azure Blob 编制索引的一部分）可为每个 JSON 实体创建以换行符分隔的搜索文档。

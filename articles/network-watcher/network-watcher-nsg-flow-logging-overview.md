@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序针对网络安全组进行流日志记录简介 | Azure
+title: NSG 的流日志记录简介
+titleSuffix: Azure Network Watcher
 description: 本文说明如何使用 Azure 网络观察程序的 NSG 流日志功能
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 0ea67f0b99c06fb75d4bb740dc981be5c1d54b81
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 1f6181268ee852faaaf60050f15f38898d106350
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674676"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336388"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>针对网络安全组进行流日志记录简介
 

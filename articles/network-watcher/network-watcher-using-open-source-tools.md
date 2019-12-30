@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序和开源工具可视化网络流量模式 | Azure
+title: 使用开放源代码工具将网络流量模式可视化
+titleSuffix: Azure Network Watcher
 description: 本页介绍如何使用网络观察程序数据包捕获与 Capanalysis 来可视化传入和传出 VM 的流量模式。
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 08/13/2018
 ms.author: v-yeche
-ms.openlocfilehash: 7e41596a64264b1528712749c266acba97408f08
-ms.sourcegitcommit: d75065296d301f0851f93d6175a508bdd9fd7afc
+ms.openlocfilehash: 88513b100edca89d979c383d10084e974d1befc3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52661504"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336471"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>使用开源工具将传入和传出 VM 的网络流量模式可视化
 
@@ -96,8 +97,8 @@ CapAnalysis 提供多种选项来可视化数据包捕获，每种选项从不�
 
 若要详细了解 NSG 流日志，请访问 [NSG 流日志](network-watcher-nsg-flow-logging-overview.md)
 
-访问[使用 Power BI 将 NSG 流日志可视化](network-watcher-visualize-nsg-flow-logs-power-bi.md)
-<!--Image references-->，了解如何使用 Power BI 将 NSG 流日志可视化
+访问 [Visualize NSG flows logs with Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)（使用 Power BI 可视化 NSG 流日志），了解如何使用 Power BI 可视化 NSG 流日志
+<!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png
 [2]: ./media/network-watcher-using-open-source-tools/figure2.png

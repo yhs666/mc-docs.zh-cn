@@ -1,6 +1,6 @@
 ---
-title: 使用 Intelligent Insights 排查 Azure SQL 数据库性能问题 | Microsoft Docs
-description: Intelligent Insights 可以帮助排查 Azure SQL 数据库性能问题。
+title: 使用智能见解排查性能问题
+description: 智能见解可以帮助排查 Azure SQL 数据库性能问题。
 services: sql-database
 ms.service: sql-database
 ms.subservice: performance
@@ -10,19 +10,18 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: jrasnik, carlrab
-manager: digimobile
 origin.date: 01/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 1007bfd9865b429dd91007a254d07ca3bdc0413b
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 12/16/2019
+ms.openlocfilehash: 75952bfebe3bc6d4fd2e8fd611b9576ae0e08281
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544275"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335961"
 ---
-# <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用 Intelligent Insights 排查 Azure SQL 数据库性能问题
+# <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>使用智能见解排查 Azure SQL 数据库性能问题
 
-本页提供有关通过 [Intelligent Insights](sql-database-intelligent-insights.md) 数据库性能诊断日志检测到的 Azure SQL 数据库和托管实例性能问题的信息。 可将诊断日志遥测数据流式传输到 [Azure 事件中心](../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md)、[Azure 存储](sql-database-metrics-diag-logging.md#stream-into-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
+本页提供有关通过[智能见解](sql-database-intelligent-insights.md)数据库性能诊断日志检测到的 Azure SQL 数据库和托管实例性能问题的信息。 可将诊断日志遥测数据流式传输到 [Azure 事件中心](../azure-monitor/platform/resource-logs-stream-event-hubs.md)、[Azure 存储](sql-database-metrics-diag-logging.md#stream-into-storage)或第三方解决方案，用于自定义 DevOps 警报和报告功能。
 
 ## <a name="detectable-database-performance-patterns"></a>可检测的数据库性能模式
 
@@ -313,6 +312,6 @@ SQL 数据库可以确定查询执行开销最低的查询执行计划。 由于
 如果降低了定价层，因而减少了可供 SQL 数据库使用的 DTU 数，但同时对性能感到满意，则不需采取任何措施。 如果降低定价层后对 SQL 数据库的性能不满意，请减少数据库工作负荷，或考虑将定价层提升到更高的级别。
 
 ## <a name="next-steps"></a>后续步骤
-- 了解 [Intelligent Insights](sql-database-intelligent-insights.md) 概念。
-- 使用 [Intelligent Insights Azure SQL 数据库性能诊断日志](sql-database-intelligent-insights-use-diagnostics-log.md)。
-- 了解如何[从 Azure 资源收集和使用日志数据](../azure-monitor/platform/diagnostic-logs-overview.md)。
+- 了解[智能见解](sql-database-intelligent-insights.md)概念。
+- 使用[智能见解 Azure SQL 数据库性能诊断日志](sql-database-intelligent-insights-use-diagnostics-log.md)。
+- 了解如何[从 Azure 资源收集和使用日志数据](../azure-monitor/platform/resource-logs-overview.md)。

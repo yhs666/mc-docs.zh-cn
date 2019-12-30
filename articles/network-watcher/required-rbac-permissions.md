@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序功能所需的权限 | Azure Docs
+title: 使用功能所需的 RBAC 权限
+titleSuffix: Azure Network Watcher
 description: 了解使用网络观察程序功能需要哪些 Azure 基于角色的访问控制权限。
 services: network-watcher
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.topic: article
 origin.date: 05/10/2018
 ms.date: 9/29/2019
 ms.author: v-lingwu
-ms.openlocfilehash: f5592b5fd682366a9aa2d00dbc4b7a39c53949f0
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 0a6be2e38338c73ad0d3ef7961392415aec19135
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528388"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336468"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>使用网络观察程序功能所需的基于角色的访问控制权限
 

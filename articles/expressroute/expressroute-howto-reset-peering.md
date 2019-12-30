@@ -1,5 +1,5 @@
 ---
-title: 重置线路对等互连 - ExpressRoute：Azure
+title: Azure ExpressRoute：重置线路对等互连
 description: 如何禁用和启用 ExpressRoute 线路的对等互连。
 services: expressroute
 author: charwen
@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 10/25/2019
 ms.author: v-yiso
-ms.date: 12/02/2019
-ms.openlocfilehash: 51dda7766705e4e1d588cda3e12b303ba717fa46
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/23/2019
+ms.openlocfilehash: 468bfe9bd38d11536e5d9ef27bedd4294011fb47
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389446"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334742"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>重置 ExpressRoute 线路对等互连
 
@@ -48,7 +48,7 @@ ms.locfileid: "74389446"
    ```powershell
    $ckt = Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
    ```
-5. 标识要禁用或启用的对等互连。 对等互连是一个数组  。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Azure 公共对等互连。
+5. 标识要禁用或启用的对等互连。 对等互连是一个数组  。 在以下示例中，Peerings[0] 是 Azure 专用对等互连，而 Peerings[1] 是 Microsoft 对等互连。
 
    ```powershell
    Name                             : ExpressRouteARMCircuit
@@ -99,10 +99,10 @@ ms.locfileid: "74389446"
                                        "Connections": []
                                      },
                                      {
-                                       "Name": "AzurePublicPeering",
+                                       "Name": "MicrosoftPeering",
                                        "Etag": "W/\"cd011bef-dc79-49eb-b4c6-81fb6ea5d178\"",
                                        "Id": "/subscriptions/########-####-####-####-############/resourceGroups/ExpressRouteResourceGroup/providers/Microsoft.Network/expressRouteCircuits/ExpressRouteARMCircuit/peerings/MicrosoftPeering",
-                                       "PeeringType": "AzurePublicPeering",
+                                       "PeeringType": "MicrosoftPeering",
                                        "State": "Enabled",
                                        "AzureASN": 12076,
                                        "PeerASN": 123,

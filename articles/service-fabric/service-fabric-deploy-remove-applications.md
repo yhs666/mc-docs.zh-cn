@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 应用程序部署 | Azure
+title: 使用 PowerShell 进行 Azure Service Fabric 部署
 description: 如何在 Service Fabric 中使用 PowerShell 部署和删除应用程序。
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/19/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 211a8ad7d1778f02a6d7942923b4047770a89183
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 7e9ea63e132d1b146cfd25c6d6206a7b32728d63
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174255"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336174"
 ---
 # <a name="deploy-and-remove-applications-using-powershell"></a>使用 PowerShell 部署和删除应用程序
 

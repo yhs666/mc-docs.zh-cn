@@ -1,21 +1,22 @@
 ---
-title: Azure SQL 数据库 - 超大规模服务层级中的性能诊断 | Microsoft Docs
+title: 超大规模服务层级的性能诊断
 description: 本文介绍如何排查 Azure SQL 数据库中的超大规模服务层级性能问题。
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
 origin.date: 10/18/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: fa3320d262533e8295b8a0fe711bcc3e32286fef
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: 88edc17ddd6eebcff7c26df71405f2503830a327
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041367"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336278"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL 超大规模服务层级性能故障排除诊断
 
@@ -102,7 +103,7 @@ ms.locfileid: "73041367"
 
 ## <a name="additional-resources"></a>其他资源
 
-- 有关超大规模单一数据库的 vCore 资源限制，请参阅[超大规模服务层级的 vCore 限制](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute)
+- 有关超大规模单一数据库的 vCore 资源限制，请参阅[超大规模服务层级的 vCore 限制](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5)
 - 有关如何优化 Azure SQL 数据库性能，请参阅 [Azure SQL 数据库中的查询性能](sql-database-performance-guidance.md)
 - 有关如何使用查询存储优化性能，请参阅[使用查询存储进行性能监视](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/)
 - 有关 DMV 监视脚本，请参阅[使用动态管理视图监视 Azure SQL 数据库的性能](sql-database-monitoring-with-dmvs.md)

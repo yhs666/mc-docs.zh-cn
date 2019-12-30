@@ -1,18 +1,18 @@
 ---
-title: 开发和配置 Azure Functions SignalR 服务应用程序
+title: 开发和配置 Azure Functions 应用 - Azure SignalR
 description: 详细介绍如何使用 Azure Functions 与 Azure SignalR 服务来开发和配置无服务器实时应用程序
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 03/01/2019
-ms.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 7d242baa20196236b6f21634c560e5a430507537
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: d8af5febd1c0f5504c5370c184c1dc98c52e26e9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179107"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334879"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>使用 Azure SignalR 服务进行 Azure Functions 开发和配置
 
@@ -83,7 +83,7 @@ SDK 根据约定自动将 `/negotiate` 追加到 URL，然后使用该 URL 开�
 
 有关如何使用 SignalR 客户端 SDK 的详细信息，请参阅适用于所用语言的文档：
 
-* [.NET 标准](https://docs.microsoft.com/aspnet/core/signalr/dotnet-client)
+* [.NET Standard](https://docs.microsoft.com/aspnet/core/signalr/dotnet-client)
 * [JavaScript](https://docs.microsoft.com/aspnet/core/signalr/javascript-client)
 * [Java](https://docs.microsoft.com/aspnet/core/signalr/java-client)
 

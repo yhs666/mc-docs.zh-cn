@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 09/29/2019
 ms.date: 11/04/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 9d70fbb6dab86bfa8b69af983f38d7018b84e77e
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 32c715318d8f10737b4f068ea9a5ac3f4c36e2f5
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658072"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500356"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 中的数据收集、保留和存储
 
@@ -24,7 +24,7 @@ ms.locfileid: "74658072"
 * “按原样”运行的标准遥测模块不太可能将敏感数据发送到服务。 遥测考虑到负载、性能和使用指标、异常报告和其他诊断数据。 诊断报告中显示的主要用户数据是 URL；但是，应用在任何情况下都不应该将敏感数据以明文形式放在 URL 中。
 * 可以编写发送其他自定义遥测数据的代码，帮助进行诊断与监视使用情况。 （这种可扩展性是 Application Insights 的突出特性之一）。在编写此代码时，有可能不小心包含个人数据和其他敏感数据。 如果应用程序可处理此类数据，则应对编写的所有代码进行彻底审查。
 * 开发和测试应用时，可以轻松检查 SDK 发送的内容。 数据会显示在 IDE 和浏览器的调试输出窗口中。 
-* 数据保存在美国或欧洲的[世纪互联 Azure](https://www.azure.cn) 服务器中。 （但应用可在任何位置运行）。Azure 有[严格的安全过程，并符合各种法规标准](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。 只有你和指定的团队可以访问数据。 Azure 工作人员只会在知情的情况下和受限的具体情况下，才对数据拥有受限的访问权限。 将对传输中的静态数据加密。
+* 数据保存在中国的[世纪互联 Azure](https://www.azure.cn) 服务器中。 （但应用可在任何位置运行）。Azure 有[严格的安全过程，并符合各种法规标准](https://www.trustcenter.cn/zh-cn/cloudservices/azure.html)。 只有你和指定的团队可以访问数据。 Azure 工作人员只会在知情的情况下和受限的具体情况下，才对数据拥有受限的访问权限。 将对传输中的静态数据加密。
 *   检查收集的数据，因为这可能包括在某些情况下允许但在其他情况下不允许的数据。  设备名称就是一个很好的例子。 服务器中的设备名称不会对隐私造成影响，而且很有用，但是电话或笔记本电脑中的设备名称可能会对隐私造成影响，而且用处不大。 主要针对目标服务器开发的 SDK 将在默认情况下收集设备名称，该名称可能需要在正常事件和异常中被被覆盖。
 
 本文的余下部分详细阐述上述答案。 本文的内容简单直白，因此，可以将其转达给不属于直属团队的同事。

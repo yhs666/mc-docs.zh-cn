@@ -1,5 +1,5 @@
 ---
-title: SQL 数据库应用程序开发概述 | Microsoft Docs
+title: 应用程序开发概述
 description: 了解可用于连接到 SQL 数据库的连接库和最佳实践。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: genemi
-manager: digimobile
-origin.date: 02/07/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: aa3de181c82c7b75795133bd180afbc91c0d07f4
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 11/14/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 86c8dad98ae7f069fa3ea2b5b600ace1f7a8064c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544344"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336064"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL 数据库应用程序开发概述
 
@@ -50,7 +49,7 @@ ms.locfileid: "69544344"
 
 ## <a name="resiliency"></a>复原能力
 
-Azure SQL 数据库是一种云服务，在其中可能会遇到在底层基础结构中或云实体之间的通信中发生的暂时性错误。 尽管 Azure SQL 数据库在发生暂时性基础结构故障时可复原，但这些故障可能会影响连接。 如果在连接到 SQL 数据库时发生暂时性错误，代码应[重试调用](sql-database-connectivity-issues.md)。 建议让重试逻辑使用退让逻辑，这样就不会因为多个客户端同时重试而对 SQL 数据库造成混乱。 重试逻辑取决于 [SQL 数据库客户端程序的错误消息](sql-database-develop-error-messages.md)。
+Azure SQL 数据库是一种云服务，在其中可能会遇到在底层基础结构中或云实体之间的通信中发生的暂时性错误。 尽管 Azure SQL 数据库在发生暂时性基础结构故障时可复原，但这些故障可能会影响连接。 如果在连接到 SQL 数据库时发生暂时性错误，代码应[重试调用](sql-database-connectivity-issues.md)。 建议让重试逻辑使用退让逻辑，这样就不会因为多个客户端同时重试而对 SQL 数据库造成混乱。 重试逻辑取决于 [SQL 数据库客户端程序的错误消息](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)。
 
 有关如何为 Azure SQL 数据库上的计划内维护事件做好准备的详细信息，请参阅[规划 Azure SQL 数据库中的 Azure 维护事件](sql-database-planned-maintenance.md)。
 

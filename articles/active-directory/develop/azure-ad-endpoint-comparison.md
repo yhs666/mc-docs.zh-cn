@@ -11,18 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 08/01/2019
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: v-junlch
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fee74b6d4dc8600171af6b3c6e4468b459e97482
-ms.sourcegitcommit: a88cc623ed0f37731cb7cd378febf3de57cf5b45
+ms.openlocfilehash: 7c6a4f27d8a74c65f2d9a34b37da6f92f131cc4e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73830987"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334896"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>为何更新为 Microsoft 标识平台 (v2.0)？
 
@@ -62,9 +61,9 @@ ms.locfileid: "73830987"
 
 ## <a name="scopes-not-resources"></a>范围而非资源
 
-对于使用 v1.0 终结点的应用，应用可以充当**资源**或令牌接收者。 资源可定义它所了解的许多**范围**或 **oAuth2Permissions**，使客户端应用能够从该资源中为一组特定的范围请求令牌。 请考虑以 Azure AD 图形 API 作为资源的示例：
+对于使用 v1.0 终结点的应用，应用可以充当**资源**或令牌接收者。 资源可定义它所了解的许多**范围**或 **oAuth2Permissions**，使客户端应用能够从该资源中为一组特定的范围请求令牌。 请考虑将 Microsoft Graph API 作为资源的示例：
 
-* 资源标识符，或 `AppID URI`：`https://graph.chinacloudapi.cn/`
+* 资源标识符，或 `AppID URI`：`https://microsoftgraph.chinacloudapi.cn/`
 * 范围或 `oAuth2Permissions`：`Directory.Read`、`Directory.Write` 等等。
 
 对于 Microsoft 标识平台终结点也是如此。 应用仍可充当资源、定义范围并由 URI 标识。 客户端应用程序仍可请求访问这些范围。 但是，客户端用于请求这些权限的方式已发生了变化。

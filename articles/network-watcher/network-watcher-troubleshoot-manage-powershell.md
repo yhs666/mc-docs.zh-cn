@@ -1,5 +1,6 @@
 ---
-title: 对 Azure 虚拟网关和连接进行故障排除 - PowerShell | Azure
+title: 对 Azure VNet 网关和连接进行故障排除 | Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 此页说明了如何使用 Azure 网络观察程序对 PowerShell cmdlet 进行故障排除
 services: network-watcher
 documentationcenter: na
@@ -13,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 06/19/2017
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: d17a0631b90418ed6ce0455454538ceff6ed4015
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 4aa6a3ba90f73a1fbf9b92f41ee63b5a62b80fc6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674660"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336473"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-powershell"></a>使用 Azure 网络观察程序 PowerShell 对虚拟网络网关和连接进行故障排除
 

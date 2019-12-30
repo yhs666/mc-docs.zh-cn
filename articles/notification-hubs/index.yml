@@ -16,15 +16,6 @@ metadata:
   ms.author: v-tawe
 abstract:
   description: 了解如何使用通知中心（一种多平台可缩放的推送通知引擎）向各类设备（Android、iOS、Windows、Windows Phone）上运行的应用程序快速发送数百万条消息。 <p>教程、API 参考和其他文档介绍了如何设置推送通知以及将其从任何后端发送到任何移动设备。</p>
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 向 Android 应用程序发送推送通知
-    href: 'https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Notification-Hubs-in-an-Android-Application'
-    width: 250
 sections:
   - title: 分步教程
     items:
@@ -33,7 +24,7 @@ sections:
       - type: list
         style: ordered
         items:
-          - html: 向所有注册的设备发送推送通知 - <a href="/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">百度</a> | | <a href="/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">iOS</a> | <a href="/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">Kindle</a> | <a href="/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">Windows</a> | <a href="/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns">Windows Phone</a> |  | <a href="/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started">Xamarin.iOS</a>
+          - html: 向所有注册的设备发送推送通知 - <a href="/notification-hubs/notification-hubs-baidu-china-android-notifications-get-started">百度</a> | <a href="/notification-hubs/notification-hubs-ios-apple-push-notification-apns-get-started">iOS</a> | <a href="/notification-hubs/notification-hubs-kindle-amazon-adm-push-notification">Kindle</a> | <a href="/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification">Windows</a> | <a href="/notification-hubs/notification-hubs-windows-mobile-push-notifications-mpns">Windows Phone</a> | <a href="/notification-hubs/xamarin-notification-hubs-ios-push-notification-apns-get-started">Xamarin.iOS</a>
           - html: 向特定设备发送推送通知 - <a href="/notification-hubs/notification-hubs-ios-xplat-segmented-apns-push-notification">iOS</a> | <a href="/notification-hubs/notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns">Windows</a> | <a href="/notification-hubs/notification-hubs-windows-phone-push-xplat-segmented-mpns-notification">Windows Phone</a>
           - html: 向特定用户发送推送通知 - <a href="/notification-hubs/notification-hubs-aspnet-backend-ios-apple-apns-notification">iOS</a> | <a href="/notification-hubs/notification-hubs-aspnet-backend-windows-dotnet-wns-notification">Windows</a>
           - html: 发送基于位置的推送通知 - <a href="/notification-hubs/notification-hubs-push-bing-spatial-data-geofencing-notification">Windows</a>

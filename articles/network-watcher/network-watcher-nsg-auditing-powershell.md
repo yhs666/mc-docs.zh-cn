@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序安全组视图自动进行 NSG 审核 | Azure
+title: 自动执行 NSG 审核 - 安全组视图
+titleSuffix: Azure Network Watcher
 description: 本页说明如何配置网络安全组的审核
 services: network-watcher
 documentationcenter: na
@@ -13,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 origin.date: 02/22/2017
-ms.date: 04/12/19
+ms.date: 04/12/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 85a0378935d67fa794394d5df8e40386056b92e6
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 1c32064f9314cf58db10504a5882bed4d9201c67
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674675"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336390"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>使用 Azure 网络观察程序安全组视图自动进行 NSG 审核
 

@@ -4,20 +4,20 @@ description: Azure 快速入门 - 使用模板设置 Azure IoT 中心设备预�
 author: wesmc7777
 ms.author: v-yiso
 origin.date: 11/08/2019
-ms.date: 12/09/2019
+ms.date: 12/23/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a0760903e2f3148b670b1216ab725e4273c23d1f
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 4ad05d02d5992a8038832fc928e0135da32e98e3
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657876"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334732"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>快速入门：使用 Azure 资源管理器模板设置 IoT 中心设备预配服务
 
 可以使用 [Azure 资源管理器](/azure-resource-manager/resource-group-overview)以编程方式设置预配设备所需的 Azure 云资源。 这些步骤演示了如何创建 IoT 中心和新的 IoT 中心设备预配服务，然后使用 Azure 资源管理器模板将这两项服务链接到一起。 本快速入门使用 [Azure CLI](/azure-resource-manager/resource-group-template-deploy-cli) 执行创建资源组和部署模板所需的编程步骤，但你也可以使用 [Azure 门户](/azure-resource-manager/resource-group-template-deploy-portal)、[PowerShell](/azure-resource-manager/resource-group-template-deploy)、.NET、Ruby 或其他编程语言，轻松执行这些步骤和部署模板。 
 
@@ -79,7 +79,7 @@ ms.locfileid: "74657876"
    }
    ```
 
-2. 将 **parameters** 节替换为以下内容。 parameters 节指定可以从另一文件传入的参数。 此节指定要创建的 IoT 中心和预配服务的名称， 以及 IoT 中心和预配服务的位置。 这些值限于支持 IoT 中心和预配服务的 Azure 区域。 如需设备预配服务支持的位置的列表，可以运行以下命令：`az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table`，或者转到 [Azure 状态](https://azure.microsoft.com/status/)页，然后搜索“设备预配服务”。
+2. 将 **parameters** 节替换为以下内容。 parameters 节定义可以从另一文件传入其值的参数。 此节定义要创建的 IoT 中心和预配服务的名称， 以及 IoT 中心和预配服务的位置。 这些值仅限于支持 IoT 中心和预配服务的 Azure 区域。 如需设备预配服务支持的位置的列表，可以运行以下命令：`az provider show --namespace Microsoft.Devices --query "resourceTypes[?resourceType=='ProvisioningServices'].locations | [0]" --out table`，或者转到 [Azure 状态](https://azure.microsoft.com/status/)页，然后搜索“设备预配服务”。
 
    ```json
     "parameters": {
@@ -115,7 +115,7 @@ ms.locfileid: "74657876"
 
    ```
 
-4. 若要创建 IoT 中心，请将以下行添加到 **resources** 集合。 该 JSON 指定创建 IoT 中心所需的最少属性。 **name** 和 **location** 属性作为参数传递。 若要详细了解可以在模板中为 IoT 中心指定的属性，请参阅 [Microsoft.Devices/IotHubs template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)（Microsoft.Devices/IotHubs 模板参考）。
+4. 若要创建 IoT 中心，请将以下行添加到 **resources** 集合。 该 JSON 指定创建 IoT 中心所需的最少属性。 名称和位置值将作为参数从另一个文件传递   。 若要详细了解可以在模板中为 IoT 中心指定的属性，请参阅 [Microsoft.Devices/IotHubs 模板参考](https://docs.microsoft.com/azure/templates/microsoft.devices/iothubs)。
 
    ```json
         {
@@ -135,9 +135,9 @@ ms.locfileid: "74657876"
 
    ``` 
 
-5. 若要创建预配服务，请将以下行添加到 **resources** 集合中的 IoT 中心规格后面。 预配服务的 **name** 和 **location** 以参数方式传递。 在 **iotHubs** 集合中指定要链接到预配服务的 IoT 中心。 至少必须指定每个链接的 IoT 中心的 **connectionString** 和 **location** 属性。 也可在每个 IoT 中心设置 **allocationWeight** 和 **applyAllocationPolicy** 之类的属性，以及在预配服务中设置 **allocationPolicy** 和 **authorizationPolicies** 之类的属性。 若要进行详细了解，请参阅 [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)（Microsoft.Devices/provisioningServices 模板参考）。
+5. 若要创建预配服务，请将以下行添加到 **resources** 集合中的 IoT 中心规格后面。 预配服务的名称和位置将作为参数传递   。 iotHubs 集合指定要链接到预配服务的 IoT 中心  。 至少必须指定每个链接的 IoT 中心的 **connectionString** 和 **location** 属性。 也可在每个 IoT 中心设置 **allocationWeight** 和 **applyAllocationPolicy** 之类的属性，以及在预配服务中设置 **allocationPolicy** 和 **authorizationPolicies** 之类的属性。 若要进行详细了解，请参阅 [Microsoft.Devices/provisioningServices template reference](https://docs.microsoft.com/azure/templates/microsoft.devices/provisioningservices)（Microsoft.Devices/provisioningServices 模板参考）。
 
-   使用 **dependsOn** 属性是为了确保资源管理器先创建 IoT 中心，然后再创建预配服务。 模板要求 IoT 中心的连接字符串指定其到预配服务的链接，因此必须先创建该中心及其密钥。 模板使用 **concat** 和 **listKeys** 之类的函数来创建连接字符串。 若要进行详细了解，请参阅 [Azure 资源管理器模板函数](/azure-resource-manager/resource-group-template-functions)。
+   使用 **dependsOn** 属性是为了确保资源管理器先创建 IoT 中心，然后再创建预配服务。 模板要求 IoT 中心的连接字符串指定其到预配服务的链接，因此必须先创建该中心及其密钥。 模板使用 concat 和 listKeys 之类的函数来通过参数化的变量创建连接字符串   。 若要进行详细了解，请参阅 [Azure 资源管理器模板函数](/azure-resource-manager/resource-group-template-functions)。
 
    ```json
         {
@@ -236,7 +236,7 @@ ms.locfileid: "74657876"
 
 ## <a name="create-a-resource-manager-parameter-file"></a>创建资源管理器参数文件
 
-在上一步定义的模板使用参数来指定 IoT 中心的名称、预配服务的名称，以及用于创建它们的位置（Azure 区域）。 在单独的文件中传递这些参数。 这样做可以重复使用同一模板进行多次部署。 若要创建参数文件，请执行以下步骤：
+在上一步定义的模板使用参数来指定 IoT 中心的名称、预配服务的名称，以及用于创建它们的位置（Azure 区域）。 将这些参数从单独的文件传递到此模板。 这样做可以重复使用同一模板进行多次部署。 若要创建参数文件，请执行以下步骤：
 
 1. 使用文本编辑器创建名为 **parameters.json** 的 Azure 资源管理器参数文件，其中包含以下框架内容： 
 
@@ -302,13 +302,13 @@ ms.locfileid: "74657876"
 
 请使用以下 Azure CLI 命令来部署模板和验证部署。
 
-1. 若要部署模板，请运行下述[用于启动部署的命令](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)：
+1. 若要部署模板，请导航到包含模板和参数文件的文件夹，然后运行以下[部署命令](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)：
     
     ```azurecli
      az group deployment create -g {your resource group name} --template-file template.json --parameters @parameters.json
     ```
 
-   在输出中查找设置为“Succeeded”的 **provisioningState** 属性。 
+   此操作可能需要几分钟才能完成。 完成后，请在输出中查找显示“已成功”的 provisioningState 属性  。 
 
    ![预配输出](./media/quick-setup-auto-provision-rm/output.png) 
 
@@ -341,7 +341,7 @@ az iot hub delete --name {your iot hub name} --resource-group {your resource gro
 az group delete --name {your resource group name}
 ```
 
-也可以使用 Azure 门户、PowerShell 或 REST API，或者针对 Azure 资源管理器或 IoT 中心设备预配服务发布的受支持平台 SDK，来删除资源组和单个资源。
+也可以使用 Azure 门户、PowerShell 或 REST API，以及针对 Azure 资源管理器或 IoT 中心设备预配服务发布的受支持平台 SDK，来删除资源组和单个资源。
 
 ## <a name="next-steps"></a>后续步骤
 

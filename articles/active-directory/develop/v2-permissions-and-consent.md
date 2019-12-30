@@ -13,18 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 04/12/2019
-ms.date: 11/26/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f990460a9493c42cdc9f0d16a761149529fee7a0
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: 6daea3cc59417022ebe2429fd8cca56e79e227bb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655396"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335380"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft 标识平台终结点中的权限和许可
 
@@ -42,6 +41,7 @@ Microsoft 标识平台实现 [OAuth 2.0](active-directory-v2-protocols.md) 授�
 * Microsoft Graph： `https://microsoftgraph.chinacloudapi.cn`
 * Office 365 邮件 API：`https://outlook.office.com`
 * Azure AD Graph：`https://graph.chinacloudapi.cn`
+* Azure Key Vault：`https://vault.azure.cn`
 
 > [!NOTE]
 > 我们强烈建议使用 Microsoft Graph，而不要使用 Azure AD Graph、Office 365 邮件 API 等。

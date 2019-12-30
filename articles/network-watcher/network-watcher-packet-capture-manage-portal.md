@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序管理数据包捕获 - Azure 门户 | Azure
+title: 管理数据包捕获 - Azure 门户
+titleSuffix: Azure Network Watcher
 description: 了解如何使用 Azure 门户管理网络观察程序的数据包捕获功能。
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 09/10/2018
 ms.date: 09/30/2018
 ms.author: v-yeche
-ms.openlocfilehash: 4f60bf5e5ebde8cf470ca76974be32cdcbe3dc81
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 569ab04b4c73370f9b48405cc88ed4f315593605
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674669"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336383"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>在门户中使用 Azure 网络观察程序管理数据包捕获
 

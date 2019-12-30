@@ -5,15 +5,15 @@ author: DCtheGeek
 manager: carmonm
 ms.service: governance
 ms.topic: article
-origin.date: 09/18/2018
-ms.date: 04/22/2019
-ms.author: v-biyu
-ms.openlocfilehash: db8676552b66d9a0925538781ecc3b11beea42c3
-ms.sourcegitcommit: 5a7034098baffcc7979769b13790c1b487f073b0
+origin.date: 12/06/2018
+ms.date: 12/16/2019
+ms.author: v-tawe
+ms.openlocfilehash: 7a1b33b7a56912a30de30e7a1cc01e2bbc32aaad
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471967"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335350"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Azure 中的管理服务概述
 
@@ -25,13 +25,13 @@ Azure 中的监管是 Azure 管理的一个方面。 本文介绍了在 Azure �
 
 ![Azure 中的管理规则](../monitoring/media/management-overview/management-capabilities.png)
 
-没有一个 Azure 服务完全满足特定管理区域的要求。 但搭配多个服务就能实现这一点。 某些服务（如 Application Insight）可为 Web 应用程序提供有针对性的监视功能。 其他服务（如 Log Analytics）可为其他服务存储管理数据。 可使用此功能分析由不同服务收集的不同类型的数据。
+没有一个 Azure 服务完全满足特定管理区域的要求。 但搭配多个服务就能实现这一点。 某些服务（如 Application Insight）可为 Web 应用程序提供有针对性的监视功能。 其他服务（例如 Azure Monitor 日志）可为其他服务存储管理数据。 可使用此功能分析由不同服务收集的不同类型的数据。
 
 下列部分简要介绍了不同的管理领域，并提供了用于处理这些领域的主要 Azure 服务的详细内容链接。
 
 ## <a name="monitor"></a>监视
 
-监视是一种数据收集和分析操作，用于审核资源的性能、运行状况及可用性。 有效的监视策略有助于了解组件的运行情况，并通过通知延长正常运行时间。 请阅读监视概述，了解[监视 Azure 应用程序和资源](https://docs.azure.cn/zh-cn/monitoring-and-diagnostics/)中使用的不同服务。
+监视是一种数据收集和分析操作，用于审核资源的性能、运行状况及可用性。 有效的监视策略有助于了解组件的运行情况，并通过通知延长正常运行时间。 请阅读监视概述，了解[监视 Azure 应用程序和资源](/azure-monitor/overview)中使用的不同服务。
 
 ## <a name="configure"></a>配置
 
@@ -40,11 +40,13 @@ Azure 中的监管是 Azure 管理的一个方面。 本文介绍了在 Azure �
 
 ## <a name="govern"></a>治理
 
+<!-- /cost-management/ not available -->
+
 “治理”提供了机制和流程来保持对 Azure 中的应用程序和资源的控制。 它涉及规划计划和设置战略优先级。
 Azure 中的治理主要是通过两个服务实现的。 [Azure Policy ](./policy/overview.md)允许你创建、分配和管理策略定义，以强制执行资源规则。 此功能可使这些资源符合企业标准。
 ## <a name="secure"></a>安全
 
-管理应用程序、资源和数据的安全性涉及以下事项的组合：评估威胁、收集和分析安全数据，以及确保应用程序和资源以安全方式设计并配置。 安全监视和威胁分析由 Azure 安全中心提供，该中心包括跨混合云工作负荷的统一安全管理和高级威胁防护。 另请参阅 [Azure 安全性简介](https://docs.azure.cn/zh-cn/security/)以了解有关 Azure 中的安全性的全面信息，以及有关安全配置 Azure 资源的指南。
+管理资源和数据的安全性。 安全计划涉及评估威胁、收集和分析数据以及应用程序和资源的符合性。 安全监视和威胁分析由 [Azure 安全中心](/security-center/)提供，该中心包括跨混合云工作负荷的统一安全管理和高级威胁防护。 请参阅 [Azure 安全性简介](../security/security-get-started-overview.md)的全面信息，以及有关保护 Azure 资源的指南。
 
 ## <a name="protect"></a>保护
 
@@ -53,4 +55,4 @@ Azure 中的治理主要是通过两个服务实现的。 [Azure Policy ](./poli
 ## <a name="migrate"></a>迁移
 
 迁移指的是将当前在本地运行的工作负荷转换到 Azure 云中。
-Azure Migrate 是一项服务，可帮助评估本地虚拟机到 Azure 的迁移适用性，包括基于性能的大小调整和成本估计。 Azure Site Recovery 可帮助执行[从本地](../site-recovery/migrate-tutorial-on-premises-azure.md)或[从 Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md) 实际迁移虚拟机。
+Azure Migrate 是一项服务，可帮助你评估本地虚拟机是否适合迁移到 Azure。 Azure Site Recovery [从本地](../site-recovery/migrate-tutorial-on-premises-azure.md)或[从 Amazon Web Services](../site-recovery/migrate-tutorial-aws-azure.md) 迁移虚拟机。 [Azure 数据库迁移](../dms/dms-overview.md)会帮助你将数据库源迁移到 Azure 数据平台。

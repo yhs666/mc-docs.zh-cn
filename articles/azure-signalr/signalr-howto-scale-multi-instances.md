@@ -1,18 +1,18 @@
 ---
-title: 如何使用多个实例来扩展 Azure SignalR 服务
+title: 使用多个实例进行扩展 - Azure SignalR 服务
 description: 在许多扩展方案中，客户往往需要预配多个实例，并将其配置为一同使用，以创建大规模部署。 例如，分片就需要支持多个实例。
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 origin.date: 03/27/2019
-ms.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: d8e5696e08533d9321636adf3cef2a70fa2f94a4
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: ed65ec9e818b77c36cb28339c467118d84e5dc5e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179100"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334873"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>如何使用多个实例扩展 SignalR 服务？
 最新的 SignalR 服务 SDK 支持对 SignalR 服务实例使用多个终结点。 可以使用此功能来扩展并发连接，或将其用于跨区域的消息传送。

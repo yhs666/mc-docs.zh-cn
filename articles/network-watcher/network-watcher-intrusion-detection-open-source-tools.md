@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序和开源工具执行网络入侵检测 | Azure
+title: 使用开放源代码工具执行网络入侵检测
+titleSuffix: Azure Network Watcher
 description: 本文介绍如何使用 Azure 网络观察程序和开源工具执行网络入侵检测
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 7f73133e13b3ce37eb019ff211d71f2eb857cf5f
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 354786e8b0aaffb7c78828191b880a6f5240e766
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674686"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336391"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>使用网络观察程序和开源工具执行网络入侵检测
 
@@ -40,7 +41,7 @@ Suricata 就是这样的一种开源工具，它是一个 IDS 引擎，可使用
 
 ### <a name="install-suricata"></a>安装 Suricata
 
-有关所有其他安装方法，请访问 http://suricata.readthedocs.io/en/latest/install.html
+有关所有其他安装方法，请访问 https://suricata.readthedocs.io/en/latest/install.html
 
 1. 在 VM 的命令行终端中运行以下命令：
 
@@ -206,7 +207,7 @@ tail -f /var/log/suricata/fast.log
     ```
 
 1. 确保提供对 eve.json 文件的适当权限，使 Logstash 能够引入该文件。
-
+    
     ```
     sudo chmod 775 /var/log/suricata/eve.json
     ```

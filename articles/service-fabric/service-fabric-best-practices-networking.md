@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 01/23/2019
-ms.date: 07/08/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 65288dfb8dfc52f3e66ec079cea0efa29f5eb6e4
-ms.sourcegitcommit: 021dbf0003a25310a4c8582a998c17729f78ce42
+ms.openlocfilehash: f96ca7e222220ebecf6a4ab55ebc8da620ea04ab
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67844701"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336362"
 ---
 # <a name="networking"></a>网络
 
@@ -61,7 +61,9 @@ ms.locfileid: "67844701"
 
 * Service Fabric 群集可以部署到现有的虚拟网络中，只需执行 [Service Fabric 网络模式](/service-fabric/service-fabric-patterns-networking)中介绍的步骤即可。
 
-* 对于限制群集的入站和出站流量的节点类型，建议使用网络安全组 (NSG)。 确保在 NSG 中打开所需的端口。 例如：![Service Fabric NSG 规则][NSGSetup]
+* 对于限制群集的入站和出站流量的节点类型，建议使用网络安全组 (NSG)。 确保在 NSG 中打开所需的端口。 例如： 
+    
+    ![Service Fabric NSG 规则][NSGSetup]
 
 * Service Fabric 系统服务所在的主节点类型不需通过外部负载均衡器公开，可以通过[内部负载均衡器](/service-fabric/service-fabric-patterns-networking#internal-only-load-balancer)公开
 
@@ -71,9 +73,9 @@ ms.locfileid: "67844701"
 
 * 若要运行 Windows 容器工作负荷，请使用[开放网络模式](/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)，使服务到服务的通信更方便。
 
-* 使用反向代理（例如 [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) 或 [Service Fabric 反向代理](/service-fabric/service-fabric-reverseproxy)）公开常用的应用程序端口，例如 80 或 443。
+* 使用反向代理（例如 [Traefik](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/) 或 [Service Fabric 反向代理](/service-fabric/service-fabric-reverseproxy)）公开常用的应用程序端口，例如 80 或 443。
 
-* 对于托管在无法从 Azure 云存储中拉取基本层的气隙计算机上的 Windows 容器，可通过在 Docker 守护程序中使用 [--allow-nondistributable-artifacts](https://docs.microsoft.com/zh-cn/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) 标志来重写外部层行为。
+* 对于托管在无法从 Azure 云存储中拉取基本层的气隙计算机上的 Windows 容器，可通过在 Docker 守护程序中使用 [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) 标志来重写外部层行为。
 
 ## <a name="next-steps"></a>后续步骤
 
@@ -83,4 +85,4 @@ ms.locfileid: "67844701"
 
 [NSGSetup]: ./media/service-fabric-best-practices/service-fabric-nsg-rules.png
 
-<!--Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

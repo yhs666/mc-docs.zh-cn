@@ -8,12 +8,12 @@ author: lingliw
 origin.date: 07/24/2019
 ms.date: 08/24/2019
 ms.author: v-lingwu
-ms.openlocfilehash: 75b293875cb9bce0e17135938164a46c0ebf7c8f
-ms.sourcegitcommit: 3a9c13eb4b4bcddd1eabca22507476fb34f89405
+ms.openlocfilehash: 6f5991f87bb558e20ef8706a691ee995c029cb16
+ms.sourcegitcommit: 676e2c676414ded74b980a1da9eb0de30817afbe
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74528395"
+ms.lasthandoff: 12/27/2019
+ms.locfileid: "75500362"
 ---
 # <a name="using-service-map-solution-in-azure"></a>使用 Azure 中的服务映射解决方案
 服务映射自动发现 Windows 和 Linux 系统上的应用程序组件并映射服务之间的通信。 可使用服务映射如所想一般作为提供重要服务的互连系统查看服务器。 服务映射显示 TCP 连接的任何体系结构中服务器、进程、入站和出站连接延迟和端口之间的连接，只需安装代理，无需任何其他配置。
@@ -344,7 +344,7 @@ Linux：
 
 | 属性 | 说明 |
 |:--|:--|
-| `RemoteCountry` |托管 RemoteIp 的国家/地区的名称。  例如 *United States* |
+| `RemoteCountry` |托管 RemoteIp 的国家/地区的名称。  例如“China East”  |
 | `RemoteLatitude` |地理位置的纬度。  例如 *47.68* |
 | `RemoteLongitude` |地理位置的经度。  例如 *-122.12* |
 

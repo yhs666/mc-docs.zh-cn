@@ -8,17 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-origin.date: 11/07/2019
-ms.date: 11/25/2019
+origin.date: 11/20/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: e84d1bcac1cda81dabf97caeaa5aedbb5c3f5bb1
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: bd222a6185fbb9d2db1ec5afae36c7ae1f66964a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74390042"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75469574"
 ---
-在本快速入门中，我们将使用[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 以交互方式识别从麦克风捕获的音频数据中的语音。 满足几个先决条件后，通过麦克风识别语音只需四个步骤：
+在本快速入门中，我们将使用[语音 SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) 以交互方式识别从麦克风捕获的音频数据中的语音。 可轻松地将此功能集成到应用或设备中，用于执行对话听录等常见识别任务。 它还可用于更加复杂的集成，例如配合使用 Bot Framework 和语音 SDK 来生成语音助手。
+
+满足几个先决条件后，通过麦克风识别语音只需四个步骤：
 
 > [!div class="checklist"]
 > * 通过订阅密钥和区域创建 `SpeechConfig` 对象。

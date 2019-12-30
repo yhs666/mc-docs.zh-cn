@@ -3,15 +3,16 @@ title: 使用 Azure Pipelines 和模板实现 CI/CD
 description: 介绍如何在 Visual Studio 中使用 Azure 资源组部署项目在 Azure Pipelines 中设置持续集成，以部署资源管理器模板。
 ms.topic: conceptual
 origin.date: 10/17/2019
-ms.date: 12/09/2019
-ms.openlocfilehash: 727db3cb7dcb359f1f83f09d5d57f389d2192c13
-ms.sourcegitcommit: cf73284534772acbe7a0b985a86a0202bfcc109e
+ms.author: v-yeche
+ms.date: 12/16/2019
+ms.openlocfilehash: a69c2981219b244a6a76d50032f00f43c0c045d2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74884887"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334790"
 ---
-<!--Pending verify later-->
+<!--Verified successfully on 12/16/2019-->
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>将资源管理器模板与 Azure Pipelines 集成
 
 Visual Studio 提供了 Azure 资源组项目用于创建模板并将其部署到 Azure 订阅。 可将此项目与 Azure Pipelines 集成，以实现持续集成和持续部署 (CI/CD)。
@@ -40,19 +41,19 @@ Visual Studio 提供了 Azure 资源组项目用于创建模板并将其部署�
 
 1. 如果事先尚未添加管道，需要创建一个新管道。 在 Azure DevOps 组织中，选择“管道”和“新建管道”。  
 
-   ![添加新管道](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
+    ![添加新管道](./media/vs-resource-groups-project-devops-pipelines/new-pipeline.png)
 
 1. 指定代码的存储位置。 在下图中，选择的是“Azure Repos Git”。 
 
-   ![选择代码源](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
+    ![选择代码源](./media/vs-resource-groups-project-devops-pipelines/select-source.png)
 
 1. 从该源中，选择包含项目代码的存储库。
 
-   ![选择存储库](./media/vs-resource-groups-project-devops-pipelines/select-repo.png)
+    ![选择存储库](./media/vs-resource-groups-project-devops-pipelines/select-repo.png)
 
 1. 选择要创建的管道类型。 可以选择“初学者管道”。 
 
-   ![选择管道](./media/vs-resource-groups-project-devops-pipelines/select-pipeline.png)
+    ![选择管道](./media/vs-resource-groups-project-devops-pipelines/select-pipeline.png)
 
 现已准备好添加 Azure PowerShell 任务，或者复制文件并部署任务。
 
@@ -110,29 +111,29 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
 
 1. 打开管道，并将内容替换为 YAML：
 
-   ```yaml
-   pool:
+    ```yaml
+    pool:
      name: Hosted Windows 2019 with VS2019
      demands: azureps
 
-   steps:
-   - task: AzurePowerShell@3
+    steps:
+    - task: AzurePowerShell@3
      inputs:
        azureSubscription: 'demo-deploy-sp'
        ScriptPath: 'AzureResourceGroupDemo/Deploy-AzureResourceGroup.ps1'
        ScriptArguments: -ResourceGroupName 'demogroup' -ResourceGroupLocation 'chinaeast' -UploadArtifacts -ArtifactStagingDirectory '$(Build.StagingDirectory)' -StorageAccountName 'stage3a4176e058d34bb88cc'
        azurePowerShellVersion: LatestVersion
-   ```
+    ```
 
 1. 选择“保存”  。
 
-   ![保存管道](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
+    ![保存管道](./media/vs-resource-groups-project-devops-pipelines/save-pipeline.png)
 
 1. 提供要提交的消息，并直接提交到 **master**。
 
 1. 选择“保存”时，生成管道将自动运行。  返回生成管道的摘要并观察状态。
 
-   ![查看结果](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
+    ![查看结果](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
 
 可以选择当前正在运行的管道来查看有关任务的详细信息。 管道运行完成后，你将看到每个步骤的结果。
 
@@ -196,7 +197,7 @@ ContainerName: '<container-name>'
 
 需要根据环境修改此任务的多个部分。
 
-- `deploymentScope`：从以下选项中选择部署范围：`Subscription`、`Resource Group` 和 `Resource Group`。 在本演练中使用**资源组**。 若要详细了解范围，请参阅[部署范围](./resource-group-template-deploy-rest.md#deployment-scope)。
+- `deploymentScope`：从以下选项中选择部署范围：`Subscription`、`Resource Group` 和 。 在本演练中使用**资源组**。 若要详细了解范围，请参阅[部署范围](./resource-group-template-deploy-rest.md#deployment-scope)。
 
 - `ConnectedServiceName`：提供创建的服务连接的名称。
 
@@ -219,12 +220,12 @@ ContainerName: '<container-name>'
 
 1. 打开管道，并将内容替换为 YAML：
 
-   ```yaml
-   pool:
+    ```yaml
+    pool:
      name: Hosted Windows 2019 with VS2019
 
-   steps:
-   - task: AzureFileCopy@3
+    steps:
+    - task: AzureFileCopy@3
      displayName: 'Stage files'
      inputs:
        SourcePath: 'AzureResourceGroup1'
@@ -249,7 +250,7 @@ ContainerName: '<container-name>'
         csmParametersFileLink: '$(artifactsLocation)WebSite.parameters.json$(artifactsLocationSasToken)'
         overrideParameters: '-_artifactsLocation $(artifactsLocation) -_artifactsLocationSasToken "$(artifactsLocationSasToken)"'
         deploymentMode: 'Incremental'
-   ```
+    ```
 
 1. 选择“保存”  。
 
@@ -257,7 +258,7 @@ ContainerName: '<container-name>'
 
 1. 选择“保存”时，生成管道将自动运行。  返回生成管道的摘要并观察状态。
 
-   ![查看结果](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
+    ![查看结果](./media/vs-resource-groups-project-devops-pipelines/view-results.png)
 
 可以选择当前正在运行的管道来查看有关任务的详细信息。 管道运行完成后，你将看到每个步骤的结果。
 
@@ -265,4 +266,5 @@ ContainerName: '<container-name>'
 
 有关将 Azure Pipelines 与资源管理器模板配合使用的分步过程，请参阅[教程：使用 Azure Pipelines 持续集成 Azure 资源管理器模板](resource-manager-tutorial-use-azure-pipelines.md)。
 
+<!--Verified successfully on 12/16/2019-->
 <!-- Update_Description: update meta properties, wording update, update link -->

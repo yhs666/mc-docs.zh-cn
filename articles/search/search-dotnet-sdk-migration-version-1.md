@@ -1,24 +1,23 @@
 ---
-title: 升级到 Azure 搜索 .NET SDK 版本 1.1 - Azure 搜索
+title: 升级到 Azure 搜索 .NET SDK 版本 1.1
+titleSuffix: Azure Cognitive Search
 description: 从旧 API 版本将代码迁移到 Azure 搜索 .NET SDK 版本 1.1。 了解新增功能和所需的代码更改。
-author: brjohnstmsft
 manager: nitinme
-services: search
-ms.service: search
+author: brjohnstmsft
+ms.author: v-tawe
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-origin.date: 01/15/2018
-ms.date: 09/26/2019
-ms.author: v-tawe
-ms.custom: seodec2018
-ms.openlocfilehash: f6409114859bc7a81ef215bb153a34074aa76ac9
-ms.sourcegitcommit: a5a43ed8b9ab870f30b94ab613663af5f24ae6e1
+origin.date: 11/04/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 1770ff689091b496b6912a8500000bf58da8e829
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674237"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335472"
 ---
-# <a name="upgrading-to-the-azure-search-net-sdk-version-11"></a>升级到 Azure 搜索 .NET SDK 版本 1.1
+# <a name="upgrade-to-azure-search-net-sdk-version-11"></a>升级到 Azure 搜索 .NET SDK 版本 1.1
 
 如果使用的是版本 1.0.2-preview 或更早版本的 [Azure 搜索 .NET SDK](https://aka.ms/search-sdk)，本文有助于升级应用程序，以便使用版本 1.1。
 

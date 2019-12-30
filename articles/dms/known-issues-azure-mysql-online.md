@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.topic: article
 origin.date: 11/08/2019
 ms.date: 12/02/2019
-ms.openlocfilehash: 8c13832645fb9785859f10b24f8d88a4315248b0
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: 5b7d2152372bb57ae3fb419971e1e94a1726b6fb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655461"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336456"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>联机迁移到 Azure DB for MySQL 时存在的已知问题/迁移限制
 
@@ -84,7 +84,7 @@ ms.locfileid: "74655461"
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **解决方法**：如果 LOB 对象大于 32 KB，请通过[询问 Azure 数据库迁移](mailto:AskAzureDatabaseMigrations@service.microsoft.com)联系工程团队。
+    **解决方法**：如果 LOB 对象大于 32 KB，请联系 [Azure 支持](https://support.azure.cn/zh-cn/support/contact/)。
 
 ## <a name="limitations-when-migrating-online-from-aws-rds-mysql"></a>从 AWS RDS MySQL 联机迁移时的限制
 

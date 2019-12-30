@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 门户管理用户分配的托管标识
+title: 在 Azure 门户中管理用户分配的托管标识 - Azure AD
 description: 分步说明如何创建、列出和删除用户分配的托管标识以及如何为其分配角色。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/16/2018
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e66b5d3c7856b5274b920a258d9bcee8be251374
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: edeb368f62ea70d461cbd48794bbc572dbdb9d12
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818696"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335649"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>使用 Azure 门户创建、列出和删除用户分配的托管标识以及为其分配角色
 
@@ -33,7 +32,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-it-work)  。
+- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-the-managed-identities-for-azure-resources-work)  。
 - 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
 
 ## <a name="create-a-user-assigned-managed-identity"></a>创建用户分配的托管标识
@@ -91,3 +90,4 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
    
    ![用户分配的托管标识 IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
 
+<!-- Update_Description: link update -->

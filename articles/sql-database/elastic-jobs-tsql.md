@@ -13,12 +13,12 @@ ms.reviewer: sstein
 manager: digimobile
 origin.date: 01/25/2019
 ms.date: 09/09/2019
-ms.openlocfilehash: 43470b7a2628e51db67507844fdcf6d23f2fa362
-ms.sourcegitcommit: 2610641d9fccebfa3ebfffa913027ac3afa7742b
+ms.openlocfilehash: d2ecdbe3182c198882a9b5e43f0a239bb690a12d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70373010"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336463"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>使用 Transact-SQL (T-SQL) 创建和管理弹性数据库作业
 
@@ -1036,7 +1036,7 @@ sp_add_job 必须从创建作业代理时指定的作业代理数据库运行。
 SQL 数据库服务器的名称。 refresh_credential_name 为 nvarchar(128)，没有默认值。
 
 [ **\@server_name =** ] 'server_name'  
-应添加到指定目标组的 SQL 数据库服务器的名称。 当 target_type 为 ‘SqlServer’ 时，应指定 server_name。 server_name 为 nvarchar(128)，没有默认值。
+应添加到指定目标组的 SQL 数据库服务器的名称。 当 target_type 为 'SqlServer' 时，应指定 server_name。 server_name 为 nvarchar(128)，没有默认值。
 
 [ **\@database_name =** ] 'database_name'  
 应添加到指定目标组的数据库的名称。 当 target_type 为 'SqlDatabase' 时，应指定 database_name。 database_name 为 nvarchar(128)，没有默认值。
@@ -1230,7 +1230,7 @@ GO
 |**target_type**|nvarchar(128)|目标数据库或数据库集合的类型，其中包括一个服务器中的所有数据库、一个弹性池中的所有数据库，或者单个数据库。 target_type 的有效值为 'SqlServer'、'SqlElasticPool' 或 'SqlDatabase'。 NULL 指示这是父作业执行操作。
 |**target_id**  |uniqueidentifier|  目标组成员的唯一 ID。  NULL 指示这是父作业执行操作。
 |**target_group_name**  |nvarchar(128)  |目标组的名称。 NULL 指示这是父作业执行操作。
-|**target_server_name**|    nvarchar(256)|  包含在目标组中的 SQL 数据库服务器的名称。 仅当 target_type 为 ‘SqlServer’ 时指定。 NULL 指示这是父作业执行操作。
+|**target_server_name**|    nvarchar(256)|  包含在目标组中的 SQL 数据库服务器的名称。 仅当 target_type 为 'SqlServer' 时指定。 NULL 指示这是父作业执行操作。
 |**target_database_name**|nvarchar(128)|包含在目标组中的数据库的名称。 仅当 target_type 为 'SqlDatabase' 时指定。 NULL 指示这是父作业执行操作。
 
 

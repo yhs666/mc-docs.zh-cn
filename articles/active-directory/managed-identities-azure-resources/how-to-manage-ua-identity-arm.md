@@ -1,5 +1,5 @@
 ---
-title: 如何使用 Azure 资源管理器创建和删除用户分配的托管标识
+title: 使用 Azure 资源管理器创建和删除用户分配的托管标识
 description: 分步说明如何使用 Azure 资源管理器创建和删除用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 04/16/2018
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba3566b864e9d55783e4de1b40f5502037ec110
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: a2913a0dbda56b80b45c5816475964add6e0bef2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818704"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335651"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>使用 Azure 资源管理器创建、列出和删除用户分配的托管标识
 
@@ -37,7 +36,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 - [删除用户分配的托管标识](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
   ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-it-work)  。
+- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-the-managed-identities-for-azure-resources-work)  。
 - 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
 
 ## <a name="template-creation-and-editing"></a>模板创建和编辑
@@ -59,7 +58,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ```json
 {
-  "$schema": "https://schema.management.chinacloudapi.cn/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "resourceName": {
@@ -91,4 +90,4 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 
  
-
+<!-- Update_Description: link update -->

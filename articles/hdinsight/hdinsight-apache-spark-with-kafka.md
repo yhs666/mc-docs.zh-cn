@@ -14,15 +14,15 @@ ms.devlang: ''
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 11/06/2018
-ms.date: 10/21/2019
+origin.date: 11/21/2018
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2e7459bba7b293c43207f9cef6a4a0b3f3153912
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: d39063eba7415f7d8534c138fd4302efd2f44990
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292658"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336085"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Apache Kafka on HDInsight 的 Apache Spark 流式处理 (DStream) 示例
 
@@ -58,27 +58,23 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
     此模板为 Kafka 和 Spark 创建 HDInsight 3.6 群集。
 
-2. 使用以下信息填充“自定义部署”部分中的条目  ：
-   
-    ![HDInsight 自定义部署](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
-   
-    * **资源组**：创建一个组或选择有个现有的组。 此组包含 HDInsight 群集。
+1. 使用以下信息填充“自定义部署”部分中的条目  ：
 
-    * **位置**：选择在地理上邻近的位置。
+    |属性 |Value |
+    |---|---|
+    |资源组|创建一个组或选择有个现有的组。|
+    |位置|选择在地理上邻近的位置。|
+    |基群集名称|此值将用作 Spark 和 Kafka 群集的基名称。 例如，输入 **hdistreaming** 将创建名为 __spark-hdistreaming__ 的 Spark 群集和名为 **kafka-hdistreaming** 的 Kafka 群集。|
+    |群集登录用户名|Spark 和 Kafka 群集的管理员用户名。|
+    |群集登录密码|Spark 和 Kafka 群集的管理员用户密码。|
+    |SSH 用户名|创建 Spark 和 Kafka 群集的 SSH 用户。|
+    |SSH 密码|Spark 和 Kafka 群集的 SSH 用户的密码。|
 
-    * **基群集名称**：此值将用作 Spark 和 Kafka 群集的基名称。 例如，输入 **hdistreaming** 将创建名为 __spark-hdistreaming__ 的 Spark 群集和名为 **kafka-hdistreaming** 的 Kafka 群集。
+    ![HDInsight 自定义部署参数](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-    * **群集登录用户名**：Spark 和 Kafka 群集的管理员用户名。
+1. 阅读“条款和条件”  ，并选择“我同意上述条款和条件”  。
 
-    * **群集登录密码**：Spark 和 Kafka 群集的管理员用户密码。
-
-    * **SSH 用户名**：创建 Spark 和 Kafka 群集的 SSH 用户。
-
-    * **SSH 密码**：Spark 和 Kafka 群集的 SSH 用户的密码。
-
-3. 阅读“条款和条件”  ，并选择“我同意上述条款和条件”  。
-
-4. 最后，选择“购买”  。 创建群集大约需要 20 分钟时间。
+1. 最后，选择“购买”  。 创建群集大约需要 20 分钟时间。
 
 创建资源后，会显示摘要页面。
 
@@ -90,8 +86,6 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 ## <a name="use-the-notebooks"></a>使用笔记本
 
 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka) 上提供了本文档中所述的示例的代码。
-
-要完成本示例，请按照 `README.md` 中的步骤进行操作。
 
 ## <a name="delete-the-cluster"></a>删除群集
 

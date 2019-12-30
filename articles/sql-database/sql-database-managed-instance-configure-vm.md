@@ -1,5 +1,5 @@
 ---
-title: 连接客户端 VM - Azure SQL 数据库托管实例 | Microsoft Docs
+title: 连接客户端 VM - 托管实例
 description: 使用 SQL Server Management Studio 从 Azure 虚拟机连接到 Azure SQL 数据库托管实例。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab, srbozovi, bonova
-manager: digimobile
 origin.date: 02/18/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 85044255e5febb65134f62ca40813cdfe1ceba46
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 12/16/2019
+ms.openlocfilehash: 3a7c35a7e88e0d9e6d579a9928f415f1ee590588
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544262"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336056"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>快速入门：配置 Azure VM，以便连接到 Azure SQL 数据库托管实例
 
@@ -48,7 +47,7 @@ ms.locfileid: "69544262"
 
    | 设置| 建议的值 | 说明 |
    | ---------------- | ----------------- | ----------- |
-   | **名称** | 任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
+   | **名称** | 任何有效的名称|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。|
    | **地址范围(CIDR 块)** | 有效的范围 | 默认值适用于本快速入门。|
    | **网络安全组** | 无 | 默认值适用于本快速入门。|
    | **路由表** | 无 | 默认值适用于本快速入门。|
@@ -79,12 +78,12 @@ ms.locfileid: "69544262"
    | ---------------- | ----------------- | ----------- |
    | **订阅** | 有效的订阅 | 必须是有权在其中创建新资源的订阅。 |
    | **资源组** |在[创建托管实例](sql-database-managed-instance-get-started.md)快速入门中指定的资源组。|此资源组必须是 VNet 所在的资源组。|
-   | **Location** | 资源组的位置 | 此值基于所选资源组进行填充。 |
-   | **虚拟机名称**  | 任何有效的名称 | 请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。|
-   |**管理员用户名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。<br>在[连接到 VM](#connect-to-virtual-machine) 时使用此用户名。|
+   | **位置** | 资源组的位置 | 此值基于所选资源组进行填充。 |
+   | **虚拟机名称**  | 任何有效的名称 | 请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。|
+   |**管理员用户名**|任何有效的用户名|请参阅[命名规则和限制](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)，了解什么是有效的名称。 不要使用“serveradmin”，因为这是保留的服务器级角色。<br>在[连接到 VM](#connect-to-virtual-machine) 时使用此用户名。|
    |**密码**|任何有效的密码|密码必须至少 12 个字符长，且符合[定义的复杂性要求](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)。<br>在[连接到 VM](#connect-to-virtual-machine) 时使用此密码。|
    | **虚拟机大小** | 任何有效的大小 | 此模板中的默认值 **Standard_B2s** 足以满足本快速入门的要求。 |
-   | **Location**|[resourceGroup().location]。| 请勿更改此值。 |
+   | **位置**|[resourceGroup().location]。| 请勿更改此值。 |
    | **虚拟网络名称**|在其中创建了托管实例的虚拟网络。|
    | **子网名称**|在前述过程中创建的子网的名称| 请勿选择在其中创建了托管实例的子网。|
    | **项目位置** | [deployment().properties.templateLink.uri] | 请勿更改此值。 |

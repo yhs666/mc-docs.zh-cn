@@ -1,5 +1,5 @@
 ---
-title: 升级 Azure Service Fabric 群集 | Azure
+title: 升级群集的 Azure Service Fabric 版本
 description: 升级运行 Service Fabric 群集的 Service Fabric 代码和/或配置，包括设置群集更新模式、升级证书、添加应用程序端口、执行操作系统修补，等等。 执行升级时可以预期什么？
 services: service-fabric
 documentationcenter: .net
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 6fe4cb90ac63ffd4bcef822a445e1e34bb07688e
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: 51645dbc9955aa0eaeb938f6038343abd080e3a2
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174009"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335142"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>升级群集的 Service Fabric 版本
 
@@ -85,39 +85,39 @@ Example: https://management.chinacloudapi.cn/subscriptions/1857f442-3bce-4b96-ad
 
 Output:
 {
-                  "value": [
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
-                      "name": "5.0.1427.9490",
-                      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.0.1427.9490",
-                        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
-                      "name": "5.1.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "5.1.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Windows"
-                      }
-                    },
-                    {
-                      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
-                      "name": "4.4.1427.9490",
-                      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
-                      "properties": {
-                        "codeVersion": "4.4.1427.9490",
-                        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
-                        "environment": "Linux"
-                      }
-                    }
-                  ]
-                }
+  "value": [
+    {
+      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/5.0.1427.9490",
+      "name": "5.0.1427.9490",
+      "type": "Microsoft.ServiceFabric/environments/clusterVersions",
+      "properties": {
+        "codeVersion": "5.0.1427.9490",
+        "supportExpiryUtc": "2016-11-26T23:59:59.9999999",
+        "environment": "Windows"
+      }
+    },
+    {
+      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.0.1427.9490",
+      "name": "5.1.1427.9490",
+      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+      "properties": {
+        "codeVersion": "5.1.1427.9490",
+        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+        "environment": "Windows"
+      }
+    },
+    {
+      "id": "subscriptions/35349203-a0b3-405e-8a23-9f1450984307/providers/Microsoft.ServiceFabric/environments/Windows/clusterVersions/4.4.1427.9490",
+      "name": "4.4.1427.9490",
+      "type": " Microsoft.ServiceFabric/environments/clusterVersions",
+      "properties": {
+        "codeVersion": "4.4.1427.9490",
+        "supportExpiryUtc": "9999-12-31T23:59:59.9999999",
+        "environment": "Linux"
+      }
+    }
+  ]
+}
 ```
 
 ## <a name="next-steps"></a>后续步骤
@@ -135,4 +135,4 @@ Output:
 [Create_Manualmode]: ./media/service-fabric-cluster-upgrade/Create_Manualmode.PNG
 [Manage_Automaticmode]: ./media/service-fabric-cluster-upgrade/Manage_Automaticmode.PNG
 
-<!-- Update_Description: wording update -->
+<!-- Update_Description: update meta properties, wording update  -->

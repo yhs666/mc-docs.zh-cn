@@ -13,21 +13,22 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 06/25/2019
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: adbbd3d864391ef249920761bc43fa3c76589824
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 1ed1efabc39632258fa45dcc2277ae4a60731fb9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657930"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335767"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>如何使用 Azure 移动应用的托管客户端
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center 正在投资于对移动应用开发至关重要的新集成服务。 开发人员可以使用**生成**、**测试**和**分发**服务来设置持续集成和交付管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用 **Auth** 对用户进行身份验证，利用**数据**服务在云中持久保存和同步应用数据。 立即查看 [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-dotnet-how-to-use-client-library)。
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
 >
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 ## <a name="overview"></a>概述
 本指南说明如何在 Windows 应用和 Xamarin 应用中使用 Azure 应用服务移动应用的托管客户端库执行常见方案。 如果不熟悉移动应用，最好先完成 [Azure Mobile Apps quickstart][1]（Azure 移动应用快速入门）教程。 在本指南中，我们侧重于客户端托管的 SDK。 若要详细了解移动应用的服务器端 SDK，请参阅 [.NET 服务器 SDK][2] 或 [Node.js 服务器 SDK][3] 的文档。
@@ -73,7 +74,7 @@ public class TodoItem
 使用以下方法之一从 [NuGet][9] 安装移动应用的托管客户端 SDK 包：
 
 * **Visual Studio** 右键单击项目，单击“管理 NuGet 包”  ，搜索 `Microsoft.Azure.Mobile.Client` 包，并单击“安装”  。
-* **Xamarin Studio** 右键单击项目，单击“添加”>“添加 NuGet 包”，搜索 `Microsoft.Azure.Mobile.Client ` 包，并单击“添加包”    。
+* **Xamarin Studio** 右键单击项目，单击“添加”>“添加 NuGet 包”，搜索 `Microsoft.Azure.Mobile.Client` 包，然后单击“添加包”    。
 
 在主活动文件中，请记得添加以下 **using** 语句：
 
@@ -907,12 +908,12 @@ private async void InitNotificationsAsync()
 不支持从客户端请求标记。  注册时将静默删除标记请求。
 如果想要使用标记注册设备，请创建自定义 API，使用通知中心 API 自动执行注册。  调用自定义 API 而不是 `RegisterNativeAsync()` 方法。
 
-### <a name="package-sid"></a>如何：获取 Windows 应用商店包 SID
-在 Windows 应用商店应用中启用推送通知需有包 SID。  若要接收包 SID，请向 Windows 应用商店注册应用程序。
+### <a name="package-sid"></a>如何：获取 Microsoft Store 包 SID
+在 Microsoft Store 应用中启用推送通知需有包 SID。  需要向 Microsoft Store 注册应用程序才能收到包 SID。
 
 若要获取此值，请执行以下操作：
 
-1. 在“Visual Studio 解决方案资源管理器”中，右键单击 Windows 应用商店应用项目，再单击“应用商店”   > “将应用与应用商店关联...”  。
+1. 在“Visual Studio 解决方案资源管理器”中，右键单击 Microsoft Store 应用项目，再单击“Store”   > “将应用与 Store 关联...”  。
 2. 在向导中，单击“下一步”  ，使用 Microsoft 帐户登录，在“保留新应用名称”  中键入应用的名称，然后单击“保留”  。
 3. 成功创建应用注册后，选择应用名称，再依次单击“下一步”  和“关联”  。
 4. 使用 Microsoft 帐户登录到 [Windows 开发人员中心]。 在“我的应用”  下面，单击创建的应用注册。
@@ -1076,7 +1077,6 @@ public class MyHandler : DelegatingHandler
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx
 [Windows 开发人员中心]: https://dev.windows.com/overview
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
-[Windows Live SDK]: https://msdn.microsoft.comlibrary/bb404787.aspx
 [PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
 [Notification Hubs APIs]: https://msdn.microsoft.com/library/azure/dn495101.aspx

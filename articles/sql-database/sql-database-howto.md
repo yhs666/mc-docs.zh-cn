@@ -1,5 +1,5 @@
 ---
-title: 如何配置 Azure SQL 数据库 | Microsoft Docs
+title: 配置和管理
 description: 了解如何配置和管理 Azure SQL 数据库。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein
-manager: digimobile
-origin.date: 01/25/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 809f02bf51caeb8fdf2d35d445c844cdac730932
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 11/14/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 86327f07b153bd4da49cf90fe147112c3360fc45
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544304"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336280"
 ---
 # <a name="how-to-use-azure-sql-database"></a>如何使用 Azure SQL 数据库
 
@@ -72,7 +71,6 @@ ms.locfileid: "69544304"
 - [连接](sql-database-libraries.md)
 - [使用 Spark 连接器](sql-database-spark-connector.md)
 - [对应用进行身份验证](sql-database-client-id-keys.md)
-- [错误消息](sql-database-develop-error-messages.md)
 - [使用批处理提高性能](sql-database-use-batching-to-improve-performance.md)
 - [连接指南](sql-database-connectivity-issues.md)
 - [DNS 别名](dns-alias-overview.md)

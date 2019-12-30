@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序管理网络安全组流日志 - Azure CLI | Azure
+title: 管理 NSG 流日志 - Azure CLI
+titleSuffix: Azure Network Watcher
 description: 此页说明如何在 Azure 网络观察程序中使用 Azure CLI 管理网络安全组流日志
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 11/26/2018
 ms.author: v-lingwu
-ms.openlocfilehash: 1ab0cbe21d8478fcae5e113fbb77ab102203fa77
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 1cf17ce9f67667afc15428a235b9e447cb7d4653
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674673"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336389"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>使用 Azure CLI 配置网络安全组流日志
 

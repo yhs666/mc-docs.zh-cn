@@ -7,13 +7,13 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 origin.date: 04/01/2019
-ms.date: 05/01/2019
-ms.openlocfilehash: 7d8c97f62840dc773fd0505fe2c58455c0fcc0f9
-ms.sourcegitcommit: c863b31d8ead7e5023671cf9b58415542d9fec9c
+ms.date: 12/16/2019
+ms.openlocfilehash: 19f7e3f696bcfd4e6c23b24a52014f0de4689bf9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74020850"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335530"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>使用指标监视 Azure 数据资源管理器的性能、运行状况和使用情况
 
@@ -68,5 +68,6 @@ Azure 数据资源管理器是一项快速、完全托管的数据分析服务�
 
 ## <a name="next-steps"></a>后续步骤
 
-> [!div class="nextstepaction"]
-> [快速入门：在 Azure 数据资源管理器中查询数据](web-query-data.md)
+* [教程：在 Azure 数据资源管理器中引入和查询监视数据](/data-explorer/ingest-data-no-code)
+* [使用诊断日志监视 Azure 数据资源管理器引入操作](/data-explorer/using-diagnostic-logs)
+* [快速入门：在 Azure 数据资源管理器中查询数据](web-query-data.md)
