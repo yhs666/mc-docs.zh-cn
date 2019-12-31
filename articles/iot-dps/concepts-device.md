@@ -3,18 +3,18 @@ title: Azure 设备预配中的设备概念 | Microsoft Docs
 description: 介绍设备预配概念，特定于使用设备预配服务和 IoT 中心的设备
 author: nberdy
 ms.author: v-yiso
-origin.date: 04/04/2019
-ms.date: 11/18/2019
+origin.date: 11/06/2019
+ms.date: 12/23/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: c88c6259b22d07fbac7493af486c9f5cbacdb927
-ms.sourcegitcommit: 5844ad7c1ccb98ff8239369609ea739fb86670a4
+ms.openlocfilehash: 02f228d4e531cb917c40e964f24eb9dfc9d85f68
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73831287"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334724"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT 中心设备预配服务设备概念
 
@@ -52,7 +52,7 @@ IoT 中心设备预配服务是一项 IoT 中心帮助程序服务，该服务�
 
 ## <a name="device-id"></a>设备 ID
 
-设备 ID 是设备在 IoT 中心中显示的 ID。 可以在注册项目中设置所需的设备 ID，但不需要进行设置。 如果注册列表中未指定所需设备 ID，注册设备时将使用注册 ID 作为设备 ID。 详细了解 [IoT 中心中的设备 ID](../iot-hub/iot-hub-devguide-identity-registry.md)。
+设备 ID 是设备在 IoT 中心中显示的 ID。 可以在注册项目中设置所需的设备 ID，但不需要进行设置。 设置所需设备 ID 仅在单独注册中受支持。 如果注册列表中未指定所需设备 ID，注册设备时将使用注册 ID 作为设备 ID。 详细了解 [IoT 中心中的设备 ID](../iot-hub/iot-hub-devguide-identity-registry.md)。
 
 ## <a name="id-scope"></a>ID 范围
 

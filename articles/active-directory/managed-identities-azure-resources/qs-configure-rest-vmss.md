@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure VMSS 上使用 REST 配置系统分配的托管标识和用户分配的托管标识
+title: 使用 REST 在 Azure VMSS 上配置托管标识 - Azure AD
 description: 分步说明如何在 Azure VMSS 上通过使用 CURL 进行 REST API 调用来配置系统分配的托管标识和用户分配的托管标识。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 06/25/2018
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ea945b9f93ed0321af079d9a5e9890333708137
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: c4d5f08288182308cbbc5fcbc7cc4640fe8772d9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818635"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335553"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>使用 REST API 调用在虚拟机规模集上配置 Azure 资源的托管标识
 
@@ -32,11 +31,11 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 本文介绍如何在虚拟机规模集上通过使用 CURL 对 Azure 资源管理器 REST 终结点进行调用来执行以下 Azure 资源的托管标识操作：
 
 - 在 Azure 虚拟机规模集上启用和禁用系统分配的托管标识
-- 在 Azure 虚拟机规模集上添加和删除用户分配的托管标识
+- 在 Azure 虚拟机规模集上添加和删除用户分配托管标识
 
 ## <a name="prerequisites"></a>先决条件
 
-- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-it-work)  。
+- 如果不熟悉 Azure 资源的托管标识，请查阅[概述部分](overview.md)。 请务必了解[系统分配的托管标识与用户分配的托管标识之间的差异](overview.md#how-does-the-managed-identities-for-azure-resources-work)  。
 - 如果还没有 Azure 帐户，请先[注册试用帐户](https://www.azure.cn/pricing/1rmb-trial/)，然后再继续。
 - 若要执行本文中的管理操作，帐户需要以下基于 Azure 角色的访问控制分配：
 
@@ -832,3 +831,4 @@ PATCH https://management.chinacloudapi.cn/subscriptions/<SUBSCRIPTION ID>/resour
 
 - [使用 REST API 调用创建、列出或删除用户分配的托管标识](how-to-manage-ua-identity-rest.md)
 
+<!-- Update_Description: link update -->

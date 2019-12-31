@@ -9,16 +9,16 @@ origin.date: 10/24/2017
 ms.date: 05/27/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: 4f784ddb6972e843cfbd6862eefa07ea08fded3c
-ms.sourcegitcommit: bf4afcef846cc82005f06e6dfe8dd3b00f9d49f3
+ms.openlocfilehash: 07270e8dc4af04703a802fa6fbac5a6bd1053ea5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/22/2019
-ms.locfileid: "66004030"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335958"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>使用 PowerShell 管理 Azure 独立云中的存储
 
-大多数人为其全球 Azure 部署使用了 Azure 公有云。 但出于主权等方面的原因，还存在一些独立的 Microsoft Azure 部署。 这些独立部署称为“环境”。 以下列表详细说明了当前存在的独立云。
+大多数人为其全球 Azure 部署使用了 Azure 公有云。 但出于主权等方面的原因，还存在一些独立的 Azure 部署。 这些独立部署称为“环境”。 以下列表详细说明了当前存在的独立云。
 
 * [Azure 政府云](https://azure.microsoft.com/features/gov/)
 * [由中国世纪互联运营的 Azure 中国云](http://www.windowsazure.cn/)
@@ -83,7 +83,7 @@ Get-AzEnvironment | select Name, StorageEndpointSuffix
 
 此命令返回以下结果。
 
-| Name| core.usgovcloudapi.net|
+| 名称| core.usgovcloudapi.net|
 |----|----|
 | AzureChinaCloud | core.chinacloudapi.cn|
 | AzureCloud | core.windows.net |
@@ -100,13 +100,13 @@ Get-AzEnvironment -Name AzureChinaCloud
 
 |属性名称|Value|
 |----|----|
-| Name | AzureChinaCloud |
+| 名称 | AzureChinaCloud |
 | EnableAdfsAuthentication | False |
 | ActiveDirectoryServiceEndpointResourceI | https://management.core.chinacloudapi.cn/ |
 | GalleryURL | https://gallery.azure.com/ |
-| ManagementPortalUrl | http://go.microsoft.com/fwlink/?LinkId=301902 | 
+| ManagementPortalUrl | https://go.microsoft.com/fwlink/?LinkId=301902 | 
 | ServiceManagementUrl | https://management.core.chinacloudapi.cn/ |
-| PublishSettingsFileUrl| http://go.microsoft.com/fwlink/?LinkID=301776 |
+| PublishSettingsFileUrl| https://go.microsoft.com/fwlink/?LinkID=301776 |
 | ResourceManagerUrl | https://management.chinacloudapi.cn/ |
 | SqlDatabaseDnsSuffix | .database.chinacloudapi.cn |
 | **StorageEndpointSuffix** | core.chinacloudapi.cn |

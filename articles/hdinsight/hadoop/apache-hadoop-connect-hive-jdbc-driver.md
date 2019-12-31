@@ -9,15 +9,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 06/03/2019
-ms.date: 11/11/2019
+origin.date: 10/24/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 8e861ceda8543e79d5af2d93c43feea09e4e8a60
-ms.sourcegitcommit: 642a4ad454db5631e4d4a43555abd9773cae8891
+ms.openlocfilehash: df3f87bcc38c1ecb2f76da6d1bdbd0f363e645c8
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/01/2019
-ms.locfileid: "73425898"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335970"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>在 HDInsight 中通过 JDBC 驱动程序查询 Apache Hive
 
@@ -144,7 +144,7 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 
 **解决方法**：若要解决此错误，请使用以下步骤：
 
-1. 退出 SQuirreL，并转到系统上安装 SQuirreL 的目录。 在 SquirreL 目录的 `lib` 目录下，将现有的 commons-codec.jar 替换为从 HDInsight 群集下载的文件。
+1. 退出 SQuirreL，并转到系统上安装 SQuirreL 的目录（可能是 `C:\Program Files\squirrel-sql-4.0.0\lib`）。 在 SquirreL 目录的 `lib` 目录下，将现有的 commons-codec.jar 替换为从 HDInsight 群集下载的文件。
 
 2. 重新启动 SQuirreL。 连接到 HDInsight 上的 Hive 时，应不再会出现该错误。
 

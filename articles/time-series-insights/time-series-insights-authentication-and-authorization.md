@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 12/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: a20199af029d3591da188729a92c985ac49ace9a
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: cc37241479d728df591f170e80591691b24c3157
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914361"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334698"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure 时序见解 API 的身份验证和授权
 
@@ -72,7 +72,7 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
 1. 选择“确定”以保存策略。 
 
    > [!TIP]
-   > 了解如何在 Azure Active Directory 中授予对时序见解环境的[数据访问权限](./time-series-insights-data-access.md)。
+   > 对于高级数据访问选项，请阅读[授予数据访问权限](./time-series-insights-data-access.md)。
 
 ### <a name="client-app-initialization"></a>客户端应用初始化
 
@@ -143,7 +143,7 @@ Azure Active Directory 应用注册流程涉及三个主要步骤。
 
 可选的 URL 查询字符串参数：
 
-- `timeout=<timeout>` �用于执行请求的 C 服务器端超时。 仅适用于[获取环境事件](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)和[获取环境聚合](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API。 超时值应采用 ISO 8601 持续时间格式（例如 `"PT20S"`），并且应在 `1-30 s` 范围内。 默认值为 `30 s`。
+- `timeout=<timeout>` � 用于执行请求的服务器端超时。 仅适用于[获取环境事件](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)和[获取环境聚合](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) API。 超时值应采用 ISO 8601 持续时间格式（例如 `"PT20S"`），并且应在 `1-30 s` 范围内。 默认值为 `30 s`。
 
 ## <a name="next-steps"></a>后续步骤
 

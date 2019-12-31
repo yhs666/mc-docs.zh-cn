@@ -6,16 +6,16 @@ author: shizn
 manager: philmea
 ms.author: v-yiso
 origin.date: 07/22/2019
-ms.date: 10/08/2019
+ms.date: 12/23/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 28919ed74d02e333f67870bb1865c5db99a7bb74
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: a99e649bfa8bc68fa07c51bf5db29df235109330
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389536"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336421"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>使用 Visual Studio 2019 开发和调试适用于 Azure IoT Edge 的模块
 
@@ -107,6 +107,8 @@ Visual Studio 中的 Azure IoT Edge 项目模板创建了一个项目，它可�
 1. 选择“确定”创建包含使用 C# 或 C 的模块的 Azure IoT Edge 解决方案。 
 
 现在，解决方案中已有 **AzureIoTEdgeApp1.Linux.Amd64** 项目或 **AzureIoTEdgeApp1.Windows.Amd64** 项目，还有 **IotEdgeModule1** 项目。 每个 **AzureIoTEdgeApp1** 项目包含一个 `deployment.template.json` 文件，此文件定义了要为 IoT Edge 解决方案生成和部署的模块，并定义了模块之间的路由。 默认解决方案自带一个 SimulatedTemperatureSensor 模块和一个 IotEdgeModule1 模块   。 SimulatedTemperatureSensor 模块向 IotEdgeModule1 模块生成模拟数据，而 IotEdgeModule1 模块中的默认代码直接将收到的消息通过管道传输到 Azure IoT 中心    。
+
+若要了解模拟温度传感器的工作原理，请查看 [SimulatedTemperatureSensor.csproj 源代码](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor)。
 
 **IoTEdgeModule1** 项目是一个 .NET Core 2.1 控制台应用程序（如果它是 C# 模块）。 它包含 IoT Edge 设备通过 Windows 容器或 Linux 容器运行时所需的 Docker 文件。 `module.json` 文件描述模块的元数据。 在 `Program.cs` 或 `main.c` 文件中可以找到将 Azure IoT 设备 SDK 用作依赖项的实际模块代码。
 

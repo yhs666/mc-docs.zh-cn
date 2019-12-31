@@ -1,5 +1,5 @@
 ---
-title: 缩放弹性池资源 - Azure SQL 数据库 | Microsoft Docs
+title: 缩放弹性池资源
 description: 本页描述如何在 Azure SQL 数据库中缩放弹性池资源。
 services: sql-database
 ms.service: sql-database
@@ -10,15 +10,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
 origin.date: 03/14/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 48e1a0f92dfed92c07855b8b2ca9b0f3af0b9bcf
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.date: 12/16/2019
+ms.openlocfilehash: 27f47f4841c2f6a79bd12a6a8b77f9bc7975ae7b
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544327"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336284"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>在 Azure SQL 数据库中缩放弹性池资源
 
@@ -38,7 +37,7 @@ ms.locfileid: "69544327"
 
 2. 将连接路由切换到新的计算实例
 
-    将删除与原始计算实例中的数据库建立的现有连接。 将与新计算实例中的数据库建立任何新的连接。 更改后，对于服务层级和计算大小的某些组合，在切换期间会分离再重新附加数据库文件。  无论如何，切换操作都可能会导致服务出现短暂的中断，此时，数据库一般会出现 30 秒以下的不可用情况（通常只有几秒钟）。 如果连接断开时有长时间运行的事务正在运行，则此步骤的持续时间可能会变长，以便恢复中止的事务。
+    将删除与原始计算实例中的数据库建立的现有连接。 将与新计算实例中的数据库建立任何新的连接。 更改后，对于服务层级和计算大小的某些组合，在切换期间会分离再重新附加数据库文件。  无论如何，切换操作都可能会导致服务出现短暂的中断，此时，数据库一般会出现 30 秒以下的不可用情况（通常只有几秒钟）。 如果连接断开时有长时间运行的事务正在运行，则此步骤的持续时间可能会变长，以便恢复中止的事务。 [加速的数据库恢复](sql-database-accelerated-database-recovery.md)可以降低中止长期运行的事务的影响。
 
 > [!IMPORTANT]
 > 执行工作流中的任何步骤期间都不会丢失数据。

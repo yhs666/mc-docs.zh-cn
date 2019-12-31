@@ -8,18 +8,18 @@ ms.author: v-yiso
 origin.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 8c8b488bf03031efe91f96d9ec61167377c745ed
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 27a722967da3eb540a53a2bc58cc3b8dc0088751
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883818"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335919"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>从 Azure CLI 管理 IoT Central
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-如果不在 [Azure IoT Central 应用程序管理器](https://aka.ms/iotcentral)网站上创建和管理 IoT Central 应用程序，可以使用 [Azure CLI](/cli/azure/) 来管理应用程序。
+如果不在 [Azure IoT Central 应用程序管理器](https://aka.ms/iotcentral)网站上创建和管理 IoT Central 应用程序，可以使用 [Azure CLI](/cli/) 来管理应用程序。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -27,19 +27,19 @@ ms.locfileid: "74883818"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-如果你偏好于在本地计算机上运行 Azure CLI，请参阅[安装 Azure CLI](/cli/azure/install-azure-cli)。 在本地运行 Azure CLI 时，请在尝试运行本文所述的命令之前，使用 **az login** 命令登录到 Azure。
+如果你偏好于在本地计算机上运行 Azure CLI，请参阅[安装 Azure CLI](/cli/install-azure-cli)。 在本地运行 Azure CLI 时，请在尝试运行本文所述的命令之前，使用 **az login** 命令登录到 Azure。
 
 ## <a name="create-an-application"></a>创建应用程序
 
-使用 [az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) cmdlet 在 Azure 订阅中创建一个 IoT Central 应用程序。 例如：
+使用 [az iotcentral app create](https://docs.microsoft.com/cli/azure/iotcentral/app#az-iotcentral-app-create) cmdlet 在 Azure 订阅中创建一个 IoT Central 应用程序。 例如：
 
-```azurecli-interactive
+```azurecli
 # Create a resource group for the IoT Central application
-az group create --location "East US" \
+az group create --location "China East " \
     --name "MyIoTCentralResourceGroup"
 ```
 
-```azurecli-interactive
+```azurecli
 # Create an IoT Central application
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
@@ -48,12 +48,12 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-这些命令首先在美国东部位置为应用程序创建一个资源组。 下表描述了与 **az iotcentral app create** 命令结合使用的参数：
+这些命令首先在“中国东部”位置为应用程序创建一个资源组。 下表描述了与 **az iotcentral app create** 命令结合使用的参数：
 
 | 参数         | 说明 |
 | ----------------- | ----------- |
 | resource-group    | 包含该应用程序的资源组。 此资源组必须已存在于订阅中。 |
-| location          | 此命令默认使用资源组中的位置。 目前可以在“美国”、“澳大利亚”、“亚太”或“欧洲”位置创建 IoT Central 应用程序。     |
+| location          | 此命令默认使用资源组中的位置。  |
 | name              | 应用程序在 Azure 门户中的名称。 |
 | subdomain         | 应用程序 URL 中的子域。 在该示例中，应用程序 URL 为 https://mysubdomain.azureiotcentral.com 。 |
 | sku               | 目前，唯一的值是 **S1**（标准层）。 请参阅 [Azure IoT Central 定价](htps://www.azure.cn/pricing/details/iot-central/)。 |
@@ -86,18 +86,16 @@ az iotcentral app create \
 | iotc-store@1.0.0         | 使用“店内分析 - 结帐”模板创建应用程序。 使用此模板，可以监视和管理商店中的结帐流程。 |
 | iotc-waste@1.0.0         | 使用互联废物管理模板创建应用程序。 使用此模板，可以监视废物箱和调度现场操作员。 |
 
-> [!NOTE]
-> 预览应用程序模板目前仅在“欧洲”和“美国”   位置可用。
 
 ## <a name="view-your-applications"></a>查看应用程序
 
-使用 [az iotcentral app list](/cli/azure/iotcentral/app#az-iotcentral-app-list) 命令可列出 IoT Central 应用程序和查看元数据。
+使用 [az iotcentral app list](https://docs.microsoft.com/cli/azure/iotcentral/app#az-iotcentral-app-list) 命令可列出 IoT Central 应用程序和查看元数据。
 
 ## <a name="modify-an-application"></a>修改应用程序
 
-使用 [az iotcentral app update](/cli/azure/iotcentral/app#az-iotcentral-app-update) 命令可更新 IoT Central 应用程序的元数据。 例如，若要更改应用程序的显示名称：
+使用 [az iotcentral app update](https://docs.microsoft.com/cli/azure/iotcentral/app#az-iotcentral-app-update) 命令可更新 IoT Central 应用程序的元数据。 例如，若要更改应用程序的显示名称：
 
-```azurecli-interactive
+```azurecli
 az iotcentral app update --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup \
   --set displayName="My new display name"
@@ -105,9 +103,9 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>删除应用程序
 
-使用 [az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) 命令可删除 IoT Central 应用程序。 例如：
+使用 [az iotcentral app delete](https://docs.microsoft.com/cli/azure/iotcentral/app#az-iotcentral-app-delete) 命令可删除 IoT Central 应用程序。 例如：
 
-```azurecli-interactive
+```azurecli
 az iotcentral app delete --name myiotcentralapp \
   --resource-group MyIoTCentralResourceGroup
 ```

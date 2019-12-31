@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 05/17/2019
-ms.date: 07/29/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3682f6437a017b906ea67faac4b5b728434f2674
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: a6ab9bb0dd5ff5d25bacbcdb9d0d5f0a801d0cad
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672290"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336348"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB 中的联接
 
@@ -104,7 +104,7 @@ ms.locfileid: "68672290"
 
 ## <a name="examples"></a>示例
 
-下面的示例演示了 JOIN 子句的工作原理。 在以下示例中，由于源中每个项和空集的叉积为空，因此结果为空：
+下面的示例演示了 JOIN 子句的工作原理。 在运行这些示例之前，请上传示例[系列数据](sql-query-getting-started.md#upload-sample-data)。 在以下示例中，由于源中每个项和空集的叉积为空，因此结果为空：
 
 ```sql
     SELECT f.id

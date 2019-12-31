@@ -4,14 +4,15 @@ description: 了解如何使用 Azure 门户和不同的 SDK 通过大分区键�
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/28/2019
+origin.date: 09/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: 2616e6cbd05d5542cd3430addb4fd8ab6ddb9195
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: fd61d45fa73752b933a575a4272671ddca8a5eeb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72913285"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336122"
 ---
 # <a name="create-containers-with-large-partition-key"></a>使用大分区键创建容器
 
@@ -72,6 +73,7 @@ database,
 |Java 同步     |   2.4.0      |
 |Java 异步   |  2.5.0        |
 | REST API | 使用 `x-ms-version` 请求标头时版本高于 `2017-05-03`。|
+| Resource Manager 模板 | 版本 2（通过使用 `partitionKey` 对象中的 `"version":2` 属性）。 |
 
 目前不能在 Power BI 和 Azure Logic Apps 中将容器与大分区键配合使用。 在这些应用程序中，可以在没有大分区键的情况下使用容器。
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 origin.date: 11/25/2019
 ms.author: v-tawe
-ms.openlocfilehash: dd3ef2acf532d91ca6033e6e4aba1ab478c57aa2
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 6a176638a3ba65d565ac5d6e89c8c3df7e5ba6a9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74658066"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336542"
 ---
 # <a name="why-use-batch-transcription"></a>为何使用批量听录？
 
@@ -66,7 +66,7 @@ ms.locfileid: "74658066"
 {
   "recordingsUrl": "<URL to the Azure blob to transcribe>",
   "models": [{"Id":"<optional acoustic model ID>"},{"Id":"<optional language model ID>"}],
-  "locale": "<locale to us, for example en-US>",
+  "locale": "<locale to use, for example en-US>",
   "name": "<user defined name of the transcription batch>",
   "description": "<optional description of the transcription>",
   "properties": {
@@ -97,12 +97,6 @@ ms.locfileid: "74658066"
 
 批量听录支持使用 [Azure Blob 存储](https://docs.azure.cn/storage/blobs/storage-blobs-overview)来读取音频以及将听录内容写入存储。
 
-## <a name="webhooks"></a>Webhook
-
-脚本状态轮询可能并不高效，或者无法提供最佳用户体验。 若要轮询状态，可以注册回调，以便在长时间运行的脚本任务完成时通知客户端。
-
-有关详细信息，请参阅 [Webhook](webhooks.md)。
-
 ## <a name="speaker-separation-diarization"></a>讲述人分离（分割聚类）
 
 分割聚类是将讲述人语音分隔成音频片段的过程。 Batch 管道支持分割聚类，并且能够识别单声道录制内容中的两个讲述人。
@@ -123,7 +117,7 @@ ms.locfileid: "74658066"
 }
 ```
 
-如上述请求中的参数所示，还必须“启用”文字级别时间戳。
+如上述请求中的参数所示，还必须“启用”文字级别时间戳。 
 
 相应的音频将包含以编号标识的讲述人（目前仅支持两个语音，因此讲述人将标识为“讲述人 1”和“讲述人 2”），后接听录输出。
 
@@ -185,7 +179,6 @@ ms.locfileid: "74658066"
 
 ## <a name="sample-code"></a>代码示例
 
-
 `samples/batch` 子目录内的 [GitHub 示例存储库](https://github.com/Azure-Samples/cognitive-services-speech-sdk)中提供了完整示例。
 
 如要使用自定义声学或语言模型，必须使用订阅信息、服务区域、指向要转录的音频文件的 SAS URI 和模型 ID 来自定义示例代码。
@@ -220,7 +213,7 @@ private const string Name = "Simple transcription";
 private const string Description = "Simple transcription description";
 ```
 
-示例代码将设置客户端并提交转录请求。 然后它将轮询状态信息并打印关于转录进度的详细信息。
+示例代码将设置客户端并提交听录请求。 然后它将轮询状态信息并打印关于转录进度的详细信息。
 
 ```csharp
 // get all transcriptions for the user

@@ -1,5 +1,5 @@
 ---
-title: 处理暂时性错误 - Azure SQL 数据库 | Microsoft Docs
+title: 处理暂时性错误
 description: 了解如何排查、诊断和防止 Azure SQL 数据库中的 SQL 连接错误或暂时性错误。
 keywords: SQL 连接, 连接字符串, 连接问题, 暂时性错误, 连接错误
 services: sql-database
@@ -11,15 +11,14 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 06/14/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: c1317b8e4fe1b5332354d3681d91d51333c984c5
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 11/14/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: ec124be6b2b628f9d131066b7eec770d4362a975
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544140"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336071"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>处理 SQL 数据库连接问题和暂时性错误
 
@@ -31,7 +30,7 @@ ms.locfileid: "69544140"
 
 暂时性错误（也称为暂时性故障）的根本原因很快就能自行解决。 当 Azure 系统快速地将硬件资源转移到负载均衡更好的各种工作负荷时，偶尔会发生暂时性错误。 大多数这些重新配置事件在 60 秒内就能完成。 在进行这种重新配置的过程中，可能会遇到 SQL 数据库的连接问题。 连接到 Azure SQL 数据库的应用程序应当构建为能预见这些暂时性错误。 为了处理这些错误，可应用程序代码中实现重试逻辑，而不是以应用程序错误的形式呈现给用户。
 
-如果客户端程序使用 ADO.NET，系统会引发 **SqlException**，使程序知道已发生暂时性错误。 将 **Number** 属性与 [SQL 数据库客户端应用程序的 SQL 错误代码](sql-database-develop-error-messages.md)一文顶部附近的暂时性错误列表进行比较。
+如果客户端程序使用 ADO.NET，系统会引发 **SqlException**，使程序知道已发生暂时性错误。 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
@@ -356,6 +355,7 @@ Enterprise Library 6 (EntLib60) 是 .NET 类的框架，可帮助你实施云服
 以下是 EntLib60 相关信息的某些链接：
 
 - 免费书籍下载：[Microsoft Enterprise Library 版本 2 开发人员指南](https://www.microsoft.com/download/details.aspx?id=41145)
+- 最佳做法：[有关重试的一般性指南](https://docs.microsoft.com/architecture/best-practices/transient-faults)深入探讨了重试逻辑。
 - NuGet 下载：[Enterprise Library - 暂时性故障处理应用程序块 6.0](https://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/)。
 
 <a id="entlib60-the-logging-block" name="entlib60-the-logging-block"></a>
@@ -451,6 +451,6 @@ public bool IsTransient(Exception ex)
 
 <!-- Link references. -->
 
-[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-sql-ado-net
 
 [step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php

@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/16/2018
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: f55559ab5cf961abfa626e227f0babe070bcb924
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: f7d8c795061301169d726d0b26408d8fe5524ce0
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174144"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336357"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>创建 Service Fabric 群集 Resource Manager 模板
 
@@ -146,7 +146,7 @@ ms.locfileid: "70174144"
 通过引用包含证书密钥的密钥保管库，将 Azure AD 配置添加到群集资源管理器模板。 在资源管理器模板参数文件 (*azuredeploy.parameters.json*) 中添加这些 Azure AD 参数和值。 
 
 > [!NOTE]
-> 在创建群集之前，必须先创建 Azure AD 租户和用户。  有关详细信息，请阅读[设置 Azure AD 来对客户端进行身份验证](service-fabric-cluster-creation-setup-aad.md)。
+> 在 Linux 上，创建群集之前必须先创建 Azure AD 租户和用户。  有关详细信息，请阅读[设置 Azure AD 来对客户端进行身份验证](service-fabric-cluster-creation-setup-aad.md)。
 
 ```json
 {
@@ -263,7 +263,6 @@ Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFil
 
 <!--Not Available the template of global site-->
 
-
 <!-- Links -->
 
 [service-fabric-cluster-security]: service-fabric-cluster-security.md
@@ -274,4 +273,4 @@ Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFil
 
 [cluster-security-arm-dependency-map]: ./media/service-fabric-cluster-creation-create-template/cluster-security-arm-dependency-map.png
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

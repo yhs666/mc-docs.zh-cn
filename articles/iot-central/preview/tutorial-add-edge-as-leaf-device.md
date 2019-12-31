@@ -10,12 +10,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 21008b8f9795a2860af7fea266b686a1aa94abce
-ms.sourcegitcommit: 6ffa4d50cee80c7c0944e215ca917a248f2a4bcd
+ms.openlocfilehash: 3b45a317b4664d732c6f290fbdeb303a268b0b46
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883459"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334744"
 ---
 # <a name="tutorial-add-an-azure-iot-edge-device-to-your-azure-iot-central-application"></a>教程：将 Azure IoT Edge 设备添加到 Azure IoT Central 应用程序
 
@@ -77,7 +77,7 @@ ms.locfileid: "74883459"
 
 ![Azure 门户的屏幕截图，其中突出显示了“创建”](./media/tutorial-add-edge-as-leaf-device/cfubuntu.png)
 
-选择“订阅”，创建新的资源组，并选择“(美国)美国西部 2”以实现 VM 可用性   。 然后，输入用户和密码信息。 在以后的步骤中需要用到这些信息，因此请记住它们。 选择“查看 + 创建”  。
+选择“订阅”，创建新的资源组，并选择“中国东部”以使 VM 可供使用   。 然后，输入用户和密码信息。 在以后的步骤中需要用到这些信息，因此请记住它们。 选择“查看 + 创建”  。
 
 ![“创建虚拟机”详细信息页的屏幕截图，其中突出显示了各种选项](./media/tutorial-add-edge-as-leaf-device/cfvm.png)
 

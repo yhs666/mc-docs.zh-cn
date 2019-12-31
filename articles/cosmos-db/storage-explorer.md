@@ -4,22 +4,20 @@ description: 了解如何使用 Azure 存储资源管理器连接到 Azure Cosmo
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 03/04/2019
+origin.date: 10/23/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: aea2e190370733075c524d315a8869e1bd6e7e37
-ms.sourcegitcommit: ea49cb39ed993bb1966559230c785b1e19bd43c5
+ms.openlocfilehash: 5be5b791fbffc5ec40b5cf283b7d7ef58ef14e54
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72519395"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335753"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>使用 Azure 存储资源管理器处理数据
 
-通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL 和 MongoDB 配置的 Cosmos 帐户。
-
-<!--Not Available on  Graph, and Table APIs-->
+通过在 Azure 存储资源管理器中使用 Azure Cosmos DB，用户可以管理 Azure Cosmos DB 实体、操作数据、更新存储过程和触发器以及其他 Azure 实体（如存储 blob 和队列）。 现在可以使用相同工具在一个位置管理不同 Azure 实体。 目前，Azure 存储资源管理器支持为 SQL、MongoDB、图形和表 API 配置的 Cosmos 帐户。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -27,7 +25,7 @@ ms.locfileid: "72519395"
 
 ## <a name="installation"></a>安装
 
-在此处安装最新 Azure 存储资源管理器 BITS：[Azure 存储资源管理器](https://azure.microsoft.com/en-us/features/storage-explorer/)，现在我们支持 Windows、Linux 和 MAC 版本。
+在此处安装最新 Azure 存储资源管理器 BITS：[Azure 存储资源管理器](https://azure.microsoft.com/features/storage-explorer/)，现在我们支持 Windows、Linux 和 MAC 版本。
 
 ## <a name="connect-to-an-azure-subscription"></a>连接到 Azure 订阅
 
@@ -65,9 +63,7 @@ ms.locfileid: "72519395"
 
     ![通过连接字符串连接到 Cosmos DB](./media/storage-explorer/connect-to-db-by-connection-string.png)
 
-2. 目前仅支持 SQL API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。   有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
-    
-    <!-- Not Available on Table API-->
+2. 目前仅支持 SQL 和表 API。 选择“API”，粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。   有关检索主连接字符串的信息，请参阅[获取连接字符串](manage-with-powershell.md#list-keys)。
     
     ![连接字符串](./media/storage-explorer/connection-string.png)
 
@@ -81,7 +77,7 @@ ms.locfileid: "72519395"
 
     ![通过模拟器连接到 Cosmos DB](./media/storage-explorer/emulator-entry.png)
 
-3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。   有关检索连接字符串的信息，请参阅[获取连接字符串](/cosmos-db/manage-account)。
+3. 目前仅支持 SQL API。 粘贴**连接字符串**，输入**帐户标签**，单击“下一步”查看摘要，然后单击“连接”以连接 Azure Cosmos DB 帐户。   有关检索主连接字符串的信息，请参阅[获取连接字符串](manage-with-powershell.md#list-keys)。
 
     ![通过模拟器对话框连接到 Cosmos DB](./media/storage-explorer/emulator-dialog.png)
 
@@ -157,8 +153,45 @@ ms.locfileid: "72519395"
 
     ![文档筛选器](./media/storage-explorer/document-filter.png)
 
-<!-- Not Available on ### Graph management-->
-<!-- Not Available on ### Table management -->
+### <a name="graph-management"></a>图形管理
+
+#### <a name="create-and-modify-vertex"></a>创建和修改顶点
+1. 若要创建新顶点，请在左窗口中打开“图形”，单击“新建顶点”，编辑内容，然后单击“确定”。       
+2. 若要修改现有顶点，请在右窗格中单击铅笔图标。   
+
+    ![Graph](./media/storage-explorer/vertex.png)
+
+#### <a name="delete-a-graph"></a>创建图形
+- 若要删除某个顶点，单击顶点名称旁边的回收站图标。
+
+#### <a name="filter-for-graph"></a>筛选图形
+- 通过输入 [gremlin 查询](gremlin-support.md)来编辑图形筛选器，然后单击“应用筛选器”  。
+
+    ![图形筛选器](./media/storage-explorer/graph-filter.png)
+
+### <a name="table-management"></a>表管理
+
+#### <a name="create-and-modify-table"></a>创建和修改表
+1. 若要创建新表，请在左窗口中打开“实体”，单击“添加”，在“添加实体”对话框中编辑内容，单击“添加属性”按钮添加属性，然后单击“插入”。     
+2. 若要修改表，请单击“编辑”，修改内容，然后单击“更新”。  
+
+    ![表](./media/storage-explorer/table.png)
+
+#### <a name="import-and-export-table"></a>导入和导出表
+1. 若要导入，请单击“导入”按钮并选择现有的表。 
+2. 若要导出，请单击“导出”按钮并选择目标。 
+
+    ![表导入和导出](./media/storage-explorer/table-import-export.png)
+
+#### <a name="delete-entities"></a>删除实体
+- 选择实体，然后单击“删除”按钮。 
+
+    ![表删除](./media/storage-explorer/table-delete.png)
+
+#### <a name="query-table"></a>查询表
+- 单击“查询”按钮，输入查询条件，然后单击“执行查询”按钮。   单击“关闭查询”按钮关闭“查询”窗格。 
+
+    ![表查询](./media/storage-explorer/table-query.png)
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>管理存储过程、触发器和 UDF
 * 若要创建存储过程，请在左侧树中，右键单击“存储过程”  ，选择“创建存储过程”  ，在左侧输入名称，在右侧窗口中输入存储过程脚本，然后单击“创建”  。 
@@ -206,6 +239,9 @@ ms.locfileid: "72519395"
 
 - 通过登录 [Azure 门户](https://portal.azure.cn/)验证帐户是否有权访问该订阅
 - 确保已使用正确的环境（[Azure 中国](https://portal.azure.cn/)或自定义环境/Azure Stack）登录
+
+    <!--CORRECT ON [Azure China](https://portal.azure.cn/)-->
+    
 - 如果使用代理，请确保已正确配置存储资源管理器代理
 - 尝试移除并重新添加帐户
 - 尝试从主目录删除以下文件（例如：C:\Users\ContosoUser），然后重新添加帐户：
@@ -275,4 +311,4 @@ ms.locfileid: "72519395"
 
 * 在[存储资源管理器入门](/vs-azure-tools-storage-manage-with-storage-explorer)中了解有关存储资源管理器和连接更多服务的详细信息。
 
-<!-- Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

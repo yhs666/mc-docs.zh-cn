@@ -9,19 +9,19 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-origin.date: 10/03/2019
-ms.date: 11/04/2019
+origin.date: 11/21/2019
+ms.date: 12/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0df25c0681465d13b0da360d178175482816ed2b
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: a3bbfc0bd35607e6ddf3a8efc84bff54f37b1c6c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72914363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334667"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>了解 Azure 时序见解中的数据保留
 
-本文介绍影响 Azure 时序见解环境中的数据保留的两项设置。
+本文介绍影响 Azure 时序见解环境中的数据保留的两项主要设置。
 
 
 每个 Azure 时序见解环境都有一项控制“数据保留时间”的设置。  该值的范围为 1 到 400 天。 将根据环境存储容量或保留期限删除数据，以先达到的条件为准。
@@ -84,7 +84,7 @@ ms.locfileid: "72914363"
 
 在受影响的事件中心，请考虑调整“消息保留”属性，以最大程度地减少在时序见解中发生传入暂停时丢失数据的情况。 
 
-[![事件中心消息保留。](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[![事件中心消息保留。](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 如果未在事件源中配置任何属性 (`timeStampPropertyName`)，时序见解默认为事件中心的抵达时间戳（X 轴）。 如果 `timeStampPropertyName` 配置为其他值，则在分析事件时，环境将在数据包中查找配置的 `timeStampPropertyName`。
 

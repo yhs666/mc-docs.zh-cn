@@ -5,14 +5,14 @@ author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
 origin.date: 09/28/2019
-ms.date: 10/28/2019
+ms.date: 12/16/2019
 ms.author: v-yeche
-ms.openlocfilehash: b8fb2fddd181cf0aebc8b637d30f05625bd24d10
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.openlocfilehash: a1572b799b52b21a8f18d98d6373300385967146
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970256"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336400"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>在 Azure Cosmos DB 中的数据库上预配吞吐量
 
@@ -80,10 +80,10 @@ await this.cosmosClient.CreateDatabaseIfNotExistsAsync(
 
 <a name="dotnet-cassandra"></a>
 ### <a name="cassandra-api"></a>Cassandra API
-
+类似的命令可以通过任何 CQL 兼容的驱动程序执行。 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 400 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400);
+session.Execute("CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=400");
 ```
 
 ## <a name="next-steps"></a>后续步骤

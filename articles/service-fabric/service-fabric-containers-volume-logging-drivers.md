@@ -1,6 +1,6 @@
 ---
 title: Service Fabric Azure 文件卷驱动程序（正式版）| Azure
-description: Service Fabric 支持使用 Azure 文件备份容器中的卷。 此功能目前处于预览状态。
+description: Service Fabric 支持使用 Azure 文件备份容器中的卷。
 services: service-fabric
 author: rockboyfor
 manager: digimobile
@@ -8,14 +8,14 @@ ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
 ms.service: service-fabric
 ms.topic: conceptual
 origin.date: 06/10/2018
-ms.date: 09/30/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: c805ba260c338f64dcf0cd60e87789850a8651cc
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 34aa3dee27a00bae7248621b99876a1d9a757b26
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340917"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336448"
 ---
 # <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure 文件存储卷驱动程序
 Azure 文件存储卷插件即为 Docker 容器提供基于 [Azure 文件存储](/storage/files/storage-files-introduction)的卷的 [Docker 卷插件](https://docs.docker.com/engine/extend/plugins_volume/)，现在是 **GA（正式版）** 。
@@ -63,7 +63,7 @@ Azure 文件存储卷插件即为 Docker 容器提供基于 [Azure 文件存储]
 ]
 ```
 
-## <a name="deploy-the-service-fabric-azure-files-application"></a>部署 Service Fabric Azure 文件应用程序
+## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>使用 Service Fabric Azure 文件存储卷驱动程序部署示例应用程序
 
 ### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>通过提供的 Powershell 脚本使用 Azure 资源管理器（建议）
 
@@ -83,7 +83,7 @@ Azure 文件存储卷插件即为 Docker 容器提供基于 [Azure 文件存储]
 
 ### <a name="manual-deployment-for-standalone-clusters"></a>针对独立群集的手动部署
 
-可以从 [Service Fabric 下载站点](https://sfazfilevd.blob.core.chinacloudapi.cn/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip)下载为容器提供卷的 Service Fabric 应用程序。 可以通过 [PowerShell](./service-fabric-deploy-remove-applications.md)、[CLI](./service-fabric-application-lifecycle-sfctl.md) 或 [FabricClient API](./service-fabric-deploy-remove-applications-fabricclient.md) 将应用程序部署到群集。
+可以从 [Service Fabric 下载站点](https://sfazfilevd.blob.core.chinacloudapi.cn/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip)下载为容器提供卷的 Service Fabric 应用程序。 可以通过 [PowerShell](./service-fabric-deploy-remove-applications.md)、[CLI](./service-fabric-application-lifecycle-sfctl.md) 或 [FabricClient API](./service-fabric-deploy-remove-applications-fabricclient.md) 将应用程序部署到群集。
 
 1. 使用命令行，将目录更改为已下载的应用程序包的根目录。
 
@@ -133,7 +133,7 @@ Azure 文件存储卷插件即为 Docker 容器提供基于 [Azure 文件存储]
 #### <a name="deploy-the-application-on-a-local-development-cluster"></a>在本地开发群集上部署应用程序
 执行[上面](/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)的步骤 1-3。
 
- Azure 文件卷插件应用程序的默认服务实例计数为 -1，这表示有一个服务实例会部署到群集中的每个节点。 但在本地开发群集上部署 Azure 文件卷插件应用程序时，服务实例计数应指定为 1。 可以通过 InstanceCount 应用程序参数完成此操作  。 因此，在本地开发群集上创建 Azure 文件存储卷插件应用程序的命令为：
+Azure 文件卷插件应用程序的默认服务实例计数为 -1，这表示有一个服务实例会部署到群集中的每个节点。 但在本地开发群集上部署 Azure 文件卷插件应用程序时，服务实例计数应指定为 1。 可以通过 InstanceCount 应用程序参数完成此操作  。 因此，在本地开发群集上创建 Azure 文件存储卷插件应用程序的命令为：
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
@@ -243,7 +243,7 @@ docker plugin install --alias azure --grant-all-permissions docker4x/cloudstor:1
 
 ```xml
 <Volume Source="myvolume1" Destination="c:\testmountlocation4" Driver="azure" IsReadOnly="true">
-           <DriverOption Name="share" Value="models"/>
+    <DriverOption Name="share" Value="models"/>
 </Volume>
 ```
 

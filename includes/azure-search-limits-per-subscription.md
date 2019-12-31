@@ -9,18 +9,18 @@ origin.date: 05/06/2019
 ms.date: 06/03/2019
 ms.author: v-biyu
 ms.custom: include file
-ms.openlocfilehash: 8ae0127fefd92679a5fb7ff2b449e6fc09400a96
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 9eef8f53a12f0b0459f4bf5fee6bf84461043d08
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71696147"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336516"
 ---
-可以在一个订阅中创建多个服务。 每一个服务都可以在特定层上进行预配。 你仅受每个层允许的服务数量限制。 例如，在同一订阅中，最多可以在基本层创建 12 个服务，在 S1 层也创建 12 个服务。 有关层的详细信息，请参阅[为 Azure 搜索选择 SKU 或层](../articles/search/search-sku-tier.md)。
+可以在一个订阅中创建多个服务。 每一个服务都可以在特定层上进行预配。 你仅受每个层允许的服务数量限制。 例如，在同一订阅中，最多可以在基本层创建 12 个服务，在 S1 层也创建 12 个服务。 有关层的详细信息，请参阅[为 Azure 认知搜索选择 SKU 或层](../articles/search/search-sku-tier.md)。
 
 最大服务数限制可以根据请求提高。 如果需要在同一订阅中使用更多服务，请与 Azure 支持部门联系。
 
-| Resource            | 免费<sup>1</sup> | 基本 | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| 资源            | 免费<sup>1</sup> | 基本 | S1  | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | ------------------- | ---- | ----- | --- | -- | -- | ----- | -- | -- |
 | 最大服务数    |1     | 16    | 16  | 8  | 6  | 6     | 6  | 6  |
 | 搜索单位 (SU) 的最大规模<sup>2</sup> |不适用 |3 SU |36 个 SU |36 个 SU |36 个 SU |36 个 SU |36 个 SU |36 个 SU |

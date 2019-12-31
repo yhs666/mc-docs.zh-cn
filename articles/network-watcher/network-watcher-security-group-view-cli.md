@@ -1,5 +1,6 @@
 ---
-title: 使用 Azure 网络观察程序安全组视图分析网络安全性 - Azure CLI | Azure
+title: 通过安全组视图分析网络安全性 - Azure CLI
+titleSuffix: Azure Network Watcher
 description: 本文介绍如何使用 Azure CLI 通过安全组视图分析虚拟机安全性。
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 origin.date: 02/22/2017
 ms.date: 10/22/2018
 ms.author: v-lingwu
-ms.openlocfilehash: d0116ce7c6d4d35f856fd2716ceafa609a9fb308
-ms.sourcegitcommit: c72fba1cacef1444eb12e828161ad103da338bb1
+ms.openlocfilehash: 84354aef1d8e46e3d91d94c28a94620a66791035
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71674659"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336380"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>使用 Azure CLI 通过安全组视图分析虚拟机安全性
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库 - 读取副本中的查询 | Microsoft Docs
+title: 副本上的读取查询
 description: Azure SQL 数据库允许使用只读副本的容量（称为“读取横向扩展”）对只读的工作负荷进行负载均衡。
 services: sql-database
 ms.service: sql-database
@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
-ms.reviewer: carlrab
+ms.reviewer: sstein, carlrab
 origin.date: 06/03/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 8037deee1b6b310d4dad24605917589e3bfaa841
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: 8635bb850f3e91b4caf977755c9a47ad58b5a44f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041217"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336126"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>使用只读副本对只读的查询工作负荷进行负载均衡
 
@@ -36,7 +36,7 @@ ms.locfileid: "73041217"
 如果你希望确保应用程序始终连接到主要副本，而不管 SQL 连接字符串中的 `ApplicationIntent` 设置如何，则必须在创建数据库或更改其配置时显式禁用读取扩展。 例如，如果将数据库从“标准”或“常规用途”层级升级到“高级”、“业务关键”或“超大规模”层级，并想要确保所有连接继续定向到主要副本，请禁用读取扩展。有关如何禁用读取扩展的详细信息，请参阅[启用和禁用读取扩展](#enable-and-disable-read-scale-out)。
 
 > [!NOTE]
-> 只读副本不支持查询数据存储、扩展事件、SQL Profiler 和审核功能。 
+> 只读副本不支持查询数据存储、扩展事件、SQL Profiler 和审核功能。
 
 ## <a name="data-consistency"></a>数据一致性
 
@@ -51,13 +51,13 @@ ms.locfileid: "73041217"
 
 例如，以下连接字符串将客户端连接到只读副本（请将尖括号中的项替换为环境的正确值，并删除尖括号）：
 
-```SQL
+```sql
 Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
 以下连接字符串之一将客户端连接到读写副本（请将尖括号中的项替换为环境的正确值，并删除尖括号）：
 
-```SQL
+```sql
 Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
@@ -67,7 +67,7 @@ Server=tcp:<server>.database.chinacloudapi.cn;Database=<mydatabase>;User ID=<myL
 
 可通过运行以下查询来验证是否连接到只读副本。 连接到只读副本时，它将返回 READ_ONLY。
 
-```SQL
+```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
@@ -81,10 +81,9 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > 逻辑 master 数据库中的 DMV `sys.resource_stats` 返回主要副本的 CPU 使用率和存储数据。
 
-
 ## <a name="enable-and-disable-read-scale-out"></a>启用和禁用读取扩展
 
-“高级”、“业务关键”和“超大规模”服务层级中默认已启用读取扩展。 无法在“基本”、“标准”或“常规用途”服务层级中启用读取扩展。 “读取扩展”在配置了 0 个副本的“超大规模”数据库上自动禁用。 
+“高级”、“业务关键”和“超大规模”服务层级中默认已启用读取扩展。 无法在“基本”、“标准”或“常规用途”服务层级中启用读取扩展。 “读取扩展”在配置了 0 个副本的“超大规模”数据库上自动禁用。
 
 可以使用以下方法，对“高级”或“业务关键”服务层级中的单一数据库和弹性池数据库禁用和重新启用读取扩展。
 
@@ -93,9 +92,12 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ### <a name="azure-portal"></a>Azure 门户
 
-可以在“配置数据库”边栏选项卡上管理“读取扩展”设置。  
+可以在“配置数据库”边栏选项卡上管理“读取扩展”设置。 
 
 ### <a name="powershell"></a>PowerShell
+
+> [!IMPORTANT]
+> PowerShell Azure 资源管理器 (RM) 模块仍受 Azure SQL 数据库支持，但所有未来的开发都是针对 Az.Sql 模块的。 AzureRM 模块至少在 2020 年 12 月之前将继续接收 bug 修补程序。  Az 模块和 AzureRm 模块中的命令参数大体上是相同的。 若要详细了解其兼容性，请参阅[新 Azure PowerShell Az 模块简介](https://docs.microsoft.com/powershell/azure/new-azureps-module-az)。
 
 在 Azure PowerShell 中管理读取横向扩展需要安装 Azure PowerShell 2016 年 12 月版或更高版本。 有关最新的 PowerShell 版本，请参阅 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)。
 
@@ -104,18 +106,19 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 若要对现有数据库禁用读取扩展（请将尖括号中的项替换为环境的正确值，并删除尖括号）：
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled
 ```
+
 若要对新数据库禁用读取扩展（请将尖括号中的项替换为环境的正确值，并删除尖括号）：
 
 ```powershell
-New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
+New-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled -Edition Premium
 ```
 
 若要对现有数据库重新启用读取扩展（请将尖括号中的项替换为环境的正确值，并删除尖括号）：
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
 ### <a name="rest-api"></a>REST API
@@ -125,10 +128,8 @@ Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 ```rest
 Method: PUT
 URL: https://management.chinacloudapi.cn/subscriptions/{SubscriptionId}/resourceGroups/{GroupName}/providers/Microsoft.Sql/servers/{ServerName}/databases/{DatabaseName}?api-version= 2014-04-01-preview
-Body:
-{
-   "properties":
-   {
+Body: {
+   "properties": {
       "readScale":"Disabled"
    }
 }
@@ -138,7 +139,7 @@ Body:
 
 ## <a name="using-tempdb-on-read-only-replica"></a>对只读副本使用 TempDB
 
-TempDB 数据库不会复制到只读副本。 每个副本具有自身的 TempDB 数据库版本，该版本是创建该副本时创建的。 系统确保 TempDB 可更新，并可以在执行查询期间进行修改。 如果只读工作负荷依赖于使用 TempDB 对象，则应创建这些对象作为查询脚本的一部分。 
+TempDB 数据库不会复制到只读副本。 每个副本具有自身的 TempDB 数据库版本，该版本是创建该副本时创建的。 系统确保 TempDB 可更新，并可以在执行查询期间进行修改。 如果只读工作负荷依赖于使用 TempDB 对象，则应创建这些对象作为查询脚本的一部分。
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>结合使用读取扩展与异地复制的数据库
 

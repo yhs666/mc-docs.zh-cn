@@ -13,12 +13,12 @@ ms.reviewer: carlrab
 manager: digimobile
 origin.date: 01/30/2019
 ms.date: 08/19/2019
-ms.openlocfilehash: c415db4576ab03df43a21e09d4959d20c4d90f6d
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+ms.openlocfilehash: cdc449684ebcb4ec7f932b03aa5f7e81f91cf7d6
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544176"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336129"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>规划 Azure 维护事件 - Azure SQL 数据库
 
@@ -30,7 +30,7 @@ Azure SQL DB 为每个数据库维护了一组正常运营所需的最低数量�
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>计划内维护事件期间会发生什么
 
-重新配置/故障转移进程通常在 30 秒内完成 – 平均时长为 8 秒。 如果应用程序处于已连接状态，则必须重新连接至新的数据库健康主副本。 如果在进行连接时数据库正在进行重新配置，且新的主副本尚未处于联机状态，会显示错误 40613（数据库不可用）：“服务器 '{服务器名}' 上的数据库 '{数据库名}' 当前不可用。 请稍后重试连接”错误。” 如果数据库有一个长时间运行的查询，重新配置期间此查询会中断，需要重新启动。
+重新配置/故障转移通常在 30 秒内完成 - 平均时长为 8 秒。 如果应用程序处于已连接状态，则必须重新连接至新的数据库健康主副本。 如果在进行连接时数据库正在进行重新配置，且新的主副本尚未处于联机状态，会显示错误 40613（数据库不可用）：“服务器 '{servername}' 上的数据库 '{databasename}' 当前不可用。 请稍后重试连接。”。 如果数据库有一个长时间运行的查询，重新配置期间此查询会中断，需要重新启动。
 
 ## <a name="retry-logic"></a>重试逻辑
 

@@ -11,17 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-origin.date: 10/29/2018
-ms.date: 11/13/2019
+ms.date: 12/11/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f552a91a2a68e878867a60c4d9e93cee9f5c8ab
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: 940fe42f3d52a996e2fe57de779cf2722825dd57
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084599"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335657"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>排查同步过程中发生的错误
 将标识数据从 Windows Server Active Directory (AD DS) 同步到 Azure Active Directory (Azure AD) 时可能会发生错误。 本文概述不同类型的同步错误、导致这些错误的某些可能情况，以及这些错误的可能解决方法。 本文介绍常见错误类型，不一定涵盖所有可能的错误。
@@ -236,7 +235,7 @@ a. 确保 userPrincipalName 属性包含支持的字符并使用所需的格式�
 
  - 从所有管理员角色中删除 Azure AD 帐户（所有者）。 
  - **硬删除**云中已隔离的对象。 
- - 下一个同步周期将负责将本地用户与云帐户进行软匹配（因为云用户现已不再是全局 GA）。 
+ - 下一个同步周期负责将本地用户与云帐户进行软匹配（因为云用户现已不再是全局 GA）。 
  - 还原所有者的角色成员身份。 
 
 >[!NOTE]

@@ -11,25 +11,28 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 08/31/2019
-ms.date: 09/20/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: 534bc0bc9fa6340bdba773e62903620a5c7ae955
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.openlocfilehash: 8935430e20b8aea82f4c2a664413fe3dc7319604
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041122"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336404"
 ---
 # <a name="locking-down-an-app-service-environment"></a>锁定应用服务环境
 
 应用服务环境 (ASE) 需要访问许多的外部依赖项才能正常运行。 ASE 驻留在客户的 Azure 虚拟网络 (VNet) 中。 客户必须允许 ASE 依赖项流量，对于想要锁定从 VNet 传出的所有流量的客户而言，这是一个问题。
 
-ASE 有许多入站依赖项。 无法通过防火墙设备发送入站管理流量。 此流量的源地址是已知的，并已在[应用服务环境管理地址](management-addresses.md)文档中发布。 可以使用该信息创建网络安全组规则来保护入站流量。
+ASE 有许多入站依赖项。 无法通过防火墙设备发送入站管理流量。 此流量的源地址是已知的，并已在[应用服务环境管理地址](https://docs.azure.cn/app-service/environment/management-addresses)文档中发布。 可以使用该信息创建网络安全组规则来保护入站流量。
 
 ASE 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态地址。 缺少静态地址意味着无法使用网络安全组 (NSG) 锁定来自 ASE 的出站流量。 地址会频率更改，用户无法基于当前解析设置规则，然后使用这些规则来创建 NSG。 
 
 保护出站地址的解决方案在于使用可基于域名控制出站流量的防火墙设备。 Azure 防火墙可以根据目标的 FQDN 限制出站 HTTP 和 HTTPS 流量。  
+
+> [!NOTE]
+> 目前，我们无法完全锁定出站连接。
 
 ## <a name="system-architecture"></a>系统体系结构
 
@@ -63,7 +66,7 @@ ASE 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 
    ![添加 NTP 网络规则][3]
 
-1. 使用[应用服务环境管理地址](management-addresses.md)中的管理地址创建一个路由表并添加 Internet 的下一跃点。 需要使用路由表条目来避免非对称路由问题。 在 IP 地址依赖项中为下面所示的 IP 地址依赖项添加路由，并添加 Internet 的下一跃点。 将虚拟设备路由添加到 0.0.0.0/0 的路由表，并将 Azure 防火墙专用 IP 地址用作下一跃点。 
+1. 使用[应用服务环境管理地址](https://docs.azure.cn/app-service/environment/management-addresses)中的管理地址创建一个路由表并添加 Internet 的下一跃点。 需要使用路由表条目来避免非对称路由问题。 在 IP 地址依赖项中为下面所示的 IP 地址依赖项添加路由，并添加 Internet 的下一跃点。 将虚拟设备路由添加到 0.0.0.0/0 的路由表，并将 Azure 防火墙专用 IP 地址用作下一跃点。 
 
    ![创建路由表][4]
    
@@ -71,7 +74,7 @@ ASE 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 
 #### <a name="deploying-your-ase-behind-a-firewall"></a>在防火墙后部署 ASE
 
-在防火墙后部署 ASE 的步骤与使用 Azure 防火墙配置现有 ASE 的步骤相同，不过，需要创建 ASE 子网，然后遵循上述步骤。 若要在现有的子网中创建 ASE，需要根据[使用资源管理器模板创建 ASE](create-from-template.md) 文档中所述使用资源管理器模板。
+在防火墙后部署 ASE 的步骤与使用 Azure 防火墙配置现有 ASE 的步骤相同，不过，需要创建 ASE 子网，然后遵循上述步骤。 若要在现有的子网中创建 ASE，需要根据[使用资源管理器模板创建 ASE](https://docs.azure.cn/app-service/environment/create-from-template) 文档中所述使用资源管理器模板。
 
 ## <a name="application-traffic"></a>应用程序流量 
 
@@ -82,7 +85,7 @@ ASE 出站依赖项几乎完全是使用 FQDN 定义的，不附带任何静态�
 
 如果应用程序有依赖项，则需要将这些依赖项添加到 Azure 防火墙。 创建允许 HTTP/HTTPS 流量的应用程序规则，并针对其他方面的控制创建网络规则。 
 
-如果你知道应用程序请求流量将来自哪个地址范围，则可将该范围添加到要分配给 ASE 子网的路由表。 如果地址范围很大或未指定，则你可以使用应用程序网关等网络设备来提供一个要添加到路由表的地址。 有关在 ILB ASE 中配置应用程序网关的详细信息，请阅读[将 ILB ASE 与应用程序网关集成](integrate-with-application-gateway.md)
+如果你知道应用程序请求流量将来自哪个地址范围，则可将该范围添加到要分配给 ASE 子网的路由表。 如果地址范围很大或未指定，则你可以使用应用程序网关等网络设备来提供一个要添加到路由表的地址。 有关在 ILB ASE 中配置应用程序网关的详细信息，请阅读[将 ILB ASE 与应用程序网关集成](https://docs.azure.cn/app-service/environment/integrate-with-application-gateway)
 
 使用应用程序网关只是系统配置方法的一个例子。 如果遵循此路径，则需要将路由添加到 ASE 子网路由表，以便发送到应用程序网关的回复流量直接通过该路由传送。 
 

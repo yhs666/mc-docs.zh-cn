@@ -1,66 +1,107 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure 搜索文档
+### YamlMime:Landing
+title: Azure 认知搜索文档
+summary: 针对专用异类内容的云搜索。
 metadata:
-  document_id: null
-  title: Azure 搜索文档 – 教程、快速入门和 API 参考
-  description: 了解如何使用 Azure 搜索创建基于专用异类内容的企业搜索解决方案。 教程、API 参考和其他文档介绍了如何将从简单到高级的语法用于各种方案，以便将可搜索内容整合到单个可查询的快速索引中。
+  title: Azure 认知搜索文档
+  description: 针对专用异类内容的云搜索。
   services: search
-  author: HeidiSteen
-  manager: cgronlun
-  ms.service: search
-  ms.devlang: na
+  ms.service: service
   ms.topic: landing-page
-  origin.date: 05/02/2019
-  ms.date: 09/26/2019
+  ms.collection: collection
+  author: HeidiSteen
   ms.author: v-tawe
-abstract:
-  description: 了解如何使用 Azure 搜索创建基于专用异类内容的企业搜索解决方案。 教程、API 参考和其他文档介绍了如何将从简单到高级的语法用于各种方案，以便将可搜索内容整合到单个可查询的快速索引中。 <p/><a href="/azure/search/cognitive-search-concept-intro"><b>认知搜索</b></a>现已正式发布，支持将 AI 扩充用于生产方案。<p/><a href="/azure/search/knowledge-store-concept-intro"><b>知识存储（预览版）</b></a>扩展了认知搜索。 将 AI 扩充保存到存储，随后可以在除 Azure 搜索以外的其他应用中查看、整形和使用扩充。 立即<a href="/azure/search/knowledge-store-howto">开始使用<b></b></a>。
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/search-page-callouts3.png
-      width: 250
-sections:
-  - title: 5 分钟快速入门
-    items:
-      - type: paragraph
-        text: '开始在门户中使用搜索服务，然后使用 C# 或 REST 来定义、加载和查询索引。'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /search/media/index/portal.svg
-            text: Azure 门户
-            href: search-create-service-portal.md
-          - image:
-              src: /search/media/index/logo_Csharp.svg
-            text: .NET
-            href: search-create-index-dotnet.md
-          - image:
-              src: /search/media/index/rest.svg
-            text: REST
-            href: search-fiddler.md
-  - title: 分步教程
-    items:
-      - type: paragraph
-        text: 使用 .NET 或 REST 编写代码，或者尝试使用门户进行快速的概念测试。
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/search/search-get-started-portal">使用门户编制索引并进行查询测试</a>
-          - html: <a href="/search/search-howto-dotnet-sdk">使用 .NET 编写首个搜索解决方案</a>
-          - html: <a href="/search/cognitive-search-tutorial-blob">使用 AI（认知服务）扩充</a>
-          - html: <a href="/search/search-indexer-tutorial">通过 .NET 对 Azure SQL 数据库内容进行索引</a>
-          - html: <a href="/search/search-semi-structured-data">通过 REST 对 Azure Blob 存储中的半结构化数据进行索引</a>
-  - title: 参考
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 语言
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search">.NET</a></p><p><a href="https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.management.search">.NET（管理）</a></p><p><a href="https://docs.microsoft.com/python/api/?view=azure-python&term=search">Python（管理）</a></p>'
-          - title: REST
-            html: '<p><a href="https://docs.microsoft.com/rest/api/searchservice">服务 API 参考</a></p><p><a href="https://docs.microsoft.com/rest/api/searchmanagement">管理 API 参考</a></p>'
+  origin.date: 09/20/2019
+  ms.date: 12/16/2019
+  ms.openlocfilehash: a4aa52fc7eddb6ad8096611faeb5f4b653066787
+  ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
+  ms.translationtype: HT
+  ms.contentlocale: zh-CN
+  ms.lasthandoff: 12/25/2019
+  ms.locfileid: "75336147"
+landingContent:
+- title: 关于认知搜索
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure 认知搜索是什么？
+      url: search-what-is-azure-search.md
+  - linkListType: architecture
+    links:
+    - text: 全文搜索在认知搜索中如何工作
+      url: search-lucene-query-architecture.md
+- title: 入门
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 创建服务
+      url: search-create-service-portal.md
+    - text: 创建索引
+      url: search-get-started-portal.md
+  - linkListType: tutorial
+    links:
+    - text: 创建应用
+      url: tutorial-csharp-create-first-app.md
+- title: 与 Blob 存储配合使用
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 搜索 Blob 内容
+      url: search-blob-storage-integration.md
+  - linkListType: tutorial
+    links:
+    - text: 为半结构化 Blob 数据编制索引
+      url: search-semi-structured-data.md
+- title: 为数据编制索引
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 定义索引
+      url: search-what-is-an-index.md
+    - text: 导入数据
+      url: search-what-is-data-import.md
+    - text: 使用索引器
+      url: search-indexer-overview.md
+  - linkListType: how-to-guide
+    links:
+    - text: 从 Azure SQL 数据库编制索引
+      url: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
+    - text: 从 Cosmos DB 数据编制索引
+      url: search-howto-index-cosmosdb.md
+  - linkListType: reference
+    links:
+    - text: 创建索引 (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/create-index
+    - text: 创建索引器 (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/create-indexer
+- title: 查询数据
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 概述
+      url: search-query-overview.md
+    - text: 简单语法（默认值）
+      url: query-simple-syntax.md
+    - text: 完整 Lucene 语法
+      url: query-lucene-syntax.md
+  - linkListType: how-to-guide
+    links:
+    - text: 创建简单查询
+      url: search-query-simple-examples.md
+    - text: 使用完整语法
+      url: search-query-lucene-examples.md
+  - linkListType: reference
+    links:
+    - text: OData 语言参考
+      url: query-odata-filter-orderby-syntax.md
+    - text: 搜索文档 (REST)
+      url: https://docs.microsoft.com/rest/api/searchservice/search-documents
+- title: 帮助和反馈
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 常见问题
+      url: search-faq-frequently-asked-questions.md
+    - text: 在 Stack Overflow 上提出问题
+      url: https://stackoverflow.com/questions/tagged/azure-search
+    - text: 在 MSDN 论坛上提问
+      url: https://social.msdn.microsoft.com/Forums/zh-CN/home?forum=windowsazurezhchs

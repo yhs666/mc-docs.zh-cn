@@ -11,18 +11,17 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 05/07/2019
-ms.date: 06/21/2019
+ms.date: 12/12/2019
 ms.author: v-junlch
 ms.custom: include file
-ms.openlocfilehash: a72a4d910ed929c9a5dc555390272eb1e56cc943
-ms.sourcegitcommit: a0f90b99b9081d25ced6fa3c4eb7903fb0904d61
+ms.openlocfilehash: b94b2ef3ae9406b417e93352234a3205b1c77ea4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 06/21/2019
-ms.locfileid: "67307602"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335398"
 ---
-在阅读本文之前，你应该熟悉以下概念或阅读以下文章：
+在阅读本文之前，应熟悉以下概念：
 
 - [Microsoft 标识平台概述](../articles/active-directory/develop/v2-overview.md)
 - [身份验证基础知识](../articles/active-directory/develop/authentication-scenarios.md)

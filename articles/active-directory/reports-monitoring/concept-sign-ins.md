@@ -3,7 +3,7 @@ title: Azure Active Directory 门户中的“登录活动”报告 | Microsoft D
 description: Azure Active Directory 门户中的“登录活动”报告简介
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -13,17 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-origin.date: 10/28/2019
-ms.date: 11/14/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0609514c6b2b1e3a79c8bb6b64b01015ed6e6e
-ms.sourcegitcommit: 1171a6ab899b26586d1ea4b3a089bb8ca3af2aa2
+ms.openlocfilehash: 3baebfaef3222a3bd7df9a5f477520b6113673e4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084888"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336125"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 门户中的“登录活动”报告
 
@@ -39,7 +38,7 @@ Azure Active Directory (Azure AD) 中的报告体系结构由以下部分组成�
 
 ### <a name="who-can-access-the-data"></a>谁可以访问该数据？
 
-* 具有“安全管理员”、“安全读取者”和“报告读取者”角色的用户
+* 具有“安全管理员”、“安全读取者”、“全局读取者”和“报告读取者”角色的用户
 * 全局管理员
 * 任何用户（非管理员）都可以访问自己的登录活动 
 
@@ -176,7 +175,7 @@ Azure AD 和 Azure 门户都提供登录数据的其他入口点：
 - 应用程序 ID
 - 应用程序
 - 客户端
-- Location
+- 位置
 - IP 地址
 - Date
 - 需要 MFA

@@ -12,15 +12,15 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
-origin.date: 09/04/2019
+origin.date: 11/18/2019
 ms.author: v-yiso
-ms.date: 10/21/2019
-ms.openlocfilehash: 3e60464d931b117b321aa67a5a2c420db5ed4c71
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.date: 12/23/2019
+ms.openlocfilehash: e1868456cf983f08af5b4aae8e060ea5a518335f
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292451"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335967"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>将 Apache Spark 结构化流式处理与 Apache Kafka 和 Azure Cosmos DB 配合使用
 
@@ -74,37 +74,23 @@ Apache Kafka on HDInsight 不提供通过公共 Internet 访问 Kafka 中转站�
 
 2. 使用以下信息填充“自定义部署”部分中的条目  ：
 
+    |属性 |Value |
+    |---|---|
+    |订阅|选择 Azure 订阅。|
+    |资源组|创建一个组或选择有个现有的组。 此组包含 HDInsight 群集。|
+    |Cosmos DB 帐户名|此值用作 Cosmos DB 帐户的名称。 名称只能包含小写字母、数字和连字符 (-) 字符。 它的长度必须介于 3 到 31 个字符之间。|
+    |基群集名称|此值将用作 Spark 和 Kafka 群集的基名称。 例如，输入 myhdi 将创建名为 spark-myhdi 的 Spark 群集和名为 kafka-myhdi 的 Kafka 群集    。|
+    |群集版本|HDInsight 群集版本。 此示例使用 HDInsight 3.6 进行测试，可能不适用于其他群集类型。|
+    |群集登录用户名|Spark 和 Kafka 群集的管理员用户名。|
+    |群集登录密码|Spark 和 Kafka 群集的管理员用户密码。|
+    |SSH 用户名|创建 Spark 和 Kafka 群集的 SSH 用户。|
+    |SSH 密码|Spark 和 Kafka 群集的 SSH 用户的密码。|
+
     ![HDInsight 自定义部署值](./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png)
 
-    * **订阅**：选择 Azure 订阅。
-   
-    * **资源组**：创建一个组或选择有个现有的组。 此组包含 HDInsight 群集。
+1. 阅读“条款和条件”  ，并选择“我同意上述条款和条件”  。
 
-    * **位置**：选择在地理上邻近的位置。
-
-    * **Cosmos DB 帐户名**：此值用作 Cosmos DB 帐户的名称。
-
-    * **基群集名称**：此值将用作 Spark 和 Kafka 群集的基名称。 例如，输入 myhdi 将创建名为 spark-myhdi 的 Spark 群集和名为 kafka-myhdi 的 Kafka 群集    。
-
-    * **群集版本**：HDInsight 群集版本。
-
-        > [!IMPORTANT]
-        > 此示例使用 HDInsight 3.6 进行测试，可能不适用于其他群集类型。
-
-    * **群集登录用户名**：Spark 和 Kafka 群集的管理员用户名。
-
-    * **群集登录密码**：Spark 和 Kafka 群集的管理员用户密码。
-
-    * **SSH 用户名**：创建 Spark 和 Kafka 群集的 SSH 用户。
-
-    * **SSH 密码**：Spark 和 Kafka 群集的 SSH 用户的密码。
-
-3. 阅读“条款和条件”  ，并选择“我同意上述条款和条件”  。
-
-4. 最后，选择“购买”  。 创建群集大约需要 20 分钟时间。
-
-> [!IMPORTANT]
-> 创建群集、虚拟网络和 Cosmos DB 帐户最多可能需要 45 分钟时间。
+1. 最后，选择“购买”  。 创建群集、虚拟网络和 Cosmos DB 帐户最多可能需要 45 分钟时间。
 
 ## <a name="create-the-cosmos-db-database-and-collection"></a>创建 Cosmos DB 数据库和集合
 
@@ -126,15 +112,16 @@ databaseName='kafkadata'
 collectionName='kafkacollection'
 
 # Create the database
-az cosmosdb database create --name $name --db-name $databaseName --resource-group $resourceGroupName
+az cosmosdb sql database create --account-name $name --name $databaseName --resource-group $resourceGroupName
+
 # Create the collection
-az cosmosdb collection create --collection-name $collectionName --name $name --db-name $databaseName --resource-group $resourceGroupName
+az cosmosdb sql container create --account-name $name --database-name $databaseName --name $collectionName --partition-key-path "/my/path" --resource-group $resourceGroupName
 
 # Get the endpoint
 az cosmosdb show --name $name --resource-group $resourceGroupName --query documentEndpoint
 
 # Get the primary key
-az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query primaryMasterKey
+az cosmosdb keys list --name $name --resource-group $resourceGroupName --type keys
 ```
 
 文档终结点和主键信息与以下文本类似：
@@ -148,38 +135,6 @@ az cosmosdb list-keys --name $name --resource-group $resourceGroupName --query p
 
 > [!IMPORTANT]
 > 保存终结点和键值，以便用于 Jupyter 笔记本。
-
-## <a name="get-the-apache-kafka-brokers"></a>获取 Apache Kafka 中转站
-
-本示例中的代码连接到 Kafka 群集中的 Kafka 中转站主机。 若要查找两个 Kafka 中转站主机的地址，请使用以下 PowerShell 或 Bash 示例：
-
-```powershell
-$creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
-$clusterName = Read-Host -Prompt "Enter the Kafka cluster name"
-$resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.cn/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER" `
-    -Credential $creds `
-    -UseBasicParsing
-$respObj = ConvertFrom-Json $resp.Content
-$brokerHosts = $respObj.host_components.HostRoles.host_name[0..1]
-($brokerHosts -join ":9092,") + ":9092"
-```
-
-> [!NOTE]
-> Bash 示例需要 `$CLUSTERNAME` 包含 Kafka 群集的名称。
->
-> 本示例使用 [jq](https://stedolan.github.io/jq/) 实用程序来分析 JSON 文档外的数据。
-
-```bash
-curl -u admin -G "https://$CLUSTERNAME.azurehdinsight.cn/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER" | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2
-```
-
-出现提示时，输入群集登录（管理员）帐户的密码
-
-输出与以下文本类似：
-
-`wn0-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn:9092,wn1-kafka.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.chinacloudapp.cn:9092`
-
-保存此信息，因为本文档的后面部分还将用到此信息。
 
 ## <a name="get-the-notebooks"></a>获取 Notebook
 

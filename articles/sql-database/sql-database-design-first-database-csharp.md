@@ -1,26 +1,26 @@
 ---
-title: 设计第一个关系数据库 - C# - Azure SQL 数据库 | Microsoft Docs
+title: 设计第一个关系数据库 C#
 description: 了解如何使用 ADO.NET 通过 C# 在 Azure SQL 数据库的单一数据库中设计第一个关系数据库。
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: WenJason
 ms.author: v-jay
 ms.reviewer: carlrab
-manager: digimobile
-origin.date: 02/08/2019
-ms.date: 08/19/2019
-ms.openlocfilehash: 2ade5ecee162afa8044a6fee23d26d772b2acd58
-ms.sourcegitcommit: 52ce0d62ea704b5dd968885523d54a36d5787f2d
+origin.date: 07/29/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 81da99f391ac8e07498f686e343ab4ff01f71809
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69544349"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336067"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-cx23-and-adonet"></a>教程：在 Azure SQL 数据库 C&#x23; 和 ADO.NET 的单一数据库中设计关系数据库
 
-Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程介绍如何将 Azure 门户、ADO.NET 与 Visual Studio 结合使用来完成以下操作： 
+Azure SQL 数据库是云 (Azure) 中的关系数据库即服务 (DBaaS)。 本教程介绍如何将 Azure 门户、ADO.NET 与 Visual Studio 结合使用来完成以下操作：
 
 > [!div class="checklist"]
 > * 使用 Azure 门户创建单一数据库*
@@ -30,7 +30,10 @@ Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程
 > * 使用 ADO.NET 插入、更新和删除数据
 > * 查询数据 ADO.NET
 
-如果没有 Azure 订阅，可在开始前创建一个 [1 元人民币试用帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+*如果没有 Azure 订阅，请在开始前[创建一个 1 元人民币的试用订阅帐户](https://www.azure.cn/pricing/1rmb-trial/)。
+
+> [!TIP]
+> 以下 Microsoft Learn 模块可帮助你免费学习如何[开发和配置可查询 Azure SQL 数据库的 ASP.NET 应用程序](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)，包括创建简单数据库。
 
 ## <a name="prerequisites"></a>先决条件
 
@@ -53,17 +56,17 @@ Azure SQL 数据库是 Azure 中的关系数据库即服务 (DBaaS)。 本教程
     | ------------ | ------------------ | ------------------------------------------------- |
     | **数据库名称** | yourDatabase  | 如需有效的数据库名称，请参阅[数据库标识符](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)。 |
     | **订阅** | yourSubscription   | 有关订阅的详细信息，请参阅[订阅](https://account.windowsazure.cn/Subscriptions)。 |
-    | **资源组** | yourResourceGroup  | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+    | **资源组** | yourResourceGroup  | 有关有效的资源组名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。 |
     | **选择源** | 空白数据库 | 指定应创建空白数据库。 |
 
 4. 单击“服务器”以使用现有的数据库服务器，或者创建并配置新的数据库服务器  。 选择现有服务器或单击“创建新服务器”，然后在“新建服务器”窗体中填写以下信息   ：
 
     | 设置       | 建议的值 | 说明 |
     | ------------ | ------------------ | ------------------------------------------------- |
-    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)（命名规则和限制）。 |
+    | **服务器名称** | 任何全局唯一名称 | 如需有效的服务器名称，请参阅 [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/resource-naming)（命名规则和限制）。 |
     | 服务器管理员登录名  | 任何有效的名称 | 如需有效的登录名，请参阅[Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)（数据库标识符）。 |
     | **密码** | 任何有效的密码 | 密码必须至少有八个字符，且必须使用以下类别中的三个类别的字符：大写字符、小写字符、数字以及非字母数字字符。 |
-    | **Location** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
+    | **位置** | 任何有效的位置 | 中国东部、中国东部 2、中国北部、中国北部 2 |
 
     ![创建数据库 - 服务器](./media/sql-database-design-first-database/create-database-server.png)
 

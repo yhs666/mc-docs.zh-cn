@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库功能比较 | Microsoft Docs
+title: 功能比较
 description: 本文比较了不同风格的 Azure SQL 数据库中可用的 SQL Server 功能。
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: bonova, sstein
 origin.date: 05/10/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: e92ebe0ecbc7cff92e8fbfbbcf640c7bd279bee2
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: 5e1ffb54384ad6444104b3a0476917fb1af14f9d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041200"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335741"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL 数据库功能
 
@@ -124,7 +124,7 @@ Azure 平台提供许多 PaaS 功能，可以增大标准数据库功能的价�
 | 备份保留 | 是的。 默认为 7 天，最长 35 天。 | 是的。 默认为 7 天，最长 35 天。 |
 | [数据迁移服务 (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | 是 | 是 |
 | 文件系统访问 | 否。 使用 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 或 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) 作为替代方法来访问和加载 Azure Blob 存储中的数据。 | 否。 使用 [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#f-importing-data-from-a-file-in-azure-blob-storage) 或 [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#i-accessing-data-from-a-file-stored-on-azure-blob-storage) 作为替代方法来访问和加载 Azure Blob 存储中的数据。 |
-| [异地还原](sql-database-recovery-using-backups.md#geo-restore) | 是 - 除超大规模之外的所有服务层级 | 是 - 使用 [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa)。 |
+| [异地还原](sql-database-recovery-using-backups.md#geo-restore) | 是 - 除超大规模之外的所有服务层级 | 是 - 除超大规模之外的所有服务层级 |
 | [超大规模体系结构](sql-database-service-tier-hyperscale.md) | 是 | 否 |
 | [长期备份保留 - LTR](sql-database-long-term-retention.md) | 是，将自动创建的备份最长保留 10 年。 | 还不可以。 使用 `COPY_ONLY` [手动备份](sql-database-managed-instance-transact-sql-information.md#backup)作为临时解决方法。 |
 | 暂停/恢复 | 是，在[无服务器模型](sql-database-serverless.md)中 | 否 | 
@@ -133,7 +133,7 @@ Azure 平台提供许多 PaaS 功能，可以增大标准数据库功能的价�
 | [数据库时间点还原](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | 是 - 除超大规模之外的所有服务层级 - 请参阅 [SQL 数据库恢复](sql-database-recovery-using-backups.md#point-in-time-restore) | 是 - 请参阅 [SQL 数据库恢复](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | 资源池 | 是，用作[弹性池](sql-database-elastic-pool.md) | 是的。 单个托管实例可以包含多个共享同一资源池的数据库 |
 | 纵向扩展或缩减（联机） | 是，可以更改 DTU、预留的 vCore 数或最大存储，这只会造成极短时间的停机。 | 是，可以更改预留的 vCore 数或最大存储，这只会造成极短时间的停机。 |
-| [SQL 别名](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | 否，使用 [DNS 别名](dns-alias-overview.md) | 否 |
+| [SQL 别名](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | 否，使用 [DNS 别名](dns-alias-overview.md) | 否，请使用 [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) 在客户端计算机上设置别名。 |
 | [SQL 数据同步](sql-database-get-started-sql-data-sync.md) | 是 | 否 |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | 否，[Azure Analysis Services](/analysis-services/) 是一项单独的 Azure 云服务。 | 否，[Azure Analysis Services](/analysis-services/) 是一项单独的 Azure 云服务。 |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | 是，使用 Azure 数据工厂 (ADF) 环境中的托管 SSIS ，其中程序包存储在由 Azure SQL 数据库承载的 SSISDB 中并在 Azure SSIS 集成运行时 (IR) 上执行，请参阅[在 ADF 中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。 <br/><br/>若要比较 SQL 数据库服务器和托管实例中的 SSIS 功能，请参阅[比较 Azure SQL 数据库单一数据库、弹性池和托管实例](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)。 | 是，使用 Azure 数据工厂 (ADF) 环境中的托管 SSIS ，其中程序包存储在由托管实例承载的 SSISDB 中并在 Azure SSIS 集成运行时 (IR) 上执行，请参阅[在 ADF 中创建 Azure-SSIS IR](/data-factory/create-azure-ssis-integration-runtime)。 <br/><br/>若要比较 SQL 数据库和托管实例中的 SSIS 功能，请参阅[比较 Azure SQL 数据库单一数据库、弹性池和托管实例](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance)。 |

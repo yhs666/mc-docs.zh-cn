@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 origin.date: 05/21/2019
-ms.date: 07/29/2019
+ms.date: 12/16/2019
 author: rockboyfor
 ms.author: v-yeche
 ms.custom: seodec18
-ms.openlocfilehash: 67f41310706423e725576037bf25624c216c3dde
-ms.sourcegitcommit: 5a4a826eea3914911fd93592e0f835efc9173133
+ms.openlocfilehash: e7f805680dcb8ccc5c20170e2b96c412944aeb68
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68672215"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336006"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure 存储表设计指南：设计可伸缩的高性能表
 
@@ -535,7 +535,7 @@ EGT 在多个共享同一分区键的实体之间启用原子事务。 由于性
 * 存储在同一个表的两个不同分区中的实体、存储在不同表中的实体，或存储在不同存储帐户中的实体。  
 * 存储在表服务中的实体和存储在 Blob 服务中的 blob。  
 * 表服务中存储的实体和文件系统中的文件。  
-* 实体存储在表服务中还使用 Azure Search 服务编制了索引。  
+* 存储在表服务中的实体还使用 Azure 认知搜索服务编制了索引。  
 
 #### <a name="solution"></a>解决方案
 通过使用 Azure 队列，可以实现一种解决方案，用于在两个或更多个分区或存储系统之间提供最终一致性。
