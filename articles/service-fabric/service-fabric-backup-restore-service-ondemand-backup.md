@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 10/30/2018
-ms.date: 07/08/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: ace0d2c0e86dbad4a174b11719374098232dba75
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: 91da8e5c06b001d0e61dbdebb3b9bf468ef8ba53
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844718"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336369"
 ---
 # <a name="on-demand-backup-in-azure-service-fabric"></a>Azure Service Fabric 中的按需备份
 
@@ -110,6 +110,17 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 
 可以使用 [GetBackupProgress](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupprogress) API 设置[按需备份进度](service-fabric-backup-restore-service-ondemand-backup.md#tracking-on-demand-backup-progress)跟踪。
 
+### <a name="using-service-fabric-explorer"></a>使用 Service Fabric Explorer
+请确保已在 Service Fabric Explorer 设置中启用了“高级模式”。
+1. 选择所需分区，并单击“操作”。 
+2. 选择“触发分区备份”，并填写用于 Azure 的信息：
+
+    ![触发分区备份][0]
+
+    或用于文件共享的信息：
+
+    ![触发分区备份文件共享][1]
+
 ## <a name="tracking-on-demand-backup-progress"></a>跟踪按需备份进度
 
 可靠有状态服务或 Reliable Actor 的分区一次仅接受一个按需备份请求。 仅当已完成当前的按需备份请求后，才能接受另一个请求。
@@ -182,5 +193,7 @@ $backupResponse
 - [了解定期备份配置](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [BackupRestore REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-<!-- Update_Description: update meta properties, wording update -->
+[0]: ./media/service-fabric-backuprestoreservice/trigger-partition-backup.png
+[1]: ./media/service-fabric-backuprestoreservice/trigger-backup-fileshare.png
 
+<!-- Update_Description: update meta properties, wording update, update link -->

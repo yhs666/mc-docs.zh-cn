@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
 origin.date: 09/17/2019
-ms.date: 11/25/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
 ms.custom: seodec18
-ms.openlocfilehash: cff2186bcc8e0f027e61bfe9495f4dcf19c6a074
-ms.sourcegitcommit: e7dd37e60d0a4a9f458961b6525f99fa0e372c66
+ms.openlocfilehash: 6d71d57adb332e08ed245fa4fd2959725935f630
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555923"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335727"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>为 Azure 应用服务中的应用启用诊断日志记录
 ## <a name="overview"></a>概述
@@ -42,6 +42,8 @@ Azure 提供内置诊断功能，可帮助调试[应用服务应用](overview.md
 <!-- > App Service provides a dedicated, interactive diagnostics tool to help you troubleshoot your application. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md). -->
 
 > [!NOTE]
+> 应用服务提供了一个专用的交互式诊断工具来帮助你排查应用程序问题。
+>
 > 此外，可以使用其他 Azure 服务（例如 [Azure Monitor](../azure-monitor/app/azure-web-apps.md)）来改善应用的日志记录和监视功能。
 >
 

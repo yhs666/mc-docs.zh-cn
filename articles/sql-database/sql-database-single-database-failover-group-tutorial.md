@@ -1,5 +1,5 @@
 ---
-title: 教程：将 Azure SQL 数据库单一数据库添加到故障转移组 | Microsoft Docs
+title: 教程：将单一数据库添加到故障转移组
 description: 使用 Azure 门户、PowerShell 或 Azure CLI 将 Azure SQL 数据库单一数据库添加到故障转移组。
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 06/19/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 229f3864659819342cb547796078b23209a0ffff
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 12/16/2019
+ms.openlocfilehash: 240cf8ce5d3e7fcc1f23e40d478e54682d16d5df
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262915"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336416"
 ---
 # <a name="tutorial-add-an-azure-sql-database-single-database-to-a-failover-group"></a>教程：将 Azure SQL 数据库单一数据库添加到故障转移组
 
@@ -97,16 +97,21 @@ ms.locfileid: "71262915"
    > 服务器登录名和防火墙设置必须与主服务器相匹配。 
 
    ```powershell
-   $subscriptionId = '<SubscriptionID>'
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $location = "China East 2"
-   $adminLogin = "azureuser"
-   $password = "PWD27!"+(New-Guid).Guid
-   $serverName = "mysqlserver-$(Get-Random)"
-   $databaseName = "mySampleDatabase"
+   # $subscriptionId = '<SubscriptionID>'
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $location = "China East 2"
+   # $adminLogin = "azureuser"
+   # $password = "PWD27!"+(New-Guid).Guid
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $databaseName = "mySampleDatabase"
    $drLocation = "China North 2"
    $drServerName = "mysqlsecondary-$(Get-Random)"
    $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+
+   # The ip address range that you want to allow to access your server 
+   # (leaving at 0.0.0.0 will prevent outside-of-azure connections to your DB)
+   $startIp = "0.0.0.0"
+   $endIp = "0.0.0.0"
 
    # Show randomized variables
    Write-host "DR Server name is" $drServerName 
@@ -120,16 +125,22 @@ ms.locfileid: "71262915"
       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
    $drServer
-   
+
+   # Create a server firewall rule that allows access from the specified IP range
+   Write-host "Configuring firewall for secondary logical server..."
+   $serverFirewallRule = New-AzSqlServerFirewallRule -ResourceGroupName $resourceGroupName `
+      -ServerName $drServerName `
+      -FirewallRuleName "AllowedIPs" -StartIpAddress $startIp -EndIpAddress $endIp
+   $serverFirewallRule   
    
    # Create a failover group between the servers
    $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
    New-AzSqlDatabaseFailoverGroup `
-      –ResourceGroupName $resourceGroupName `
+      -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -PartnerServerName $drServerName  `
-      –FailoverGroupName $failoverGroupName `
-      –FailoverPolicy Automatic `
+      -FailoverGroupName $failoverGroupName `
+      -FailoverPolicy Automatic `
       -GracePeriodWithDataLossHours 2
    $failovergroup
    
@@ -146,6 +157,17 @@ ms.locfileid: "71262915"
    Write-host "Successfully added the database to the failover group..." 
    ```
 
+本教程的此部分使用以下 PowerShell cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule) | 为逻辑服务器创建防火墙规则。 | 
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 新建 Azure SQL 数据库单一数据库。 | 
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) | 新建故障转移组。 |
+| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) | 获取一个或更多个 SQL 数据库。 |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | 将一个或更多个 Azure SQL 数据库添加到故障转移组。 |
+
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 使用 AZ CLI 创建故障转移组，并将单一数据库添加到其中。 
 
@@ -155,16 +177,16 @@ ms.locfileid: "71262915"
    ```azurecli
    #!/bin/bash
    # Set variables
-   $subscriptionID="<SubscriptionID>"
-   $resourceGroupName="myResourceGroup-$RANDOM"
-   $location="ChinaEast2"
-   $adminLogin="azureuser"
-   $password="PWD27!"+`openssl rand -base64 18`
-   $serverName="mysqlserver-$RANDOM
-   $databaseName="mySampleDatabase"
-   $drLocation="ChinaNorth2"
-   $drServerName="mysqlsecondary-$RANDOM"
-   $failoverGroupName="failovergrouptutorial-$RANDOM"
+   # subscriptionID=<SubscriptionID>
+   # resourceGroupName=myResourceGroup-$RANDOM
+   # location=China East 2
+   # adminLogin=azureuser
+   # password="PWD27!"+`openssl rand -base64 18`
+   # serverName=mysqlserver-$RANDOM
+   # databaseName=mySampleDatabase
+   drLocation=China North 2
+   drServerName=mysqlsecondary-$RANDOM
+   failoverGroupName=failovergrouptutorial-$RANDOM
 
    # Create a secondary server in the failover region
    echo "Creating a secondary logical server in the DR region..."
@@ -174,6 +196,15 @@ ms.locfileid: "71262915"
       --location $drLocation  \
       --admin-user $adminLogin\
       --admin-password $password
+
+   # Configure a firewall rule for the server
+   echo "Configuring firewall..."
+   az sql server firewall-rule create \
+      --resource-group $resourceGroupName \
+      --server $drServerName \
+      -n AllowYourIp \
+      --start-ip-address $startip \
+      --end-ip-address $endip
    
    # Create a failover group between the servers and add the database
    echo "Creating a failover group between the two servers..."
@@ -185,6 +216,14 @@ ms.locfileid: "71262915"
       --add-db $databaseName
       --failover-policy Automatic
    ```
+
+本教程的此部分使用以下 Az CLI cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [az sql server firewall-rule create](/cli/sql/server/firewall-rule) | 创建服务器的防火墙规则。 | 
+| [az sql failover-group create](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | 创建故障转移组。 | 
 
 ---
 
@@ -216,9 +255,9 @@ ms.locfileid: "71262915"
 
    ```powershell
    # Set variables
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $serverName = "mysqlserver-$(Get-Random)"
-   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
    
    # Check role of secondary replica
    Write-host "Confirming the secondary replica is secondary...." 
@@ -228,14 +267,13 @@ ms.locfileid: "71262915"
       -ServerName $drServerName).ReplicationRole
    ```
 
-
 故障转移到辅助服务器： 
 
    ```powershell
    # Set variables
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $serverName = "mysqlserver-$(Get-Random)"
-   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
    
    # Failover to secondary server
    Write-host "Failing over failover group to the secondary..." 
@@ -243,16 +281,16 @@ ms.locfileid: "71262915"
       -ResourceGroupName $resourceGroupName `
       -ServerName $drServerName `
       -FailoverGroupName $failoverGroupName
-   Write-host "Failed failover group to sucessfully to" $drServerName 
+   Write-host "Failed failover group successfully to" $drServerName 
    ```
 
 将故障转移组还原到主服务器：
 
    ```powershell
    # Set variables
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
-   $serverName = "mysqlserver-$(Get-Random)"
-   $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $serverName = "mysqlserver-$(Get-Random)"
+   # $failoverGroupName = "failovergrouptutorial-$(Get-Random)"
    
    # Revert failover to primary server
    Write-host "Failing over failover group to the primary...." 
@@ -260,20 +298,28 @@ ms.locfileid: "71262915"
       -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FailoverGroupName $failoverGroupName
-   Write-host "Failed failover group to successfully to back to" $serverName
+   Write-host "Failed failover group successfully back to" $serverName
    ```
+
+本教程的此部分使用以下 PowerShell cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | 获取或列出 Azure SQL 数据库故障转移组。 |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| 执行 Azure SQL 数据库故障转移组的故障转移。 |
+
+
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 使用 AZ CLI 测试故障转移。 
-
 
 确认哪个服务器是辅助服务器：
 
    
    ```azurecli
    # Set variables
-   $resourceGroupName="myResourceGroup-$RANDOM"
-   $serverName="mysqlserver-$RANDOM"
+   # resourceGroupName=myResourceGroup-$RANDOM
+   # serverName=mysqlserver-$RANDOM
    
    # Verify which server is secondary
    echo "Verifying which server is in the secondary role..."
@@ -286,9 +332,9 @@ ms.locfileid: "71262915"
 
    ```azurecli
    # Set variables
-   $resourceGroupName="myResourceGroup-$RANDOM"
-   $drServerName="mysqlsecondary-$RANDOM"
-   $failoverGroupName="failovergrouptutorial-$RANDOM"
+   # resourceGroupName=myResourceGroup-$RANDOM
+   # drServerName=mysqlsecondary-$RANDOM
+   # failoverGroupName=failovergrouptutorial-$RANDOM
 
    
    echo "Failing over group to the secondary server..."
@@ -303,9 +349,9 @@ ms.locfileid: "71262915"
 
    ```azurecli
    # Set variables
-   $resourceGroupName="myResourceGroup-$RANDOM"
-   $serverName="mysqlserver-$RANDOM"
-   $failoverGroupName="failovergrouptutorial-$RANDOM"
+   # resourceGroupName=myResourceGroup-$RANDOM
+   # serverName=mysqlserver-$RANDOM
+   # failoverGroupName=failovergrouptutorial-$RANDOM
    
    echo "Failing over group back to the primary server..."
    az sql failover-group set-primary \
@@ -315,6 +361,13 @@ ms.locfileid: "71262915"
    echo "Successfully failed failover group back to" $serverName
    ```
 
+本教程的此部分使用以下 Az CLI cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [az sql failover-group list](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 列出某个服务器中的故障转移组。 |
+| [az sql failover-group set-primary](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 通过对当前主服务器上的所有数据库进行故障转移来设置故障转移组的主服务器。 | 
+
 ---
 
 ## <a name="clean-up-resources"></a>清理资源 
@@ -323,18 +376,18 @@ ms.locfileid: "71262915"
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 使用 Azure 门户删除资源组。 
 
-
 1. 在 [Azure 门户](https://portal.azure.cn)中导航到你的资源组。
 1. 选择“删除资源组”即可删除该资源组中的所有资源以及该组本身。  
 1. 在文本框中键入资源组的名称 `myResourceGroup`，然后选择“删除”以删除该资源组。   
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 使用 PowerShell 删除资源组。 
 
 
    ```powershell
    # Set variables
-   $resourceGroupName = "myResourceGroup-$(Get-Random)"
+   # $resourceGroupName = "myResourceGroup-$(Get-Random)"
 
    # Remove the resource group
    Write-host "Removing resource group..."
@@ -342,13 +395,20 @@ ms.locfileid: "71262915"
    Write-host "Resource group removed =" $resourceGroupName
    ```
 
+本教程的此部分使用以下 PowerShell cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组 | 
+
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
 使用 AZ CLI 删除资源组。 
 
 
    ```azurecli
    # Set variables
-   $resourceGroupName=myResourceGroup-$RANDOM
+   # resourceGroupName=myResourceGroup-$RANDOM
    
    # Clean up resources by removing the resource group
    echo "Cleaning up resources by removing the resource group..."
@@ -356,6 +416,12 @@ ms.locfileid: "71262915"
      --name $resourceGroupName
    echo "Successfully removed resource group" $resourceGroupName
    ```
+
+本教程的此部分使用以下 Az CLI cmdlet：
+
+| 命令 | 注释 |
+|---|---|
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
 
 ---
 
@@ -367,15 +433,16 @@ ms.locfileid: "71262915"
 ```powershell
 # Set variables for your server and database
 $subscriptionId = '<SubscriptionID>'
-$resourceGroupName = "myResourceGroup-$(Get-Random)"
+$randomIdentifier = $(Get-Random)
+$resourceGroupName = "myResourceGroup-$randomIdentifier"
 $location = "China East 2"
 $adminLogin = "azureuser"
 $password = "PWD27!"+(New-Guid).Guid
-$serverName = "mysqlserver-$(Get-Random)"
+$serverName = "mysqlserver-$randomIdentifier"
 $databaseName = "mySampleDatabase"
 $drLocation = "China North 2"
-$drServerName = "mysqlsecondary-$(Get-Random)"
-$failoverGroupName = "failovergrouptutorial-$(Get-Random)"
+$drServerName = "mysqlsecondary-$randomIdentifier"
+$failoverGroupName = "failovergrouptutorial-$randomIdentifier"
 
 
 # The ip address range that you want to allow to access your server 
@@ -440,11 +507,11 @@ $drServer
 # Create a failover group between the servers
 $failovergroup = Write-host "Creating a failover group between the primary and secondary server..."
 New-AzSqlDatabaseFailoverGroup `
-   –ResourceGroupName $resourceGroupName `
+   -ResourceGroupName $resourceGroupName `
    -ServerName $serverName `
    -PartnerServerName $drServerName  `
-   –FailoverGroupName $failoverGroupName `
-   –FailoverPolicy Automatic `
+   -FailoverGroupName $failoverGroupName `
+   -FailoverPolicy Automatic `
    -GracePeriodWithDataLossHours 2
 $failovergroup
 
@@ -499,26 +566,41 @@ Write-host "Failover group name is" $failoverGroupName
 # Write-host "Resource group removed =" $resourceGroupName
 ```
 
+此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
+
+| 命令 | 注释 |
+|---|---|
+| [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 创建用于存储所有资源的资源组。 |
+| [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [New-AzSqlServerFirewallRule](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserverfirewallrule) | 为逻辑服务器创建防火墙规则。 | 
+| [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) | 新建 Azure SQL 数据库单一数据库。 | 
+| [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasefailovergroup) | 新建故障转移组。 |
+| [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) | 获取一个或更多个 SQL 数据库。 |
+| [Add-AzSqlDatabaseToFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | 将一个或更多个 Azure SQL 数据库添加到故障转移组。 |
+| [Get-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasefailovergroup) | 获取或列出 Azure SQL 数据库故障转移组。 |
+| [Switch-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| 执行 Azure SQL 数据库故障转移组的故障转移。 |
+| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 删除资源组 | 
+
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```cli
 #!/bin/bash
 # Set variables
-$subscriptionID="<SubscriptionID>"
-$resourceGroupName="myResourceGroup-$RANDOM"
-$location="ChinaEast2"
-$adminLogin="azureuser"
-$password="PWD27!"+`openssl rand -base64 18`
-$serverName="mysqlserver-$RANDOM"
-$databaseName="mySampleDatabase"
-$drLocation="ChinaNorth2"
-$drServerName="mysqlsecondary-$RANDOM"
-$failoverGroupName="failovergrouptutorial-$RANDOM"
+subscriptionID=<SubscriptionID>
+resourceGroupName=myResourceGroup-$RANDOM
+location=China East 2
+adminLogin=azureuser
+password="PWD27!"+`openssl rand -base64 18`
+serverName=mysqlserver-$RANDOM
+databaseName=mySampleDatabase
+drLocation=China North 2
+drServerName=mysqlsecondary-$RANDOM
+failoverGroupName=failovergrouptutorial-$RANDOM
 
 # The ip address range that you want to allow access to your DB. 
 # Leaving at 0.0.0.0 will prevent outside-of-azure connections
-$startip="0.0.0.0"
-$endip="0.0.0.0"
+startip=0.0.0.0
+endip=0.0.0.0
 
 # Print out randomized variables
 echo Resource group name is $resourceGroupName
@@ -621,8 +703,22 @@ echo Failover group name $failoverGroupName
 # echo "Successfully removed resource group" $resourceGroupName
 ```
 
+此脚本使用以下命令。 表中的每条命令均链接到特定于命令的文档。
+
+| 命令 | 注释 |
+|---|---|
+| [az account set](/cli/account?view=azure-cli-latest#az-account-set) | 将订阅设置为当前的活动订阅。 | 
+| [az group create](/cli/group#az-group-create) | 创建用于存储所有资源的资源组。 |
+| [az sql server create](/cli/sql/server#az-sql-server-create) | 创建托管单一数据库和弹性池的 SQL 数据库服务器。 |
+| [az sql server firewall-rule create](/cli/sql/server/firewall-rule) | 创建服务器的防火墙规则。 | 
+| [az sql db create](/cli/sql/db?view=azure-cli-latest) | 创建数据库。 | 
+| [az sql failover-group create](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-create) | 创建故障转移组。 | 
+| [az sql failover-group list](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-list) | 列出某个服务器中的故障转移组。 |
+| [az sql failover-group set-primary](/cli/sql/failover-group?view=azure-cli-latest#az-sql-failover-group-set-primary) | 通过对当前主服务器上的所有数据库进行故障转移来设置故障转移组的主服务器。 | 
+| [az group delete](/cli/vm/extension#az-vm-extension-set) | 删除资源组，包括所有嵌套的资源。 |
+
 # <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
-没有适用于 Azure 门户的脚本。
+没有适用于 Azure 门户的脚本。 
  
 ---
 
@@ -630,7 +726,7 @@ echo Failover group name $failoverGroupName
 
 ## <a name="next-steps"></a>后续步骤
 
-在本教程中，你已将一个 Azure SQL 数据库单一数据库添加到故障转移组，并测试了故障转移。 你已了解如何：
+在本教程中，你已将一个 Azure SQL 数据库单一数据库添加到故障转移组，并测试了故障转移。 你已了解如何： 
 
 > [!div class="checklist"]
 > - 创建 Azure SQL 数据库单一数据库。 

@@ -1,5 +1,5 @@
 ---
-title: 如何在 Azure VM 上使用 Azure 资源的托管标识进行登录
+title: 使用 Azure VM 上的托管标识进行登录 - Azure AD
 description: 有关使用 Azure 资源服务主体的 Azure VM 托管标识进行脚本客户端登录和资源访问的逐步说明与示例。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 12/01/2017
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e632ac4337d1324394634201903fe13dcf120fd9
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: de98e109b23366c413e4dd493b9c759abb547e0d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818687"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335627"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>如何在 Azure VM 上使用 Azure 资源的托管标识进行登录 
 
@@ -42,7 +41,7 @@ ms.locfileid: "68818687"
 
 ## <a name="overview"></a>概述
 
-Azure 资源的托管标识提供一个[服务主体对象](../develop/developer-glossary.md#service-principal-object)，此对象是在 VM 上[启用 Azure 资源的托管标识时创建的](overview.md#how-does-it-work)。 可向此服务主体授予对 Azure 资源的访问权限；脚本/命令行客户端可将此服务主体用作标识进行登录和资源访问。 传统上，若要使用自身的标识访问受保护资源，脚本客户端需要：  
+Azure 资源的托管标识提供一个[服务主体对象](../develop/developer-glossary.md#service-principal-object)，此对象是在 VM 上[启用 Azure 资源的托管标识时创建的](overview.md#how-does-the-managed-identities-for-azure-resources-work)。 可向此服务主体授予对 Azure 资源的访问权限；脚本/命令行客户端可将此服务主体用作标识进行登录和资源访问。 传统上，若要使用自身的标识访问受保护资源，脚本客户端需要：  
 
    - 注册到 Azure AD，并同意将 Azure AD 用作机密/Web 客户端应用程序
    - 使用应用的凭据（可能会嵌入在脚本中）以自身的服务主体登录
@@ -105,5 +104,5 @@ Azure 资源的托管标识提供一个[服务主体对象](../develop/developer
 
 
 
-
+<!-- Update_Description: link update -->
 

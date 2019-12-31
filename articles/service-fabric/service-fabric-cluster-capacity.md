@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 07/09/2019
-ms.date: 09/02/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 7c9e9e035336aaa46a05ff20837f2a2a0fb9c389
-ms.sourcegitcommit: ba87706b611c3fa338bf531ae56b5e68f1dd0cde
+ms.openlocfilehash: fd447d8df4fe0311b1dd20294698f3b7179df117
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70174106"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336355"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric 群集容量规划注意事项
 对于任何生产部署，容量规划都是一个重要的步骤。 下面是在规划过程中必须注意的一些事项。
@@ -65,7 +65,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 
 在 Azure 资源管理器模板中，主节点类型在节点类型定义下配置了 `isPrimary` 属性。
 
-<!--Not Available on [node type definition](https://docs.microsoft.com/zh-cn/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)-->
+<!--Not Available on [node type definition](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object)-->
 
 ### <a name="non-primary-node-type"></a>非主节点类型
 
@@ -78,7 +78,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 耐久性层用于向系统指示 VM 对于基本 Azure 基础结构拥有的权限。 在主节点类型中，此权限可让 Service Fabric 暂停影响系统服务及有状态服务的仲裁要求的任何 VM 级别基础结构请求（例如，VM 重启、VM 重置映像或 VM 迁移）。 在非主节点类型中，此特权可让 Service Fabric 暂停影响其中运行的有状态服务的仲裁要求的任何 VM 级别基础结构请求，例如，VM 重新启动、VM 重置映像、VM 迁移，等等。
 
 | 持续性层  | 所需 VM 数量下限 | 受支持的 VM SKU                                                                  | 你对虚拟机规模集所做的更新                               | Azure 启动的更新和维护                                                              | 
-| ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| ---------------- |  ---------------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Gold             | 5                              | 专用于单个客户的完整节点 SKU（例如 DS15_v2、D15_v2） | 可延迟到 Service Fabric 群集批准 | 每个 UD 可以暂停 2 小时，提供额外的时间让副本从之前的故障中恢复 |
 | Silver           | 5                              | 单核或更多核心的 VM，至少 50 GB 的本地 SSD                      | 可延迟到 Service Fabric 群集批准 | 任何时候都无法延迟                                                    |
 | Bronze           | 1                              | VM，至少 50 GB 的本地 SSD                                              | 不会因为 Service Fabric 群集延迟           | 任何时候都无法延迟                                                    |
@@ -86,7 +86,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 <!-- Not Avaible on L series, GS series, G series (L32s, GS5, G5,) -->
 
 > [!WARNING]
-> 以铜级持续性运行的节点类型不具有任何特权  。 这意味着，不会停止或延迟对无状态工作负荷产生影响的基础结构作业，这可能影响工作负荷。 对仅运行无状态工作负荷的节点类型仅使用“青铜”。 对于生产工作负荷，建议运行“白银”或以上级别。 
+> 以铜级持续性运行的节点类型不具有任何特权  。 这意味着，不会停止或延迟对有状态工作负荷产生影响的基础结构作业，这可能影响工作负荷。 对仅运行无状态工作负荷的节点类型仅使用“青铜”。 对于生产工作负荷，建议运行“白银”或以上级别。 
 > 
 > 无论任何持续性级别，VM 规模集上的[释放](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate)操作都将破坏群集
 
@@ -128,7 +128,7 @@ Service Fabric 系统服务（例如，群集管理器服务或图像存储服�
 
 可靠性层可以采用以下值：
 
-* 白金 - 运行包含 7 个目标副本集的系统服务
+* 白金 - 运行包含 9 个目标副本集的系统服务
 * 黄金 - 运行包含 7 个目标副本集的系统服务
 * 白银 - 运行包含 5 个目标副本集的系统服务 
 * 青铜 - 运行包含 3 个目标副本集的系统服务

@@ -1,20 +1,20 @@
 ---
-title: 使用 Azure 门户通过 Azure 防火墙 DNAT 筛选入站流量
+title: 在门户中通过 Azure 防火墙 DNAT 筛选入站流量
 description: 本教程介绍如何使用 Azure 门户部署和配置 Azure 防火墙 DNAT。
 services: firewall
 author: rockboyfor
 ms.service: firewall
 ms.topic: tutorial
-origin.date: 08/29/2019
-ms.date: 09/23/2019
+origin.date: 11/19/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
 ms.custom: mvc
-ms.openlocfilehash: c17459dbb756623e63d4874335c3901bf2ce36cc
-ms.sourcegitcommit: 6a62dd239c60596006a74ab2333c50c4db5b62be
+ms.openlocfilehash: 5473a3a35e1ab013e462380601a34b1975ca61ed
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156218"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334978"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>教程：使用 Azure 门户通过 Azure 防火墙 DNAT 筛选入站流量
 
@@ -51,7 +51,10 @@ ms.locfileid: "71156218"
 
 ### <a name="create-the-hub-vnet"></a>创建中心 VNet
 
-1. 在 Azure 门户主页中，单击“所有服务”。 
+1. 在 Azure 门户菜单中，单击“所有服务”  。
+
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“网络”下，单击“虚拟网络”。  
 3. 单击“添加”  。
 4. 对于“名称”，请键入“VN-Hub”。  
@@ -71,7 +74,10 @@ ms.locfileid: "71156218"
 
 ### <a name="create-a-spoke-vnet"></a>创建辐射 VNet
 
-1. 在 Azure 门户主页中，单击“所有服务”。 
+1. 在 Azure 门户菜单中，单击“所有服务”  。
+
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“网络”下，单击“虚拟网络”。  
 3. 单击“添加”  。
 4. 对于“名称”  ，请键入 **VN-Spoke**。
@@ -113,7 +119,10 @@ ms.locfileid: "71156218"
 
 创建一个工作负荷虚拟机，将其置于 **SN-Workload** 子网中。
 
-1. 在 Azure 门户主页中，单击“所有服务”。 
+1. 在 Azure 门户菜单中，单击“所有服务”  。
+
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“计算”下，单击“虚拟机”。  
     
     <!--CORRECT ON **All services** -> **Compute** -> **Virtual machines** -->
@@ -150,17 +159,20 @@ ms.locfileid: "71156218"
 
 ## <a name="deploy-the-firewall"></a>部署防火墙
 
-1. 在门户主页中，单击“创建资源”。 
+1. 在 Azure 门户菜单中，单击“创建资源”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 单击“网络”，然后在“特色”后面单击“查看所有”。   
 3. 依次单击“防火墙”、“创建”。   
 4. 在“创建防火墙”页上，使用下表配置防火墙： 
 
     |设置  |值  |
     |---------|---------|
-    |Name     |FW-DNAT-test|
+    |名称     |FW-DNAT-test|
     |订阅     |\<用户的订阅\>|
     |资源组     |**使用现有项**：RG-DNAT-Test |
-    |Location     |选择前面使用的同一位置|
+    |位置     |选择前面使用的同一位置|
     |选择虚拟网络     |**使用现有项**：VN-Hub|
     |公共 IP 地址     |**新建**。 公共 IP 地址必须为“标准 SKU”类型。|
 
@@ -176,7 +188,10 @@ ms.locfileid: "71156218"
 
 对于“SN-Workload”子网，请配置要通过防火墙的出站默认路由。 
 
-1. 在 Azure 门户主页中，单击“所有服务”。 
+1. 在 Azure 门户菜单中，单击“所有服务”  。
+    
+    <!--Not Available on Home page for Azure China Cloud-->
+    
 2. 在“网络”下，单击“路由表”。  
 3. 单击“添加”  。
 4. 对于“名称”，请键入“RT-FWroute”。  
@@ -209,7 +224,7 @@ ms.locfileid: "71156218"
 6. 在“规则”下，对于“名称”，键入 **RL-01**。  
 7. 对于“协议”，请选择“TCP”。  
 8. 对于“源地址”，键入 *。  
-9. 对于“目标地址”  ，键入防火墙的公用 IP 地址。 
+9. 对于“目标地址”  ，键入防火墙的公共 IP 地址。 
 10. 对于“目标端口”，键入 **3389**。  
 11. 对于“已翻译的地址”  ，键入 Srv-Workload 虚拟机的专用 IP 地址。 
 12. 对于“已翻译的端口”  ，键入 **3389**。 

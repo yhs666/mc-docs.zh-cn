@@ -1,5 +1,5 @@
 ---
-title: 配置公共终结点 - Azure SQL 数据库托管实例 | Microsoft Docs
+title: 配置公共终结点 - 托管实例
 description: 了解如何配置托管实例的公共终结点
 services: sql-database
 ms.service: sql-database
@@ -9,19 +9,18 @@ ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto, carlrab
-manager: digimobile
 origin.date: 05/07/2019
-ms.date: 05/20/2019
-ms.openlocfilehash: 730d1e4f735c244ded93f1e099bf6c4b97923995
-ms.sourcegitcommit: f0f5cd71f92aa85411cdd7426aaeb7a4264b3382
+ms.date: 12/16/2019
+ms.openlocfilehash: 005dedea79798c455f287605aa7cb702ad3c8a08
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/15/2019
-ms.locfileid: "65629472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336140"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>在 Azure SQL 数据库托管实例中配置公共终结点
 
-使用[托管实例](/sql-database/sql-database-managed-instance-index)的公共终结点可以从[虚拟网络](../virtual-network/virtual-networks-overview.md)外部对托管实例进行数据访问。 可以从多租户 Azure 服务（例如 Power BI）、Azure 应用服务或本地网络访问托管实例。 如果使用托管实例上的公共终结点，则无需使用 VPN，这有助于避免 VPN 吞吐量问题。
+使用[托管实例](/sql-database/sql-database-managed-instance-index)的公共终结点可以从[虚拟网络](../virtual-network/virtual-networks-overview.md)外部对托管实例进行数据访问。 可以从多租户 Azure 服务（例如 Power BI、Azure 应用服务）或本地网络访问托管实例。 如果使用托管实例上的公共终结点，则无需使用 VPN，这有助于避免 VPN 吞吐量问题。
 
 本文介绍如何执行以下操作：
 
@@ -35,15 +34,15 @@ ms.locfileid: "65629472"
 
 由于托管实例中数据的敏感性，需要执行两个步骤才能完成启用托管实例公共终结点的配置。 这种安全措施遵守职责分离 (SoD) 的原则：
 
-- 在托管实例上启用公共终结点的操作需要由托管实例管理员来完成。可以在 SQL 托管实例资源的“概述”页上找到托管实例管理员。
+- 在托管实例上启用公共终结点的操作需要由托管实例管理员来完成。可以在 SQL 托管实例资源的“概述”页上找到托管实例管理员。 
 - 使用网络安全组允许流量的操作需要由网络管理员来完成。有关详细信息，请参阅[网络安全组权限](../virtual-network/manage-network-security-group.md#permissions)。
 
 ## <a name="enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal"></a>在 Azure 门户中为托管实例启用公共终结点
 
 1. 启动 Azure 门户 (<https://portal.azure.cn/.>)
 1. 打开包含托管实例的资源组，然后选择要在其上配置公共终结点的 **SQL 托管实例**。
-1. 在“安全性”设置中，选择“虚拟网络”选项卡。
-1. 在虚拟网络配置页中选择“启用”，然后选择“保存”图标以更新配置。
+1. 在“安全性”设置中，选择“虚拟网络”选项卡。  
+1. 在虚拟网络配置页中选择“启用”，然后选择“保存”图标以更新配置。  
 
 ![mi-vnet-config.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-config.png)
 
@@ -82,21 +81,21 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="allow-public-endpoint-traffic-on-the-network-security-group"></a>在网络安全组上允许公共终结点流量
 
-1. 如果托管实例的配置页仍处于打开状态，请导航到“概述”选项卡。否则，请返回 **SQL 托管实例**资源。 选择“虚拟网络/子网”链接，转到虚拟网络配置页。
+1. 如果托管实例的配置页仍处于打开状态，请导航到“概述”选项卡。  否则，请返回 **SQL 托管实例**资源。 选择“虚拟网络/子网”链接，转到虚拟网络配置页。 
 
     ![mi-overview.png](media/sql-database-managed-instance-public-endpoint-configure/mi-overview.png)
 
-1. 在虚拟网络的左侧配置窗格中选择“子网”选项卡，并记下托管实例的**安全组**。
+1. 在虚拟网络的左侧配置窗格中选择“子网”选项卡，并记下托管实例的**安全组**。 
 
     ![mi-vnet-subnet.png](media/sql-database-managed-instance-public-endpoint-configure/mi-vnet-subnet.png)
 
 1. 返回包含你的托管实例的资源组。 应会看到上面记下的**网络安全组**名称。 请选择该名称转到网络安全组配置页。
 
-1. 选择“入站安全规则”选项卡，并**添加**一个优先级高于 **deny_all_inbound** 规则且采用以下设置的规则： </br> </br>
+1. 选择“入站安全规则”选项卡，并**添加**一个优先级高于 **deny_all_inbound** 规则且采用以下设置的规则：  </br> </br>
 
     |设置  |建议的值  |说明  |
     |---------|---------|---------|
-    |Source     |任何 IP 地址或服务标记         |<ul><li>对于 Power BI 等 Azure 服务，请选择“Azure 云服务标记”</li> <li>对于你的计算机或 Azure VM，请使用 NAT IP 地址</li></ul> |
+    |**Source**     |任何 IP 地址或服务标记         |<ul><li>对于 Power BI 等 Azure 服务，请选择“Azure 云服务标记”</li> <li>对于你的计算机或 Azure VM，请使用 NAT IP 地址</li></ul> |
     |**源端口范围**     |*         |请将此字段保留为 *（任何），因为源端口通常是动态分配的，因而也是不可预测的 |
     |**目标**     |任意         |将目标保留为“任何”，以允许流量进入托管实例子网 |
     |**目标端口范围**     |3342         |将目标端口的范围限定为 3342，这是托管实例的公共 TDS 终结点 |
@@ -111,7 +110,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>获取托管实例公共终结点的连接字符串
 
-1. 导航到为公共终结点启用的 SQL 托管实例配置页。 选择“设置”配置下的“连接字符串”选项卡。
+1. 导航到为公共终结点启用的 SQL 托管实例配置页。 选择“设置”配置下的“连接字符串”选项卡。  
 1. 请注意，公共终结点主机名采用 <托管实例名称>.**public**.<DNS 区域>.database.chinacloudapi.cn 格式，用于连接的端口是 3342。
 
     ![mi-public-endpoint-conn-string.png](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)

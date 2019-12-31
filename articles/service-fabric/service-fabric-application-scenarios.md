@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 04/24/2019
-ms.date: 07/08/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 29c6edf8a54e4f4c365bf0cae8f52b89dc031b1b
-ms.sourcegitcommit: 8f49da0084910bc97e4590fc1a8fe48dd4028e34
+ms.openlocfilehash: f29c3b9e9b02252709b72fad573b511db7f1af4a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67844722"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336450"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric 应用程序方案
 Azure Service Fabric 提供了一个可靠而灵活的平台，可用于编写和运行多种类型的商业应用程序和服务。 这些应用程序和微服务可以无状态也可以有状态，它们在各虚拟机间资源平衡，可最大限度提高工作效率。 
@@ -47,9 +47,9 @@ Service Fabric 的独特体系结构使你可以在应用程序中执行近实�
 
 * **数据计算**：使用 Service Fabric 可以构建有状态应用程序来执行密集的数据计算。 Service Fabric 允许在应用程序中共置处理（计算）和数据。 
 
-   一般情况下，当应用程序需要访问数据时，与外部数据缓存或存储层相关的网络延迟会限制计算时间。 使用 Service Fabric 有状态服务可消除这种延迟，使读取和写入得到进一步的优化。 
+    一般情况下，当应用程序需要访问数据时，与外部数据缓存或存储层相关的网络延迟会限制计算时间。 使用 Service Fabric 有状态服务可消除这种延迟，使读取和写入得到进一步的优化。 
 
-   例如，假设某个应用程序要为客户执行准实时的建议选择，且要求往返时间小于 100 毫秒。 与必须从远程存储中提取所需数据的标准实现模型相比，Service Fabric 服务的延迟和性能特征向用户提供一种响应体验。 系统的响应能力更强，因为建议选择计算与数据和规则共置。
+    例如，假设某个应用程序要为客户执行准实时的建议选择，且要求往返时间小于 100 毫秒。 与必须从远程存储中提取所需数据的标准实现模型相比，Service Fabric 服务的延迟和性能特征向用户提供一种响应体验。 系统的响应能力更强，因为建议选择计算与数据和规则共置。
 
     已构建计算服务的客户包括 [Solidsoft Reply](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) 和 [Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura)。
 
@@ -77,14 +77,16 @@ Service Fabric 中的有状态服务可让所有类型的应用程序（而不�
 
 下面是使用有状态服务的示例应用程序：
 
-![使用无状态服务的应用程序][Image2]
+![使用有状态服务的应用程序][Image2]
 
 ## <a name="next-steps"></a>后续步骤
 
 * 详细了解[模式和方案](service-fabric-patterns-and-scenarios.md)。
 
 * 使用 Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) 和 [Reliable Actors](service-fabric-reliable-actors-get-started.md) 编程模型开始构建无状态和有状态服务。
+    
     <!--Not Available on * [building microservices on Azure](https://docs.microsoft.com/azure/architecture/microservices/)-->
+
 * 有关应用程序设计指导，请参阅 [Azure Service Fabric 应用程序和群集最佳做法](service-fabric-best-practices-overview.md)。
 
 * 此外，请参阅以下主题：
@@ -94,7 +96,7 @@ Service Fabric 中的有状态服务可让所有类型的应用程序（而不�
     * [缩放 Service Fabric 服务](service-fabric-concepts-scalability.md)
     * [Service Fabric 服务分区](service-fabric-concepts-partitioning.md)
 
-[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
-[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
+[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
+[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png
 
-<!--Update_Description: update meta properties, wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

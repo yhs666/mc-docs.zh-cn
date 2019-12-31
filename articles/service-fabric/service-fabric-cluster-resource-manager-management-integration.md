@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 08/18/2017
-ms.date: 03/04/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: ba80d30479eb68524823a448c7dc7ed0a61fe135
-ms.sourcegitcommit: ea33f8dbf7f9e6ac90d328dcd8fb796241f23ff7
+ms.openlocfilehash: 9839356bc5110d23ad43b3d0af7cf98c4af284e7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57204096"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335181"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>群集 Resource Manager 与 Service Fabric 群集管理的集成
 Service Fabric 群集资源管理器不会在 Service Fabric 中驱动升级，但会关注升级。 群集 Resource Manager 帮助进行管理的第一种方式是跟踪群集及其中服务的所需状态。 无法将群集放入所需配置时，群集 Resource Manager 会发出运行状况报告。 例如，如果容量不足，则群集资源管理器会发出运行状况警告和错误，指示该问题。 集成的另一个部分与升级的工作方式有关。 在升级期间，群集资源管理器会稍微改变其行为。  
@@ -32,7 +32,7 @@ Resource Manager 发出运行状况警告的另一个示例是发生了放置约
 
 下面是此类运行状况报告的示例。 在这种情况下，运行状况报告适用于系统服务的分区之一。 运行状况消息指出，该分区的副本临时打包到了过少的升级域。
 
-```posh
+```powershell
 PS C:\Users\User > Get-ServiceFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
 
 PartitionId           : 00000000-0000-0000-0000-000000000001
@@ -77,7 +77,7 @@ HealthEvents          :
 2. 当前违反了升级域分发约束。 这表示特定的升级域在此分区中拥有的副本数超出了预期。
 3. 哪些节点包含会引起违规的副本。 在这种情况下，是名为“Node.8”的节点
 4. 此分区中是否正在进行升级（“当前正在升级 -- false”）
-5. 此服务的分发策略：“分发策略 - 打包”。 这受 `RequireDomainDistribution` [放置策略](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)的控制。 “打包”指示在此情况下不需要 DomainDistribution，从而使我们知道未对此服务指定放置策略。 
+5. 此服务的分发策略：“分发策略 - 打包”。 这受 `RequireDomainDistribution` [放置策略](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing)的控制。 “打包”指示在此情况下不需要 DomainDistribution，从而使我们知道未对此服务指定放置策略  。 
 6. 报告发生时间 - 8/10/2015 7:13:02 PM
 
 此类信息丰富了生产环境中触发的警报，可让用户知道某个地方出错了，还可用于检测和暂停错误升级。 在此情况下，我们可以调查资源管理器为何必须将副本打包到升级域。 例如，打包通常是暂时的，因为其他升级域中的节点已关闭。
@@ -102,7 +102,7 @@ HealthEvents          :
 ## <a name="blocklisting-nodes"></a>将节点列入阻止列表
 群集资源管理器报告的另一个运行状况消息是节点何时列入阻止列表。 可将列入阻止列表看作自动应用的临时约束。 如果节点在启动该服务类型的实例时遇到重复的失败，则会将这些节点列入阻止列表。 根据每个服务类型，将节点列入阻止列表。 系统会由于一种服务类型（非另一种）而将某个节点列入阻止列表。 
 
-会看到通常在开发过程中开始列入阻止列表：一些 bug 会导致服务主机在启动时发生故障。 Service Fabric 多次尝试创建服务主机，但一直发生故障。 几次尝试后，会将该节点列入阻止列表，群集资源管理器会尝试在其他位置创建该服务。 如果该故障在多个节点上发生，则可能最终会将群集中的所有有效节点列入阻止列表。 列入阻止列表还可以移除很多节点，但不会多到可以成功启动服务以满足所需规模。 通常会看到群集资源管理器的其他错误或警告，指示服务低于所需的副本数或实例数，还会看到运行状况消息，指示导致列入阻止列表的首要故障是什么。
+会看到通常在开发过程中开始列入阻止列表：一些 bug 会导致服务主机在启动时发生故障。 Service Fabric 多次尝试创建服务主机，但一直发生故障。 几次尝试后，会将该节点列入阻止列表，群集资源管理器会尝试在其他位置创建该服务。 如果该故障在多个节点上发生，则可能最终会将群集中的所有有效节点列入阻止列表。 列入阻止列表还可移除很多节点，导致可用节点数不足，无法成功启动服务以满足所需规模。 通常会看到群集资源管理器的其他错误或警告，指示服务低于所需的副本数或实例数，还会看到运行状况消息，指示导致列入阻止列表的首要故障是什么。
 
 列入阻止列表不是永久性条件。 几分钟后，会从阻止列表删除该节点，并且 Service Fabric 可能会再次激活该节点上的服务。 如果服务仍失败，则会再次因该服务类型而将该节点列入阻止列表。 
 
@@ -116,16 +116,16 @@ HealthEvents          :
 
 可为约束配置不同的优先级别。 其中包括：
 
-   - “硬”(0)
-   - “软”(1)
-   - “优化”(2)
-   - “关”(-1)。 
+- “硬”(0)
+- “软”(1)
+- “优化”(2)
+- “关”(-1)。 
 
 大多数约束默认配置为硬约束。
 
 更改约束的优先级并不常见。 有时需要更改约束优先级，通常是为了解决已影响环境的其他 bug 或行为。 一般而言，约束优化级基础结构的弹性可以应对各种问题，但我们并不经常需要利用这种弹性。 在大部分时间内，每个组成部分使用其默认优先级就能正常运作。 
 
-优先级别不表示会违反给定的约束，也不表示会始终满足给定约束。 约束优先级定义强制执行约束的顺序。 优先级定义无法满足所有约束时的折衷方案。 通常可以满足所有约束，除非环境中还有其他要求。 一些将导致约束冲突的方案示例包括违反约束或大量的并发故障。
+优先级别不表示会违反给定的约束，也不表示会始终满足给定约束  。 约束优先级定义强制执行约束的顺序。 优先级定义无法满足所有约束时的折衷方案。 通常可以满足所有约束，除非环境中还有其他要求。 一些将导致约束冲突的方案示例包括违反约束或大量的并发故障。
 
 在某些高级场合中，可以更改约束优先级。 例如，假如希望确保有必要解决节点容量问题时始终违反相关性。 为此，可将相关性约束的优先级设置为“软”(1)，将容量约束保持设置为“硬”(0)。
 
@@ -134,14 +134,14 @@ HealthEvents          :
 ClusterManifest.xml
 
 ```xml
-        <Section Name="PlacementAndLoadBalancing">
-            <Parameter Name="PlacementConstraintPriority" Value="0" />
-            <Parameter Name="CapacityConstraintPriority" Value="0" />
-            <Parameter Name="AffinityConstraintPriority" Value="0" />
-            <Parameter Name="FaultDomainConstraintPriority" Value="0" />
-            <Parameter Name="UpgradeDomainConstraintPriority" Value="1" />
-            <Parameter Name="PreferredLocationConstraintPriority" Value="2" />
-        </Section>
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PlacementConstraintPriority" Value="0" />
+    <Parameter Name="CapacityConstraintPriority" Value="0" />
+    <Parameter Name="AffinityConstraintPriority" Value="0" />
+    <Parameter Name="FaultDomainConstraintPriority" Value="0" />
+    <Parameter Name="UpgradeDomainConstraintPriority" Value="1" />
+    <Parameter Name="PreferredLocationConstraintPriority" Value="2" />
+</Section>
 ```
 
 通过用于独立部署的 ClusterConfig.json 或用于 Azure 托管群集的 Template.json：

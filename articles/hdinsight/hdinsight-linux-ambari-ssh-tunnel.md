@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/28/2019
-ms.date: 10/21/2019
+origin.date: 10/28/2019
+ms.date: 12/23/2019
 ms.author: hrasheed
-ms.openlocfilehash: f79d7f6ea5d482ebacb1f74a164ef4042bd8f7c2
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 80ee877047c32119455959583af7a67228ca9ccb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292579"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335213"
 ---
 # <a name="use-ssh-tunneling-to-access-apache-ambari-web-ui-jobhistory-namenode-apache-oozie-and-other-uis"></a>使用 SSH 隧道访问 Apache Ambari Web UI、JobHistory、NameNode、Apache Oozie 和其他 UI
 
@@ -86,9 +86,12 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.cn
 1. 打开 PuTTY，并确保在左侧菜单中选择“会话”  。 如果已保存了一个会话，请从“已保存的会话”列表中选择该会话名称并选择“加载”。  
 
 1. 如果你没有已保存的会话，请输入你的连接信息：
-    * **主机名(或 IP 地址)** - HDInsight 群集的 SSH 地址。 例如 **mycluster-ssh.azurehdinsight.cn**
-    * **端口** - 22
-    * **连接类型** - SSH
+
+    |属性 |Value |
+    |---|---|
+    |主机名（或 IP 地址）|HDInsight 群集的 SSH 地址。 例如， **mycluster-ssh.azurehdinsight.net**。|
+    |端口|22|
+    |连接类型|SSH|
 
 1. 选择“保存” 
 
@@ -106,7 +109,7 @@ ssh -C2qTnNf -D 9876 sshuser@clustername-ssh.azurehdinsight.cn
      
      ![隧道选项图像](./media/hdinsight-linux-ambari-ssh-tunnel/hdinsight-putty-tunnel.png)
 
-1. 选择“添加”  以添加设置，并单击“打开”  以打开 SSH 连接。
+1. 选择“添加”  以添加设置，然后选择“打开”  以打开 SSH 连接。
 
 1. 出现提示时，登录到服务器。
 

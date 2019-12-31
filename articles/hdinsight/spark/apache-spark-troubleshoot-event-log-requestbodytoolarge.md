@@ -1,20 +1,20 @@
 ---
-title: NativeAzureFileSystem ...RequestBodyTooLarge 显示在 Azure HDInsight 上 Apache Spark 流应用的日志中
+title: 来自 Apache Spark 应用的 RequestBodyTooLarge 错误 - Azure HDInsight
 description: NativeAzureFileSystem ...RequestBodyTooLarge 显示在 Azure HDInsight 上 Apache Spark 流应用的日志中
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: v-yiso
 origin.date: 07/29/2019
-ms.date: 09/23/2019
-ms.openlocfilehash: 614f68a1a5e94c2a781ee34013a0151212bd9003
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/23/2019
+ms.openlocfilehash: 1a67d7d6927c8a58747ccaa32e40bbea4c9a90e0
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389490"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336155"
 ---
-# <a name="scenario-nativeazurefilesystem--requestbodytoolarge-appears-in-log-for-apache-spark-streaming-app-in-azure-hdinsight"></a>方案：“NativeAzureFileSystem ...RequestBodyTooLarge”显示在 Azure HDInsight 上 Apache Spark 流应用的日志中
+# <a name="nativeazurefilesystemrequestbodytoolarge-appear-in-apache-spark-streaming-app-log-in-hdinsight"></a>“NativeAzureFileSystem...RequestBodyTooLarge”出现在 HDInsight 的 Apache Spark 流式处理应用日志中
 
 本文介绍在 Azure HDInsight 群集中使用 Apache Spark 组件时出现的问题的故障排除步骤和可能的解决方法。
 

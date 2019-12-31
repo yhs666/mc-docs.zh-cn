@@ -10,17 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-origin.date: 08/23/2019
-ms.date: 09/30/2019
+ms.date: 12/11/2019
 ms.subservice: hybrid
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256e6c8b64fc79a96c022b9800146143ae99c011
-ms.sourcegitcommit: 74f50c9678e190e2dbb857be530175f25da8905e
+ms.openlocfilehash: 7cd075d33ee69e83cf9d3f64c2873949be08f348
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292167"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335653"
 ---
 # <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies 和 cloudMsExchUserHoldPolicies
 以下参考文档介绍了 Exchange 使用的这些属性，以及编辑默认同步规则的适当方式。
@@ -74,3 +73,4 @@ msExchangeUserHoldPolicies 是单机构属性。  可以针对本地目录或云
 ## <a name="next-steps"></a>后续步骤
 了解有关 [将本地标识与 Azure Active Directory 集成](whatis-hybrid-identity.md)的详细信息。
 
+<!-- Update_Description: wording update -->

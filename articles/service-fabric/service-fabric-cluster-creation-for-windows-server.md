@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 02/21/2019
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: c2799ceb96eaea7dfd996f84aea6516e3af0ad25
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: 86dbfa68116c9d3f84a9c63fd0ff068ad7d36eb0
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195406"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336354"
 ---
 # <a name="create-a-standalone-cluster-running-on-windows-server"></a>创建在 Windows Server 上运行的独立群集
-可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。
+可以使用 Azure Service Fabric 在运行 Windows Server 的任何虚拟机或计算机上创建 Service Fabric 群集。 这意味着，可以在包含一组相互连接的 Windows Server 计算机的任何环境（无论是本地环境还是任何云提供商所提供的环境）中部署和运行 Service Fabric 应用程序。 Service Fabric 提供了一个安装程序包，用于创建名为“Windows Server 独立包”的 Service Fabric 群集。 Azure 上的传统 Service Fabric 群集作为托管服务提供，而独立的 Service Fabric 群集是自助服务。
 
 本文逐步讲解如何创建 Service Fabric 独立群集。
 
@@ -35,15 +35,14 @@ ms.locfileid: "66195406"
 <a name="getsupport"></a>
 
 ## <a name="get-support-for-the-service-fabric-for-windows-server-package"></a>获取用于 Windows Server 的 Service Fabric 包的支持
-* 在 [Azure Service Fabric 论坛](https://www.azure.cn/support/contact/)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息。
-* 开具 [Service Fabric 专业支持](https://support.azure.cn/zh-cn/support/support-azure/)票证。
+* 在 [Azure Service Fabric 论坛](https://support.azure.cn/support/contact/)中询问社区关于 Windows Server 的 Service Fabric 独立包的信息。
+* 开具 [Service Fabric 专业支持](https://support.azure.cn/support/support-azure/)票证。
+    
     <!-- Not Available on [here](https://support.microsoft.com/gp/offerprophone?wa=wsignin1.0)-->
     <!-- Not Available on [Microsoft Premier Support](https://support.microsoft.com/premier)-->
+    
 * 有关详细信息，请参阅 [Azure Service Fabric 支持选项](/service-fabric/service-fabric-support)。
 * 若要出于支持目的收集日志，请运行 [Service Fabric 独立日志收集器](service-fabric-cluster-standalone-package-contents.md)。
-
-
-
 
 <a name="downloadpackage"></a>
 
@@ -151,7 +150,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint 192.13.123.2345:19000
 PS C:\temp\Microsoft.Azure.ServiceFabric.WindowsServer> Get-ServiceFabricNode |Format-Table
 
 NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersion NodeStatus NodeUpTime NodeDownTime HealthState
--------------------- -------- --------------- --------  -----------  ------------- ---------- ---------- ------------ -----------
+-------------------- -------- --------------- --------  ----------- ------------- ---------- ---------- ------------ -----------
                      vm2      localhost       NodeType2 5.6.220.9494 0                     Up 00:03:38   00:00:00              OK
                      vm1      localhost       NodeType1 5.6.220.9494 0                     Up 00:03:38   00:00:00              OK
                      vm0      localhost       NodeType0 5.6.220.9494 0                     Up 00:02:43   00:00:00              OK
@@ -236,7 +235,8 @@ NodeDeactivationInfo NodeName IpAddressOrFQDN NodeType  CodeVersion  ConfigVersi
 * [使用 X509 证书保护 Windows 上的独立群集](service-fabric-windows-cluster-x509-security.md)
 
 <!--Image references-->
+
 [Trusted Zone]: ./media/service-fabric-cluster-creation-for-windows-server/TrustedZone.png
 [service-fabric-explorer]: ./media/service-fabric-cluster-creation-for-windows-server/sfx.png
 
-<!--Update_Description: update meta properties, wording update -->
+<!-- Update_Description: update meta properties, wording update, update link -->

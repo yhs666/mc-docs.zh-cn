@@ -1,5 +1,5 @@
 ---
-title: 云业务连续性 - 数据库恢复 - SQL 数据库 | Microsoft 文档
+title: 云业务连续性 - 数据库恢复
 description: 了解 Azure SQL 数据库如何支持云业务连续性和数据库恢复以及如何帮助保持运行任务关键型云应用程序。
 keywords: 业务连续性, 云业务连续性, 数据库灾难恢复, 数据库恢复
 services: sql-database
@@ -12,13 +12,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: mathoma, carlrab
 origin.date: 06/25/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: 83d14face5babf0fa3b47c28f47eda6baec9d7c9
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 12/16/2019
+ms.openlocfilehash: aa48bbfc11f8e84e27d6a0a384d6fe34ae0ad614
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262966"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336439"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>使用 Azure SQL 数据库确保业务连续性的相关概述
 
@@ -54,7 +54,7 @@ SQL 数据库还提供多种业务连续性功能，用于缓解各种计划外�
 
 ## <a name="recover-a-database-within-the-same-azure-region"></a>恢复同一 Azure 区域内的数据库
 
-可以使用自动数据库备份将数据库还原到过去的某个时间点。 可以通过这种方式从人为错误导致的数据损坏中恢复。 可以通过时间点还原在同一服务器中创建一个新数据库，代表损坏事件发生之前的数据状态。 大多数数据库的还原操作需要不到 12 小时的时间。 恢复非常大或十分活跃的数据库可能需要更长时间。 有关恢复时间的详细信息，请参阅[数据库恢复时间](sql-database-recovery-using-backups.md#recovery-time)。 
+可以使用自动数据库备份将数据库还原到过去的某个时间点。 可以通过这种方式从人为错误导致的数据损坏中恢复。 可以通过时间点还原在同一服务器中创建一个新数据库，以表示损坏事件发生之前的数据状态。 大多数数据库的还原操作需要不到 12 小时的时间。 恢复非常大或十分活跃的数据库可能需要更长时间。 有关恢复时间的详细信息，请参阅[数据库恢复时间](sql-database-recovery-using-backups.md#recovery-time)。 
 
 如果支持的最长时间点还原 (PITR) 备份保留期对你的应用程序而言不足，可以通过为数据库配置长期保留 (LTR) 策略来延长保留期。 有关详细信息，请参阅[长期备份保留](sql-database-long-term-retention.md)。
 

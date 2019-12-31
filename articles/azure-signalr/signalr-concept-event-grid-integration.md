@@ -1,20 +1,20 @@
 ---
 title: 响应 Azure SignalR 服务事件
-description: 使用 Azure 事件网格订阅 Azure SignalR 服务事件。
+description: 使用 Azure 事件网格订阅 Azure SignalR 服务事件。 这些事件可触发其他下游服务。
 services: azure-signalr,event-grid
 author: chenyl
 ms.author: v-tawe
 ms.reviewer: zhshang
-origin.date: 06/12/2019
-ms.date: 11/25/2019
+origin.date: 11/13/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: bf5acacfc2245ab9d7f36cd2cdfa9b667defef6a
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: d430a2fefb0ba9afba77ff748c1b91df7903dfdb
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179121"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336049"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>响应 Azure SignalR 服务事件
 

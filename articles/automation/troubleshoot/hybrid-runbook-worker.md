@@ -10,12 +10,12 @@ origin.date: 11/25/2019
 ms.date: 12/09/2019
 ms.topic: conceptual
 manager: digimobile
-ms.openlocfilehash: eb193569dadf8899c6902e7bd3b08d9d0ef7ddd2
-ms.sourcegitcommit: 8c3bae15a8a5bb621300d81adb34ef08532fe739
+ms.openlocfilehash: d5ad8a0581620100b7380ef0e0ec2ef1346d4e91
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74883976"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336181"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>对混合 Runbook 辅助角色进行故障排除
 
@@ -147,7 +147,7 @@ Windows 混合 Runbook 辅助角色依靠[适用于 Windows 的 Log Analytics �
 
 #### <a name="issue"></a>问题
 
-在  “应用程序和服务日志\Operations Manager”事件日志中，你会看到事件 4502 和事件消息，其中包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 及以下描述：*服务 \<wsid\>.oms.opinsights.azure.com 提供的证书不是由用于 Microsoft 服务的证书颁发机构颁发的。请联系网络管理员以查看其是否正在运行截获 TLS/SSL 通信的代理。*
+在  “应用程序和服务日志\Operations Manager”事件日志中，你会看到事件 4502 和事件消息，其中包含 **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** 及以下描述：服务 \<wsid\>.oms.opinsights.azure.cn 提供的证书不是由用于 Azure 服务的证书颁发机构颁发的。  请联系网络管理员以查看其是否正在运行截获 TLS/SSL 通信的代理。
 
 #### <a name="cause"></a>原因
 

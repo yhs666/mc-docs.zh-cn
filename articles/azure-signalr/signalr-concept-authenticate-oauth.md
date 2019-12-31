@@ -1,18 +1,18 @@
 ---
 title: Azure SignalR 服务客户端身份验证指南
-description: 本指南介绍如何对 Azure SignalR 服务客户端进行身份验证
+description: 了解如何按照 e2e 示例实现自己的身份验证并将其与 Azure SignalR 服务集成。
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 11/25/2019
+origin.date: 11/13/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 3648b4e871f3101b01668e0bf7be085e9be4d15f
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: 6c8b918364ff02c7f76fc9fa01b3cb3b18ecdf94
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179136"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336053"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR 服务身份验证
 
@@ -372,6 +372,7 @@ ms.locfileid: "74179136"
     ![标识的帐户](media/signalr-concept-authenticate-oauth/signalr-oauth-account-identified.png)
 
     由于聊天应用通过 GitHub 执行身份验证并将身份验证信息存储为 cookie，应将其部署到 Azure，以便其他用户可使用他们的帐户进行身份验证并从其他工作站进行通信。
+
 
 ## <a name="deploy-the-app-to-azure"></a>将应用部署到 Azure
 

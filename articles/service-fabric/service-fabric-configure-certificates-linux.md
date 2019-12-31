@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 origin.date: 09/06/2019
-ms.date: 09/30/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: 1cd5e978f1198f34eb0cbf9e722082ba1c0a0bf2
-ms.sourcegitcommit: 332ae4986f49c2e63bd781685dd3e0d49c696456
+ms.openlocfilehash: 48b656934f3c19de5d82f860002dc9ce4074702c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71340837"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334828"
 ---
 # <a name="certificates-and-security-on-linux-clusters"></a>Linux 群集上的证书和安全性
 
@@ -48,9 +48,9 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 **X509** 引用在证书存储中查找证书。 以下 XML 显示用于指定证书位置的参数：
 
 ```xml
-    <Parameter Name="SecurityCredentialsType" Value="X509" />
-    <Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
-    <Parameter Name="CertificateStoreName" Value="My" />
+<Parameter Name="SecurityCredentialsType" Value="X509" />
+<Parameter Name="CertificateStoreLocation" Value="LocalMachine" />
+<Parameter Name="CertificateStoreName" Value="My" />
 ```
 
 对于 Linux 上运行的服务，**LocalMachine**/**My** 指向证书的默认位置，即 */var/lib/sfcerts* 目录。 对于 Linux，**CertificateStoreLocation** 和 **CertificateStoreName** 的其他任何组合均未定义。 
@@ -79,8 +79,8 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 使用 **X509_2** 引用时，请指定路径参数，以便可以在除 */var/lib/sfcerts* 以外的目录中查找证书。  以下 XML 显示用于指定证书位置的参数： 
 
 ```xml
-     <Parameter Name="SecurityCredentialsType" Value="X509_2" />
-     <Parameter Name="CertificatePath" Value="/path/to/cert/BD1C71E248B8C6834C151174DECDBDC02DE1D954.crt" />
+<Parameter Name="SecurityCredentialsType" Value="X509_2" />
+<Parameter Name="CertificatePath" Value="/path/to/cert/BD1C71E248B8C6834C151174DECDBDC02DE1D954.crt" />
 ```
 
 以下 XML 显示基于此样式的 **TransportSettings** 节。
@@ -105,16 +105,16 @@ Service Fabric 通常要求在 Linux 群集节点上的 */var/lib/sfcerts* 目�
 
 ## <a name="configure-a-reliable-services-app-to-run-on-linux-clusters"></a>配置在 Linux 群集上运行的 Reliable Services 应用
 
-使用 Service Fabric SDK 可与 Service Fabric 运行时 API 通信，以利用平台。 在安全的 Linux 群集上运行使用此功能的任何应用程序时，需要使用一个证书来配置该应用程序，该证书可用于验证 Service Fabric 运行时。 包含使用 .NET Core 或 Java SDK 编写的 Service Fabric Reliable Service 服务的应用程序需要此配置。 
+使用 Service Fabric SDK 可与 Service Fabric 运行时 API 通信，以利用该平台。 在安全的 Linux 群集上运行使用此功能的任何应用程序时，需要使用一个证书来配置该应用程序，该证书可用于验证 Service Fabric 运行时。 包含使用 .NET Core 或 Java SDK 编写的 Service Fabric Reliable Service 服务的应用程序需要此配置。 
 
 若要配置应用程序，请在 **Certificates** 标记（位于 *ApplicationManifest.xml* 文件中的 **ApplicationManifest** 标记下面）下面添加一个 [**SecretsCertificate**](/service-fabric/service-fabric-service-model-schema-elements#secretscertificate-element) 元素。 以下 XML 显示按证书指纹引用的证书： 
 
 ```xml
-   <Certificates>
-       <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
-   </Certificates>   
+<Certificates>
+   <SecretsCertificate X509FindType="FindByThumbprint" X509FindValue="0A00AA0AAAA0AAA00A000000A0AA00A0AAAA00" />
+</Certificates>   
 ```
 
 可以引用群集证书，或每个群集节点上安装的证书。 在 Linux 上，证书文件必须位于 */var/lib/sfcerts* 目录中。 有关详细信息，请参阅 [Linux 节点上的 X.509 证书的位置和格式](#location-and-format-of-x509-certificates-on-linux-nodes)。
 
-<!-- Update_Description: Update meta properties, update link -->
+<!-- Update_Description: update meta properties, wording update, update link -->

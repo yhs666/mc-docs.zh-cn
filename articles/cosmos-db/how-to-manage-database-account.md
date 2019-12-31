@@ -4,15 +4,15 @@ description: 了解如何在 Azure Cosmos DB 中管理数据库帐户
 author: rockboyfor
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 09/28/2019
-ms.date: 10/28/2019
+origin.date: 10/31/2019
 ms.author: v-yeche
-ms.openlocfilehash: 3059bd4e1c4fd473a4b17fcc15235e543de958f7
-ms.sourcegitcommit: 73f07c008336204bd69b1e0ee188286d0962c1d7
+ms.date: 12/16/2019
+ms.openlocfilehash: 4d13a05f02e48eafaaeb4c5bd7192aeff73bff1a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72970263"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336215"
 ---
 <!-- Verify Successfully-->
 # <a name="manage-an-azure-cosmos-account"></a>管理 Azure Cosmos 帐户
@@ -37,9 +37,9 @@ ms.locfileid: "72970263"
 请参阅[使用 Powershell 创建 Azure Cosmos DB 帐户](manage-with-powershell.md#create-account)
 
 <a name="create-database-account-via-arm-template"></a>
-### <a name="azure-resource-manager-template"></a>Azure Resource Manager 模板
+### <a name="azure-resource-manager-template"></a>Azure 资源管理器模板
 
-此 Azure 资源管理器模板将为任何受支持的 API（配置有两个区域以及用于选择一致性级别、自动故障转移和多主数据库的选项）创建 Azure Cosmos 帐户。 若要部署此模板，请在自述文件页[创建 Azure Cosmos 帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)上，单击“部署到 Azure”
+此 Azure 资源管理器模板将为 SQL API 创建一个 Azure Cosmos 帐户（配置有两个区域以及用于选择一致性级别、自动故障转移和多主数据库的选项）。 若要部署此模板，请在自述文件页[创建 Azure Cosmos 帐户](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)上，单击“部署到 Azure”
 
 <!--MOONCAKE: CUSTOMIZE-->
 
@@ -52,7 +52,7 @@ ms.locfileid: "72970263"
 <a name="add-remove-regions-via-portal"></a>
 ### <a name="azure-portal"></a>Azure 门户
 
-1. 登录到 [Azure 门户](https://portal.azure.cn)。 
+1. 登录到 [Azure 门户](https://portal.azure.cn)。
 
 1. 导航到 Azure Cosmos 帐户，打开“全局复制数据”菜单  。
 
@@ -135,7 +135,7 @@ ms.locfileid: "72970263"
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -145,11 +145,13 @@ ms.locfileid: "72970263"
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true
@@ -270,4 +272,4 @@ Cosmos 帐户配置为自动故障转移后，可以更改区域的故障转移�
 * [使用 Azure PowerShell 管理 Azure Cosmos DB](manage-with-powershell.md)
 * [使用 Azure CLI 管理 Azure Cosmos DB](manage-with-cli.md)
 
-<!-- Update_Description: update meta properties, wording update-->
+<!-- Update_Description: update meta properties, wording update, update link -->

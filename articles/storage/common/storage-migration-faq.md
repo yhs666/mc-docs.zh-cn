@@ -9,12 +9,12 @@ origin.date: 10/31/2018
 ms.date: 09/09/2019
 ms.author: v-jay
 ms.subservice: common
-ms.openlocfilehash: b4ecbe7c954756cf2bd123cf8942ab049ac92ab2
-ms.sourcegitcommit: 66a77af2fab8a5f5b34723dc99e4d7ce0c380e78
+ms.openlocfilehash: 00367c0ede6e6ddd4e05c7e4f005098c6cbfae38
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209372"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335959"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>有关 Azure 存储迁移的常见问题
 
@@ -165,7 +165,7 @@ AzCopy 将使用[复制 Blob API](https://docs.microsoft.com/rest/api/storageser
 
 请使用 AzCopy 下载数据。 有关详细信息，请参阅[使用 AzCopy on Windows 传输数据](storage-use-azcopy.md)和[使用 AzCopy on Linux 传输数据](storage-use-azcopy-linux.md)。
 
-如何将存储帐户的辅助位置更改为欧洲区域？ 
+**如何将存储帐户的辅助位置更改为“中国北部”区域？**
 
 创建存储帐户时，可以为帐户选择主要区域。 选择次要区域是根据主要区域确定的且无法更改。 有关详细信息，请参阅[异地冗余存储 (GRS)：Azure 存储的跨区域复制](storage-redundancy.md)。
 
@@ -265,7 +265,7 @@ Azure 文件共享上不允许使用高级存储。
 
 AzCopy 安装在什么位置？ 
 
--   如果从 Microsoft Azure 存储命令行访问 AzCopy，请键入 AzCopy  。 命令行与 AzCopy 一起安装。
+-   如果从 Azure 存储命令行访问 AzCopy，请键入 **AzCopy**。 命令行与 AzCopy 一起安装。
 
 -   如果你安装的是 32 位版本，它将位于：%ProgramFiles(x86)%\\Microsoft SDKs\\Azure\\AzCopy  。
 

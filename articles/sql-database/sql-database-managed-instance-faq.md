@@ -1,5 +1,5 @@
 ---
-title: SQL 数据库托管实例常见问题解答 | Microsoft Docs
+title: 托管实例常见问题解答
 description: SQL 数据库托管实例常见问题解答 (FAQ)
 services: sql-database
 ms.service: sql-database
@@ -11,13 +11,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: sstein, carlrab
 origin.date: 07/16/2019
-ms.date: 11/04/2019
-ms.openlocfilehash: f6e2423d826f2cfe8f3f20d954ef54acfcb69051
-ms.sourcegitcommit: 97fa37512f79417ff8cd86e76fe62bac5d24a1bd
+ms.date: 12/16/2019
+ms.openlocfilehash: f63a1935569b73a33ac945247c64928031f4c57e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73041077"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336190"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL 数据库托管实例常见问题解答 (FAQ)
 
@@ -77,7 +77,7 @@ ms.locfileid: "73041077"
 
 ## <a name="can-i-switch-my-managed-instance-hardware-generation-between-gen-4-and-gen-5-online"></a>能否在第 4 代和第 5 代托管实例硬件代系之间联机切换？ 
 
-如果这两种硬件代系都可以在预配托管实例的区域中使用，则可以在硬件代系之间自动联机切换。
+如果这两种硬件代系都可以在预配托管实例的区域中使用，则可以在硬件代系之间自动联机切换。 在这种情况下，可以使用介绍如何在硬件代系之间切换的[博客文章中的脚本](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Change-hardware-generation-on-Managed-Instance/ba-p/699824)。
 
 这是一个长时间运行的操作，因为新托管实例将在后台预配，数据库将在旧实例与新实例之间自动转移，该过程结束时，可以快速故障转移。 
 
@@ -180,7 +180,7 @@ DNS 配置最终会刷新：
 可以，无需解密数据库即可将其还原到托管实例。 需将一个在源系统中用作加密密钥保护器的证书/密钥提供给托管实例，才能从加密的备份文件中读取数据。 要运行此操作有两个可行的方式：
 
 - 将证书保护器上传到托管实例。  只能使用 PowerShell 执行此操作。 [示例脚本](/sql-database/sql-database-managed-instance-migrate-tde-certificate)描述了整个过程。
-- 将非对称密钥保护器上传到 Azure Key Vault (AKV)，并将托管实例指向该保护器。  此方法类似于自带密钥 (BYOK) TDE 用例，该用例也使用 AKV 集成来存储加密密钥。 如果你只是想要将该密钥用作加密密钥保护器，让托管实例用来还原加密的数据库，请按照有关[设置 BYOK TDE](/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal) 的说明操作，且不要选中“将所选密钥设为默认 TDE 保护器”。 
+- 将非对称密钥保护器上传到 Azure Key Vault (AKV)，并将托管实例指向该保护器。  此方法类似于自带密钥 (BYOK) TDE 用例，该用例也使用 AKV 集成来存储加密密钥。 如果你只是想要将该密钥用作加密密钥保护器，让托管实例用来还原加密的数据库，请按照有关[设置 BYOK TDE](/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption) 的说明操作，且不要选中“将所选密钥设为默认 TDE 保护器”。 
 
 将加密保护器提供给托管实例使用后，可以继续执行标准的数据库还原过程。
 

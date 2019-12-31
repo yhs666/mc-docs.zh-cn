@@ -1,19 +1,20 @@
 ---
 title: 在基于 Linux 的 Azure HDInsight 中使用 Hadoop Oozie 工作流 | Azure
 description: 在基于 Linux 的 HDInsight 中使用 Hadoop Oozie。 了解如何定义 Oozie 工作流，并提交 Oozie 作业。
+author: omidm1
 services: hdinsight
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-origin.date: 05/06/2019
-ms.date: 10/21/2019
+origin.date: 10/30/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: c66492ae7fba89feff121c31217204b4434b32c7
-ms.sourcegitcommit: b83f604eb98a4b696b0a3ef3db2435f6bf99f411
+ms.openlocfilehash: 71fbb2dc3a1904583d1f46f7a310132e8d5d2ad9
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 10/12/2019
-ms.locfileid: "72292571"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335929"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>在基于 Linux 的 Azure HDInsight 中将 Apache Oozie 与 Apache Hadoop 配合使用以定义和运行工作流
 
@@ -77,10 +78,10 @@ Oozie 希望将作业所需的所有资源存储在同一个目录中。 本示�
     > [!NOTE]  
     > `-p` 参数用于在路径中创建所有目录。 `data` 目录用于保存 `useooziewf.hql` 脚本使用的数据。
 
-3. 编辑以下代码，将 `username` 替换为你的 SSH 用户名。  若要确保 Oozie 可以模拟用户帐户，请使用以下命令：
+3. 编辑以下代码，将 `sshuser` 替换为你的 SSH 用户名。  若要确保 Oozie 可以模拟用户帐户，请使用以下命令：
 
     ```bash
-    sudo adduser username users
+    sudo adduser sshuser users
     ```
 
     > [!NOTE]  
@@ -126,7 +127,7 @@ hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozi
 
      工作流定义文件（本文中的 workflow.xml）在运行时会将这些值传递到此 HiveQL 脚本。
 
-3. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。  
+1. 若要保存文件，请按 **Ctrl+X**，输入 **Y**，再按 **Enter**。  
 
 4. 使用以下命令将 `useooziewf.hql` 复制到 `wasbs:///tutorials/useoozie/useooziewf.hql`：
 
@@ -211,7 +212,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
      另请注意 Sqoop 节中的 `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` 条目。 该条目指示在运行此操作时 Oozie 要将此存档提供给 Sqoop 使用。
 
-3. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。 
+3. 若要保存文件，请按 **Ctrl+X**，输入 **Y**，再按 **Enter**。  
 
 4. 使用以下命令将 `workflow.xml` 文件复制到 `/tutorials/useoozie/workflow.xml`：
 
@@ -221,8 +222,8 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
 ## <a name="create-a-table"></a>创建表
 
-> [!NOTE]
-> 有多种方法可连接到 SQL 数据库以创建表。 以下步骤从 HDInsight 群集中使用 [FreeTDS](http://www.freetds.org/)。
+> [!NOTE]  
+> 有多种方法可连接到 SQL 数据库以创建表。 以下步骤从 HDInsight 群集中使用 [FreeTDS](https://www.freetds.org/)。
 
 
 1. 使用以下命令在 HDInsight 群集上安装 FreeTDS：
@@ -378,7 +379,7 @@ Oozie 工作流定义以 Hadoop 过程定义语言（缩写为 hPDL，一种 XML
 
 4. 打开 nano 编辑器后，粘贴编辑后的 XML 作为文件内容。
 
-5. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。
+5. 若要保存文件，请按 **Ctrl+X**，输入 **Y**，再按 **Enter**。
 
 ## <a name="submit-and-manage-the-job"></a>提交和管理作业
 
@@ -571,7 +572,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
     > * `${coordTimezone}`：在没有夏时制的固定时区（通常用 UTC 表示）处理协调器作业。 此时区被称为“Oozie 处理时区”。 
     > * `${wfPath}`：workflow.xml 的路径。
 
-2. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。
+2. 若要保存文件，请按 **Ctrl+X**，输入 **Y**，再按 **Enter**。
 
 3. 若要将该文件复制到此作业的工作目录，请使用以下命令：
 
@@ -626,7 +627,7 @@ Oozie Web UI 提供基于 Web 的视图来显示群集上 Oozie 作业的状态�
 
        这些值将开始时间设置为 2018 年 5 月 10 日中午 12:00，将结束时间设置为 2018 年 5 月 12 日。 此作业的运行时间间隔已设置为“每日”。 频率以分钟为单位，因此 24 小时 x 60 分钟 = 1440 分钟。 最后，将时区设置为 UTC。
 
-5. 若要保存文件，请按 Ctrl+X，输入 `Y`，再按 **Enter**。
+5. 若要保存文件，请按 **Ctrl+X**，输入 **Y**，再按 **Enter**。
 
 6. 若要提交并启动该作业，请使用以下命令：
 

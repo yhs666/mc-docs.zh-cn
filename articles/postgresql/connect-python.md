@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: quickstart
 origin.date: 11/07/2019
 ms.date: 12/02/2019
-ms.openlocfilehash: fdc3c6e0425490b6849e90b4cf2880032cb59883
-ms.sourcegitcommit: 481542df432d52b7d4823811cef94772e4e0f192
+ms.openlocfilehash: 378cc5efcf93da4c3c922bc811d3641fe5a8acb7
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530632"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335031"
 ---
 # <a name="use-python-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>使用 Python 连接到 Azure Database for PostgreSQL 并查询其中的数据 - 单一服务器
 本快速入门演示了如何使用 macOS、Ubuntu Linux 或 Windows 上的 Python 来处理 Azure Database for PostgreSQL。 本快速入门介绍了如何连接数据库和使用 SQL 语句查询、插入、更新和删除数据。 本文假设你熟悉如何使用 Python，但不熟悉如何使用 Azure Database for PostgreSQL。
@@ -35,7 +35,7 @@ ms.locfileid: "74530632"
 连接到 Azure Database for PostgreSQL 数据库需要完全限定的服务器名称和登录凭据。 可以从 Azure 门户获取此信息。
 
 1. 在 [Azure 门户](https://portal.azure.cn/)中，搜索 Azure Database for PostgreSQL 服务器名称并选择该名称。 
-1. 在服务器的“概述”页上，复制完全限定的“服务器名称”和“管理员用户名”    。 完全限定的“服务器名称”始终为“\<我的服务器名>.postgres.database.azure.com”的格式，“管理员用户名”始终为“\<我的管理员用户名>@\<我的服务器名>”的格式     。 
+1. 在服务器的“概述”页上，复制完全限定的“服务器名称”和“管理员用户名”    。 完全限定的“服务器名称”始终采用“\<我的服务器名>.postgres.database.chinacloudapi.cn”的格式，“管理员用户名”始终采用“\<我的管理员用户名>@\<我的服务器名>”的格式     。 
    
    你还需要管理员密码。 如果忘记，可以从此页重置它。 
    

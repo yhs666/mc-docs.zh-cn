@@ -2,19 +2,19 @@
 title: 了解 Azure IoT 中心设备孪生
 description: 开发人员指南 - 使用设备孪生在 IoT 中心与设备之间同步状态和配置数据
 author: wesmc7777
-manager: ''
+manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 origin.date: 06/10/2019
-ms.date: 12/02/2019
+ms.date: 12/23/2019
 ms.author: v-yiso
-ms.openlocfilehash: 2df38212ec805979f2f96eac9d77f4afe1b1d6ef
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: 52d49750273d074ff4dbad7e2f130e305be82cc4
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389590"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335964"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>了解并在 IoT 中心内使用设备孪生
 
@@ -172,7 +172,7 @@ ms.locfileid: "74389590"
 
   - 属性
 
-    | Name | Value |
+    | 名称 | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  发送通知的时间 |
@@ -231,32 +231,43 @@ ms.locfileid: "74389590"
 ## <a name="tags-and-properties-format"></a>标记和属性格式
 标记、所需的属性和报告的属性是具有以下限制的 JSON 对象：
 
-* JSON 对象中的所有键是区分大小写的 64 字节 UTF-8 UNICODE 字符串。 允许的字符不包括 UNICODE 控制字符（段 C0 和 C1）以及 `.`、`$` 和 SP。
+* JSON 对象中的所有键都是 UTF-8 编码、区分大小写且长度不超过 1 KB。 允许的字符不包括 UNICODE 控制字符（段 C0 和 C1）以及 `.`、`$` 和 SP。
 
 * JSON 对象中的所有值可采用以下 JSON 类型：布尔值、数字、字符串、对象。 不允许数组。 最大整数值为 4503599627370495，而最小整数值为 -4503599627370496。
-* 标记、所需属性和报告属性中的所有 JSON 对象的最大嵌套深度为 5 层。 例如，以下对象是有效的：
 
-    ```json
-    {
-        ...
-        "tags": {
-            "one": {
-                "two": {
-                    "three": {
-                        "four": {
-                            "five": {
-                                "property": "value"
-                            }
-                        }
-                    }
-                }
-            }
-        },
-        ...
-    }
-    ```
+* 标记、所需属性和报告属性中的所有 JSON 对象的最大嵌套深度为 10 层。 例如，以下对象是有效的：
 
-* 所有字符串的值的长度最多为 512 个字节。
+   ```json
+   {
+       ...
+       "tags": {
+           "one": {
+               "two": {
+                   "three": {
+                       "four": {
+                           "five": {
+                               "six": {
+                                   "seven": {
+                                       "eight": {
+                                           "nine": {
+                                               "ten": {
+                                                   "property": "value"
+                                               }
+                                           }
+                                       }
+                                   }
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+       },
+       ...
+   }
+   ```
+
+* 所有字符串的值的长度最多为 4 KB。
 
 ## <a name="device-twin-size"></a>设备孪生的大小
 IoT 中心对 `tags`、`properties/desired` 和 `properties/reported`（不包括只读元素）的各个总值强制实施 8KB 大小限制。

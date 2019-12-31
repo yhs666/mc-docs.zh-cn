@@ -1,5 +1,5 @@
 ---
-title: 如何在虚拟机上使用 Azure 资源的托管标识获取访问令牌
+title: 使用虚拟机上的托管标识获取访问令牌 - Azure AD
 description: 在虚拟机上使用 Azure 资源的托管标识获取 OAuth 访问令牌的分步说明和示例。
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 12/01/2017
-ms.date: 08/05/2019
+ms.date: 12/10/2019
 ms.author: v-junlch
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45c185f2ced0a23b70f132adcb4c431dfc8fb594
-ms.sourcegitcommit: 461c7b2e798d0c6f1fe9c43043464080fb8e8246
+ms.openlocfilehash: e54f4ae1b6b734047de42583f8fb75a0633b8c1c
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68818689"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335606"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>如何在 Azure VM 上使用 Azure 资源的托管标识获取访问令牌 
 
@@ -46,7 +45,7 @@ Azure 资源的托管标识在 Azure Active Directory 中为 Azure 服务提供�
 
 ## <a name="overview"></a>概述
 
-客户端应用程序可以请求 Azure 资源的托管标识的[仅限应用的访问令牌](../develop/developer-glossary.md#access-token)用于访问给定的资源。 令牌[基于 Azure 资源的托管标识服务主体](overview.md#how-does-it-work)。 因此，客户端无需注册自身即可使用自己的服务主体获取访问令牌。 该令牌适合在[需要客户端凭据的服务到服务调用](../develop/v1-oauth2-client-creds-grant-flow.md)中用作持有者令牌。
+客户端应用程序可以请求 Azure 资源的托管标识的[仅限应用的访问令牌](../develop/developer-glossary.md#access-token)用于访问给定的资源。 令牌[基于 Azure 资源的托管标识服务主体](overview.md#how-does-the-managed-identities-for-azure-resources-work)。 因此，客户端无需注册自身即可使用自己的服务主体获取访问令牌。 该令牌适合在[需要客户端凭据的服务到服务调用](../develop/v1-oauth2-client-creds-grant-flow.md)中用作持有者令牌。
 
 |  |  |
 | -------------- | -------------------- |
@@ -412,4 +411,4 @@ Azure 资源的托管标识终结点通过 HTTP 响应消息标头的状态代�
 
 
 
-
+<!-- Update_Description: link update -->

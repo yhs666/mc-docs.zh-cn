@@ -14,17 +14,22 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 origin.date: 10/01/2016
-ms.date: 09/10/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: 589e9611a3c6998cd68027a801563377bdfbe7dd
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: 154aab13262d5b11799e2e4705142fbbc6bc1b29
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657934"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334647"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>使用适用于 Azure 移动应用的 .NET 后端服务器 SDK
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
+
+> [!NOTE]
+> Visual Studio App Center 支持以移动应用开发为中心的端到端集成服务。 开发人员可以使用“生成”  、“测试”  和“分发”  服务来设置“持续集成和交付”管道。 部署应用后，开发人员可以使用**分析**和**诊断**服务监视其应用的状态和使用情况，并使用**推送**服务与用户互动。 开发人员还可以利用“身份验证”  对其用户进行身份验证，并使用“数据”  服务在云中保留和同步应用数据。
+>
+> 如果希望将云服务集成到移动应用程序中，请立即注册到 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) 中。
 
 本主题说明如何在关键的 Azure 应用服务移动应用方案中使用 .NET 后端服务器 SDK。 借助 Azure 移动应用 SDK 可从 ASP.NET 应用程序使用移动客户端。
 
@@ -139,39 +144,28 @@ Azure 门户中的服务器快速启动调用 UseDefaultConfiguration()  。 此
 ### <a name="sdk-extensions"></a>SDK 扩展
 以下基于 NuGet 的扩展包提供应用程序可以使用的多种移动功能。 可以使用 **MobileAppConfiguration** 对象在初始化期间启用扩展。
 
-- [Microsoft.Azure.Mobile.Server.Quickstart] 支持基本的移动应用设置。 在初始化期间，通过调用 UseDefaultConfiguration  扩展方法添加到配置。 此扩展包含以下扩展：通知、身份验证、实体、表、跨域和主目录包。 Azure 门户上提供的移动应用快速入门使用此包。
-
-- [Microsoft.Azure.Mobile.Server.Home](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 实现网站根目录的默认 *此移动应用已启动并在运行* 页。 通过调用 **AddMobileAppHomeController** 扩展方法添加到配置。
-
-- [Microsoft.Azure.Mobile.Server.Tables](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含用于处理数据和设置数据管道的类。 通过调用 **AddTables** 扩展方法添加到配置。
-
-- [Microsoft.Azure.Mobile.Server.Entity](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 使 Entity Framework 能够访问 SQL 数据库中的数据。 通过调用 **AddTablesWithEntityFramework** 扩展方法添加到配置。
-
-- [Microsoft.Azure.Mobile.Server.Authentication] 启用身份验证，并设置用于验证令牌的 OWIN 中间件。 通过调用 AddAppServiceAuthentication 与 IAppBuilder.UseAppServiceAuthentication 扩展方法添加到配置    。
-
-- [Microsoft.Azure.Mobile.Server.Notifications] 启用推送通知并定义推送注册终结点。 通过调用 **AddPushNotifications** 扩展方法添加到配置。
-
-- [Microsoft.Azure.Mobile.Server.CrossDomain](http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 创建从移动应用向旧版 Web 浏览器提供数据的控制器。 通过调用 MapLegacyCrossDomainController 扩展方法添加到配置  。
-
-- [Microsoft.Azure.Mobile.Server.Login] 提供 AppServiceLoginHandler.CreateToken() 方法，该方法为在自定义身份验证方案下使用的静态方法。   
+* [Microsoft.Azure.Mobile.Server.Quickstart] 支持基本的移动应用设置。 在初始化期间，通过调用 UseDefaultConfiguration  扩展方法添加到配置。 此扩展包含以下扩展：通知、身份验证、实体、表、跨域和主目录包。 Azure 门户上提供的移动应用快速入门使用此包。
+* [Microsoft.Azure.Mobile.Server.Home](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Home/) 为网站根目录实现默认的此移动应用已启动并正在运行页  。 通过调用 **AddMobileAppHomeController** 扩展方法添加到配置。
+* [Microsoft.Azure.Mobile.Server.Tables](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Tables/) 包含用于处理数据和设置数据管道的类。 通过调用 **AddTables** 扩展方法添加到配置。
+* [Microsoft.Azure.Mobile.Server.Entity](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Entity/) 使实体框架能够访问 SQL 数据库中的数据。 通过调用 **AddTablesWithEntityFramework** 扩展方法添加到配置。
+* [Microsoft.Azure.Mobile.Server.Authentication] 启用身份验证，并设置用于验证令牌的 OWIN 中间件。 通过调用 AddAppServiceAuthentication 与 IAppBuilder.UseAppServiceAuthentication 扩展方法添加到配置    。
+* [Microsoft.Azure.Mobile.Server.Notifications] 启用推送通知并定义推送注册终结点。 通过调用 **AddPushNotifications** 扩展方法添加到配置。
+* [Microsoft.Azure.Mobile.Server.CrossDomain](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.CrossDomain/) 创建从移动应用向旧版 Web 浏览器提供数据的控制器。 通过调用 MapLegacyCrossDomainController 扩展方法添加到配置  。
+* [Microsoft.Azure.Mobile.Server.Login] 提供 AppServiceLoginHandler.CreateToken() 方法，该方法为在自定义身份验证方案下使用的静态方法。
 
 ## <a name="publish-server-project"></a>如何：发布服务器项目
 本部分说明如何从 Visual Studio 发布 .NET 后端项目。 还可以使用 [Git](../app-service/deploy-local-git.md) 或该处可用的任何其他方法部署后端项目。
 
 1. 在 Visual Studio 中，重新生成项目以还原 NuGet 包。
-
 2. 在“解决方案资源管理器”中，右键单击项目，然后单击“发布”  。 首次发布时，需要定义发布配置文件。 如果已定义配置文件，可以直接选择该配置文件，然后单击“发布”  。
-
-2. 如果系统要求选择发布目标，请单击“Microsoft Azure App Service”   > “下一步”  ，然后使用 Azure 凭据登录（如果需要）。 
+3. 如果系统要求选择发布目标，请单击“Microsoft Azure App Service”   > “下一步”  ，然后使用 Azure 凭据登录（如果需要）。
    Visual Studio 将直接从 Azure 下载并安全存储发布设置。
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-1.png)
-
-3. 选择“订阅”  ，从“视图”  中选择“资源类型”  ，展开“移动应用”  ，单击移动应用后端，然后单击“确定”  。
+4. 选择“订阅”  ，从“视图”  中选择“资源类型”  ，展开“移动应用”  ，单击移动应用后端，然后单击“确定”  。
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-2.png)
-
-4. 验证发布配置文件信息，然后单击“发布”  。
+5. 验证发布配置文件信息，然后单击“发布”  。
 
     ![](./media/app-service-mobile-dotnet-backend-how-to-use-server-sdk/publish-wizard-3.png)
 
@@ -241,20 +235,17 @@ public class MobileServiceContext : DbContext
 确保 PageSize 大于或等于客户端请求的大小。  有关更改客户端页面大小的详细信息，请参阅具体的客户端操作指南文档。
 
 ## <a name="how-to-define-a-custom-api-controller"></a>如何：定义自定义 API 控制器
-
-自定义 API 控制器通过公开终结点，向移动应用后端提供最基本的功能。 可以使用 [MobileAppController] 属性注册移动设备特定的 API 控制器。 `MobileAppController` 属性将注册路由、设置移动应用 JSON 序列化程序，并打开[客户端版本检查](./app-service-mobile-client-and-server-versioning.md)。
+自定义 API 控制器通过公开终结点，向移动应用后端提供最基本的功能。 可以使用 [MobileAppController] 属性注册移动设备特定的 API 控制器。 `MobileAppController` 属性将注册路由、设置移动应用 JSON 序列化程序，并打开[客户端版本检查](app-service-mobile-client-and-server-versioning.md)。
 
 1. 在 Visual Studio 中，右键单击“控制器”文件夹，单击“添加”   > “控制器”  ，选择“Web API 2 控制器 &mdash; 空白”  ，然后单击“添加”  。
-
 2. 提供“控制器名称”  （例如 `CustomController`），然后单击“添加”  。
-
 3. 在新控制器类文件中添加以下 using 语句：
 
     ```
     using Microsoft.Azure.Mobile.Server.Config;
     ```
 
-4. 将 [MobileAppController]  属性应用到 API 控制器类定义，如以下示例所示：
+4. 将 **[MobileAppController]** 属性应用到 API 控制器类定义，如以下示例中所示：
 
     ```
     [MobileAppController]
@@ -264,7 +255,7 @@ public class MobileServiceContext : DbContext
     }
     ```
 
-4. 在 App_Start/Startup.MobileApp.cs 文件中添加对 MapApiControllers  扩展方法的调用，如以下示例所示：
+5. 在 App_Start/Startup.MobileApp.cs 文件中添加对 **MapApiControllers** 扩展方法的调用，如以下示例中所示：
 
     ```
     new MobileAppConfiguration()
@@ -295,7 +286,7 @@ Azure 移动应用使用应用服务身份验证/授权来保护移动后端。 
     此 OWIN 中间件组件验证由关联的应用服务网关颁发的令牌。
 3. 将 `[Authorize]` 属性添加到任何要求身份验证的控制器或方法。
 
-要了解如何在移动应用后端对客户端进行身份验证，请参阅 [Add authentication to your app](./app-service-mobile-ios-get-started-users.md)（将身份验证添加到应用）。
+要了解如何在移动应用后端对客户端进行身份验证，请参阅 [Add authentication to your app](app-service-mobile-ios-get-started-users.md)（将身份验证添加到应用）。
 
 ### <a name="custom-auth"></a>如何：对应用程序使用自定义身份验证
 > [!IMPORTANT]
@@ -468,15 +459,15 @@ await hub.SendTemplateNotificationAsync(notification, userTag);
 Azure 应用服务提供多种适用于 ASP.NET 应用程序的调试和故障排除方法：
 
 * [Monitoring an Azure App Service（监视 Azure 应用服务）](../app-service/web-sites-monitor.md)
-* [Enable Diagnostic Logging in Azure App Service（在 Azure 应用服务中启用诊断记录）](../app-service/web-sites-enable-diagnostic-log.md)
-* [在 Visual Studio 中对 Azure 应用服务进行故障排除](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md)
+* [Enable Diagnostic Logging in Azure App Service（在 Azure 应用服务中启用诊断记录）](../app-service/troubleshoot-diagnostic-logs.md)
+* [在 Visual Studio 中对 Azure 应用服务进行故障排除](../app-service/troubleshoot-dotnet-visual-studio.md)
 
 ### <a name="logging"></a>日志记录
 可以使用标准的 ASP.NET 跟踪写入来写入应用服务诊断日志。 写入日志之前，必须在移动应用后端中启用诊断。
 
 启用诊断并写入日志：
 
-1. 遵循[如何启用诊断](../app-service/troubleshoot-diagnostic-logs.md#enablediag)中的步骤。
+1. 按照[启用应用程序日志记录 (Windows)](../app-service/troubleshoot-diagnostic-logs.md#enable-application-logging-windows) 中的步骤操作。
 2. 在代码文件中添加以下 using 语句：
 
     ```
@@ -491,7 +482,7 @@ Azure 应用服务提供多种适用于 ASP.NET 应用程序的调试和故障�
     ```
 
 4. 重新发布服务器项目，并访问移动应用后端，结合日志记录执行代码路径。
-5. 根据[如何：下载日志](../app-service/troubleshoot-diagnostic-logs.md#download)中所述下载并评估日志。
+5. 下载并评估日志，如[访问日志文件](../app-service/troubleshoot-diagnostic-logs.md#access-log-files)中所述。
 
 ### <a name="local-debug"></a>使用身份验证进行本地调试
 可以先在本地运行应用程序以测试更改，然后将更改发布到云中。 对于大部分 Azure 移动应用后端，在 Visual Studio 中按 *F5* 。 但是，使用身份验证时需要考虑其他一些事项。

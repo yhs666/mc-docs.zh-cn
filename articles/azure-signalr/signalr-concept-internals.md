@@ -1,24 +1,24 @@
 ---
 title: Azure SignalR 服务内部
-description: Azure SignalR 服务内部概述。
+description: 了解 Azure SignalR 服务内部机制、体系结构、连接以及数据的传输方式。
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-origin.date: 03/01/2019
-ms.date: 11/25/2019
+origin.date: 11/13/2019
+ms.date: 12/16/2019
 ms.author: v-tawe
-ms.openlocfilehash: b009b61618e1231e6fa7578acb107106ea1cc580
-ms.sourcegitcommit: a4b88888b83bf080752c3ebf370b8650731b01d1
+ms.openlocfilehash: c268c6a77e9869e66d905c58959b62faf9b99f66
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74179118"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336050"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR 服务内部
 
 Azure SignalR 服务构建于 ASP.NET Core SignalR 框架的基础之上。 它还支持预览版功能 ASP.NET SignalR。
 
-> 为了支持 ASP.NET SignalR，Azure SignalR 服务将在 ASP.NET Core 框架的顶层重新实现 ASP.NET SignalR 数据协议。
+> 为了支持 ASP.NET SignalR，Azure SignalR 服务将在 ASP.NET Core 框架的顶层重新实现 ASP.NET SignalR 数据协议
 
 只需更改少量的几行代码，即可轻松迁移本地 ASP.NET Core SignalR 应用程序以使用 SignalR 服务。
 

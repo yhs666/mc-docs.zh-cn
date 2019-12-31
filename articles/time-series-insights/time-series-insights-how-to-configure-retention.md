@@ -9,15 +9,15 @@ manager: cshankar
 ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
-origin.date: 10/10/2019
-ms.date: 12/02/2019
+origin.date: 11/21/2019
+ms.date: 12/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 490d277d7115e807baed39541f20b88cce7f2d52
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.openlocfilehash: f7f40c1e57ca5d5e8ccf00ebbb9e18d2aebb19c5
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389098"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335695"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>在时序见解中配置保留期
 本文介绍如何在 Azure 时序见解中配置**数据保留时间**和**超出存储限制时的行为**。
@@ -38,7 +38,7 @@ ms.locfileid: "74389098"
 
 2. 查找现有时序见解环境。 在 Azure 门户左侧的菜单中，选择“所有资源”  。 选择时序见解环境。
 
-3. 在“设置”标题下，选择“配置”   。
+1. 在“设置”标题下，选择“存储配置”   。
 
     [![依次选择“设置”、“配置”](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
@@ -50,7 +50,7 @@ ms.locfileid: "74389098"
 
     [![数据保留 - 接受并保存。](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
-1. 接受此复选框，即表示你已经查看了文档并了解丢失数据的潜在风险。 选择“保存”  以配置更改。
+1. 查看文档以了解丢失数据的潜在风险。 选择“保存”  以配置更改。
 
 ## <a name="next-steps"></a>后续步骤
 

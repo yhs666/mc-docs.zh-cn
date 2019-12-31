@@ -13,22 +13,21 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-origin.date: 11/07/2019
-ms.date: 11/25/2019
+ms.date: 12/09/2019
 ms.author: v-junlch
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 263deaf41378ef439e0c903f5c6cfdf2c2c9576c
-ms.sourcegitcommit: 9597d4da8af58009f9cef148a027ccb7b32ed8cf
+ms.openlocfilehash: e587fbbabf6ece81dce449b8a7c61de662562145
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/28/2019
-ms.locfileid: "74655472"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335290"
 ---
-# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java-msal4j"></a>使用 MSAL for Java (MSAL4j) 在令牌缓存中获取和删除帐户
+# <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>使用 MSAL for Java 在令牌缓存中获取和删除帐户
 
-MSAL4J 默认提供内存中令牌缓存。 内存中令牌缓存的持续时间与应用程序实例的持续时间相同。
+MSAL for Java 默认提供内存中令牌缓存。 内存中令牌缓存的持续时间与应用程序实例的持续时间相同。
 
 ## <a name="see-which-accounts-are-in-the-cache"></a>查看哪些帐户在缓存中
 
@@ -61,3 +60,4 @@ pca.removeAccount(accountToBeRemoved).join();
 
 如果使用的是适用于 Java 的 MSAL，请了解[适用于 Java 的 MSAL 中的自定义令牌缓存序列化](msal-java-token-cache-serialization.md)。
 
+<!-- Update_Description: wording update -->

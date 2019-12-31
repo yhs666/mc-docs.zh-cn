@@ -4,16 +4,16 @@ description: 本指南将指导你完成修正 Azure Policy 中不符合策略�
 author: DCtheGeek
 ms.author: v-tawe
 origin.date: 09/09/2019
-ms.date: 12/02/2019
+ms.date: 12/16/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 144f197d9b07156de7dd9a61b4c478afa7425b6a
-ms.sourcegitcommit: 298eab5107c5fb09bf13351efeafab5b18373901
+ms.openlocfilehash: e7154b9a173461f72cada828285560a54b37f39a
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/29/2019
-ms.locfileid: "74657926"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335805"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>修正 Azure Policy 中的不符合资源
 
@@ -162,7 +162,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>通过 Azure CLI 创建修正任务
 
-若要使用 Azure CLI 创建**修正任务**，请使用 `az policy remediation` 命令。 将 `{subscriptionId}` 替换为订阅 ID，并将 `{myAssignmentId}` 替换为“deployIfNotExists”  策略分配 ID。
+若要使用 Azure CLI 创建**修正任务**，请使用 `az policy remediation` 命令。 将 `{subscriptionId}` 替换为订阅 ID，并将 `{myAssignmentId}` 替换为“deployIfNotExists”  ，或者**修改**策略分配 ID。
 
 ```azurecli
 # Login first with below commands
@@ -177,7 +177,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>通过 Azure PowerShell 创建修正任务
 
-若要使用 Azure PowerShell 创建**修正任务**，请使用 `Start-AzPolicyRemediation` 命令。 将 `{subscriptionId}` 替换为订阅 ID，并将 `{myAssignmentId}` 替换为“deployIfNotExists”  策略分配 ID。
+若要使用 Azure PowerShell 创建**修正任务**，请使用 `Start-AzPolicyRemediation` 命令。 将 `{subscriptionId}` 替换为订阅 ID，并将 `{myAssignmentId}` 替换为“deployIfNotExists”  ，或者**修改**策略分配 ID。
 
 ```powershell
 # Login first with Connect-AzAccount -Environmentname AzureChinaCloud command
@@ -194,5 +194,5 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 - 查看 [Azure Policy 定义结构](../concepts/definition-structure.md)。
 - 查看[了解策略效果](../concepts/effects.md)。
 - 了解如何[以编程方式创建策略](programmatically-create.md)。
-- 了解如何[获取符合性数据](getting-compliance-data.md)。
+- 了解如何 [获取符合性数据](get-compliance-data.md
 - 参阅[使用 Azure 管理组来组织资源](../../management-groups/overview.md)，了解什么是管理组。

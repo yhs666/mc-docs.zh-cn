@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 origin.date: 11/12/2018
-ms.date: 06/03/2019
+ms.date: 12/09/2019
 ms.author: v-yeche
-ms.openlocfilehash: b6c0df965242633804d5cf8cd2603621ab83b30d
-ms.sourcegitcommit: d75eeed435fda6e7a2ec956d7c7a41aae079b37c
+ms.openlocfilehash: b1ce58ac37ff84fe9545bcfd89c2a5eda51a4963
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 05/24/2019
-ms.locfileid: "66195483"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335201"
 ---
 # <a name="configuration-settings-for-a-standalone-windows-cluster"></a>独立 Windows 群集的配置设置
 本文介绍可使用 ClusterConfig.json  文件设置的独立 Azure Service Fabric 群集的配置设置。 需要使用该文件指定有关群集节点、安全配置以及有关容错域和升级域的网络拓扑信息。  更改或添加配置设置后，可以[创建一个独立的群集](service-fabric-cluster-creation-for-windows-server.md)，也可以[升级独立群集的配置](service-fabric-cluster-config-upgrade-windows-server.md)。
@@ -52,24 +52,27 @@ ms.locfileid: "66195483"
 可以使用 nodes 节配置 Service Fabric 群集上的节点，如以下代码片段中所示：
 ```json
 "nodes": [{
-    "nodeName": "vm0",
-    "iPAddress": "localhost",
-    "nodeTypeRef": "NodeType0",
-    "faultDomain": "fd:/dc1/r0",
-    "upgradeDomain": "UD0"
-}, {
-    "nodeName": "vm1",
-    "iPAddress": "localhost",
-    "nodeTypeRef": "NodeType1",
-    "faultDomain": "fd:/dc1/r1",
-    "upgradeDomain": "UD1"
-}, {
-    "nodeName": "vm2",
-    "iPAddress": "localhost",
-    "nodeTypeRef": "NodeType2",
-    "faultDomain": "fd:/dc1/r2",
-    "upgradeDomain": "UD2"
-}],
+        "nodeName": "vm0",
+        "iPAddress": "localhost",
+        "nodeTypeRef": "NodeType0",
+        "faultDomain": "fd:/dc1/r0",
+        "upgradeDomain": "UD0"
+    },
+    {
+        "nodeName": "vm1",
+        "iPAddress": "localhost",
+        "nodeTypeRef": "NodeType1",
+        "faultDomain": "fd:/dc1/r1",
+        "upgradeDomain": "UD1"
+    },
+    {
+        "nodeName": "vm2",
+        "iPAddress": "localhost",
+        "nodeTypeRef": "NodeType2",
+        "faultDomain": "fd:/dc1/r2",
+        "upgradeDomain": "UD2"
+    }
+]
 ```
 
 一个 Service Fabric 群集必须至少包含三个节点。 可以根据设置向此节添加更多节点。 下表说明了每个节点的配置设置：
@@ -171,11 +174,14 @@ name 是此特定节点类型的友好名称。 要创建这种类型的节点�
 "fabricSettings": [{
     "name": "Setup",
     "parameters": [{
-        "name": "FabricDataRoot",
-        "value": "C:\\ProgramData\\SF"
-    }, {
-        "name": "FabricLogRoot",
-        "value": "C:\\ProgramData\\SF\\Log"
+            "name": "FabricDataRoot",
+            "value": "C:\\ProgramData\\SF"
+        },
+        {
+            "name": "FabricLogRoot",
+            "value": "C:\\ProgramData\\SF\\Log"
+        }
+    ]
 }]
 ```
 
@@ -206,6 +212,7 @@ name 是此特定节点类型的友好名称。 要创建这种类型的节点�
     ]
 }
 ```
+可在 [Service Fabric REST API 参考](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-addonfeatures)中查看所有可用的附加功能。
 
 ### <a name="container-support"></a>容器支持
 若要为 Windows Server 容器和独立群集的 Hyper-V 容器启用容器支持，必须启用 DnsService 附加功能。

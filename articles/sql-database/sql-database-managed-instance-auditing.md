@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 数据库托管实例审核 | Microsoft Docs
+title: 托管实例审核
 description: 了解如何通过 T-SQL 开始使用 Azure SQL 数据库托管实例审核
 services: sql-database
 ms.service: sql-database
@@ -13,13 +13,13 @@ author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
 origin.date: 04/08/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: be54ea5fb25b43e1a46b51c9ebda8c13c8f67791
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+ms.date: 12/16/2019
+ms.openlocfilehash: b5f4b47c2dc1704938af293f1e47ea970383863e
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262925"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75336057"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>开始使用 Azure SQL 数据库托管实例审核
 
@@ -33,26 +33,26 @@ ms.locfileid: "71262925"
 以下部分介绍了托管实例上的审核配置。
 
 1. 转到 [Azure 门户](https://portal.azure.cn)。
-2. 创建一个用于存储审核日志的 Azure 存储**容器**。
+1. 创建一个用于存储审核日志的 Azure 存储**容器**。
 
    1. 导航到要在其中存储审核日志的 Azure 存储。
 
       > [!IMPORTANT]
       > 请使用与托管实例位于同一区域中的存储帐户，以避免跨区域读取/写入。
 
-   2. 在存储帐户中，转到“概述”，然后单击“Blob”。  
+   1. 在存储帐户中，转到“概述”，然后单击“Blob”。  
 
       ![Azure Blob 小组件](./media/sql-managed-instance-auditing/1_blobs_widget.png)
 
-   3. 在顶部菜单中，单击“+ 容器”  以创建新容器。
+   1. 在顶部菜单中，单击“+ 容器”  以创建新容器。
 
       ![创建 Blob 容器图标](./media/sql-managed-instance-auditing/2_create_container_button.png)
 
-   4. 提供一个容器**名称**，将公共访问级别设置为“专用”，然后单击“确定”。  
+   1. 提供一个容器**名称**，将公共访问级别设置为“专用”，然后单击“确定”。  
 
       ![创建 Blob 容器配置](./media/sql-managed-instance-auditing/3_create_container_config.png)
 
-3. 为审核日志创建容器后，可通过两种方式将其配置为审核日志的目标：[使用 T-SQL](#blobtsql)，或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
+1. 为审核日志创建容器后，可通过两种方式将其配置为审核日志的目标：[使用 T-SQL](#blobtsql)，或[使用 SQL Server Management Studio (SSMS) UI](#blobssms)：
 
    - <a id="blobtsql"></a>使用 T-SQL 为审核日志配置 Blob 存储：
 
@@ -60,11 +60,11 @@ ms.locfileid: "71262925"
 
         ![Blob 容器属性按钮](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     2. 通过单击复制图标来复制容器 URL并保存该 URL（例如在记事本中）供将来使用。 容器 URL 格式应当为 `https://<StorageName>.blob.core.chinacloudapi.cn/<ContainerName>`
+     1. 通过单击复制图标来复制容器 URL并保存该 URL（例如在记事本中）供将来使用。 容器 URL 格式应当为 `https://<StorageName>.blob.core.chinacloudapi.cn/<ContainerName>`
 
         ![Blob 容器复制 URL](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
-     3. 生成一个 Azure 存储 **SAS 令牌**，用于向存储帐户授予托管实例审核访问权限：
+     1. 生成一个 Azure 存储 **SAS 令牌**，用于向存储帐户授予托管实例审核访问权限：
 
         - 导航到在前面的步骤中你在其中创建了容器的 Azure 存储帐户。
 
@@ -94,9 +94,9 @@ ms.locfileid: "71262925"
           > [!IMPORTANT]
           > 从令牌的开头删除问号（“?”）字符。
 
-     4. 通过 SQL Server Management Studio (SSMS) 或任何其他支持的工具连接到托管实例。
+     1. 通过 SQL Server Management Studio (SSMS) 或任何其他支持的工具连接到托管实例。
 
-     5. 执行以下 T-SQL 语句来使用你在前面的步骤中创建的容器 URL 和 SAS 令牌**创建新凭据**：
+     1. 执行以下 T-SQL 语句来使用你在前面的步骤中创建的容器 URL 和 SAS 令牌**创建新凭据**：
 
         ```SQL
         CREATE CREDENTIAL [<container_url>]
@@ -105,7 +105,7 @@ ms.locfileid: "71262925"
         GO
         ```
 
-     6. 执行以下 T-SQL 语句来创建新的服务器审核（请选择自己的审核名称，并使用在前面步骤中创建的容器 URL）。 如果未指定，则 `RETENTION_DAYS` 默认为 0（无限期保留）：
+     1. 执行以下 T-SQL 语句来创建新的服务器审核（请选择自己的审核名称，并使用在前面步骤中创建的容器 URL）。 如果未指定，则 `RETENTION_DAYS` 默认为 0（无限期保留）：
 
         ```SQL
         CREATE SERVER AUDIT [<your_audit_name>]
@@ -139,12 +139,12 @@ ms.locfileid: "71262925"
 
      1. 在“创建审核”对话框中单击“确定”。 
 
-4. <a id="createspec"></a>将 Blob 容器配置为审核日志的目标后，像使用 SQL Server 时一样创建服务器审核规范或数据库审核规范：
+1. <a id="createspec"></a>将 Blob 容器配置为审核日志的目标后，像使用 SQL Server 时一样创建服务器审核规范或数据库审核规范：
 
    - [创建服务器审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
    - [创建数据库审核规范 T-SQL 指南](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
-5. 启用在步骤 6 中创建的服务器审核：
+1. 启用在步骤 6 中创建的服务器审核：
 
     ```SQL
     ALTER SERVER AUDIT [<your_audit_name>]
@@ -154,7 +154,7 @@ ms.locfileid: "71262925"
 
 了解更多信息：
 
-- [Azure SQL 数据库中的单一数据库、弹性池和托管实例以及 SQL Server 中的数据库之间的审核差异](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Azure SQL 数据库中的单一数据库、弹性池和托管实例与 SQL Server 中的数据库之间的审核差异](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -226,7 +226,6 @@ ms.locfileid: "71262925"
 在审核 Azure SQL 数据库和 SQL Server 中的数据库方面，主要差异是：
 
 - 使用 Azure SQL 数据库中的托管实例部署选项，审核在服务器级别执行，并在 Azure Blob 存储中存储 `.xel` 日志文件。
-- 使用 Azure SQL 数据库中的单一数据库和弹性池部署选项，审核是在数据库一级执行。
 - 在本地 SQL Server/虚拟机上的 SQL Server 中，审核是在服务器一级执行，但却在文件系统/Windows 事件日志中存储事件。
 
 托管实例中的 XEvent 审核支持 Azure Blob 存储目标。 **不支持**文件和 Windows 日志。

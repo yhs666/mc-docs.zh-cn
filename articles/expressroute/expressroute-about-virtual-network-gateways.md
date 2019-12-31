@@ -7,13 +7,13 @@ ms.service: expressroute
 ms.topic: conceptual
 origin.date: 10/14/2019
 ms.author: v-yiso
-ms.date: 12/02/2019
-ms.openlocfilehash: 4de7d22b92581cbeec8155812659243de16f9f66
-ms.sourcegitcommit: 9e92bcf6aa02fc9e7b3a29abadf6b6d1a8ece8c4
+ms.date: 12/23/2019
+ms.openlocfilehash: 72639c4bbc28b0bd6cd1c4b23da9c74d4ce47336
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74389363"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75334769"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute 虚拟网络网关和 FastPath
 若要通过 ExpressRoute 连接 Azure 虚拟网络和本地网络，必须首先创建虚拟网络网关。 虚拟网络网关有两个用途：在网络之间交换 IP 路由和路由网络流量。 本文介绍网关类型、网关 SKU 和按 SKU 估算的性能。 
@@ -93,3 +93,4 @@ Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/2
 
 有关创建 ExpressRoute 网关的详细信息，请参阅[创建 ExpressRoute 的虚拟网络网关](expressroute-howto-add-gateway-resource-manager.md)。
 
+有关如何启用 FastPath 的详细信息，请参阅[将虚拟网络链接到 ExpressRoute](expressroute-howto-linkvnet-arm.md)。 

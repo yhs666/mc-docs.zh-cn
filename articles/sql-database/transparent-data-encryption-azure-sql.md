@@ -1,23 +1,24 @@
 ---
-title: Azure SQL 数据库和数据仓库的透明数据加密 | Microsoft Docs
+title: 透明数据加密
 description: SQL 数据库和数据仓库的透明数据加密概述。 本文档介绍服务托管的透明数据加密和“创建自己的密钥”的优势与配置选项。
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
+titleSuffix: Azure SQL Database and SQL Data Warehouse
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: WenJason
 ms.author: v-jay
 ms.reviewer: vanto
-origin.date: 08/27/2019
-ms.date: 09/30/2019
-ms.openlocfilehash: f39920f51710f5fb14a5ec9e54b114fe98490c36
-ms.sourcegitcommit: 5c3d7acb4bae02c370f6ba4d9096b68ecdd520dd
+origin.date: 11/01/2019
+ms.date: 12/16/2019
+ms.openlocfilehash: 2f042535d25e6c9f932cc70ea33aa584183d8d1d
+ms.sourcegitcommit: 4a09701b1cbc1d9ccee46d282e592aec26998bff
 ms.translationtype: HT
 ms.contentlocale: zh-CN
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75335101"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL 数据库和数据仓库的透明数据加密
 
@@ -43,10 +44,10 @@ Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原�
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>客户管理的透明数据加密 - 创建自己的密钥
 
-[使用 Azure Key Vault 中由客户管理的密钥进行 TDE](transparent-data-encryption-byok-azure-sql.md) 允许使用由客户管理的非对称密钥（称为 TDE 保护器）对数据库加密密钥 (DEK) 进行加密。  这通常也称为透明数据加密的创建自己的密匙 (BYOK) 支持。 在 BYOK 方案中，TDE 保护器存储在由客户拥有和管理的 [Azure Key Vault](/key-vault/key-vault-secure-your-key-vault)（Azure 的基于云的外部密钥管理系统）中。 TDE 保护器[可以由密钥保管库生成，也可以转移到密钥保管库](/key-vault/about-keys-secrets-and-certificates#key-vault-keys)。 TDE DEK 存储在数据库的启动页上，由 TDE 保护器进行加密和解密，该保护器存储在 Azure Key Vault 中并且从不会离开密钥保管库。  需要向 SQL 数据库授予对客户管理的密钥保管库的权限才能对 DEK 进行解密和加密。 如果撤销了逻辑 SQL Server 对密钥保管库的权限，则数据库将无法访问，并且所有数据都是加密的。 对于 Azure SQL 数据库，TDE 保护器是在逻辑 SQL Server 级别设置的，并由该服务器关联的所有数据库继承。  对于 [Azure SQL 托管实例](/sql-database/sql-database-howto-managed-instance)（预览中的 BYOK 功能），TDE 保护器是在实例级别设置的，并由该实例上所有加密的  数据库继承。 除非另有说明，否则术语“服务器”在整个文档中指的是服务器和实例  。
+[使用 Azure Key Vault 中由客户管理的密钥进行 TDE](transparent-data-encryption-byok-azure-sql.md) 允许使用由客户管理的非对称密钥（称为 TDE 保护器）对数据库加密密钥 (DEK) 进行加密。  这通常也称为透明数据加密的创建自己的密匙 (BYOK) 支持。 在 BYOK 方案中，TDE 保护器存储在由客户拥有和管理的 [Azure Key Vault](/key-vault/key-vault-secure-your-key-vault)（Azure 的基于云的外部密钥管理系统）中。 TDE 保护器[可以由密钥保管库生成，也可以转移到密钥保管库](/key-vault/about-keys-secrets-and-certificates#key-vault-keys)。 TDE DEK 存储在数据库的启动页上，由 TDE 保护器进行加密和解密，该保护器存储在 Azure Key Vault 中并且从不会离开密钥保管库。  需要向 SQL 数据库授予对客户管理的密钥保管库的权限才能对 DEK 进行解密和加密。 如果撤销了逻辑 SQL Server 对密钥保管库的权限，则数据库将无法访问，并且所有数据都是加密的。 对于 Azure SQL 数据库，TDE 保护器是在逻辑 SQL Server 级别设置的，并由该服务器关联的所有数据库继承。  对于 [Azure SQL 托管实例](/sql-database/sql-database-howto-managed-instance)，TDE 保护器是在实例级别设置的，并由该实例上所有加密的  数据库继承。 除非另有说明，否则术语“服务器”在整个文档中指的是服务器和实例  。
 
 使用集成了 Azure Key Vault 的 TDE，用户可以控制密钥管理任务，包括密钥轮换、密钥保管库权限、密钥备份，以及使用 Azure Key Vault 功能对所有 TDE 保护器启用审核/报告。 Key Vault 提供了集中密钥管理功能，并可在密钥与数据管理之间实现职责分离，以帮助满足安全策略的符合性。
-若要详细了解适用于 Azure SQL 数据库、SQL 托管实例（预览中的 BYOK 功能）和数据仓库的集成了 Azure Key Vault 的透明数据加密（支持“创建自己的密钥”），请参阅[集成了 Azure Key Vault 的透明数据加密](transparent-data-encryption-byok-azure-sql.md)。
+若要详细了解适用于 Azure SQL 数据库、SQL 托管实例和数据仓库的集成了 Azure Key Vault 的透明数据加密（支持“创建自己的密钥”），请参阅[集成了 Azure Key Vault 的透明数据加密](transparent-data-encryption-byok-azure-sql.md)。
 
 若要开始使用集成了 Azure Key Vault 的透明数据加密（支持“创建自己的密钥”），请参阅操作指南[通过 PowerShell 使用 Key Vault 中的自有密钥启用透明数据加密](transparent-data-encryption-byok-azure-sql-configure.md)。
 
@@ -70,7 +71,10 @@ Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原�
 
 向/从 SQL 数据库导出时例外。 新数据库中已启用透明数据加密，但 BACPAC 文件本身不会加密。
 
-## <a name="manage-transparent-data-encryption-in-the-azure-portal"></a>在 Azure 门户中管理透明数据加密
+
+## <a name="manage-transparent-data-encryption"></a>管理透明数据加密
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+在 Azure 门户中管理透明数据加密。
 
 若要通过 Azure 门户配置透明数据加密，必须以 Azure 所有者、参与者或 SQL 安全管理员的身份进行连接。
 
@@ -82,7 +86,8 @@ Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原�
 
 ![支持“创建自己的密钥”的透明数据加密](./media/transparent-data-encryption-azure-sql/tde-byok-support.png)
 
-## <a name="manage-transparent-data-encryption-by-using-powershell"></a>使用 PowerShell 管理透明数据加密
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+使用 PowerShell 管理透明数据加密。
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
@@ -109,7 +114,8 @@ Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原�
 > [!IMPORTANT]
 > 对于 Azure SQL 托管实例，请使用 T-SQL [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-azure-sql-database) 命令在数据库级别上启用和禁用透明数据加密，并检查[示例 PowerShell 脚本](transparent-data-encryption-byok-azure-sql-configure.md)以管理实例级别的透明数据加密。
 
-## <a name="manage-transparent-data-encryption-by-using-transact-sql"></a>使用 Transact-SQL 管理透明数据加密
+# <a name="transact-sqltabazure-transactsql"></a>[Transact-SQL](#tab/azure-TransactSQL)
+使用 Transact-SQL 管理透明数据加密。
 
 使用 master 数据库中充当管理员或 **dbmanager** 角色成员的登录名连接到数据库。
 
@@ -122,7 +128,8 @@ Azure 还可按需无缝移动和管理密钥，以实现异地复制和还原�
 
 无法使用 Transact-SQL 将透明数据加密保护器切换为 Key Vault 中的密钥。 请使用 PowerShell 或 Azure 门户。
 
-## <a name="manage-transparent-data-encryption-by-using-the-rest-api"></a>使用 REST API 管理透明数据加密
+# <a name="rest-apitabazure-restapi"></a>[REST API](#tab/azure-RESTAPI)
+使用 REST API 管理透明数据加密。
 
 若要通过 REST API 配置透明数据加密，必须以 Azure 所有者、参与者或 SQL 安全管理员的身份进行连接。
 对 Azure SQL 数据库和数据仓库使用以下命令集：
