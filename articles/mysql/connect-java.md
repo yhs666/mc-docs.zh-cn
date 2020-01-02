@@ -65,7 +65,7 @@ public class CreateTableInsertRows {
         // check that the driver is installed
         try
         {
-            Class.forName("org.mariadb.jdbc");
+            Class.forName("org.mariadb.jdbc.Driver");
         }
         catch (ClassNotFoundException e)
         {
